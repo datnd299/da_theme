@@ -103,13 +103,13 @@ p{font-size:15px;line-height:1.72;color:var(--muted)}
 <section class="hero">
  <div class="container hero-grid">
   <div class="hero-copy">
-   <div class="eyebrow">About Reluxwatches</div>
-   <h1>TIME, DESIGNED FOR MODERN LIFE.</h1>
-   <p>Reluxwatches is a contemporary watch brand built around simplicity, versatility and thoughtful design.</p>
+   <div class="eyebrow">About Relux</div>
+   <h1>MECHANICAL WATCHES, MADE TO LAST.</h1>
+   <p>Relux is an automatic watch brand built around self-winding movement, honest craftsmanship and pieces designed to outlive a single owner.</p>
   </div>
   <div class="hero-note">
-   <strong>A quieter approach to watches.</strong>
-   <p>Modern pieces made to feel natural on the wrist and easy to wear every day.</p>
+   <strong>No batteries. No shortcuts.</strong>
+   <p>Every Relux watch runs on a self-winding automatic movement and ships with a 2-year warranty.</p>
   </div>
  </div>
 </section>
@@ -126,11 +126,11 @@ p{font-size:15px;line-height:1.72;color:var(--muted)}
  <div class="container brand-grid">
   <div>
    <div class="eyebrow">The Brand</div>
-   <h2>LESS NOISE.<br>MORE INTENTION.</h2>
+   <h2>LESS NOISE.<br>MORE MOVEMENT.</h2>
   </div>
   <div class="brand-copy">
-   <p>Reluxwatches was created for people who appreciate watches without the unnecessary complexity. Our collections bring together clean proportions, considered details and an understated point of view.</p>
-   <p>We believe the best watch is one that feels personal, works with your everyday style and stays relevant beyond a single season.</p>
+   <p>Relux was created for people who want a real mechanical watch without the traditional luxury markup. Every watch across The Voyager, The Odyssey and The Eternal runs on a self-winding automatic movement, visible through an exhibition caseback.</p>
+   <p>We believe a watch should be judged on what's inside it: the movement, the finishing and how long it lasts. That's why every Relux watch ships with a 2-year warranty against manufacturing defects.</p>
   </div>
  </div>
 </section>
@@ -141,14 +141,14 @@ p{font-size:15px;line-height:1.72;color:var(--muted)}
    <article class="mv-item">
     <span class="mv-number">01</span>
     <div class="eyebrow">Our Mission</div>
-    <h3>Make good watch design easier to wear.</h3>
-    <p>To offer modern, versatile timepieces through a simple and considered shopping experience.</p>
+    <h3>Make automatic watchmaking accessible.</h3>
+    <p>To offer genuine self-winding mechanical watches, backed by a 2-year warranty, through a simple and considered shopping experience.</p>
    </article>
    <article class="mv-item">
     <span class="mv-number">02</span>
     <div class="eyebrow">Our Vision</div>
-    <h3>A modern destination for everyday watches.</h3>
-    <p>To build a brand where design, individuality and everyday function come together naturally.</p>
+    <h3>A modern destination for mechanical watches.</h3>
+    <p>To build a brand where movement, craftsmanship and everyday wearability come together naturally, across three enduring collections.</p>
    </article>
   </div>
  </div>
@@ -161,12 +161,12 @@ p{font-size:15px;line-height:1.72;color:var(--muted)}
     <div class="eyebrow">What We Value</div>
     <h2>DESIGNED WITH PURPOSE.</h2>
    </div>
-   <p>Three simple principles guide the way we think about our products and the Reluxwatches experience.</p>
+   <p>Three simple principles guide the way we think about our watches and the Relux experience.</p>
   </div>
   <div class="values">
-   <article class="value"><span class="num">01</span><h3>Clean Design</h3><p>Balanced forms, thoughtful details and nothing unnecessary.</p></article>
-   <article class="value"><span class="num">02</span><h3>Everyday Versatility</h3><p>Watches that move easily between work, weekends and everything between.</p></article>
-   <article class="value"><span class="num">03</span><h3>Modern Perspective</h3><p>Contemporary style designed to last beyond short-lived trends.</p></article>
+   <article class="value"><span class="num">01</span><h3>Real Movement</h3><p>Self-winding automatic calibers, visible through an exhibition caseback. No batteries.</p></article>
+   <article class="value"><span class="num">02</span><h3>Built to Endure</h3><p>Sapphire crystal, durable cases and finishing backed by a 2-year warranty.</p></article>
+   <article class="value"><span class="num">03</span><h3>Three Clear Collections</h3><p>The Voyager, The Odyssey and The Eternal, each with a distinct point of view.</p></article>
   </div>
  </div>
 </section>
@@ -175,9 +175,9 @@ p{font-size:15px;line-height:1.72;color:var(--muted)}
  <div class="container">
   <div class="cta">
    <div>
-    <div class="eyebrow">Explore Reluxwatches</div>
-    <h2>FIND THE WATCH THAT FITS YOUR TIME.</h2>
-    <p>Explore our latest watches and discover a style made for your everyday.</p>
+    <div class="eyebrow">Explore Relux</div>
+    <h2>FIND YOUR AUTOMATIC.</h2>
+    <p>Explore The Voyager, The Odyssey and The Eternal, every watch backed by our 2-year warranty.</p>
    </div>
    <a class="button light" href="<?php echo esc_url($shop_url); ?>">SHOP WATCHES →</a>
   </div>

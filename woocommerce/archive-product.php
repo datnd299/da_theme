@@ -12,8 +12,8 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse modern watches, statement pieces, minimal styles, sport watches and accessories from Reluxwatches.', 'dawp');
-$archive_eyebrow = __('Reluxwatches Collection', 'dawp');
+$archive_description = __('Browse automatic mechanical watches from Relux across The Voyager, The Odyssey and The Eternal collections — every timepiece backed by our 2-year warranty.', 'dawp');
+$archive_eyebrow = __('Relux Mechanical Watches', 'dawp');
 $archive_slug = 'shop';
 $home_image = static function ($filename) {
     return get_theme_file_uri('assets/img/home/' . $filename);
@@ -22,37 +22,27 @@ $new_home_image = static function ($filename) {
     return get_theme_file_uri('assets/img/New_homepage/' . $filename);
 };
 $imagewatch = static function ($filename) {
-    return get_theme_file_uri('assets/img/imagewatch/' . $filename);
+    $images = ['img1.jpg', 'img2.jpg', 'img3.png', 'img4.png'];
+    $index  = preg_match('/(\d+)/', $filename, $m) ? ((int) $m[1] - 1) % count($images) : 0;
+    return get_theme_file_uri('assets/img/' . $images[$index]);
 };
 
 $shop_cover_images = [
     'shop' => [
         'url' => $imagewatch('1.png'),
-        'alt' => __('Modern Reluxwatches collection cover', 'dawp'),
+        'alt' => __('Relux automatic watch collection cover', 'dawp'),
     ],
-    'watches' => [
+    'voyager' => [
         'url' => $imagewatch('2.png'),
-        'alt' => __('Modern everyday watches collection', 'dawp'),
+        'alt' => __('The Voyager automatic watch collection', 'dawp'),
     ],
-    'new-arrivals' => [
-        'url' => $imagewatch('3.png'),
-        'alt' => __('New Reluxwatches arrivals', 'dawp'),
-    ],
-    'minimal' => [
-        'url' => $imagewatch('4.png'),
-        'alt' => __('Minimal watch collection', 'dawp'),
-    ],
-    'sport' => [
+    'odyssey' => [
         'url' => $imagewatch('5.png'),
-        'alt' => __('Sport watch collection', 'dawp'),
+        'alt' => __('The Odyssey automatic watch collection', 'dawp'),
     ],
-    'statement' => [
-        'url' => $imagewatch('6.png'),
-        'alt' => __('Statement watch collection', 'dawp'),
-    ],
-    'accessories' => [
-        'url' => $imagewatch('7.png'),
-        'alt' => __('Watch accessories and details collection', 'dawp'),
+    'eternal' => [
+        'url' => $imagewatch('4.png'),
+        'alt' => __('The Eternal automatic watch collection', 'dawp'),
     ],
 ];
 if ($archive_term && !is_wp_error($archive_term)) {

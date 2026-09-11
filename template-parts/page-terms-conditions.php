@@ -17,6 +17,7 @@ $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM Pacific Time', 'dawp');
 $last_updated   = __('August 28, 2026', 'dawp');
 $shipping_url   = home_url('/shipping-policy/');
 $returns_url    = home_url('/return-refund-policy/');
+$warranty_url   = home_url('/warranty-policy/');
 $privacy_url    = home_url('/privacy-policy/');
 $contact_url    = home_url('/contact-us/');
 
@@ -68,7 +69,7 @@ $sections = [
     [
         'title' => __('1. Online Store Scope & Content Accuracy', 'dawp'),
         'copy'  => [
-            __('Reluxwatches is an e-commerce store focused on modern watches, everyday timepieces, statement styles, sport watches, and watch accessories.', 'dawp'),
+            __('Reluxwatches is an e-commerce store focused on automatic mechanical watches across three collections: The Voyager, The Odyssey, and The Eternal.', 'dawp'),
             __('We work to present product descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small variations in color, texture, or physical appearance may occur due to individual screen monitor settings, digital photography lighting, or periodic supplier updates.', 'dawp'),
             __('Reluxwatches strictly adheres to ethical commerce: we do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
         ],
@@ -120,7 +121,18 @@ $sections = [
         ],
     ],
     [
-        'title' => __('7. Integrated Store Policies', 'dawp'),
+        'title' => __('7. Product Warranty', 'dawp'),
+        'copy'  => [
+            __('Every Reluxwatches watch is covered by a 2-year limited warranty against manufacturing defects in the movement, case, crystal, crown, dial, and hands, starting from the date of delivery.', 'dawp'),
+        ],
+        'after' => [
+            'text' => __('For coverage details, exclusions, and how to file a claim, please read our Warranty Policy.', 'dawp'),
+            'url'  => $warranty_url,
+            'link' => __('Warranty Policy', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('8. Integrated Store Policies', 'dawp'),
         'copy'  => [
             __('Your transactions and data security are directly integrated with our core protections. Please review our specific guidelines via the active hyperlinks below:', 'dawp'),
             __('Data Management: Your submission of personal information through the store checkout is strictly governed by our Privacy Policy.', 'dawp'),
@@ -132,14 +144,14 @@ $sections = [
         ],
     ],
     [
-        'title' => __('8. Intellectual Property & Liability Limitations', 'dawp'),
+        'title' => __('9. Intellectual Property & Liability Limitations', 'dawp'),
         'copy'  => [
             __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to Reluxwatches and are protected by copyright laws.', 'dawp'),
             __('To the fullest extent permitted by applicable law, Reluxwatches shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product consumption.', 'dawp'),
         ],
     ],
     [
-        'title' => __('9. Governing Law', 'dawp'),
+        'title' => __('10. Governing Law', 'dawp'),
         'copy'  => [
             __('These Terms & Conditions and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the State of California, United States.', 'dawp'),
         ],
@@ -157,7 +169,7 @@ $terms_faqs = [
     ],
     [
         'question' => __('Which policies are part of the customer agreement?', 'dawp'),
-        'answer'   => __('Shipping, returns, refunds, and privacy terms are integrated into the customer agreement through the Shipping Policy, Return & Refund Policy, and Privacy Policy.', 'dawp'),
+        'answer'   => __('Shipping, returns, refunds, warranty, and privacy terms are integrated into the customer agreement through the Shipping Policy, Return & Refund Policy, 2-Year Warranty Policy, and Privacy Policy.', 'dawp'),
     ],
     [
         'question' => __('How can I contact support about the Terms?', 'dawp'),
@@ -241,7 +253,7 @@ if (function_exists('dawp_register_faq_schema')) {
                 <?php endforeach; ?>
 
                 <article class="rounded-md border border-[#E9E9E9] bg-[#FAFAFA] p-6 shadow-sm">
-                    <h2 class="font-heading text-xl font-extrabold text-[#111111]"><?php esc_html_e('10. Customer Support & Business Identity', 'dawp'); ?></h2>
+                    <h2 class="font-heading text-xl font-extrabold text-[#111111]"><?php esc_html_e('11. Customer Support & Business Identity', 'dawp'); ?></h2>
                     <p class="mt-4 text-sm leading-7 text-[#777777]">
                         <?php esc_html_e('If you have questions, complaints, or require clarification regarding these Terms & Conditions or an active order, please contact our team via our verified corporate channels:', 'dawp'); ?>
                     </p>

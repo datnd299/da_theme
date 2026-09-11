@@ -14,8 +14,8 @@ $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink(
 $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count  = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
-$logo_path   = get_template_directory() . '/assets/img/imagewatch/watchlogo.png';
-$logo_url    = get_template_directory_uri() . '/assets/img/imagewatch/watchlogo.png';
+$logo_path   = get_template_directory() . '/assets/img/logo_relux-black.png';
+$logo_url    = get_template_directory_uri() . '/assets/img/logo_relux-black.png';
 
 if (file_exists($logo_path)) {
     $logo_url = add_query_arg('ver', filemtime($logo_path), $logo_url);
@@ -53,7 +53,7 @@ $nav_items = [
         .cf-header__inner { width:min(100% - 64px,var(--cf-max)); margin-inline:auto; }
         .cf-header__bar { display:grid; grid-template-columns:minmax(170px,.8fr) minmax(320px,1.4fr) minmax(220px,.8fr); align-items:center; gap:24px; min-height:78px; }
         .cf-logo { display:inline-flex; align-items:center; width:max-content; color:var(--cf-ink); text-decoration:none; }
-        .cf-logo__img { display:block; width:auto; height:48px; max-width:170px; object-fit:contain; }
+        .cf-logo__img { display:block; width:auto; height:52px; max-width:210px; object-fit:contain; }
         .cf-nav { display:flex; align-items:center; justify-content:center; gap:30px; }
         .cf-nav a { color:var(--cf-ink); font-size:13px; font-weight:700; letter-spacing:.08em; line-height:1.2; text-decoration:none; text-transform:uppercase; transition:color .18s ease; }
         .cf-nav a:hover, .cf-nav a.is-current { color:var(--cf-accent); }
@@ -86,7 +86,7 @@ $nav_items = [
         @media (max-width: 980px) {
             .cf-header__inner { width:min(100% - 36px,var(--cf-max)); }
             .cf-header__bar { display:flex; justify-content:space-between; gap:14px; min-height:66px; }
-            .cf-logo__img { height:42px; max-width:150px; }
+            .cf-logo__img { height:46px; max-width:180px; }
             .cf-nav, .cf-header-search, .cf-account-link { display:none; }
             .cf-menu-toggle, .cf-search-toggle { display:inline-flex; }
         }
@@ -95,7 +95,7 @@ $nav_items = [
         }
         @media (max-width: 520px) {
             .cf-header__inner { width:min(100% - 28px,var(--cf-max)); }
-            .cf-logo__img { height:38px; max-width:132px; }
+            .cf-logo__img { height:40px; max-width:150px; }
             .cf-actions { gap:2px; }
             .cf-icon-button, .cf-menu-toggle { width:38px; height:38px; }
         }
@@ -114,8 +114,8 @@ $nav_items = [
         <a href="<?php echo esc_url($home_url); ?>" class="cf-logo" aria-label="<?php esc_attr_e('Reluxwatches home', 'dawp'); ?>">
             <?php
             echo function_exists('dawp_get_responsive_image')
-                ? dawp_get_responsive_image($logo_url, __('Reluxwatches', 'dawp'), 'cf-logo__img', 115, 48, 'eager', '115px', 'high')
-                : '<img class="cf-logo__img" src="' . esc_url($logo_url) . '" alt="' . esc_attr__('Reluxwatches', 'dawp') . '" width="170" height="48" decoding="async" fetchpriority="high">';
+                ? dawp_get_responsive_image($logo_url, __('Reluxwatches', 'dawp'), 'cf-logo__img', 140, 52, 'eager', '140px', 'high')
+                : '<img class="cf-logo__img" src="' . esc_url($logo_url) . '" alt="' . esc_attr__('Reluxwatches', 'dawp') . '" width="210" height="52" decoding="async" fetchpriority="high">';
             ?>
         </a>
 

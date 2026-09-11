@@ -14,8 +14,8 @@ $account_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permali
 $support_email  = 'support@reluxwatches.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM Pacific Time', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
-$footer_logo_path = get_template_directory() . '/assets/img/imagewatch/logowatch.png';
-$footer_logo_url  = get_template_directory_uri() . '/assets/img/imagewatch/logowatch.png';
+$footer_logo_path = get_template_directory() . '/assets/img/logo_relux.png';
+$footer_logo_url  = get_template_directory_uri() . '/assets/img/logo_relux.png';
 $payment_methods = [
     ['name' => __('Visa', 'dawp'), 'file' => 'visa.png'],
     ['name' => __('Mastercard', 'dawp'), 'file' => 'master card.png'],
@@ -53,8 +53,9 @@ $footer_columns = [
         ],
     ],
     [
-        'title' => __('Legal', 'dawp'),
+        'title' => __('Policy', 'dawp'),
         'links' => [
+            ['title' => __('2-Year Warranty', 'dawp'), 'url' => home_url('/warranty-policy/')],
             ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
             ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
             ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
@@ -72,7 +73,7 @@ $footer_columns = [
         .cf-footer__inner { width:min(100% - 64px,var(--cf-max)); margin-inline:auto; }
         .cf-footer__main { display:grid; grid-template-columns:minmax(280px,1.35fr) repeat(3,minmax(140px,.55fr)); gap:44px; padding:64px 0 52px; }
         .cf-footer__brand { display:inline-flex; width:max-content; max-width:100%; margin-bottom:22px; color:#fff; line-height:1; text-decoration:none; }
-        .cf-footer__brand-img { display:block; width:auto; height:54px; max-width:210px; object-fit:contain; }
+        .cf-footer__brand-img { display:block; width:auto; height:72px; max-width:270px; object-fit:contain; }
         .cf-footer__tagline { max-width:440px; margin:0 0 24px; color:var(--cf-text); font-size:15px; line-height:1.7; }
         .cf-footer__contact { display:grid; gap:9px; margin:0; color:var(--cf-text); font-size:13px; line-height:1.55; }
         .cf-footer__contact div { display:block; }
@@ -99,7 +100,7 @@ $footer_columns = [
         @media (max-width: 560px) {
             .cf-footer__inner { width:min(100% - 28px,var(--cf-max)); }
             .cf-footer__main { grid-template-columns:1fr; gap:28px; }
-            .cf-footer__brand-img { height:48px; max-width:180px; }
+            .cf-footer__brand-img { height:62px; max-width:230px; }
             .cf-footer__bottom-row { align-items:flex-start; flex-direction:column; }
         }
     </style>
@@ -109,11 +110,11 @@ $footer_columns = [
             <a href="<?php echo esc_url(home_url('/')); ?>" class="cf-footer__brand" aria-label="<?php esc_attr_e('Reluxwatches home', 'dawp'); ?>">
                 <?php
                 echo function_exists('dawp_get_responsive_image')
-                    ? dawp_get_responsive_image($footer_logo_url, __('Reluxwatches', 'dawp'), 'cf-footer__brand-img', 129, 54, 'lazy', '129px')
-                    : '<img class="cf-footer__brand-img" src="' . esc_url($footer_logo_url) . '" alt="' . esc_attr__('Reluxwatches', 'dawp') . '" width="210" height="54" loading="lazy" decoding="async">';
+                    ? dawp_get_responsive_image($footer_logo_url, __('Reluxwatches', 'dawp'), 'cf-footer__brand-img', 172, 72, 'lazy', '172px')
+                    : '<img class="cf-footer__brand-img" src="' . esc_url($footer_logo_url) . '" alt="' . esc_attr__('Reluxwatches', 'dawp') . '" width="270" height="72" loading="lazy" decoding="async">';
                 ?>
             </a>
-            <p class="cf-footer__tagline"><?php esc_html_e('Modern everyday finds, selected for useful living and simple discovery.', 'dawp'); ?></p>
+            <p class="cf-footer__tagline"><?php esc_html_e('Automatic mechanical watches across The Voyager, The Odyssey and The Eternal — every Relux watch is backed by a 2-year warranty.', 'dawp'); ?></p>
             <dl class="cf-footer__contact">
                 <div>
                     <dt><?php esc_html_e('Email:', 'dawp'); ?></dt>

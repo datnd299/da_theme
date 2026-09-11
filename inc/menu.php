@@ -1,37 +1,12 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'essentials'                  => 'accessories',
-        'home'                        => 'watches',
-        'furniture'                   => 'watches',
-        'home-improvement'            => 'accessories',
-        'home-improvement-essentials' => 'accessories',
-        'home-furniture-appliances'   => 'watches',
-        'kitchen'                     => 'watches',
-        'electronics'                 => 'watches',
-        'smart'                       => 'watches',
-        'smart-home-tech'             => 'watches',
-        'outdoor'                     => 'sport',
-        'outdoor-adventure'           => 'sport',
-        'sports'                      => 'sport',
-        'garden'                      => 'accessories',
-        'tools'                       => 'accessories',
-        'garden-tools'                => 'accessories',
-        'home-garden-tools'           => 'accessories',
-        'patio-garden'                => 'sport',
-        'seasonal-decor'              => 'statement',
-        'toys'                        => 'new-arrivals',
-        'toys-outdoor-play'           => 'new-arrivals',
-        'beauty'                      => 'statement',
-        'beauty-personal-care'        => 'statement',
-        'personal-care'               => 'accessories',
-        'wellness-self-care'          => 'accessories',
-        'pets'                        => 'watches',
-        'school'                      => 'accessories',
-        'office'                      => 'accessories',
-        'school-office-art-supplies'  => 'accessories',
-        'office-and-school-supplies'  => 'accessories',
-        'art'                         => 'statement',
+        'watches'      => 'voyager',
+        'new-arrivals' => 'voyager',
+        'sport'        => 'voyager',
+        'minimal'      => 'eternal',
+        'accessories'  => 'eternal',
+        'statement'    => 'odyssey',
     ];
 
     return $map[$slug] ?? $slug;
@@ -60,12 +35,9 @@ function dawp_product_category_url($slug) {
 
 function dawp_shop_category_items() {
     $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'watches'      => ['name' => __('Watches', 'dawp')],
-        'new-arrivals' => ['name' => __('New Arrivals', 'dawp')],
-        'minimal'      => ['name' => __('Minimal', 'dawp')],
-        'sport'        => ['name' => __('Sport', 'dawp')],
-        'statement'    => ['name' => __('Statement', 'dawp')],
-        'accessories'  => ['name' => __('Accessories', 'dawp')],
+        'voyager' => ['name' => __('The Voyager', 'dawp')],
+        'odyssey' => ['name' => __('The Odyssey', 'dawp')],
+        'eternal' => ['name' => __('The Eternal', 'dawp')],
     ];
 
     $items = [];
@@ -106,6 +78,7 @@ function dawp_footer_columns() {
         [
             'title' => __('Store Policy', 'dawp'),
             'links' => [
+                ['title' => __('2-Year Warranty', 'dawp'), 'url' => home_url('/warranty-policy/')],
                 ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
                 ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
                 ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],

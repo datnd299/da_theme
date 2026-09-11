@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for Reluxwatches.
+ * Product category defaults for Reluxwatches — The Voyager, The Odyssey, The Eternal.
  *
  * @package dawp
  */
@@ -11,98 +11,23 @@ if (!defined('ABSPATH')) {
 
 function dawp_lbq_product_categories() {
     return [
-        'watches' => [
-            'name'        => __('Watches', 'dawp'),
-            'description' => __('Modern everyday watches with clean proportions, versatile finishes, and refined details.', 'dawp'),
-            'short'       => __('Modern timepieces made for daily rotation.', 'dawp'),
+        'voyager' => [
+            'name'        => __('The Voyager', 'dawp'),
+            'description' => __('The Voyager collection pairs rugged automatic movements with travel-ready details: GMT-inspired dials, durable stainless steel cases and exhibition casebacks built for pieces that go everywhere with you.', 'dawp'),
+            'short'       => __('Automatic watches built for the journey.', 'dawp'),
             'image'       => '',
         ],
-        'new-arrivals' => [
-            'name'        => __('New Arrivals', 'dawp'),
-            'description' => __('The latest Reluxwatches releases across everyday, minimal, sport, and statement styles.', 'dawp'),
-            'short'       => __('Fresh watches and accessories from Reluxwatches.', 'dawp'),
+        'odyssey' => [
+            'name'        => __('The Odyssey', 'dawp'),
+            'description' => __('The Odyssey collection is Relux\'s everyday automatic lineup: balanced proportions, sunburst dials and versatile finishes that move easily from the office to the evening.', 'dawp'),
+            'short'       => __('The everyday automatic, refined for every chapter.', 'dawp'),
             'image'       => '',
         ],
-        'minimal' => [
-            'name'        => __('Minimal', 'dawp'),
-            'description' => __('Clean dials, quiet silhouettes, and refined watches designed with restraint.', 'dawp'),
-            'short'       => __('Clean lines and understated details.', 'dawp'),
+        'eternal' => [
+            'name'        => __('The Eternal', 'dawp'),
+            'description' => __('The Eternal collection is Relux at its most timeless: slim automatic cases, minimal dials and heirloom-grade finishing designed to be worn, and handed down, for a lifetime.', 'dawp'),
+            'short'       => __('Timeless craftsmanship, made to endure.', 'dawp'),
             'image'       => '',
-        ],
-        'sport' => [
-            'name'        => __('Sport', 'dawp'),
-            'description' => __('Sharper watch styles with practical energy for active days and casual wear.', 'dawp'),
-            'short'       => __('Sharper energy for active days.', 'dawp'),
-            'image'       => '',
-        ],
-        'statement' => [
-            'name'        => __('Statement', 'dawp'),
-            'description' => __('Confident modern watches made to stand out without feeling overly formal.', 'dawp'),
-            'short'       => __('Bold details with a modern point of view.', 'dawp'),
-            'image'       => '',
-        ],
-        'accessories' => [
-            'name'        => __('Accessories', 'dawp'),
-            'description' => __('Watch accessories selected to support care, styling, storage, and daily wear.', 'dawp'),
-            'short'       => __('Useful accessories for watch care and style.', 'dawp'),
-            'image'       => '',
-        ],
-    ];
-
-    return [
-        'auto-tires' => [
-            'name'        => __('Auto & Tires', 'dawp'),
-            'description' => __('Road-ready vehicle accessories, tire care and practical tools for everyday drives.', 'dawp'),
-            'short'       => __('Vehicle accessories, tire care and useful road-ready tools.', 'dawp'),
-            'image'       => 'car_tire.jpg',
-        ],
-        'electronics' => [
-            'name'        => __('Electronics', 'dawp'),
-            'description' => __('Everyday electronics, connected devices and practical tech for modern homes.', 'dawp'),
-            'short'       => __('Connected devices and everyday tech for modern living.', 'dawp'),
-            'image'       => 'Smart_home_connected_devices_202607281526.jpeg',
-        ],
-        'home-improvement-essentials' => [
-            'name'        => __('Home Improvement Essentials', 'dawp'),
-            'description' => __('Practical tools, fixtures and upgrades that make home projects simpler.', 'dawp'),
-            'short'       => __('Tools, fixtures and practical upgrades for easier home projects.', 'dawp'),
-            'image'       => 'Home_improvement.jpg',
-        ],
-        'home-furniture-appliances' => [
-            'name'        => __('Home, Furniture & Appliances', 'dawp'),
-            'description' => __('Furniture, home essentials and appliances that make daily spaces easier to live in.', 'dawp'),
-            'short'       => __('Furniture, appliances and useful pieces for comfortable home living.', 'dawp'),
-            'image'       => 'Living_room_minimalist_design_ph…_202607281539.jpeg',
-        ],
-        'patio-garden' => [
-            'name'        => __('Patio & Garden', 'dawp'),
-            'description' => __('Garden gear, patio accents and outdoor care essentials for better open-air spaces.', 'dawp'),
-            'short'       => __('Garden gear, patio accents and outdoor care essentials.', 'dawp'),
-            'image'       => 'Garden_tools_outdoor_care_planting_202608020050.jpeg',
-        ],
-        'seasonal-decor' => [
-            'name'        => __('Seasonal Decor', 'dawp'),
-            'description' => __('Decor, accents and timely updates that help your home match the season.', 'dawp'),
-            'short'       => __('Decor and accents for seasonal home updates.', 'dawp'),
-            'image'       => 'Patio_picks_for_outdoor_living_202608020057.jpg',
-        ],
-        'sports-outdoors' => [
-            'name'        => __('Sports & Outdoors', 'dawp'),
-            'description' => __('Sports gear and outdoor essentials built for recreation, training and time outside.', 'dawp'),
-            'short'       => __('Sports gear and outdoor essentials for active days.', 'dawp'),
-            'image'       => 'Outdoor&Adventure.jpeg',
-        ],
-        'toys-outdoor-play' => [
-            'name'        => __('Toys & Outdoor Play', 'dawp'),
-            'description' => __('Playtime favorites and outdoor activity picks for kids, families and backyards.', 'dawp'),
-            'short'       => __('Toys and outdoor activity picks for playful days.', 'dawp'),
-            'image'       => 'Patio_garden_handy_tools_202607281516.jpeg',
-        ],
-        'toys' => [
-            'name'        => __('Toys', 'dawp'),
-            'description' => __('Fun, giftable toys and play essentials for everyday imagination.', 'dawp'),
-            'short'       => __('Giftable toys and play essentials for everyday fun.', 'dawp'),
-            'image'       => 'Kitchen_Home_Innovation_Smart_Tools_202607281513.jpeg',
         ],
     ];
 }
@@ -127,46 +52,12 @@ function dawp_lbq_retired_product_category_slugs() {
 
 function dawp_lbq_product_category_slug_aliases() {
     return [
-        'home'                       => 'watches',
-        'home-essentials'            => 'watches',
-        'furniture'                  => 'watches',
-        'home-improvement'           => 'accessories',
-        'auto-tires'                 => 'accessories',
-        'electronics'                => 'watches',
-        'home-improvement-essentials'=> 'accessories',
-        'home-furniture-appliances'  => 'watches',
-        'patio-garden'               => 'sport',
-        'seasonal-decor'             => 'statement',
-        'sports-outdoors'            => 'sport',
-        'toys-outdoor-play'          => 'new-arrivals',
-        'toys'                       => 'new-arrivals',
-        'smart-home'                 => 'watches',
-        'kitchen-dining'             => 'watches',
-        'outdoor-garden'             => 'sport',
-        'garden-tools'               => 'accessories',
-        'home-garden-tools'          => 'accessories',
-        'beauty-personal-care'       => 'statement',
-        'personal-care'              => 'accessories',
-        'school-office-art-supplies' => 'accessories',
-        'office-and-school-supplies' => 'accessories',
-        'pets'                       => 'watches',
-    ];
-
-    return [
-        'home'                       => 'home-furniture-appliances',
-        'home-essentials'            => 'home-furniture-appliances',
-        'furniture'                  => 'home-furniture-appliances',
-        'home-improvement'           => 'home-improvement-essentials',
-        'smart-home'                 => 'electronics',
-        'kitchen-dining'             => 'home-furniture-appliances',
-        'outdoor-garden'             => 'patio-garden',
-        'garden-tools'               => 'patio-garden',
-        'home-garden-tools'          => 'patio-garden',
-        'beauty-personal-care'       => 'seasonal-decor',
-        'personal-care'              => 'seasonal-decor',
-        'school-office-art-supplies' => 'home-improvement-essentials',
-        'office-and-school-supplies' => 'home-improvement-essentials',
-        'pets'                       => 'home-furniture-appliances',
+        'watches'      => 'voyager',
+        'new-arrivals' => 'voyager',
+        'sport'        => 'voyager',
+        'minimal'      => 'eternal',
+        'accessories'  => 'eternal',
+        'statement'    => 'odyssey',
     ];
 }
 
@@ -241,7 +132,7 @@ function dawp_ensure_lbq_product_categories() {
         dawp_update_lbq_product_category_thumbnail($term_id, $category);
     }
 
-    $home_term = get_term_by('slug', 'watches', 'product_cat');
+    $home_term = get_term_by('slug', 'voyager', 'product_cat');
     if ($home_term && !is_wp_error($home_term)) {
         update_option('default_product_cat', (int) $home_term->term_id);
     }

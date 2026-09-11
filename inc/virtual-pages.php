@@ -30,12 +30,13 @@ function dawp_virtual_page_map() {
     $policy_date = '2026-08-28';
 
     return [
-        'about-us'             => ['slug' => 'about',                'title' => 'About Reluxwatches', 'desc' => 'Learn more about Reluxwatches, a modern ecommerce store for watches and watch accessories.', 'keywords' => 'Reluxwatches, about Reluxwatches, modern watches, watch accessories', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches modern watches and accessories'],
-        'faq'                  => ['slug' => 'faq',                  'title' => 'Reluxwatches FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, payments and support at Reluxwatches.', 'keywords' => 'Reluxwatches FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches customer help and shopping FAQs'],
-        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact Reluxwatches', 'desc' => 'Contact Reluxwatches support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact Reluxwatches, Reluxwatches support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches customer support'],
+        'about-us'             => ['slug' => 'about',                'title' => 'About Reluxwatches', 'desc' => 'Learn more about Reluxwatches, an automatic mechanical watch brand behind The Voyager, The Odyssey and The Eternal collections.', 'keywords' => 'Reluxwatches, about Reluxwatches, automatic watches, mechanical watches', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches automatic mechanical watches'],
+        'faq'                  => ['slug' => 'faq',                  'title' => 'Reluxwatches FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, warranty, products, payments and support at Reluxwatches.', 'keywords' => 'Reluxwatches FAQ, shipping questions, return questions, warranty questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches customer help and shopping FAQs'],
+        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact Reluxwatches', 'desc' => 'Contact Reluxwatches support for help with orders, tracking, returns, refunds, warranty claims or privacy requests.', 'keywords' => 'contact Reluxwatches, Reluxwatches support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches customer support'],
         'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Reluxwatches shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Reluxwatches shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches shipping policy', 'date_modified' => $policy_date],
         'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Reluxwatches shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Reluxwatches shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches shipping policy', 'date_modified' => $policy_date],
         'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'desc' => 'Read the Reluxwatches return and refund policy, including return eligibility, return shipping, exchanges and refund timing.', 'keywords' => 'Reluxwatches return policy, refund policy, returns, refund timing', 'css' => 'tw-ship.css', 'canonical_path' => 'return-refund-policy', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches return and refund policy', 'date_modified' => $policy_date],
+        'warranty-policy'      => ['slug' => 'warranty',             'title' => '2-Year Warranty Policy', 'desc' => 'Read the Reluxwatches 2-year warranty policy covering manufacturing defects on The Voyager, The Odyssey and The Eternal watches, and how to file a claim.', 'keywords' => 'Reluxwatches warranty, 2 year watch warranty, automatic watch warranty, warranty claim', 'css' => 'tw-ship.css', 'canonical_path' => 'warranty-policy', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches 2-year warranty policy', 'date_modified' => '2026-09-11'],
         'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the Reluxwatches terms and conditions for browsing the website, placing orders, payments, policies and customer support.', 'keywords' => 'Reluxwatches terms, terms and conditions, store policies, website terms', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches terms and conditions', 'date_modified' => $policy_date],
         'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how Reluxwatches collects, uses, protects and manages customer information, cookies, privacy requests and account data.', 'keywords' => 'Reluxwatches privacy policy, customer data, cookies, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivacyPolicy', 'image' => $default_image, 'image_alt' => 'Reluxwatches privacy policy', 'date_modified' => $policy_date],
         'track-order'          => ['slug' => 'track-order',          'title' => 'Track Your Reluxwatches Order', 'desc' => 'Track your Reluxwatches order online using your order ID and billing email, or contact support for shipment help.', 'keywords' => 'track Reluxwatches order, order tracking, shipment status, order status', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches order tracking'],
@@ -45,13 +46,13 @@ function dawp_virtual_page_map() {
 function dawp_home_page_seo_data() {
     return [
         'slug'           => 'home',
-        'title'          => 'Reluxwatches - Modern Watches for Modern Life',
-        'desc'           => 'Shop Reluxwatches for modern everyday watches, statement pieces, minimal styles and watch accessories.',
-        'keywords'       => 'Reluxwatches, modern watches, everyday watches, statement watches, watch accessories',
+        'title'          => 'Reluxwatches - Automatic Mechanical Watches',
+        'desc'           => 'Shop Reluxwatches automatic mechanical watches across The Voyager, The Odyssey and The Eternal collections. Every watch ships with a 2-year warranty.',
+        'keywords'       => 'Reluxwatches, automatic watches, mechanical watches, The Voyager, The Odyssey, The Eternal',
         'canonical_path' => '',
         'schema_type'    => 'WebSite',
         'image'          => dawp_imagewatch_url('2.png'),
-        'image_alt'      => 'Reluxwatches modern wristwatch campaign',
+        'image_alt'      => 'Reluxwatches automatic mechanical watch campaign',
     ];
 }
 
@@ -159,7 +160,9 @@ function dawp_rank_math_page_image($page) {
 }
 
 function dawp_imagewatch_url($filename) {
-    return get_theme_file_uri('assets/img/imagewatch/' . ltrim($filename, '/'));
+    $images = ['img1.jpg', 'img2.jpg', 'img3.png', 'img4.png'];
+    $index  = preg_match('/(\d+)/', $filename, $m) ? ((int) $m[1] - 1) % count($images) : 0;
+    return get_theme_file_uri('assets/img/' . $images[$index]);
 }
 
 function dawp_rank_math_page_image_alt($page) {
@@ -199,7 +202,7 @@ function dawp_rank_math_organization_schema() {
         '@id'   => home_url('/#organization'),
         'name'  => 'Reluxwatches',
         'url'   => home_url('/'),
-        'logo'  => get_theme_file_uri('assets/img/imagewatch/logowatch.png'),
+        'logo'  => get_theme_file_uri('assets/img/logo_relux-black.png'),
         'email' => 'support@reluxwatches.com',
         'contactPoint' => [
             [

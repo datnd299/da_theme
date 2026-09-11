@@ -22,6 +22,7 @@ if (!$shop_url) {
 
 $shipping_url = home_url('/shipping-policy/');
 $returns_url  = home_url('/return-refund-policy/');
+$warranty_url = home_url('/warranty-policy/');
 $privacy_url  = home_url('/privacy-policy/');
 $terms_url    = home_url('/terms-conditions/');
 $track_url    = home_url('/track-order/');
@@ -127,7 +128,15 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('What does Reluxwatches sell?', 'dawp'),
-                'answer'   => __('Reluxwatches focuses on modern everyday watches, statement pieces, minimal watch styles, sport watches, and watch accessories.', 'dawp'),
+                'answer'   => __('Reluxwatches sells automatic mechanical watches across three collections: The Voyager, The Odyssey, and The Eternal. Every watch runs on a self-winding movement and is covered by a 2-year warranty.', 'dawp'),
+            ],
+            [
+                'question' => __('Are Reluxwatches watches mechanical or quartz?', 'dawp'),
+                'answer'   => __('All Reluxwatches watches use self-winding automatic (mechanical) movements. There is no battery to replace, and most models feature an exhibition caseback so you can see the movement in motion.', 'dawp'),
+            ],
+            [
+                'question' => __('Is there a warranty on Reluxwatches watches?', 'dawp'),
+                'answer'   => __('Yes. Every watch across The Voyager, The Odyssey, and The Eternal is covered by a 2-year limited warranty against manufacturing defects in the movement, case, crystal, crown, dial, and hands. See our Warranty Policy page for full coverage details and how to file a claim.', 'dawp'),
             ],
             [
                 'question' => __('Do product photos and colors always look exactly the same in person?', 'dawp'),
@@ -202,6 +211,11 @@ $quick_links = [
         'title' => __('Return & Refund Policy', 'dawp'),
         'copy'  => __('Review eligibility, return shipping fees, RMA steps, refund timing, and non-returnable items.', 'dawp'),
         'url'   => $returns_url,
+    ],
+    [
+        'title' => __('2-Year Warranty Policy', 'dawp'),
+        'copy'  => __('See what movement, case, and crystal defects are covered, and how to file a warranty claim.', 'dawp'),
+        'url'   => $warranty_url,
     ],
     [
         'title' => __('Privacy Policy', 'dawp'),

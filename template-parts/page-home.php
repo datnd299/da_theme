@@ -1,6 +1,6 @@
 <?php
 $imagewatch = static function ($filename) {
-    $images = ['img1.jpg', 'img2.jpg', 'img3.png', 'img4.png'];
+    $images = ['img1.png', 'img2.jpg', 'img3.png', 'img4.png'];
     $index  = preg_match('/(\d+)/', $filename, $m) ? ((int) $m[1] - 1) % count($images) : 0;
     return get_theme_file_uri('assets/img/' . $images[$index]);
 };

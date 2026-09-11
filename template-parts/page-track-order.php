@@ -15,7 +15,7 @@ $track_categories = function_exists('qb_product_category_definitions') ? qb_prod
                 <span class="track-hero__label"><?php esc_html_e('Order Tracking', 'dawp'); ?></span>
                 <h1 class="track-hero__title"><?php esc_html_e('Track Your Watch Order', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
-                    <?php esc_html_e('Use your order number and checkout email to review the latest status for your Corvelshop purchase.', 'dawp'); ?>
+                    <?php esc_html_e('Use your order number and checkout email to review the latest status for your Corvel purchase.', 'dawp'); ?>
                 </p>
                 <div class="track-hero__actions">
                     <a class="track-button" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
@@ -73,12 +73,12 @@ $track_categories = function_exists('qb_product_category_definitions') ? qb_prod
         <section class="track-category-section">
             <div class="track-category-section__inner">
                 <div class="track-section-heading">
-                    <span><?php esc_html_e('Shop By Category', 'dawp'); ?></span>
-                    <h2><?php esc_html_e('Browse Corvelshop watch collections.', 'dawp'); ?></h2>
+                    <span><?php esc_html_e('Shop By Collection', 'dawp'); ?></span>
+                    <h2><?php esc_html_e('Browse the Corvel collections.', 'dawp'); ?></h2>
                 </div>
                 <div class="track-category-grid">
                     <?php foreach ($track_categories as $slug => $category) : ?>
-                        <a class="track-category-card" href="<?php echo esc_url(function_exists('qb_product_category_url') ? qb_product_category_url($slug) : home_url('/product-category/' . trailingslashit($slug))); ?>">
+                        <a class="track-category-card" href="<?php echo esc_url(home_url('/collections/')); ?>">
                             <strong><?php echo esc_html($category['name']); ?></strong>
                             <span><?php echo esc_html($category['description']); ?></span>
                         </a>

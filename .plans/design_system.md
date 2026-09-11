@@ -4,7 +4,7 @@
 
 **Modern Prestige × Dark Editorial × Precision Luxury**
 
-Corvel should feel like a contemporary luxury watch campaign translated into ecommerce: strong, refined, architectural and premium.
+Corvel should feel like a contemporary mechanical-watch campaign translated into ecommerce: strong, refined, architectural and premium. Corvel sells automatic (self-winding) mechanical watches only.
 
 Avoid generic WooCommerce styling, old-fashioned black-gold luxury, or heavy decoration.
 
@@ -93,7 +93,8 @@ No flashy animation.
 
 ## Core Rules
 
-* The watch is always the visual hero.
+* The mechanical watch is always the visual hero.
+* Movement details (automatic, self-winding, exhibition case back) may be shown, never exaggerated.
 * Campaign imagery creates desire.
 * Ecommerce UI stays clean and easy to use.
 * Black creates presence.

@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact page template part for Corvelshop.
+ * Contact page template part for Corvel.
  *
  * @package dawp
  */
@@ -10,8 +10,8 @@ $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permali
 $support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $contact_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
-$hero_image     = $theme_uri . '/assets/images/home/luxuryimagecollection/6.jpg';
-$detail_image   = $theme_uri . '/assets/images/home/luxuryimagecollection/7.jpg';
+$hero_image     = $theme_uri . '/assets/images/home/img3.jpeg';
+$detail_image   = $theme_uri . '/assets/images/home/img1.jpeg';
 
 $status_messages = [
     'sent'    => __('Your message has been received. Our support team aims to reply within 1 business day.', 'dawp'),
@@ -23,6 +23,7 @@ $topics = [
     __('Order question', 'dawp'),
     __('Tracking help', 'dawp'),
     __('Return request', 'dawp'),
+    __('Warranty claim', 'dawp'),
     __('Product or size question', 'dawp'),
     __('Damaged or incorrect item', 'dawp'),
     __('Other', 'dawp'),
@@ -35,7 +36,7 @@ $topics = [
             <?php
             echo qb_responsive_image(
                 $hero_image,
-                __('Silver luxury watch on ivory architectural surface', 'dawp'),
+                __('Corvel automatic watch dial detail, close-up', 'dawp'),
                 [
                     'class'   => 'h-full w-full object-cover object-center opacity-72',
                     'width'   => 1536,
@@ -51,9 +52,9 @@ $topics = [
 
         <div class="relative mx-auto grid min-h-[520px] w-[min(100%-40px,1360px)] items-center py-20 md:min-h-[660px] md:w-[min(100%-80px,1360px)] md:py-24">
             <div class="max-w-[650px]">
-                <p class="mb-5 text-[12px] font-semibold uppercase tracking-[.26em] text-[#B38A52]"><?php esc_html_e('Contact Corvelshop', 'dawp'); ?></p>
+                <p class="mb-5 text-[12px] font-semibold uppercase tracking-[.26em] text-[#B38A52]"><?php esc_html_e('Contact Corvel', 'dawp'); ?></p>
                 <h1 class="font-serif text-[clamp(42px,6vw,58px)] leading-[1.02] tracking-normal"><?php esc_html_e('Support with Precision.', 'dawp'); ?></h1>
-                <p class="mt-6 max-w-[510px] text-[16px] leading-7 text-[#D8D6CF]"><?php esc_html_e('Questions about an order, delivery, return, or watch detail are handled through one focused support desk.', 'dawp'); ?></p>
+                <p class="mt-6 max-w-[510px] text-[16px] leading-7 text-[#D8D6CF]"><?php esc_html_e('Questions about an order, delivery, return, warranty claim, or movement detail are handled through one focused support desk.', 'dawp'); ?></p>
                 <div class="mt-9 flex flex-wrap gap-3">
                     <a class="cv-btn cv-btn--light" href="#contact-form"><?php esc_html_e('Write to Support', 'dawp'); ?></a>
                     <a class="cv-btn cv-btn--ghost" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
@@ -102,7 +103,7 @@ $topics = [
                     <div class="border border-[#B8B8B2]/55 bg-white p-3.5 sm:p-6">
                         <span class="cv-detail-line"></span>
                         <h3 class="cv-detail-title"><?php esc_html_e('Products', 'dawp'); ?></h3>
-                        <p class="text-[13px] leading-5 text-[#5E625F] sm:text-[15px] sm:leading-7"><?php esc_html_e('Fit, materials, styling, and product details.', 'dawp'); ?></p>
+                        <p class="text-[13px] leading-5 text-[#5E625F] sm:text-[15px] sm:leading-7"><?php esc_html_e('Movement, case size, materials, and warranty questions.', 'dawp'); ?></p>
                     </div>
                 </div>
             </div>
@@ -120,7 +121,7 @@ $topics = [
                         <?php
                         echo qb_responsive_image(
                             $detail_image,
-                            __('Modern black luxury watch campaign image', 'dawp'),
+                            __('Corvel automatic watch with black leather strap', 'dawp'),
                             [
                                 'class'   => 'aspect-[16/10] md:aspect-[16/11] w-full object-cover transition duration-500 hover:scale-[1.02]',
                                 'width'   => 1024,
@@ -184,7 +185,7 @@ $topics = [
 
                     <label class="flex gap-3 text-[13px] leading-6 text-[#5E625F]">
                         <input class="mt-1 h-4 w-4 shrink-0 accent-[#263C33]" type="checkbox" name="contact_consent" required>
-                        <span><?php esc_html_e('I agree that Corvelshop may use this information to respond to my request.', 'dawp'); ?></span>
+                        <span><?php esc_html_e('I agree that Corvel may use this information to respond to my request.', 'dawp'); ?></span>
                     </label>
 
                     <button class="cv-btn cv-btn--dark w-full sm:w-fit" type="submit"><?php esc_html_e('Send Message', 'dawp'); ?></button>

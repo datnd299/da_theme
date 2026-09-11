@@ -1,6 +1,6 @@
 <?php
 /**
- * About page template part for Corvelshop.
+ * About page template part for Corvel.
  *
  * @package dawp
  */
@@ -8,18 +8,18 @@
 $theme_uri        = get_template_directory_uri();
 $shop_url         = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $contact_url      = home_url('/contact-us/');
-$hero_image       = $theme_uri . '/assets/images/home/luxuryimagecollection/3.jpg';
-$statement_image  = $theme_uri . '/assets/images/home/luxuryimagecollection/4.jpg';
-$editorial_image  = $theme_uri . '/assets/images/home/luxuryimagecollection/5.jpg';
+$hero_image       = $theme_uri . '/assets/images/home/corvel-watch-editorial.png';
+$statement_image  = $theme_uri . '/assets/images/home/img2.jpeg';
+$editorial_image  = $theme_uri . '/assets/images/home/corvel-watch-hero.png';
 ?>
 
 <div class="cv-about bg-[#F5F2EB] text-[#171A19]">
     <section class="relative overflow-hidden bg-[#0D0F0F] text-white">
         <div class="mx-auto grid min-h-[calc(92svh-78px)] w-[min(100%-40px,1360px)] gap-10 py-14 md:w-[min(100%-80px,1360px)] md:grid-cols-12 md:items-center md:py-20">
             <div class="relative z-10 md:col-span-5">
-                <p class="mb-5 text-[12px] font-semibold uppercase tracking-[.26em] text-[#B38A52]"><?php esc_html_e('About Corvelshop', 'dawp'); ?></p>
+                <p class="mb-5 text-[12px] font-semibold uppercase tracking-[.26em] text-[#B38A52]"><?php esc_html_e('About Corvel', 'dawp'); ?></p>
                 <h1 class="font-serif text-[clamp(42px,6vw,64px)] leading-[.98] tracking-normal"><?php esc_html_e('Precision with Presence.', 'dawp'); ?></h1>
-                <p class="mt-6 max-w-[500px] text-[16px] leading-7 text-[#D8D6CF]"><?php esc_html_e('Corvelshop is a modern watch destination built for strong silhouettes, refined materials, and a shopping experience that feels considered from first glance to final checkout.', 'dawp'); ?></p>
+                <p class="mt-6 max-w-[500px] text-[16px] leading-7 text-[#D8D6CF]"><?php esc_html_e('Corvel is an independent label designing automatic mechanical watches — self-winding movements, strong silhouettes, and a shopping experience that feels considered from first glance to final checkout.', 'dawp'); ?></p>
                 <div class="mt-9 flex flex-wrap gap-3">
                     <a class="cv-btn cv-btn--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
                     <a class="cv-btn cv-btn--ghost" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
@@ -31,7 +31,7 @@ $editorial_image  = $theme_uri . '/assets/images/home/luxuryimagecollection/5.jp
                     <?php
                     echo qb_responsive_image(
                         $hero_image,
-                        __('Corvelshop modern luxury watch editorial scene', 'dawp'),
+                        __('Corvel automatic watch styled on a travertine surface', 'dawp'),
                         [
                             'class'   => 'aspect-[4/5] w-full object-cover object-center opacity-95 md:aspect-[16/11]',
                             'width'   => 1536,
@@ -56,11 +56,12 @@ $editorial_image  = $theme_uri . '/assets/images/home/luxuryimagecollection/5.jp
         <div class="mx-auto grid w-[min(100%-40px,1360px)] gap-10 md:w-[min(100%-80px,1360px)] md:grid-cols-12">
             <div class="md:col-span-5">
                 <p class="cv-kicker"><?php esc_html_e('Brand Idea', 'dawp'); ?></p>
-                <h2 class="cv-heading"><?php esc_html_e('Modern luxury without unnecessary excess.', 'dawp'); ?></h2>
+                <h2 class="cv-heading"><?php esc_html_e('Mechanical, modern, without unnecessary excess.', 'dawp'); ?></h2>
             </div>
             <div class="space-y-6 text-[16px] leading-7 text-[#5E625F] md:col-span-6 md:col-start-7">
-                <p><?php esc_html_e('Corvelshop brings together contemporary watch design, confident styling, and a premium ecommerce experience for customers who want presence without noise.', 'dawp'); ?></p>
-                <p><?php esc_html_e('Our point of view is simple: the watch should lead. Photography creates desire, clean product presentation creates trust, and every detail should feel deliberate.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Corvel designs automatic mechanical watches — self-winding calibers, no quartz, no battery — for customers who want presence without noise.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Our point of view is simple: the movement should lead. Photography creates desire, clean product presentation creates trust, and every detail should feel deliberate.', 'dawp'); ?></p>
+                <p><?php esc_html_e('The line is organised into three collections — Foundry, Frontier, and Prestige — and every Corvel is backed by a 2-year warranty.', 'dawp'); ?></p>
             </div>
         </div>
     </section>
@@ -72,7 +73,7 @@ $editorial_image  = $theme_uri . '/assets/images/home/luxuryimagecollection/5.jp
                     <?php
                     echo qb_responsive_image(
                         $statement_image,
-                        __('Refined watch detail with dark editorial styling', 'dawp'),
+                        __('Corvel automatic watch with integrated steel bracelet', 'dawp'),
                         [
                             'class'   => 'aspect-[5/6] w-full object-cover object-center transition duration-500 hover:scale-[1.02] md:aspect-[4/5]',
                             'width'   => 1536,
@@ -96,8 +97,8 @@ $editorial_image  = $theme_uri . '/assets/images/home/luxuryimagecollection/5.jp
                     </div>
                     <div>
                         <span class="cv-detail-line"></span>
-                        <h3 class="cv-detail-title"><?php esc_html_e('Material', 'dawp'); ?></h3>
-                        <p class="cv-detail-copy"><?php esc_html_e('Steel, leather, smoked glass, ivory surfaces, and restrained metallic detail.', 'dawp'); ?></p>
+                        <h3 class="cv-detail-title"><?php esc_html_e('Movement', 'dawp'); ?></h3>
+                        <p class="cv-detail-copy"><?php esc_html_e('Automatic, self-winding calibers wound by the motion of the wrist.', 'dawp'); ?></p>
                     </div>
                     <div>
                         <span class="cv-detail-line"></span>
@@ -121,7 +122,7 @@ $editorial_image  = $theme_uri . '/assets/images/home/luxuryimagecollection/5.jp
                     <?php
                     echo qb_responsive_image(
                         $editorial_image,
-                        __('Silver luxury watch on ivory architectural surface', 'dawp'),
+                        __('Corvel automatic chronograph on a dark editorial set', 'dawp'),
                         [
                             'class'   => 'aspect-[16/10] w-full object-cover transition duration-500 hover:scale-[1.02]',
                             'width'   => 1536,
@@ -152,13 +153,13 @@ $editorial_image  = $theme_uri . '/assets/images/home/luxuryimagecollection/5.jp
                     </div>
                     <div>
                         <span class="cv-detail-line"></span>
-                        <h3 class="cv-detail-title"><?php esc_html_e('Clear Policies', 'dawp'); ?></h3>
-                        <p class="cv-detail-copy"><?php esc_html_e('Straightforward support pages for shipping, returns, privacy, and order tracking.', 'dawp'); ?></p>
+                        <h3 class="cv-detail-title"><?php esc_html_e('2-Year Warranty', 'dawp'); ?></h3>
+                        <p class="cv-detail-copy"><?php esc_html_e('Every watch is covered against movement and workmanship defects for two years from delivery.', 'dawp'); ?></p>
                     </div>
                     <div>
                         <span class="cv-detail-line"></span>
-                        <h3 class="cv-detail-title"><?php esc_html_e('Refined Service', 'dawp'); ?></h3>
-                        <p class="cv-detail-copy"><?php esc_html_e('Secure checkout, careful presentation, and support when a customer needs a human answer.', 'dawp'); ?></p>
+                        <h3 class="cv-detail-title"><?php esc_html_e('Clear Policies', 'dawp'); ?></h3>
+                        <p class="cv-detail-copy"><?php esc_html_e('Straightforward pages for warranty, shipping, returns, privacy, and order tracking.', 'dawp'); ?></p>
                     </div>
                 </div>
             </div>
@@ -168,7 +169,7 @@ $editorial_image  = $theme_uri . '/assets/images/home/luxuryimagecollection/5.jp
     <section class="bg-[#263C33] py-14 text-white md:py-18">
         <div class="mx-auto grid w-[min(100%-40px,1360px)] gap-7 md:w-[min(100%-80px,1360px)] md:grid-cols-12 md:items-center">
             <div class="md:col-span-7">
-                <p class="mb-4 text-[12px] font-semibold uppercase tracking-[.24em] text-[#D7B987]"><?php esc_html_e('Corvelshop', 'dawp'); ?></p>
+                <p class="mb-4 text-[12px] font-semibold uppercase tracking-[.24em] text-[#D7B987]"><?php esc_html_e('Corvel', 'dawp'); ?></p>
                 <h2 class="font-serif text-[clamp(30px,3.6vw,42px)] leading-tight"><?php esc_html_e('Time, made distinct.', 'dawp'); ?></h2>
             </div>
             <div class="flex flex-wrap gap-3 md:col-span-4 md:col-start-9 md:justify-end">

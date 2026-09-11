@@ -40,7 +40,7 @@ function dawp_handle_contact_form() {
     $order       = isset($_POST['contact_order']) ? sanitize_text_field(wp_unslash($_POST['contact_order'])) : '';
     $message     = isset($_POST['contact_message']) ? sanitize_textarea_field(wp_unslash($_POST['contact_message'])) : '';
     $consent     = isset($_POST['contact_consent']);
-    $valid_topics = ['Order question', 'Tracking help', 'Return request', 'Product or size question', 'Damaged or incorrect item', 'Other'];
+    $valid_topics = ['Order question', 'Tracking help', 'Return request', 'Warranty claim', 'Product or size question', 'Damaged or incorrect item', 'Other'];
 
     if (
         '' === $name ||
@@ -55,7 +55,7 @@ function dawp_handle_contact_form() {
 
     $subject = sprintf(
         /* translators: %s: contact form topic. */
-        __('Corvelshop contact: %s', 'dawp'),
+        __('Corvel contact: %s', 'dawp'),
         $topic
     );
 

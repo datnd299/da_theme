@@ -5,7 +5,7 @@
  * @package dawp
  */
 
-$store_name        = "Corvelshop";
+$store_name        = "Corvel";
 $support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
 $store_address     = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal    = home_url('/contact-us/');
@@ -112,20 +112,47 @@ $faq_sections = [
     ],
     [
         'id' => 'products',
-        'eyebrow' => __('Products & Fit', 'dawp'),
+        'eyebrow' => __('Products & Movement', 'dawp'),
         'title' => __('Watch Details', 'dawp'),
         'faqs' => [
+            [
+                'q' => __('What kind of movement do Corvel watches use?', 'dawp'),
+                'a' => __('Every Corvel is an automatic (self-winding) mechanical watch. The movement is wound by the motion of your wrist and stores power in a mainspring, so there is no battery to replace. If a watch is not worn for a day or two it may stop; wind the crown and reset the time to restart it.', 'dawp'),
+            ],
+            [
+                'q' => __('How accurate is an automatic mechanical watch?', 'dawp'),
+                'a' => __('Mechanical watches keep time within a wider tolerance than quartz and are affected by position, temperature, and wear. A small daily variation of a few seconds to around half a minute is normal for this type of movement and is not considered a defect.', 'dawp'),
+            ],
+            [
+                'q' => __('How do I care for a mechanical watch?', 'dawp'),
+                'a' => __('Wear it regularly or use a watch box, keep it away from strong magnets, do not adjust the date between roughly 9:00 PM and 3:00 AM, and only expose it to water within its stated water resistance rating. Have the movement serviced periodically by a qualified watchmaker.', 'dawp'),
+            ],
             [
                 'q' => __('How should I choose watch or strap size?', 'dawp'),
                 'a' => __('Review the case size, strap size, adjustment details, clasp type, and product description before checkout. If you are unsure, contact support before placing an order.', 'dawp'),
             ],
             [
-                'q' => __('Will colors and finishes match the photos exactly?', 'dawp'),
-                'a' => __('We aim to display product colors and finishes clearly, but slight differences may occur due to screen settings, photography lighting, production updates, or inventory changes.', 'dawp'),
+                'q' => __('Do your watches make unsupported brand or performance claims?', 'dawp'),
+                'a' => __('No. Corvel sells its own automatic mechanical watches. We avoid unsupported third-party brand, chronometer-certification, precious-material, medical, wellness, investment, and guaranteed accuracy claims.', 'dawp'),
+            ],
+        ],
+    ],
+    [
+        'id' => 'warranty',
+        'eyebrow' => __('Warranty', 'dawp'),
+        'title' => __('2-Year Warranty', 'dawp'),
+        'faqs' => [
+            [
+                'q' => __('What does the Corvel warranty cover?', 'dawp'),
+                'a' => __('Every Corvel mechanical watch is covered by a 2-Year Limited Warranty against defects in the mechanical movement and in materials and workmanship, starting from the delivery date, for the original purchaser. Full terms are on the 2-Year Warranty page.', 'dawp'),
             ],
             [
-                'q' => __('Do your watches make unsupported brand or performance claims?', 'dawp'),
-                'a' => __('No. Corvelshop sells watches and watch accessories. We avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
+                'q' => __('What is not covered?', 'dawp'),
+                'a' => __('Normal wear (scratches, strap and plating wear), accidental or impact damage, water damage from exceeding the stated water resistance, loss or theft, and any watch that has been opened, serviced, or altered by anyone other than Corvel or an authorized partner.', 'dawp'),
+            ],
+            [
+                'q' => __('How do I make a warranty claim?', 'dawp'),
+                'a' => __('Contact support with your order number, the email used at checkout, a description of the issue, and clear photos or a short video. If the claim is covered, we will provide a return authorization and repair or replace the watch, then ship it back at no cost to you.', 'dawp'),
             ],
         ],
     ],
@@ -249,7 +276,7 @@ $faq_sections = [
         <p class="qb-eyebrow"><?php esc_html_e('FAQ', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php esc_html_e('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, watch details, checkout, privacy, and customer support at Corvelshop.', 'dawp'); ?></p>
+        <p class="qb-copy"><?php esc_html_e('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, the 2-year warranty, automatic movements, checkout, and support at Corvel.', 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
@@ -284,6 +311,8 @@ $faq_sections = [
             <li><strong><?php esc_html_e('Standard Shipping', 'dawp'); ?></strong><?php esc_html_e('Free nationwide with no minimum', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><?php esc_html_e('5:00 PM Pacific Standard Time, Monday-Friday', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Delivery Time', 'dawp'); ?></strong><?php esc_html_e('6-10 business days', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Movement', 'dawp'); ?></strong><?php esc_html_e('Automatic, self-winding - no battery', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Warranty', 'dawp'); ?></strong><?php esc_html_e('2 years on every Corvel watch', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Return Window', 'dawp'); ?></strong><?php esc_html_e('30 days of delivery', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Restocking Fee', 'dawp'); ?></strong><?php esc_html_e('No restocking fee for eligible returns', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Refund Timing', 'dawp'); ?></strong><?php esc_html_e('Within 7 business days after approval', 'dawp'); ?></li>
@@ -315,7 +344,8 @@ $faq_sections = [
           <h2><?php esc_html_e('Read the full policy details.', 'dawp'); ?></h2>
           <p class="qb-policy-card__intro"><?php esc_html_e('For complete terms, review the dedicated policy pages before placing an order or starting a return request.', 'dawp'); ?></p>
           <div class="qb-actions">
-            <a class="qb-button" href="<?php echo esc_url($shipping_policy); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
+            <a class="qb-button" href="<?php echo esc_url(home_url('/warranty/')); ?>"><?php esc_html_e('2-Year Warranty', 'dawp'); ?></a>
+            <a class="qb-button qb-button--secondary" href="<?php echo esc_url($shipping_policy); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
             <a class="qb-button qb-button--secondary" href="<?php echo esc_url($return_policy); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
             <a class="qb-button qb-button--secondary" href="<?php echo esc_url($track_order_page); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
           </div>

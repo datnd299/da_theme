@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme footer for Corvelshop.
+ * Theme footer for Corvel.
  *
  * @package dawp
  */
@@ -13,25 +13,32 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 $footer_shop_links = [
     ['title' => __('Shop All Watches', 'dawp'), 'url' => home_url('/shop/')],
     ['title' => __('New Arrivals', 'dawp'), 'url' => home_url('/shop/?orderby=date')],
+    ['title' => __('Collections', 'dawp'), 'url' => home_url('/collections/')],
 ];
+
+if (function_exists('qb_theme_collections')) {
+    foreach (qb_theme_collections() as $collection) {
+        $footer_shop_links[] = ['title' => $collection['name'], 'url' => $collection['url']];
+    }
+}
 
 if (function_exists('wc_get_products') && wc_get_products(['limit' => 1, 'status' => 'publish', 'featured' => true])) {
     $footer_shop_links[] = ['title' => __('Featured Watches', 'dawp'), 'url' => home_url('/shop/?featured=1')];
 }
 
-if (function_exists('wc_get_products') && wc_get_products(['limit' => 1, 'status' => 'publish', 'on_sale' => true])) {
-    $footer_shop_links[] = ['title' => __('Sale Watches', 'dawp'), 'url' => home_url('/shop/?product_visibility=onsale')];
-}
-
 $footer_help_links = [
     ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
+    ['title' => __('2-Year Warranty', 'dawp'), 'url' => home_url('/warranty/')],
+];
+
+$footer_legal_links = [
     ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
     ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
     ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
     ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
 ];
 
-$footer_policy_links = [
+$footer_company_links = [
     ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
     ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
     ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
@@ -71,8 +78,8 @@ $footer_policy_links = [
 
   .qb-footer-main {
     display: grid;
-    grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(160px, .7fr));
-    gap: 46px;
+    grid-template-columns: minmax(0, 1.3fr) repeat(4, minmax(130px, .62fr));
+    gap: 40px;
     padding: 62px 0;
   }
 
@@ -240,8 +247,8 @@ $footer_policy_links = [
     <section>
         <div class="qb-footer-wrap qb-footer-main">
             <div class="qb-footer-brand">
-                <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Corvelshop home", 'dawp'); ?>">
-                    <img class="qb-footer-logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/home/corvelshoplogo.png'); ?>" alt="<?php esc_attr_e('Corvelshop', 'dawp'); ?>">
+                <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Corvel home", 'dawp'); ?>">
+                    <img class="qb-footer-logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/home/logo_corvel.png'); ?>" alt="<?php esc_attr_e('Corvel', 'dawp'); ?>">
                     <span><?php esc_html_e('Precision with Presence', 'dawp'); ?></span>
                 </a>
 
@@ -288,9 +295,18 @@ $footer_policy_links = [
             </nav>
 
             <nav class="qb-footer-col" aria-label="<?php esc_attr_e('Footer policy navigation', 'dawp'); ?>">
+                <h3><?php esc_html_e('POLICIES', 'dawp'); ?></h3>
+                <ul>
+                    <?php foreach ($footer_legal_links as $link) : ?>
+                        <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </nav>
+
+            <nav class="qb-footer-col" aria-label="<?php esc_attr_e('Footer company navigation', 'dawp'); ?>">
                 <h3><?php esc_html_e('ABOUT', 'dawp'); ?></h3>
                 <ul>
-                    <?php foreach ($footer_policy_links as $link) : ?>
+                    <?php foreach ($footer_company_links as $link) : ?>
                         <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
                     <?php endforeach; ?>
                 </ul>
@@ -300,7 +316,7 @@ $footer_policy_links = [
 
     <div class="qb-footer-bottom">
         <div class="qb-footer-wrap qb-footer-bottom__inner">
-            <p>&copy; <?php echo esc_html($current_year); ?> <?php esc_html_e("Corvelshop. All rights reserved.", 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html($current_year); ?> <?php esc_html_e("Corvel. All rights reserved.", 'dawp'); ?></p>
             <div class="qb-payment" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
                 <span><?php esc_html_e('Visa', 'dawp'); ?></span>
                 <span><?php esc_html_e('Mastercard', 'dawp'); ?></span>
@@ -308,7 +324,7 @@ $footer_policy_links = [
                 <span><?php esc_html_e('Discover', 'dawp'); ?></span>
                 <span><?php esc_html_e('PayPal', 'dawp'); ?></span>
             </div>
-            <p><?php esc_html_e('Modern luxury watch ecommerce', 'dawp'); ?></p>
+            <p><?php esc_html_e('Automatic mechanical watches', 'dawp'); ?></p>
         </div>
     </div>
 </footer>

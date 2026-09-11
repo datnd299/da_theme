@@ -5,7 +5,7 @@
  * @package dawp
  */
 
-$store_name     = "Corvelshop";
+$store_name     = "Corvel";
 $support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal = home_url('/contact-us/');
@@ -168,7 +168,7 @@ $support_portal = home_url('/contact-us/');
             </div>
           </div>
           <div class="qb-address-box">
-            <strong><?php esc_html_e("Corvelshop - Returns Department", 'dawp'); ?></strong>
+            <strong><?php esc_html_e("Corvel - Returns Department", 'dawp'); ?></strong>
             <span><?php esc_html_e('The approved RMA email will include the correct return address and carrier instructions. Please do not send items to any address before approval.', 'dawp'); ?></span>
           </div>
           <div class="qb-actions">

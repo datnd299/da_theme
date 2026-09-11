@@ -28,6 +28,8 @@ function dawp_handle_virtual_pages() {
 function dawp_virtual_page_map() {
     return [
         'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'tw-about.css'],
+        'collections'      => ['slug' => 'collections',      'title' => 'Collections', 'css' => 'tw-ship.css'],
+        'warranty'         => ['slug' => 'warranty',         'title' => '2-Year Warranty', 'css' => 'tw-ship.css'],
         'faq'              => ['slug' => 'faq',              'title' => 'FAQ', 'css' => 'tw-faq.css'],
         'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'tw-contact.css'],
         'shipping-policy'  => ['slug' => 'shipping-policy',  'title' => 'Shipping Policy', 'css' => 'tw-ship.css'],

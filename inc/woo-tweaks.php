@@ -1,7 +1,7 @@
 <?php
 /**
  * Case diameter in mm from a product attribute, or 0.0 if not set.
- * WristUnion product pages and grids show relative case size- see the
+ * Watchfavor product pages and grids show relative case size- see the
  * "spec sheet" design brief. Recognises a few common attribute slugs.
  */
 if (!function_exists('dawp_product_diameter_mm')) {

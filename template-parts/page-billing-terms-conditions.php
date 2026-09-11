@@ -1,13 +1,6 @@
 <?php
 /**
- * Billing Terms & Conditions- WristUnion
- *
- * Hardcoded policy content covering payment methods, currency, when and how
- * customers are charged, the billing descriptor, taxes, pricing accuracy,
- * order acceptance, and chargebacks- the billing disclosures payment
- * providers and Google Merchant Center expect a store to publish. Kept
- * consistent with the Terms of Service, Shipping Policy, and Return & Refund
- * Policy.
+ * Billing Terms & Conditions- Watchfavor.
  *
  * @package dawp
  */
@@ -16,79 +9,64 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@wristunion.com';
-$store = function_exists('dawp_store_name') ? dawp_store_name() : 'WristUnion';
-$host  = wp_parse_url(home_url(), PHP_URL_HOST);
-$descriptor = strtoupper(preg_replace('/^www\./', '', (string) $host)) ?: 'WRISTUNION.COM';
-
 dawp_render_legal([
     'title'   => __('Billing Terms & Conditions', 'dawp'),
-    'updated' => __('September 4, 2026', 'dawp'),
-    'intro'   => __('These Billing Terms & Conditions describe how payments are processed on this website. They apply to every order and should be read together with our Terms of Service, Shipping Policy, and Return & Refund Policy.', 'dawp'),
+    'updated' => __('September 11, 2026', 'dawp'),
+    'intro'   => __('How payments are processed, charged and secured when you purchase from Watchfavor. All checkout payments on this site are handled by PayPal.', 'dawp'),
     'sections' => [
         [
-            'heading' => __('Accepted payment methods', 'dawp'),
-            'body'    => '<p>' . esc_html__('All payments on this website are processed securely through PayPal. At checkout you can:', 'dawp') . '</p><ul>'
-                . '<li>' . esc_html__('pay with your PayPal balance or linked bank account; or', 'dawp') . '</li>'
-                . '<li>' . esc_html__('pay by Visa, Mastercard, or American Express credit or debit card through PayPal, without creating a PayPal account.', 'dawp') . '</li>'
-                . '</ul><p>' . esc_html__('You do not need a PayPal account to complete an order. We do not accept checks, money orders, wire transfers, cash on delivery, or cryptocurrency.', 'dawp') . '</p>',
+            'heading' => __('Accepted Payment Methods', 'dawp'),
+            'body'    => '<p>' . esc_html__('We accept payment exclusively through PayPal at checkout. Through PayPal you can pay using:', 'dawp') . '</p>'
+                . '<ul>'
+                . '<li>' . esc_html__('Your PayPal balance or a linked bank account', 'dawp') . '</li>'
+                . '<li>' . esc_html__('Visa, Mastercard, American Express, and Discover credit or debit cards, via PayPal Guest Checkout- you do not need a PayPal account to pay by card', 'dawp') . '</li>'
+                . '</ul>'
+                . '<p>' . esc_html__('All transactions are encrypted and processed on PayPal\'s PCI-DSS compliant systems. Watchfavor never receives or stores your full card number, CVV, or bank account details.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Currency', 'dawp'),
-            'body'    => '<p>' . esc_html__('All prices on this website are listed and charged in United States Dollars (USD). If your card is denominated in another currency, your bank sets the exchange rate and may add a foreign transaction fee; both are outside our control.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('All prices on this site are listed and charged in US Dollars (USD). If your PayPal account or card is denominated in a different currency, PayPal will convert the charge using its own exchange rate and may apply a currency conversion fee, in accordance with PayPal\'s terms.', 'dawp') . '</p>',
         ],
         [
-            'heading' => __('When you are charged', 'dawp'),
-            'body'    => '<p>' . esc_html__('By placing an order you authorize us to charge your chosen payment method for the full order total- the item price plus any applicable shipping and sales tax- at the time the order is submitted. If a payment authorization later fails or is reversed, the order will not be dispatched.', 'dawp') . '</p>'
-                . '<p>' . esc_html__('All purchases are one-time transactions. We do not operate subscriptions and will never charge your payment method on a recurring basis.', 'dawp') . '</p>',
+            'heading' => __('Order Confirmation & When You Are Charged', 'dawp'),
+            'body'    => '<p>' . esc_html__('When you complete checkout through PayPal, your payment method is authorized and charged in full at the time the order is placed, not at the time of shipment. You will receive an order confirmation email from Watchfavor and a separate payment receipt from PayPal.', 'dawp') . '</p>',
         ],
         [
-            'heading' => __('Billing descriptor', 'dawp'),
-            'body'    => '<p>' . sprintf(
-                /* translators: 1: store name, 2: statement descriptor */
-                esc_html__('Because payments are processed by PayPal, charges from this website usually appear on your card or account statement as "PAYPAL *%2$s" or "%1$s". If you see a charge you do not recognize, please contact us before disputing it with your bank so we can identify the order quickly.', 'dawp'),
-                esc_html($store),
-                esc_html($descriptor)
-            ) . '</p>',
+            'heading' => __('Payment Security', 'dawp'),
+            'body'    => '<p>' . esc_html__('Payment pages are served over encrypted (SSL/TLS) connections. Because PayPal handles the entire payment step, your sensitive card and bank information is entered directly into PayPal\'s secure environment and is protected by PayPal\'s fraud monitoring and PCI-DSS Level 1 certified infrastructure.', 'dawp') . '</p>',
         ],
         [
-            'heading' => __('Sales tax', 'dawp'),
-            'body'    => '<p>' . esc_html__('Sales tax is calculated at checkout based on the shipping address and the current state and local tax rates. The tax amount is shown before you confirm payment and is included in the total charged.', 'dawp') . '</p>',
+            'heading' => __('Billing Descriptor', 'dawp'),
+            'body'    => '<p>' . esc_html__('Charges will appear on your PayPal account and card or bank statement referencing PayPal along with our store name (for example, "PAYPAL *WATCHFAVOR"). If you do not recognize a charge, please contact us before disputing it with PayPal or your bank so we can help resolve it quickly.', 'dawp') . '</p>',
         ],
         [
-            'heading' => __('Pricing accuracy and errors', 'dawp'),
-            'body'    => '<p>' . esc_html__('We take care to price and describe every product accurately. If an item is listed at an incorrect price or with incorrect information because of a technical or human error, we reserve the right to cancel the order and refund you in full, whether or not the order has been confirmed. We will contact you before taking that step.', 'dawp') . '</p>',
+            'heading' => __('Sales Tax', 'dawp'),
+            'body'    => '<p>' . esc_html__('Applicable US sales tax, if any, is calculated at checkout based on your shipping address and the tax requirements of that state and locality, and is included in the total charged through PayPal.', 'dawp') . '</p>',
         ],
         [
-            'heading' => __('Order confirmation and acceptance', 'dawp'),
-            'body'    => '<p>' . esc_html__('The confirmation email you receive after checkout acknowledges that we have received your order; it is not acceptance of the order. A contract of sale is formed only when we dispatch the item. Until then, we may decline or limit an order for reasons including stock availability, a suspected pricing error, a failed payment or address verification, or a suspected fraudulent or resale order.', 'dawp') . '</p>',
+            'heading' => __('Pricing & Payment Errors', 'dawp'),
+            'body'    => '<p>' . esc_html__('If a product is listed at an incorrect price or a payment is processed in error, we will contact you and either cancel the order with a full refund through PayPal, or confirm whether you would like to proceed at the correct price.', 'dawp') . '</p>',
         ],
         [
-            'heading' => __('Payment security and fraud screening', 'dawp'),
-            'body'    => '<p>' . esc_html__('Payments are processed by PayPal, a PCI-DSS compliant provider, over an encrypted connection. Your card details are entered on PayPal and are never received or stored by us. Orders may be screened for fraud, and we may ask you to verify your identity or billing details before an order is dispatched. Orders that cannot be verified are cancelled and refunded in full.', 'dawp') . '</p>',
+            'heading' => __('Declined or Failed Payments', 'dawp'),
+            'body'    => '<p>' . esc_html__('If PayPal declines or is unable to process your payment, your order will not be placed and no charge will be made. Please check your PayPal account, card details, or available balance, or try an alternate payment method within PayPal, and contact your bank or PayPal support if the issue continues.', 'dawp') . '</p>',
         ],
         [
-            'heading' => __('Declined or failed payments', 'dawp'),
-            'body'    => '<p>' . esc_html__('If your payment is declined, the order will not be placed. Common reasons include insufficient funds, an incorrect card or billing detail, or a hold placed by your bank. Please contact your bank or try a different payment method. Any temporary authorization holds are released by your bank on its own timeline, typically within a few business days.', 'dawp') . '</p>',
-        ],
-        [
-            'heading' => __('Discounts and promotional codes', 'dawp'),
-            'body'    => '<p>' . esc_html__('Promotional codes must be entered at checkout, cannot be applied to a completed order, and cannot be combined with other codes unless we state otherwise. Each code is subject to its own start and end dates and any minimum spend or product exclusions. We may withdraw or modify a promotion at any time.', 'dawp') . '</p>',
+            'heading' => __('Fraud Prevention & Order Verification', 'dawp'),
+            'body'    => '<p>' . esc_html__('Orders may be screened by PayPal and by Watchfavor for fraud risk. We reserve the right to cancel or delay an order, request additional verification, or refund the payment in full if it cannot be verified or is flagged as high risk.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Refunds', 'dawp'),
             'body'    => '<p>' . sprintf(
-                /* translators: %s: return & refund policy link */
-                wp_kses_post(__('Approved refunds are always issued to the original payment method used for the order. Refund eligibility, timeframes, and who pays return shipping are set out in our %s.', 'dawp')),
-                '<a href="' . esc_url(home_url('/return-refund-policy/')) . '">' . esc_html__('Return & Refund Policy', 'dawp') . '</a>'
+                wp_kses_post(__('Approved refunds are always issued back through PayPal to your original payment method. Full details on refund eligibility and timing are in our <a href="%s">Return & Refund Policy</a>.', 'dawp')),
+                esc_url(home_url('/return-refund-policy/'))
             ) . '</p>',
         ],
         [
-            'heading' => __('Chargebacks and disputes', 'dawp'),
+            'heading' => __('Billing Questions', 'dawp'),
             'body'    => '<p>' . sprintf(
-                /* translators: %s: support email link */
-                wp_kses_post(__('If you have a billing concern, please contact us first at %s. Most issues are resolved within 1 business day. Filing a chargeback without contacting us delays the resolution for everyone. We keep order, delivery, and communication records and will respond to disputes with that evidence.', 'dawp')),
-                '<a href="mailto:' . esc_attr($email) . '">' . esc_html($email) . '</a>'
+                wp_kses_post(__('If you have a question about a charge, receipt, or your PayPal transaction, <a href="%s">contact us</a> with your order number and we will respond within 1 business day.', 'dawp')),
+                esc_url(home_url('/contact-us/?topic=billing'))
             ) . '</p>',
         ],
     ],

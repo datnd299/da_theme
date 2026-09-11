@@ -1,11 +1,6 @@
 <?php
 /**
- * Terms of Service- WristUnion
- *
- * Hardcoded policy content: general terms of sale and website use, including
- * disclaimers and limitation of liability. Watch warranties vary by model and
- * are stated on each product page. Kept consistent with the Billing Terms &
- * Conditions, Shipping Policy, Return & Refund Policy, and Privacy Policy.
+ * Terms of Service- Watchfavor.
  *
  * @package dawp
  */
@@ -14,128 +9,92 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$email     = function_exists('dawp_store_email') ? dawp_store_email() : 'support@wristunion.com';
-$store     = function_exists('dawp_store_name') ? dawp_store_name() : 'WristUnion';
-$governing = function_exists('dawp_store_governing_law') ? dawp_store_governing_law() : 'the United States';
-$site_host = wp_parse_url(home_url(), PHP_URL_HOST);
-
 dawp_render_legal([
     'title'   => __('Terms of Service', 'dawp'),
-    'updated' => __('September 7, 2026', 'dawp'),
-    'intro'   => sprintf(
-        /* translators: 1: store name, 2: website host */
-        __('These Terms of Service govern your use of %1$s (%2$s) and any purchase you make from us. By browsing this website or placing an order, you agree to these terms. Please also read our Privacy Policy, Shipping Policy, Return & Refund Policy, and Billing Terms & Conditions, which form part of these terms.', 'dawp'),
-        $store,
-        $site_host
-    ),
+    'updated' => __('September 11, 2026', 'dawp'),
+    'intro'   => __('These Terms of Service govern your access to and use of the Watchfavor website and any purchase you make from us. Please read them carefully before placing an order.', 'dawp'),
     'sections' => [
         [
-            'heading' => __('Who we are', 'dawp'),
-            'body'    => '<p>' . sprintf(
-                /* translators: %1$s: store name */
-                esc_html__('%1$s is an independent watch brand that designs and hand-assembles its own wristwatches for customers in the United States. In these terms, "we", "us", and "our" refer to %1$s, and "you" refers to the person using the website or placing an order.', 'dawp'),
-                esc_html($store)
-            ) . '</p>',
+            'heading' => __('Acceptance of Terms', 'dawp'),
+            'body'    => '<p>' . esc_html__('By accessing or using this website, browsing our products, or placing an order, you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree, please do not use this site.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Eligibility', 'dawp'),
-            'body'    => '<p>' . esc_html__('You must be at least 18 years old, or the age of majority in your state, and able to enter into a binding contract to place an order. By ordering, you confirm that the payment method used is yours and that the information you provide is accurate and complete.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('You must be at least 18 years old, or the age of majority in your jurisdiction, and able to form a legally binding contract to place an order on this site. By ordering, you represent that you meet this requirement.', 'dawp') . '</p>',
         ],
         [
-            'heading' => __('Products, descriptions, and availability', 'dawp'),
-            'body'    => '<p>' . esc_html__('We describe each watch as accurately as we can, including its movement, case diameter, thickness, lug-to-lug, lug width, strap, crystal, and water resistance rating. Product photos are representative; slight variation in colour or finish can occur between screens and between hand-assembled units. Every watch is designed in-house and assembled, regulated, and pressure-tested by hand in our own workshop. We are an independent brand and we do not sell pre-owned, replica, or counterfeit watches.', 'dawp') . '</p>'
-                . '<p>' . esc_html__('Because our watches are produced in limited runs, stock can change without notice. If an item becomes unavailable after you order, we will contact you to arrange an alternative or issue a full refund.', 'dawp') . '</p>',
+            'heading' => __('Use of the Site', 'dawp'),
+            'body'    => '<p>' . esc_html__('You agree to use this site only for lawful purposes. You may not attempt to disrupt or overload its operation, access accounts or data without authorization, introduce malicious code, scrape or copy site content without permission, or use the site to submit false or fraudulent orders.', 'dawp') . '</p>',
         ],
         [
-            'heading' => __('Orders and acceptance', 'dawp'),
+            'heading' => __('Account Registration', 'dawp'),
+            'body'    => '<p>' . esc_html__('You may need to create an account to place an order or track purchases. You are responsible for keeping your account credentials confidential and for all activity under your account. Notify us immediately if you suspect unauthorized use.', 'dawp') . '</p>',
+        ],
+        [
+            'heading' => __('Products & Pricing', 'dawp'),
+            'body'    => '<p>' . esc_html__('We make every effort to display accurate product descriptions, specifications, images and pricing, all listed in US Dollars. Colors and finish may vary slightly from photos due to display settings and natural material variation.', 'dawp') . '</p>'
+                . '<p>' . esc_html__('In the event of a pricing, description or listing error, we reserve the right to cancel any order placed at the incorrect price or based on the incorrect listing, and to issue a full refund through PayPal, even after an order confirmation has been sent.', 'dawp') . '</p>',
+        ],
+        [
+            'heading' => __('Orders & Acceptance', 'dawp'),
+            'body'    => '<p>' . esc_html__('Placing an order through checkout is an offer to purchase, which we may accept or decline for any lawful reason, including suspected fraud, pricing errors, or unavailable inventory. A contract of sale is formed only when we confirm and dispatch your order.', 'dawp') . '</p>',
+        ],
+        [
+            'heading' => __('Payment', 'dawp'),
             'body'    => '<p>' . sprintf(
-                /* translators: %s: billing terms link */
-                wp_kses_post(__('An order confirmation is an acknowledgment, not acceptance. We accept an order only when we dispatch it. We may refuse or cancel an order as set out in our %s, including for stock, pricing errors, failed payment or verification, or suspected fraud or resale activity.', 'dawp')),
-                '<a href="' . esc_url(home_url('/billing-terms-conditions/')) . '">' . esc_html__('Billing Terms & Conditions', 'dawp') . '</a>'
+                wp_kses_post(__('All payments on this site are processed securely through PayPal, which accepts PayPal balance, linked bank payments, and major credit/debit cards without requiring a PayPal account. Your payment method is charged at the time your order is placed. See our <a href="%s">Billing Terms & Conditions</a> for full details.', 'dawp')),
+                esc_url(home_url('/billing-terms-conditions/'))
             ) . '</p>',
         ],
         [
-            'heading' => __('Pricing and payment', 'dawp'),
+            'heading' => __('Shipping & Delivery', 'dawp'),
             'body'    => '<p>' . sprintf(
-                /* translators: %s: billing terms link */
-                wp_kses_post(__('All prices are in US Dollars and exclude sales tax, which is added at checkout where applicable. Accepted payment methods, the currency, when you are charged, and the billing descriptor are described in our %s.', 'dawp')),
-                '<a href="' . esc_url(home_url('/billing-terms-conditions/')) . '">' . esc_html__('Billing Terms & Conditions', 'dawp') . '</a>'
+                wp_kses_post(__('We currently ship to addresses within the United States only. Estimated delivery times, costs and carrier information are set out in our <a href="%s">Shipping Policy</a>, which forms part of these Terms.', 'dawp')),
+                esc_url(home_url('/shipping-policy/'))
             ) . '</p>',
         ],
         [
-            'heading' => __('Shipping, returns, and refunds', 'dawp'),
+            'heading' => __('Returns, Refunds & Warranty', 'dawp'),
             'body'    => '<p>' . sprintf(
-                /* translators: 1: shipping policy link, 2: return & refund policy link */
-                wp_kses_post(__('Delivery times, costs, and destinations are described in our %1$s. Your right to return an item and how refunds are issued are described in our %2$s.', 'dawp')),
-                '<a href="' . esc_url(home_url('/shipping-policy/')) . '">' . esc_html__('Shipping Policy', 'dawp') . '</a>',
-                '<a href="' . esc_url(home_url('/return-refund-policy/')) . '">' . esc_html__('Return & Refund Policy', 'dawp') . '</a>'
+                wp_kses_post(__('Returns, refunds, exchanges and warranty coverage are governed by our <a href="%s">Return & Refund Policy</a>, which forms part of these Terms.', 'dawp')),
+                esc_url(home_url('/return-refund-policy/'))
             ) . '</p>',
         ],
         [
-            'heading' => __('Product warranty', 'dawp'),
-            'body'    => '<p>' . esc_html__('Every WristUnion watch carries a 2-year workshop warranty from the date of delivery. It covers assembly faults and the movement under normal use, and entitles you to a free repair or, where a repair is not practical, a replacement or refund at our discretion.', 'dawp') . '</p>'
-                . '<p>' . esc_html__('The warranty does not cover normal wear, water exposure beyond the watch\'s stated resistance rating, accidental damage, scratches, loss, theft, or damage from unauthorized repair or modification. Straps and crystals are consumable parts. Routine movement servicing after the warranty period is at the owner\'s cost.', 'dawp') . '</p>'
-                . '<p>' . sprintf(
-                    /* translators: %s: support email link */
-                    wp_kses_post(__('If your watch develops a fault, email %s with your order number and photos of the issue and we will advise the next step and, where the warranty applies, send a prepaid return label.', 'dawp')),
-                    '<a href="mailto:' . esc_attr($email) . '">' . esc_html($email) . '</a>'
-                ) . '</p>',
+            'heading' => __('Intellectual Property', 'dawp'),
+            'body'    => '<p>' . esc_html__('All content on this site- including product designs, photography, graphics, text, logos and the Watchfavor name and marks- is the property of Watchfavor or its licensors and is protected by copyright and trademark law. You may not reproduce, distribute, or create derivative works from this content without our prior written permission.', 'dawp') . '</p>',
         ],
         [
-            'heading' => __('Acceptable use of the website', 'dawp'),
-            'body'    => '<p>' . esc_html__('You agree not to use this website to break the law, infringe our or others\' rights, place fraudulent orders, interfere with the site\'s operation or security, scrape or copy content at scale, or resell our products in a way that misrepresents them or their origin.', 'dawp') . '</p>',
+            'heading' => __('Third-Party Links & Services', 'dawp'),
+            'body'    => '<p>' . esc_html__('Our checkout process links to PayPal, a third-party service with its own terms of use and privacy policy. We are not responsible for the availability, content, or practices of PayPal or any other third-party site linked from ours.', 'dawp') . '</p>',
         ],
         [
-            'heading' => __('Intellectual property', 'dawp'),
-            'body'    => '<p>' . sprintf(
-                /* translators: %s: store name */
-                esc_html__('All content on this website, including text, product photography, graphics, logos, and page design, is owned by %s or its licensors and is protected by copyright and trademark law. You may not reproduce or use it for commercial purposes without our written permission.', 'dawp'),
-                esc_html($store)
-            ) . '</p>',
+            'heading' => __('Disclaimer of Warranties', 'dawp'),
+            'body'    => '<p>' . esc_html__('This site and its content are provided "as is" without warranties of any kind, express or implied, except for the express product warranty described in our Return & Refund Policy. We do not warrant that the site will be uninterrupted, secure, or error-free.', 'dawp') . '</p>',
         ],
         [
-            'heading' => __('Disclaimers', 'dawp'),
-            'body'    => '<p>' . esc_html__('The website is provided "as is" and "as available". Except for any manufacturer warranty supplied with a product and the rights you have under applicable consumer law, we make no other warranties, express or implied, including implied warranties of merchantability or fitness for a particular purpose. We do not warrant that the website will be uninterrupted or error-free.', 'dawp') . '</p>',
-        ],
-        [
-            'heading' => __('Limitation of liability', 'dawp'),
-            'body'    => '<p>' . esc_html__('To the fullest extent permitted by law, our total liability for any claim connected with an order is limited to the amount you paid for that order. We are not liable for indirect, incidental, or consequential losses. Nothing in these terms limits liability that cannot be limited by law, including for death or personal injury caused by negligence, or for fraud.', 'dawp') . '</p>',
+            'heading' => __('Limitation of Liability', 'dawp'),
+            'body'    => '<p>' . esc_html__('To the fullest extent permitted by law, Watchfavor and its owners, employees and suppliers are not liable for any indirect, incidental, special or consequential damages arising from your use of this site or products purchased from it. Our total liability for any claim is limited to the amount you paid for the product giving rise to the claim.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Indemnification', 'dawp'),
+            'body'    => '<p>' . esc_html__('You agree to indemnify and hold Watchfavor harmless from any claims, losses, or expenses arising from your misuse of this site or violation of these Terms.', 'dawp') . '</p>',
+        ],
+        [
+            'heading' => __('Governing Law & Dispute Resolution', 'dawp'),
             'body'    => '<p>' . sprintf(
-                /* translators: %s: store name */
-                esc_html__('You agree to indemnify and hold %s harmless from claims, losses, and expenses arising out of your breach of these terms or your misuse of the website.', 'dawp'),
-                esc_html($store)
+                /* translators: %s: governing jurisdiction */
+                esc_html__('These Terms are governed by the laws of %s, without regard to its conflict-of-law principles. Any dispute arising from these Terms or your use of this site will be resolved in the state or federal courts located in that jurisdiction, and you consent to their personal jurisdiction.', 'dawp'),
+                esc_html(dawp_store_governing_law())
             ) . '</p>',
-        ],
-        [
-            'heading' => __('Third-party links', 'dawp'),
-            'body'    => '<p>' . esc_html__('The website may link to third-party sites, such as PayPal or our carriers. We are not responsible for the content or practices of those sites; their terms and privacy policies apply when you use them.', 'dawp') . '</p>',
-        ],
-        [
-            'heading' => __('Dispute resolution', 'dawp'),
-            'body'    => '<p>' . sprintf(
-                /* translators: %s: support email link */
-                wp_kses_post(__('If you have a dispute, please contact us first at %s so we can try to resolve it informally. Most issues are settled quickly this way.', 'dawp')),
-                '<a href="mailto:' . esc_attr($email) . '">' . esc_html($email) . '</a>'
-            ) . '</p>',
-        ],
-        [
-            'heading' => __('Governing law', 'dawp'),
-            'body'    => '<p>' . sprintf(
-                /* translators: %s: governing-law jurisdiction */
-                esc_html__('These terms are governed by the laws of %s, without regard to conflict-of-law rules. The courts of that jurisdiction have exclusive jurisdiction over any dispute, subject to any mandatory consumer-protection rights available to you where you live.', 'dawp'),
-                esc_html($governing)
-            ) . '</p>',
-        ],
-        [
-            'heading' => __('Changes to these terms', 'dawp'),
-            'body'    => '<p>' . esc_html__('We may update these terms from time to time. The version in effect when you place an order applies to that order. Continued use of the website after an update means you accept the revised terms. The "last updated" date at the top of this page shows when it was last changed.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Severability', 'dawp'),
-            'body'    => '<p>' . esc_html__('If any part of these terms is found to be unenforceable, the rest remains in full effect.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('If any provision of these Terms is found unenforceable, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full effect.', 'dawp') . '</p>',
+        ],
+        [
+            'heading' => __('Changes to These Terms', 'dawp'),
+            'body'    => '<p>' . esc_html__('We may update these Terms from time to time. The "Last updated" date above reflects the most recent revision. Continued use of the site after changes are posted constitutes acceptance of the revised Terms.', 'dawp') . '</p>',
         ],
     ],
 ]);

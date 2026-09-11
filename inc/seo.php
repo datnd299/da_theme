@@ -1,6 +1,6 @@
 <?php
 /**
- * Lightweight SEO + structured-data layer for WristUnion
+ * Lightweight SEO + structured-data layer for Watchfavor
  *
  * The theme ships without an SEO plugin. This file adds:
  *   - a meta description per page context;
@@ -27,15 +27,15 @@ if (!defined('ABSPATH')) {
  */
 function dawp_seo_virtual_descriptions() {
     return [
-        'about-us'                 => __('WristUnion designs and hand-builds a small line of mechanical watches- Field & Everyday and Heritage models with full specs, free US shipping, and 30-day returns.', 'dawp'),
-        'faq'                      => __('Answers about shipping, returns, the movement, water resistance, sizing, and payment at WristUnion.', 'dawp'),
-        'contact-us'               => __('Contact WristUnion about an order, a return, a product question, or a privacy request. We reply within 1 business day.', 'dawp'),
-        'track-order'              => __('Track a WristUnion order with your order number and the email address used at checkout.', 'dawp'),
-        'shipping-policy'          => __('How WristUnion ships: free standard shipping on every US order, same-day dispatch on orders placed before 3 PM EST, and 3-7 business day delivery with tracking.', 'dawp'),
-        'return-refund-policy'     => __('WristUnion accepts returns of unworn watches within 30 days of delivery. Read the full return and refund policy, including who pays return shipping.', 'dawp'),
-        'billing-terms-conditions' => __('How payments are processed at WristUnion: accepted methods, currency, when you are charged, the billing descriptor, and fraud screening.', 'dawp'),
-        'terms-of-service'         => __('The terms that govern use of the WristUnion website and any purchase you make from us.', 'dawp'),
-        'privacy-policy'           => __('How WristUnion collects, uses, shares, and protects your personal information, and how to exercise your privacy rights.', 'dawp'),
+        'about-us'                 => __('Watchfavor designs mechanical watches in-house across three collections- Timeless Reverie, Celestial Odyssey and Kinetic Sonata- with free US shipping and 30-day returns.', 'dawp'),
+        'faq'                      => __('Answers about shipping, returns, the movement, water resistance, sizing, and payment at Watchfavor.', 'dawp'),
+        'contact-us'               => __('Contact Watchfavor about an order, a return, a product question, or a privacy request. We reply within 1 business day.', 'dawp'),
+        'track-order'              => __('Track a Watchfavor order with your order number and the email address used at checkout.', 'dawp'),
+        'shipping-policy'          => __('How Watchfavor ships: free standard shipping on every US order, same-day dispatch on orders placed before 3 PM EST, and 3-7 business day delivery with tracking.', 'dawp'),
+        'return-refund-policy'     => __('Watchfavor accepts returns of unworn watches within 30 days of delivery. Read the full return and refund policy, including who pays return shipping.', 'dawp'),
+        'billing-terms-conditions' => __('How payments are processed at Watchfavor: accepted methods, currency, when you are charged, the billing descriptor, and fraud screening.', 'dawp'),
+        'terms-of-service'         => __('The terms that govern use of the Watchfavor website and any purchase you make from us.', 'dawp'),
+        'privacy-policy'           => __('How Watchfavor collects, uses, shares, and protects your personal information, and how to exercise your privacy rights.', 'dawp'),
     ];
 }
 
@@ -52,7 +52,7 @@ function dawp_seo_meta_description() {
         $desc = $virtual[$request_uri];
     } elseif (is_front_page()) {
         $desc = get_bloginfo('description', 'display')
-            ?: __('WristUnion- mechanical watches designed and built in-house. A short line of Field & Everyday and Heritage models. Free US shipping.', 'dawp');
+            ?: __('Watchfavor- mechanical watches designed and finished in-house. Timeless Reverie, Celestial Odyssey and Kinetic Sonata collections. Free US shipping.', 'dawp');
     } elseif (function_exists('is_product') && is_product()) {
         $product = wc_get_product(get_queried_object_id());
 
@@ -67,7 +67,7 @@ function dawp_seo_meta_description() {
             $desc = $term->description ? wp_strip_all_tags($term->description) : $term->name;
         }
     } elseif (function_exists('is_shop') && is_shop()) {
-        $desc = __('Browse every WristUnion watch- Field & Everyday and Heritage models, designed in-house and assembled and tested by hand. Full specs on every listing, free US shipping.', 'dawp');
+        $desc = __('Browse every Watchfavor watch- Timeless Reverie, Celestial Odyssey and Kinetic Sonata collections, designed and finished in-house. Full specs on every listing, free US shipping.', 'dawp');
     } elseif (is_singular()) {
         $desc = wp_strip_all_tags(get_the_excerpt(get_queried_object_id()));
     }
@@ -144,10 +144,10 @@ function dawp_seo_head_tags() {
     }
 
     if (!$og_image) {
-        $og_image = get_theme_file_uri('assets/img/logo.png');
+        $og_image = get_theme_file_uri('assets/img/img1.jpeg');
     }
 
-    echo "\n<!-- WristUnion SEO -->\n";
+    echo "\n<!-- Watchfavor SEO -->\n";
 
     if ($description) {
         printf('<meta name="description" content="%s">' . "\n", esc_attr($description));
@@ -295,7 +295,7 @@ function dawp_seo_organization_data() {
         '@id'          => $home . '#organization',
         'name'         => (function_exists('dawp_store_name') ? dawp_store_name() : get_bloginfo('name')),
         'url'          => $home,
-        'logo'         => get_theme_file_uri('assets/img/logo.png'),
+        'logo'         => get_theme_file_uri('assets/img/logo_wfavor.png'),
         'email'        => $email,
         'contactPoint' => [
             '@type'             => 'ContactPoint',

@@ -1,221 +1,122 @@
 <?php
 /**
- * Theme footer- WristUnion
+ * Site footer- Watchfavor.
  *
  * @package dawp
- *
- * NOTE FOR STORE OWNER: Google Merchant Center requires a verifiable business
- * identity. The business address below is read from WooCommerce > Settings >
- * General > Store Address- keep that setting accurate and complete.
  */
 
 if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = function_exists('dawp_store_email') ? dawp_store_email() : 'support@wristunion.com';
-$store_address  = function_exists('dawp_store_address') ? dawp_store_address() : '';
-$business_hours = __('Mon - Fri, 9:00 AM - 5:00 PM EST', 'dawp');
-
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
-
-if (!$account_url) {
-    $account_url = home_url('/my-account/');
-}
-
-// Category links resolve to the product-category archive when the store owner
-// has created the matching term (see inc/menu.php / inc/product-categories.php),
-// otherwise they fall back to /product-category/<slug>/.
-$dawp_cat_link = static function ($slug) use ($shop_url) {
-    return function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : $shop_url;
+$dawp_nav_cat_url = static function ($slug) {
+    if (function_exists('dawp_product_category_url')) {
+        return dawp_product_category_url($slug);
+    }
+    return home_url('/product-category/' . trim($slug, '/') . '/');
 };
 
-$footer_columns = [
-    [
-        'title' => __('Watches', 'dawp'),
-        'links' => [
-            ['title' => __('All watches', 'dawp'),      'url' => $shop_url],
-            ['title' => __('Field & Everyday', 'dawp'), 'url' => $dawp_cat_link('field-everyday')],
-            ['title' => __('Heritage', 'dawp'),         'url' => $dawp_cat_link('heritage')],
-        ],
-    ],
-    [
-        'title' => __('Customer Service', 'dawp'),
-        'links' => [
-            ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
-            ['title' => __('Shipping', 'dawp'),   'url' => home_url('/shipping-policy/')],
-            ['title' => __('Returns', 'dawp'),    'url' => home_url('/return-refund-policy/')],
-            ['title' => __('FAQ', 'dawp'),        'url' => home_url('/faq/')],
-        ],
-    ],
-    [
-        'title' => __('About', 'dawp'),
-        'links' => [
-            ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
-        ],
-    ],
-    [
-        'title' => __('Policies', 'dawp'),
-        'links' => [
-            ['title' => __('Shipping Policy', 'dawp'),              'url' => home_url('/shipping-policy/')],
-            ['title' => __('Refund & Return Policy', 'dawp'),       'url' => home_url('/return-refund-policy/')],
-            ['title' => __('Privacy Policy', 'dawp'),               'url' => home_url('/privacy-policy/')],
-            ['title' => __('Terms & Conditions', 'dawp'),           'url' => home_url('/terms-of-service/')],
-            ['title' => __('Billing Terms & Conditions', 'dawp'),   'url' => home_url('/billing-terms-conditions/')],
-        ],
-    ],
+$dawp_collections = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [];
+$dawp_year = date('Y');
+$dawp_email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@watchfavor.com';
+$dawp_address = function_exists('dawp_store_address') ? dawp_store_address() : '';
+
+$dawp_payment_methods = [
+    ['name' => __('Visa', 'dawp'), 'file' => 'visa.png'],
+    ['name' => __('Mastercard', 'dawp'), 'file' => 'mastercard.png'],
+    ['name' => __('American Express', 'dawp'), 'file' => 'amex.png'],
+    ['name' => __('PayPal', 'dawp'), 'file' => 'paypal.png'],
 ];
 ?>
 
-</div><!-- #content -->
+<footer class="border-t border-line bg-primary text-white">
+    <div class="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div class="mx-auto max-w-xl text-center">
+            <p class="font-heading text-xs font-semibold uppercase tracking-brand text-accent"><?php esc_html_e('Join the Inner Circle', 'dawp'); ?></p>
+            <h2 class="mt-4 font-heading text-2xl font-semibold sm:text-3xl"><?php esc_html_e('Become Part of the Legacy', 'dawp'); ?></h2>
+            <p class="mt-4 text-sm leading-7 text-white/70"><?php esc_html_e('Join our inner circle to receive early access to limited editions and mechanical insights.', 'dawp'); ?></p>
 
-<footer class="bg-primary text-white" role="contentinfo">
-    <div class="border-b border-white/10 bg-primary-dark">
-        <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 text-sm text-white/70 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-            <p class="font-semibold text-accent"><?php esc_html_e('Free US shipping on every order  ·  2-year workshop warranty  ·  30-day returns', 'dawp'); ?></p>
-            <div class="flex flex-wrap gap-x-5 gap-y-2">
-                <span><?php esc_html_e('Sapphire crystal', 'dawp'); ?></span>
-                <span><?php esc_html_e('Automatic movement', 'dawp'); ?></span>
-                <span><?php esc_html_e('Support: ', 'dawp'); ?><?php echo esc_html($business_hours); ?></span>
+            <form id="newsletter-form" class="mx-auto mt-7 flex max-w-md flex-col gap-3 sm:flex-row">
+                <label for="newsletter-email" class="sr-only"><?php esc_html_e('Email address', 'dawp'); ?></label>
+                <input type="email" id="newsletter-email" required placeholder="<?php esc_attr_e('Your email address', 'dawp'); ?>" class="min-h-12 flex-1 border border-white/25 bg-transparent px-4 text-sm text-white placeholder-white/50 outline-none transition focus:border-accent">
+                <button type="submit" class="inline-flex min-h-12 items-center justify-center bg-accent px-7 font-heading text-xs font-semibold uppercase tracking-button text-primary transition hover:bg-accent-hover">
+                    <?php esc_html_e('Subscribe', 'dawp'); ?>
+                </button>
+            </form>
+            <p id="newsletter-message" class="mt-3 hidden text-sm text-accent" role="status"></p>
+        </div>
+
+        <div class="mt-16 grid gap-10 border-t border-white/10 pt-14 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php echo esc_attr(dawp_store_name()); ?>">
+                    <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo_wfavor.png')); ?>" alt="<?php echo esc_attr(dawp_store_name()); ?>" class="h-12 w-auto" width="1344" height="752">
+                </a>
+                <p class="mt-4 max-w-xs text-sm leading-7 text-white/60"><?php esc_html_e('Mechanical watches designed and finished in-house. No batteries, no screens- just the heartbeat of hundreds of micro-components, alive with your pulse.', 'dawp'); ?></p>
+                <ul class="mt-5 space-y-2 text-sm text-white/60">
+                    <li>
+                        <a href="mailto:<?php echo esc_attr($dawp_email); ?>" class="transition hover:text-accent"><?php echo esc_html($dawp_email); ?></a>
+                    </li>
+                    <?php if ($dawp_address) : ?>
+                        <li><?php echo esc_html($dawp_address); ?></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-heading text-xs font-semibold uppercase tracking-label text-white/50"><?php esc_html_e('Shop', 'dawp'); ?></h3>
+                <ul class="mt-5 space-y-3 text-sm">
+                    <?php foreach ($dawp_collections as $slug => $cat) : ?>
+                        <li><a href="<?php echo esc_url($dawp_nav_cat_url($slug)); ?>" class="text-white/70 transition hover:text-accent"><?php echo esc_html($cat['name']); ?></a></li>
+                    <?php endforeach; ?>
+                    <li><a href="<?php echo esc_url($shop_url); ?>" class="text-white/70 transition hover:text-accent"><?php esc_html_e('All Watches', 'dawp'); ?></a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-heading text-xs font-semibold uppercase tracking-label text-white/50"><?php esc_html_e('Company', 'dawp'); ?></h3>
+                <ul class="mt-5 space-y-3 text-sm">
+                    <li><a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="text-white/70 transition hover:text-accent"><?php esc_html_e('Brand Story', 'dawp'); ?></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/faq/')); ?>" class="text-white/70 transition hover:text-accent"><?php esc_html_e('FAQ', 'dawp'); ?></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="text-white/70 transition hover:text-accent"><?php esc_html_e('Contact Us', 'dawp'); ?></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="text-white/70 transition hover:text-accent"><?php esc_html_e('Track Order', 'dawp'); ?></a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-heading text-xs font-semibold uppercase tracking-label text-white/50"><?php esc_html_e('Legal', 'dawp'); ?></h3>
+                <ul class="mt-5 space-y-3 text-sm">
+                    <li><a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="text-white/70 transition hover:text-accent"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>" class="text-white/70 transition hover:text-accent"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/billing-terms-conditions/')); ?>" class="text-white/70 transition hover:text-accent"><?php esc_html_e('Billing Terms', 'dawp'); ?></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/terms-of-service/')); ?>" class="text-white/70 transition hover:text-accent"><?php esc_html_e('Terms of Service', 'dawp'); ?></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="text-white/70 transition hover:text-accent"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a></li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <!-- Brand band -->
-        <div class="grid gap-10 border-b border-white/10 pb-10 lg:grid-cols-[1.7fr_1fr] lg:items-start lg:gap-16">
-            <div>
-                <?php
-                $footer_logo_webp = get_theme_file_path('assets/img/logo-light.webp');
-                $footer_logo_ver  = file_exists($footer_logo_webp) ? filemtime($footer_logo_webp) : '1';
-                ?>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('WristUnion- home', 'dawp'); ?>">
-                    <picture>
-                        <source srcset="<?php echo esc_url(get_theme_file_uri('assets/img/logo-light.webp') . '?v=' . $footer_logo_ver); ?>" type="image/webp">
-                        <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo-light.png') . '?v=' . $footer_logo_ver); ?>" alt="<?php esc_attr_e('WristUnion', 'dawp'); ?>" width="283" height="200" class="h-14 w-auto sm:h-16" loading="lazy" decoding="async">
-                    </picture>
-                </a>
-
-                <p class="mt-5 max-w-md font-serif text-[15px] leading-7 text-white/75">
-                    <?php esc_html_e('Mechanical watches designed and built by WristUnion. Field & Everyday and Heritage models, each running an automatic movement and assembled by hand.', 'dawp'); ?>
-                </p>
-
-                <div class="mt-6 grid gap-3 text-sm leading-6 text-white/75 sm:grid-cols-2 lg:grid-cols-1">
-                    <div class="flex items-start gap-3">
-                        <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center text-accent" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                                <path d="m22 7-10 6L2 7"></path>
-                            </svg>
-                        </span>
-                        <p>
-                            <span class="font-semibold text-white"><?php esc_html_e('Email:', 'dawp'); ?></span>
-                            <a class="break-all transition hover:text-accent" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
-                        </p>
-                    </div>
-
-                    <?php if ($store_address) : ?>
-                    <div class="flex items-start gap-3">
-                        <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center text-accent" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </span>
-                        <p>
-                            <span class="font-semibold text-white"><?php esc_html_e('Business address:', 'dawp'); ?></span>
-                            <?php echo esc_html($store_address); ?>
-                        </p>
-                    </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-
-            <div class="lg:justify-self-end">
-                <p class="text-xs font-semibold uppercase tracking-label text-white/50"><?php esc_html_e('Accepted Payments', 'dawp'); ?></p>
-                <ul class="mt-3 flex flex-wrap items-center gap-2" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
-                    <li>
-                        <span class="inline-flex h-8 w-12 items-center justify-center rounded-sm bg-white" title="<?php esc_attr_e('Visa', 'dawp'); ?>">
-                            <span class="sr-only"><?php esc_html_e('Visa', 'dawp'); ?></span>
-                            <svg viewBox="0 0 64 40" width="44" height="28" aria-hidden="true" focusable="false">
-                                <rect width="64" height="40" rx="5" fill="#fff"></rect>
-                                <path d="M24.6 26.6h-4.2l2.6-13.2h4.2l-2.6 13.2Zm-7.8-13.2-4 9.1-.5-2.5-1.4-6.6H6.7l3.6 13.2h4.5l6.5-13.2h-4.5Zm21.9 8.9c0-3.5-5.8-2.8-5.8-4.4 0-.5.6-1.1 1.9-1.2 1.4-.1 2.9.3 3.9.7l.7-3.4c-1-.4-2.3-.8-4-.8-4.2 0-7.2 2.1-7.2 5.1 0 2.3 2.2 3.5 3.9 4.3 1.7.8 2.3 1.3 2.3 2 0 1.1-1.4 1.5-2.7 1.5-1.8 0-2.8-.3-4.3-.9l-.7 3.5c1 .5 2.8.9 4.7.9 4.5 0 7.3-2.1 7.3-5.3Zm11.1 4.3h3.9L50.3 13.4h-3.6c-.8 0-1.5.4-1.8 1.1l-6.3 12.1H43l.9-2.3h5.4l.5 2.3Zm-4.6-5.4 2.2-5.4 1.2 5.4h-3.4Z" fill="#1A1F71"></path>
-                            </svg>
-                        </span>
+    <div class="border-t border-white/10 bg-primary-dark">
+        <div class="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-4 px-4 py-6 text-xs text-white/50 sm:flex-row sm:px-6 lg:px-8">
+            <p><?php echo esc_html(sprintf(__('© %1$s %2$s. All rights reserved.', 'dawp'), $dawp_year, dawp_store_name())); ?></p>
+            <p><?php esc_html_e('Free US shipping · 30-day returns · 2-year warranty', 'dawp'); ?></p>
+            <ul class="flex items-center gap-2" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
+                <?php foreach ($dawp_payment_methods as $method) :
+                    $payment_path = get_theme_file_path('assets/img/payment/' . $method['file']);
+                    if (!file_exists($payment_path)) {
+                        continue;
+                    }
+                    $payment_url = get_theme_file_uri('assets/img/payment/' . $method['file']);
+                    ?>
+                    <li class="flex h-7 w-11 items-center justify-center bg-white p-1">
+                        <img src="<?php echo esc_url($payment_url); ?>" alt="<?php echo esc_attr($method['name']); ?>" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain">
                     </li>
-                    <li>
-                        <span class="inline-flex h-8 w-12 items-center justify-center rounded-sm bg-white" title="<?php esc_attr_e('Mastercard', 'dawp'); ?>">
-                            <span class="sr-only"><?php esc_html_e('Mastercard', 'dawp'); ?></span>
-                            <svg viewBox="0 0 64 40" width="44" height="28" aria-hidden="true" focusable="false">
-                                <rect width="64" height="40" rx="5" fill="#fff"></rect>
-                                <circle cx="26" cy="20" r="10" fill="#EB001B"></circle>
-                                <circle cx="38" cy="20" r="10" fill="#F79E1B"></circle>
-                                <path d="M32 12.2a10 10 0 0 1 0 15.6 10 10 0 0 1 0-15.6Z" fill="#FF5F00"></path>
-                            </svg>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="inline-flex h-8 w-12 items-center justify-center rounded-sm bg-white" title="<?php esc_attr_e('American Express', 'dawp'); ?>">
-                            <span class="sr-only"><?php esc_html_e('American Express', 'dawp'); ?></span>
-                            <svg viewBox="0 0 64 40" width="44" height="28" aria-hidden="true" focusable="false">
-                                <rect width="64" height="40" rx="5" fill="#2E77BC"></rect>
-                                <path d="M7 14h8.2l1.1 2.5 1.2-2.5h8v12H20v-6.7l-3 6.7h-1.6l-3-6.7V26H7V14Zm21 0h13v3.1h-8v1.5h7.8v2.9H33v1.4h8V26H28V14Zm15 0h6l2.5 3.6 2.6-3.6H60l-5.5 6 5.6 6h-6.2l-2.6-3.8-2.7 3.8H43l5.5-6-5.5-6Z" fill="#fff"></path>
-                            </svg>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="inline-flex h-8 w-12 items-center justify-center rounded-sm bg-white" title="<?php esc_attr_e('PayPal', 'dawp'); ?>">
-                            <span class="sr-only"><?php esc_html_e('PayPal', 'dawp'); ?></span>
-                            <svg viewBox="0 0 64 40" width="44" height="28" aria-hidden="true" focusable="false">
-                                <rect width="64" height="40" rx="5" fill="#fff"></rect>
-                                <path d="M24 12h9.6c4 0 6.6 2.1 6 5.9-.7 4.7-3.9 7.2-8.4 7.2h-2.5l-.9 5.1H22l2-18.2Z" fill="#003087"></path>
-                                <path d="M31.1 17h8.7c3.7 0 5.5 2.1 5 5.3-.6 4.1-3.5 6.5-7.6 6.5h-2.8l-.8 4.2h-5.2L31.1 17Z" fill="#009CDE"></path>
-                                <path d="M30 16.5h3.6c2.1 0 3.5.8 3.3 2.7-.3 2.2-1.9 3.2-4.1 3.2h-3.4L30 16.5Z" fill="#012169"></path>
-                            </svg>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Link columns -->
-        <div class="grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-4">
-            <?php foreach ($footer_columns as $column) : ?>
-                <nav aria-label="<?php echo esc_attr($column['title']); ?>">
-                    <h2 class="text-xs font-bold uppercase tracking-label text-accent"><?php echo esc_html($column['title']); ?></h2>
-                    <ul class="mt-4 grid gap-2 text-sm leading-6 text-white/75">
-                        <?php foreach ($column['links'] as $link) : ?>
-                            <li>
-                                <a class="transition hover:text-accent" href="<?php echo esc_url($link['url']); ?>">
-                                    <?php echo esc_html($link['title']); ?>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </nav>
-            <?php endforeach; ?>
-        </div>
-
-        <p class="border-t border-white/10 pt-8 text-xs leading-5 text-white/45">
-            <span class="font-semibold text-white/60"><?php esc_html_e('Business:', 'dawp'); ?></span>
-            <?php echo esc_html($store_address); ?>.
-            <?php esc_html_e('Every WristUnion watch is designed in-house and assembled and regulated by hand in our own workshop, with an automatic movement and a sapphire crystal. WristUnion is an independent brand; we do not sell pre-owned, replica, or counterfeit watches. Each WristUnion watch carries a 2-year workshop warranty covering assembly and the movement.', 'dawp'); ?>
-        </p>
-
-        <div class="mt-8 flex flex-col gap-3 border-t border-white/15 pt-5 text-sm text-white/55 lg:flex-row lg:items-center lg:justify-between">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> WristUnion. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
-            <div class="flex flex-wrap gap-x-5 gap-y-2">
-                <a class="transition hover:text-accent" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Returns', 'dawp'); ?></a>
-                <a class="transition hover:text-accent" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping', 'dawp'); ?></a>
-                <a class="transition hover:text-accent" href="<?php echo esc_url(home_url('/terms-of-service/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
-                <a class="transition hover:text-accent" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
-            </div>
+                <?php endforeach; ?>
+            </ul>
         </div>
     </div>
 </footer>

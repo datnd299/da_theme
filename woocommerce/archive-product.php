@@ -13,8 +13,8 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All watches', 'dawp');
-$archive_description = __('Every WristUnion watch- Field & Everyday and Heritage models, designed in-house and assembled and tested by hand. Full spec sheet on every listing, including thickness and lug-to-lug. Free US shipping.', 'dawp');
-$archive_eyebrow = __('The WristUnion catalog', 'dawp');
+$archive_description = __('Every Watchfavor watch- Timeless Reverie, Celestial Odyssey and Kinetic Sonata collections, designed and finished in-house. Full spec sheet on every listing. Free US shipping.', 'dawp');
+$archive_eyebrow = __('The Watchfavor catalog', 'dawp');
 
 if ($archive_term && !is_wp_error($archive_term)) {
     $archive_title = $archive_term->name;

@@ -1,10 +1,6 @@
 <?php
 /**
- * About page- WristUnion.
- *
- * Hardcoded content, kept consistent with the homepage, footer, FAQ, and
- * policy pages: an independent brand that designs and hand-assembles its own
- * mechanical watches, ships free in the US, and accepts 30-day returns.
+ * About Us- Watchfavor.
  *
  * @package dawp
  */
@@ -18,116 +14,87 @@ if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$email   = function_exists('dawp_store_email') ? dawp_store_email() : 'support@wristunion.com';
-$store   = function_exists('dawp_store_name') ? dawp_store_name() : 'WristUnion';
-$address = function_exists('dawp_store_address') ? dawp_store_address() : '';
-
-$dawp_cat_link = static function ($slug) use ($shop_url) {
-    return function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : $shop_url;
+$dawp_nav_cat_url = static function ($slug) {
+    if (function_exists('dawp_product_category_url')) {
+        return dawp_product_category_url($slug);
+    }
+    return home_url('/product-category/' . trim($slug, '/') . '/');
 };
 
-$collections = [
-    ['title' => __('Field & Everyday', 'dawp'), 'copy' => __('Durable, legible watches for daily wear.', 'dawp'),        'url' => $dawp_cat_link('field-everyday')],
-    ['title' => __('Heritage', 'dawp'),         'copy' => __('Classic proportions and restrained dials.', 'dawp'),      'url' => $dawp_cat_link('heritage')],
-];
-
-$values = [
-    [
-        'title' => __('Designed and built in-house', 'dawp'),
-        'copy'  => __('We draw every model ourselves, then build, regulate, and pressure-test it on our own bench. No rebadged stock watches. The person who cased your watch is the person who timed it.', 'dawp'),
-    ],
-    [
-        'title' => __('Real numbers, not adjectives', 'dawp'),
-        'copy'  => __('Each product page lists the movement, case diameter, thickness, lug-to-lug, lug width, crystal, and water resistance. No "premium quality"- 316L steel, sapphire crystal, 100 m water resistance.', 'dawp'),
-    ],
-    [
-        'title' => __('Fair, simple pricing', 'dawp'),
-        'copy'  => __('One clear price per watch in US dollars, free US shipping on every US order, and no invented "list price" or countdown timers.', 'dawp'),
-    ],
-    [
-        'title' => __('Backed after it ships', 'dawp'),
-        'copy'  => __('A 2-year workshop warranty covers assembly and the movement, and a real person answers every message within 1 business day. Not right for you? Return it unworn within 30 days.', 'dawp'),
-    ],
-];
+$dawp_collections = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [];
 ?>
 
 <div class="bg-background text-foreground">
     <section class="bg-primary text-white">
-        <div class="mx-auto max-w-3xl px-8 py-16 sm:px-14 lg:py-20">
-            <p class="text-[11px] font-medium uppercase tracking-brand text-accent"><?php esc_html_e('About', 'dawp'); ?></p>
-            <h1 class="mt-4 font-heading text-[clamp(2rem,5vw,3rem)] font-bold leading-[1.05]">
-                <?php esc_html_e('Mechanical watches, designed and built by WristUnion.', 'dawp'); ?>
-            </h1>
-            <p class="mt-5 font-serif text-lg leading-8 text-white/80">
-                <?php esc_html_e('WristUnion is an independent watch brand. We design a short line of Field & Everyday and Heritage watches and assemble them by hand, each running an automatic mechanical movement.', 'dawp'); ?>
-            </p>
+        <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-20">
+            <p class="font-heading text-xs font-semibold uppercase tracking-brand text-accent"><?php esc_html_e('Our Story', 'dawp'); ?></p>
+            <h1 class="mt-4 font-heading text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl"><?php esc_html_e('Watches, Designed and Finished In-House', 'dawp'); ?></h1>
+            <p class="mx-auto mt-6 max-w-xl text-base leading-8 text-white/75"><?php esc_html_e('Watchfavor is a mechanical watch house- not a retailer. Every case, dial and movement assembly on this site carries our own name.', 'dawp'); ?></p>
         </div>
     </section>
 
     <section class="py-16 sm:py-20">
-        <div class="mx-auto max-w-3xl px-8 sm:px-14">
-            <div class="wu-prose space-y-10">
-                <div>
-                    <h2 class="font-heading text-xl font-semibold uppercase tracking-label"><?php esc_html_e('Why we started', 'dawp'); ?></h2>
-                    <p class="mt-3 font-serif text-[17px] leading-8"><?php esc_html_e('Buying a watch online usually means guessing. Photos are inconsistent, the specs are buried three tabs deep, and the same case is sold under a dozen names. We started WristUnion to do the opposite: a tight range, honest photography, a full spec sheet on every listing, and plain answers to the questions people actually ask before they buy.', 'dawp'); ?></p>
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+                <div class="mx-auto max-w-xl lg:mx-0">
+                    <p class="font-heading text-xs font-semibold uppercase tracking-brand text-accent"><?php esc_html_e('The Manifesto', 'dawp'); ?></p>
+                    <p class="mt-5 font-heading text-2xl leading-relaxed text-primary sm:text-3xl"><?php esc_html_e('In a world driven by digital fleetingness, we return to the soul of mechanics.', 'dawp'); ?></p>
+                    <div class="wu-prose mt-8 space-y-5 text-base leading-8 text-foreground-muted">
+                        <p><?php esc_html_e('No batteries. No screens. Just the heartbeat of hundreds of micro-components dancing on your wrist, powered by your motion and alive with your pulse. Every Watchfavor watch begins as a sketch, not a spec sheet from a supplier catalog- we design the case profile, select the movement, and set the finishing standard ourselves before a single unit is built.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('That in-house discipline is why we can stand behind every detail: the depth of a guilloché pattern, the angle of a hand-polished bevel, the exact weight of a crown\'s knurling under your fingertip. We build in small runs so quality control never becomes a bottleneck.', 'dawp'); ?></p>
+                    </div>
                 </div>
-                <div>
-                    <h2 class="font-heading text-xl font-semibold uppercase tracking-label"><?php esc_html_e('How a watch is built', 'dawp'); ?></h2>
-                    <p class="mt-3 font-serif text-[17px] leading-8"><?php esc_html_e('Components are inspected by hand before anything is assembled. Dial and hands are fitted under a loupe, the movement is cased, gaskets are seated, and the caseback is torqued to spec. Then the watch is regulated over several positions, pressure-tested for its stated water resistance, and packed. If a piece does not pass, it does not ship.', 'dawp'); ?></p>
-                </div>
-                <div>
-                    <h2 class="font-heading text-xl font-semibold uppercase tracking-label"><?php esc_html_e('What you can count on', 'dawp'); ?></h2>
-                    <p class="mt-3 font-serif text-[17px] leading-8"><?php esc_html_e('Free US shipping on every order, a 30-day return window on unworn watches, a 2-year workshop warranty on assembly and the movement, secure checkout, and a real reply within 1 business day.', 'dawp'); ?></p>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="<?php echo esc_url(get_theme_file_uri('assets/img/img4.jpeg')); ?>" alt="<?php esc_attr_e('Watchfavor classic dress watch, angled detail', 'dawp'); ?>" class="h-full w-full rounded-lg object-cover shadow-card" width="1024" height="1024">
+                    <img src="<?php echo esc_url(get_theme_file_uri('assets/img/img3.jpeg')); ?>" alt="<?php esc_attr_e('Watchfavor automatic watch with diamond hour markers', 'dawp'); ?>" class="mt-8 h-full w-full rounded-lg object-cover shadow-card" width="1024" height="1024">
                 </div>
             </div>
+        </div>
+    </section>
 
-            <h2 class="mt-16 font-heading text-xl font-semibold uppercase tracking-label"><?php esc_html_e('The range', 'dawp'); ?></h2>
-            <div class="mt-6 grid gap-px bg-line sm:grid-cols-2">
-                <?php foreach ($collections as $c) : ?>
-                    <a href="<?php echo esc_url($c['url']); ?>" class="group bg-surface p-5 transition hover:bg-surface-alt">
-                        <h3 class="font-heading text-base font-semibold text-foreground"><?php echo esc_html($c['title']); ?></h3>
-                        <p class="mt-2 font-serif text-sm leading-6 text-foreground-muted"><?php echo esc_html($c['copy']); ?></p>
-                        <span class="mt-3 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-label text-blued">
-                            <?php esc_html_e('Open', 'dawp'); ?>
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                        </span>
+    <?php if (!empty($dawp_collections)) : ?>
+    <section class="bg-surface-alt py-16 sm:py-20">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center font-heading text-2xl font-semibold text-primary sm:text-3xl"><?php esc_html_e('Three Collections, One Standard', 'dawp'); ?></h2>
+            <div class="mt-12 grid gap-8 sm:grid-cols-3">
+                <?php foreach ($dawp_collections as $slug => $cat) : ?>
+                    <a href="<?php echo esc_url($dawp_nav_cat_url($slug)); ?>" class="group block rounded-lg bg-surface p-7 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover">
+                        <h3 class="font-heading text-lg font-semibold text-primary"><?php echo esc_html($cat['name']); ?></h3>
+                        <p class="mt-3 text-sm leading-7 text-muted"><?php echo esc_html($cat['description']); ?></p>
+                        <span class="mt-5 inline-block text-xs font-semibold uppercase tracking-button text-accent-hover"><?php esc_html_e('Shop the collection →', 'dawp'); ?></span>
                     </a>
                 <?php endforeach; ?>
             </div>
+        </div>
+    </section>
+    <?php endif; ?>
 
-            <h2 class="mt-16 font-heading text-xl font-semibold uppercase tracking-label"><?php esc_html_e('What we stand for', 'dawp'); ?></h2>
-            <div class="mt-6 grid gap-px bg-line sm:grid-cols-2">
-                <?php foreach ($values as $v) : ?>
-                    <article class="bg-surface p-6">
-                        <h3 class="font-heading text-base font-semibold text-foreground"><?php echo esc_html($v['title']); ?></h3>
-                        <p class="mt-2 font-serif text-sm leading-6 text-foreground-muted"><?php echo esc_html($v['copy']); ?></p>
-                    </article>
+    <section class="py-16 sm:py-20">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center font-heading text-2xl font-semibold text-primary sm:text-3xl"><?php esc_html_e('What We Stand Behind', 'dawp'); ?></h2>
+            <div class="mt-12 grid gap-10 sm:grid-cols-3">
+                <?php
+                $dawp_values = [
+                    ['title' => __('Automatic Only', 'dawp'), 'desc' => __('Every Watchfavor watch runs on a self-winding mechanical movement. No batteries, ever.', 'dawp')],
+                    ['title' => __('Full Spec Sheet', 'dawp'), 'desc' => __('Case size, power reserve, water resistance and crystal type are listed on every product page.', 'dawp')],
+                    ['title' => __('Free US Shipping', 'dawp'), 'desc' => __('Every order ships free within the US, with tracking from dispatch to your door.', 'dawp')],
+                ];
+                foreach ($dawp_values as $v) : ?>
+                    <div class="text-center">
+                        <h3 class="font-heading text-base font-semibold text-primary"><?php echo esc_html($v['title']); ?></h3>
+                        <p class="mx-auto mt-3 max-w-xs text-sm leading-7 text-foreground-muted"><?php echo esc_html($v['desc']); ?></p>
+                    </div>
                 <?php endforeach; ?>
             </div>
+        </div>
+    </section>
 
-            <div class="mt-12 border border-line bg-surface p-6">
-                <h2 class="font-heading text-base font-semibold uppercase tracking-label text-foreground"><?php esc_html_e('Company details', 'dawp'); ?></h2>
-                <ul class="mt-3 grid gap-2 text-sm text-foreground">
-                    <li><span class="font-semibold"><?php esc_html_e('Brand:', 'dawp'); ?></span> <?php echo esc_html($store); ?></li>
-                    <li>
-                        <span class="font-semibold"><?php esc_html_e('Email:', 'dawp'); ?></span>
-                        <a class="text-blued underline decoration-line underline-offset-4 transition hover:text-blued-hover" href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a>
-                    </li>
-                    <li><span class="font-semibold"><?php esc_html_e('Support hours:', 'dawp'); ?></span> <?php esc_html_e('Monday to Friday, 9:00 AM to 5:00 PM EST', 'dawp'); ?></li>
-                    <?php if ($address) : ?>
-                        <li><span class="font-semibold"><?php esc_html_e('Business address:', 'dawp'); ?></span> <?php echo esc_html($address); ?></li>
-                    <?php endif; ?>
-                </ul>
-            </div>
-
-            <div class="mt-10 flex flex-col gap-3 sm:flex-row">
-                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex h-12 items-center justify-center border border-primary bg-primary px-7 text-xs font-semibold uppercase tracking-button text-white transition hover:bg-transparent hover:text-primary">
-                    <?php esc_html_e('Shop watches', 'dawp'); ?>
-                </a>
-                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex h-12 items-center justify-center border border-primary px-7 text-xs font-semibold uppercase tracking-button text-primary transition hover:bg-primary hover:text-white">
-                    <?php esc_html_e('Contact us', 'dawp'); ?>
-                </a>
-            </div>
+    <section class="border-t border-line py-16 text-center sm:py-20">
+        <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+            <h2 class="font-heading text-2xl font-semibold text-primary sm:text-3xl"><?php esc_html_e('Ready to Find Your Watch?', 'dawp'); ?></h2>
+            <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center bg-primary px-9 font-heading text-xs font-semibold uppercase tracking-button text-white transition hover:bg-primary-soft">
+                <?php esc_html_e('Explore the Collections', 'dawp'); ?>
+            </a>
         </div>
     </section>
 </div>

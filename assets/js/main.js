@@ -12,20 +12,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile menu toggle
     if (toggle && nav) {
+        const backdrop = document.getElementById('nav-backdrop');
+        const iconOpen = toggle.querySelector('.menu-icon-open');
+        const iconClose = toggle.querySelector('.menu-icon-close');
+
+        const closeMenu = () => {
+            toggle.setAttribute('aria-expanded', 'false');
+            nav.classList.add('hidden');
+            nav.classList.remove('flex');
+            if (backdrop) backdrop.classList.add('hidden');
+            if (iconOpen) iconOpen.classList.remove('hidden');
+            if (iconClose) iconClose.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        const openMenu = () => {
+            toggle.setAttribute('aria-expanded', 'true');
+            nav.classList.remove('hidden');
+            nav.classList.add('flex');
+            if (backdrop) backdrop.classList.remove('hidden');
+            if (iconOpen) iconOpen.classList.add('hidden');
+            if (iconClose) iconClose.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        };
+
         toggle.addEventListener('click', () => {
             const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('is-open');
+            expanded ? closeMenu() : openMenu();
         });
 
-        // Đóng menu khi click bên ngoài
-        document.addEventListener('click', (e) => {
-            if (!header.contains(e.target) && !toggle.contains(e.target)) {
-                toggle.setAttribute('aria-expanded', 'false');
-                nav.classList.remove('is-open');
+        if (backdrop) {
+            backdrop.addEventListener('click', closeMenu);
+        }
+
+        nav.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+                closeMenu();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024 && toggle.getAttribute('aria-expanded') === 'true') {
+                closeMenu();
             }
         });
     }
+
+    // Header dropdowns (e.g. Collections megamenu): disclosure buttons that
+    // act as an accordion on mobile (native click toggle) while desktop
+    // relies on the CSS :hover/:focus-within panel instead- see header.php.
+    document.querySelectorAll('[data-menu-toggle]').forEach((btn) => {
+        const panel = document.getElementById(btn.getAttribute('aria-controls'));
+        if (!panel) return;
+
+        btn.addEventListener('click', () => {
+            if (window.matchMedia('(min-width: 1024px)').matches) return;
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!expanded));
+            panel.classList.toggle('hidden');
+            const chevron = btn.querySelector('.chevron');
+            if (chevron) chevron.classList.toggle('rotate-180');
+        });
+    });
 
     // Product Gallery Thumbnails Scroll
     const initGalleryThumbsScroll = () => {

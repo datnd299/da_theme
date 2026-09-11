@@ -1,57 +1,57 @@
 /* =============================================================
-   main.css - WristUnion Design System ("spec sheet")
+   main.css - Watchfavor Design System ("Light & Bright")
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
-   Materials of the trade: brushed steel, blued screws, brass, bench paper.
+   Alabaster grounds, blued-steel type, champagne gold accents.
    ============================================================= */
 
 :root {
   /* === BACKGROUNDS === */
-  --color-background: #E5E6E2;
-  /* wu-steel-paper- cool blue-grey page ground */
-  --color-surface: #F4F5F2;
-  /* wu-bench-white- card / panel / product tile */
-  --color-surface-alt: #DBDCD6;
-  /* Secondary sections and hover states */
+  --color-background: #FAFAFA;
+  /* Alabaster White- main page ground */
+  --color-surface: #FDFDFD;
+  /* Pearl White- card / panel / product tile */
+  --color-surface-alt: #F4F1EA;
+  /* Warm Sand / Oatmeal- secondary sections, hover states */
 
   /* === TEXT === */
-  --color-foreground: #22262B;
-  /* wu-graphite- primary text, product names */
-  --color-foreground-muted: #6B7178;
-  /* wu-muted- secondary text, meta, struck-through price */
-  --color-muted: #6B7178;
+  --color-foreground: #333333;
+  /* Charcoal- primary text, product names */
+  --color-foreground-muted: #6B6B6B;
+  /* secondary text, meta, struck-through price */
+  --color-muted: #767171;
   /* Captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #9C7A3F;
-  /* wu-brass- price, limited badge, engraving, eyebrow */
-  --color-accent-hover: #7D6132;
-  /* Darker brass hover state */
-  --color-accent-soft: #E7E0D0;
-  /* Pale brass highlight */
-  --color-accent-blush: #2B333A;
-  /* wu-gunmetal secondary accent */
-  --color-primary: #2B333A;
-  /* wu-gunmetal- dark surfaces, hero, footer */
-  --color-primary-soft: #39434B;
-  --color-primary-dark: #22282E;
+  --color-accent: #D4AF37;
+  /* Champagne Gold- price, limited badge, eyebrow, CTA */
+  --color-accent-hover: #B8952E;
+  /* Darker gold hover state */
+  --color-accent-soft: #F3E7C2;
+  /* Pale gold highlight */
+  --color-accent-blush: #2C3E50;
+  /* Blued Steel secondary accent */
+  --color-primary: #2C3E50;
+  /* Blued Steel- dark surfaces, hero, footer */
+  --color-primary-soft: #3B5068;
+  --color-primary-dark: #1F2E3D;
 
-  /* wu-blued-steel- links / interactive state only */
-  --color-blued: #2E5288;
-  --color-blued-hover: #24406B;
+  /* Rose Gold- links / interactive state, secondary accent */
+  --color-blued: #B76E79;
+  --color-blued-hover: #9C4F5A;
 
   /* === UI === */
-  --color-border: #C6C8C3;
+  --color-border: #E4E0D8;
   /* hairline- cards, dividers */
-  --color-alert: #8C3A2E;
+  --color-alert: #A13F35;
   /* Error / alert / out of stock */
   --color-success: #3F6B4A;
   /* Success- in stock, free shipping */
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Archivo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-heading: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -67,15 +67,15 @@
   --container-pad-mobile: 16px;
   --container-pad-desktop: 24px;
 
-  /* === BORDER RADIUS === 2px on everything === */
+  /* === BORDER RADIUS === soft, refined corners === */
   --radius-sm: 2px;
-  --radius-md: 2px;
-  --radius-lg: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
   --radius-pill: 999px;
 
-  /* === SHADOWS === none; layering via hairlines + ground shifts === */
-  --shadow-card: none;
-  --shadow-card-hover: none;
+  /* === SHADOWS === soft, diffused- product blocks float on white === */
+  --shadow-card: 0 25px 50px -22px rgba(44, 62, 80, 0.16), 0 4px 12px -4px rgba(44, 62, 80, 0.06);
+  --shadow-card-hover: 0 32px 64px -20px rgba(44, 62, 80, 0.22), 0 8px 20px -6px rgba(44, 62, 80, 0.08);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
@@ -108,9 +108,8 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* Reading text is set in the serif (WristUnion spec sheet §3): body copy,
-   product descriptions, policy prose, founder story. UI, nav, buttons,
-   prices and spec tables stay in the Archivo grotesque. */
+/* Reading text stays in Inter (body copy, product descriptions, policy
+   prose, founder story); Playfair Display is reserved for headings. */
 .wu-prose,
 .wu-prose p,
 .wu-prose li,
@@ -119,7 +118,7 @@
 .woocommerce-product-details__short-description,
 .woocommerce-Tabs-panel--description p,
 .woocommerce-Tabs-panel--description li {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
 }
 
 .wu-prose p {

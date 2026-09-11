@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 
 if (!function_exists('dawp_store_name')) {
     function dawp_store_name() {
-        return 'WristUnion';
+        return 'Watchfavor';
     }
 }
 
@@ -25,7 +25,7 @@ if (!function_exists('dawp_store_email')) {
      * "from" address only if it is not an obvious placeholder.
      */
     function dawp_store_email() {
-        $default = 'support@wristunion.com';
+        $default = 'support@watchfavor.com';
         $wc      = get_option('woocommerce_email_from_address');
 
         if (is_string($wc) && is_email($wc) && !preg_match('/@(example|admin|test|localhost)\./i', $wc)) {
@@ -55,14 +55,19 @@ if (!function_exists('dawp_store_address_parts')) {
             $city  = trim((string) $countries->get_base_city());
             $post  = trim((string) $countries->get_base_postcode());
 
-            $country_name = ($country_code && isset($countries->countries[$country_code]))
-                ? $countries->countries[$country_code]
-                : $country_code;
+            /*
+             * Watchfavor ships to US addresses only and prices in USD, but the
+             * WooCommerce base country on this install is misconfigured (VN).
+             * Force the US label so the printed address never contradicts the
+             * rest of the storefront; the street/city/postcode fields above
+             * are still read from WooCommerce as-is.
+             */
+            $country_name = 'United States';
 
             $state_name = $state_code;
 
-            if ($country_code && $state_code) {
-                $states = $countries->get_states($country_code);
+            if ($state_code) {
+                $states = $countries->get_states('US');
 
                 if (!empty($states[$state_code])) {
                     $state_name = $states[$state_code];
@@ -102,26 +107,20 @@ if (!function_exists('dawp_store_governing_law')) {
      * from the WooCommerce store address. Store owner should confirm this.
      */
     function dawp_store_governing_law() {
+        /*
+         * Same VN/US mismatch as dawp_store_address_parts() above: the
+         * WooCommerce base country on this install is misconfigured, so it
+         * is intentionally ignored here in favor of the US state (when set)
+         * to keep the Terms of Service consistent with the rest of the site.
+         */
         if (function_exists('WC') && WC()->countries) {
-            $countries    = WC()->countries;
-            $country_code = $countries->get_base_country();
-            $state_code   = $countries->get_base_state();
+            $state_code = WC()->countries->get_base_state();
 
-            $country_name = ($country_code && isset($countries->countries[$country_code]))
-                ? $countries->countries[$country_code]
-                : '';
-
-            if ($country_code && $state_code) {
-                $states = $countries->get_states($country_code);
+            if ($state_code) {
+                $states = WC()->countries->get_states('US');
                 $state  = !empty($states[$state_code]) ? $states[$state_code] : $state_code;
 
-                if ($state && $country_name) {
-                    return sprintf('the State of %s, %s', $state, $country_name);
-                }
-            }
-
-            if ($country_name) {
-                return $country_name;
+                return sprintf('the State of %s, United States', $state);
             }
         }
 
@@ -165,6 +164,10 @@ if (!function_exists('dawp_render_legal')) {
                     <?php if ($intro) : ?>
                         <p class="mt-5 text-base leading-8 text-white/80"><?php echo esc_html($intro); ?></p>
                     <?php endif; ?>
+                    <p class="mt-6 inline-flex items-center gap-2 border border-accent/40 bg-white/5 px-4 py-2 font-heading text-xs font-semibold uppercase tracking-label text-accent">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 4v5c0 4.5-3 8.6-7 9.8C8 20.6 5 16.5 5 12V7l7-4z"/></svg>
+                        <?php esc_html_e('2-Year Warranty on Every Watchfavor Watch', 'dawp'); ?>
+                    </p>
                 </div>
             </section>
 

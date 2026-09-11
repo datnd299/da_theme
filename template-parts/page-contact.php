@@ -32,7 +32,7 @@ $track_url      = home_url('/track-order/');
 <section class="zc-contact-strip">
     <div class="zc-wrap zc-contact-strip__grid">
         <div><span><?php esc_html_e('Email', 'dawp'); ?></span><strong><a href="<?php echo esc_url($support_mailto); ?>"><?php echo esc_html($support_email); ?></a></strong></div>
-        <div><span><?php esc_html_e('Hours', 'dawp'); ?></span><strong><?php esc_html_e('Mon-Fri, 9:00 AM-6:00 PM PST', 'dawp'); ?></strong></div>
+        <div><span><?php esc_html_e('Hours', 'dawp'); ?></span><strong><?php esc_html_e('Mon-Fri, 9:00 AM-6:00 PM Pacific Time', 'dawp'); ?></strong></div>
         <div><span><?php esc_html_e('Response', 'dawp'); ?></span><strong><?php esc_html_e('Usually within 1 business day', 'dawp'); ?></strong></div>
         <div><span><?php esc_html_e('Tracking', 'dawp'); ?></span><strong><a href="<?php echo esc_url($track_url); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a></strong></div>
     </div>

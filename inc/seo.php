@@ -61,11 +61,11 @@ function dawp_get_virtual_seo() {
         ],
         'contact-us' => [
             'title'       => 'Contact Us',
-            'description' => sprintf('Contact %s for help with orders, returns, or product inquiries. Customer service hours: Monday-Friday, 9:00 AM-6:00 PM PST.', dawp_brand_name()),
+            'description' => sprintf('Contact %s for help with orders, returns, or product inquiries. Customer service hours: Monday-Friday, 9:00 AM-6:00 PM Pacific Time.', dawp_brand_name()),
         ],
         'shipping-policy' => [
             'title'       => 'Shipping Policy',
-            'description' => sprintf('%s shipping policy: U.S. delivery, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.', dawp_brand_name()),
+            'description' => sprintf('%s shipping policy: U.S. delivery, 5:00 PM Pacific Time cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.', dawp_brand_name()),
         ],
         'return-refund-policy' => [
             'title'       => 'Return & Refund Policy',

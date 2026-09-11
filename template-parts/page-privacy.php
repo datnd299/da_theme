@@ -186,7 +186,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <ul>
             <li><?php esc_html_e('Website platform: WordPress and WooCommerce.', 'dawp'); ?></li>
             <li><?php esc_html_e('Analytics: Google Analytics to understand site usage and improve performance.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Payments: Secure payment providers such as Stripe and PayPal.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Payments: PayPal, including eligible card payment options when offered through PayPal checkout.', 'dawp'); ?></li>
             <li><?php esc_html_e('Email communication: Used for order updates and customer communication.', 'dawp'); ?></li>
             <li><?php esc_html_e('Customer support: Contact form, support email, and customer support systems.', 'dawp'); ?></li>
             <li><?php esc_html_e('Shipping: Carriers such as USPS, UPS, FedEx, and DHL.', 'dawp'); ?></li>
@@ -210,7 +210,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <section id="payments" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Payments & Security', 'dawp'); ?></p>
           <h2><?php esc_html_e('Checkout is handled through secure payment providers.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('All payments are processed through secure third-party payment providers. We do not store your full payment card details on our servers.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Payments are processed through PayPal checkout. We do not store your full payment card details on our servers.', 'dawp'); ?></p>
           <p><?php esc_html_e('Your information is protected using industry-standard SSL encryption during checkout.', 'dawp'); ?></p>
         </section>
 
@@ -316,7 +316,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

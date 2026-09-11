@@ -26,7 +26,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Can I change an order after checkout?', 'dawp'),
-                'a' => __('Contact us as soon as possible if you need to update order details. Orders placed before 5:00 PM PST begin processing the same business day, while orders placed after 5:00 PM PST or over the weekend begin processing the next business day. We cannot guarantee changes after an order enters processing or fulfillment, but our support team will review what is still possible.', 'dawp'),
+                'a' => __('Contact us as soon as possible if you need to update order details. Orders placed before 5:00 PM Pacific Time begin processing the same business day, while orders placed after 5:00 PM Pacific Time or over the weekend begin processing the next business day. We cannot guarantee changes after an order enters processing or fulfillment, but our support team will review what is still possible.', 'dawp'),
             ],
             [
                 'q' => __('Can I cancel my order after placing it?', 'dawp'),
@@ -34,7 +34,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Why has my order not shipped yet?', 'dawp'),
-                'a' => __('Orders have a 5:00 PM PST cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding weekends and official U.S. public holidays. Some intricate, high-demand, or separately packed watch items may require additional processing time.', 'dawp'),
+                'a' => __('Orders have a 5:00 PM Pacific Time cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding weekends and official U.S. public holidays. Some intricate, high-demand, or separately packed watch items may require additional processing time.', 'dawp'),
             ],
         ],
     ],
@@ -84,11 +84,11 @@ $faq_sections = [
             ],
             [
                 'q' => __('Who pays return shipping?', 'dawp'),
-                'a' => __('We cover 100% of return shipping costs or provide a prepaid shipping label when the item is defective, damaged, incorrect, missing essential parts, or not functioning as intended. For customer remorse returns, such as wrong item, size, color, model, fit preference, or no longer wanting the item, the customer is responsible for return shipping, and the actual return label cost may be deducted from the final refund amount.', 'dawp'),
+                'a' => __('We cover 100% of return shipping costs and provide a prepaid shipping label when the item is defective, damaged, incorrect, missing essential parts, or not functioning as intended. For customer remorse returns, such as wrong item, size, color, model, fit preference, or no longer wanting the item, the customer is responsible for return shipping. If we provide a label for convenience, the actual label cost is disclosed before you ship and may be deducted from the final refund amount.', 'dawp'),
             ],
             [
                 'q' => __('How are refunds handled?', 'dawp'),
-                'a' => __('After your return package is received at our warehouse, we inspect the item within 1-2 business days. If approved, the refund is processed automatically back to the original payment method within 7 business days. If you have not received your refund after 15 business days from approval, please check with your bank or card provider first, then contact us.', 'dawp'),
+                'a' => __('After your return package is received at our warehouse, we inspect the item within 1-2 business days. If approved, the refund is processed automatically back to the original payment method, including PayPal when used at checkout, within 7 business days. If you have not received your refund after 15 business days from approval, please check with PayPal or your payment provider first, then contact us.', 'dawp'),
             ],
         ],
     ],
@@ -286,7 +286,7 @@ $faq_sections = [
           <ul class="qb-glance-list">
             <li><strong><?php esc_html_e('Ships To', 'dawp'); ?></strong><?php esc_html_e('United States domestic orders only', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Standard Shipping', 'dawp'); ?></strong><?php esc_html_e('Free nationwide with no minimum', 'dawp'); ?></li>
-            <li><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><?php esc_html_e('5:00 PM Pacific Standard Time, Monday-Friday', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><?php esc_html_e('5:00 PM Pacific Time, Monday-Friday', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Delivery Time', 'dawp'); ?></strong><?php esc_html_e('6-10 business days', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Return Window', 'dawp'); ?></strong><?php esc_html_e('30 days of delivery', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Restocking Fee', 'dawp'); ?></strong><?php esc_html_e('No restocking fee for eligible returns', 'dawp'); ?></li>
@@ -350,7 +350,7 @@ $faq_sections = [
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

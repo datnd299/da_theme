@@ -388,7 +388,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm1-13h-2v5.35l4.25 2.55 1-1.62L13 11.35V7Z"/>
                         </svg>
-                        <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?>
+                        <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time.', 'dawp'); ?>
                     </span>
 
                     <a href="<?php echo esc_url($support_mailto); ?>" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
@@ -445,11 +445,8 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
         <div class="qb-footer-wrap qb-footer-bottom__inner">
             <p>&copy; <?php echo esc_html($current_year); ?> <?php echo esc_html(sprintf(__('%s. All rights reserved.', 'dawp'), $brand_name)); ?></p>
             <div class="qb-payment" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
-                <span><?php esc_html_e('Visa', 'dawp'); ?></span>
-                <span><?php esc_html_e('Mastercard', 'dawp'); ?></span>
-                <span><?php esc_html_e('Amex', 'dawp'); ?></span>
-                <span><?php esc_html_e('Discover', 'dawp'); ?></span>
                 <span><?php esc_html_e('PayPal', 'dawp'); ?></span>
+                <span><?php esc_html_e('Cards via PayPal', 'dawp'); ?></span>
             </div>
         </div>
     </div>

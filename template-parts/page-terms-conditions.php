@@ -180,17 +180,17 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 
         <section id="accuracy" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('3. Accuracy, Completeness, and Timeliness of Information', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Site information may not always be complete, accurate, or current.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('We try to ensure that information on this site is accurate and up to date, but we do not guarantee that all information, including product descriptions, pricing, availability, compatibility information, or images, is always complete, accurate, or current.', 'dawp'); ?></p>
-          <p><?php esc_html_e('The material on this site is provided for general information only and should not be relied upon as the sole basis for making decisions without verifying more specific, complete, or timely information.', 'dawp'); ?></p>
+          <h2><?php esc_html_e('We work to keep product and order information clear and current.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('We make reasonable efforts to keep product descriptions, pricing, availability, compatibility information, and images accurate and up to date. If we discover a clear error, we will correct it promptly and, when it affects an order, contact you using the details provided at checkout.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Please review the product page, cart, shipping details, return policy, and checkout total before completing payment.', 'dawp'); ?></p>
           <p><?php esc_html_e('We reserve the right to modify site content at any time, but we are not obligated to update any information except as required by law.', 'dawp'); ?></p>
         </section>
 
         <section id="service-prices" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('4. Modifications to the Service and Prices', 'dawp'); ?></p>
           <h2><?php esc_html_e('Prices and services may change without notice.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Prices for products may change without notice.', 'dawp'); ?></p>
-          <p><?php esc_html_e('We reserve the right to modify, suspend, or discontinue any part of the Service, including product listings, categories, features, promotions, or checkout functionality, at any time without notice.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Product prices, promotions, and availability may change before an order is placed. The price and order total shown at checkout before payment is completed are the amounts that apply to that order.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We may modify, suspend, or discontinue parts of the Service, including product listings, categories, features, promotions, or checkout functionality, when needed for operational, security, inventory, or legal reasons.', 'dawp'); ?></p>
           <p><?php esc_html_e('We shall not be liable to you or to any third party for any modification, price change, suspension, or discontinuation of the Service.', 'dawp'); ?></p>
         </section>
 
@@ -250,8 +250,8 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <section id="errors" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('11. Errors, Inaccuracies, and Omissions', 'dawp'); ?></p>
           <h2><?php esc_html_e('We may correct inaccurate site or order information.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Occasionally, there may be information on our site or in the Service that contains typographical errors, inaccuracies, or omissions relating to product descriptions, pricing, promotions, shipping charges, availability, estimated delivery times, or other content.', 'dawp'); ?></p>
-          <p><?php esc_html_e('We reserve the right to correct any errors, inaccuracies, or omissions, and to change or update information or cancel orders if any information in the Service or on any related website is inaccurate at any time without prior notice, including after you have submitted your order, subject to applicable law.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Occasionally, there may be typographical errors or omissions relating to product descriptions, pricing, promotions, shipping charges, availability, estimated delivery times, or other content.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We may correct errors and update information. If an error affects an order after it is submitted, we will notify you, explain the issue, and offer an appropriate resolution such as order correction, cancellation, or refund, subject to applicable law.', 'dawp'); ?></p>
         </section>
 
         <section id="prohibited" class="qb-policy-card">
@@ -347,7 +347,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

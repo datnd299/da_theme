@@ -162,7 +162,7 @@ $support_portal = home_url('/contact-us/');
             </div>
             <div class="qb-info-panel qb-info-panel--soft">
               <h3><?php esc_html_e("Customer Remorse (Ordered wrong item/style/strap size, changed mind, or doesn't suit):", 'dawp'); ?></h3>
-              <p><?php esc_html_e('The customer is responsible for the return shipping cost. The actual return shipping cost of the provided prepaid label (sent via email) will be deducted from your final refund amount.', 'dawp'); ?></p>
+              <p><?php esc_html_e('The customer is responsible for return shipping costs. You may use your own trackable shipping service, or, if we provide a prepaid label for convenience, the actual label cost will be disclosed before you ship and deducted from your final refund amount.', 'dawp'); ?></p>
             </div>
           </div>
         </section>
@@ -186,12 +186,12 @@ $support_portal = home_url('/contact-us/');
             </div>
             <div class="qb-step">
               <h3><?php esc_html_e('Receive Approval & Pack Your Item', 'dawp'); ?></h3>
-              <p><?php esc_html_e('Our support team will review your request within 1-2 business days. Once approved, we will email you a Return Merchandise Authorization (RMA) number along with a prepaid shipping label.', 'dawp'); ?></p>
+              <p><?php esc_html_e('Our support team will review your request within 1-2 business days. Once approved, we will email you a Return Merchandise Authorization (RMA) number and the correct return instructions. For defective, damaged, or incorrect items, we will provide a prepaid return label at no cost to you. For customer remorse returns, any return label cost will be disclosed before you ship.', 'dawp'); ?></p>
               <p><?php esc_html_e('Repack the item securely in its original packaging with all included accessories, tags, and boxes. Place it inside a sturdy outer shipping box.', 'dawp'); ?></p>
             </div>
             <div class="qb-step">
               <h3><?php esc_html_e('Ship It Back to Our Returns Center', 'dawp'); ?></h3>
-              <p><?php esc_html_e('Print the prepaid shipping label, attach it to the outside of your shipping box, and drop it off at the designated carrier location.', 'dawp'); ?></p>
+              <p><?php esc_html_e('Follow the approved return instructions, attach the shipping label to the outside of your shipping box if one is provided, and drop it off at the designated carrier location.', 'dawp'); ?></p>
             </div>
           </div>
           <div class="qb-address-box">
@@ -217,10 +217,10 @@ $support_portal = home_url('/contact-us/');
           <h2><?php esc_html_e('Refund Process & Timing', 'dawp'); ?></h2>
           <ul>
             <li><?php esc_html_e('Inspection: Once your return package is received at our warehouse, we will inspect the item within 1-2 business days to ensure it meets our return criteria.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Approval & Timing: If approved, your refund will be processed automatically back to your original payment method within 7 business days.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Approval & Timing: If approved, your refund will be processed automatically back to your original payment method, including PayPal when used at checkout, within 7 business days.', 'dawp'); ?></li>
             <li><?php esc_html_e('Refund Method: All refunds will be issued solely to your original method of payment within 7 business days of inspection. We do not offer store credit or gift cards as a refund method for returns.', 'dawp'); ?></li>
             <li><?php esc_html_e('Issues with Returns: If a return is approved but is found to be missing accessories, tags, boxes, or shows signs of wear, we reserve the right to refuse the refund and will offer to ship the item back to you at your expense.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Delayed Refunds: If you have not received your refund after 15 business days of approval, please check with your bank or credit card company first, then contact us.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Delayed Refunds: If you have not received your refund after 15 business days of approval, please check with PayPal or your payment provider first, then contact us.', 'dawp'); ?></li>
           </ul>
           <div class="qb-actions">
             <a class="qb-button qb-button--secondary" href="<?php echo esc_url($support_mailto); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
@@ -262,7 +262,7 @@ $support_portal = home_url('/contact-us/');
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

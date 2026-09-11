@@ -171,7 +171,7 @@ $support_portal = home_url('/contact-us/');
           <div class="qb-timeline-grid">
             <div class="qb-timeline-item">
               <strong><?php esc_html_e('Order Cutoff Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('5:00 PM (GMT-08:00) Pacific Standard Time.', 'dawp'); ?></span>
+              <span><?php esc_html_e('5:00 PM Pacific Time.', 'dawp'); ?></span>
             </div>
             <div class="qb-timeline-item">
               <strong><?php esc_html_e('Order Handling Time', 'dawp'); ?></strong>
@@ -197,7 +197,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="tracking" class="qb-policy-card">
           <h2><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
-          <p><?php echo esc_html(sprintf('To guarantee safe and efficient delivery, %s partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', $store_name)); ?></p>
+          <p><?php echo esc_html(sprintf('To support safe and efficient delivery, %s partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', $store_name)); ?></p>
           <ul class="qb-carrier-list">
             <li><?php esc_html_e('USPS', 'dawp'); ?></li>
             <li><?php esc_html_e('UPS', 'dawp'); ?></li>
@@ -246,7 +246,7 @@ $support_portal = home_url('/contact-us/');
             <?php endif; ?>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

@@ -1,4 +1,4 @@
-/* Orvel Time track order page */
+/* Orvel track order page */
 
 .track-order-page {
   --track-brass-soft: #d7b987;
@@ -23,7 +23,7 @@
   font-family: var(--track-font);
 }
 
-/* Orvel Time final tracking alignment */
+/* Orvel final tracking alignment */
 .track-order-page {
   --track-brass-soft: #C6A77F;
   --track-cream: #F4F0E8;

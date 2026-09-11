@@ -1,6 +1,6 @@
 /* ===================================================
    CART PAGE — WooCommerce Block Cart
-   Orvel Time Brand - Mobile-first - Pure CSS - No @apply
+   Orvel Brand - Mobile-first - Pure CSS - No @apply
    =================================================== */
 
 :root {
@@ -820,7 +820,7 @@
   background: var(--qb-cart-gold);
 }
 
-/* Orvel Time ecommerce alignment */
+/* Orvel ecommerce alignment */
 :root {
   --qb-cart-bg: #FFFFFF;
   --qb-cart-cream: #F4F0E8;

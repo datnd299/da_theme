@@ -35,7 +35,7 @@ if (!function_exists('qb_404_products')) {
 }
 
 $shop_url = qb_404_shop_url();
-$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
+$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
 $products    = qb_404_products(3);
 
 get_header();

@@ -1,6 +1,6 @@
 <?php
 /**
- * SEO + structured data for Orvel Time.
+ * SEO + structured data for Orvel.
  *
  * No SEO plugin (Rank Math / Yoast) is active on this site, so the theme is
  * responsible for:
@@ -21,11 +21,11 @@ defined('ABSPATH') || exit;
  * Storefront brand name. Filterable for reuse on other stores.
  */
 function dawp_brand_name() {
-    return apply_filters('dawp_brand_name', 'Orvel Time');
+    return apply_filters('dawp_brand_name', 'Orvel');
 }
 
 /**
- * Primary market country (ISO 3166-1 alpha-2). Orvel Time ships U.S.-only per
+ * Primary market country (ISO 3166-1 alpha-2). Orvel ships U.S.-only per
  * every policy page, so structured data / shipping data key off this rather
  * than the WooCommerce base-country option. Filterable.
  */
@@ -39,7 +39,7 @@ function dawp_store_country() {
 function dawp_default_description() {
     return apply_filters(
         'dawp_default_description',
-        'Orvel Time is a modern watch destination offering refined timepieces and watch accessories built for precision with presence.'
+        'Orvel is an independent watch brand creating refined timepieces with clean design, everyday reliability, and confident wrist presence.'
     );
 }
 
@@ -52,39 +52,39 @@ function dawp_get_virtual_seo() {
     $map = [
         'about-us' => [
             'title'       => 'About Us',
-            'description' => 'Orvel Time is a modern watch destination offering refined timepieces and watch accessories for everyday confidence.',
+            'description' => 'Orvel is an independent watch brand creating original timepieces for everyday confidence.',
         ],
         'faq' => [
             'title'       => 'FAQ',
-            'description' => 'Find answers to common questions about orders, shipping, returns, refunds, watch details, and support at Orvel Time.',
+            'description' => 'Find answers to common questions about orders, shipping, returns, refunds, watch details, and support at Orvel.',
         ],
         'contact-us' => [
             'title'       => 'Contact Us',
-            'description' => 'Contact Orvel Time for help with orders, returns, or product inquiries. Customer service hours: Monday-Friday, 9:00 AM-6:00 PM PST.',
+            'description' => 'Contact Orvel for help with orders, returns, or product inquiries. Customer service hours: Monday-Friday, 9:00 AM-6:00 PM Pacific Time.',
         ],
         'shipping-policy' => [
             'title'       => 'Shipping Policy',
-            'description' => 'Orvel Time shipping policy: U.S. delivery, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.',
+            'description' => 'Orvel shipping policy: U.S. delivery, 5:00 PM Pacific Time cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.',
         ],
         'return-refund-policy' => [
             'title'       => 'Return & Refund Policy',
-            'description' => 'Orvel Time return and refund policy: 30-day return window, return by mail, no restocking fee, and refunds to the original payment method within 7 business days.',
+            'description' => 'Orvel return and refund policy: 30-day return window, return by mail, no restocking fee, and refunds to the original payment method within 7 business days.',
         ],
         'shipping-returns' => [
             'title'       => 'Shipping & Returns',
-            'description' => 'Choose the Orvel Time Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.',
+            'description' => 'Choose the Orvel Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.',
         ],
         'terms-conditions' => [
             'title'       => 'Terms & Conditions',
-            'description' => 'Read the terms and conditions for shopping at Orvel Time, including purchase policies and site use guidelines.',
+            'description' => 'Read the terms and conditions for shopping at Orvel, including purchase policies and site use guidelines.',
         ],
         'privacy-policy' => [
             'title'       => 'Privacy Policy',
-            'description' => 'Learn how Orvel Time collects, uses, and protects your personal information when you shop with us.',
+            'description' => 'Learn how Orvel collects, uses, and protects your personal information when you shop with us.',
         ],
         'track-order' => [
             'title'       => 'Track Your Order',
-            'description' => 'Track your Orvel Time order status. Enter your order number and email to check your delivery progress.',
+            'description' => 'Track your Orvel order status. Enter your order number and email to check your delivery progress.',
         ],
     ];
 
@@ -235,12 +235,12 @@ function dawp_head_meta() {
     }
 
     if (!$image) {
-        $image = get_template_directory_uri() . '/assets/images/home/logobrand.png';
+        $image = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/news/logoorvel.png';
     }
 
     $title = wp_get_document_title();
 
-    echo "\n<!-- Orvel Time SEO -->\n";
+    echo "\n<!-- Orvel SEO -->\n";
 
     if ($description) {
         printf('<meta name="description" content="%s">' . "\n", esc_attr($description));
@@ -276,7 +276,7 @@ function dawp_head_meta() {
         printf('<meta name="twitter:image" content="%s">' . "\n", esc_url($image));
     }
 
-    echo "<!-- /Orvel Time SEO -->\n\n";
+    echo "<!-- /Orvel SEO -->\n\n";
 }
 
 // WordPress core only prints rel=canonical for singular views with a real
@@ -301,8 +301,8 @@ function dawp_org_website_schema() {
 
     $brand = dawp_brand_name();
     $home  = home_url('/');
-    $logo  = get_template_directory_uri() . '/assets/images/home/logobrand.png';
-    $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
+    $logo  = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/news/logoorvel.png';
+    $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orvelshop.com';
 
     $organization = [
         '@type'  => 'Organization',

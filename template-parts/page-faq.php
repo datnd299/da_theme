@@ -5,8 +5,8 @@
  * @package dawp
  */
 
-$store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
+$store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
+$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orvelshop.com';
 $store_address     = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal    = home_url('/contact-us/');
 $shipping_policy   = home_url('/shipping-policy/');
@@ -25,7 +25,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Can I change an order after checkout?', 'dawp'),
-                'a' => __('Contact us as soon as possible if you need to update order details. Orders placed before 5:00 PM PST begin processing the same business day, while orders placed after 5:00 PM PST or over the weekend begin processing the next business day. We cannot guarantee changes after an order enters processing or fulfillment, but our support team will review what is still possible.', 'dawp'),
+                'a' => __('Contact us as soon as possible if you need to update order details. Orders placed before 5:00 PM Pacific Time begin processing the same business day, while orders placed after 5:00 PM Pacific Time or over the weekend begin processing the next business day. We cannot guarantee changes after an order enters processing or fulfillment, but our support team will review what is still possible.', 'dawp'),
             ],
             [
                 'q' => __('Can I cancel my order after placing it?', 'dawp'),
@@ -33,7 +33,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Why has my order not shipped yet?', 'dawp'),
-                'a' => __('Orders have a 5:00 PM PST cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding weekends and official U.S. public holidays. Some intricate, high-demand, or separately packed watch items may require additional processing time.', 'dawp'),
+                'a' => __('Orders have a 5:00 PM Pacific Time cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding weekends and official U.S. public holidays. Some intricate, high-demand, or separately packed watch items may require additional processing time.', 'dawp'),
             ],
         ],
     ],
@@ -126,7 +126,7 @@ $faq_sections = [
             [
                 'q' => __('Do your watches make unsupported brand or performance claims?', 'dawp'),
                 'a' => sprintf(
-                    __('No. %s sells watches and watch accessories. We avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
+                    __('No. %s creates and sells its own watches and watch accessories. We avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
                     $store_name
                 ),
             ],
@@ -285,7 +285,7 @@ $faq_sections = [
           <ul class="qb-glance-list">
             <li><strong><?php esc_html_e('Ships To', 'dawp'); ?></strong><?php esc_html_e('United States domestic orders only', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Standard Shipping', 'dawp'); ?></strong><?php esc_html_e('Free nationwide with no minimum', 'dawp'); ?></li>
-            <li><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><?php esc_html_e('5:00 PM Pacific Standard Time, Monday-Friday', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><?php esc_html_e('5:00 PM Pacific Time, Monday-Friday', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Delivery Time', 'dawp'); ?></strong><?php esc_html_e('6-10 business days', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Return Window', 'dawp'); ?></strong><?php esc_html_e('30 days of delivery', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Restocking Fee', 'dawp'); ?></strong><?php esc_html_e('No restocking fee for eligible returns', 'dawp'); ?></li>
@@ -349,7 +349,7 @@ $faq_sections = [
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

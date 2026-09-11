@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme footer for Orvel Time.
+ * Theme footer for Orvel.
  *
  * @package dawp
  */
@@ -8,9 +8,9 @@
 defined('ABSPATH') || exit;
 
 $current_year  = date_i18n('Y');
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
-$logo_url      = get_template_directory_uri() . '/assets/images/home/logobrand.png';
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orvelshop.com';
+$logo_url      = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/news/logoorvel.png';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [
     [
@@ -250,7 +250,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
                 </a>
 
                 <p class="qb-footer-copy">
-                    <?php esc_html_e('Modern watches selected for clean design, everyday reliability, and a refined wrist presence.', 'dawp'); ?>
+                    <?php esc_html_e('Original Orvel watches created for clean design, everyday reliability, and a refined wrist presence.', 'dawp'); ?>
                 </p>
 
                 <div class="qb-footer-contact">
@@ -258,7 +258,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm1-13h-2v5.35l4.25 2.55 1-1.62L13 11.35V7Z"/>
                         </svg>
-                        <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?>
+                        <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time.', 'dawp'); ?>
                     </span>
 
                     <a href="mailto:<?php echo esc_attr($support_email); ?>" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
@@ -302,7 +302,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
                 <span><?php esc_html_e('Discover', 'dawp'); ?></span>
                 <span><?php esc_html_e('PayPal', 'dawp'); ?></span>
             </div>
-            <p><?php esc_html_e('Modern luxury watch ecommerce', 'dawp'); ?></p>
+            <p><?php esc_html_e('Independent watch brand', 'dawp'); ?></p>
         </div>
     </div>
 </footer>

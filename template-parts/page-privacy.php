@@ -5,8 +5,8 @@
  * @package dawp
  */
 
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orvelshop.com';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 
@@ -275,7 +275,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

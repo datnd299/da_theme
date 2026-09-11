@@ -5,8 +5,8 @@
  * @package dawp
  */
 
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orvelshop.com';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 
@@ -163,7 +163,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             <li><?php esc_html_e('Limit the sales of our products or Services to any person, region, or jurisdiction.', 'dawp'); ?></li>
             <li><?php esc_html_e('Limit quantities purchased per order, household, or account.', 'dawp'); ?></li>
             <li><?php esc_html_e('Discontinue any product at any time.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Refuse orders that appear to be placed by dealers, resellers, or distributors unless approved by us.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Refuse orders that appear to be placed by unauthorized dealers, resellers, or distributors unless approved by us.', 'dawp'); ?></li>
           </ul>
           <p><?php esc_html_e('All products are subject to our Return & Refund Policy, including category-specific exceptions stated on product pages.', 'dawp'); ?></p>
         </section>
@@ -306,7 +306,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

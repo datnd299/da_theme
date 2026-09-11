@@ -3,8 +3,8 @@
  * Template Part: Track Your Order
  */
 
-$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
+$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orvelshop.com';
 $track_categories = function_exists('qb_product_category_definitions') ? qb_product_category_definitions() : [];
 ?>
 

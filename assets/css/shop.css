@@ -1,4 +1,4 @@
-/* Orvel Time shop and product category pages */
+/* Orvel shop and product category pages */
 :root {
   --qb-shop-bg: #ffffff;
   --qb-shop-cream: #f5f2eb;
@@ -841,7 +841,7 @@ ul.products {
   }
 }
 
-/* Orvel Time final archive alignment */
+/* Orvel final archive alignment */
 .shop-page {
   --qb-shop-bg: #FFFFFF;
   --qb-shop-cream: #F4F0E8;

@@ -1,25 +1,25 @@
 <?php
 /**
- * About page template for Orvel Time.
+ * About page template for Orvel.
  */
 defined('ABSPATH') || exit;
 
 $theme_uri   = get_template_directory_uri();
 $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $contact_url = home_url('/contact-us/');
-$hero_img    = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/20.jpg';
-$accent_img  = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/21.jpg';
-$story_img   = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/22.jpg';
-$craft_img   = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/23.jpg';
-$life_img    = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/24.jpg';
+$hero_img    = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/6.png';
+$accent_img  = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/7.png';
+$story_img   = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/8.png';
+$craft_img   = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/1231.png';
+$life_img    = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/12312.png';
 ?>
 
 <section class="ot-hero">
     <div class="ot-wrap ot-hero__inner">
         <div class="ot-hero__content">
-            <span class="ot-kicker"><?php esc_html_e('About Orvel Time', 'dawp'); ?></span>
-            <h1><?php esc_html_e('Time, Refined.', 'dawp'); ?></h1>
-            <p><?php esc_html_e('Orvel Time is a contemporary watch store shaped by elegant design, premium presentation and understated luxury.', 'dawp'); ?></p>
+            <span class="ot-kicker"><?php esc_html_e('About Orvel', 'dawp'); ?></span>
+            <h1><?php esc_html_e('Time, Designed by Orvel.', 'dawp'); ?></h1>
+            <p><?php esc_html_e('Orvel is an independent watch brand creating original timepieces shaped by elegant design, clear details and understated presence.', 'dawp'); ?></p>
             <div class="ot-actions">
                 <a class="ot-btn ot-btn--dark" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
                 <a class="ot-btn ot-btn--ghost" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
@@ -27,7 +27,7 @@ $life_img    = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/24.jp
         </div>
         <div class="ot-hero__visual">
             <div class="ot-hero__frame ot-hero__frame--main">
-                <img src="<?php echo esc_url($hero_img); ?>" alt="<?php esc_attr_e('Orvel Time watch in an editorial still life', 'dawp'); ?>" loading="eager">
+                <img src="<?php echo esc_url($hero_img); ?>" alt="<?php esc_attr_e('Orvel watch in an editorial still life', 'dawp'); ?>" loading="eager">
             </div>
             <div class="ot-hero__frame ot-hero__frame--accent">
                 <img src="<?php echo esc_url($accent_img); ?>" alt="<?php esc_attr_e('Close detail of a refined watch dial', 'dawp'); ?>" loading="eager">
@@ -40,18 +40,18 @@ $life_img    = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/24.jp
     <div class="ot-wrap ot-assurance__grid">
         <div>
             <span><?php esc_html_e('01', 'dawp'); ?></span>
-            <strong><?php esc_html_e('Quiet Luxury', 'dawp'); ?></strong>
-            <p><?php esc_html_e('Modern watches with calm presence, warm materials and restrained detail.', 'dawp'); ?></p>
+            <strong><?php esc_html_e('Original Watches', 'dawp'); ?></strong>
+            <p><?php esc_html_e('Orvel timepieces with calm presence, considered materials and restrained detail.', 'dawp'); ?></p>
         </div>
         <div>
             <span><?php esc_html_e('02', 'dawp'); ?></span>
-            <strong><?php esc_html_e('Editorial Minimalism', 'dawp'); ?></strong>
-            <p><?php esc_html_e('A focused visual language where the timepiece remains the hero.', 'dawp'); ?></p>
+            <strong><?php esc_html_e('Focused Design', 'dawp'); ?></strong>
+            <p><?php esc_html_e('A clear visual language where proportion, dial balance and wrist feel lead every decision.', 'dawp'); ?></p>
         </div>
         <div>
             <span><?php esc_html_e('03', 'dawp'); ?></span>
             <strong><?php esc_html_e('Daily Refinement', 'dawp'); ?></strong>
-            <p><?php esc_html_e('Considered proportions for workdays, weekends and personal milestones.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Considered Orvel proportions for workdays, weekends and personal milestones.', 'dawp'); ?></p>
         </div>
     </div>
 </section>
@@ -61,11 +61,11 @@ $life_img    = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/24.jp
         <div class="ot-editorial__copy">
             <span class="ot-kicker"><?php esc_html_e('Brand Idea', 'dawp'); ?></span>
             <h2><?php esc_html_e('Modern Form. Timeless Presence.', 'dawp'); ?></h2>
-            <p><?php esc_html_e('We curate watches for people who value clarity over noise: legible dials, balanced cases and finishes that feel precise without being loud.', 'dawp'); ?></p>
+            <p><?php esc_html_e('We design watches for people who value clarity over noise: legible dials, balanced cases and finishes that feel precise without being loud.', 'dawp'); ?></p>
             <a class="ot-btn ot-btn--dark" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View Collection', 'dawp'); ?></a>
         </div>
         <div class="ot-editorial__image">
-            <img src="<?php echo esc_url($story_img); ?>" alt="<?php esc_attr_e('Orvel Time watch styled with warm stone and soft light', 'dawp'); ?>" loading="lazy">
+            <img src="<?php echo esc_url($story_img); ?>" alt="<?php esc_attr_e('Orvel watch styled with warm stone and soft light', 'dawp'); ?>" loading="lazy">
         </div>
     </div>
 </section>
@@ -73,7 +73,7 @@ $life_img    = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/24.jp
 <section class="ot-statement">
     <div class="ot-wrap ot-statement__inner">
         <span class="ot-kicker"><?php esc_html_e('Core Principle', 'dawp'); ?></span>
-        <h2><?php esc_html_e('Quiet design creates confidence. Editorial imagery creates desire. The watch remains the hero.', 'dawp'); ?></h2>
+        <h2><?php esc_html_e('Orvel does not distribute someone else\'s identity. We build our own watches around clarity, restraint and everyday confidence.', 'dawp'); ?></h2>
     </div>
 </section>
 
@@ -82,7 +82,7 @@ $life_img    = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/24.jp
         <div class="ot-craft__copy">
             <span class="ot-kicker"><?php esc_html_e('Our Point of View', 'dawp'); ?></span>
             <h2><?php esc_html_e('Designed with Intention.', 'dawp'); ?></h2>
-            <p><?php esc_html_e('Orvel Time brings together contemporary horology, warm neutrals and tactile presentation for a collection that feels refined from first glance to daily wear.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Orvel brings together contemporary watch design, warm materials and tactile presentation for pieces that feel refined from first glance to daily wear.', 'dawp'); ?></p>
             <div class="ot-details">
                 <div>
                     <span></span>
@@ -120,10 +120,10 @@ $life_img    = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/24.jp
         <div class="ot-lifestyle__content">
             <span class="ot-kicker"><?php esc_html_e('The Collection', 'dawp'); ?></span>
             <h2><?php esc_html_e('Made for Every Moment.', 'dawp'); ?></h2>
-            <p><?php esc_html_e('A calm edit of refined watches for the rhythm of modern life, from focused mornings to milestone evenings.', 'dawp'); ?></p>
+            <p><?php esc_html_e('A focused line of Orvel watches for the rhythm of modern life, from focused mornings to milestone evenings.', 'dawp'); ?></p>
             <div class="ot-lifestyle__actions">
                 <a class="ot-btn ot-btn--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Discover Watches', 'dawp'); ?></a>
-                <span><?php esc_html_e('Elegant design. Premium presentation.', 'dawp'); ?></span>
+                <span><?php esc_html_e('Original design. Refined presentation.', 'dawp'); ?></span>
             </div>
         </div>
     </div>

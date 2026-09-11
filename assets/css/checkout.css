@@ -1,5 +1,5 @@
 /* ================================================
-   CORVELSHOP - CHECKOUT & THANK YOU PAGE
+   ORVELSHOP - CHECKOUT & THANK YOU PAGE
    Brand palette: #0d0f0f / #263c33 / #b38a52 / #d7b987 / #f5f2eb
    ================================================ */
 
@@ -1419,7 +1419,7 @@ div[data-shortcode="checkout"] {
 }
 
 /* ================================================
-   CORVEL FINAL OVERRIDES
+   ORVEL FINAL OVERRIDES
    Keeps block and classic checkout aligned with the current watch palette.
    ================================================ */
 
@@ -1549,7 +1549,7 @@ button#place_order:hover,
     background-color: rgba(179, 138, 82, 0.12) !important;
 }
 
-/* Orvel Time final checkout and order-received alignment */
+/* Orvel final checkout and order-received alignment */
 :root {
     --orvel-ink: #111312;
     --orvel-pearl: #F4F0E8;

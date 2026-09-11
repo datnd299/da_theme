@@ -5,8 +5,8 @@
  * @package dawp
  */
 
-$store_name     = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
+$store_name     = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
+$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orvelshop.com';
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal = home_url('/contact-us/');
 ?>
@@ -179,7 +179,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="exchanges" class="qb-policy-card">
           <h2><?php esc_html_e('Exchanges', 'dawp'); ?></h2>
-          <p><?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different style, strap size, color, or model, please follow the return process above to send back your original purchase for a refund, and place a new order on our website simultaneously. This ensures your desired item does not sell out.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different style, strap size, color, or model, please follow the return process above to send back your original purchase for a refund, then place a new order on our website. This helps ensure your desired item does not sell out.', 'dawp'); ?></p>
         </section>
 
         <section id="refund-process" class="qb-policy-card">
@@ -231,7 +231,7 @@ $support_portal = home_url('/contact-us/');
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

@@ -1,14 +1,14 @@
 <?php
 /**
- * Contact page template for Orvel Time.
+ * Contact page template for Orvel.
  */
 defined('ABSPATH') || exit;
 
 $theme_uri = get_template_directory_uri();
 $shop_url  = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $faq_url   = home_url('/faq/');
-$hero_img  = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/18.jpg';
-$detail_img = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/19.jpg';
+$hero_img  = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/ssss.png';
+$detail_img = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/1.png';
 $status    = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 
 $status_messages = [
@@ -21,7 +21,7 @@ $status_messages = [
 <section class="ot-contact-hero">
     <div class="ot-wrap ot-contact-hero__grid">
         <div class="ot-contact-hero__copy">
-            <span class="ot-kicker"><?php esc_html_e('Contact Orvel Time', 'dawp'); ?></span>
+            <span class="ot-kicker"><?php esc_html_e('Contact Orvel', 'dawp'); ?></span>
             <h1><?php esc_html_e('Here for Every Considered Detail.', 'dawp'); ?></h1>
             <p><?php esc_html_e('Questions about an order, a timepiece or a return are handled with the same care as the collection itself.', 'dawp'); ?></p>
             <div class="ot-actions">
@@ -30,7 +30,7 @@ $status_messages = [
             </div>
         </div>
         <div class="ot-contact-hero__image">
-            <img src="<?php echo esc_url($hero_img); ?>" alt="<?php esc_attr_e('Orvel Time watch detail in warm editorial light', 'dawp'); ?>" loading="eager">
+            <img src="<?php echo esc_url($hero_img); ?>" alt="<?php esc_attr_e('Orvel watch detail in warm editorial light', 'dawp'); ?>" loading="eager">
         </div>
     </div>
 </section>
@@ -50,7 +50,7 @@ $status_messages = [
         <div>
             <span><?php esc_html_e('03', 'dawp'); ?></span>
             <strong><?php esc_html_e('Returns Care', 'dawp'); ?></strong>
-            <p><?php esc_html_e('Clear assistance for returns, exchanges and gift concerns.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Clear assistance for return requests, refund questions and gift concerns.', 'dawp'); ?></p>
         </div>
     </div>
 </section>
@@ -67,7 +67,7 @@ $status_messages = [
                 </div>
                 <div>
                     <span><?php esc_html_e('Response Window', 'dawp'); ?></span>
-                    <p><?php esc_html_e('Within 1-2 business days', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Within 1 business day', 'dawp'); ?></p>
                 </div>
                 <div>
                     <span><?php esc_html_e('Need Order Details?', 'dawp'); ?></span>
@@ -133,7 +133,7 @@ $status_messages = [
 <section class="ot-contact-editorial">
     <div class="ot-wrap ot-contact-editorial__grid">
         <div class="ot-contact-editorial__image">
-            <img src="<?php echo esc_url($detail_img); ?>" alt="<?php esc_attr_e('Refined Orvel Time watch materials', 'dawp'); ?>" loading="lazy">
+            <img src="<?php echo esc_url($detail_img); ?>" alt="<?php esc_attr_e('Refined Orvel watch materials', 'dawp'); ?>" loading="lazy">
         </div>
         <div class="ot-contact-editorial__copy">
             <span class="ot-kicker"><?php esc_html_e('Before You Write', 'dawp'); ?></span>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Homepage template for Orvel Time.
+ * Homepage template for Orvel.
  *
  * Keeps commerce data dynamic through WooCommerce while presenting a refined,
  * editorial storefront.
@@ -10,11 +10,11 @@ defined('ABSPATH') || exit;
 $theme_uri = get_template_directory_uri();
 $shop_url  = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $about_url = home_url('/about-us/');
-$hero_img  = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/13.jpg';
-$edit_img  = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/14.jpg';
-$life_img  = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/15.jpg';
-$craft_img = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/16.jpg';
-$atelier_img = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/17.jpg';
+$hero_img  = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/1.png';
+$edit_img  = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/2.png';
+$life_img  = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/3.png';
+$craft_img = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/4.png';
+$atelier_img = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/5.png';
 
 $featured_products = [];
 $latest_products   = [];
@@ -92,9 +92,9 @@ if (!function_exists('dawp_home_product_card')) {
 <section class="ot-hero">
     <div class="ot-wrap ot-hero__inner">
         <div class="ot-hero__content">
-            <span class="ot-kicker"><?php esc_html_e('Orvel Time', 'dawp'); ?></span>
-            <h1><?php esc_html_e('Precision Watches for a Modern Wardrobe.', 'dawp'); ?></h1>
-            <p><?php esc_html_e('A focused collection of refined timepieces with clean proportions, tactile finishing and a quietly confident presence.', 'dawp'); ?></p>
+            <span class="ot-kicker"><?php esc_html_e('Orvel', 'dawp'); ?></span>
+            <h1><?php esc_html_e('Original Watches for a Modern Wardrobe.', 'dawp'); ?></h1>
+            <p><?php esc_html_e('Orvel creates refined timepieces with clean proportions, tactile finishing and a quietly confident presence for everyday wear.', 'dawp'); ?></p>
             <div class="ot-actions">
                 <a class="ot-btn ot-btn--dark" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
                 <a class="ot-btn ot-btn--ghost" href="<?php echo esc_url($about_url); ?>"><?php esc_html_e('Our Story', 'dawp'); ?></a>
@@ -102,7 +102,7 @@ if (!function_exists('dawp_home_product_card')) {
         </div>
         <div class="ot-hero__visual">
             <div class="ot-hero__frame ot-hero__frame--main">
-                <img src="<?php echo esc_url($hero_img); ?>" alt="<?php esc_attr_e('Orvel Time watch campaign hero', 'dawp'); ?>" loading="eager">
+                <img src="<?php echo esc_url($hero_img); ?>" alt="<?php esc_attr_e('Orvel watch campaign hero', 'dawp'); ?>" loading="eager">
             </div>
             <div class="ot-hero__frame ot-hero__frame--accent">
                 <img src="<?php echo esc_url($atelier_img); ?>" alt="<?php esc_attr_e('Premium watch detail in studio light', 'dawp'); ?>" loading="eager">
@@ -115,18 +115,18 @@ if (!function_exists('dawp_home_product_card')) {
     <div class="ot-wrap ot-assurance__grid">
         <div>
             <span><?php esc_html_e('01', 'dawp'); ?></span>
-            <strong><?php esc_html_e('Curated Selection', 'dawp'); ?></strong>
-            <p><?php esc_html_e('A tight edit of versatile silhouettes for everyday wear.', 'dawp'); ?></p>
+            <strong><?php esc_html_e('Original Designs', 'dawp'); ?></strong>
+            <p><?php esc_html_e('Versatile Orvel silhouettes created with a focused point of view.', 'dawp'); ?></p>
         </div>
         <div>
             <span><?php esc_html_e('02', 'dawp'); ?></span>
-            <strong><?php esc_html_e('Premium Finish', 'dawp'); ?></strong>
-            <p><?php esc_html_e('Balanced cases, considered dials and tactile material contrast.', 'dawp'); ?></p>
+            <strong><?php esc_html_e('Considered Finish', 'dawp'); ?></strong>
+            <p><?php esc_html_e('Balanced cases, legible dials and tactile material contrast.', 'dawp'); ?></p>
         </div>
         <div>
             <span><?php esc_html_e('03', 'dawp'); ?></span>
-            <strong><?php esc_html_e('Ready to Gift', 'dawp'); ?></strong>
-            <p><?php esc_html_e('Polished presentation made for personal milestones.', 'dawp'); ?></p>
+            <strong><?php esc_html_e('Direct From Orvel', 'dawp'); ?></strong>
+            <p><?php esc_html_e('Our own watches, presented clearly from product detail to delivery.', 'dawp'); ?></p>
         </div>
     </div>
 </section>
@@ -144,7 +144,7 @@ if (!function_exists('dawp_home_product_card')) {
         <div class="ot-featured-layout">
             <aside class="ot-featured-note">
                 <span class="ot-kicker"><?php esc_html_e('Season Edit', 'dawp'); ?></span>
-                <h3><?php esc_html_e('Three signatures, chosen for proportion, polish and daily versatility.', 'dawp'); ?></h3>
+                <h3><?php esc_html_e('Three Orvel signatures, shaped for proportion, polish and daily versatility.', 'dawp'); ?></h3>
                 <a class="ot-text-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse the Edit', 'dawp'); ?></a>
             </aside>
             <div class="ot-products ot-products--featured">
@@ -162,11 +162,11 @@ if (!function_exists('dawp_home_product_card')) {
         <div class="ot-editorial__copy">
             <span class="ot-kicker"><?php esc_html_e('Design Language', 'dawp'); ?></span>
             <h2><?php esc_html_e('Built Around Clarity, Balance and Restraint.', 'dawp'); ?></h2>
-            <p><?php esc_html_e('Every line is reduced to what matters: legible dials, measured case profiles and textures that catch light without shouting.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Every Orvel design is reduced to what matters: legible dials, measured case profiles and textures that catch light without shouting.', 'dawp'); ?></p>
             <a class="ot-btn ot-btn--dark" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Explore Pieces', 'dawp'); ?></a>
         </div>
         <div class="ot-editorial__image">
-            <img src="<?php echo esc_url($edit_img); ?>" alt="<?php esc_attr_e('Orvel Time watch in a warm editorial setting', 'dawp'); ?>" loading="lazy">
+            <img src="<?php echo esc_url($edit_img); ?>" alt="<?php esc_attr_e('Orvel watch in a warm editorial setting', 'dawp'); ?>" loading="lazy">
         </div>
     </div>
 </section>
@@ -193,20 +193,20 @@ if (!function_exists('dawp_home_product_card')) {
 <section class="ot-statement">
     <div class="ot-wrap ot-statement__inner">
         <span class="ot-kicker"><?php esc_html_e('Brand Statement', 'dawp'); ?></span>
-        <h2><?php esc_html_e('Quiet design creates confidence. Editorial imagery creates desire. The watch remains the hero.', 'dawp'); ?></h2>
+        <h2><?php esc_html_e('Quiet design creates confidence. Considered details create trust. Every Orvel watch is made to feel composed on the wrist.', 'dawp'); ?></h2>
     </div>
 </section>
 
 <section class="ot-craft">
     <div class="ot-wrap ot-craft__grid">
         <div class="ot-craft__copy">
-            <span class="ot-kicker"><?php esc_html_e('Craftsmanship', 'dawp'); ?></span>
+            <span class="ot-kicker"><?php esc_html_e('Orvel Details', 'dawp'); ?></span>
             <h2><?php esc_html_e('Details Define the Difference.', 'dawp'); ?></h2>
             <div class="ot-details">
                 <div>
                     <span></span>
                     <h3><?php esc_html_e('Balanced Case', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Clean proportions with a profile made for daily presence.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Clean proportions with a profile made for daily Orvel presence.', 'dawp'); ?></p>
                 </div>
                 <div>
                     <span></span>
@@ -224,7 +224,7 @@ if (!function_exists('dawp_home_product_card')) {
             <img src="<?php echo esc_url($craft_img); ?>" alt="<?php esc_attr_e('Watch detail with premium materials', 'dawp'); ?>" loading="lazy">
             <div class="ot-craft__badge" aria-hidden="true">
                 <span><?php esc_html_e('01', 'dawp'); ?></span>
-                <strong><?php esc_html_e('Atelier Grade', 'dawp'); ?></strong>
+                <strong><?php esc_html_e('Orvel Made', 'dawp'); ?></strong>
             </div>
         </div>
     </div>
@@ -237,12 +237,12 @@ if (!function_exists('dawp_home_product_card')) {
     <div class="ot-lifestyle__shade" aria-hidden="true"></div>
     <div class="ot-wrap ot-lifestyle__inner">
         <div class="ot-lifestyle__content">
-            <span class="ot-kicker"><?php esc_html_e('Lifestyle Campaign', 'dawp'); ?></span>
+            <span class="ot-kicker"><?php esc_html_e('Orvel Life', 'dawp'); ?></span>
             <h2><?php esc_html_e('Designed for the rhythm of modern life.', 'dawp'); ?></h2>
             <p><?php esc_html_e('Refined silhouettes, quiet materials and everyday precision for every hour that asks more of you.', 'dawp'); ?></p>
             <div class="ot-lifestyle__actions">
                 <a class="ot-btn ot-btn--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Discover Watches', 'dawp'); ?></a>
-                <span><?php esc_html_e('Automatic and quartz collections', 'dawp'); ?></span>
+                <span><?php esc_html_e('Original Orvel collections', 'dawp'); ?></span>
             </div>
         </div>
     </div>

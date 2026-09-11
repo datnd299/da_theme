@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop and product category archive template for Orvel Time.
+ * Shop and product category archive template for Orvel.
  *
  * @package dawp
  */
@@ -12,7 +12,7 @@ $queried_term  = $is_category ? get_queried_object() : null;
 $category_data = $is_category && $queried_term && !is_wp_error($queried_term) ? qb_get_product_category_data($queried_term->slug) : null;
 $shop_url      = get_permalink(wc_get_page_id('shop'));
 $shop_url      = $shop_url ?: home_url('/shop/');
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
 
 if ($category_data) {
     $page_title  = $category_data['name'];
@@ -24,7 +24,7 @@ if ($category_data) {
 } elseif ($is_category && $queried_term && !is_wp_error($queried_term)) {
     $page_title  = $queried_term->name;
     $headline    = $queried_term->name;
-    $description = $queried_term->description ?: 'Browse modern watch styles selected for confident form, refined materials, and everyday presence.';
+    $description = $queried_term->description ?: 'Browse original Orvel watch styles designed for confident form, refined materials, and everyday presence.';
     $intro       = 'Review case, strap, movement, size, finish, and care details on each product page before ordering.';
     $hero_image  = '';
     $highlights  = ['Modern luxury watches', 'Refined materials', 'Clear product details'];
@@ -33,7 +33,7 @@ if ($category_data) {
     $headline    = 'Modern watches with confident form and refined presence.';
     $description = 'Discover modern luxury watches with clean presentation, considered materials, and precise product detail.';
     $intro       = sprintf('Shop the %s watch edit built around proportion, texture, and daily presence.', $brand_name);
-    $hero_image  = qb_theme_asset_image_url('luxuryimagecollection (1)/20.jpg');
+    $hero_image  = qb_theme_asset_image_url('luxuryimagecollection (1)/news/1.png');
     $highlights  = ['Modern luxury watches', 'Precise presentation', 'Secure checkout'];
 }
 

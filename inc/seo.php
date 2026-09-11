@@ -40,7 +40,7 @@ function dawp_store_country() {
 function dawp_default_description() {
     return apply_filters(
         'dawp_default_description',
-        sprintf('%s is a refined luxury watch store focused on precision, craftsmanship, and timeless contemporary design.', dawp_brand_name())
+        sprintf('%s is an independent watch brand focused on refined design, practical detail, and timeless contemporary style.', dawp_brand_name())
     );
 }
 
@@ -53,7 +53,7 @@ function dawp_get_virtual_seo() {
     $map = [
         'about-us' => [
             'title'       => 'About Us',
-            'description' => sprintf('%s is a refined luxury watch store shaped by precision, craftsmanship, and timeless contemporary design.', dawp_brand_name()),
+            'description' => sprintf('%s is an independent watch brand offering its own refined timepieces with clear product detail and direct support.', dawp_brand_name()),
         ],
         'faq' => [
             'title'       => 'FAQ',
@@ -152,12 +152,12 @@ function dawp_current_description() {
             if ($text) {
                 return wp_trim_words($text, 32, '');
             }
-            return sprintf('Shop the %s at %s — modern luxury watches built for precision with presence.', $product->get_name(), dawp_brand_name());
+            return sprintf('Shop the %s at %s - a Zorex Craft watch built for refined presence and daily wear.', $product->get_name(), dawp_brand_name());
         }
     }
 
     if (function_exists('is_shop') && is_shop()) {
-        return sprintf('Shop modern luxury watches at %s — refined materials, clean presentation, and precise product detail.', dawp_brand_name());
+        return sprintf('Shop Zorex Craft watches - refined styling, clean presentation, and precise product detail from our own brand.', dawp_brand_name());
     }
 
     if (is_product_category() || is_product_tag()) {
@@ -166,7 +166,7 @@ function dawp_current_description() {
             return wp_trim_words(wp_strip_all_tags($term->description), 32, '');
         }
         if ($term && !is_wp_error($term)) {
-            return sprintf('Browse %s at %s — modern luxury watches with confident form and refined presence.', $term->name, dawp_brand_name());
+            return sprintf('Browse %s at %s - Zorex Craft watches with confident form and refined presence.', $term->name, dawp_brand_name());
         }
     }
 
@@ -236,7 +236,7 @@ function dawp_head_meta() {
     }
 
     if (!$image) {
-        $image = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (3).png';
+        $image = get_template_directory_uri() . '/assets/images/Zorexwatch/344.png';
     }
 
     $title = wp_get_document_title();
@@ -302,7 +302,7 @@ function dawp_org_website_schema() {
 
     $brand = dawp_brand_name();
     $home  = home_url('/');
-    $logo  = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (3).png';
+    $logo  = get_template_directory_uri() . '/assets/images/Zorexwatch/344.png';
     $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@zorexcraft.com';
 
     $organization = [

@@ -12,7 +12,7 @@ $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url
 $account_url = get_permalink(get_option('woocommerce_myaccount_page_id'));
 $account_url = $account_url ?: home_url('/my-account/');
 $brand_name  = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Zorex Craft';
-$logo_url    = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (3).png';
+$logo_url    = get_template_directory_uri() . '/assets/images/Zorexwatch/watchlogonew.png';
 $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [
     ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
     ['title' => __('Watches', 'dawp'), 'url' => home_url('/shop/')],
@@ -365,7 +365,7 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
 <header id="masthead" class="qb-site-header" role="banner">
     <div class="qb-announcement">
         <div class="qb-header-wrap">
-            <?php esc_html_e('Zorex Craft - Modern watches, timeless choices', 'dawp'); ?>
+            <?php esc_html_e('Zorex Craft - Original watches from our brand', 'dawp'); ?>
         </div>
     </div>
 

@@ -163,7 +163,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <section id="online-store" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('1. Online Store Terms', 'dawp'); ?></p>
           <h2><?php esc_html_e('You must use the store lawfully and responsibly.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('By agreeing to these Terms, you represent that you are at least the age of majority in your jurisdiction, or that you have given us your consent to allow any minor dependents to use this site under your supervision.', 'dawp'); ?></p>
+          <p><?php esc_html_e('By agreeing to these Terms, you represent that you are at least 18 years old or the age of majority in your jurisdiction, whichever is higher.', 'dawp'); ?></p>
           <p><?php esc_html_e('You may not use our products or Services for any unlawful or unauthorized purpose, and you may not violate any applicable laws or regulations in your jurisdiction, including import/export, consumer protection, or intellectual property laws.', 'dawp'); ?></p>
           <p><?php esc_html_e('You must not transmit any worms, viruses, malware, or any code of a destructive nature.', 'dawp'); ?></p>
           <p><?php esc_html_e('A breach or violation of any of these Terms may result in immediate suspension or termination of your access to our Services.', 'dawp'); ?></p>

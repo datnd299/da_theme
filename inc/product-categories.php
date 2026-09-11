@@ -9,10 +9,10 @@ function qb_product_category_definitions() {
     return [
         'dress-watches' => [
             'name'        => __('Dress Watches', 'dawp'),
-            'description' => __('Refined watches for formal wardrobes and polished daily wear.', 'dawp'),
+            'description' => __('Refined Zorex watches for formal wardrobes and polished daily wear.', 'dawp'),
             'headline'    => __('Dress Watches', 'dawp'),
             'intro'       => __('Refined proportions, elegant dials and timeless details for formal wardrobes.', 'dawp'),
-            'image'       => '41.jpg',
+            'image'       => '34.png',
             'highlights'  => [
                 __('Slim profiles and elegant cases', 'dawp'),
                 __('Classic dial layouts', 'dawp'),
@@ -21,10 +21,10 @@ function qb_product_category_definitions() {
         ],
         'sport-watches' => [
             'name'        => __('Sport Watches', 'dawp'),
-            'description' => __('Robust watches built for active days, travel and everyday confidence.', 'dawp'),
+            'description' => __('Robust Zorex watches built for active days, travel and everyday confidence.', 'dawp'),
             'headline'    => __('Sport Watches', 'dawp'),
             'intro'       => __('Durable cases, legible dials and confident wrist presence for active routines.', 'dawp'),
-            'image'       => '42.jpg',
+            'image'       => '344.png',
             'highlights'  => [
                 __('Durable cases and bracelets', 'dawp'),
                 __('High-legibility displays', 'dawp'),
@@ -33,22 +33,22 @@ function qb_product_category_definitions() {
         ],
         'daily-icons' => [
             'name'        => __('Daily Icons', 'dawp'),
-            'description' => __('Versatile signature pieces made for frequent wear and easy styling.', 'dawp'),
+            'description' => __('Versatile Zorex signature pieces made for frequent wear and easy styling.', 'dawp'),
             'headline'    => __('Daily Icons', 'dawp'),
             'intro'       => __('Versatile watches with enduring style, balanced comfort and everyday appeal.', 'dawp'),
-            'image'       => '43.jpg',
+            'image'       => '9.png',
             'highlights'  => [
                 __('Easy to dress up or down', 'dawp'),
                 __('Comfortable everyday proportions', 'dawp'),
-                __('Recognizable modern classics', 'dawp'),
+                __('Recognizable Zorex styling', 'dawp'),
             ],
         ],
         'collector-picks' => [
             'name'        => __('Collector Picks', 'dawp'),
-            'description' => __('Selected pieces with character, distinction and collector-focused appeal.', 'dawp'),
+            'description' => __('Distinctive Zorex pieces with character, detail and collector-focused appeal.', 'dawp'),
             'headline'    => __('Collector Picks', 'dawp'),
-            'intro'       => __('Distinctive references selected for character, condition and collection value.', 'dawp'),
-            'image'       => '44.jpg',
+            'intro'       => __('Distinctive Zorex watches selected for character, finish and collection appeal.', 'dawp'),
+            'image'       => '10.png',
             'highlights'  => [
                 __('Standout references and details', 'dawp'),
                 __('Collector-minded selection', 'dawp'),
@@ -126,7 +126,7 @@ function qb_product_term_url($term) {
 }
 
 function qb_theme_asset_image_url($filename) {
-    $relative_path = 'assets/images/luxuryimagecollection (3)/' . ltrim($filename, '/');
+    $relative_path = 'assets/images/Zorexwatch/' . ltrim($filename, '/');
     $file_path = trailingslashit(get_template_directory()) . $relative_path;
 
     return file_exists($file_path) ? trailingslashit(get_template_directory_uri()) . $relative_path : '';

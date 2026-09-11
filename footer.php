@@ -11,7 +11,7 @@ $current_year  = date_i18n('Y');
 $brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Zorex Craft';
 $support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@zorexcraft.com';
 $support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Zorex Craft support request', 'dawp')) : 'mailto:' . $support_email;
-$logo_url      = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (3).png';
+$logo_url      = get_template_directory_uri() . '/assets/images/Zorexwatch/light_logo.jpg';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [
     [
@@ -376,11 +376,11 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
             <div class="qb-footer-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s home', 'dawp'), $brand_name)); ?>">
                     <img class="qb-footer-logo" src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($brand_name); ?>">
-                    <span class="qb-footer-tagline"><?php esc_html_e('Modern Icons', 'dawp'); ?></span>
+                    <span class="qb-footer-tagline"><?php esc_html_e('Original Zorex Watches', 'dawp'); ?></span>
                 </a>
 
                 <p class="qb-footer-copy">
-                    <?php esc_html_e('A calm luxury watch destination for clear discovery, confident comparison, and collector-focused shopping.', 'dawp'); ?>
+                    <?php esc_html_e('Original Zorex Craft watches with clear details, refined presentation, and direct brand support.', 'dawp'); ?>
                 </p>
 
                 <div class="qb-footer-contact">

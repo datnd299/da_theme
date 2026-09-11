@@ -63,7 +63,7 @@ function dawp_normalize_tracking_order_id($order_id) {
         return $tracking_id;
     }
 
-    if (preg_match('/^(?:OT|CV)\s*-\s*(\d+)$/i', $tracking_id, $matches)) {
+    if (preg_match('/^(?:OT|CV|VC)\s*-\s*(\d+)$/i', $tracking_id, $matches)) {
         return $matches[1];
     }
 

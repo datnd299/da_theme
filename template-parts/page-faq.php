@@ -125,9 +125,9 @@ $faq_sections = [
                 'a' => __('We aim to display product colors and finishes clearly, but slight differences may occur due to screen settings, photography lighting, production updates, or inventory changes.', 'dawp'),
             ],
             [
-                'q' => __('Do your watches make unsupported brand or performance claims?', 'dawp'),
+                'q' => __('Are these Zorex Craft watches or third-party brands?', 'dawp'),
                 'a' => sprintf(
-                    __('No. %s sells watches and watch accessories. We avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
+                    __('%s sells its own Zorex Craft watches and related accessories. We do not position the site as a distributor of other watch brands, and we avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
                     $store_name
                 ),
             ],

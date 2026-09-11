@@ -24,17 +24,17 @@ if ($category_data) {
 } elseif ($is_category && $queried_term && !is_wp_error($queried_term)) {
     $page_title  = $queried_term->name;
     $headline    = $queried_term->name;
-    $description = $queried_term->description ?: 'Browse modern watch styles selected for confident form, refined materials, and everyday presence.';
-    $intro       = 'Review case, strap, movement, size, finish, and care details on each product page before ordering.';
+    $description = $queried_term->description ?: 'Browse Zorex Craft watch styles made for confident form, refined finishes, and everyday presence.';
+    $intro       = 'Review case, strap, movement, size, finish, and care details for each Zorex watch before ordering.';
     $hero_image  = '';
-    $highlights  = ['Modern luxury watches', 'Refined materials', 'Clear product details'];
+    $highlights  = ['Zorex watch styles', 'Refined finishes', 'Clear product details'];
 } else {
     $page_title  = 'All Watches';
     $headline    = 'Crafted with Precision.';
-    $description = 'Discover refined luxury watches with clean presentation, considered materials, and precise product detail.';
-    $intro       = sprintf('Shop the %s edit built around proportion, craftsmanship, and timeless contemporary design.', $brand_name);
-    $hero_image  = get_template_directory_uri() . '/assets/images/luxuryimagecollection%20(3)/50.jpg';
-    $highlights  = ['Modern luxury watches', 'Precise presentation', 'Secure checkout'];
+    $description = 'Discover Zorex Craft watches with clean presentation, considered finishes, and precise product detail.';
+    $intro       = sprintf('Shop the %s collection built around proportion, clarity, and timeless contemporary design.', $brand_name);
+    $hero_image  = get_template_directory_uri() . '/assets/images/Zorexwatch/234.png';
+    $highlights  = ['Original Zorex watches', 'Precise presentation', 'Secure checkout'];
 }
 
 if (!$hero_image && function_exists('wc_placeholder_img_src')) {
@@ -221,8 +221,8 @@ get_header();
                 </article>
                 <article class="shop-care__item">
                     <span class="shop-care__item-num" aria-hidden="true">02</span>
-                    <h3><?php esc_html_e('Modern Watch Shopping', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('The collection is positioned around modern luxury watch ecommerce without fake luxury, replica, designer-inspired, or unsupported performance claims.', 'dawp'); ?></p>
+                    <h3><?php esc_html_e('Zorex Watch Shopping', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('The collection is presented as Zorex Craft watches only, without fake luxury, replica, designer-inspired, reseller, or unsupported performance claims.', 'dawp'); ?></p>
                 </article>
                 <article class="shop-care__item">
                     <span class="shop-care__item-num" aria-hidden="true">03</span>

@@ -7,7 +7,7 @@
 
 defined('ABSPATH') || exit;
 
-$asset_base = trailingslashit(get_template_directory_uri()) . 'assets/images/luxuryimagecollection (3)/';
+$asset_base = trailingslashit(get_template_directory_uri()) . 'assets/images/Zorexwatch/';
 $shop_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
 if (!function_exists('zc_home_products')) {
@@ -81,9 +81,9 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
 <section class="zc-hero">
     <div class="zc-wrap zc-hero__grid">
         <div class="zc-hero__copy">
-            <span class="zc-kicker"><?php esc_html_e('Watches Worth Knowing', 'dawp'); ?></span>
-            <h1><?php esc_html_e('Find Your Next Timepiece.', 'dawp'); ?></h1>
-            <p><?php esc_html_e('A modern luxury watch destination built for clear discovery, confident comparison and collector-focused shopping.', 'dawp'); ?></p>
+            <span class="zc-kicker"><?php esc_html_e('Zorex Craft Watches', 'dawp'); ?></span>
+            <h1><?php esc_html_e('Timepieces Designed by Zorex.', 'dawp'); ?></h1>
+            <p><?php esc_html_e('Explore Zorex Craft watches made for refined daily wear, clear product detail and a direct brand shopping experience.', 'dawp'); ?></p>
             <div class="zc-actions">
                 <a class="zc-button zc-button--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
                 <a class="zc-button zc-button--secondary" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('About Zorex', 'dawp'); ?></a>
@@ -92,14 +92,14 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
 
         <div class="zc-hero__visual" aria-hidden="true">
             <figure class="zc-hero__frame zc-hero__frame--main">
-                <img src="<?php echo esc_url($asset_base . '41.jpg'); ?>" alt="">
+                <img src="<?php echo esc_url($asset_base . '9.png'); ?>" alt="">
             </figure>
             <figure class="zc-hero__frame zc-hero__frame--detail">
-                <img src="<?php echo esc_url($asset_base . '42.jpg'); ?>" alt="">
+                <img src="<?php echo esc_url($asset_base . '10.png'); ?>" alt="">
             </figure>
             <div class="zc-hero__mark">
-                <span><?php esc_html_e('Modern Icons', 'dawp'); ?></span>
-                <strong><?php esc_html_e('Timeless Choices', 'dawp'); ?></strong>
+                <span><?php esc_html_e('Zorex Design', 'dawp'); ?></span>
+                <strong><?php esc_html_e('Made to Wear', 'dawp'); ?></strong>
             </div>
         </div>
     </div>
@@ -107,9 +107,9 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
 
 <section class="zc-trust" aria-label="<?php esc_attr_e('Store highlights', 'dawp'); ?>">
     <div class="zc-wrap zc-trust__grid">
-        <div><span>01</span><strong><?php esc_html_e('Product-led discovery', 'dawp'); ?></strong></div>
-        <div><span>02</span><strong><?php esc_html_e('Dynamic WooCommerce catalog', 'dawp'); ?></strong></div>
-        <div><span>03</span><strong><?php esc_html_e('Built for collectors', 'dawp'); ?></strong></div>
+        <div><span>01</span><strong><?php esc_html_e('Zorex original watches', 'dawp'); ?></strong></div>
+        <div><span>02</span><strong><?php esc_html_e('Direct brand catalog', 'dawp'); ?></strong></div>
+        <div><span>03</span><strong><?php esc_html_e('Clear product details', 'dawp'); ?></strong></div>
     </div>
 </section>
 
@@ -118,8 +118,8 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
     <div class="zc-wrap">
         <div class="zc-section__head">
             <div>
-                <span class="zc-kicker"><?php esc_html_e('Featured Products', 'dawp'); ?></span>
-                <h2><?php esc_html_e('Discover Watches That Matter.', 'dawp'); ?></h2>
+                <span class="zc-kicker"><?php esc_html_e('Featured Zorex Watches', 'dawp'); ?></span>
+                <h2><?php esc_html_e('Signature pieces from our line.', 'dawp'); ?></h2>
             </div>
             <a class="zc-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View all', 'dawp'); ?></a>
         </div>
@@ -136,7 +136,7 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
     <div class="zc-wrap zc-style__grid">
         <div class="zc-style__copy">
             <span class="zc-kicker"><?php esc_html_e('Shop by Style', 'dawp'); ?></span>
-            <h2><?php esc_html_e('A cleaner way to browse luxury watches.', 'dawp'); ?></h2>
+            <h2><?php esc_html_e('Browse the Zorex range by style.', 'dawp'); ?></h2>
         </div>
         <div class="zc-style__list">
             <?php if ($style_categories) : ?>
@@ -163,8 +163,8 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
     <div class="zc-wrap">
         <div class="zc-section__head">
             <div>
-                <span class="zc-kicker"><?php esc_html_e('Latest Watches', 'dawp'); ?></span>
-                <h2><?php esc_html_e('Fresh arrivals, easy to compare.', 'dawp'); ?></h2>
+                <span class="zc-kicker"><?php esc_html_e('Latest Zorex Watches', 'dawp'); ?></span>
+                <h2><?php esc_html_e('New releases, easy to compare.', 'dawp'); ?></h2>
             </div>
             <a class="zc-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop latest', 'dawp'); ?></a>
         </div>
@@ -179,13 +179,13 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
 
 <section class="zc-collector">
     <figure class="zc-collector__media">
-        <img src="<?php echo esc_url($asset_base . '43.jpg'); ?>" alt="<?php esc_attr_e('Luxury watch detail', 'dawp'); ?>">
+        <img src="<?php echo esc_url($asset_base . '11.png'); ?>" alt="<?php esc_attr_e('Luxury watch detail', 'dawp'); ?>">
     </figure>
     <div class="zc-wrap zc-collector__content">
-        <span class="zc-kicker"><?php esc_html_e('Collector Feature', 'dawp'); ?></span>
-        <h2><?php esc_html_e('Modern Icons. Timeless Choices.', 'dawp'); ?></h2>
-        <p><?php esc_html_e('Built around strong imagery, structured product information and a calm buying flow for people who know what they are looking at.', 'dawp'); ?></p>
-        <a class="zc-button zc-button--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Explore the catalog', 'dawp'); ?></a>
+        <span class="zc-kicker"><?php esc_html_e('Brand Detail', 'dawp'); ?></span>
+        <h2><?php esc_html_e('Designed for presence, built for everyday rhythm.', 'dawp'); ?></h2>
+        <p><?php esc_html_e('Each Zorex Craft watch is presented with clear imagery, essential specifications and a calm buying flow from our brand to your wrist.', 'dawp'); ?></p>
+        <a class="zc-button zc-button--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Explore Zorex watches', 'dawp'); ?></a>
     </div>
 </section>
 
@@ -194,8 +194,8 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
     <div class="zc-wrap zc-featured-grid">
         <aside class="zc-blue-panel">
             <span class="zc-kicker"><?php esc_html_e('Products', 'dawp'); ?></span>
-            <h2><?php esc_html_e('Browse with clarity.', 'dawp'); ?></h2>
-            <p><?php esc_html_e('Product cards keep the essentials visible: image, name and live price from WooCommerce.', 'dawp'); ?></p>
+            <h2><?php esc_html_e('Choose with clarity.', 'dawp'); ?></h2>
+            <p><?php esc_html_e('Zorex product cards keep the essentials visible: image, model name and current price.', 'dawp'); ?></p>
         </aside>
         <div class="zc-products zc-products--four">
             <?php foreach ($popular_products as $product) : ?>
@@ -215,9 +215,9 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
             </div>
         </div>
         <div class="zc-why__grid">
-            <article><span></span><h3><?php esc_html_e('Clean comparison', 'dawp'); ?></h3><p><?php esc_html_e('Structured grids help visitors scan products and prices without visual noise.', 'dawp'); ?></p></article>
-            <article><span></span><h3><?php esc_html_e('Collector focus', 'dawp'); ?></h3><p><?php esc_html_e('Concise copy and editorial watch imagery support discovery without inflated claims.', 'dawp'); ?></p></article>
-            <article><span></span><h3><?php esc_html_e('Commerce first', 'dawp'); ?></h3><p><?php esc_html_e('Shop, search, account and cart remain close to the buying journey on every screen.', 'dawp'); ?></p></article>
+            <article><span></span><h3><?php esc_html_e('Direct from Zorex', 'dawp'); ?></h3><p><?php esc_html_e('The site focuses on our own watch line, with no reseller positioning or third-party brand claims.', 'dawp'); ?></p></article>
+            <article><span></span><h3><?php esc_html_e('Details first', 'dawp'); ?></h3><p><?php esc_html_e('Concise copy and close-up watch imagery make materials, sizing and finish easier to understand.', 'dawp'); ?></p></article>
+            <article><span></span><h3><?php esc_html_e('Easy to order', 'dawp'); ?></h3><p><?php esc_html_e('Shop, search, account and cart remain close to the buying journey on every screen.', 'dawp'); ?></p></article>
         </div>
     </div>
 </section>
@@ -225,12 +225,12 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
 <section class="zc-editorial">
     <div class="zc-wrap zc-editorial__grid">
         <figure>
-            <img src="<?php echo esc_url($asset_base . '44.jpg'); ?>" alt="<?php esc_attr_e('Watch collector desk', 'dawp'); ?>">
+            <img src="<?php echo esc_url($asset_base . '13.png'); ?>" alt="<?php esc_attr_e('Watch collector desk', 'dawp'); ?>">
         </figure>
         <div>
-            <span class="zc-kicker"><?php esc_html_e('Editorial', 'dawp'); ?></span>
-            <h2><?php esc_html_e('Discovery creates interest. Clarity creates confidence.', 'dawp'); ?></h2>
-            <p><?php esc_html_e('Zorex Craft balances refined presentation with practical shopping paths, making the homepage feel premium without slowing down the catalog.', 'dawp'); ?></p>
+            <span class="zc-kicker"><?php esc_html_e('Zorex Notes', 'dawp'); ?></span>
+            <h2><?php esc_html_e('A focused watch brand should be easy to understand.', 'dawp'); ?></h2>
+            <p><?php esc_html_e('Zorex Craft pairs refined presentation with practical shopping paths, so visitors can review our watches without unnecessary claims or distractions.', 'dawp'); ?></p>
         </div>
     </div>
 </section>
@@ -239,7 +239,7 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
     <div class="zc-wrap zc-newsletter__grid">
         <div>
             <span class="zc-kicker"><?php esc_html_e('Newsletter', 'dawp'); ?></span>
-            <h2><?php esc_html_e('Notes for collectors.', 'dawp'); ?></h2>
+            <h2><?php esc_html_e('Notes from Zorex.', 'dawp'); ?></h2>
         </div>
         <form class="zc-newsletter__form" action="#" method="post">
             <label class="screen-reader-text" for="zc-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>

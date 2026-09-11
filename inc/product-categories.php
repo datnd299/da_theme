@@ -10,7 +10,7 @@ function qb_product_category_definitions() {
         'dress-watches' => [
             'name'        => 'Dress Watches',
             'headline'    => 'Dress watches shaped for formal presence and quiet refinement.',
-            'description' => 'Explore polished luxury watches designed for tailored outfits, evening occasions, and understated daily elegance.',
+            'description' => 'Explore polished watches designed for tailored outfits, evening occasions, and understated daily elegance.',
             'intro'       => 'This collection focuses on slim profiles, balanced dials, refined finishes, and straps that pair cleanly with formal or business wardrobes.',
             'image'       => 'luxuryimagecollection (1)/20.jpg',
             'highlights'  => ['Formal styling', 'Slim wrist presence', 'Refined dial details'],
@@ -19,7 +19,7 @@ function qb_product_category_definitions() {
             'name'        => 'Sport Watches',
             'headline'    => 'Sport watches built around confident form and everyday versatility.',
             'description' => 'Browse modern sport watch styles with stronger case presence, practical readability, and easy pairing from weekday to weekend.',
-            'intro'       => 'This category suits customers looking for a more active visual language without losing the polished feel of a luxury watch.',
+            'intro'       => 'This category suits customers looking for a more active visual language without losing a polished everyday feel.',
             'image'       => 'luxuryimagecollection (1)/23.jpg',
             'highlights'  => ['Bold case design', 'Everyday versatility', 'Readable dial layouts'],
         ],

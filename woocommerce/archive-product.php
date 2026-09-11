@@ -24,17 +24,17 @@ if ($category_data) {
 } elseif ($is_category && $queried_term && !is_wp_error($queried_term)) {
     $page_title  = $queried_term->name;
     $headline    = $queried_term->name;
-    $description = $queried_term->description ?: 'Browse original Orvel watch styles designed for confident form, refined materials, and everyday presence.';
+    $description = $queried_term->description ?: 'Browse original Orvel watch styles designed for confident form, clear materials, and everyday presence.';
     $intro       = 'Review case, strap, movement, size, finish, and care details on each product page before ordering.';
     $hero_image  = '';
-    $highlights  = ['Modern luxury watches', 'Refined materials', 'Clear product details'];
+    $highlights  = ['Original watch styles', 'Clear material notes', 'Product detail pages'];
 } else {
     $page_title  = 'All Watches';
     $headline    = 'Modern watches with confident form and refined presence.';
-    $description = 'Discover modern luxury watches with clean presentation, considered materials, and precise product detail.';
+    $description = 'Discover modern watches with clean presentation, considered materials, and precise product detail.';
     $intro       = sprintf('Shop the %s watch edit built around proportion, texture, and daily presence.', $brand_name);
     $hero_image  = qb_theme_asset_image_url('luxuryimagecollection (1)/news/1.png');
-    $highlights  = ['Modern luxury watches', 'Precise presentation', 'Secure checkout'];
+    $highlights  = ['Original watch styles', 'Clear product details', 'Secure checkout'];
 }
 
 if (!$hero_image && function_exists('wc_placeholder_img_src')) {
@@ -199,7 +199,7 @@ get_header();
             </div>
             <div>
                 <h2><?php esc_html_e('Modern Watch Shopping', 'dawp'); ?></h2>
-                <p><?php esc_html_e('The collection is positioned around modern luxury watch ecommerce without fake luxury, replica, designer-inspired, or unsupported performance claims.', 'dawp'); ?></p>
+                <p><?php esc_html_e('The collection is positioned around original watch ecommerce without fake luxury, replica, designer-inspired, or unsupported performance claims.', 'dawp'); ?></p>
             </div>
         </section>
     </div>

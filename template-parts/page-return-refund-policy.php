@@ -12,7 +12,7 @@ $support_portal = home_url('/contact-us/');
 ?>
 
 <style>
-  .qb-page { --qb-obsidian:#0D0F0F; --qb-ivory:#F7F4EE; --qb-white:#FFFFFF; --qb-carbon:#171A19; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#D7D0C2; --qb-gray:#F7F4EE; --qb-text:#5E625F; --qb-border:#DDD5C7; --qb-plum:#171A19; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-obsidian:#101412; --qb-ivory:#F6F4EF; --qb-white:#FFFFFF; --qb-carbon:#1A1F1C; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#D7D0C2; --qb-gray:#F6F4EF; --qb-text:#555B57; --qb-border:#D8D2C7; --qb-plum:#141817; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
@@ -21,19 +21,21 @@ $support_portal = home_url('/contact-us/');
   .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(36px,5vw,64px); line-height:1.04; letter-spacing:0; }
   .qb-updated { margin:16px 0 0; color:var(--qb-plum); font-size:14px; font-weight:800; line-height:1.4; }
   .qb-copy { margin:18px 0 0; max-width:780px; color:var(--qb-text); font-size:17px; line-height:1.75; }
-  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
+  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:6px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
   .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
   .qb-button--secondary { background:#fff; color:var(--qb-plum) !important; }
   .qb-button--secondary:hover { border-color:var(--qb-plum); background:var(--qb-ivory); color:var(--qb-plum) !important; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
   .qb-hero .qb-actions { justify-content:center; }
-  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-border); background:linear-gradient(135deg,#fff 0%,#F7F4EE 62%,rgba(179,138,82,.18) 100%); }
+  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.12); background:linear-gradient(135deg,#101412 0%,#1F2A24 56%,#6D5334 100%); }
   .qb-hero::before { content:""; position:absolute; inset:auto 0 0; height:1px; background:linear-gradient(90deg,transparent,rgba(179,138,82,.7),transparent); }
-  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(179,138,82,.24); transform:rotate(12deg); }
+  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(255,255,255,.16); transform:rotate(12deg); }
   .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:70px 0 76px; }
   .qb-hero__content { max-width:720px; margin-inline:auto; text-align:center; }
+  .qb-hero .qb-title, .qb-hero .qb-updated { color:#fff; }
+  .qb-hero .qb-copy { color:rgba(255,255,255,.78); }
   .qb-hero .qb-copy { max-width:690px; margin-inline:auto; }
-  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:8px; background:rgba(255,255,255,.94); box-shadow:0 12px 34px rgba(13,15,15,.05); }
+  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:6px; background:rgba(255,255,255,.96); box-shadow:0 16px 38px rgba(13,15,15,.06); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
   .qb-glance-list { display:grid; gap:14px; margin:20px 0 0; padding:0; list-style:none; }
   .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#5E625F; font-size:14px; line-height:1.6; }
@@ -41,7 +43,8 @@ $support_portal = home_url('/contact-us/');
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:32px; align-items:start; }
   .qb-policy-stack { display:grid; gap:20px; }
-  .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; }
+  .qb-policy-card { position:relative; padding:clamp(24px,4vw,38px); background:#fff; overflow:hidden; }
+  .qb-policy-card::before { content:""; position:absolute; inset:0 auto 0 0; width:4px; background:linear-gradient(180deg,var(--qb-gold),rgba(179,138,82,.2)); }
   .qb-policy-card:nth-child(even) { background:var(--qb-ivory); }
   .qb-policy-card h2 { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
   .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-plum); font-size:18px; line-height:1.35; }
@@ -50,19 +53,19 @@ $support_portal = home_url('/contact-us/');
   .qb-policy-card ul, .qb-policy-card ol { display:grid; gap:9px; margin:16px 0 0; padding-left:1.15rem; }
   .qb-policy-card ul { list-style:disc outside; }
   .qb-policy-card ol { list-style:decimal outside; }
-  .qb-callout { border-left:4px solid var(--qb-gold); border-radius:0 16px 16px 0; background:rgba(179,138,82,.12); padding:15px 18px; }
+  .qb-callout { border-left:4px solid var(--qb-gold); border-radius:0 6px 6px 0; background:rgba(179,138,82,.12); padding:15px 18px; }
   .qb-split-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:18px; }
-  .qb-info-panel { border:1px solid var(--qb-border); border-radius:16px; background:#fff; padding:18px; }
+  .qb-info-panel { border:1px solid var(--qb-border); border-radius:6px; background:#fff; padding:18px; }
   .qb-info-panel--soft { background:var(--qb-ivory); }
   .qb-info-panel h3 { margin:0; }
   .qb-step-list { counter-reset:return-step; display:grid; gap:14px; margin-top:18px; }
-  .qb-step { position:relative; border:1px solid var(--qb-border); border-radius:16px; background:#fff; padding:18px 18px 18px 58px; }
+  .qb-step { position:relative; border:1px solid var(--qb-border); border-radius:6px; background:#fff; padding:18px 18px 18px 58px; }
   .qb-step::before { counter-increment:return-step; content:counter(return-step); position:absolute; left:18px; top:18px; width:28px; height:28px; border-radius:999px; display:grid; place-items:center; background:var(--qb-plum); color:#fff; font-size:13px; font-weight:800; }
   .qb-step h3 { margin:0; }
-  .qb-address-box { margin-top:18px; border:1px solid rgba(179,138,82,.38); border-radius:16px; background:rgba(179,138,82,.12); padding:18px; color:var(--qb-plum); }
+  .qb-address-box { margin-top:18px; border:1px solid rgba(179,138,82,.38); border-radius:6px; background:rgba(179,138,82,.12); padding:18px; color:var(--qb-plum); }
   .qb-address-box strong { display:block; }
   .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; padding:18px; background:#fff; box-shadow:none; }
-  .qb-contact-item { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; }
+  .qb-contact-item { border:1px solid var(--qb-border); border-radius:6px; background:#fff; padding:16px; }
   .qb-contact-item strong { display:block; color:var(--qb-plum); font-size:14px; }
   .qb-contact-item span { display:block; margin-top:7px; color:#5E625F; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
   @media (max-width:920px) { .qb-hero__grid, .qb-content-grid, .qb-split-grid { grid-template-columns:1fr; } }
@@ -102,7 +105,7 @@ $support_portal = home_url('/contact-us/');
         <p class="qb-eyebrow"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php esc_html_e('Eligible items can be returned within 30 days of delivery, subject to the conditions below.', 'dawp'); ?></p>
+        <p class="qb-copy"><?php esc_html_e('Eligible items may be returned within 30 days of delivery when the conditions below are met.', 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
@@ -117,7 +120,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-policy-stack">
         <section id="return-eligibility" class="qb-policy-card">
           <h2><?php esc_html_e('Return Eligibility', 'dawp'); ?></h2>
-          <p><?php esc_html_e('To be eligible for a return, your item must meet the following criteria:', 'dawp'); ?></p>
+          <p><?php esc_html_e('For a return to qualify, the item must meet the criteria below:', 'dawp'); ?></p>
           <ul>
             <li><?php esc_html_e('Return Window: You must initiate your return request within 30 days of delivery.', 'dawp'); ?></li>
             <li><?php esc_html_e('Condition: Items must be unworn, unused, undamaged, and in their original, unaltered condition.', 'dawp'); ?></li>
@@ -131,7 +134,7 @@ $support_portal = home_url('/contact-us/');
           <div class="qb-split-grid">
             <div class="qb-info-panel">
               <h3><?php esc_html_e('Defective, Damaged, or Incorrect Products (Wrong item, carrier damage, or defective):', 'dawp'); ?></h3>
-              <p><?php esc_html_e('No cost to customer. We cover 100% of the return shipping costs. We will provide a downloadable and printable prepaid shipping label via email.', 'dawp'); ?></p>
+              <p><?php esc_html_e('No cost to the customer. We cover 100% of the return shipping cost and provide a downloadable, printable prepaid shipping label by email.', 'dawp'); ?></p>
             </div>
             <div class="qb-info-panel qb-info-panel--soft">
               <h3><?php esc_html_e("Customer Remorse (Ordered wrong item/style/strap size, changed mind, or doesn't suit):", 'dawp'); ?></h3>
@@ -151,7 +154,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="how-to-return" class="qb-policy-card">
           <h2><?php esc_html_e('How to Return an Item', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Please follow our official 3-step process. Do not ship any item back without prior authorization, as unauthorized returns cannot be tracked or processed at our warehouse.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Please follow this official 3-step process. Do not send any item back without prior authorization, because unauthorized returns cannot be tracked or processed at our warehouse.', 'dawp'); ?></p>
           <div class="qb-step-list">
             <div class="qb-step">
               <h3><?php esc_html_e('Submit Your Return Request', 'dawp'); ?></h3>
@@ -179,7 +182,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="exchanges" class="qb-policy-card">
           <h2><?php esc_html_e('Exchanges', 'dawp'); ?></h2>
-          <p><?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different style, strap size, color, or model, please follow the return process above to send back your original purchase for a refund, then place a new order on our website. This helps ensure your desired item does not sell out.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We do not process direct one-for-one product exchanges. To choose a different style, strap size, color, or model, please follow the return process above for a refund, then place a new order on our website. This helps protect availability for the item you want.', 'dawp'); ?></p>
         </section>
 
         <section id="refund-process" class="qb-policy-card">

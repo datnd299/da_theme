@@ -155,7 +155,7 @@ $faq_sections = [
 ?>
 
 <style>
-  .qb-page { --qb-ink:#111312; --qb-moss:#555B50; --qb-olive:#6F7B64; --qb-paper:#FFFFFF; --qb-pearl:#F4F0E8; --qb-stone:#E5DDD2; --qb-line:#D7CDBE; --qb-brass:#A68158; --qb-brass-soft:#C6A77F; background:var(--qb-paper); color:var(--qb-moss); font-family:"Lato","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-ink:#101412; --qb-moss:#555B50; --qb-olive:#6F7B64; --qb-paper:#FFFFFF; --qb-pearl:#F6F4EF; --qb-stone:#E5DDD2; --qb-line:#D7CDBE; --qb-brass:#A68158; --qb-brass-soft:#C6A77F; background:var(--qb-paper); color:var(--qb-moss); font-family:"Lato","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
@@ -164,35 +164,37 @@ $faq_sections = [
   .qb-title { margin:0; color:var(--qb-ink); font-family:Georgia,"Times New Roman",serif; font-size:clamp(36px,5vw,64px); line-height:1.04; letter-spacing:0; }
   .qb-updated { margin:16px 0 0; color:var(--qb-ink); font-size:14px; font-weight:800; line-height:1.4; }
   .qb-copy { margin:18px 0 0; max-width:780px; color:var(--qb-moss); font-size:17px; line-height:1.75; }
-  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-ink); border-radius:2px; background:var(--qb-ink); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
+  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-ink); border-radius:6px; background:var(--qb-ink); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
   .qb-button:hover { border-color:var(--qb-brass); background:var(--qb-brass); color:#fff !important; }
   .qb-button--secondary { background:#fff; color:var(--qb-ink) !important; }
   .qb-button--secondary:hover { border-color:var(--qb-ink); background:var(--qb-pearl); color:var(--qb-ink) !important; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
-  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-line); background:linear-gradient(135deg,#F4F0E8 0%,#FFFFFF 58%,#EFE7DB 100%); }
+  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.12); background:linear-gradient(135deg,#101412 0%,#1F2A24 56%,#6D5334 100%); }
   .qb-hero::before { content:""; position:absolute; inset:auto 0 0; height:1px; background:linear-gradient(90deg,transparent,rgba(166,129,88,.42),transparent); }
-  .qb-hero::after { content:""; position:absolute; right:7%; top:0; bottom:0; width:1px; background:rgba(166,129,88,.16); transform:skewX(-12deg); }
+  .qb-hero::after { content:""; position:absolute; right:7%; top:0; bottom:0; width:1px; background:rgba(255,255,255,.18); transform:skewX(-12deg); }
   .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:78px 0 84px; }
   .qb-hero__content { max-width:720px; margin-inline:auto; text-align:center; }
-  .qb-hero .qb-copy { max-width:690px; margin-inline:auto; }
+  .qb-hero .qb-copy { max-width:690px; margin-inline:auto; color:rgba(255,255,255,.78); }
+  .qb-hero .qb-title, .qb-hero .qb-updated { color:#fff; }
   .qb-hero .qb-actions { justify-content:center; }
-  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-line); border-radius:2px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(17,19,18,.05); }
+  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-line); border-radius:6px; background:rgba(255,255,255,.96); box-shadow:0 16px 38px rgba(17,19,18,.06); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
   .qb-glance-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:18px 0 0; padding:0; list-style:none; }
-  .qb-glance-list li { border:1px solid var(--qb-line); border-radius:2px; background:#fff; padding:12px 13px; color:var(--qb-moss); font-size:13px; line-height:1.45; }
+  .qb-glance-list li { border:1px solid var(--qb-line); border-radius:6px; background:#fff; padding:12px 13px; color:var(--qb-moss); font-size:13px; line-height:1.45; }
   .qb-glance-list strong { display:block; margin-bottom:3px; color:var(--qb-ink); font-size:13px; line-height:1.2; }
   .qb-soft { background:var(--qb-pearl); }
   .qb-content-grid { display:grid; grid-template-columns:280px minmax(0,1fr); gap:32px; align-items:start; }
   .qb-sidebar { position:sticky; top:110px; }
-  .qb-dark-card { border-radius:2px; background:var(--qb-ink); padding:24px; color:#fff; }
+  .qb-dark-card { border-radius:6px; background:var(--qb-ink); padding:24px; color:#fff; }
   .qb-dark-card .qb-eyebrow { color:var(--qb-brass-soft); }
   .qb-dark-card h2 { margin:0; color:#fff; font-family:Georgia,"Times New Roman",serif; font-size:28px; line-height:1.12; }
   .qb-dark-card p { margin:14px 0 0; color:rgba(255,255,255,.78); font-size:14px; line-height:1.65; }
   .qb-dark-card a { color:#fff; }
   .qb-side-nav { display:grid; gap:9px; margin-top:20px; }
-  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:2px; padding:10px 13px; color:#fff; font-size:13px; font-weight:800; }
+  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:6px; padding:10px 13px; color:#fff; font-size:13px; font-weight:800; }
   .qb-policy-stack { display:grid; gap:20px; }
-  .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; }
+  .qb-policy-card { position:relative; padding:clamp(24px,4vw,38px); background:#fff; overflow:hidden; }
+  .qb-policy-card::before { content:""; position:absolute; inset:0 auto 0 0; width:4px; background:linear-gradient(180deg,var(--qb-brass),rgba(166,129,88,.18)); }
   .qb-policy-card:nth-child(even) { background:var(--qb-pearl); }
   .qb-policy-card h2 { margin:0; color:var(--qb-ink); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
   .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-ink); font-size:18px; line-height:1.35; }
@@ -202,17 +204,17 @@ $faq_sections = [
   .qb-policy-card ul, .qb-policy-card ol { display:grid; gap:9px; margin:16px 0 0; padding-left:1.15rem; }
   .qb-policy-card ul { list-style:disc outside; }
   .qb-policy-card ol { list-style:decimal outside; }
-  .qb-accordion { overflow:hidden; margin-top:22px; border:1px solid var(--qb-line); border-radius:2px; background:#fff; }
+  .qb-accordion { overflow:hidden; margin-top:22px; border:1px solid var(--qb-line); border-radius:6px; background:#fff; }
   .qb-faq-item + .qb-faq-item { border-top:1px solid var(--qb-stone); }
   .qb-faq-toggle { display:flex; width:100%; align-items:center; justify-content:space-between; gap:18px; border:0; background:#fff; padding:18px; color:var(--qb-ink); text-align:left; font:inherit; font-weight:800; cursor:pointer; }
   .qb-faq-toggle:hover { background:var(--qb-pearl); }
   .qb-faq-toggle span:first-child { line-height:1.35; }
-  .qb-faq-icon { display:inline-flex; width:34px; height:34px; flex:0 0 34px; align-items:center; justify-content:center; border-radius:2px; background:var(--qb-ink); color:#fff; font-size:18px; font-weight:800; line-height:1; }
+  .qb-faq-icon { display:inline-flex; width:34px; height:34px; flex:0 0 34px; align-items:center; justify-content:center; border-radius:6px; background:var(--qb-ink); color:#fff; font-size:18px; font-weight:800; line-height:1; }
   .qb-answer { display:none; padding:0 18px 20px; }
   .qb-answer p { color:var(--qb-moss); font-size:15px; line-height:1.72; }
   .qb-faq-toggle[aria-expanded="true"] .qb-faq-icon { background:var(--qb-brass); color:#fff; }
   .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; padding:18px; background:#fff; box-shadow:none; }
-  .qb-contact-item { border:1px solid var(--qb-line); border-radius:2px; background:#fff; padding:16px; }
+  .qb-contact-item { border:1px solid var(--qb-line); border-radius:6px; background:#fff; padding:16px; }
   .qb-contact-item strong { display:block; color:var(--qb-ink); font-size:14px; }
   .qb-contact-item span { display:block; margin-top:7px; color:var(--qb-moss); font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
   @media (max-width:920px) { .qb-hero__grid, .qb-content-grid { grid-template-columns:1fr; } .qb-sidebar { position:static; } }
@@ -252,7 +254,7 @@ $faq_sections = [
         <p class="qb-eyebrow"><?php esc_html_e('FAQ', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php echo esc_html(sprintf(__('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, watch details, checkout, privacy, and customer support at %s.', 'dawp'), $store_name)); ?></p>
+        <p class="qb-copy"><?php echo esc_html(sprintf(__('Find straightforward answers about orders, U.S. shipping, tracking, returns, refunds, watch details, checkout, privacy, and support at %s.', 'dawp'), $store_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
@@ -266,8 +268,8 @@ $faq_sections = [
       <aside class="qb-sidebar">
         <div class="qb-dark-card">
           <p class="qb-eyebrow"><?php esc_html_e('FAQ Categories', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Find answers faster.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('These answers are aligned with our Shipping Policy and Return & Refund Policy pages.', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Get to the right answer quickly.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('These answers follow the same details listed in our Shipping Policy and Return & Refund Policy pages.', 'dawp'); ?></p>
           <nav class="qb-side-nav" aria-label="<?php esc_attr_e('FAQ categories', 'dawp'); ?>">
             <a href="#quick-answers"><?php esc_html_e('Quick Answers', 'dawp'); ?></a>
             <?php foreach ($faq_sections as $section) : ?>
@@ -281,7 +283,7 @@ $faq_sections = [
       <div class="qb-policy-stack">
         <section id="quick-answers" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Quick Answers', 'dawp'); ?></p>
-          <h2><?php esc_html_e('The essentials before you order.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Key details before you order.', 'dawp'); ?></h2>
           <ul class="qb-glance-list">
             <li><strong><?php esc_html_e('Ships To', 'dawp'); ?></strong><?php esc_html_e('United States domestic orders only', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Standard Shipping', 'dawp'); ?></strong><?php esc_html_e('Free nationwide with no minimum', 'dawp'); ?></li>

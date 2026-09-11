@@ -12,7 +12,7 @@ $support_portal = home_url('/contact-us/');
 ?>
 
 <style>
-  .qb-page { --qb-obsidian:#0D0F0F; --qb-ivory:#F7F4EE; --qb-white:#FFFFFF; --qb-carbon:#171A19; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#D7D0C2; --qb-gray:#F7F4EE; --qb-text:#5E625F; --qb-border:#DDD5C7; --qb-plum:#171A19; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-obsidian:#101412; --qb-ivory:#F6F4EF; --qb-white:#FFFFFF; --qb-carbon:#1A1F1C; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#D7D0C2; --qb-gray:#F6F4EF; --qb-text:#555B57; --qb-border:#D8D2C7; --qb-plum:#141817; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
@@ -21,27 +21,30 @@ $support_portal = home_url('/contact-us/');
   .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(36px,5vw,64px); line-height:1.04; letter-spacing:0; }
   .qb-updated { margin:16px 0 0; color:var(--qb-plum); font-size:14px; font-weight:800; line-height:1.4; }
   .qb-copy { margin:18px 0 0; max-width:780px; color:var(--qb-text); font-size:17px; line-height:1.75; }
-  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
+  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:6px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
   .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
   .qb-button--secondary { background:#fff; color:var(--qb-plum) !important; }
   .qb-button--secondary:hover { border-color:var(--qb-plum); background:var(--qb-ivory); color:var(--qb-plum) !important; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
   .qb-hero .qb-actions { justify-content:center; }
-  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-border); background:linear-gradient(135deg,#fff 0%,#F7F4EE 62%,rgba(179,138,82,.18) 100%); }
+  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.12); background:linear-gradient(135deg,#101412 0%,#1F2A24 56%,#6D5334 100%); }
   .qb-hero::before { content:""; position:absolute; inset:auto 0 0; height:1px; background:linear-gradient(90deg,transparent,rgba(179,138,82,.7),transparent); }
-  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(179,138,82,.24); transform:rotate(12deg); }
+  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(255,255,255,.16); transform:rotate(12deg); }
   .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:70px 0 76px; }
   .qb-hero__content { max-width:720px; margin-inline:auto; text-align:center; }
+  .qb-hero .qb-title, .qb-hero .qb-updated { color:#fff; }
+  .qb-hero .qb-copy { color:rgba(255,255,255,.78); }
   .qb-hero .qb-copy { max-width:690px; margin-inline:auto; }
-  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:8px; background:rgba(255,255,255,.94); box-shadow:0 12px 34px rgba(13,15,15,.05); }
+  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:6px; background:rgba(255,255,255,.96); box-shadow:0 16px 38px rgba(13,15,15,.06); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
   .qb-glance-list { display:grid; gap:14px; margin:20px 0 0; padding:0; list-style:none; }
-  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#5E625F; font-size:14px; line-height:1.6; }
+  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:6px; background:#fff; padding:16px; color:#5E625F; font-size:14px; line-height:1.6; }
   .qb-glance-list strong { display:block; margin-bottom:5px; color:var(--qb-plum); font-size:14px; line-height:1.25; }
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:32px; align-items:start; }
   .qb-policy-stack { display:grid; gap:20px; }
-  .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; }
+  .qb-policy-card { position:relative; padding:clamp(24px,4vw,38px); background:#fff; overflow:hidden; }
+  .qb-policy-card::before { content:""; position:absolute; inset:0 auto 0 0; width:4px; background:linear-gradient(180deg,var(--qb-gold),rgba(179,138,82,.2)); }
   .qb-policy-card:nth-child(even) { background:var(--qb-ivory); }
   .qb-policy-card h2 { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
   .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-plum); font-size:18px; line-height:1.35; }
@@ -50,19 +53,19 @@ $support_portal = home_url('/contact-us/');
   .qb-policy-card ul, .qb-policy-card ol { display:grid; gap:9px; margin:16px 0 0; padding-left:1.15rem; }
   .qb-policy-card ul { list-style:disc outside; }
   .qb-policy-card ol { list-style:decimal outside; }
-  .qb-callout { border-left:4px solid var(--qb-gold); border-radius:0 16px 16px 0; background:rgba(179,138,82,.12); padding:15px 18px; }
+  .qb-callout { border-left:4px solid var(--qb-gold); border-radius:0 6px 6px 0; background:rgba(179,138,82,.12); padding:15px 18px; }
   .qb-split-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:18px; }
-  .qb-info-panel { border:1px solid var(--qb-border); border-radius:16px; background:#fff; padding:18px; }
+  .qb-info-panel { border:1px solid var(--qb-border); border-radius:6px; background:#fff; padding:18px; }
   .qb-info-panel--soft { background:var(--qb-ivory); }
   .qb-info-panel h3 { margin:0; }
   .qb-timeline-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:20px; }
-  .qb-timeline-item { border:1px solid var(--qb-border); border-radius:16px; background:#fff; padding:18px; }
+  .qb-timeline-item { border:1px solid var(--qb-border); border-radius:6px; background:#fff; padding:18px; }
   .qb-timeline-item strong { display:block; color:var(--qb-plum); font-size:14px; line-height:1.35; }
   .qb-timeline-item span { display:block; margin-top:8px; color:#5E625F; font-size:14px; line-height:1.55; }
   .qb-policy-card .qb-carrier-list { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0; padding:0; list-style:none; }
   .qb-policy-card .qb-carrier-list li { display:inline-flex; width:auto; min-width:72px; align-items:center; justify-content:center; border:1px solid var(--qb-border); border-radius:999px; background:#fff; padding:9px 16px; color:var(--qb-plum); font-size:13px; font-weight:800; line-height:1.2; }
   .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; padding:18px; background:#fff; box-shadow:none; }
-  .qb-contact-item { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; }
+  .qb-contact-item { border:1px solid var(--qb-border); border-radius:6px; background:#fff; padding:16px; }
   .qb-contact-item strong { display:block; color:var(--qb-plum); font-size:14px; }
   .qb-contact-item span { display:block; margin-top:7px; color:#5E625F; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
   @media (max-width:920px) { .qb-hero__grid, .qb-content-grid, .qb-split-grid, .qb-timeline-grid { grid-template-columns:1fr; } }
@@ -101,7 +104,7 @@ $support_portal = home_url('/contact-us/');
         <p class="qb-eyebrow"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php esc_html_e("Free standard U.S. shipping with clear delivery timelines shown before checkout.", 'dawp'); ?></p>
+        <p class="qb-copy"><?php esc_html_e("Free standard U.S. shipping, with delivery timing presented clearly before checkout.", 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
@@ -125,11 +128,11 @@ $support_portal = home_url('/contact-us/');
 
         <section id="shipping-fees" class="qb-policy-card">
           <h2><?php esc_html_e('Shipping Fees & Costs', 'dawp'); ?></h2>
-          <p><?php esc_html_e('We believe in full transparency with no hidden fees at checkout. Our shipping costs are structured as follows:', 'dawp'); ?></p>
+          <p><?php esc_html_e('Shipping fees are shown plainly at checkout, with no hidden charges. Our shipping options are structured as follows:', 'dawp'); ?></p>
           <div class="qb-split-grid">
             <div class="qb-info-panel">
               <h3><?php esc_html_e('Standard U.S. Shipping', 'dawp'); ?></h3>
-              <p><?php esc_html_e('Completely free for all orders nationwide. There is no minimum purchase requirement to qualify for free standard shipping.', 'dawp'); ?></p>
+              <p><?php esc_html_e('Free for all orders nationwide, with no minimum purchase requirement for standard shipping.', 'dawp'); ?></p>
             </div>
             <div class="qb-info-panel qb-info-panel--soft">
               <h3><?php esc_html_e('Optional Upgraded Shipping', 'dawp'); ?></h3>
@@ -159,7 +162,7 @@ $support_portal = home_url('/contact-us/');
               <span><?php esc_html_e('6-10 business days total from the date of purchase.', 'dawp'); ?></span>
             </div>
           </div>
-          <p><?php esc_html_e('Delivery estimates are carefully calculated windows reflecting our standard delivery benchmarks. While we and our courier partners work diligently to meet these timelines, unexpected delays due to extreme weather, carrier capacity issues, or regional holidays may occasionally occur.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Delivery estimates reflect our standard fulfillment benchmarks. We and our courier partners work to meet these timelines, although extreme weather, carrier capacity, or regional holidays may occasionally cause delays.', 'dawp'); ?></p>
         </section>
 
         <section id="multi-item-orders" class="qb-policy-card">
@@ -177,7 +180,7 @@ $support_portal = home_url('/contact-us/');
             <li><?php esc_html_e('FedEx', 'dawp'); ?></li>
             <li><?php esc_html_e('DHL', 'dawp'); ?></li>
           </ul>
-          <p><?php esc_html_e('The final carrier service is dynamically selected when your package is securely labeled and prepared at our fulfillment center. Once your order is dispatched, an automated shipping confirmation email containing a direct tracking link and courier details will be sent to your registered email address.', 'dawp'); ?></p>
+          <p><?php esc_html_e('The final carrier is selected when your package is labeled and prepared at our fulfillment center. Once your order is dispatched, a shipping confirmation email with a direct tracking link and courier details will be sent to your registered email address.', 'dawp'); ?></p>
           <div class="qb-actions">
             <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
           </div>
@@ -185,7 +188,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="delivery-issues" class="qb-policy-card">
           <h2><?php esc_html_e('Resolving Delivery Issues & Damaged Shipments', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Your satisfaction is our priority. If your order encounters delays, tracking stops updating, or the package is marked as delivered but has not arrived, please reach out to our dedicated support team immediately.', 'dawp'); ?></p>
+          <p><?php esc_html_e('If your order is delayed, tracking stops updating, or the package is marked delivered but has not arrived, please contact our support team promptly.', 'dawp'); ?></p>
           <p><?php esc_html_e('To help us investigate and resolve the issue with the carrier swiftly, please provide:', 'dawp'); ?></p>
           <ul>
             <li><?php esc_html_e('Your exact Order Number, such as #CV1001.', 'dawp'); ?></li>

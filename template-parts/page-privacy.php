@@ -11,7 +11,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 ?>
 
 <style>
-  .qb-page { --qb-obsidian:#0D0F0F; --qb-ivory:#F7F4EE; --qb-white:#FFFFFF; --qb-carbon:#171A19; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#D7D0C2; --qb-gray:#F7F4EE; --qb-text:#5E625F; --qb-border:#DDD5C7; --qb-plum:#171A19; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-obsidian:#101412; --qb-ivory:#F6F4EF; --qb-white:#FFFFFF; --qb-carbon:#1A1F1C; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#D7D0C2; --qb-gray:#F6F4EF; --qb-text:#555B57; --qb-border:#D8D2C7; --qb-plum:#141817; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1280px); margin-inline:auto; }
@@ -22,19 +22,20 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-copy { margin:18px 0 0; max-width:720px; color:var(--qb-text); font-size:17px; line-height:1.75; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
   .qb-hero .qb-actions { justify-content:center; }
-  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff; padding:0 24px; font-size:14px; font-weight:800; transition:.2s ease; }
+  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:6px; background:var(--qb-plum); color:#fff; padding:0 24px; font-size:14px; font-weight:800; transition:.2s ease; }
   .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum); }
   .qb-button--secondary { background:#fff; color:var(--qb-plum); }
   .qb-plum .qb-button { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum); }
   .qb-plum .qb-button:hover { border-color:#fff; background:#fff; color:var(--qb-plum); }
   .qb-plum .qb-button--secondary { border-color:rgba(255,255,255,.7); background:#fff; color:var(--qb-plum); }
-  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-border); background:linear-gradient(135deg,#fff 0%,#F7F4EE 62%,rgba(179,138,82,.18) 100%); }
+  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.12); background:linear-gradient(135deg,#101412 0%,#1F2A24 56%,#6D5334 100%); }
   .qb-hero::before { content:""; position:absolute; inset:auto 0 0; height:1px; background:linear-gradient(90deg,transparent,rgba(179,138,82,.7),transparent); }
-  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(179,138,82,.24); transform:rotate(12deg); }
+  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(255,255,255,.16); transform:rotate(12deg); }
   .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:70px 0 76px; }
   .qb-hero__grid > div { max-width:720px; margin-inline:auto; text-align:center; }
-  .qb-hero .qb-copy { margin-inline:auto; }
-  .qb-panel, .qb-card, .qb-policy-card { border:1px solid var(--qb-border); border-radius:8px; background:#fff; box-shadow:0 12px 34px rgba(13,15,15,.05); }
+  .qb-hero .qb-copy { margin-inline:auto; color:rgba(255,255,255,.78); }
+  .qb-hero .qb-title, .qb-hero .qb-updated { color:#fff; }
+  .qb-panel, .qb-card, .qb-policy-card { border:1px solid var(--qb-border); border-radius:6px; background:#fff; box-shadow:0 16px 38px rgba(13,15,15,.06); }
   .qb-panel { padding:clamp(24px,4vw,44px); background:rgba(255,255,255,.86); }
   .qb-card { padding:22px; }
   .qb-card b { display:inline-flex; width:42px; height:42px; align-items:center; justify-content:center; border-radius:999px; background:var(--qb-ivory); color:var(--qb-plum); font-size:13px; }
@@ -43,14 +44,15 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:.82fr 1.18fr; gap:34px; align-items:start; }
   .qb-sidebar { position:sticky; top:120px; display:grid; gap:16px; }
-  .qb-dark-card { border-radius:8px; background:var(--qb-plum); padding:28px; color:#fff; }
+  .qb-dark-card { border-radius:6px; background:var(--qb-plum); padding:28px; color:#fff; }
   .qb-dark-card .qb-eyebrow { color:var(--qb-peach); }
   .qb-dark-card h2, .qb-dark-card p, .qb-dark-card a { color:#fff; }
   .qb-dark-card p { color:rgba(255,255,255,.78); font-size:15px; line-height:1.7; }
   .qb-side-nav { display:grid; gap:10px; margin-top:22px; }
-  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:999px; padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
+  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:6px; padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
   .qb-policy-stack { display:grid; gap:22px; }
-  .qb-policy-card { padding:clamp(24px,4vw,40px); }
+  .qb-policy-card { position:relative; padding:clamp(24px,4vw,40px); overflow:hidden; }
+  .qb-policy-card::before { content:""; position:absolute; inset:0 auto 0 0; width:4px; background:linear-gradient(180deg,var(--qb-gold),rgba(179,138,82,.2)); }
   .qb-policy-card:nth-child(even) { background:var(--qb-ivory); }
   .qb-policy-card h2 { font-size:clamp(25px,3vw,38px); line-height:1.12; font-family:Georgia,"Times New Roman",serif; }
   .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-plum); font-size:18px; }
@@ -63,9 +65,9 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-policy-section p, .qb-policy-section ul, .qb-policy-section ol { margin-top:12px; }
   .qb-policy-section + .qb-policy-section { margin-top:clamp(26px,3.2vw,38px); padding-top:clamp(22px,2.8vw,30px); border-top:1px solid var(--qb-border); }
   .qb-mini-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; }
-  .qb-mini-card { border:1px solid var(--qb-border); border-radius:18px; background:#fff; padding:18px; }
+  .qb-mini-card { border:1px solid var(--qb-border); border-radius:6px; background:#fff; padding:18px; }
   .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:24px; }
-  .qb-contact-item { border:1px solid var(--qb-border); border-radius:18px; background:#fff; padding:16px; }
+  .qb-contact-item { border:1px solid var(--qb-border); border-radius:6px; background:#fff; padding:16px; }
   .qb-contact-item strong { display:block; color:var(--qb-plum); font-size:14px; }
   .qb-contact-item span { display:block; margin-top:7px; color:#5E625F; font-size:14px; line-height:1.6; }
   .qb-plum { background:var(--qb-plum); color:#fff; }
@@ -82,7 +84,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <p class="qb-eyebrow"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php echo esc_html(sprintf('How %s collects, uses, and protects your information.', $brand_name)); ?></p>
+        <p class="qb-copy"><?php echo esc_html(sprintf('How %s collects, uses, shares, and protects your information.', $brand_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
@@ -96,7 +98,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
       <aside class="qb-sidebar">
         <div class="qb-dark-card">
           <p class="qb-eyebrow"><?php esc_html_e('Privacy Sections', 'dawp'); ?></p>
-          <h2 class="qb-title" style="font-size:clamp(28px,3vw,42px);"><?php esc_html_e('Transparent by design.', 'dawp'); ?></h2>
+          <h2 class="qb-title" style="font-size:clamp(28px,3vw,42px);"><?php esc_html_e('Clear privacy details.', 'dawp'); ?></h2>
           <p><?php esc_html_e('Review how we collect information, the tools we use, how data is shared, SMS terms, your rights, retention, and contact details.', 'dawp'); ?></p>
           <nav class="qb-side-nav" aria-label="<?php esc_attr_e('Privacy sections', 'dawp'); ?>">
             <a href="#collect"><?php esc_html_e('How We Collect', 'dawp'); ?></a>
@@ -155,7 +157,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 
         <section id="use" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('How We Use Information', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Your information is used to run and improve the store.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Your information helps us operate and improve the store.', 'dawp'); ?></h2>
           <ul>
             <li><?php esc_html_e('Process and deliver your orders.', 'dawp'); ?></li>
             <li><?php esc_html_e('Send order confirmations and updates.', 'dawp'); ?></li>
@@ -168,7 +170,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 
         <section id="payments" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Payments & Security', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Checkout is handled through secure payment providers.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Checkout is processed through secure payment providers.', 'dawp'); ?></h2>
           <p><?php esc_html_e('All payments are processed through secure third-party payment providers. We do not store your full payment card details on our servers.', 'dawp'); ?></p>
           <p><?php esc_html_e('Your information is protected using industry-standard SSL encryption during checkout.', 'dawp'); ?></p>
         </section>

@@ -82,7 +82,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
 
   .qb-footer-logo {
     display: block;
-    width: min(108px, 100%);
+    width: min(88px, 100%);
     height: auto;
   }
 

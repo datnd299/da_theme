@@ -39,7 +39,7 @@ function dawp_store_country() {
 function dawp_default_description() {
     return apply_filters(
         'dawp_default_description',
-        'Orvel is an independent watch brand creating refined timepieces with clean design, everyday reliability, and confident wrist presence.'
+        'Orvel is an independent watch brand creating original watches with clean design, everyday reliability, and confident wrist presence.'
     );
 }
 
@@ -151,12 +151,12 @@ function dawp_current_description() {
             if ($text) {
                 return wp_trim_words($text, 32, '');
             }
-            return sprintf('Shop the %s at %s — modern luxury watches built for precision with presence.', $product->get_name(), dawp_brand_name());
+            return sprintf('Shop the %s at %s - original watches built for precision with presence.', $product->get_name(), dawp_brand_name());
         }
     }
 
     if (function_exists('is_shop') && is_shop()) {
-        return sprintf('Shop modern luxury watches at %s — refined materials, clean presentation, and precise product detail.', dawp_brand_name());
+        return sprintf('Shop modern watches at %s - refined materials, clean presentation, and precise product detail.', dawp_brand_name());
     }
 
     if (is_product_category() || is_product_tag()) {
@@ -165,7 +165,7 @@ function dawp_current_description() {
             return wp_trim_words(wp_strip_all_tags($term->description), 32, '');
         }
         if ($term && !is_wp_error($term)) {
-            return sprintf('Browse %s at %s — modern luxury watches with confident form and refined presence.', $term->name, dawp_brand_name());
+            return sprintf('Browse %s at %s - original watch styles with confident form and refined presence.', $term->name, dawp_brand_name());
         }
     }
 
@@ -444,6 +444,8 @@ function dawp_merchant_return_policy() {
         'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
         'merchantReturnDays'   => 30,
         'returnMethod'         => 'https://schema.org/ReturnByMail',
+        'returnFees'           => 'https://schema.org/ReturnShippingFees',
+        'url'                  => home_url('/return-refund-policy/'),
     ];
 }
 
@@ -465,6 +467,7 @@ function dawp_offer_shipping_details() {
             '@type'          => 'DefinedRegion',
             'addressCountry' => dawp_store_country(),
         ],
+        'shippingSettingsLink' => home_url('/shipping-policy/'),
         'deliveryTime'        => [
             '@type'        => 'ShippingDeliveryTime',
             'handlingTime' => [

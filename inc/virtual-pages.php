@@ -2,6 +2,13 @@
 add_action('template_redirect', 'dawp_handle_virtual_pages');
 function dawp_handle_virtual_pages() {
     $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+
+    $retired_pages = dawp_retired_page_redirects();
+    if (isset($retired_pages[$request_uri])) {
+        wp_safe_redirect(home_url('/' . $retired_pages[$request_uri] . '/'), 301);
+        exit;
+    }
+
     $virtual_pages = dawp_virtual_page_map();
 
     if (!isset($virtual_pages[$request_uri])) {
@@ -32,10 +39,20 @@ function dawp_virtual_page_map() {
         'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'tw-contact.css'],
         'shipping-policy'  => ['slug' => 'shipping-policy',  'title' => 'Shipping Policy', 'css' => 'tw-ship.css'],
         'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'css' => 'tw-ship.css'],
-        'shipping-returns' => ['slug' => 'shipping-returns', 'title' => 'Shipping & Returns', 'css' => 'tw-ship.css'],
+        'warranty-policy'  => ['slug' => 'warranty-policy',   'title' => 'Warranty Policy', 'css' => 'tw-ship.css'],
         'terms-conditions' => ['slug' => 'terms-conditions', 'title' => 'Terms & Conditions', 'css' => 'tw-terms.css'],
         'privacy-policy'   => ['slug' => 'privacy',          'title' => 'Privacy Policy', 'css' => 'tw-privacy.css'],
         'track-order'   => ['slug' => 'track-order',          'title' => 'Track Order', 'css' => 'track-order.css'],
+    ];
+}
+
+/**
+ * Old virtual-page slugs that have been superseded by a dedicated page.
+ * Kept as 301s so any indexed/bookmarked links still resolve.
+ */
+function dawp_retired_page_redirects() {
+    return [
+        'shipping-returns' => 'shipping-policy',
     ];
 }
 

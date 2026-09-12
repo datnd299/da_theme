@@ -16,6 +16,13 @@ $life_img  = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/3.
 $craft_img = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/4.png';
 $atelier_img = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/5.png';
 
+$newsletter_status   = isset($_GET['newsletter_status']) ? sanitize_key(wp_unslash($_GET['newsletter_status'])) : '';
+$newsletter_messages = [
+    'subscribed' => __('Thank you. You are on the list.', 'dawp'),
+    'invalid'    => __('Please enter a valid email address and try again.', 'dawp'),
+    'failed'     => __('We could not process your signup. Please try again later.', 'dawp'),
+];
+
 $featured_products = [];
 $latest_products   = [];
 
@@ -254,9 +261,20 @@ if (!function_exists('dawp_home_product_card')) {
             <span class="ot-kicker"><?php esc_html_e('Journal', 'dawp'); ?></span>
             <h2><?php esc_html_e('Notes on time, materials and design.', 'dawp'); ?></h2>
         </div>
-        <form class="ot-newsletter__form" method="post" action="<?php echo esc_url(home_url('/')); ?>">
-            <label class="screen-reader-text" for="ot-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
-            <input id="ot-newsletter-email" type="email" name="email" placeholder="<?php esc_attr_e('Email address', 'dawp'); ?>" required>
+        <form class="ot-newsletter__form" id="ot-newsletter-email" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+            <input type="hidden" name="action" value="dawp_newsletter_signup">
+            <?php wp_nonce_field('dawp_newsletter_signup', 'dawp_newsletter_nonce'); ?>
+            <span class="screen-reader-text" aria-hidden="true">
+                <label for="newsletter-website"><?php esc_html_e('Website', 'dawp'); ?></label>
+                <input id="newsletter-website" type="text" name="newsletter_website" tabindex="-1" autocomplete="off">
+            </span>
+            <?php if ($newsletter_status && isset($newsletter_messages[$newsletter_status])) : ?>
+                <p class="ot-newsletter__status ot-newsletter__status--<?php echo esc_attr($newsletter_status); ?>">
+                    <?php echo esc_html($newsletter_messages[$newsletter_status]); ?>
+                </p>
+            <?php endif; ?>
+            <label class="screen-reader-text" for="newsletter-email-input"><?php esc_html_e('Email address', 'dawp'); ?></label>
+            <input id="newsletter-email-input" type="email" name="email" placeholder="<?php esc_attr_e('Email address', 'dawp'); ?>" required>
             <button class="ot-btn ot-btn--dark" type="submit"><?php esc_html_e('Subscribe', 'dawp'); ?></button>
         </form>
     </div>

@@ -6,7 +6,7 @@
  */
 
 function dawp_contact_support_email() {
-    return 'support@orvelshop.com';
+    return 'support@orveltime.com';
 }
 
 function dawp_contact_form_redirect($status) {

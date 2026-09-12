@@ -6,7 +6,7 @@
  */
 
 $brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orvelshop.com';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 
@@ -147,7 +147,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <ul>
             <li><?php esc_html_e('Website platform: WordPress and WooCommerce.', 'dawp'); ?></li>
             <li><?php esc_html_e('Analytics: Google Analytics to understand site usage and improve performance.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Payments: Secure payment providers such as Stripe and PayPal.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Payments: Secure payment processing through PayPal.', 'dawp'); ?></li>
             <li><?php esc_html_e('Email communication: Used for order updates and customer communication.', 'dawp'); ?></li>
             <li><?php esc_html_e('Customer support: Contact form, support email, and customer support systems.', 'dawp'); ?></li>
             <li><?php esc_html_e('Shipping: Carriers such as USPS, UPS, FedEx, and DHL.', 'dawp'); ?></li>

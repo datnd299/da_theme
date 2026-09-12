@@ -6,7 +6,7 @@
  */
 
 $brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orvelshop.com';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 

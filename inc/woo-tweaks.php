@@ -103,6 +103,11 @@ function dawp_single_product_service_notes() {
             'title' => __('30-day return window', 'dawp'),
             'text'  => __('Eligible returns may be initiated within 30 days of delivery after contacting support.', 'dawp'),
         ],
+        [
+            'icon'  => 'shield',
+            'title' => __('2-year limited warranty', 'dawp'),
+            'text'  => __('Every watch is covered against manufacturing defects for 2 years from the date of purchase.', 'dawp'),
+        ],
     ];
 
     echo '<div class="product-service-notes" aria-label="' . esc_attr__('Order and policy highlights', 'dawp') . '">';
@@ -130,6 +135,7 @@ function dawp_product_service_note_icon($icon) {
         'truck' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M10 17h4V5H2v12h3"/><path d="M14 8h4l4 4v5h-3"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/></svg>',
         'clock' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
         'refresh' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M20 11a8.1 8.1 0 0 0-15.5-2M4 5v4h4"/><path d="M4 13a8.1 8.1 0 0 0 15.5 2M20 19v-4h-4"/></svg>',
+        'shield' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="m9.5 12 2 2 3.5-4"/></svg>',
     ];
 
     return $icons[$icon] ?? $icons['clock'];

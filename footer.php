@@ -9,7 +9,7 @@ defined('ABSPATH') || exit;
 
 $current_year  = date_i18n('Y');
 $brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orvelshop.com';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
 $logo_url      = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/news/logoorvel.png';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [

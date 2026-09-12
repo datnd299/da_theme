@@ -95,6 +95,15 @@ get_header();
         </div>
     </section>
 
+    <section class="shop-trust-strip" aria-label="<?php esc_attr_e('Shopping guarantees', 'dawp'); ?>">
+        <div class="shop-container shop-trust-strip__inner">
+            <span><?php esc_html_e('Free U.S. Shipping on Every Order', 'dawp'); ?></span>
+            <span><?php esc_html_e('2-Year Limited Warranty', 'dawp'); ?></span>
+            <span><?php esc_html_e('30-Day Returns', 'dawp'); ?></span>
+            <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Your Order', 'dawp'); ?></a>
+        </div>
+    </section>
+
     <div class="shop-container">
         <div class="shop-toolbar">
             <div class="shop-toolbar__left">

@@ -6,12 +6,13 @@
  */
 
 $store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
-$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orvelshop.com';
+$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
 $store_address     = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal    = home_url('/contact-us/');
 $shipping_policy   = home_url('/shipping-policy/');
 $return_policy     = home_url('/return-refund-policy/');
 $track_order_page   = home_url('/track-order/');
+$warranty_policy    = home_url('/warranty-policy/');
 
 $faq_sections = [
     [
@@ -128,6 +129,13 @@ $faq_sections = [
                 'a' => sprintf(
                     __('No. %s creates and sells its own watches and watch accessories. We avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
                     $store_name
+                ),
+            ],
+            [
+                'q' => __('Do watches come with a warranty?', 'dawp'),
+                'a' => sprintf(
+                    __('Yes. Every watch is covered by a 2-year limited warranty against manufacturing defects from the original date of purchase. See our <a href="%s">Warranty Policy</a> for full coverage details and how to file a claim.', 'dawp'),
+                    esc_url($warranty_policy)
                 ),
             ],
         ],
@@ -254,7 +262,7 @@ $faq_sections = [
         <p class="qb-eyebrow"><?php esc_html_e('FAQ', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php echo esc_html(sprintf(__('Find straightforward answers about orders, U.S. shipping, tracking, returns, refunds, watch details, checkout, privacy, and support at %s.', 'dawp'), $store_name)); ?></p>
+        <p class="qb-copy"><?php echo esc_html(sprintf(__('Find straightforward answers about orders, U.S. shipping, tracking, returns, refunds, warranty coverage, watch details, checkout, privacy, and support at %s.', 'dawp'), $store_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
@@ -269,7 +277,7 @@ $faq_sections = [
         <div class="qb-dark-card">
           <p class="qb-eyebrow"><?php esc_html_e('FAQ Categories', 'dawp'); ?></p>
           <h2><?php esc_html_e('Get to the right answer quickly.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('These answers follow the same details listed in our Shipping Policy and Return & Refund Policy pages.', 'dawp'); ?></p>
+          <p><?php esc_html_e('These answers follow the same details listed in our Shipping Policy, Return & Refund Policy, and Warranty Policy pages.', 'dawp'); ?></p>
           <nav class="qb-side-nav" aria-label="<?php esc_attr_e('FAQ categories', 'dawp'); ?>">
             <a href="#quick-answers"><?php esc_html_e('Quick Answers', 'dawp'); ?></a>
             <?php foreach ($faq_sections as $section) : ?>
@@ -292,6 +300,7 @@ $faq_sections = [
             <li><strong><?php esc_html_e('Return Window', 'dawp'); ?></strong><?php esc_html_e('30 days of delivery', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Restocking Fee', 'dawp'); ?></strong><?php esc_html_e('No restocking fee for eligible returns', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Refund Timing', 'dawp'); ?></strong><?php esc_html_e('Within 7 business days after approval', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Warranty', 'dawp'); ?></strong><?php esc_html_e('2-year limited warranty on every watch', 'dawp'); ?></li>
           </ul>
         </section>
 

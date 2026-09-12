@@ -362,7 +362,7 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
 <header id="masthead" class="qb-site-header" role="banner">
     <div class="qb-announcement">
         <div class="qb-header-wrap">
-            <?php esc_html_e('Original Orvel watches built for precision with presence', 'dawp'); ?>
+            <?php esc_html_e('Free Shipping on Every Order · 2-Year Warranty Included', 'dawp'); ?>
         </div>
     </div>
 

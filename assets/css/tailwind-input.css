@@ -22,15 +22,6 @@
   --color-alert:    #C0392B;
   --color-success:  #5C8A6A;
 
-  /* === SLICKTEE BRAND TOKENS === */
-  --color-slickBlack:  #0B0F0D;
-  --color-slickGreen:  #123D2A;
-  --color-slickActive: #22C55E;
-  --color-slickLime:   #A3E635;
-  --color-slickSoft:   #F7F8F5;
-  --color-slickText:   #111827;
-  --color-slickMuted:  #6B7280;
-
   /* === BORDER RADIUS === */
   --radius-sm:   4px;
   --radius-md:   8px;
@@ -53,76 +44,6 @@
 }
 
 @layer components {
-  .cv-btn {
-    @apply inline-flex min-h-12 items-center justify-center border px-6 text-[12px] font-semibold uppercase tracking-[.16em] transition duration-300;
-  }
-
-  .cv-btn--light {
-    @apply border-white bg-white text-[#0D0F0F] hover:border-[#B38A52] hover:bg-[#B38A52];
-  }
-
-  .cv-btn--dark {
-    @apply border-[#0D0F0F] bg-[#0D0F0F] text-white hover:border-[#B38A52] hover:bg-[#B38A52] hover:text-[#0D0F0F];
-  }
-
-  .cv-btn--ghost {
-    @apply border-white/35 bg-transparent text-white hover:border-white hover:bg-white hover:text-[#0D0F0F];
-  }
-
-  .cv-kicker {
-    @apply mb-3 text-[12px] font-semibold uppercase tracking-[.22em] text-[#B38A52];
-  }
-
-  .cv-heading {
-    @apply font-serif text-[clamp(30px,4vw,42px)] leading-tight tracking-normal text-[#171A19];
-  }
-
-  .cv-link {
-    @apply inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[.16em] text-[#263C33] transition duration-300 hover:text-[#B38A52];
-  }
-
-  .cv-product {
-    @apply min-w-0;
-  }
-
-  .cv-product__image {
-    @apply mb-4 block aspect-[4/5] overflow-hidden border border-[#B8B8B2]/45 bg-[#F5F2EB];
-  }
-
-  .cv-product__name {
-    @apply overflow-hidden text-[15px] font-medium text-[#171A19] transition duration-300 hover:text-[#263C33];
-    display: -webkit-box;
-    min-height: 2.8em;
-    line-height: 1.4;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-  }
-
-  .cv-product__price {
-    @apply mt-1 text-[13px] font-semibold text-[#5E625F];
-  }
-
-  .cv-product__price ins {
-    @apply no-underline text-[#171A19];
-  }
-
-  .cv-product__price del {
-    @apply mr-2 text-[#8B8E89];
-  }
-
-  .cv-detail-line {
-    @apply mb-5 block h-px w-12 bg-[#B38A52];
-  }
-
-  .cv-detail-title {
-    @apply mb-3 text-[12px] font-semibold uppercase tracking-[.2em] text-[#171A19];
-  }
-
-  .cv-detail-copy {
-    @apply text-[14px] leading-6 text-[#5E625F];
-  }
-
   .ot-wrap {
     @apply mx-auto w-[min(100%-40px,1360px)] md:w-[min(100%-80px,1360px)];
   }
@@ -504,6 +425,19 @@
   .ot-newsletter__form input {
     @apply min-h-12 border border-[#CBC4B8] bg-white px-4 text-[15px] outline-none transition duration-300 placeholder:text-[#777] focus:border-[#555B50];
     border-radius: 2px;
+  }
+
+  .ot-newsletter__status {
+    @apply mb-1 text-[13px] font-semibold sm:col-span-2;
+  }
+
+  .ot-newsletter__status--subscribed {
+    @apply text-[#3F6B4A];
+  }
+
+  .ot-newsletter__status--invalid,
+  .ot-newsletter__status--failed {
+    @apply text-[#B3261E];
   }
 
   .ot-contact-hero {

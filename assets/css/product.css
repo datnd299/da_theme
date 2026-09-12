@@ -477,6 +477,10 @@ form.cart:not(.variations_form) {
   box-shadow: 0 16px 36px rgba(17, 19, 18, 0.06);
 }
 
+.product-service-notes > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .product-service-note {
   position: relative;
   display: flex;

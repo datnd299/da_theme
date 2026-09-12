@@ -70,9 +70,9 @@ function dawp_get_virtual_seo() {
             'title'       => 'Return & Refund Policy',
             'description' => 'Orvel return and refund policy: 30-day return window, return by mail, no restocking fee, and refunds to the original payment method within 7 business days.',
         ],
-        'shipping-returns' => [
-            'title'       => 'Shipping & Returns',
-            'description' => 'Choose the Orvel Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.',
+        'warranty-policy' => [
+            'title'       => 'Warranty Policy',
+            'description' => 'Orvel 2-Year Limited Warranty: coverage against manufacturing defects, what is excluded, and how to file a warranty claim.',
         ],
         'terms-conditions' => [
             'title'       => 'Terms & Conditions',
@@ -302,7 +302,7 @@ function dawp_org_website_schema() {
     $brand = dawp_brand_name();
     $home  = home_url('/');
     $logo  = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/news/logoorvel.png';
-    $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orvelshop.com';
+    $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
 
     $organization = [
         '@type'  => 'Organization',

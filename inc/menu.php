@@ -1,10 +1,11 @@
 <?php
 function dawp_main_menu_items() {
     return [
-        ['title' => __('Home', 'dawp'),       'url' => home_url('/')],
-        ['title' => __('Watch', 'dawp'),      'url' => home_url('/shop/')],
-        ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
-        ['title' => __('About Us', 'dawp'),   'url' => home_url('/about-us/')],
+        ['title' => __('Home', 'dawp'),        'url' => home_url('/')],
+        ['title' => __('Watch', 'dawp'),       'url' => home_url('/shop/')],
+        ['title' => __('Contact Us', 'dawp'),  'url' => home_url('/contact-us/')],
+        ['title' => __('About Us', 'dawp'),    'url' => home_url('/about-us/')],
+        ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
     ];
 }
 function dawp_is_current_url($url) {
@@ -38,6 +39,7 @@ function dawp_footer_columns() {
             'links' => [
                 ['title' => 'Shipping Policy',    'url' => home_url('/shipping-policy/')],
                 ['title' => 'Return & Refund Policy', 'url' => home_url('/return-refund-policy/')],
+                ['title' => 'Warranty Policy',     'url' => home_url('/warranty-policy/')],
                 ['title' => 'Terms & Conditions', 'url' => home_url('/terms-conditions/')],
                 ['title' => 'Privacy Policy',     'url' => home_url('/privacy-policy/')],
             ],

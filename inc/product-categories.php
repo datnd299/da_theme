@@ -134,27 +134,4 @@ function dawp_ensure_lbq_product_categories() {
     if ($home_term && !is_wp_error($home_term)) {
         update_option('default_product_cat', (int) $home_term->term_id);
     }
-
-    dawp_remove_non_lbq_product_categories();
-}
-
-function dawp_remove_non_lbq_product_categories() {
-    $allowed_slugs = dawp_lbq_product_category_slugs();
-    $terms = get_terms([
-        'taxonomy'   => 'product_cat',
-        'hide_empty' => false,
-        'fields'     => 'all',
-    ]);
-
-    if (is_wp_error($terms) || empty($terms)) {
-        return;
-    }
-
-    foreach ($terms as $term) {
-        if (in_array($term->slug, $allowed_slugs, true)) {
-            continue;
-        }
-
-        wp_delete_term((int) $term->term_id, 'product_cat');
-    }
 }

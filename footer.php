@@ -11,12 +11,11 @@ if (!defined('ABSPATH')) {
 
 $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
-$support_email  = 'support@megamalldepot.com';
-$support_phone  = '757-804-6538';
+$support_email  = 'support@doulatrainingsinternational.net';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
-$logo_path       = get_template_directory() . '/assets/img/about/Capture.JPG';
-$logo_url        = get_template_directory_uri() . '/assets/img/about/Capture.JPG';
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
+$logo_path       = get_template_directory() . '/assets/img/home/dti-fitness-logo.svg';
+$logo_url        = get_template_directory_uri() . '/assets/img/home/dti-fitness-logo.svg';
 $payment_methods = [
     ['name' => __('Visa', 'dawp'), 'file' => 'visa.png'],
     ['name' => __('Mastercard', 'dawp'), 'file' => 'master card.png'],
@@ -84,7 +83,7 @@ $footer_columns = [
 
 <footer class="tgm-footer" role="contentinfo">
     <style>
-        .tgm-footer { background:#F8F5F0; border-top:1px solid #E8E5DF; color:#2B2B2B; font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; text-rendering:optimizeLegibility; }
+        .tgm-footer { background:#F3F4F1; border-top:1px solid #E1E3DE; color:#2B2B2B; font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; text-rendering:optimizeLegibility; }
         .tgm-footer__inner { width:min(100% - 32px,1280px); margin-inline:auto; }
         .tgm-footer__main { padding:44px 0 46px; }
         .tgm-footer__columns { display:grid; justify-content:center; gap:30px 58px; }
@@ -93,13 +92,13 @@ $footer_columns = [
         .tgm-footer__columns h2 { margin:0 0 15px; color:#2B2B2B; font-size:13px; font-weight:800; letter-spacing:.08em; line-height:1.25; text-transform:uppercase; }
         .tgm-footer__columns ul { display:grid; gap:11px; margin:0; padding:0; list-style:none; font-size:14px; line-height:1.35; }
         .tgm-footer__columns a { color:#5F514B; font-weight:400; text-decoration:none; }
-        .tgm-footer__columns a:hover { color:#A45A3F; text-decoration:underline; text-underline-offset:4px; }
+        .tgm-footer__columns a:hover { color:#E8442C; text-decoration:underline; text-underline-offset:4px; }
         .tgm-footer__columns > section:first-child { padding-right:24px; }
         .tgm-footer__contact-list { display:grid; gap:13px; margin:0; color:#5F514B; font-size:14px; font-weight:400; line-height:1.45; }
         .tgm-footer__contact-list div { display:block; max-width:100%; }
         .tgm-footer__contact-list dt { display:inline; margin:0; color:#2B2B2B; font-size:14px; font-weight:700; }
         .tgm-footer__contact-list dd { display:inline; margin:0; }
-        .tgm-footer__contact-list a { color:#A45A3F; text-decoration:none; overflow-wrap:anywhere; }
+        .tgm-footer__contact-list a { color:#E8442C; text-decoration:none; overflow-wrap:anywhere; }
         .tgm-footer__contact-list a:hover { text-decoration:underline; }
         .tgm-footer__bottom { border-top:1px solid #E0DCD4; padding:16px 0; color:#6D625C; font-size:13px; font-weight:400; }
         .tgm-footer__bottom-row { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px 24px; }
@@ -115,11 +114,11 @@ $footer_columns = [
     <div class="tgm-footer__inner tgm-footer__main">
         <div class="tgm-footer__columns">
             <section aria-label="<?php esc_attr_e('Contact information', 'dawp'); ?>">
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="tgm-footer__brand" aria-label="<?php esc_attr_e('MegaMallDepot home', 'dawp'); ?>">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="tgm-footer__brand" aria-label="<?php esc_attr_e('DTI Fitness home', 'dawp'); ?>">
                     <?php
                     echo function_exists('dawp_get_responsive_image')
-                        ? dawp_get_responsive_image($logo_url, __('MegaMallDepot', 'dawp'), '', 190, 56, 'lazy', '190px')
-                        : '<img src="' . esc_url($logo_url) . '" width="190" height="56" alt="' . esc_attr__('MegaMallDepot', 'dawp') . '" decoding="async" loading="lazy">';
+                        ? dawp_get_responsive_image($logo_url, __('DTI Fitness', 'dawp'), '', 190, 56, 'lazy', '190px')
+                        : '<img src="' . esc_url($logo_url) . '" width="190" height="56" alt="' . esc_attr__('DTI Fitness', 'dawp') . '" decoding="async" loading="lazy">';
                     ?>
                 </a>
                 <dl class="tgm-footer__contact-list">
@@ -127,14 +126,12 @@ $footer_columns = [
                         <dt><?php esc_html_e('Email:', 'dawp'); ?></dt>
                         <dd><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
                     </div>
+                    <?php if ($store_address) : ?>
                     <div>
                         <dt><?php esc_html_e('Address:', 'dawp'); ?></dt>
                         <dd><?php echo esc_html($store_address); ?></dd>
                     </div>
-                    <div>
-                        <dt><?php esc_html_e('Phone:', 'dawp'); ?></dt>
-                        <dd><a href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a></dd>
-                    </div>
+                    <?php endif; ?>
                     <div>
                         <dt><?php esc_html_e('Business Hours:', 'dawp'); ?></dt>
                         <dd><?php echo esc_html($business_hours); ?></dd>
@@ -156,7 +153,7 @@ $footer_columns = [
 
     <div class="tgm-footer__bottom">
         <div class="tgm-footer__inner tgm-footer__bottom-row">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> MegaMallDepot. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> DTI Fitness. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
             <div class="tgm-footer__payments" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
                 <?php foreach ($payment_methods as $method) : ?>
                     <?php

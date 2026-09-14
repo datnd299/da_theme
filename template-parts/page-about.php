@@ -15,13 +15,17 @@ $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink(
 $contact_url = home_url('/contact-us/');
 $returns_url = home_url('/return-refund-policy/');
 $shipping_url = home_url('/shipping-policy/');
-$store_address = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
 $mmd_about_asset = static function ($file) use ($theme_uri, $theme_dir) {
+    if (preg_match('#^https?://#i', $file)) {
+        return $file;
+    }
+
     $relative = 'assets/img/gallery/' . $file;
     $path     = $theme_dir . '/' . $relative;
 
@@ -59,22 +63,22 @@ $mmd_about_img = static function ($file, $alt, $class = '', $width = 900, $heigh
 
 $principles = [
     [
-        'title' => __('Practical, everyday selection', 'dawp'),
-        'copy'  => __('We look for products that genuinely make everyday life easier, from home and kitchen basics to outdoor gear, tech, toys and family essentials.', 'dawp'),
+        'title' => __('Purpose-built equipment', 'dawp'),
+        'copy'  => __('We look for equipment that genuinely holds up to real training, from strength basics to cardio, mobility and everyday accessories.', 'dawp'),
     ],
     [
-        'title' => __('Built for real households', 'dawp'),
-        'copy'  => __('Our catalog is shaped around real routines: busy kitchens, home offices, active outdoor time, pet care, school needs and everyday family life.', 'dawp'),
+        'title' => __('Built for real training', 'dawp'),
+        'copy'  => __('Our catalog is shaped around real training needs: home gym setups, conditioning work, mobility and recovery, and everyday gear.', 'dawp'),
     ],
     [
         'title' => __('Clear, organized shopping', 'dawp'),
-        'copy'  => __('With departments spanning home, electronics, outdoors, beauty, pets and school supplies, we keep each category clearly organized with honest product details.', 'dawp'),
+        'copy'  => __('With categories spanning strength, cardio, yoga & mobility and accessories, we keep each collection clearly organized with honest product details.', 'dawp'),
     ],
 ];
 
 $values = [
-    __('Everyday home & kitchen essentials', 'dawp'),
-    __('Electronics, outdoor gear & family supplies', 'dawp'),
+    __('Strength training equipment', 'dawp'),
+    __('Cardio & conditioning gear', 'dawp'),
     __('Transparent shipping and returns', 'dawp'),
     __('Helpful support after purchase', 'dawp'),
 ];
@@ -88,10 +92,10 @@ $trust_items = [
 ?>
 
 <style>
-    .mmd-about { --mmd-ink:#2B2B2B; --mmd-text:#4A4A4A; --mmd-ivory:#F8F5F0; --mmd-line:#E8E5DF; --mmd-accent:#A45A3F; --mmd-accent-dark:#7F422F; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
+    .mmd-about { --mmd-ink:#2B2B2B; --mmd-text:#4A4A4A; --mmd-ivory:#F3F4F1; --mmd-line:#E1E3DE; --mmd-accent:#E8442C; --mmd-accent-dark:#B8331F; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
     .mmd-about * { box-sizing:border-box; }
     .mmd-about p { margin:0; }
-    .mmd-about h1, .mmd-about h2, .mmd-about h3 { margin:0; color:var(--mmd-ink); font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; line-height:1.05; letter-spacing:0; }
+    .mmd-about h1, .mmd-about h2, .mmd-about h3 { margin:0; color:var(--mmd-ink); font-family:"Archivo", "Inter", Arial, sans-serif; font-weight:800; line-height:1.05; letter-spacing:0; }
     .mmd-about-container { width:min(100% - 48px, 1280px); margin-inline:auto; }
     .mmd-about-eyebrow { margin:0 0 10px; color:var(--mmd-accent); font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
     .mmd-about-btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--mmd-ink); border-radius:2px; padding:0 22px; font-size:.78rem; font-weight:700; letter-spacing:.035em; text-decoration:none; text-transform:uppercase; transition:background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease; }
@@ -124,7 +128,7 @@ $trust_items = [
     .mmd-about-story__content h2 { font-size:clamp(1.75rem, 3vw, 2.65rem); line-height:1.12; }
     .mmd-about-story__content p { margin-top:16px; line-height:1.68; font-size:.96rem; }
     .mmd-about-values { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
-    .mmd-about-values span { border:1px solid #D8C7BE; background:#fff; color:var(--mmd-ink); padding:9px 12px; font-size:.78rem; font-weight:800; letter-spacing:.03em; text-transform:uppercase; }
+    .mmd-about-values span { border:1px solid #F0C7BE; background:#fff; color:var(--mmd-ink); padding:9px 12px; font-size:.78rem; font-weight:800; letter-spacing:.03em; text-transform:uppercase; }
     .mmd-about-address { margin-top:20px; font-size:.92rem; line-height:1.6; color:var(--mmd-text); }
     .mmd-about-address strong { color:var(--mmd-ink); }
     .mmd-about-principles, .mmd-about-trust, .mmd-about-policy-grid, .mmd-about-gallery { display:grid; gap:18px; }
@@ -133,7 +137,7 @@ $trust_items = [
     .mmd-about-card { padding:26px; }
     .mmd-about-card h3, .mmd-about-trust-card h3, .mmd-about-policy-card h3 { font-family:Inter, Arial, sans-serif; font-size:.94rem; font-weight:800; line-height:1.32; }
     .mmd-about-card p, .mmd-about-trust-card p, .mmd-about-policy-card p { margin-top:10px; font-size:.92rem; line-height:1.6; }
-    .mmd-about-card:hover, .mmd-about-trust-card:hover, .mmd-about-policy-card:hover { border-color:#D0B8AE; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
+    .mmd-about-card:hover, .mmd-about-trust-card:hover, .mmd-about-policy-card:hover { border-color:#EDB3A6; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
     .mmd-about-feature { display:grid; gap:28px; align-items:center; }
     .mmd-about-feature__media { min-height:330px; overflow:hidden; }
     .mmd-about-feature__media img { width:100%; height:100%; min-height:330px; object-fit:cover; }
@@ -142,7 +146,7 @@ $trust_items = [
     .mmd-about-feature__content .mmd-about-btn { margin-top:28px; }
     .mmd-about-trust { grid-template-columns:repeat(2, minmax(0, 1fr)); }
     .mmd-about-trust-card { padding:22px; }
-    .mmd-about-trust-card span { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; margin-bottom:14px; border:1px solid #D8C7BE; color:var(--mmd-accent); font-weight:800; }
+    .mmd-about-trust-card span { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; margin-bottom:14px; border:1px solid #F0C7BE; color:var(--mmd-accent); font-weight:800; }
     .mmd-about-policy-grid { grid-template-columns:1fr; }
     .mmd-about-policy-card { display:block; color:inherit; padding:24px; text-decoration:none; }
     .mmd-about-gallery { grid-template-columns:repeat(2, minmax(0, 1fr)); }
@@ -151,7 +155,7 @@ $trust_items = [
     .mmd-about-cta__inner { display:grid; gap:22px; align-items:center; }
     .mmd-about-cta h2 { color:#fff; font-size:clamp(1.75rem, 3vw, 2.65rem); }
     .mmd-about-cta p { max-width:620px; margin-top:12px; color:rgba(255,255,255,.76); line-height:1.65; }
-    .mmd-about-cta .mmd-about-eyebrow { color:#D8B19F; }
+    .mmd-about-cta .mmd-about-eyebrow { color:#EFA893; }
     .mmd-about-cta__actions { display:flex; flex-wrap:wrap; gap:12px; }
     .mmd-about-cta .mmd-about-btn--primary { border-color:#fff; background:#fff; color:var(--mmd-ink); }
     .mmd-about-cta .mmd-about-btn--primary:hover { border-color:var(--mmd-accent); background:var(--mmd-accent); color:#fff; }
@@ -166,17 +170,17 @@ $trust_items = [
     <section class="mmd-about-hero" aria-labelledby="mmd-about-title">
         <div class="mmd-about-container mmd-about-hero__grid">
             <div class="mmd-about-hero__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('About MegaMallDepot', 'dawp'); ?></p>
-                <h1 id="mmd-about-title"><?php esc_html_e('An everyday essentials store built for real American households.', 'dawp'); ?></h1>
-                <p class="mmd-about-hero__copy"><?php esc_html_e('MegaMallDepot helps families handle everyday life in one place, from home and kitchen essentials to electronics, outdoor gear, toys, beauty care, pet supplies and school essentials.', 'dawp'); ?></p>
+                <p class="mmd-about-eyebrow"><?php esc_html_e('About DTI Fitness', 'dawp'); ?></p>
+                <h1 id="mmd-about-title"><?php esc_html_e('A performance equipment store built for real training.', 'dawp'); ?></h1>
+                <p class="mmd-about-hero__copy"><?php esc_html_e('DTI Fitness (Doula Training International) helps people train with purpose in one place, from strength training and cardio & conditioning to yoga & mobility and everyday fitness accessories.', 'dawp'); ?></p>
                 <div class="mmd-about-hero__actions">
                     <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
                     <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
                 </div>
             </div>
             <div class="mmd-about-hero__media">
-                <?php echo $mmd_about_img('Living_Room.jpeg', __('Bright living room styled with refined furniture and decor', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
-                <div class="mmd-about-hero__note"><?php esc_html_e('Our point of view is simple: everyday shopping should be easy, honest and organized by what you actually need.', 'dawp'); ?></div>
+                <?php echo $mmd_about_img('https://images.unsplash.com/photo-1596357395217-80de13130e92?auto=format&fit=crop&w=1200&q=82', __('Bright modern gym with a squat rack and free weights', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
+                <div class="mmd-about-hero__note"><?php esc_html_e('Our point of view is simple: training equipment should be easy to shop, honest and organized by what you actually need.', 'dawp'); ?></div>
             </div>
         </div>
     </section>
@@ -184,20 +188,22 @@ $trust_items = [
     <section class="mmd-about-section" aria-labelledby="mmd-about-story-title">
         <div class="mmd-about-container mmd-about-story">
             <div class="mmd-about-story__media">
-                <?php echo $mmd_about_img('Dining.jpeg', __('Elegant dining room with natural light', 'dawp'), '', 620, 780, 'lazy', '(max-width: 899px) 58vw, 31vw'); ?>
-                <?php echo $mmd_about_img('Home_essentials_on_shelf_202607171221.jpeg', __('Curated home essentials arranged on a shelf', 'dawp'), '', 480, 360, 'lazy', '(max-width: 899px) 43vw, 23vw'); ?>
+                <?php echo $mmd_about_img('https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=700&q=80', __('Athlete performing a barbell squat', 'dawp'), '', 620, 780, 'lazy', '(max-width: 899px) 58vw, 31vw'); ?>
+                <?php echo $mmd_about_img('https://images.unsplash.com/photo-1591291621164-2c6367723315?auto=format&fit=crop&w=560&q=80', __('Yoga block, dumbbells and mat fitness accessories flat lay', 'dawp'), '', 480, 360, 'lazy', '(max-width: 899px) 43vw, 23vw'); ?>
             </div>
             <div class="mmd-about-story__content">
                 <p class="mmd-about-eyebrow"><?php esc_html_e('Our Story', 'dawp'); ?></p>
-                <h2 id="mmd-about-story-title"><?php esc_html_e('Built for the everyday needs of a busy household.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('We built MegaMallDepot to make everyday shopping simpler for busy households: one place for home essentials, electronics, outdoor gear, toys, beauty care, pet supplies and school essentials, each selected for real, practical use rather than just filling a catalog.', 'dawp'); ?></p>
-                <p><?php esc_html_e('Every department is chosen for usefulness, reliable quality and fair pricing, so it is easier to take care of a home and family without shopping across a dozen different stores.', 'dawp'); ?></p>
+                <h2 id="mmd-about-story-title"><?php esc_html_e('Built for the everyday needs of real training.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('We built DTI Fitness to make equipment shopping simpler for people who train consistently: one place for strength training, cardio & conditioning, yoga & mobility and fitness accessories, each selected for real, practical use rather than just filling a catalog.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Every category is chosen for usefulness, reliable quality and fair pricing, so it is easier to build and maintain a training routine without shopping across a dozen different stores.', 'dawp'); ?></p>
                 <div class="mmd-about-values">
                     <?php foreach ($values as $value) : ?>
                         <span><?php echo esc_html($value); ?></span>
                     <?php endforeach; ?>
                 </div>
+                <?php if ($store_address) : ?>
                 <p class="mmd-about-address"><strong><?php esc_html_e('Store Address:', 'dawp'); ?></strong> <?php echo esc_html($store_address); ?></p>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -207,8 +213,8 @@ $trust_items = [
             <div class="mmd-about-section__head">
                 <div>
                     <p class="mmd-about-eyebrow"><?php esc_html_e('What Guides Us', 'dawp'); ?></p>
-                    <h2 id="mmd-about-principles-title"><?php esc_html_e('A refined shopping experience, from inspiration to checkout.', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Our store is organized by department, so browsing across home, electronics, outdoors, beauty, pets and school essentials stays easy, warm and helpful.', 'dawp'); ?></p>
+                    <h2 id="mmd-about-principles-title"><?php esc_html_e('A direct shopping experience, from browsing to checkout.', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('Our store is organized by category, so browsing across strength, cardio, mobility and accessories stays fast, clear and helpful.', 'dawp'); ?></p>
                 </div>
             </div>
             <div class="mmd-about-principles">
@@ -225,12 +231,12 @@ $trust_items = [
     <section class="mmd-about-section" aria-labelledby="mmd-about-curation-title">
         <div class="mmd-about-container mmd-about-feature">
             <div class="mmd-about-feature__media">
-                <?php echo $mmd_about_img('Kitchen_essentials_tools_cookware_202607171159.jpeg', __('Kitchen tools and cookware arranged for daily cooking', 'dawp'), '', 780, 620, 'lazy', '(max-width: 899px) 100vw, 46vw'); ?>
+                <?php echo $mmd_about_img('https://images.unsplash.com/photo-1544033527-b192daee1f5b?auto=format&fit=crop&w=780&q=80', __('Dumbbell rack rows in a strength training gym', 'dawp'), '', 780, 620, 'lazy', '(max-width: 899px) 100vw, 46vw'); ?>
             </div>
             <div class="mmd-about-feature__content">
                 <p class="mmd-about-eyebrow"><?php esc_html_e('What We Carry', 'dawp'); ?></p>
-                <h2 id="mmd-about-curation-title"><?php esc_html_e('A wide range of everyday essentials, organized by department.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('From home, kitchen and outdoor living to electronics, toys, beauty, pet supplies and school & office essentials, each department is organized so it is easy to find what you need. Product pages list clear details on materials, specifications and everyday use, so you can shop with confidence across every category.', 'dawp'); ?></p>
+                <h2 id="mmd-about-curation-title"><?php esc_html_e('A focused range of training gear, organized by category.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('From strength training and cardio & conditioning to yoga & mobility and fitness accessories, each category is organized so it is easy to find what you need. Product pages list clear details on materials, build quality and everyday use, so you can shop with confidence across every category.', 'dawp'); ?></p>
                 <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse The Shop', 'dawp'); ?></a>
             </div>
         </div>
@@ -291,10 +297,10 @@ $trust_items = [
                 </div>
             </div>
             <div class="mmd-about-gallery">
-                <?php echo $mmd_about_img('Bedroom.jpeg', __('Layered bedroom with soft textiles', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('Outdoor.jpeg', __('Outdoor living space for relaxed entertaining', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('Elegant_Dining_Evenings.jpeg', __('Elegant dining table prepared for evening hosting', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('Fresh_Utility_Spaces.jpeg', __('Fresh utility space with organized home essentials', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_about_img('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=420&q=80', __('Athlete performing a pull-up', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_about_img('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=420&q=80', __('Bright modern gym with cardio machines', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_about_img('https://images.unsplash.com/photo-1518459031867-a89b944bffe4?auto=format&fit=crop&w=420&q=80', __('Two people stretching on yoga mats', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_about_img('https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?auto=format&fit=crop&w=420&q=80', __('Athlete training with boxing gloves', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
             </div>
         </div>
     </section>
@@ -302,9 +308,9 @@ $trust_items = [
     <section class="mmd-about-cta" aria-labelledby="mmd-about-cta-title">
         <div class="mmd-about-container mmd-about-cta__inner">
             <div>
-                <p class="mmd-about-eyebrow"><?php esc_html_e('Everything Your Home and Family Need', 'dawp'); ?></p>
-                <h2 id="mmd-about-cta-title"><?php esc_html_e('Find everyday essentials for every part of your life.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Discover home, electronics, outdoor, beauty, pet and school essentials selected to make everyday American living more organized, practical and reliable.', 'dawp'); ?></p>
+                <p class="mmd-about-eyebrow"><?php esc_html_e('Everything You Need To Train', 'dawp'); ?></p>
+                <h2 id="mmd-about-cta-title"><?php esc_html_e('Find training gear for every part of your routine.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Discover strength, cardio, mobility and accessory gear selected to make consistent training more organized, practical and reliable.', 'dawp'); ?></p>
             </div>
             <div class="mmd-about-cta__actions">
                 <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>

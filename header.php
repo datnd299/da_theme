@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'support@megamalldepot.com';
+$support_email = 'support@doulatrainingsinternational.net';
 $home_url      = home_url('/');
 $shop_url      = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $contact_url   = home_url('/contact-us/');
@@ -17,8 +17,8 @@ $about_url     = home_url('/about-us/');
 $account_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $cart_url      = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count    = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
-$logo_path     = get_template_directory() . '/assets/img/about/Capture.JPG';
-$logo_url      = get_template_directory_uri() . '/assets/img/about/Capture.JPG';
+$logo_path     = get_template_directory() . '/assets/img/home/dti-fitness-logo.svg';
+$logo_url      = get_template_directory_uri() . '/assets/img/home/dti-fitness-logo.svg';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
@@ -62,14 +62,14 @@ if (function_exists('dawp_virtual_page_is_active') && ($dawp_vp_page = dawp_virt
     $dawp_home_seo = dawp_home_page_seo_data();
     $dawp_meta_description = $dawp_home_seo['desc'] ?? '';
 } elseif (function_exists('is_shop') && is_shop()) {
-    $dawp_meta_description = __('Shop MegaMallDepot for everyday essentials across home, electronics, outdoors, toys, beauty, pets and school supplies, with fast US shipping and easy 30-day returns.', 'dawp');
+    $dawp_meta_description = __('Shop DTI Fitness for strength training, cardio & conditioning, yoga & mobility and fitness accessories, with fast US shipping and easy 30-day returns.', 'dawp');
 } elseif (function_exists('is_product_category') && is_product_category()) {
     $dawp_term = get_queried_object();
     if ($dawp_term && !is_wp_error($dawp_term)) {
         $dawp_cat_desc = trim(wp_strip_all_tags($dawp_term->description ?? ''));
         $dawp_meta_description = $dawp_cat_desc !== ''
             ? $dawp_cat_desc
-            : sprintf(__('Shop %s at MegaMallDepot: everyday essentials selected for real households, with fast US shipping and easy returns.', 'dawp'), $dawp_term->name);
+            : sprintf(__('Shop %s at DTI Fitness: training equipment selected for real workouts, with fast US shipping and easy returns.', 'dawp'), $dawp_term->name);
     }
 } elseif (function_exists('is_product') && is_product()) {
     $dawp_product = function_exists('wc_get_product') ? wc_get_product(get_the_ID()) : null;
@@ -77,7 +77,7 @@ if (function_exists('dawp_virtual_page_is_active') && ($dawp_vp_page = dawp_virt
         $dawp_excerpt = trim(wp_strip_all_tags($dawp_product->get_short_description() ?: $dawp_product->get_description()));
         $dawp_meta_description = $dawp_excerpt !== ''
             ? wp_html_excerpt($dawp_excerpt, 160, '…')
-            : sprintf(__('Buy %s at MegaMallDepot. Fast US shipping, secure checkout and easy 30-day returns.', 'dawp'), $dawp_product->get_name());
+            : sprintf(__('Buy %s at DTI Fitness. Fast US shipping, secure checkout and easy 30-day returns.', 'dawp'), $dawp_product->get_name());
     }
 }
 ?>
@@ -91,8 +91,8 @@ if (function_exists('dawp_virtual_page_is_active') && ($dawp_vp_page = dawp_virt
     <?php endif; ?>
 
     <style>
-        :root { --tgm-accent:#A45A3F; --tgm-accent-dark:#7F422F; --tgm-ink:#2B2B2B; --tgm-text:#4A4A4A; --tgm-muted:#746B64; --tgm-line:#E8E5DF; --tgm-soft:#F8F5F0; --tgm-white:#FFFFFF; }
-        body { font-family:Inter, "Avenir Next", Arial, sans-serif; color:var(--tgm-text); letter-spacing:0; text-rendering:optimizeLegibility; }
+        :root { --tgm-accent:#E8442C; --tgm-accent-dark:#B8331F; --tgm-ink:#2B2B2B; --tgm-text:#4A4A4A; --tgm-muted:#746B64; --tgm-line:#E1E3DE; --tgm-soft:#F3F4F1; --tgm-white:#FFFFFF; }
+        body { font-family:'Inter', "Avenir Next", Arial, sans-serif; color:var(--tgm-text); letter-spacing:0; text-rendering:optimizeLegibility; }
         html { scroll-behavior:smooth; }
         .tgm-skip { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
         .tgm-skip:focus { position:fixed; left:16px; top:16px; z-index:100; width:auto; height:auto; border-radius:4px; background:#fff; padding:12px 16px; color:var(--tgm-accent); font-weight:800; box-shadow:0 12px 32px rgba(43,43,43,.16); }
@@ -155,17 +155,17 @@ if (function_exists('dawp_virtual_page_is_active') && ($dawp_vp_page = dawp_virt
 
 <header id="site-header" class="tgm-header" role="banner">
     <div class="tgm-header__inner tgm-header__main">
-        <a href="<?php echo esc_url($home_url); ?>" class="tgm-logo" aria-label="<?php esc_attr_e('MegaMallDepot home', 'dawp'); ?>">
+        <a href="<?php echo esc_url($home_url); ?>" class="tgm-logo" aria-label="<?php esc_attr_e('DTI Fitness home', 'dawp'); ?>">
             <?php
             echo function_exists('dawp_get_responsive_image')
-                ? dawp_get_responsive_image($logo_url, __('MegaMallDepot', 'dawp'), '', 220, 64, 'eager', '(max-width: 520px) 142px, (max-width: 960px) 170px, 220px', 'high')
-                : '<img src="' . esc_url($logo_url) . '" width="220" height="64" alt="' . esc_attr__('MegaMallDepot', 'dawp') . '" decoding="async" fetchpriority="high">';
+                ? dawp_get_responsive_image($logo_url, __('DTI Fitness', 'dawp'), '', 220, 64, 'eager', '(max-width: 520px) 142px, (max-width: 960px) 170px, 220px', 'high')
+                : '<img src="' . esc_url($logo_url) . '" width="220" height="64" alt="' . esc_attr__('DTI Fitness', 'dawp') . '" decoding="async" fetchpriority="high">';
             ?>
         </a>
 
         <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="tgm-search tgm-header-search">
             <label class="screen-reader-text" for="header-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
-            <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search room essentials and home finds', 'dawp'); ?>">
+            <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search training gear and equipment', 'dawp'); ?>">
             <input type="hidden" name="post_type" value="product">
             <button type="submit" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>

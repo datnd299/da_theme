@@ -11,13 +11,13 @@ body.woocommerce-cart #content {
 body.woocommerce-cart {
   --cart-bg: #FFFFFF;
   --cart-surface: #FFFFFF;
-  --cart-surface-soft: #F8F5F0;
+  --cart-surface-soft: #F3F4F1;
   --cart-blue-soft: #FBF8F3;
   --cart-ink: #2B2B2B;
   --cart-muted: #746B64;
-  --cart-border: #E8E5DF;
-  --cart-blue: #A45A3F;
-  --cart-blue-hover: #7F422F;
+  --cart-border: #E1E3DE;
+  --cart-blue: #E8442C;
+  --cart-blue-hover: #B8331F;
   --cart-yellow: #D8B26E;
   --cart-alert: #8A332B;
   --cart-shadow: 0 12px 28px rgba(43, 43, 43, 0.08);

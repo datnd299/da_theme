@@ -1,22 +1,17 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'essentials' => 'home',
-        'home'       => 'home',
-        'furniture'  => 'home',
-        'electronics'=> 'electronics',
-        'smart'      => 'electronics',
-        'kitchen'    => 'home',
-        'outdoor'    => 'sports-outdoors',
-        'garden'     => 'garden-tools',
-        'tools'      => 'garden-tools',
-        'sports'     => 'sports-outdoors',
-        'toys'       => 'toys-outdoor-play',
-        'beauty'     => 'beauty-personal-care',
-        'pets'       => 'pets',
-        'school'     => 'school-office-art-supplies',
-        'office'     => 'school-office-art-supplies',
-        'art'        => 'school-office-art-supplies',
+        'strength'    => 'strength-training',
+        'strength-training' => 'strength-training',
+        'lifting'     => 'strength-training',
+        'weights'     => 'strength-training',
+        'cardio'      => 'cardio-conditioning',
+        'conditioning'=> 'cardio-conditioning',
+        'yoga'        => 'yoga-mobility',
+        'mobility'    => 'yoga-mobility',
+        'recovery'    => 'yoga-mobility',
+        'accessories' => 'fitness-accessories',
+        'fitness-accessories' => 'fitness-accessories',
     ];
 
     return $map[$slug] ?? $slug;
@@ -40,14 +35,10 @@ function dawp_product_category_url($slug) {
 
 function dawp_shop_category_items() {
     $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'home'                       => ['name' => __('Home', 'dawp')],
-        'garden-tools'               => ['name' => __('Garden & Tools', 'dawp')],
-        'electronics'                => ['name' => __('Electronics', 'dawp')],
-        'sports-outdoors'            => ['name' => __('Sports & Outdoors', 'dawp')],
-        'toys-outdoor-play'          => ['name' => __('Toys & Outdoor Play', 'dawp')],
-        'beauty-personal-care'       => ['name' => __('Beauty & Personal Care', 'dawp')],
-        'pets'                       => ['name' => __('Pets', 'dawp')],
-        'school-office-art-supplies' => ['name' => __('School, Office & Art Supplies', 'dawp')],
+        'strength-training'    => ['name' => __('Strength Training', 'dawp')],
+        'cardio-conditioning'  => ['name' => __('Cardio & Conditioning', 'dawp')],
+        'yoga-mobility'        => ['name' => __('Yoga & Mobility', 'dawp')],
+        'fitness-accessories'  => ['name' => __('Fitness Accessories', 'dawp')],
     ];
 
     $items = [];

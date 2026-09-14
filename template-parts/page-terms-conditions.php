@@ -1,6 +1,6 @@
 <?php
 /**
- * Terms and conditions page for MegaMallDepot.
+ * Terms and conditions page for DTI Fitness.
  *
  * @package dawp
  */
@@ -9,11 +9,10 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'MegaMallDepot';
-$site_domain    = 'megamalldepot.com';
-$support_email  = 'support@megamalldepot.com';
-$support_phone  = '757-804-6538';
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_name     = 'DTI Fitness';
+$site_domain    = 'doulatrainingsinternational.net';
+$support_email  = 'support@doulatrainingsinternational.net';
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $last_updated   = __('May 29, 2026', 'dawp');
 $shipping_url   = home_url('/shipping-policy/');
@@ -22,14 +21,14 @@ $privacy_url    = home_url('/privacy-policy/');
 $contact_url    = home_url('/contact-us/');
 
 $intro_paragraphs = [
-    __('Welcome to MegaMallDepot! These Terms & Conditions ("Terms") govern your access to and use of our website megamalldepot.com (the "Site"), including browsing our product catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'),
-    __('The Site is operated by MegaMallDepot. Throughout the Site, the terms "we", "us" and "our" refer to MegaMallDepot. By accessing our Site or placing an order, you agree to be bound by these Terms and all operational policies referenced herein. If you do not agree to these terms, please discontinue using the website or placing orders.', 'dawp'),
+    __('Welcome to DTI Fitness! These Terms & Conditions ("Terms") govern your access to and use of our website doulatrainingsinternational.net (the "Site"), including browsing our product catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'),
+    __('The Site is operated by DTI Fitness. Throughout the Site, the terms "we", "us" and "our" refer to DTI Fitness. By accessing our Site or placing an order, you agree to be bound by these Terms and all operational policies referenced herein. If you do not agree to these terms, please discontinue using the website or placing orders.', 'dawp'),
 ];
 
 $terms_highlights = [
     [
         'title' => __('Store Scope', 'dawp'),
-        'copy'  => __('MegaMallDepot focuses on home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
+        'copy'  => __('DTI Fitness focuses on strength training, cardio & conditioning, yoga & mobility and everyday fitness accessories.', 'dawp'),
     ],
     [
         'title' => __('Secure Checkout', 'dawp'),
@@ -42,7 +41,7 @@ $terms_highlights = [
 ];
 
 $shipping_parameters = [
-    __('Shipping Locations: MegaMallDepot currently ships exclusively within the United States domestic market.', 'dawp'),
+    __('Shipping Locations: DTI Fitness currently ships exclusively within the United States domestic market.', 'dawp'),
     __('Shipping Fees: Standard U.S. shipping is free ($0.00) for all orders nationwide with no minimum purchase requirement. Any optional upgraded shipping cost, if available, is shown clearly at checkout before payment.', 'dawp'),
     __('Daily Order Cutoff Time: 5:00 PM (GMT-08:00) Pacific Standard Time (Monday to Friday). Orders placed after this time begin processing on the following business day.', 'dawp'),
     __('Handling Time: Current order handling and packaging time is 1-2 business days (Monday to Friday), excluding standard U.S. public holidays.', 'dawp'),
@@ -68,15 +67,6 @@ $contact_details = [
         'url'   => 'mailto:' . $support_email,
     ],
     [
-        'label' => __('Customer Support Phone', 'dawp'),
-        'value' => $support_phone,
-        'url'   => 'tel:' . $support_phone,
-    ],
-    [
-        'label' => __('Physical Business Address', 'dawp'),
-        'value' => $store_address,
-    ],
-    [
         'label' => __('Customer Service Hours', 'dawp'),
         'value' => $business_hours,
     ],
@@ -87,13 +77,20 @@ $contact_details = [
     ],
 ];
 
+if ($store_address) {
+    array_splice($contact_details, 2, 0, [[
+        'label' => __('Physical Business Address', 'dawp'),
+        'value' => $store_address,
+    ]]);
+}
+
 $sections = [
     [
         'title' => __('1. Online Store Scope & Content Accuracy', 'dawp'),
         'copy'  => [
-            __('MegaMallDepot is an e-commerce store focused on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
+            __('DTI Fitness is an e-commerce store focused on practical strength training, cardio & conditioning, yoga & mobility and fitness accessories.', 'dawp'),
             __('We work to present product descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small variations in color, texture, or physical appearance may occur due to individual screen monitor settings, digital photography lighting, or periodic supplier updates.', 'dawp'),
-            __('MegaMallDepot strictly adheres to ethical commerce: we do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+            __('DTI Fitness strictly adheres to ethical commerce: we do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
         ],
     ],
     [
@@ -133,7 +130,7 @@ $sections = [
     [
         'title' => __('6. Returns, Refunds, and Consumer Rights', 'dawp'),
         'copy'  => [
-            __('We provide a transparent and risk-free return window for our home, electronics and lifestyle products:', 'dawp'),
+            __('We provide a transparent and risk-free return window for our fitness equipment products:', 'dawp'),
         ],
         'list'  => $return_terms,
         'after' => [
@@ -157,8 +154,8 @@ $sections = [
     [
         'title' => __('8. Intellectual Property & Liability Limitations', 'dawp'),
         'copy'  => [
-            __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to MegaMallDepot and are protected by copyright laws.', 'dawp'),
-            __('To the fullest extent permitted by applicable law, MegaMallDepot shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product consumption.', 'dawp'),
+            __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to DTI Fitness and are protected by copyright laws.', 'dawp'),
+            __('To the fullest extent permitted by applicable law, DTI Fitness shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product consumption.', 'dawp'),
         ],
     ],
     [
@@ -172,7 +169,7 @@ $sections = [
 $terms_faqs = [
     [
         'question' => __('What do these Terms cover?', 'dawp'),
-        'answer'   => __('These Terms govern access to MegaMallDepot, browsing the catalog, creating an account, contacting support, and purchasing products through megamalldepot.com.', 'dawp'),
+        'answer'   => __('These Terms govern access to DTI Fitness, browsing the catalog, creating an account, contacting support, and purchasing products through doulatrainingsinternational.net.', 'dawp'),
     ],
     [
         'question' => __('When is an order accepted?', 'dawp'),
@@ -194,12 +191,12 @@ $terms_faqs = [
 ?>
 
 <div class="bg-white text-[#2B2B2B]">
-    <section class="bg-[#F8F5F0] py-14 sm:py-20" aria-labelledby="terms-title">
+    <section class="bg-[#F3F4F1] py-14 sm:py-20" aria-labelledby="terms-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#E8442C]"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
                 <h1 id="terms-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                    <?php esc_html_e('Terms for using and shopping with MegaMallDepot.', 'dawp'); ?>
+                    <?php esc_html_e('Terms for using and shopping with DTI Fitness.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#4A4A4A]">
                     <?php
@@ -215,12 +212,12 @@ $terms_faqs = [
                 </p>
             </div>
 
-            <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+            <div class="rounded-md border border-[#E1E3DE] bg-white p-6 shadow-sm">
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#E8442C]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
                 <p class="mt-3 font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($last_updated); ?></p>
                 <div class="terms-highlight-slider mt-5 hidden gap-4 md:grid md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
                     <?php foreach ($terms_highlights as $highlight) : ?>
-                        <article class="terms-highlight-card rounded-md border border-[#E8E5DF] bg-[#FFFFFF] p-4">
+                        <article class="terms-highlight-card rounded-md border border-[#E1E3DE] bg-[#FFFFFF] p-4">
                             <h2 class="font-heading text-base font-extrabold text-[#2B2B2B]"><?php echo esc_html($highlight['title']); ?></h2>
                             <p class="mt-3 text-sm leading-6 text-[#4A4A4A]"><?php echo esc_html($highlight['copy']); ?></p>
                         </article>
@@ -233,7 +230,7 @@ $terms_faqs = [
     <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="terms-content-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
             <aside class="lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                <div class="rounded-md border border-[#E1E3DE] bg-white p-6 shadow-sm">
                     <h2 id="terms-content-title" class="font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Terms overview', 'dawp'); ?></h2>
                     <div class="mt-4 space-y-4 text-sm leading-7 text-[#4A4A4A]">
                         <?php foreach ($intro_paragraphs as $paragraph) : ?>
@@ -241,13 +238,13 @@ $terms_faqs = [
                         <?php endforeach; ?>
                     </div>
                     <div class="mt-6 grid gap-3">
-                        <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#A45A3F] px-5 text-sm font-bold text-white transition hover:bg-[#7F422F]">
+                        <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#E8442C] px-5 text-sm font-bold text-white transition hover:bg-[#B8331F]">
                             <?php esc_html_e('Shipping Policy', 'dawp'); ?>
                         </a>
-                        <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-5 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
+                        <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#E8442C] bg-white px-5 text-sm font-bold text-[#E8442C] transition hover:bg-[#F3F4F1]">
                             <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
                         </a>
-                        <a href="<?php echo esc_url($privacy_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-5 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
+                        <a href="<?php echo esc_url($privacy_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#E8442C] bg-white px-5 text-sm font-bold text-[#E8442C] transition hover:bg-[#F3F4F1]">
                             <?php esc_html_e('Privacy Policy', 'dawp'); ?>
                         </a>
                     </div>
@@ -256,7 +253,7 @@ $terms_faqs = [
 
             <div class="grid gap-5">
                 <?php foreach ($sections as $section) : ?>
-                    <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                    <article class="rounded-md border border-[#E1E3DE] bg-white p-6 shadow-sm">
                         <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($section['title']); ?></h2>
 
                         <?php if (!empty($section['copy'])) : ?>
@@ -281,7 +278,7 @@ $terms_faqs = [
                         <?php if (!empty($section['after'])) : ?>
                             <p class="mt-5 text-sm leading-7 text-[#4A4A4A]">
                                 <?php echo esc_html($section['after']['text']); ?>
-                                <a class="font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="<?php echo esc_url($section['after']['url']); ?>">
+                                <a class="font-bold text-[#E8442C] underline decoration-[#E8442C]/40 underline-offset-4 transition hover:text-[#B8331F]" href="<?php echo esc_url($section['after']['url']); ?>">
                                     <?php echo esc_html($section['after']['link']); ?>
                                 </a>
                             </p>
@@ -289,18 +286,18 @@ $terms_faqs = [
                     </article>
                 <?php endforeach; ?>
 
-                <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm">
+                <article class="rounded-md border border-[#E1E3DE] bg-[#F3F4F1] p-6 shadow-sm">
                     <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('10. Customer Support & Business Identity', 'dawp'); ?></h2>
                     <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
                         <?php esc_html_e('If you have questions, complaints, or require clarification regarding these Terms & Conditions or an active order, please contact our team via our verified corporate channels:', 'dawp'); ?>
                     </p>
                     <dl class="mt-5 grid gap-4 md:grid-cols-2">
                         <?php foreach ($contact_details as $detail) : ?>
-                            <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
+                            <div class="rounded-md border border-[#E1E3DE] bg-white p-5">
                                 <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php echo esc_html($detail['label']); ?></dt>
                                 <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]">
                                     <?php if (!empty($detail['url'])) : ?>
-                                        <a class="font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="<?php echo esc_url($detail['url']); ?>"><?php echo esc_html($detail['value']); ?></a>
+                                        <a class="font-bold text-[#E8442C] underline decoration-[#E8442C]/40 underline-offset-4 transition hover:text-[#B8331F]" href="<?php echo esc_url($detail['url']); ?>"><?php echo esc_html($detail['value']); ?></a>
                                     <?php else : ?>
                                         <?php echo esc_html($detail['value']); ?>
                                     <?php endif; ?>
@@ -310,14 +307,14 @@ $terms_faqs = [
                     </dl>
                 </article>
 
-                <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                <article class="rounded-md border border-[#E1E3DE] bg-white p-6 shadow-sm">
                     <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Terms FAQs', 'dawp'); ?></h2>
-                    <div class="mt-6 divide-y divide-[#E8E5DF]">
+                    <div class="mt-6 divide-y divide-[#E1E3DE]">
                         <?php foreach ($terms_faqs as $item) : ?>
                             <details class="group py-5 first:pt-0 last:pb-0">
                                 <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#2B2B2B]">
                                     <span><?php echo esc_html($item['question']); ?></span>
-                                    <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#F8F5F0] text-[#A45A3F] transition group-open:rotate-45" aria-hidden="true">+</span>
+                                    <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#F3F4F1] text-[#E8442C] transition group-open:rotate-45" aria-hidden="true">+</span>
                                 </summary>
                                 <p class="mt-3 text-sm leading-7 text-[#4A4A4A]"><?php echo esc_html($item['answer']); ?></p>
                             </details>

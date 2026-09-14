@@ -6,20 +6,20 @@
 /* CSS Variables */
 :root {
   --color-bg:             #FFFFFF;
-  --color-bg-subtle:      #F8F5F0;
+  --color-bg-subtle:      #F3F4F1;
   --color-bg-muted:       #F6F3EE;
   --color-text-primary:   #2B2B2B;
   --color-text-secondary: #554E49;
   --color-text-muted:     #77706A;
   --color-text-soft:      #77706A;
-  --color-border:         #E8E5DF;
-  --color-accent:         #A45A3F;
-  --color-accent-hover:   #7F422F;
-  --color-accent-warm:    #D0B8AE;
+  --color-border:         #E1E3DE;
+  --color-accent:         #E8442C;
+  --color-accent-hover:   #B8331F;
+  --color-accent-warm:    #EDB3A6;
   --color-button-bg:      var(--color-accent);
   --color-button-hover:   var(--color-accent-hover);
   --color-button-text:    var(--color-bg);
-  --color-sale:           #A45A3F;
+  --color-sale:           #E8442C;
   --color-blush:          #F1E5DF;
   --color-navy:           #2B2B2B;
   --color-navy-light:     #77706A;

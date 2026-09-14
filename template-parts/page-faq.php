@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQs page for MegaMallDepot.
+ * FAQs page for DTI Fitness.
  *
  * @package dawp
  */
@@ -9,11 +9,10 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'MegaMallDepot';
-$site_domain    = 'megamalldepot.com';
-$support_email  = 'support@megamalldepot.com';
-$support_phone  = '757-804-6538';
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_name     = 'DTI Fitness';
+$site_domain    = 'doulatrainingsinternational.net';
+$support_email  = 'support@doulatrainingsinternational.net';
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
@@ -49,8 +48,8 @@ $faq_groups = [
         'label' => __('Orders & Shipping', 'dawp'),
         'items' => [
             [
-                'question' => __('Where does MegaMallDepot ship?', 'dawp'),
-                'answer'   => __('MegaMallDepot currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
+                'question' => __('Where does DTI Fitness ship?', 'dawp'),
+                'answer'   => __('DTI Fitness currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
             ],
             [
                 'question' => __('How much does shipping cost?', 'dawp'),
@@ -99,11 +98,11 @@ $faq_groups = [
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('MegaMallDepot covers return shipping for all eligible returns, including change of mind, within 30 days of delivery. We email you a prepaid shipping label at no cost to you.', 'dawp'),
+                'answer'   => __('DTI Fitness covers return shipping for all eligible returns, including change of mind, within 30 days of delivery. We email you a prepaid shipping label at no cost to you.', 'dawp'),
             ],
             [
                 'question' => __('Do you charge restocking fees?', 'dawp'),
-                'answer'   => __('No. MegaMallDepot does not charge restocking fees ($0.00) for eligible returns.', 'dawp'),
+                'answer'   => __('No. DTI Fitness does not charge restocking fees ($0.00) for eligible returns.', 'dawp'),
             ],
             [
                 'question' => __('Do you offer exchanges?', 'dawp'),
@@ -127,8 +126,8 @@ $faq_groups = [
         'label' => __('Products & Store', 'dawp'),
         'items' => [
             [
-                'question' => __('What does MegaMallDepot sell?', 'dawp'),
-                'answer'   => __('MegaMallDepot focuses on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, outdoor living items, and other home, electronics and lifestyle products.', 'dawp'),
+                'question' => __('What does DTI Fitness sell?', 'dawp'),
+                'answer'   => __('DTI Fitness focuses on performance fitness equipment: strength training, cardio & conditioning, yoga & mobility and everyday fitness accessories for training at home or in the gym.', 'dawp'),
             ],
             [
                 'question' => __('Do product photos and colors always look exactly the same in person?', 'dawp'),
@@ -136,11 +135,11 @@ $faq_groups = [
             ],
             [
                 'question' => __('Do you sell counterfeit or replica products?', 'dawp'),
-                'answer'   => __('No. MegaMallDepot does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+                'answer'   => __('No. DTI Fitness does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
             ],
             [
                 'question' => __('Do your products make medical, safety, or treatment claims?', 'dawp'),
-                'answer'   => __('No. Our catalog is focused on home, electronics and lifestyle products. We do not sell dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+                'answer'   => __('No. Our catalog is focused on fitness equipment and training accessories. We do not sell dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
             ],
             [
                 'question' => __('Where can I find product details?', 'dawp'),
@@ -156,8 +155,8 @@ $faq_groups = [
                 'answer'   => __('Yes. Checkout transactions are executed over an encrypted SSL connection and payment processing is handled by certified third-party payment gateways that follow PCI-DSS standards.', 'dawp'),
             ],
             [
-                'question' => __('Does MegaMallDepot store my full credit card number?', 'dawp'),
-                'answer'   => __('No. MegaMallDepot does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+                'question' => __('Does DTI Fitness store my full credit card number?', 'dawp'),
+                'answer'   => __('No. DTI Fitness does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             ],
             [
                 'question' => __('How is my information used?', 'dawp'),
@@ -168,14 +167,17 @@ $faq_groups = [
                 'answer'   => __('Depending on your location and applicable U.S. state privacy laws, you may request access to, correction of, or deletion of personal data we maintain. Submit privacy requests through support.', 'dawp'),
             ],
             [
-                'question' => __('How do I contact MegaMallDepot?', 'dawp'),
+                'question' => __('How do I contact DTI Fitness?', 'dawp'),
                 'answer'   => sprintf(
-                    /* translators: 1: email address, 2: phone number, 3: business hours, 4: store address */
-                    __('Email %1$s, call %2$s, or use the Contact Us page. Customer service hours are %3$s. Our business address is %4$s.', 'dawp'),
+                    /* translators: 1: email address, 2: business hours, 3: optional business address sentence */
+                    __('Email %1$s or use the Contact Us page. Customer service hours are %2$s.%3$s', 'dawp'),
                     $support_email,
-                    $support_phone,
                     $business_hours,
-                    $store_address
+                    $store_address ? ' ' . sprintf(
+                        /* translators: %s: store address */
+                        __('Our business address is %s.', 'dawp'),
+                        $store_address
+                    ) : ''
                 ),
             ],
         ],
@@ -212,11 +214,11 @@ $quick_links = [
 ?>
 
 <div class="bg-white text-[#2B2B2B]">
-    <section class="bg-[#F8F5F0] py-14 sm:py-20" aria-labelledby="faq-title">
+    <section class="bg-[#F3F4F1] py-14 sm:py-20" aria-labelledby="faq-title">
         <div class="mx-auto flex max-w-3xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-center text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
+            <p class="text-center text-sm font-extrabold uppercase tracking-[0.14em] text-[#E8442C]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
             <h1 id="faq-title" class="mt-4 text-center font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                <?php esc_html_e('Quick answers for shopping with MegaMallDepot.', 'dawp'); ?>
+                <?php esc_html_e('Quick answers for shopping with DTI Fitness.', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-5 max-w-2xl text-center text-base leading-8 text-[#4A4A4A]">
                 <?php
@@ -230,8 +232,8 @@ $quick_links = [
                 );
                 ?>
             </p>
-            <div class="mt-6 rounded-md border border-[#E8E5DF] bg-white px-5 py-4 shadow-sm">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+            <div class="mt-6 rounded-md border border-[#E1E3DE] bg-white px-5 py-4 shadow-sm">
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#E8442C]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
                 <p class="mt-2 font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($last_updated); ?></p>
             </div>
         </div>
@@ -240,14 +242,14 @@ $quick_links = [
     <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="faq-content-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
             <aside class="hidden lg:block lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                <div class="rounded-md border border-[#E1E3DE] bg-white p-6 shadow-sm">
                     <h2 id="faq-content-title" class="font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Helpful links', 'dawp'); ?></h2>
                     <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
                         <?php esc_html_e('This FAQ summarizes the current store policies. Review the full policy pages for complete details before placing an order, requesting a return, or submitting a privacy request.', 'dawp'); ?>
                     </p>
                     <div class="mt-6 grid gap-3">
                         <?php foreach ($quick_links as $link) : ?>
-                            <a href="<?php echo esc_url($link['url']); ?>" class="block w-full rounded-md border border-[#E8E5DF] bg-[#FFFFFF] p-4 transition hover:border-[#D0B8AE] hover:bg-[#F8F5F0]">
+                            <a href="<?php echo esc_url($link['url']); ?>" class="block w-full rounded-md border border-[#E1E3DE] bg-[#FFFFFF] p-4 transition hover:border-[#EDB3A6] hover:bg-[#F3F4F1]">
                                 <span class="block font-heading text-base font-extrabold text-[#2B2B2B]"><?php echo esc_html($link['title']); ?></span>
                                 <span class="mt-2 block text-sm leading-6 text-[#4A4A4A]"><?php echo esc_html($link['copy']); ?></span>
                             </a>
@@ -258,14 +260,14 @@ $quick_links = [
 
             <div class="grid gap-5">
                 <?php foreach ($faq_groups as $group) : ?>
-                    <section class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm" aria-labelledby="<?php echo esc_attr(sanitize_title($group['label'])); ?>">
+                    <section class="rounded-md border border-[#E1E3DE] bg-white p-6 shadow-sm" aria-labelledby="<?php echo esc_attr(sanitize_title($group['label'])); ?>">
                         <h2 id="<?php echo esc_attr(sanitize_title($group['label'])); ?>" class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($group['label']); ?></h2>
-                        <div class="mt-6 divide-y divide-[#E8E5DF]">
+                        <div class="mt-6 divide-y divide-[#E1E3DE]">
                             <?php foreach ($group['items'] as $item) : ?>
                                 <details class="group py-5 first:pt-0 last:pb-0">
                                     <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#2B2B2B]">
                                         <span><?php echo esc_html($item['question']); ?></span>
-                                        <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#F8F5F0] text-[#A45A3F] transition group-open:rotate-45" aria-hidden="true">+</span>
+                                        <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#F3F4F1] text-[#E8442C] transition group-open:rotate-45" aria-hidden="true">+</span>
                                     </summary>
                                     <p class="mt-3 text-sm leading-7 text-[#4A4A4A]"><?php echo esc_html($item['answer']); ?></p>
                                 </details>
@@ -274,7 +276,7 @@ $quick_links = [
                     </section>
                 <?php endforeach; ?>
 
-                <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm">
+                <article class="rounded-md border border-[#E1E3DE] bg-[#F3F4F1] p-6 shadow-sm">
                     <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Still need help?', 'dawp'); ?></h2>
                     <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
                         <?php
@@ -289,28 +291,24 @@ $quick_links = [
                         ?>
                     </p>
                     <dl class="mt-5 grid gap-4 md:grid-cols-3">
-                        <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
+                        <div class="rounded-md border border-[#E1E3DE] bg-white p-5">
                             <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
                             <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]">
-                                <a class="break-words font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
+                                <a class="break-words font-bold text-[#E8442C] underline decoration-[#E8442C]/40 underline-offset-4 transition hover:text-[#B8331F]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
                             </dd>
                         </div>
-                        <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
-                            <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Customer Support Phone', 'dawp'); ?></dt>
-                            <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]">
-                                <a class="font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a>
-                            </dd>
-                        </div>
-                        <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
+                        <?php if ($store_address) : ?>
+                        <div class="rounded-md border border-[#E1E3DE] bg-white p-5">
                             <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Business Address', 'dawp'); ?></dt>
                             <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]"><?php echo esc_html($store_address); ?></dd>
                         </div>
+                        <?php endif; ?>
                     </dl>
                     <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-                        <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#A45A3F] px-6 text-sm font-bold text-white transition hover:bg-[#7F422F]">
+                        <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#E8442C] px-6 text-sm font-bold text-white transition hover:bg-[#B8331F]">
                             <?php esc_html_e('Contact Us', 'dawp'); ?>
                         </a>
-                        <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-6 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
+                        <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#E8442C] bg-white px-6 text-sm font-bold text-[#E8442C] transition hover:bg-[#F3F4F1]">
                             <?php esc_html_e('Shop Products', 'dawp'); ?>
                         </a>
                     </div>

@@ -1,27 +1,25 @@
-# MegaMallDepot — Design System
+# DTI Fitness — Design System
 
 ## Design Direction
 
-Inspired by premium home retailers like Williams Sonoma.
+Inspired by focused performance-equipment retailers and modern training studios.
 
 Website should feel:
 
-* Warm
-* Elegant
-* Editorial
-* Spacious
-* Premium
-* Lifestyle-first
+* Energetic
+* Confident
+* Clean
+* Performance-first
+* Direct
 
-Customers should feel they are browsing a modern home magazine rather than a discount ecommerce website.
+Customers should feel they are browsing a serious training equipment store, not a soft lifestyle catalog.
 
 Avoid:
 
 * Marketplace appearance
 * Heavy promotional banners
 * Flash sale styling
-* Overstock product grids
-* Technology-first layouts
+* Pastel, purely decorative visuals
 
 ---
 
@@ -30,7 +28,7 @@ Avoid:
 ## Primary
 
 ```txt
-Charcoal
+Graphite Ink
 #2B2B2B
 ```
 
@@ -45,23 +43,23 @@ Used for:
 ## Secondary
 
 ```txt
-Warm Ivory
-#F8F5F0
+Concrete
+#F3F4F1
 ```
 
 Used for:
 
 * Section backgrounds
 * Hero
-* Editorial blocks
+* Soft blocks
 
 ---
 
 ## Accent
 
 ```txt
-Terracotta
-#A45A3F
+Performance Red
+#E8442C
 ```
 
 Used for:
@@ -69,6 +67,12 @@ Used for:
 * Buttons
 * Small highlights
 * Links
+
+## Accent (dark / hover)
+
+```txt
+#B8331F
+```
 
 ---
 
@@ -79,7 +83,7 @@ White
 #FFFFFF
 
 Border
-#E8E5DF
+#E1E3DE
 
 Text
 #4A4A4A
@@ -92,7 +96,7 @@ Text
 Headings
 
 ```txt
-Cormorant Garamond
+Archivo
 ```
 
 Body
@@ -103,15 +107,14 @@ Inter
 
 Style:
 
-* Large elegant headings
-* Small readable body text
-* Editorial spacing
+* Bold, confident headings
+* Clear readable body text
+* Tight, direct spacing
 
 Avoid:
 
-* Bold oversized typography
-* Tech fonts
-* Decorative scripts
+* Decorative or script fonts
+* Overly delicate serif headings
 
 ---
 
@@ -135,9 +138,7 @@ Grid
 2–4 columns
 ```
 
-Lots of whitespace.
-
-Content should breathe.
+Confident whitespace without losing energy.
 
 ---
 
@@ -154,20 +155,20 @@ Search
 
 Account
 
-Wishlist
+Track Order
 
 Cart
 
 Category Navigation
 ```
 
-Header should feel minimal and premium.
+Header should feel sticky, clean and fast to scan.
 
 ---
 
 # Hero Section
 
-Use large editorial photography.
+Use high-contrast training photography.
 
 Layout:
 
@@ -178,7 +179,7 @@ Layout:
 Content includes:
 
 * Small eyebrow
-* Elegant headline
+* Bold headline
 * Short description
 * One primary CTA
 
@@ -190,13 +191,13 @@ Avoid crowded hero content.
 
 Use:
 
-* Lifestyle Hero
-* Shop By Collection
+* Action Hero
+* Shop By Category
 * Editorial Promotion
 * Featured Products
-* Seasonal Collections
+* Training Edits
 * Brand Story
-* Customer Reviews
+* Trust Grid
 
 Do not place large product grids immediately after the hero.
 
@@ -225,20 +226,17 @@ No aggressive sale badges.
 
 Use:
 
-* Bright kitchens
-* Modern dining rooms
-* Elegant living spaces
-* Natural lighting
-* Premium home styling
-* Lifestyle photography
+* Real training action shots
+* Bright, modern gym interiors
+* High-contrast photography
+* Equipment shown in use
 
-Products should appear inside beautiful homes.
+Products should appear in real training contexts.
 
 Avoid:
 
 * White cutout backgrounds only
-* Dark scenes
-* Heavy graphics
+* Soft pastel lifestyle scenes
 * Busy compositions
 
 ---
@@ -249,7 +247,7 @@ Primary
 
 ```txt
 Background
-#2B2B2B
+#E8442C
 
 Text
 White
@@ -265,7 +263,7 @@ Background
 Transparent
 ```
 
-Buttons should feel refined rather than promotional.
+Buttons should feel confident and high-contrast.
 
 ---
 
@@ -290,16 +288,16 @@ Avoid:
 
 Every section should alternate between:
 
-* Editorial storytelling
-* Lifestyle imagery
+* Category storytelling
+* Training action imagery
 * Product collections
 
-The homepage should read like a premium home inspiration magazine instead of a traditional ecommerce catalog.
+The homepage should read like a focused performance-equipment retailer instead of a general marketplace.
 
 ---
 
 # Final Feeling
 
-MegaMallDepot should feel like:
+DTI Fitness should feel like:
 
-"A thoughtfully curated home destination where customers discover beautiful products through inspiring spaces, timeless design and a calm shopping experience."
+"A performance-focused training equipment destination where customers find purpose-built strength, cardio, mobility and accessory gear through direct, high-energy presentation and a fast, trustworthy shopping experience."

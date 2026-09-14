@@ -1,37 +1,36 @@
-# MegaMallDepot — Homepage Plan
+# DTI Fitness — Homepage Plan
 
 ## Overview
 
-MegaMallDepot is a premium American home & lifestyle retailer. The homepage should feel warm, elegant, editorial and trustworthy, inspiring customers before presenting products.
+DTI Fitness is a performance fitness equipment retailer. The homepage should feel energetic, confident and direct, building training motivation while making shopping fast.
 
 ---
 
 ## Homepage Goals
 
-- Inspire through lifestyle imagery
-- Showcase curated collections
+- Motivate through real training imagery
+- Showcase category and featured collections
 - Build trust
-- Make shopping effortless
-- Guide visitors from inspiration to purchase
+- Make shopping fast and direct
+- Guide visitors from browsing to purchase
 
 ---
 
 # Homepage Structure
 
 1. Announcement Bar
-2. Premium Header
-3. Editorial Hero
-4. Shop By Room
+2. Performance Header
+3. Action Hero
+4. Shop By Category
 5. Featured Collections
-6. Editorial Story
+6. Brand Story
 7. Best Sellers
-8. Seasonal Inspiration
+8. Training Edits
 9. New Arrivals
-10. Why Shop MegaMallDepot
-11. Customer Reviews
-12. Lifestyle Gallery
-13. Newsletter
-14. Premium Footer
+10. Why Train With DTI Fitness
+11. Lifestyle Gallery
+12. Newsletter
+13. Performance Footer
 
 ---
 
@@ -45,56 +44,54 @@ Display one simple trust message:
 - Easy Returns
 - Secure Checkout
 
-Minimal, elegant and non-promotional.
+Minimal and direct, not promotional.
 
 ---
 
-## Premium Header
+## Performance Header
 
 Include:
 
 - Logo
 - Search
 - Account
-- Wishlist
+- Track Order
 - Cart
 - Category Navigation
 
-Header should be sticky, clean and spacious.
+Header should be sticky, clean and fast to scan.
 
 ---
 
-## Editorial Hero
+## Action Hero
 
 Headline:
 
-> Beautiful Spaces Begin At Home
+> Train With Purpose
 
 Supporting copy:
 
-> Discover thoughtfully selected furniture, décor and home essentials designed for modern American living.
+> Shop strength training, cardio & conditioning, yoga & mobility and everyday fitness accessories built to keep up with real workouts.
 
 CTA:
 
 - Shop Collection
 - Explore New Arrivals
 
-Use bright luxury interiors with natural lighting.
+Use high-contrast training photography with bright, modern gym interiors.
 
 ---
 
-## Shop By Room
+## Shop By Category
 
-Feature six lifestyle categories:
+Feature four training categories:
 
-- Living Room
-- Bedroom
-- Kitchen
-- Dining
-- Bathroom
-- Outdoor
+- Strength Training
+- Cardio & Conditioning
+- Yoga & Mobility
+- Fitness Accessories
 
-Large editorial cards with soft hover effects.
+Large cards with soft hover effects.
 
 ---
 
@@ -102,19 +99,17 @@ Large editorial cards with soft hover effects.
 
 Highlight curated collections such as:
 
-- Kitchen Essentials
-- Elegant Dining
-- Modern Furniture
-- Timeless Decor
-- Outdoor Living
+- Home Gym Essentials
+- Cardio Conditioning
+- Recovery & Mobility
 
-Prioritize storytelling over promotions.
+Prioritize real training use cases over decoration.
 
 ---
 
-## Editorial Story
+## Brand Story
 
-Explain the MegaMallDepot brand through lifestyle imagery and short editorial copy.
+Explain the DTI Fitness brand through training imagery and short, direct copy.
 
 CTA:
 
@@ -130,32 +125,30 @@ Each product card includes:
 
 - Image
 - Name
-- Collection
+- Category
 - Price
 - Rating
 - Quick View
 - Add to Cart
 
-Lifestyle imagery should be prioritized.
-
 ---
 
-## Seasonal Inspiration
+## Training Edits
 
-Present seasonal edits using magazine-style layouts.
+Present themed edits using a clean grid.
 
 Examples:
 
-- Summer Patio
-- Cozy Bedroom
-- Outdoor Dining
-- Holiday Living
+- Strength Starter Kit
+- Cardio Conditioning Edit
+- Mobility & Recovery Edit
+- Everyday Training Gear
 
 ---
 
 ## New Arrivals
 
-Display the latest curated products with a clean product grid.
+Display the latest products with a clean product grid.
 
 Maximum:
 
@@ -163,7 +156,7 @@ Maximum:
 
 ---
 
-## Why Shop MegaMallDepot
+## Why Train With DTI Fitness
 
 Highlight:
 
@@ -177,29 +170,16 @@ Use simple icons and clean layouts.
 
 ---
 
-## Customer Reviews
-
-Display authentic reviews with:
-
-- Rating
-- Customer name
-- Location
-- Verified Purchase
-
-Avoid fake testimonials.
-
----
-
 ## Lifestyle Gallery
 
-Show beautiful home photography featuring:
+Show real training photography featuring:
 
-- Kitchens
-- Living Rooms
-- Bedrooms
-- Outdoor Spaces
+- Strength training
+- Cardio & conditioning
+- Yoga & mobility work
+- Everyday training gear
 
-Focus on inspiration rather than products.
+Focus on real use rather than decoration.
 
 ---
 
@@ -207,23 +187,22 @@ Focus on inspiration rather than products.
 
 Headline:
 
-Bring Inspiration Home
+Bring Training Home
 
 Collect email subscriptions using a simple centered form.
 
 ---
 
-## Premium Footer
+## Performance Footer
 
 Include:
 
 ### Shop
 
-- Kitchen
-- Furniture
-- Decor
-- Bedding
-- Outdoor
+- Strength Training
+- Cardio & Conditioning
+- Yoga & Mobility
+- Fitness Accessories
 
 ### Customer Care
 
@@ -260,10 +239,10 @@ Use soft hover animations only.
 
 Content should be:
 
-- Warm
-- Elegant
+- Direct
+- Energetic
 - Helpful
-- Lifestyle-focused
+- Performance-focused
 - Original
 - Benefit-driven
 
@@ -280,16 +259,15 @@ Avoid:
 
 Use:
 
-- Bright interiors
-- Natural lighting
-- Editorial photography
-- Premium home styling
+- High-contrast training photography
+- Bright, modern gym interiors
+- Real equipment in use
 
 Avoid:
 
-- White cutout product images
+- White cutout product images only
 - Busy graphics
-- Dark themes
+- Soft pastel lifestyle-only visuals
 
 ---
 
@@ -307,7 +285,7 @@ Avoid:
 
 Homepage should demonstrate:
 
-- Clear home & lifestyle niche
+- Clear fitness equipment niche
 - Original content
 - Transparent policies
 - Strong branding
@@ -318,11 +296,11 @@ Homepage should demonstrate:
 
 # Homepage Journey
 
-Brand Inspiration
+Brand Motivation
 
 ↓
 
-Shop By Room
+Shop By Category
 
 ↓
 
@@ -338,7 +316,7 @@ Best Sellers
 
 ↓
 
-Seasonal Inspiration
+Training Edits
 
 ↓
 
@@ -346,7 +324,7 @@ Trust
 
 ↓
 
-Reviews
+Gallery
 
 ↓
 
@@ -360,4 +338,4 @@ Purchase
 
 ## Final Goal
 
-Create a calm, premium shopping experience that feels like a modern home magazine while making product discovery effortless.
+Create a fast, energetic shopping experience that feels like a focused performance-equipment retailer while making product discovery effortless.

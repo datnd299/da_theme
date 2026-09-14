@@ -1,34 +1,35 @@
-# MegaMallDepot — Site.md
+# Doula Training International — Site.md
 
 ## Store Information
 
-* **Website:** megamalldepot.com
+* **Website:** doulatrainingsinternational.net
+* **Brand / Display Name:** DTI Fitness
 * **Language:** English
 * **Primary Market:** United States
-* **Store Type:** Premium Home & Lifestyle Ecommerce
-* **Industry:** Home • Kitchen • Furniture • Decor • Living
+* **Store Type:** Performance Fitness Equipment Ecommerce
+* **Industry:** Strength Training • Cardio • Yoga & Mobility • Fitness Accessories
 
 ---
 
 # Brand Positioning
 
-MegaMallDepot is a modern American home and lifestyle retailer inspired by premium home shopping experiences. The store focuses on quality products that elevate everyday living, combining elegant design with accessible pricing.
+DTI Fitness (Doula Training International) is a performance-first fitness equipment retailer built for people who train at home or in the gym. The store focuses on durable, purpose-built equipment across strength, cardio, mobility and everyday training accessories.
 
 The storefront should feel:
 
-* Warm
-* Premium
+* Energetic
+* Disciplined
 * Modern
-* Elegant
-* Organized
-* Inspirational
+* Confident
+* Clean
+* Motivating
 
 Avoid:
 
-* Discount warehouse appearance
-* Marketplace clutter
-* Electronics-first branding
+* Cluttered marketplace appearance
+* Soft, lifestyle-only styling with no performance edge
 * Generic dropshipping style
+* Overstock / discount-bin look
 
 ---
 
@@ -36,76 +37,65 @@ Avoid:
 
 ## Primary Customers
 
-* Homeowners
-* Couples
-* Families
-* Interior enthusiasts
-* Home improvement shoppers
+* Home gym owners
+* Gym & studio operators
+* Everyday fitness enthusiasts
+* Athletes and lifters
+* Yoga & mobility practitioners
 
 Age:
 
-* 28–60
+* 18–45
 
 Shopping motivation:
 
-* Upgrade home spaces
-* Seasonal decorating
-* Better kitchen experiences
-* Comfortable everyday living
+* Building or upgrading a home gym
+* Training consistency and progression
+* Recovery and mobility work
+* Reliable, durable equipment that holds up to daily use
 
 ---
 
 # Main Categories
 
-## Kitchen & Dining
+## Strength Training
 
-Cookware, bakeware, coffee, dining essentials and kitchen tools.
-
----
-
-## Furniture
-
-Living room, bedroom, dining room and home office furniture.
+Dumbbells, kettlebells, resistance bands, weight plates, lifting accessories.
 
 ---
 
-## Home Decor
+## Cardio & Conditioning
 
-Wall décor, mirrors, rugs, lighting, decorative accessories and seasonal styling.
-
----
-
-## Bedding & Bath
-
-Bedding collections, towels, bath accessories and everyday comfort.
+Jump ropes, exercise bikes, step platforms, agility equipment, rowing accessories.
 
 ---
 
-## Storage & Organization
+## Yoga & Mobility
 
-Closet organization, shelving, storage solutions and utility essentials.
+Yoga mats, blocks, foam rollers, stretching straps, massage balls.
 
 ---
 
-## Outdoor Living
+## Fitness Accessories
 
-Patio furniture, outdoor décor, garden accessories and entertaining essentials.
+Gym bags, water bottles, workout gloves, towels, fitness trackers, resistance accessories.
 
 ---
 
 # Homepage Direction
 
-Homepage should inspire customers while making shopping effortless.
+Homepage should build training motivation while making shopping fast and direct.
 
 Recommended sections:
 
-1. Hero Lifestyle Banner
-2. Shop By Room
+1. Hero Action Banner
+2. Shop By Category
 3. Featured Collections
 4. Best Sellers
-5. Seasonal Inspiration
-6. Why Shop MegaMallDepot
-7. Customer Reviews
+5. Training Edits (seasonal/programs)
+6. Why Train With DTI Fitness
+7. Lifestyle Gallery
+8. Newsletter
 
 ---
 
@@ -113,11 +103,11 @@ Recommended sections:
 
 Main message:
 
-"Beautiful Spaces Begin At Home"
+"Train With Purpose"
 
 Supporting message:
 
-"Discover thoughtfully selected furniture, décor and home essentials designed for modern American living."
+"Shop strength, cardio, mobility and everyday training gear built to keep up with real workouts."
 
 Primary CTA:
 
@@ -129,10 +119,9 @@ Secondary CTA:
 
 Hero imagery:
 
-* Bright luxury interior
-* Designer-inspired living room
-* Elegant dining table
-* Warm natural lighting
+* Real training action (lifting, cardio, mobility work)
+* Bright, modern gym interiors
+* High-contrast, energetic photography
 
 ---
 
@@ -142,13 +131,13 @@ Each product card should include:
 
 * Product image
 * Product name
-* Collection
+* Category
 * Price
 * Rating
 * Quick View
 * Add to Cart
 
-Products should emphasize lifestyle before specifications.
+Products should emphasize performance and reliability before lifestyle styling.
 
 ---
 
@@ -156,21 +145,21 @@ Products should emphasize lifestyle before specifications.
 
 Descriptions should be:
 
-* Elegant
-* Inspiring
+* Direct
+* Confident
 * Benefit-focused
-* Lifestyle-oriented
+* Performance-oriented
 
 Include:
 
-* Materials
-* Design inspiration
-* Everyday functionality
+* Materials and build quality
+* Training use case
+* Sizing / capacity details
 * Care information
 
 Avoid:
 
-* Technical specifications first
+* Vague lifestyle language with no functional detail
 * Keyword stuffing
 * Cheap promotional language
 
@@ -188,9 +177,9 @@ Required:
 
 Shopping experience should feel:
 
-* Premium
-* Helpful
-* Relaxing
+* Fast
+* Reliable
+* Straightforward
 * Trustworthy
 
 ---
@@ -246,15 +235,15 @@ Return experience should be:
 
 Use:
 
-* Warm
-* Elegant
+* Direct
+* Energetic
+* Confident
 * Helpful
-* Refined
-* Inspiring
+* Motivating
 
 Avoid:
 
-* Aggressive sales language
+* Soft, purely decorative language
 * Flash-sale appearance
 * Overstock style
 * Marketplace terminology
@@ -263,22 +252,20 @@ Avoid:
 
 # Visual Direction
 
-Website should resemble a premium lifestyle retailer rather than a general marketplace.
+Website should resemble a focused performance-equipment retailer rather than a general marketplace.
 
 Use:
 
-* Bright interiors
-* Editorial lifestyle photography
-* Large product imagery
-* Spacious layouts
-* Neutral backgrounds
+* High-contrast training photography
+* Bright, modern gym interiors
+* Bold, confident typography
+* Clean product presentation
 
 Avoid:
 
 * Busy promotional graphics
 * Heavy discount banners
-* Dark themes
-* Technology-focused visuals
+* Soft pastel lifestyle-only visuals
 
 ---
 
@@ -286,7 +273,7 @@ Avoid:
 
 Website should demonstrate:
 
-* Clear home & lifestyle niche
+* Clear fitness equipment niche
 * Original product content
 * Transparent policies
 * Consistent branding
@@ -304,18 +291,18 @@ Avoid:
 
 # Brand Promise
 
-MegaMallDepot provides:
+DTI Fitness provides:
 
-* Beautiful home inspiration
-* Carefully selected collections
+* Purpose-built training equipment
+* Categories organized around real training needs
 * Reliable shopping experience
 * Convenient delivery
-* Everyday quality for modern living
+* Gear that holds up to consistent training
 
 ---
 
 # Final Brand Statement
 
-MegaMallDepot is:
+DTI Fitness is:
 
-"A modern home and lifestyle destination helping American families create beautiful, comfortable spaces through thoughtfully curated furniture, décor and everyday essentials."
+"A performance-focused fitness equipment destination helping people train with purpose at home or in the gym, through purpose-built strength, cardio, mobility and training accessories."

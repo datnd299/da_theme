@@ -22,12 +22,12 @@
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #0046BE;
-  /* Dusty rose primary CTA and links */
-  --color-accent-hover: #4B403C;
-  /* Deep warm-brown hover state */
+  --color-accent: #E8442C;
+  /* Performance red primary CTA and links */
+  --color-accent-hover: #B8331F;
+  /* Deep red hover state */
   --color-accent-soft: #FFF3F1;
-  /* Soft blush subtle highlights and badges */
+  /* Soft red-tinted subtle highlights and badges */
   --color-accent-blush: #A8B99A;
   /* Muted sage secondary accent */
 
@@ -40,8 +40,8 @@
   /* Success / helpful state */
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Avenir Next for Best Buy', 'Avenir Next', Avenir, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  --font-heading: 'Avenir Next for Best Buy', 'Avenir Next', Avenir, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --font-sans: 'Inter', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --font-heading: 'Archivo', 'Inter', Arial, 'Helvetica Neue', Helvetica, sans-serif;
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -347,17 +347,17 @@
    ============================================================= */
 
 body.woocommerce-account {
-  --account-primary: #A45A3F;
-  --account-primary-hover: #7F422F;
+  --account-primary: #E8442C;
+  --account-primary-hover: #B8331F;
   --account-cta: #2B2B2B;
-  --account-cta-hover: #A45A3F;
-  --account-soft: #F8F5F0;
-  --account-warm: #F2E9E2;
-  --account-background: #FBFAF7;
+  --account-cta-hover: #E8442C;
+  --account-soft: #F3F4F1;
+  --account-warm: #FCE4DE;
+  --account-background: #F9F8F6;
   --account-surface: #FFFFFF;
   --account-text: #2B2B2B;
-  --account-muted: #746B64;
-  --account-border: #E8E5DF;
+  --account-muted: #666561;
+  --account-border: #E1E3DE;
   --account-shadow: 0 18px 42px rgba(43, 43, 43, 0.09);
   background: var(--account-background);
 }
@@ -391,8 +391,8 @@ body.woocommerce-account {
   display: block;
   min-height: 128px;
   background:
-    linear-gradient(135deg, rgba(43, 43, 43, 0.82), rgba(164, 90, 63, 0.72)),
-    url("../img/home/Home_essentials_on_shelf_202607171221.jpeg") center/cover;
+    linear-gradient(135deg, rgba(43, 43, 43, 0.82), rgba(232, 68, 44, 0.72)),
+    url("https://images.unsplash.com/photo-1596357395217-80de13130e92?auto=format&fit=crop&w=1200&q=80") center/cover;
   background-blend-mode: multiply;
 }
 

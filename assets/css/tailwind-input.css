@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* === COLORS - MyBaapStore backgrounds === */
+  /* === COLORS - DTI Fitness backgrounds === */
   --color-background: #FFFFFF;
-  --color-surface: #EAF4FF;
+  --color-surface: #F3F4F1;
   --color-surface-alt: #FFFFFF;
 
-  /* === COLORS - MyBaapStore text === */
-  --color-foreground: #1F2937;
-  --color-foreground-muted: #667085;
-  --color-muted: #667085;
+  /* === COLORS - DTI Fitness text === */
+  --color-foreground: #2B2B2B;
+  --color-foreground-muted: #6B7280;
+  --color-muted: #6B7280;
 
-  /* === COLORS - MyBaapStore brand === */
-  --color-accent: #2F80ED;
-  --color-accent-hover: #102A43;
-  --color-accent-soft: #EAF4FF;
-  --color-accent-blush: #5BA8A0;
+  /* === COLORS - DTI Fitness brand === */
+  --color-accent: #E8442C;
+  --color-accent-hover: #B8331F;
+  --color-accent-soft: #FFF3F1;
+  --color-accent-blush: #A8B99A;
   --color-accent-sage: #FFFFFF;
 
   /* === COLORS - UI === */
@@ -43,8 +43,8 @@
   --shadow-card-hover: 0 10px 30px rgba(16, 42, 67, 0.16);
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Avenir Next for Best Buy', 'Avenir Next', Avenir, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  --font-heading: 'Avenir Next for Best Buy', 'Avenir Next', Avenir, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --font-sans: 'Inter', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --font-heading: 'Archivo', 'Inter', Arial, 'Helvetica Neue', Helvetica, sans-serif;
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);

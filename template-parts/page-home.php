@@ -18,6 +18,10 @@ if (!$shop_url) {
 }
 
 $mmd_asset = static function ($file) use ($theme_uri, $theme_dir) {
+    if (preg_match('#^https?://#i', $file)) {
+        return $file;
+    }
+
     $relative = 'assets/img/gallery/' . $file;
     $path     = $theme_dir . '/' . $relative;
 
@@ -83,7 +87,7 @@ $mmd_product_card = static function ($product_id) {
     }
 
     $terms      = get_the_terms($product_id, 'product_cat');
-    $collection = __('Home Collection', 'dawp');
+    $collection = __('Featured', 'dawp');
     if (!is_wp_error($terms) && !empty($terms)) {
         $collection = $terms[0]->name;
     }
@@ -119,27 +123,23 @@ $mmd_product_card = static function ($product_id) {
 };
 
 $room_cards = [
-    ['title' => __('Home', 'dawp'), 'copy' => __('Home essentials, furniture, kitchen favorites and practical everyday pieces.', 'dawp'), 'image' => 'Living_room_furniture_set_neutra…_202607161252.jpeg', 'image_hint' => 'home.jpeg', 'slug' => 'home'],
-    ['title' => __('Garden & Tools', 'dawp'), 'copy' => __('Garden, patio and useful tools for home projects and outdoor care.', 'dawp'), 'image' => 'Garden_lounge_area_with_hanging_202607161300.jpeg', 'image_hint' => 'garden-tools.jpeg', 'slug' => 'garden-tools'],
-    ['title' => __('Electronics', 'dawp'), 'copy' => __('Entertainment, connected tech and useful electronic essentials.', 'dawp'), 'image' => 'Modern_living_room_smart_electro…_202607161235.jpeg', 'image_hint' => 'electronics.jpeg', 'slug' => 'electronics'],
-    ['title' => __('Sports & Outdoors', 'dawp'), 'copy' => __('Fitness, recreation and outdoor activity gear for active days.', 'dawp'), 'image' => 'Home_gym_setup_cork_mat_202607241524.jpeg', 'image_hint' => 'sports-outdoors.jpeg', 'slug' => 'sports-outdoors'],
-    ['title' => __('Toys & Outdoor Play', 'dawp'), 'copy' => __('Toys, games and outdoor play favorites for kids and family time.', 'dawp'), 'image' => 'Children_playing_tumble_tower_game_202607241524.jpeg', 'image_hint' => 'toys-outdoor-play.jpeg', 'slug' => 'toys-outdoor-play'],
-    ['title' => __('Beauty & Personal Care', 'dawp'), 'copy' => __('Beauty, grooming, wellness and personal care products for daily routines.', 'dawp'), 'image' => 'Skincare_bottles_on_marble_vanity_202607241524.jpeg', 'image_hint' => 'beauty-personal-care.jpeg', 'slug' => 'beauty-personal-care'],
-    ['title' => __('Pets', 'dawp'), 'copy' => __('Pet care, comfort, toys and everyday supplies for home companions.', 'dawp'), 'image' => 'Pet_bed_with_cat_202607241524.jpeg', 'image_hint' => 'pets.jpeg', 'slug' => 'pets'],
-    ['title' => __('School, Office & Art Supplies', 'dawp'), 'copy' => __('School supplies, office essentials, stationery and art materials.', 'dawp'), 'image' => 'Minimalist_home_office_desk_setup_202607241524.jpeg', 'image_hint' => 'school-office-art-supplies.jpeg', 'slug' => 'school-office-art-supplies'],
+    ['title' => __('Strength Training', 'dawp'), 'copy' => __('Dumbbells, kettlebells, resistance bands, weight plates and lifting accessories.', 'dawp'), 'image' => 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80', 'image_hint' => 'strength-training.jpg', 'slug' => 'strength-training'],
+    ['title' => __('Cardio & Conditioning', 'dawp'), 'copy' => __('Jump ropes, exercise bikes, step platforms, agility equipment and rowing accessories.', 'dawp'), 'image' => 'https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?auto=format&fit=crop&w=900&q=80', 'image_hint' => 'cardio-conditioning.jpg', 'slug' => 'cardio-conditioning'],
+    ['title' => __('Yoga & Mobility', 'dawp'), 'copy' => __('Yoga mats, blocks, foam rollers, stretching straps and massage balls.', 'dawp'), 'image' => 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=900&q=80', 'image_hint' => 'yoga-mobility.jpg', 'slug' => 'yoga-mobility'],
+    ['title' => __('Fitness Accessories', 'dawp'), 'copy' => __('Gym bags, water bottles, workout gloves, towels, fitness trackers and resistance accessories.', 'dawp'), 'image' => 'https://images.unsplash.com/photo-1591291621164-2c6367723315?auto=format&fit=crop&w=900&q=80', 'image_hint' => 'fitness-accessories.jpg', 'slug' => 'fitness-accessories'],
 ];
 
 $collections = [
-    ['title' => __('Kitchen Essentials', 'dawp'), 'copy' => __('Tools and cookware selected for weeknight rhythm and weekend hosting.', 'dawp'), 'image' => 'Kitchen_essentials_tools_cookware_202607171159.jpeg', 'slug' => 'home'],
-    ['title' => __('Modern Furniture', 'dawp'), 'copy' => __('Clean-lined pieces that anchor the room without overwhelming it.', 'dawp'), 'image' => 'Modern_furniture_clean-lined_pieces_202607171201.jpeg', 'slug' => 'home'],
-    ['title' => __('Outdoor Living', 'dawp'), 'copy' => __('Relaxed materials and garden-ready details for fresh-air entertaining.', 'dawp'), 'image' => 'Outdoor_living_fresh_air_enterta…_202607171203.jpeg', 'slug' => 'garden-tools'],
+    ['title' => __('Home Gym Essentials', 'dawp'), 'copy' => __('Dumbbells, kettlebells and plates selected for building a serious home gym.', 'dawp'), 'image' => 'https://images.unsplash.com/photo-1596357395217-80de13130e92?auto=format&fit=crop&w=900&q=80', 'slug' => 'strength-training'],
+    ['title' => __('Cardio Conditioning', 'dawp'), 'copy' => __('Bikes, ropes and step platforms built for consistent conditioning work.', 'dawp'), 'image' => 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=900&q=80', 'slug' => 'cardio-conditioning'],
+    ['title' => __('Recovery & Mobility', 'dawp'), 'copy' => __('Mats, rollers and straps to support mobility work and recovery days.', 'dawp'), 'image' => 'https://images.unsplash.com/photo-1518459031867-a89b944bffe4?auto=format&fit=crop&w=900&q=80', 'slug' => 'yoga-mobility'],
 ];
 
 $seasonal = [
-    ['title' => __('Summer Patio Edit', 'dawp'), 'image' => 'Summer_Patio_Edit.jpeg'],
-    ['title' => __('Cozy Bedroom Layers', 'dawp'), 'image' => 'Cozy_Bedroom_Layers.jpeg'],
-    ['title' => __('Elegant Dining Evenings', 'dawp'), 'image' => 'Elegant_Dining_Evenings.jpeg'],
-    ['title' => __('Fresh Utility Spaces', 'dawp'), 'image' => 'Fresh_Utility_Spaces.jpeg'],
+    ['title' => __('Strength Starter Kit', 'dawp'), 'image' => 'https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?auto=format&fit=crop&w=760&q=80'],
+    ['title' => __('Cardio Conditioning Edit', 'dawp'), 'image' => 'https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=760&q=80'],
+    ['title' => __('Mobility & Recovery Edit', 'dawp'), 'image' => 'https://images.unsplash.com/photo-1600881333168-2ef49b341f30?auto=format&fit=crop&w=760&q=80'],
+    ['title' => __('Everyday Training Gear', 'dawp'), 'image' => 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?auto=format&fit=crop&w=760&q=80'],
 ];
 
 $best_sellers = [];
@@ -165,11 +165,11 @@ if (function_exists('wc_get_products')) {
 ?>
 
 <style>
-    .mmd-home { --mmd-ink:#2B2B2B; --mmd-text:#4A4A4A; --mmd-ivory:#F8F5F0; --mmd-line:#E8E5DF; --mmd-accent:#A45A3F; --mmd-accent-dark:#7F422F; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
+    .mmd-home { --mmd-ink:#2B2B2B; --mmd-text:#4A4A4A; --mmd-ivory:#F3F4F1; --mmd-line:#E1E3DE; --mmd-accent:#E8442C; --mmd-accent-dark:#B8331F; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
     .mmd-home * { box-sizing:border-box; }
     .mmd-container { width:min(100% - 32px, 1280px); margin-inline:auto; }
     .mmd-eyebrow { margin:0 0 10px; color:var(--mmd-accent); font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
-    .mmd-home h1, .mmd-home h2, .mmd-home h3 { margin:0; color:var(--mmd-ink); font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; line-height:1.05; letter-spacing:0; }
+    .mmd-home h1, .mmd-home h2, .mmd-home h3 { margin:0; color:var(--mmd-ink); font-family:"Archivo", "Inter", Arial, sans-serif; font-weight:800; line-height:1.05; letter-spacing:0; }
     .mmd-home p { margin:0; }
     .mmd-btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--mmd-ink); border-radius:2px; padding:0 22px; font-size:.78rem; font-weight:700; letter-spacing:.035em; text-decoration:none; text-transform:uppercase; transition:background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease; }
     .mmd-btn:hover { transform:translateY(-1px); }
@@ -204,7 +204,7 @@ if (function_exists('wc_get_products')) {
     .mmd-room-card h3 { font-size:1.28rem; line-height:1.14; }
     .mmd-room-card p { margin-top:9px; font-size:.92rem; line-height:1.56; }
     .mmd-room-card__cta { margin-top:auto; padding-top:16px; color:var(--mmd-accent); font-size:.76rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
-    .mmd-room-card:hover, .mmd-product-card:hover { border-color:#D0B8AE; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
+    .mmd-room-card:hover, .mmd-product-card:hover { border-color:#EDB3A6; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
     .mmd-room-card:hover img, .mmd-collection-card:hover img { transform:scale(1.04); }
     .mmd-collection-grid { display:grid; gap:18px; }
     .mmd-collection-card { display:grid; min-height:330px; color:#fff; text-decoration:none; }
@@ -244,7 +244,7 @@ if (function_exists('wc_get_products')) {
     .mmd-season-card img, .mmd-season-card span { grid-area:1/1; }
     .mmd-season-card img { width:100%; height:100%; object-fit:cover; }
     .mmd-season-card:after { content:""; grid-area:1/1; background:linear-gradient(180deg, rgba(0,0,0,0), rgba(43,43,43,.55)); z-index:1; }
-    .mmd-season-card span { align-self:end; padding:20px; position:relative; z-index:2; font-family:"Cormorant Garamond", Georgia, serif; font-size:1.35rem; line-height:1.12; }
+    .mmd-season-card span { align-self:end; padding:20px; position:relative; z-index:2; font-family:"Archivo", "Inter", Arial, sans-serif; font-weight:800; font-size:1.25rem; line-height:1.12; }
     .mmd-trust-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
     .mmd-trust-card { padding:22px; }
     .mmd-trust-card svg { width:30px; height:30px; margin-bottom:14px; color:var(--mmd-accent); fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
@@ -268,17 +268,17 @@ if (function_exists('wc_get_products')) {
     <section class="mmd-hero" aria-labelledby="mmd-hero-title">
         <div class="mmd-container mmd-hero__grid">
             <div class="mmd-hero__content">
-                <p class="mmd-eyebrow"><?php esc_html_e('MegaMallDepot Everyday Essentials', 'dawp'); ?></p>
-                <h1 id="mmd-hero-title"><?php esc_html_e('Everything Your Home and Family Need, In One Place', 'dawp'); ?></h1>
-                <p class="mmd-hero__copy"><?php esc_html_e('From home and kitchen essentials to electronics, outdoor gear, toys, beauty, pet supplies and school essentials, shop thousands of everyday products picked for real households across America.', 'dawp'); ?></p>
+                <p class="mmd-eyebrow"><?php esc_html_e('DTI Fitness Training Gear', 'dawp'); ?></p>
+                <h1 id="mmd-hero-title"><?php esc_html_e('Train With Purpose', 'dawp'); ?></h1>
+                <p class="mmd-hero__copy"><?php esc_html_e('Shop strength training, cardio & conditioning, yoga & mobility and everyday fitness accessories built to keep up with real workouts, at home or in the gym.', 'dawp'); ?></p>
                 <div class="mmd-hero__actions">
                     <a class="mmd-btn mmd-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
                     <a class="mmd-btn mmd-btn--secondary" href="#new-arrivals"><?php esc_html_e('Explore New Arrivals', 'dawp'); ?></a>
                 </div>
             </div>
             <div class="mmd-hero__media">
-                <?php echo $mmd_img('Living_ecosystem_with_smart_tech_202607161304.jpeg', __('Warm modern living room with layered home furnishings', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
-                <div class="mmd-hero__note"><?php esc_html_e('Everyday products chosen for real use, honest quality and reliable value.', 'dawp'); ?></div>
+                <?php echo $mmd_img('https://images.unsplash.com/photo-1596357395217-80de13130e92?auto=format&fit=crop&w=1200&q=82', __('Bright modern gym with a squat rack and free weights', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
+                <div class="mmd-hero__note"><?php esc_html_e('Training equipment chosen for real use, durable builds and reliable value.', 'dawp'); ?></div>
             </div>
         </div>
     </section>
@@ -288,8 +288,8 @@ if (function_exists('wc_get_products')) {
             <div class="mmd-section__head">
                 <div>
                     <p class="mmd-eyebrow"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
-                    <h2 id="mmd-room-title"><?php esc_html_e('Browse the departments you need most.', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Shop practical everyday categories across home, tech, outdoors, play, beauty, pets and supplies.', 'dawp'); ?></p>
+                    <h2 id="mmd-room-title"><?php esc_html_e('Browse the training categories you need most.', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('Shop strength, cardio, mobility and everyday accessories organized around how you actually train.', 'dawp'); ?></p>
                 </div>
                 <a class="mmd-text-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop all categories', 'dawp'); ?></a>
             </div>
@@ -313,7 +313,7 @@ if (function_exists('wc_get_products')) {
             <div class="mmd-section__head">
                 <div>
                     <p class="mmd-eyebrow"><?php esc_html_e('Featured Collections', 'dawp'); ?></p>
-                    <h2 id="mmd-collections-title"><?php esc_html_e('Thoughtful edits for the way you live.', 'dawp'); ?></h2>
+                    <h2 id="mmd-collections-title"><?php esc_html_e('Built around the way you train.', 'dawp'); ?></h2>
                 </div>
             </div>
             <div class="mmd-collection-grid">
@@ -333,13 +333,13 @@ if (function_exists('wc_get_products')) {
     <section class="mmd-section" aria-labelledby="mmd-story-title">
         <div class="mmd-container mmd-story">
             <div class="mmd-story__media">
-                <?php echo $mmd_img('Home_essentials_on_shelf_202607171221.jpeg', __('Home essentials arranged on a shelf', 'dawp'), '', 620, 780, 'lazy', '(max-width: 899px) 58vw, 31vw'); ?>
-                <?php echo $mmd_img('Minimalist_living_room_with_ligh…_202607171221.jpeg', __('Minimalist living room with light neutral decor', 'dawp'), '', 480, 360, 'lazy', '(max-width: 899px) 43vw, 23vw'); ?>
+                <?php echo $mmd_img('https://images.unsplash.com/photo-1585152968992-d2b9444408cc?auto=format&fit=crop&w=700&q=80', __('Two lifters spotting a bench press in the gym', 'dawp'), '', 620, 780, 'lazy', '(max-width: 899px) 58vw, 31vw'); ?>
+                <?php echo $mmd_img('https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=560&q=80', __('Rolled yoga mats stored on a shelf', 'dawp'), '', 480, 360, 'lazy', '(max-width: 899px) 43vw, 23vw'); ?>
             </div>
             <div class="mmd-story__content">
                 <p class="mmd-eyebrow"><?php esc_html_e('Our Point Of View', 'dawp'); ?></p>
-                <h2 id="mmd-story-title"><?php esc_html_e('A simpler way to shop for everyday life.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('MegaMallDepot brings together practical essentials for home, family and everyday routines, from the kitchen to the backyard, the home office to game night. Each department is organized clearly so shopping stays simple and easy to trust.', 'dawp'); ?></p>
+                <h2 id="mmd-story-title"><?php esc_html_e('A simpler way to shop for real training.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('DTI Fitness brings together purpose-built equipment for strength, cardio, mobility and everyday training, from the home gym to the studio floor. Each category is organized clearly so shopping stays simple and easy to trust.', 'dawp'); ?></p>
                 <a class="mmd-btn mmd-btn--secondary" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('Discover Our Story', 'dawp'); ?></a>
             </div>
         </div>
@@ -350,7 +350,7 @@ if (function_exists('wc_get_products')) {
             <div class="mmd-section__head">
                 <div>
                     <p class="mmd-eyebrow"><?php esc_html_e('Best Sellers', 'dawp'); ?></p>
-                    <h2 id="mmd-best-title"><?php esc_html_e('Pieces customers return to again and again.', 'dawp'); ?></h2>
+                    <h2 id="mmd-best-title"><?php esc_html_e('Gear customers train with again and again.', 'dawp'); ?></h2>
                 </div>
                 <a class="mmd-text-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View all products', 'dawp'); ?></a>
             </div>
@@ -370,8 +370,8 @@ if (function_exists('wc_get_products')) {
         <div class="mmd-container">
             <div class="mmd-section__head">
                 <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Seasonal Inspiration', 'dawp'); ?></p>
-                    <h2 id="mmd-season-title"><?php esc_html_e('Fresh ideas for the months ahead.', 'dawp'); ?></h2>
+                    <p class="mmd-eyebrow"><?php esc_html_e('Training Edits', 'dawp'); ?></p>
+                    <h2 id="mmd-season-title"><?php esc_html_e('Fresh edits to plan your next training block.', 'dawp'); ?></h2>
                 </div>
             </div>
             <div class="mmd-season-grid">
@@ -390,7 +390,7 @@ if (function_exists('wc_get_products')) {
             <div class="mmd-section__head">
                 <div>
                     <p class="mmd-eyebrow"><?php esc_html_e('New Arrivals', 'dawp'); ?></p>
-                    <h2 id="mmd-new-title"><?php esc_html_e('Just added to the home edit.', 'dawp'); ?></h2>
+                    <h2 id="mmd-new-title"><?php esc_html_e('Just added to the training edit.', 'dawp'); ?></h2>
                 </div>
             </div>
             <div class="mmd-product-grid">
@@ -409,8 +409,8 @@ if (function_exists('wc_get_products')) {
         <div class="mmd-container">
             <div class="mmd-section__head">
                 <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Why Shop MegaMallDepot', 'dawp'); ?></p>
-                    <h2 id="mmd-trust-title"><?php esc_html_e('A reliable path from inspiration to delivery.', 'dawp'); ?></h2>
+                    <p class="mmd-eyebrow"><?php esc_html_e('Why Train With DTI Fitness', 'dawp'); ?></p>
+                    <h2 id="mmd-trust-title"><?php esc_html_e('A reliable path from order to workout.', 'dawp'); ?></h2>
                 </div>
             </div>
             <div class="mmd-trust-grid">
@@ -439,14 +439,14 @@ if (function_exists('wc_get_products')) {
             <div class="mmd-section__head">
                 <div>
                     <p class="mmd-eyebrow"><?php esc_html_e('Lifestyle Gallery', 'dawp'); ?></p>
-                    <h2 id="mmd-gallery-title"><?php esc_html_e('Inspiration in every corner.', 'dawp'); ?></h2>
+                    <h2 id="mmd-gallery-title"><?php esc_html_e('Training in every corner.', 'dawp'); ?></h2>
                 </div>
             </div>
             <div class="mmd-gallery-grid">
-                <?php echo $mmd_img('Cookware_on_induction_cooktop_202607161259.jpeg', __('Cookware on a bright kitchen cooktop', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_img('Living_room_furniture_set_neutra…_202607161252.jpeg', __('Neutral living room furniture set', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_img('Garden_lounge_area_with_hanging_202607161300.jpeg', __('Garden lounge area with relaxed outdoor seating', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_img('Dining_area_with_kitchen_favorites_202607161311.jpeg', __('Dining area styled with kitchen favorites', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_img('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=420&q=80', __('Close-up of a barbell deadlift', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_img('https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?auto=format&fit=crop&w=420&q=80', __('Woman training on a cable machine', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_img('https://images.unsplash.com/photo-1600881333168-2ef49b341f30?auto=format&fit=crop&w=420&q=80', __('Yoga mobility session with a mat and water bottle', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_img('https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?auto=format&fit=crop&w=420&q=80', __('Athlete performing a kettlebell swing', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
             </div>
         </div>
     </section>
@@ -454,9 +454,9 @@ if (function_exists('wc_get_products')) {
     <section class="mmd-newsletter" aria-labelledby="mmd-newsletter-title">
         <div class="mmd-container mmd-newsletter__inner">
             <div>
-                <p class="mmd-eyebrow"><?php esc_html_e('Bring Inspiration Home', 'dawp'); ?></p>
-                <h2 id="mmd-newsletter-title"><?php esc_html_e('Receive new edits, room ideas and thoughtful finds.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Sign up for a calmer inbox with seasonal home inspiration and product discoveries from MegaMallDepot.', 'dawp'); ?></p>
+                <p class="mmd-eyebrow"><?php esc_html_e('Bring Training Home', 'dawp'); ?></p>
+                <h2 id="mmd-newsletter-title"><?php esc_html_e('Receive new gear, training edits and helpful finds.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Sign up for a calmer inbox with new equipment drops and product discoveries from DTI Fitness.', 'dawp'); ?></p>
             </div>
             <form action="<?php echo esc_url(home_url('/')); ?>" method="post">
                 <label class="screen-reader-text" for="mmd-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>

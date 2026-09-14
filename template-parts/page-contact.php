@@ -11,11 +11,10 @@ if (!defined('ABSPATH')) {
 
 $theme_uri      = get_template_directory_uri();
 $theme_dir      = get_template_directory();
-$store_name     = 'MegaMallDepot';
-$support_email  = 'support@megamalldepot.com';
-$support_phone  = '757-804-6538';
+$store_name     = 'DTI Fitness';
+$support_email  = 'support@doulatrainingsinternational.net';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $track_url      = home_url('/track-order/');
 $shipping_url   = home_url('/shipping-policy/');
@@ -28,6 +27,10 @@ if (!$shop_url) {
 }
 
 $mmd_contact_asset = static function ($file) use ($theme_uri, $theme_dir) {
+    if (preg_match('#^https?://#i', $file)) {
+        return $file;
+    }
+
     $relative = 'assets/img/gallery/' . $file;
     $path     = $theme_dir . '/' . $relative;
 
@@ -137,10 +140,10 @@ $contact_faqs = [
 ?>
 
 <style>
-    .mmd-contact { --mmd-ink:#2B2B2B; --mmd-text:#4A4A4A; --mmd-ivory:#F8F5F0; --mmd-line:#E8E5DF; --mmd-accent:#A45A3F; --mmd-accent-dark:#7F422F; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
+    .mmd-contact { --mmd-ink:#2B2B2B; --mmd-text:#4A4A4A; --mmd-ivory:#F3F4F1; --mmd-line:#E1E3DE; --mmd-accent:#E8442C; --mmd-accent-dark:#B8331F; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
     .mmd-contact * { box-sizing:border-box; }
     .mmd-contact p { margin:0; }
-    .mmd-contact h1, .mmd-contact h2, .mmd-contact h3 { margin:0; color:var(--mmd-ink); font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; line-height:1.05; letter-spacing:0; }
+    .mmd-contact h1, .mmd-contact h2, .mmd-contact h3 { margin:0; color:var(--mmd-ink); font-family:"Archivo", "Inter", Arial, sans-serif; font-weight:800; line-height:1.05; letter-spacing:0; }
     .mmd-contact-container { width:min(100% - 48px, 1280px); margin-inline:auto; }
     .mmd-contact-eyebrow { margin:0 0 10px; color:var(--mmd-accent); font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
     .mmd-contact-btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--mmd-ink); border-radius:2px; padding:0 22px; font-size:.78rem; font-weight:700; letter-spacing:.035em; text-decoration:none; text-transform:uppercase; transition:background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease; }
@@ -168,7 +171,7 @@ $contact_faqs = [
     .mmd-contact-methods, .mmd-contact-help, .mmd-contact-steps, .mmd-contact-faq-grid { display:grid; gap:18px; }
     .mmd-contact-card, .mmd-contact-step, .mmd-contact-help-card, .mmd-contact-form-card, .mmd-contact-sidebar, .mmd-contact-faq { background:#fff; border:1px solid var(--mmd-line); border-radius:4px; transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
     .mmd-contact-card, .mmd-contact-step, .mmd-contact-help-card, .mmd-contact-faq { padding:24px; }
-    .mmd-contact-card:hover, .mmd-contact-help-card:hover, .mmd-contact-faq:hover { border-color:#D0B8AE; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
+    .mmd-contact-card:hover, .mmd-contact-help-card:hover, .mmd-contact-faq:hover { border-color:#EDB3A6; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
     .mmd-contact-card svg { width:32px; height:32px; margin-bottom:15px; color:var(--mmd-accent); fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
     .mmd-contact-card h3, .mmd-contact-step h3, .mmd-contact-help-card h3, .mmd-contact-faq summary { font-family:Inter, Arial, sans-serif; font-size:.95rem; font-weight:800; line-height:1.34; }
     .mmd-contact-card p, .mmd-contact-step p, .mmd-contact-help-card p, .mmd-contact-faq p { margin-top:10px; font-size:.92rem; line-height:1.6; }
@@ -195,7 +198,7 @@ $contact_faqs = [
     .mmd-contact-sidebar dd { margin:7px 0 0; font-size:.94rem; line-height:1.55; }
     .mmd-contact-steps { counter-reset:contact-step; }
     .mmd-contact-step { position:relative; padding-left:70px; }
-    .mmd-contact-step:before { counter-increment:contact-step; content:counter(contact-step, decimal-leading-zero); position:absolute; left:22px; top:22px; display:flex; align-items:center; justify-content:center; width:34px; height:34px; border:1px solid #D8C7BE; color:var(--mmd-accent); font-weight:800; }
+    .mmd-contact-step:before { counter-increment:contact-step; content:counter(contact-step, decimal-leading-zero); position:absolute; left:22px; top:22px; display:flex; align-items:center; justify-content:center; width:34px; height:34px; border:1px solid #F0C7BE; color:var(--mmd-accent); font-weight:800; }
     .mmd-contact-help-card { display:block; color:inherit; text-decoration:none; }
     .mmd-contact-faq summary { cursor:pointer; list-style:none; color:var(--mmd-ink); }
     .mmd-contact-faq summary::-webkit-details-marker { display:none; }
@@ -204,7 +207,7 @@ $contact_faqs = [
     .mmd-contact-cta__inner { display:grid; gap:22px; align-items:center; }
     .mmd-contact-cta h2 { color:#fff; }
     .mmd-contact-cta p { max-width:640px; margin-top:12px; color:rgba(255,255,255,.76); line-height:1.65; }
-    .mmd-contact-cta .mmd-contact-eyebrow { color:#D8B19F; }
+    .mmd-contact-cta .mmd-contact-eyebrow { color:#EFA893; }
     .mmd-contact-cta__actions { display:flex; flex-wrap:wrap; gap:12px; }
     .mmd-contact-cta .mmd-contact-btn--primary { border-color:#fff; background:#fff; color:var(--mmd-ink); }
     .mmd-contact-cta .mmd-contact-btn--primary:hover { border-color:var(--mmd-accent); background:var(--mmd-accent); color:#fff; }
@@ -219,16 +222,16 @@ $contact_faqs = [
     <section class="mmd-contact-hero" aria-labelledby="mmd-contact-title">
         <div class="mmd-contact-container mmd-contact-hero__grid">
             <div class="mmd-contact-hero__content">
-                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact MegaMallDepot', 'dawp'); ?></p>
-                <h1 id="mmd-contact-title"><?php esc_html_e('Helpful support for a calmer home shopping experience.', 'dawp'); ?></h1>
-                <p class="mmd-contact-hero__copy"><?php esc_html_e('Questions about an order, delivery, product details or a return? Our customer care team is here to help you shop with confidence from inspiration to arrival.', 'dawp'); ?></p>
+                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact DTI Fitness', 'dawp'); ?></p>
+                <h1 id="mmd-contact-title"><?php esc_html_e('Helpful support for a smoother training gear order.', 'dawp'); ?></h1>
+                <p class="mmd-contact-hero__copy"><?php esc_html_e('Questions about an order, delivery, product details or a return? Our customer care team is here to help you shop with confidence from checkout to your next workout.', 'dawp'); ?></p>
                 <div class="mmd-contact-hero__actions">
                     <a class="mmd-contact-btn mmd-contact-btn--primary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
                     <a class="mmd-contact-btn mmd-contact-btn--secondary" href="<?php echo esc_url($track_url); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
                 </div>
             </div>
             <div class="mmd-contact-hero__media">
-                <?php echo $mmd_contact_img('Customer_support_scene_in_office_202607161445.jpeg', __('Customer support desk for home shopping assistance', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
+                <?php echo $mmd_contact_img('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1200&q=82', __('Bright gym floor with treadmills and a training bench', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
                 <div class="mmd-contact-hero__note"><?php esc_html_e('For the fastest help, include your order number and the email used at checkout.', 'dawp'); ?></div>
             </div>
         </div>
@@ -321,10 +324,6 @@ $contact_faqs = [
                         <dt><?php esc_html_e('Email', 'dawp'); ?></dt>
                         <dd><a class="mmd-contact-link" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
                     </div>
-                    <div>
-                        <dt><?php esc_html_e('Phone', 'dawp'); ?></dt>
-                        <dd><a class="mmd-contact-link" href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a></dd>
-                    </div>
                     <?php if ($store_address) : ?>
                         <div>
                             <dt><?php esc_html_e('Business Address', 'dawp'); ?></dt>
@@ -405,9 +404,9 @@ $contact_faqs = [
     <section class="mmd-contact-cta" aria-labelledby="mmd-contact-cta-title">
         <div class="mmd-contact-container mmd-contact-cta__inner">
             <div>
-                <p class="mmd-contact-eyebrow"><?php esc_html_e('Beautiful Spaces Begin At Home', 'dawp'); ?></p>
-                <h2 id="mmd-contact-cta-title"><?php esc_html_e('Still browsing? Explore thoughtful pieces for every room.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Discover furniture, decor, kitchen, bedding, bath, storage and outdoor essentials selected for modern American living.', 'dawp'); ?></p>
+                <p class="mmd-contact-eyebrow"><?php esc_html_e('Train With Purpose', 'dawp'); ?></p>
+                <h2 id="mmd-contact-cta-title"><?php esc_html_e('Still browsing? Explore gear for every part of your training.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Discover strength training, cardio & conditioning, yoga & mobility and fitness accessories selected for real workouts.', 'dawp'); ?></p>
             </div>
             <div class="mmd-contact-cta__actions">
                 <a class="mmd-contact-btn mmd-contact-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>

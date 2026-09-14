@@ -5,7 +5,7 @@ add_filter( 'woocommerce_admin_report_data', 'fake_sales_report_data', 999 );
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'MGD-' . $order_id;
+    return 'DTI-' . $order_id;
 }
 function fake_sales_report_data( $report_data ) {
     if ( ! is_admin() ) {
@@ -380,6 +380,7 @@ function theme_search_template($template) {
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
+    wp_enqueue_style('dawp-fonts', 'https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap', [], null);
     wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.3');
 
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');

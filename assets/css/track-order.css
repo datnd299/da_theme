@@ -6,14 +6,14 @@
   --track-ink: #2B2B2B;
   --track-soft-ink: #554E49;
   --track-muted: #746B64;
-  --track-rose: #A45A3F;
-  --track-rose-dark: #7F422F;
-  --track-rose-muted: #A45A3F;
-  --track-yellow: #D8C7BE;
+  --track-rose: #E8442C;
+  --track-rose-dark: #B8331F;
+  --track-rose-muted: #E8442C;
+  --track-yellow: #F0C7BE;
   --track-blush: #F2E9E2;
-  --track-cream: #F8F5F0;
+  --track-cream: #F3F4F1;
   --track-paper: #FFFFFF;
-  --track-border: #E8E5DF;
+  --track-border: #E1E3DE;
   --track-white: #FFFFFF;
   --track-danger: #8A332B;
   --track-success: #315B3D;
@@ -47,7 +47,7 @@
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(216, 199, 190, 0.34), rgba(255, 255, 255, 0) 38%),
-    #F8F5F0;
+    #F3F4F1;
   border-bottom: 1px solid var(--track-border);
   color: var(--track-ink);
   padding: 3rem 1rem;

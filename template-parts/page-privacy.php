@@ -1,6 +1,6 @@
 <?php
 /**
- * Privacy policy page for MegaMallDepot.
+ * Privacy policy page for DTI Fitness.
  *
  * @package dawp
  */
@@ -9,17 +9,16 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'MegaMallDepot';
-$site_domain    = 'megamalldepot.com';
-$support_email  = 'support@megamalldepot.com';
-$support_phone  = '757-804-6538';
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_name     = 'DTI Fitness';
+$site_domain    = 'doulatrainingsinternational.net';
+$support_email  = 'support@doulatrainingsinternational.net';
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $last_updated   = __('May 29, 2026', 'dawp');
 
 $policy_intro = [
-    __('At MegaMallDepot, accessible via megamalldepot.com (the "Site"), we are deeply committed to protecting the privacy, security, and personal data of our visitors and customers. This Privacy Policy outlines how your personal information is collected, utilized, shared, and securely protected when you browse our catalog, create an account, interact with our customer support, or purchase home, electronics and lifestyle products from our online store.', 'dawp'),
+    __('At DTI Fitness, accessible via doulatrainingsinternational.net (the "Site"), we are deeply committed to protecting the privacy, security, and personal data of our visitors and customers. This Privacy Policy outlines how your personal information is collected, utilized, shared, and securely protected when you browse our catalog, create an account, interact with our customer support, or purchase fitness equipment and training accessories from our online store.', 'dawp'),
     __('By accessing our Site or placing an order, you acknowledge and agree to the data management practices described in this policy.', 'dawp'),
 ];
 
@@ -30,7 +29,7 @@ $information_collected = [
     ],
     [
         'title' => __('Information Collected Automatically', 'dawp'),
-        'copy'  => __('Whenever you navigate through MegaMallDepot, our servers log technical session details. This tracking includes your IP address, web browser type, referring/exit pages, approximate geographic location derived from network signals, and specific data captured via cookies or similar device identifiers.', 'dawp'),
+        'copy'  => __('Whenever you navigate through DTI Fitness, our servers log technical session details. This tracking includes your IP address, web browser type, referring/exit pages, approximate geographic location derived from network signals, and specific data captured via cookies or similar device identifiers.', 'dawp'),
     ],
 ];
 
@@ -54,7 +53,7 @@ $sharing_partners = [
     ],
     [
         'title' => __('Regulatory Demands', 'dawp'),
-        'copy'  => __('We may disclose your data if strictly required to comply with applicable federal laws, tax audits, court subpoenas, or to defend the safety and property rights of MegaMallDepot and our consumers.', 'dawp'),
+        'copy'  => __('We may disclose your data if strictly required to comply with applicable federal laws, tax audits, court subpoenas, or to defend the safety and property rights of DTI Fitness and our consumers.', 'dawp'),
     ],
 ];
 
@@ -75,15 +74,6 @@ $contact_details = [
         'url'   => 'mailto:' . $support_email,
     ],
     [
-        'label' => __('Customer Support Phone', 'dawp'),
-        'value' => $support_phone,
-        'url'   => 'tel:' . $support_phone,
-    ],
-    [
-        'label' => __('Physical Business Address', 'dawp'),
-        'value' => $store_address,
-    ],
-    [
         'label' => __('Business Operating Hours', 'dawp'),
         'value' => $business_hours,
     ],
@@ -93,6 +83,13 @@ $contact_details = [
         'url'   => $contact_url,
     ],
 ];
+
+if ($store_address) {
+    array_splice($contact_details, 2, 0, [[
+        'label' => __('Physical Business Address', 'dawp'),
+        'value' => $store_address,
+    ]]);
+}
 
 $sections = [
     [
@@ -112,7 +109,7 @@ $sections = [
     [
         'title' => __('3. Cookies and Tracking Technologies', 'dawp'),
         'copy'  => [
-            __('MegaMallDepot utilizes functional and analytical cookies, which are small data files stored on your local device, to maintain essential online store capabilities. Cookies help our system remember your shopping cart contents across sessions, preserve secure account logins, and provide aggregated traffic insights via tools like Google Analytics.', 'dawp'),
+            __('DTI Fitness utilizes functional and analytical cookies, which are small data files stored on your local device, to maintain essential online store capabilities. Cookies help our system remember your shopping cart contents across sessions, preserve secure account logins, and provide aggregated traffic insights via tools like Google Analytics.', 'dawp'),
             __('You can adjust your cookie preferences through your individual browser settings; however, disabling all cookies may break core shopping features, such as the checkout and payment process.', 'dawp'),
         ],
     ],
@@ -126,7 +123,7 @@ $sections = [
     [
         'title' => __('5. Secure Payments & Data Encryption', 'dawp'),
         'copy'  => [
-            __('Your financial safety is our highest priority. MegaMallDepot does not store, view, or retain your raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+            __('Your financial safety is our highest priority. DTI Fitness does not store, view, or retain your raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             __('All checkout transactions are executed over a fully secure, encrypted SSL (Secure Sockets Layer) connection. Financial data processing is handled entirely by certified third-party payment gateways that comply strictly with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'),
         ],
     ],
@@ -152,18 +149,18 @@ $sections = [
     [
         'title' => __('8. Children\'s Privacy', 'dawp'),
         'copy'  => [
-            __('MegaMallDepot is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If we discover that a minor under 13 has provided data, it will be immediately purged from our servers.', 'dawp'),
+            __('DTI Fitness is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If we discover that a minor under 13 has provided data, it will be immediately purged from our servers.', 'dawp'),
         ],
     ],
 ];
 
 $privacy_faqs = [
     [
-        'question' => __('Does MegaMallDepot sell my personal information?', 'dawp'),
-        'answer'   => __('No. MegaMallDepot does not sell, rent, trade, or monetize personal information to third parties as a business practice.', 'dawp'),
+        'question' => __('Does DTI Fitness sell my personal information?', 'dawp'),
+        'answer'   => __('No. DTI Fitness does not sell, rent, trade, or monetize personal information to third parties as a business practice.', 'dawp'),
     ],
     [
-        'question' => __('Does MegaMallDepot store my full credit card number?', 'dawp'),
+        'question' => __('Does DTI Fitness store my full credit card number?', 'dawp'),
         'answer'   => __('No. We do not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
     ],
     [
@@ -178,12 +175,12 @@ $privacy_faqs = [
 ?>
 
 <div class="bg-white text-[#2B2B2B]">
-    <section class="bg-[#F8F5F0] py-14 sm:py-20" aria-labelledby="privacy-title">
+    <section class="bg-[#F3F4F1] py-14 sm:py-20" aria-labelledby="privacy-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#E8442C]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
                 <h1 id="privacy-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                    <?php esc_html_e('How MegaMallDepot protects customer information.', 'dawp'); ?>
+                    <?php esc_html_e('How DTI Fitness protects customer information.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#4A4A4A]">
                     <?php
@@ -199,17 +196,17 @@ $privacy_faqs = [
                 </p>
             </div>
 
-            <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+            <div class="rounded-md border border-[#E1E3DE] bg-white p-6 shadow-sm">
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#E8442C]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
                 <p class="mt-3 font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($last_updated); ?></p>
                 <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
                     <?php esc_html_e('For privacy questions, account data requests, or data-removal inquiries, contact our support team through our official channels.', 'dawp'); ?>
                 </p>
                 <div class="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-                    <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#A45A3F] px-6 text-sm font-bold text-white transition hover:bg-[#7F422F]">
+                    <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#E8442C] px-6 text-sm font-bold text-white transition hover:bg-[#B8331F]">
                         <?php esc_html_e('Contact Us', 'dawp'); ?>
                     </a>
-                    <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-6 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
+                    <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#E8442C] bg-white px-6 text-sm font-bold text-[#E8442C] transition hover:bg-[#F3F4F1]">
                         <?php echo esc_html($support_email); ?>
                     </a>
                 </div>
@@ -220,7 +217,7 @@ $privacy_faqs = [
     <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="privacy-content-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
             <aside class="lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                <div class="rounded-md border border-[#E1E3DE] bg-white p-6 shadow-sm">
                     <h2 id="privacy-content-title" class="font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Privacy overview', 'dawp'); ?></h2>
                     <div class="mt-4 space-y-4 text-sm leading-7 text-[#4A4A4A]">
                         <?php foreach ($policy_intro as $paragraph) : ?>
@@ -232,7 +229,7 @@ $privacy_faqs = [
 
             <div class="grid gap-5">
                 <?php foreach ($sections as $section) : ?>
-                    <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                    <article class="rounded-md border border-[#E1E3DE] bg-white p-6 shadow-sm">
                         <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($section['title']); ?></h2>
 
                         <?php if (!empty($section['copy'])) : ?>
@@ -246,7 +243,7 @@ $privacy_faqs = [
                         <?php if (!empty($section['cards'])) : ?>
                             <div class="mt-5 grid gap-4 md:grid-cols-2">
                                 <?php foreach ($section['cards'] as $card) : ?>
-                                    <section class="rounded-md border border-[#E8E5DF] bg-[#FFFFFF] p-5">
+                                    <section class="rounded-md border border-[#E1E3DE] bg-[#FFFFFF] p-5">
                                         <h3 class="font-heading text-lg font-extrabold text-[#2B2B2B]"><?php echo esc_html($card['title']); ?></h3>
                                         <p class="mt-3 text-sm leading-7 text-[#4A4A4A]"><?php echo esc_html($card['copy']); ?></p>
                                     </section>
@@ -271,18 +268,18 @@ $privacy_faqs = [
                     </article>
                 <?php endforeach; ?>
 
-                <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm">
+                <article class="rounded-md border border-[#E1E3DE] bg-[#F3F4F1] p-6 shadow-sm">
                     <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('9. Contact Us & Business Identity', 'dawp'); ?></h2>
                     <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
                         <?php esc_html_e('For questions regarding our privacy practices, or if you need to submit a data inquiry, please contact our team through our verified corporate channels:', 'dawp'); ?>
                     </p>
                     <dl class="mt-5 grid gap-4 md:grid-cols-2">
                         <?php foreach ($contact_details as $detail) : ?>
-                            <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
+                            <div class="rounded-md border border-[#E1E3DE] bg-white p-5">
                                 <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php echo esc_html($detail['label']); ?></dt>
                                 <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]">
                                     <?php if (!empty($detail['url'])) : ?>
-                                        <a class="font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="<?php echo esc_url($detail['url']); ?>"><?php echo esc_html($detail['value']); ?></a>
+                                        <a class="font-bold text-[#E8442C] underline decoration-[#E8442C]/40 underline-offset-4 transition hover:text-[#B8331F]" href="<?php echo esc_url($detail['url']); ?>"><?php echo esc_html($detail['value']); ?></a>
                                     <?php else : ?>
                                         <?php echo esc_html($detail['value']); ?>
                                     <?php endif; ?>
@@ -292,14 +289,14 @@ $privacy_faqs = [
                     </dl>
                 </article>
 
-                <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                <article class="rounded-md border border-[#E1E3DE] bg-white p-6 shadow-sm">
                     <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Privacy FAQs', 'dawp'); ?></h2>
-                    <div class="mt-6 divide-y divide-[#E8E5DF]">
+                    <div class="mt-6 divide-y divide-[#E1E3DE]">
                         <?php foreach ($privacy_faqs as $item) : ?>
                             <details class="group py-5 first:pt-0 last:pb-0">
                                 <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#2B2B2B]">
                                     <span><?php echo esc_html($item['question']); ?></span>
-                                    <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#F8F5F0] text-[#A45A3F] transition group-open:rotate-45" aria-hidden="true">+</span>
+                                    <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#F3F4F1] text-[#E8442C] transition group-open:rotate-45" aria-hidden="true">+</span>
                                 </summary>
                                 <p class="mt-3 text-sm leading-7 text-[#4A4A4A]"><?php echo esc_html($item['answer']); ?></p>
                             </details>

@@ -14,8 +14,8 @@ $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink(
 $support_email  = 'support@doulatrainingsinternational.net';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
-$logo_path       = get_template_directory() . '/assets/img/home/dti-fitness-logo.svg';
-$logo_url        = get_template_directory_uri() . '/assets/img/home/dti-fitness-logo.svg';
+$logo_path       = get_template_directory() . '/assets/img/home/dti-fitness-logo1.png';
+$logo_url        = get_template_directory_uri() . '/assets/img/home/dti-fitness-logo1.png';
 $payment_methods = [
     ['name' => __('Visa', 'dawp'), 'file' => 'visa.png'],
     ['name' => __('Mastercard', 'dawp'), 'file' => 'master card.png'],

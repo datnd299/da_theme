@@ -17,8 +17,8 @@ $about_url     = home_url('/about-us/');
 $account_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $cart_url      = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count    = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
-$logo_path     = get_template_directory() . '/assets/img/home/dti-fitness-logo.svg';
-$logo_url      = get_template_directory_uri() . '/assets/img/home/dti-fitness-logo.svg';
+$logo_path     = get_template_directory() . '/assets/img/home/dti-fitness-logo1.png';
+$logo_url      = get_template_directory_uri() . '/assets/img/home/dti-fitness-logo1.png';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');

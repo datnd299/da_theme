@@ -163,7 +163,7 @@ function dawp_rank_math_organization_schema() {
         'email' => 'support@doulatrainingsinternational.net',
         'logo'  => [
             '@type' => 'ImageObject',
-            'url'   => get_template_directory_uri() . '/assets/img/home/dti-fitness-logo.svg',
+            'url'   => get_template_directory_uri() . '/assets/img/home/dti-fitness-logo1.png',
         ],
     ];
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header for Velmo Custom.
+ * Theme header for Velmos.
  *
  * @package dawp
  */
@@ -11,7 +11,7 @@ $cart_count  = (class_exists('WooCommerce') && WC()->cart) ? WC()->cart->get_car
 $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $account_url = get_permalink(get_option('woocommerce_myaccount_page_id'));
 $account_url = $account_url ?: home_url('/my-account/');
-$brand_name  = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
+$brand_name  = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
 $logo_url    = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
 $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [
     ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
@@ -362,7 +362,7 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
 <header id="masthead" class="qb-site-header" role="banner">
     <div class="qb-announcement">
         <div class="qb-header-wrap">
-            <?php esc_html_e('Velmo Custom - Crafted with Precision', 'dawp'); ?>
+            <?php esc_html_e('Velmos - Distributed by velmoscustom', 'dawp'); ?>
         </div>
     </div>
 

@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$store_name     = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
-$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom shipping support', 'dawp'), __('Please include your order number, checkout email, and delivery address.', 'dawp')) : 'mailto:' . $support_email;
+$store_name     = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
+$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmos shipping support', 'dawp'), __('Please include your order number, checkout email, and delivery address.', 'dawp')) : 'mailto:' . $support_email;
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal = home_url('/contact-us/');
 ?>
@@ -22,19 +22,19 @@ $support_portal = home_url('/contact-us/');
   .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(36px,5vw,64px); line-height:1.04; letter-spacing:0; }
   .qb-updated { margin:16px 0 0; color:var(--qb-plum); font-size:14px; font-weight:800; line-height:1.4; }
   .qb-copy { margin:18px 0 0; max-width:780px; color:var(--qb-text); font-size:17px; line-height:1.75; }
-  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
+  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:4px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
   .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
   .qb-button--secondary { background:#fff; color:var(--qb-plum) !important; }
   .qb-button--secondary:hover { border-color:var(--qb-plum); background:var(--qb-ivory); color:var(--qb-plum) !important; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
   .qb-hero .qb-actions { justify-content:center; }
-  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-border); background:linear-gradient(135deg,#fff 0%,#F7F4EE 62%,rgba(179,138,82,.18) 100%); }
+  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-border); background:linear-gradient(120deg,#10243A 0%,#F5F4F1 0.5%,#fff 52%,#ECE7DD 100%); }
   .qb-hero::before { content:""; position:absolute; inset:auto 0 0; height:1px; background:linear-gradient(90deg,transparent,rgba(179,138,82,.7),transparent); }
-  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(179,138,82,.24); transform:rotate(12deg); }
+  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(16,36,58,.18); transform:rotate(45deg); }
   .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:70px 0 76px; }
   .qb-hero__content { max-width:720px; margin-inline:auto; text-align:center; }
   .qb-hero .qb-copy { max-width:690px; margin-inline:auto; }
-  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:8px; background:rgba(255,255,255,.94); box-shadow:0 12px 34px rgba(13,15,15,.05); }
+  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:4px; background:rgba(255,255,255,.94); box-shadow:0 10px 0 rgba(16,36,58,.04); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
   .qb-glance-list { display:grid; gap:14px; margin:20px 0 0; padding:0; list-style:none; }
   .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#A5A5A0; font-size:14px; line-height:1.6; }
@@ -42,7 +42,7 @@ $support_portal = home_url('/contact-us/');
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:32px; align-items:start; }
   .qb-policy-stack { display:grid; gap:20px; }
-  .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; }
+  .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; border-top:3px solid rgba(209,174,104,.72); }
   .qb-policy-card:nth-child(even) { background:var(--qb-ivory); }
   .qb-policy-card h2 { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
   .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-plum); font-size:18px; line-height:1.35; }
@@ -51,7 +51,7 @@ $support_portal = home_url('/contact-us/');
   .qb-policy-card ul, .qb-policy-card ol { display:grid; gap:9px; margin:16px 0 0; padding-left:1.15rem; }
   .qb-policy-card ul { list-style:disc outside; }
   .qb-policy-card ol { list-style:decimal outside; }
-  .qb-callout { border-left:4px solid var(--qb-gold); border-radius:0 16px 16px 0; background:rgba(179,138,82,.12); padding:15px 18px; }
+  .qb-callout { border-left:4px solid var(--qb-gold); border-radius:0 4px 4px 0; background:rgba(179,138,82,.12); padding:15px 18px; }
   .qb-split-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:18px; }
   .qb-info-panel { border:1px solid var(--qb-border); border-radius:16px; background:#fff; padding:18px; }
   .qb-info-panel--soft { background:var(--qb-ivory); }
@@ -102,7 +102,7 @@ $support_portal = home_url('/contact-us/');
         <p class="qb-eyebrow"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php esc_html_e("Free standard U.S. shipping with clear delivery timelines shown before checkout.", 'dawp'); ?></p>
+        <p class="qb-copy"><?php esc_html_e("Standard U.S. shipping is free, and delivery timelines are presented clearly before checkout.", 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
@@ -117,31 +117,31 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-policy-stack">
         <section id="shipping-locations" class="qb-policy-card">
           <h2><?php esc_html_e('Shipping Locations & Market', 'dawp'); ?></h2>
-          <p><?php echo esc_html(sprintf('We currently ship exclusively within the United States. %s serves customers shopping from the United States domestic market.', $store_name)); ?></p>
-          <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
+          <p><?php echo esc_html(sprintf('At this time, we ship only within the United States. %s is set up to serve customers in the U.S. domestic market.', $store_name)); ?></p>
+          <p><?php esc_html_e('If your item, destination, or carrier availability prevents delivery to a specific address, checkout will show that the order cannot be completed for that location before any payment is processed.', 'dawp'); ?></p>
           <div class="qb-callout">
-            <p><?php esc_html_e('Some watch orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Some watch orders may be sent in separate packages when items come from different fulfillment batches or need specialized packing for safe transit.', 'dawp'); ?></p>
           </div>
         </section>
 
         <section id="shipping-fees" class="qb-policy-card">
           <h2><?php esc_html_e('Shipping Fees & Costs', 'dawp'); ?></h2>
-          <p><?php esc_html_e('We believe in full transparency with no hidden fees at checkout. Our shipping costs are structured as follows:', 'dawp'); ?></p>
+          <p><?php esc_html_e('We keep checkout costs transparent and do not add hidden shipping fees. Shipping costs are arranged as follows:', 'dawp'); ?></p>
           <div class="qb-split-grid">
             <div class="qb-info-panel">
               <h3><?php esc_html_e('Standard U.S. Shipping', 'dawp'); ?></h3>
-              <p><?php esc_html_e('Completely free for all orders nationwide. There is no minimum purchase requirement to qualify for free standard shipping.', 'dawp'); ?></p>
+              <p><?php esc_html_e('Free for all orders nationwide, with no minimum purchase requirement for standard shipping.', 'dawp'); ?></p>
             </div>
             <div class="qb-info-panel qb-info-panel--soft">
               <h3><?php esc_html_e('Optional Upgraded Shipping', 'dawp'); ?></h3>
-              <p><?php esc_html_e('If expedited or assisted shipping services are available for your destination, the exact cost will be displayed clearly on the checkout page before you complete your payment.', 'dawp'); ?></p>
+              <p><?php esc_html_e('When expedited or assisted shipping is available for your destination, the exact cost will appear clearly at checkout before payment is completed.', 'dawp'); ?></p>
             </div>
           </div>
         </section>
 
         <section id="delivery-times" class="qb-policy-card">
           <h2><?php esc_html_e('Order Processing & Delivery Times', 'dawp'); ?></h2>
-          <p><?php esc_html_e('All shipping and handling timelines are calculated in business days, Monday through Friday, excluding standard U.S. public holidays.', 'dawp'); ?></p>
+          <p><?php esc_html_e('All handling and delivery estimates are counted in business days, Monday through Friday, excluding standard U.S. public holidays.', 'dawp'); ?></p>
           <div class="qb-timeline-grid">
             <div class="qb-timeline-item">
               <strong><?php esc_html_e('Order Cutoff Time', 'dawp'); ?></strong>
@@ -160,7 +160,7 @@ $support_portal = home_url('/contact-us/');
               <span><?php esc_html_e('6-10 business days total from the date of purchase.', 'dawp'); ?></span>
             </div>
           </div>
-          <p><?php esc_html_e('Delivery estimates are carefully calculated windows reflecting our standard delivery benchmarks. While we and our courier partners work diligently to meet these timelines, unexpected delays due to extreme weather, carrier capacity issues, or regional holidays may occasionally occur.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Delivery estimates reflect our standard shipping windows. We and our courier partners work to meet them, though severe weather, carrier capacity, or regional holidays may occasionally cause delays.', 'dawp'); ?></p>
         </section>
 
         <section id="multi-item-orders" class="qb-policy-card">
@@ -189,7 +189,7 @@ $support_portal = home_url('/contact-us/');
           <p><?php esc_html_e('Your satisfaction is our priority. If your order encounters delays, tracking stops updating, or the package is marked as delivered but has not arrived, please reach out to our dedicated support team immediately.', 'dawp'); ?></p>
           <p><?php esc_html_e('To help us investigate and resolve the issue with the carrier swiftly, please provide:', 'dawp'); ?></p>
           <ul>
-            <li><?php esc_html_e('Your exact Order Number, such as #CV1001.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Your exact Order Number, such as VC-1001.', 'dawp'); ?></li>
             <li><?php esc_html_e('The specific Email Address utilized during checkout.', 'dawp'); ?></li>
             <li><?php esc_html_e('The full and complete Delivery Address.', 'dawp'); ?></li>
             <li><?php esc_html_e('Clear, well-lit photos if the package container or watch item arrived damaged.', 'dawp'); ?></li>

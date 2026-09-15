@@ -35,7 +35,7 @@ if (!function_exists('qb_404_products')) {
 }
 
 $shop_url = qb_404_shop_url();
-$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
+$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
 $products    = qb_404_products(3);
 
 get_header();

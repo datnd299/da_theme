@@ -5,14 +5,14 @@
  * @package dawp
  */
 
-$store_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom support request', 'dawp'), __('Please include your order number if this is about an existing order.', 'dawp')) : 'mailto:' . $support_email;
+$store_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmos support request', 'dawp'), __('Please include your order number if this is about an existing order.', 'dawp')) : 'mailto:' . $support_email;
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $track_url     = home_url('/track-order/');
 $faq_url       = home_url('/faq/');
-$hero_image    = get_template_directory_uri() . '/assets/images/luxuryimagecollection (2)/35.jpg';
-$detail_image  = get_template_directory_uri() . '/assets/images/luxuryimagecollection (2)/36.jpg';
+$hero_image    = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/66.jpg';
+$detail_image  = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/67.jpg';
 $status        = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 
 $status_messages = [

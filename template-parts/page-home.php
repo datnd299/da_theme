@@ -1,6 +1,6 @@
 <?php
 /**
- * Homepage template part for Velmo Custom.
+ * Homepage template part for Velmos.
  *
  * @package dawp
  */
@@ -8,7 +8,7 @@
 defined('ABSPATH') || exit;
 
 $theme_uri   = get_template_directory_uri();
-$image_base  = $theme_uri . '/assets/images/luxuryimagecollection%20(2)/';
+$image_base  = $theme_uri . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/';
 $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $about_url   = home_url('/about-us/');
 $contact_url = home_url('/contact-us/');
@@ -99,23 +99,30 @@ if (class_exists('WooCommerce')) {
 
 <section class="vm-hero">
     <div class="vm-hero__media" aria-hidden="true">
-        <?php echo $velmo_image('34.jpg', __('Velmo Custom luxury watch campaign', 'dawp'), 'vm-cover', 'eager'); ?>
+        <?php echo $velmo_image('70.jpg', __('Velmos watch campaign by velmoscustom', 'dawp'), 'vm-cover', 'eager'); ?>
     </div>
     <div class="vm-hero__shade" aria-hidden="true"></div>
     <div class="vm-wrap vm-hero__content">
-        <span class="vm-kicker"><?php esc_html_e('Velmo Custom', 'dawp'); ?></span>
-        <h1><?php esc_html_e('Crafted with Precision.', 'dawp'); ?></h1>
-        <p><?php esc_html_e('Luxury timepieces selected for clarity, proportion and enduring mechanical character.', 'dawp'); ?></p>
+        <span class="vm-kicker"><?php esc_html_e('Velmos by velmoscustom', 'dawp'); ?></span>
+        <h1><?php esc_html_e('Velmos Watches, Selected with Precision.', 'dawp'); ?></h1>
+        <p><?php esc_html_e('Discover the signature Velmos watch collection distributed by velmoscustom: refined timepieces chosen for clear design, dependable detail, and confident daily wear.', 'dawp'); ?></p>
         <a class="vm-button vm-button--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Discover The Collection', 'dawp'); ?></a>
     </div>
 </section>
 
 <section class="vm-intro">
     <div class="vm-wrap vm-intro__grid">
-        <p><?php esc_html_e('A calm, highly edited watch destination where craftsmanship, precision and the timepiece itself remain at the center.', 'dawp'); ?></p>
-        <div>
-            <span><?php esc_html_e('Maison Direction', 'dawp'); ?></span>
-            <strong><?php esc_html_e('Heritage Precision / Contemporary Elegance / Quiet Craftsmanship', 'dawp'); ?></strong>
+        <div class="vm-intro__copy">
+            <span><?php esc_html_e('Brand Direction', 'dawp'); ?></span>
+            <h2><?php esc_html_e('Selected watches. Clear details. Confident choice.', 'dawp'); ?></h2>
+        </div>
+        <div class="vm-intro__notes" aria-label="<?php esc_attr_e('Velmos brand direction', 'dawp'); ?>">
+            <span><?php esc_html_e('Brand Direction', 'dawp'); ?></span>
+            <ul>
+                <li><?php esc_html_e('Precise Selection', 'dawp'); ?></li>
+                <li><?php esc_html_e('Refined Presence', 'dawp'); ?></li>
+                <li><?php esc_html_e('Trusted Distribution', 'dawp'); ?></li>
+            </ul>
         </div>
     </div>
 </section>
@@ -124,8 +131,8 @@ if (class_exists('WooCommerce')) {
     <section class="vm-novelties">
         <div class="vm-wrap">
             <div class="vm-section-head vm-section-head--center">
-                <span class="vm-kicker"><?php esc_html_e('Featured Timepieces', 'dawp'); ?></span>
-                <h2><?php esc_html_e('Discover our selection', 'dawp'); ?></h2>
+                <span class="vm-kicker"><?php esc_html_e('Featured Velmos Watches', 'dawp'); ?></span>
+                <h2><?php esc_html_e('Selected models for a confident choice', 'dawp'); ?></h2>
             </div>
             <div class="vm-product-row">
                 <?php foreach ($featured_products as $product_id) : ?>
@@ -141,23 +148,23 @@ if (class_exists('WooCommerce')) {
 
 <section class="vm-split vm-split--image-left">
     <figure class="vm-split__image">
-        <?php echo $velmo_image('27.jpg', __('Watch dial and finishing detail', 'dawp'), 'vm-cover'); ?>
+        <?php echo $velmo_image('58.jpg', __('Watch dial and finishing detail', 'dawp'), 'vm-cover'); ?>
     </figure>
     <div class="vm-split__copy">
-        <span class="vm-kicker"><?php esc_html_e('Exceptional Craftsmanship', 'dawp'); ?></span>
-        <h2><?php esc_html_e('Precision in Every Detail.', 'dawp'); ?></h2>
-        <p><?php esc_html_e('The beauty of a watch begins in restraint: polished edges, measured markers, controlled negative space and materials that reward a closer look.', 'dawp'); ?></p>
-        <a class="vm-link" href="<?php echo esc_url($about_url); ?>"><?php esc_html_e('Explore our craft', 'dawp'); ?></a>
+        <span class="vm-kicker"><?php esc_html_e('Velmos Standard', 'dawp'); ?></span>
+        <h2><?php esc_html_e('Detail that earns attention.', 'dawp'); ?></h2>
+        <p><?php esc_html_e('Every Velmos watch is presented around the details that matter most: case shape, dial balance, material finish, wearing presence, and the confidence of the full purchase experience.', 'dawp'); ?></p>
+        <a class="vm-link" href="<?php echo esc_url($about_url); ?>"><?php esc_html_e('Explore Velmos', 'dawp'); ?></a>
     </div>
 </section>
 
 <section class="vm-feature">
     <div class="vm-feature__media" aria-hidden="true">
-        <?php echo $velmo_image('28.jpg', __('Velmo Custom macro watch movement', 'dawp'), 'vm-cover'); ?>
+        <?php echo $velmo_image('59.jpg', __('Velmos watch movement detail', 'dawp'), 'vm-cover'); ?>
     </div>
     <div class="vm-wrap vm-feature__content">
         <span class="vm-kicker"><?php esc_html_e('Signature Details', 'dawp'); ?></span>
-        <h2><?php esc_html_e('Defined by the quiet work of finishing.', 'dawp'); ?></h2>
+        <h2><?php esc_html_e('A focused collection, distributed with care.', 'dawp'); ?></h2>
         <a class="vm-button vm-button--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View Timepieces', 'dawp'); ?></a>
     </div>
 </section>
@@ -167,8 +174,8 @@ if (class_exists('WooCommerce')) {
         <div class="vm-wrap">
             <div class="vm-section-head">
                 <div>
-                    <span class="vm-kicker"><?php esc_html_e('Latest Collection', 'dawp'); ?></span>
-                    <h2><?php esc_html_e('Designed to Endure.', 'dawp'); ?></h2>
+                    <span class="vm-kicker"><?php esc_html_e('Latest Velmos Collection', 'dawp'); ?></span>
+                    <h2><?php esc_html_e('New arrivals from the Velmos lineup.', 'dawp'); ?></h2>
                 </div>
                 <a class="vm-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop collection', 'dawp'); ?></a>
             </div>
@@ -183,25 +190,25 @@ if (class_exists('WooCommerce')) {
 
 <section class="vm-split vm-split--text-left">
     <div class="vm-split__copy">
-        <span class="vm-kicker"><?php esc_html_e('The House of Velmo', 'dawp'); ?></span>
-        <h2><?php esc_html_e('A modern maison for considered timepieces.', 'dawp'); ?></h2>
-        <p><?php esc_html_e('Velmo Custom brings an editorial eye to luxury watch ecommerce: selective, precise and intentionally quiet.', 'dawp'); ?></p>
-        <a class="vm-link" href="<?php echo esc_url($about_url); ?>"><?php esc_html_e('Discover the maison', 'dawp'); ?></a>
+        <span class="vm-kicker"><?php esc_html_e('About Velmos', 'dawp'); ?></span>
+        <h2><?php esc_html_e('The main watch line from velmoscustom.', 'dawp'); ?></h2>
+        <p><?php esc_html_e('Velmos was created as the dedicated watch identity for velmoscustom, with a sharper focus on selected timepieces, transparent information, and support before and after purchase.', 'dawp'); ?></p>
+        <a class="vm-link" href="<?php echo esc_url($about_url); ?>"><?php esc_html_e('Learn about Velmos', 'dawp'); ?></a>
     </div>
     <figure class="vm-split__image">
-        <?php echo $velmo_image('29.jpg', __('Velmo Custom maison editorial image', 'dawp'), 'vm-cover'); ?>
+        <?php echo $velmo_image('60.jpg', __('Velmos editorial watch image', 'dawp'), 'vm-cover'); ?>
     </figure>
 </section>
 
 <section class="vm-boutique">
     <div class="vm-wrap vm-boutique__grid">
         <figure>
-            <?php echo $velmo_image('30.jpg', __('Velmo Custom boutique consultation', 'dawp'), 'vm-cover'); ?>
+            <?php echo $velmo_image('61.jpg', __('Velmos watch consultation', 'dawp'), 'vm-cover'); ?>
         </figure>
         <div>
-            <span class="vm-kicker"><?php esc_html_e('Concierge', 'dawp'); ?></span>
-            <h2><?php esc_html_e('Guidance for a precise choice.', 'dawp'); ?></h2>
-            <p><?php esc_html_e('Ask about sizing, movement character, finishing, delivery or the details that matter before selecting your next watch.', 'dawp'); ?></p>
+            <span class="vm-kicker"><?php esc_html_e('Velmos Support', 'dawp'); ?></span>
+            <h2><?php esc_html_e('Guidance before you choose.', 'dawp'); ?></h2>
+            <p><?php esc_html_e('Ask about fit, materials, product detail, delivery, returns, or anything you want to confirm before selecting your Velmos watch.', 'dawp'); ?></p>
             <a class="vm-button vm-button--dark" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
         </div>
     </div>
@@ -211,7 +218,7 @@ if (class_exists('WooCommerce')) {
     <div class="vm-wrap vm-newsletter__grid">
         <div>
             <span class="vm-kicker"><?php esc_html_e('Newsletter', 'dawp'); ?></span>
-            <h2><?php esc_html_e('New arrivals, quietly announced.', 'dawp'); ?></h2>
+            <h2><?php esc_html_e('Velmos arrivals and updates.', 'dawp'); ?></h2>
         </div>
         <form action="<?php echo esc_url(home_url('/')); ?>" method="post">
             <label class="qb-sr-only" for="vm-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>

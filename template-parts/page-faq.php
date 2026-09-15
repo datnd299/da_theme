@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
-$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
-$support_mailto    = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom support question', 'dawp'), __('Please include your order number and checkout email if this is about an existing order.', 'dawp')) : 'mailto:' . $support_email;
+$store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
+$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
+$support_mailto    = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmos support question', 'dawp'), __('Please include your order number and checkout email if this is about an existing order.', 'dawp')) : 'mailto:' . $support_email;
 $store_address     = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal    = home_url('/contact-us/');
 $shipping_policy   = home_url('/shipping-policy/');
@@ -22,19 +22,19 @@ $faq_sections = [
         'faqs' => [
             [
                 'q' => __('How do I know my order was placed successfully?', 'dawp'),
-                'a' => __('After checkout, you should receive an order confirmation email with your order details. If you do not see it, check your spam or promotions folder first, then contact support with the email address used at checkout.', 'dawp'),
+                'a' => __('After checkout, an order confirmation email with your order details should arrive in your inbox. If it is not visible, please check spam or promotions first, then contact support using the email address from checkout.', 'dawp'),
             ],
             [
                 'q' => __('Can I change an order after checkout?', 'dawp'),
-                'a' => __('Contact us as soon as possible if you need to update order details. Orders placed before 5:00 PM PST begin processing the same business day, while orders placed after 5:00 PM PST or over the weekend begin processing the next business day. We cannot guarantee changes after an order enters processing or fulfillment, but our support team will review what is still possible.', 'dawp'),
+                'a' => __('Please contact us right away if order details need to be updated. Orders placed before 5:00 PM PST start processing the same business day, while orders placed after 5:00 PM PST or during the weekend start the next business day. Changes cannot be guaranteed once processing or fulfillment has begun, but support will check what can still be done.', 'dawp'),
             ],
             [
                 'q' => __('Can I cancel my order after placing it?', 'dawp'),
-                'a' => __('Please contact support as soon as possible if you need to cancel. If the order has already entered fulfillment, been processed for shipment, or shipped, cancellation may no longer be available. After delivery, eligible items may be returned according to our Return & Refund Policy.', 'dawp'),
+                'a' => __('If you need to cancel, reach out to support as quickly as possible. Once an order has moved into fulfillment, shipment processing, or shipping, cancellation may no longer be possible. After delivery, eligible items can still follow our Return & Refund Policy.', 'dawp'),
             ],
             [
                 'q' => __('Why has my order not shipped yet?', 'dawp'),
-                'a' => __('Orders have a 5:00 PM PST cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding weekends and official U.S. public holidays. Some intricate, high-demand, or separately packed watch items may require additional processing time.', 'dawp'),
+                'a' => __('Orders follow a 5:00 PM PST cutoff and 1-3 business day handling period. Fulfillment runs Monday-Friday, excluding weekends and official U.S. public holidays. Certain intricate, high-demand, or separately packed watch items may need extra preparation time.', 'dawp'),
             ],
         ],
     ],
@@ -45,23 +45,23 @@ $faq_sections = [
         'faqs' => [
             [
                 'q' => __('Where do you ship?', 'dawp'),
-                'a' => __('We currently ship exclusively within the United States domestic market. If a product, destination, or carrier limitation prevents delivery to your specific address, checkout will notify you before payment is processed.', 'dawp'),
+                'a' => __('We currently ship only within the United States domestic market. If your product, destination, or carrier availability prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
             ],
             [
                 'q' => __('How much does standard shipping cost?', 'dawp'),
-                'a' => __('Standard U.S. shipping is free nationwide for every order with no minimum purchase requirement. If expedited or assisted shipping is available for your destination, the exact cost will be shown clearly at checkout before payment.', 'dawp'),
+                'a' => __('Standard U.S. shipping is free nationwide on every order with no minimum purchase requirement. If expedited or assisted shipping is offered for your destination, the exact cost appears clearly at checkout before payment.', 'dawp'),
             ],
             [
                 'q' => __('How long does shipping take?', 'dawp'),
-                'a' => __('Order handling usually takes 1-3 business days and transit usually takes 5-7 business days, for a total estimated delivery time of 6-10 business days. Business days do not include weekends or official U.S. public holidays.', 'dawp'),
+                'a' => __('Handling usually takes 1-3 business days and transit usually takes 5-7 business days, making the total estimated delivery window 6-10 business days. Business days exclude weekends and official U.S. public holidays.', 'dawp'),
             ],
             [
                 'q' => __('Will I receive tracking information?', 'dawp'),
-                'a' => __('Yes. Once your order is dispatched, we send a shipping confirmation email with a direct tracking link and courier details to the email address used at checkout. Orders may ship with USPS, UPS, FedEx, or DHL depending on the final carrier selected at fulfillment.', 'dawp'),
+                'a' => __('Yes. After dispatch, we send a shipping confirmation email with a direct tracking link and courier details to the checkout email address. Orders may ship through USPS, UPS, FedEx, or DHL based on the final carrier selected during fulfillment.', 'dawp'),
             ],
             [
                 'q' => __('Do multi-item orders ship together?', 'dawp'),
-                'a' => __('Some multi-item watch orders may ship separately when items are prepared from different fulfillment batches or require distinct specialized packing methods. If that happens, you will receive separate tracking numbers at no additional cost.', 'dawp'),
+                'a' => __('Some multi-item watch orders may be shipped separately when items come from different fulfillment batches or need different specialized packing methods. If so, separate tracking numbers are provided at no additional cost.', 'dawp'),
             ],
         ],
     ],
@@ -170,14 +170,14 @@ $faq_sections = [
   .qb-button--secondary { background:#fff; color:var(--qb-ink) !important; }
   .qb-button--secondary:hover { border-color:var(--qb-ink); background:var(--qb-pearl); color:var(--qb-ink) !important; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
-  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-line); background:linear-gradient(135deg,#F4F0E8 0%,#FFFFFF 58%,#EFE7DB 100%); }
+  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-line); background:linear-gradient(120deg,#10243A 0%,#F5F4F1 0.5%,#FFFFFF 58%,#EFE7DB 100%); }
   .qb-hero::before { content:""; position:absolute; inset:auto 0 0; height:1px; background:linear-gradient(90deg,transparent,rgba(166,129,88,.42),transparent); }
   .qb-hero::after { content:""; position:absolute; right:7%; top:0; bottom:0; width:1px; background:rgba(166,129,88,.16); transform:skewX(-12deg); }
   .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:78px 0 84px; }
   .qb-hero__content { max-width:720px; margin-inline:auto; text-align:center; }
   .qb-hero .qb-copy { max-width:690px; margin-inline:auto; }
   .qb-hero .qb-actions { justify-content:center; }
-  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-line); border-radius:2px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(17,19,18,.05); }
+  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-line); border-radius:4px; background:rgba(255,255,255,.92); box-shadow:0 10px 0 rgba(16,36,58,.04); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
   .qb-glance-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:18px 0 0; padding:0; list-style:none; }
   .qb-glance-list li { border:1px solid var(--qb-line); border-radius:2px; background:#fff; padding:12px 13px; color:var(--qb-moss); font-size:13px; line-height:1.45; }
@@ -193,7 +193,7 @@ $faq_sections = [
   .qb-side-nav { display:grid; gap:9px; margin-top:20px; }
   .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:2px; padding:10px 13px; color:#fff; font-size:13px; font-weight:800; }
   .qb-policy-stack { display:grid; gap:20px; }
-  .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; }
+  .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; border-top:3px solid rgba(209,174,104,.72); }
   .qb-policy-card:nth-child(even) { background:var(--qb-pearl); }
   .qb-policy-card h2 { margin:0; color:var(--qb-ink); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
   .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-ink); font-size:18px; line-height:1.35; }
@@ -253,7 +253,7 @@ $faq_sections = [
         <p class="qb-eyebrow"><?php esc_html_e('FAQ', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php echo esc_html(sprintf(__('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, watch details, checkout, privacy, and customer support at %s.', 'dawp'), $store_name)); ?></p>
+        <p class="qb-copy"><?php echo esc_html(sprintf(__('Browse concise answers for orders, U.S. shipping, tracking, returns, refunds, watch details, checkout, privacy, and customer support at %s.', 'dawp'), $store_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="<?php echo esc_url($support_mailto); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>

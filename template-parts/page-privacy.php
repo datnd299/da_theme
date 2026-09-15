@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom privacy support', 'dawp')) : 'mailto:' . $support_email;
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmos privacy support', 'dawp')) : 'mailto:' . $support_email;
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 
@@ -23,19 +23,19 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-copy { margin:18px 0 0; max-width:720px; color:var(--qb-text); font-size:17px; line-height:1.75; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
   .qb-hero .qb-actions { justify-content:center; }
-  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff; padding:0 24px; font-size:14px; font-weight:800; transition:.2s ease; }
+  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:4px; background:var(--qb-plum); color:#fff; padding:0 24px; font-size:14px; font-weight:800; transition:.2s ease; }
   .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum); }
   .qb-button--secondary { background:#fff; color:var(--qb-plum); }
   .qb-plum .qb-button { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum); }
   .qb-plum .qb-button:hover { border-color:#fff; background:#fff; color:var(--qb-plum); }
   .qb-plum .qb-button--secondary { border-color:rgba(255,255,255,.7); background:#fff; color:var(--qb-plum); }
-  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-border); background:linear-gradient(135deg,#fff 0%,#F7F4EE 62%,rgba(179,138,82,.18) 100%); }
+  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-border); background:linear-gradient(120deg,#10243A 0%,#F5F4F1 0.5%,#fff 52%,#ECE7DD 100%); }
   .qb-hero::before { content:""; position:absolute; inset:auto 0 0; height:1px; background:linear-gradient(90deg,transparent,rgba(179,138,82,.7),transparent); }
-  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(179,138,82,.24); transform:rotate(12deg); }
+  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(16,36,58,.18); transform:rotate(45deg); }
   .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:70px 0 76px; }
   .qb-hero__grid > div { max-width:720px; margin-inline:auto; text-align:center; }
   .qb-hero .qb-copy { margin-inline:auto; }
-  .qb-panel, .qb-card, .qb-policy-card { border:1px solid var(--qb-border); border-radius:8px; background:#fff; box-shadow:0 12px 34px rgba(13,15,15,.05); }
+  .qb-panel, .qb-card, .qb-policy-card { border:1px solid var(--qb-border); border-radius:4px; background:#fff; box-shadow:0 10px 0 rgba(16,36,58,.04); }
   .qb-panel { padding:clamp(24px,4vw,44px); background:rgba(255,255,255,.86); }
   .qb-card { padding:22px; }
   .qb-card b { display:inline-flex; width:42px; height:42px; align-items:center; justify-content:center; border-radius:999px; background:var(--qb-ivory); color:var(--qb-plum); font-size:13px; }
@@ -44,14 +44,14 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:.82fr 1.18fr; gap:34px; align-items:start; }
   .qb-sidebar { position:sticky; top:120px; display:grid; gap:16px; }
-  .qb-dark-card { border-radius:8px; background:var(--qb-plum); padding:28px; color:#fff; }
+  .qb-dark-card { border-radius:4px; background:var(--qb-plum); padding:28px; color:#fff; }
   .qb-dark-card .qb-eyebrow { color:var(--qb-peach); }
   .qb-dark-card h2, .qb-dark-card p, .qb-dark-card a { color:#fff; }
   .qb-dark-card p { color:rgba(255,255,255,.78); font-size:15px; line-height:1.7; }
   .qb-side-nav { display:grid; gap:10px; margin-top:22px; }
-  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:999px; padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
+  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:4px; padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
   .qb-policy-stack { display:grid; gap:22px; }
-  .qb-policy-card { padding:clamp(24px,4vw,40px); }
+  .qb-policy-card { padding:clamp(24px,4vw,40px); border-top:3px solid rgba(209,174,104,.72); }
   .qb-policy-card:nth-child(even) { background:var(--qb-ivory); }
   .qb-policy-card h2 { font-size:clamp(25px,3vw,38px); line-height:1.12; font-family:Georgia,"Times New Roman",serif; }
   .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-plum); font-size:18px; }
@@ -83,7 +83,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <p class="qb-eyebrow"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php echo esc_html(sprintf('How %s collects, uses, and protects your information.', $brand_name)); ?></p>
+        <p class="qb-copy"><?php echo esc_html(sprintf('How %s collects, uses, stores, and protects information connected to your shopping experience.', $brand_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
@@ -97,8 +97,8 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
       <aside class="qb-sidebar">
         <div class="qb-dark-card">
           <p class="qb-eyebrow"><?php esc_html_e('Privacy Sections', 'dawp'); ?></p>
-          <h2 class="qb-title" style="font-size:clamp(28px,3vw,42px);"><?php esc_html_e('Transparent by design.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Review how we collect information, the tools we use, how data is shared, SMS terms, your rights, retention, and contact details.', 'dawp'); ?></p>
+          <h2 class="qb-title" style="font-size:clamp(28px,3vw,42px);"><?php esc_html_e('Built around clarity.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Review how information is collected, which services support the store, how data may be shared, SMS terms, your rights, retention, and contact details.', 'dawp'); ?></p>
           <nav class="qb-side-nav" aria-label="<?php esc_attr_e('Privacy sections', 'dawp'); ?>">
             <a href="#collect"><?php esc_html_e('How We Collect', 'dawp'); ?></a>
             <a href="#tools"><?php esc_html_e('Tools & Services', 'dawp'); ?></a>
@@ -108,6 +108,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             <a href="#sharing"><?php esc_html_e('Sharing', 'dawp'); ?></a>
             <a href="#messaging"><?php esc_html_e('Messaging Terms', 'dawp'); ?></a>
             <a href="#rights"><?php esc_html_e('Your Privacy Rights', 'dawp'); ?></a>
+            <a href="#opt-out"><?php esc_html_e('Opt-Out Choices', 'dawp'); ?></a>
             <a href="#contact-info"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
           </nav>
         </div>
@@ -116,8 +117,8 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
       <div class="qb-policy-stack">
         <section id="collect" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('How We Collect Information', 'dawp'); ?></p>
-          <h2><?php esc_html_e('We collect information in three main ways.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('This includes information directly from you, information collected automatically through your use of the Site, and information from trusted third-party services.', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Information is collected in three primary ways.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('This includes details you provide directly, information gathered automatically while you use the Site, and information received from trusted third-party services.', 'dawp'); ?></p>
           <h3><?php esc_html_e('1. Information You Provide', 'dawp'); ?></h3>
           <ul>
             <li><?php esc_html_e('Contact details such as name, email, phone number, billing address, and shipping address.', 'dawp'); ?></li>
@@ -142,7 +143,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 
         <section id="tools" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Tools and Services We Use', 'dawp'); ?></p>
-          <h2><?php esc_html_e('We use trusted services to operate our store efficiently.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Trusted services help us operate the store efficiently.', 'dawp'); ?></h2>
           <ul>
             <li><?php esc_html_e('Website platform: WordPress and WooCommerce.', 'dawp'); ?></li>
             <li><?php esc_html_e('Analytics: Google Analytics to understand site usage and improve performance.', 'dawp'); ?></li>
@@ -151,12 +152,12 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             <li><?php esc_html_e('Customer support: Contact form, support email, and customer support systems.', 'dawp'); ?></li>
             <li><?php esc_html_e('Shipping: Carriers such as USPS, UPS, FedEx, and DHL.', 'dawp'); ?></li>
           </ul>
-          <p><?php esc_html_e('These providers only access the information necessary to perform their services.', 'dawp'); ?></p>
+          <p><?php esc_html_e('These providers are given access only to the information needed to perform their services.', 'dawp'); ?></p>
         </section>
 
         <section id="use" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('How We Use Information', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Your information is used to run and improve the store.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('We use information to operate, support, and improve the store.', 'dawp'); ?></h2>
           <ul>
             <li><?php esc_html_e('Process and deliver your orders.', 'dawp'); ?></li>
             <li><?php esc_html_e('Send order confirmations and updates.', 'dawp'); ?></li>
@@ -169,14 +170,14 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 
         <section id="payments" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Payments & Security', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Checkout is handled through secure payment providers.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('All payments are processed through secure third-party payment providers. We do not store your full payment card details on our servers.', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Secure payment providers process checkout.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Payments are processed by secure third-party payment providers. We do not store your full payment card details on our servers.', 'dawp'); ?></p>
           <p><?php esc_html_e('Your information is protected using industry-standard SSL encryption during checkout.', 'dawp'); ?></p>
         </section>
 
         <section id="cookies" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Cookies & Tracking', 'dawp'); ?></p>
-          <h2><?php esc_html_e('We use cookies and similar technologies.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Cookies and similar technologies support the site experience.', 'dawp'); ?></h2>
           <ul>
             <li><?php esc_html_e('Ensure the website functions properly.', 'dawp'); ?></li>
             <li><?php esc_html_e('Remember your preferences and cart.', 'dawp'); ?></li>
@@ -242,6 +243,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             <li><?php esc_html_e('Opt out of marketing communications.', 'dawp'); ?></li>
           </ul>
           <p><?php esc_html_e('To submit a request, please contact us using the details below.', 'dawp'); ?></p>
+          <p><?php esc_html_e('If your state or local privacy law provides additional rights, such as correction, portability, appeal, or limiting certain processing, you may contact us and we will review your request according to applicable law.', 'dawp'); ?></p>
           <h3><?php esc_html_e('Data Retention', 'dawp'); ?></h3>
           <p><?php esc_html_e('We retain personal information only as long as necessary to fulfill orders and provide services, provide customer support, and comply with legal and financial obligations.', 'dawp'); ?></p>
           <h3><?php esc_html_e('Children\'s Privacy', 'dawp'); ?></h3>
@@ -253,6 +255,18 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
             <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
           </div>
+        </section>
+
+        <section id="opt-out" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Opt-Out Choices', 'dawp'); ?></p>
+          <h2><?php esc_html_e('You can control marketing, cookies, and sale/share choices.', 'dawp'); ?></h2>
+          <ul>
+            <li><?php esc_html_e('Marketing emails: You may unsubscribe using the link in a marketing email or contact us for help.', 'dawp'); ?></li>
+            <li><?php esc_html_e('SMS messages: If you opted in, you may text STOP to opt out as described in the Messaging Terms section.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Cookies and analytics: You may manage cookies through your browser settings. Some settings may affect site features such as cart or checkout functions.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Do Not Sell or Share: We do not sell personal information. If applicable law treats certain analytics or advertising cookies as a sale or sharing of personal information, you may contact us to request opt-out assistance.', 'dawp'); ?></li>
+          </ul>
+          <p><?php echo wp_kses_post(sprintf(__('To make a privacy or opt-out request, email us at %s and include the email address connected to your order or account so we can locate the relevant records.', 'dawp'), '<a href="' . esc_url($support_mailto) . '">' . esc_html($support_email) . '</a>')); ?></p>
         </section>
 
         <section id="contact-info" class="qb-policy-card">

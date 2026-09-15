@@ -1685,23 +1685,13 @@ body.woocommerce-order-received {
     color: #111111 !important;
 }
 
-body.woocommerce-checkout a,
-body.woocommerce-order-received a,
+body.woocommerce-checkout #content a,
+body.woocommerce-order-received #content a,
 .wp-block-woocommerce-checkout .wc-block-components-product-price__value,
 .wp-block-woocommerce-checkout .wc-block-components-totals-item__value,
 .woocommerce-checkout .woocommerce-Price-amount,
 .woocommerce-order-received .woocommerce-Price-amount {
     color: #D1AE68 !important;
-}
-
-body.woocommerce-checkout .qb-site-header .qb-cart-link,
-body.woocommerce-order-received .qb-site-header .qb-cart-link {
-    color: #FFFFFF !important;
-}
-
-body.woocommerce-checkout .qb-site-header .qb-cart-link:hover,
-body.woocommerce-order-received .qb-site-header .qb-cart-link:hover {
-    color: #10243A !important;
 }
 
 .wp-block-woocommerce-checkout .wc-block-components-checkout-step__heading-container,
@@ -1721,8 +1711,8 @@ body.woocommerce-order-received .qb-site-header .qb-cart-link:hover {
 
 .wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button,
 .woocommerce-checkout button#place_order,
-.woocommerce-checkout .button,
-.woocommerce-order-received .button {
+.woocommerce-checkout #content .button,
+.woocommerce-order-received #content .button {
     border-color: #10243A !important;
     background-color: #10243A !important;
     color: #FFFFFF !important;
@@ -1730,8 +1720,8 @@ body.woocommerce-order-received .qb-site-header .qb-cart-link:hover {
 
 .wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button:hover,
 .woocommerce-checkout button#place_order:hover,
-.woocommerce-checkout .button:hover,
-.woocommerce-order-received .button:hover {
+.woocommerce-checkout #content .button:hover,
+.woocommerce-order-received #content .button:hover {
     border-color: #D1AE68 !important;
     background-color: #D1AE68 !important;
     color: #10243A !important;

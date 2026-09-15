@@ -48,6 +48,7 @@ function dawp_sale_flash_label($html, $post, $product) {
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
 add_filter('woocommerce_shortcode_order_tracking_order_id', 'dawp_normalize_tracking_order_id', 9);
+add_filter('woocommerce_localisation_address_formats', 'dawp_us_address_format');
 
 function dawp_normalize_tracking_order_id($order_id) {
     $tracking_id = trim((string) $order_id);
@@ -68,6 +69,12 @@ function dawp_normalize_tracking_order_id($order_id) {
     }
 
     return $order_id;
+}
+
+function dawp_us_address_format($formats) {
+    $formats['US'] = "{address_1}\n{address_2}\n{city}, {state} {postcode}";
+
+    return $formats;
 }
 
 add_action('woocommerce_before_account_navigation', 'dawp_my_account_page_title', 5);
@@ -171,7 +178,9 @@ function dawp_get_store_address_line() {
     $country = trim(wp_strip_all_tags($country));
     $state   = trim(wp_strip_all_tags($state));
 
-    if ($country && $state && $countries) {
+    if ($country === 'US' && $state && $countries) {
+        $state = dawp_get_us_state_code($state, $countries);
+    } elseif ($country && $state && $countries) {
         $states = $countries->get_states($country);
 
         if (isset($states[$state])) {
@@ -179,10 +188,11 @@ function dawp_get_store_address_line() {
         }
     }
 
-    $city_region = trim(implode(', ', array_filter([$city, trim($state . ' ' . $postcode)])));
+    $region_bits = array_filter([$state, $postcode]);
+    $city_region = trim(implode(', ', array_filter([$city, implode(' ', $region_bits)])));
     $parts       = array_filter([$address_1, $address_2, $city_region]);
 
-    if ($country) {
+    if ($country && $country !== 'US') {
         $country_name = $country;
 
         if ($countries) {
@@ -197,4 +207,22 @@ function dawp_get_store_address_line() {
     }
 
     return implode(', ', $parts);
+}
+
+function dawp_get_us_state_code($state, $countries) {
+    $state = trim((string) $state);
+
+    if ($state === '') {
+        return '';
+    }
+
+    $states = $countries->get_states('US');
+
+    if (isset($states[$state])) {
+        return $state;
+    }
+
+    $state_code = array_search($state, $states, true);
+
+    return $state_code ? $state_code : $state;
 }

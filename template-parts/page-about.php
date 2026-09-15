@@ -1,6 +1,6 @@
 <?php
 /**
- * About page template part for Velmo Custom.
+ * About page template part for Velmos.
  *
  * @package dawp
  */
@@ -8,7 +8,7 @@
 defined('ABSPATH') || exit;
 
 $theme_uri   = get_template_directory_uri();
-$image_base  = $theme_uri . '/assets/images/luxuryimagecollection%20(2)/';
+$image_base  = $theme_uri . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/';
 $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $contact_url = home_url('/contact-us/');
 
@@ -33,17 +33,17 @@ $velmo_image = static function ($file, $alt, $class = '', $loading = 'lazy') use
 <section class="vm-about-hero">
     <div class="vm-about-wrap vm-about-hero__grid">
         <div class="vm-about-hero__copy">
-            <span class="vm-kicker"><?php esc_html_e('About Velmo Custom', 'dawp'); ?></span>
-            <h1><?php esc_html_e('A modern maison for considered timepieces.', 'dawp'); ?></h1>
-            <p><?php esc_html_e('Velmo Custom is a refined luxury watch store focused on precision, craftsmanship and timeless contemporary design.', 'dawp'); ?></p>
+            <span class="vm-kicker"><?php esc_html_e('About Velmos', 'dawp'); ?></span>
+            <h1><?php esc_html_e('The signature watch destination from velmoscustom.', 'dawp'); ?></h1>
+            <p><?php esc_html_e('Velmos is the dedicated watch brand distributed by velmoscustom, created for customers who want selected timepieces, clear product information, and a polished buying experience.', 'dawp'); ?></p>
             <a class="vm-button vm-button--dark" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Discover The Collection', 'dawp'); ?></a>
         </div>
         <div class="vm-about-hero__visual" aria-hidden="true">
             <figure class="vm-about-frame vm-about-frame--large">
-                <?php echo $velmo_image('31.jpg', __('Velmo Custom editorial watch composition', 'dawp'), 'vm-cover', 'eager'); ?>
+                <?php echo $velmo_image('62.jpg', __('Velmos editorial watch composition', 'dawp'), 'vm-cover', 'eager'); ?>
             </figure>
             <figure class="vm-about-frame vm-about-frame--small">
-                <?php echo $velmo_image('32.jpg', __('Luxury watch dial finishing detail', 'dawp'), 'vm-cover'); ?>
+                <?php echo $velmo_image('63.jpg', __('Luxury watch dial finishing detail', 'dawp'), 'vm-cover'); ?>
             </figure>
         </div>
     </div>
@@ -51,8 +51,8 @@ $velmo_image = static function ($file, $alt, $class = '', $loading = 'lazy') use
 
 <section class="vm-about-statement">
     <div class="vm-about-wrap vm-about-statement__grid">
-        <span class="vm-kicker"><?php esc_html_e('Crafted with Precision', 'dawp'); ?></span>
-        <h2><?php esc_html_e('Craftsmanship creates distinction. Precision creates trust. The timepiece remains the hero.', 'dawp'); ?></h2>
+        <span class="vm-kicker"><?php esc_html_e('Velmos Point of View', 'dawp'); ?></span>
+        <h2><?php esc_html_e('A watch should feel considered from the first detail to the day it arrives on your wrist.', 'dawp'); ?></h2>
     </div>
 </section>
 
@@ -60,52 +60,52 @@ $velmo_image = static function ($file, $alt, $class = '', $loading = 'lazy') use
     <div class="vm-about-wrap vm-about-values__grid">
         <article>
             <span><?php esc_html_e('01', 'dawp'); ?></span>
-            <h3><?php esc_html_e('Heritage Precision', 'dawp'); ?></h3>
-            <p><?php esc_html_e('We look for clear proportions, legible details and mechanical character that feels composed rather than loud.', 'dawp'); ?></p>
+            <h3><?php esc_html_e('Selected With Purpose', 'dawp'); ?></h3>
+            <p><?php esc_html_e('Velmos focuses on watches with clear proportions, practical wearability, and details that stay appealing beyond the first impression.', 'dawp'); ?></p>
         </article>
         <article>
             <span><?php esc_html_e('02', 'dawp'); ?></span>
-            <h3><?php esc_html_e('Contemporary Elegance', 'dawp'); ?></h3>
-            <p><?php esc_html_e('Every presentation is edited with restraint: calm space, exact typography and photography that lets the watch speak.', 'dawp'); ?></p>
+            <h3><?php esc_html_e('Distributed by velmoscustom', 'dawp'); ?></h3>
+            <p><?php esc_html_e('As the main watch line from velmoscustom, Velmos brings product curation, order support, and service into one focused destination.', 'dawp'); ?></p>
         </article>
         <article>
             <span><?php esc_html_e('03', 'dawp'); ?></span>
-            <h3><?php esc_html_e('Quiet Craftsmanship', 'dawp'); ?></h3>
-            <p><?php esc_html_e('Finishing, material, dial balance and wearing presence guide how each timepiece earns its place in the collection.', 'dawp'); ?></p>
+            <h3><?php esc_html_e('Clear Product Detail', 'dawp'); ?></h3>
+            <p><?php esc_html_e('Material, finish, dial layout, sizing, and delivery details are presented so customers can compare confidently before ordering.', 'dawp'); ?></p>
         </article>
     </div>
 </section>
 
 <section class="vm-about-split">
     <figure class="vm-about-split__image">
-        <?php echo $velmo_image('33.jpg', __('Macro view of a luxury watch movement', 'dawp'), 'vm-cover'); ?>
+        <?php echo $velmo_image('64.jpg', __('Macro view of a luxury watch movement', 'dawp'), 'vm-cover'); ?>
     </figure>
     <div class="vm-about-split__copy">
-        <span class="vm-kicker"><?php esc_html_e('The Art of Time', 'dawp'); ?></span>
-        <h2><?php esc_html_e('Defined by Detail.', 'dawp'); ?></h2>
-        <p><?php esc_html_e('A watch is measured in more than specifications. It is the weight of the case, the rhythm of the dial, the patience of finishing and the confidence of design that will still feel exact years from now.', 'dawp'); ?></p>
+        <span class="vm-kicker"><?php esc_html_e('The Velmos Experience', 'dawp'); ?></span>
+        <h2><?php esc_html_e('Built around confident selection.', 'dawp'); ?></h2>
+        <p><?php esc_html_e('Choosing a watch is personal. Velmos keeps the experience focused on what customers need to know: how the watch looks, how it wears, how it is supported, and why it belongs in the collection.', 'dawp'); ?></p>
     </div>
 </section>
 
 <section class="vm-about-feature">
     <div class="vm-about-feature__media" aria-hidden="true">
-        <?php echo $velmo_image('34.jpg', __('Velmo Custom luxury watch maison story', 'dawp'), 'vm-cover'); ?>
+        <?php echo $velmo_image('65.jpg', __('Velmos luxury watch brand story', 'dawp'), 'vm-cover'); ?>
     </div>
     <div class="vm-about-feature__shade" aria-hidden="true"></div>
     <div class="vm-about-wrap vm-about-feature__content">
-        <span class="vm-kicker"><?php esc_html_e('Maison Direction', 'dawp'); ?></span>
-        <h2><?php esc_html_e('Heritage precision, contemporary elegance and quiet craftsmanship.', 'dawp'); ?></h2>
+        <span class="vm-kicker"><?php esc_html_e('Brand Direction', 'dawp'); ?></span>
+        <h2><?php esc_html_e('Precise selection, refined presence, and trusted distribution by velmoscustom.', 'dawp'); ?></h2>
     </div>
 </section>
 
 <section class="vm-about-concierge">
     <div class="vm-about-wrap vm-about-concierge__grid">
         <div>
-            <span class="vm-kicker"><?php esc_html_e('Concierge', 'dawp'); ?></span>
-            <h2><?php esc_html_e('Guidance for a precise choice.', 'dawp'); ?></h2>
+            <span class="vm-kicker"><?php esc_html_e('Velmos Support', 'dawp'); ?></span>
+            <h2><?php esc_html_e('Here when details matter.', 'dawp'); ?></h2>
         </div>
         <div>
-            <p><?php esc_html_e('Ask about sizing, movement character, finishing, delivery or the small details that shape a confident selection.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Ask about sizing, materials, product availability, delivery, returns, or any detail that helps you choose the right Velmos watch.', 'dawp'); ?></p>
             <a class="vm-button vm-button--dark" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
         </div>
     </div>

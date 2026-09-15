@@ -20,9 +20,9 @@ function dawp_footer_columns() {
             'title' => 'Shop',
             'links' => [
                 ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-                ['title' => __('New Arrivals', 'dawp'),         'url' => home_url('/shop/?orderby=date')],
-                ['title' => __('Featured Watches', 'dawp'),     'url' => home_url('/shop/?featured=1')],
-                ['title' => __('Sale Watches', 'dawp'),         'url' => home_url('/shop/?product_visibility=onsale')],
+                ['title' => __('Dress Watches', 'dawp'),        'url' => home_url('/product-category/dress-watches/')],
+                ['title' => __('Diver Watches', 'dawp'),        'url' => home_url('/product-category/diver-watches/')],
+                ['title' => __('Chronograph Watches', 'dawp'),  'url' => home_url('/product-category/chronograph-watches/')],
             ],
         ],
         [

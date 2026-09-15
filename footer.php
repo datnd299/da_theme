@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme footer for Velmo Custom.
+ * Theme footer for Velmos.
  *
  * @package dawp
  */
@@ -8,9 +8,9 @@
 defined('ABSPATH') || exit;
 
 $current_year  = date_i18n('Y');
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom support request', 'dawp')) : 'mailto:' . $support_email;
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmos support request', 'dawp')) : 'mailto:' . $support_email;
 $logo_url      = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [
@@ -18,7 +18,9 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
         'title' => __('Shop', 'dawp'),
         'links' => [
             ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
-            ['title' => __('New Arrivals', 'dawp'), 'url' => home_url('/shop/?orderby=date')],
+            ['title' => __('Dress Watches', 'dawp'), 'url' => home_url('/product-category/dress-watches/')],
+            ['title' => __('Diver Watches', 'dawp'), 'url' => home_url('/product-category/diver-watches/')],
+            ['title' => __('Chronograph Watches', 'dawp'), 'url' => home_url('/product-category/chronograph-watches/')],
         ],
     ],
     [
@@ -247,11 +249,11 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
             <div class="qb-footer-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s home', 'dawp'), $brand_name)); ?>">
                     <img class="qb-footer-logo" src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($brand_name); ?>">
-                    <span class="qb-footer-tagline"><?php esc_html_e('Precision with Presence', 'dawp'); ?></span>
+                    <span class="qb-footer-tagline"><?php esc_html_e('Velmos by velmoscustom', 'dawp'); ?></span>
                 </a>
 
                 <p class="qb-footer-copy">
-                    <?php esc_html_e('Refined watches selected for precision, craftsmanship, and timeless contemporary design.', 'dawp'); ?>
+                    <?php esc_html_e('Velmos watches are selected and distributed by velmoscustom for clear design, confident detail, and reliable everyday presence.', 'dawp'); ?>
                 </p>
 
                 <div class="qb-footer-contact">

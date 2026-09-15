@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom terms support', 'dawp')) : 'mailto:' . $support_email;
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmos terms support', 'dawp')) : 'mailto:' . $support_email;
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 
@@ -23,17 +23,17 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-copy { margin:18px 0 0; max-width:780px; color:var(--qb-text); font-size:17px; line-height:1.75; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
   .qb-hero .qb-actions { justify-content:center; }
-  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff !important; padding:0 24px; font-size:14px; font-weight:800; transition:.2s ease; }
+  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:4px; background:var(--qb-plum); color:#fff !important; padding:0 24px; font-size:14px; font-weight:800; transition:.2s ease; }
   .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
   .qb-button--secondary { background:#fff; color:var(--qb-plum) !important; }
   .qb-button--secondary:hover { border-color:var(--qb-plum); background:var(--qb-ivory); color:var(--qb-plum) !important; }
-  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-border); background:linear-gradient(135deg,#fff 0%,#F7F4EE 62%,rgba(179,138,82,.18) 100%); }
+  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-border); background:linear-gradient(120deg,#10243A 0%,#F5F4F1 0.5%,#fff 52%,#ECE7DD 100%); }
   .qb-hero::before { content:""; position:absolute; inset:auto 0 0; height:1px; background:linear-gradient(90deg,transparent,rgba(179,138,82,.7),transparent); }
-  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(179,138,82,.24); transform:rotate(12deg); }
+  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(16,36,58,.18); transform:rotate(45deg); }
   .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:70px 0 76px; }
   .qb-hero__grid > div { max-width:720px; margin-inline:auto; text-align:center; }
   .qb-hero .qb-copy { margin-inline:auto; }
-  .qb-panel, .qb-card, .qb-policy-card { border:1px solid var(--qb-border); border-radius:8px; background:#fff; box-shadow:0 12px 34px rgba(13,15,15,.05); }
+  .qb-panel, .qb-card, .qb-policy-card { border:1px solid var(--qb-border); border-radius:4px; background:#fff; box-shadow:0 10px 0 rgba(16,36,58,.04); }
   .qb-panel { padding:clamp(24px,4vw,44px); background:rgba(255,255,255,.86); }
   .qb-summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
   .qb-card { padding:22px; }
@@ -43,14 +43,14 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:.82fr 1.18fr; gap:34px; align-items:start; }
   .qb-sidebar { position:sticky; top:120px; display:grid; gap:16px; }
-  .qb-dark-card { border-radius:8px; background:var(--qb-plum); padding:28px; color:#fff; }
+  .qb-dark-card { border-radius:4px; background:var(--qb-plum); padding:28px; color:#fff; }
   .qb-dark-card .qb-eyebrow { color:var(--qb-peach); }
   .qb-dark-card h2, .qb-dark-card p, .qb-dark-card a { color:#fff; }
   .qb-dark-card p { color:rgba(255,255,255,.78); font-size:15px; line-height:1.7; }
   .qb-side-nav { display:grid; gap:10px; margin-top:22px; }
-  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:999px; padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
+  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:4px; padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
   .qb-policy-stack { display:grid; gap:22px; }
-  .qb-policy-card { padding:clamp(24px,4vw,40px); }
+  .qb-policy-card { padding:clamp(24px,4vw,40px); border-top:3px solid rgba(209,174,104,.72); }
   .qb-policy-card:nth-child(even) { background:var(--qb-ivory); }
   .qb-policy-card h2 { font-size:clamp(25px,3vw,38px); line-height:1.12; font-family:Georgia,"Times New Roman",serif; }
   .qb-policy-card h2 + p, .qb-policy-card h2 + ul { margin-top:clamp(14px,1.8vw,20px); }
@@ -80,7 +80,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <p class="qb-eyebrow"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Terms of Service', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php echo esc_html(sprintf('Key terms for using %s, placing orders, and accessing support.', $brand_name)); ?></p>
+        <p class="qb-copy"><?php echo esc_html(sprintf('Important terms for using %s, placing orders, and contacting support.', $brand_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -94,8 +94,8 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
       <aside class="qb-sidebar">
         <div class="qb-dark-card">
           <p class="qb-eyebrow"><?php esc_html_e('Terms Sections', 'dawp'); ?></p>
-          <h2 class="qb-title" style="font-size:clamp(28px,3vw,42px);"><?php esc_html_e('Review before using the store.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('These Terms explain website use, orders, product details, third-party tools, prohibited uses, liability, and contact information.', 'dawp'); ?></p>
+          <h2 class="qb-title" style="font-size:clamp(28px,3vw,42px);"><?php esc_html_e('Please review before shopping.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('These Terms outline website use, orders, product information, third-party tools, prohibited activity, liability, and contact details.', 'dawp'); ?></p>
           <nav class="qb-side-nav" aria-label="<?php esc_attr_e('Terms sections', 'dawp'); ?>">
             <a href="#overview"><?php esc_html_e('Overview', 'dawp'); ?></a>
             <a href="#online-store"><?php esc_html_e('Online Store', 'dawp'); ?></a>
@@ -113,16 +113,16 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
       <div class="qb-policy-stack">
         <section id="overview" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Overview', 'dawp'); ?></p>
-          <h2><?php echo esc_html(sprintf('This website is operated by %s.', $brand_name)); ?></h2>
-          <p><?php echo esc_html(sprintf('Throughout the site, the terms "we," "us," and "our" refer to %s. We provide this website, including all information, tools, products, and services available from this site, to you conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.', $brand_name)); ?></p>
-          <p><?php esc_html_e('By visiting our site and/or purchasing something from us, you engage in our "Service" and agree to be bound by these Terms of Service ("Terms"), including any additional terms, conditions, and policies referenced here or available by hyperlink, including our Privacy Policy, Shipping Policy, and Return & Refund Policy.', 'dawp'); ?></p>
+          <h2><?php echo esc_html(sprintf('%s operates this website.', $brand_name)); ?></h2>
+          <p><?php echo esc_html(sprintf('Across the site, "we," "us," and "our" refer to %s. This website, including the information, tools, products, and services available here, is provided to you subject to your acceptance of the terms, conditions, policies, and notices stated on this page.', $brand_name)); ?></p>
+          <p><?php esc_html_e('By visiting our site and/or purchasing from us, you use our "Service" and agree to these Terms of Service ("Terms"), including any additional terms, conditions, and policies referenced here or linked from this page, including our Privacy Policy, Shipping Policy, and Return & Refund Policy.', 'dawp'); ?></p>
           <p><?php esc_html_e('These Terms apply to all users of the site, including without limitation browsers, customers, account holders, merchants/partners (if applicable), and contributors of content.', 'dawp'); ?></p>
-          <p><?php esc_html_e('Please read these Terms carefully before accessing or using our website. If you do not agree to all the terms and conditions, you may not access the website or use any services.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Please review these Terms carefully before accessing or using our website. If you do not agree to all terms and conditions, you may not access the website or use the services.', 'dawp'); ?></p>
         </section>
 
         <section id="online-store" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('1. Online Store Terms', 'dawp'); ?></p>
-          <h2><?php esc_html_e('You must use the store lawfully and responsibly.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Use of the store must be lawful and responsible.', 'dawp'); ?></h2>
           <p><?php esc_html_e('By agreeing to these Terms, you represent that you are at least the age of majority in your jurisdiction, or that you have given us your consent to allow any minor dependents to use this site under your supervision.', 'dawp'); ?></p>
           <p><?php esc_html_e('You may not use our products or Services for any unlawful or unauthorized purpose, and you may not violate any applicable laws or regulations in your jurisdiction, including import/export, consumer protection, or intellectual property laws.', 'dawp'); ?></p>
           <p><?php esc_html_e('You must not transmit any worms, viruses, malware, or any code of a destructive nature.', 'dawp'); ?></p>
@@ -131,7 +131,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 
         <section id="general" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('2. General Conditions', 'dawp'); ?></p>
-          <h2><?php esc_html_e('We may refuse service or limit access when needed.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Service may be refused or limited when necessary.', 'dawp'); ?></h2>
           <p><?php esc_html_e('We reserve the right to refuse service, limit access, cancel orders, or suspend accounts to anyone for any reason at any time, including suspected fraud, abuse, misuse of promotions, or violations of these Terms.', 'dawp'); ?></p>
           <p><?php esc_html_e('You understand that your content, excluding payment card information, may be transferred unencrypted over various networks and may be adapted to technical requirements of connecting devices or networks. Payment card information is encrypted during transmission by our payment processors.', 'dawp'); ?></p>
           <p><?php esc_html_e('You agree not to reproduce, duplicate, copy, sell, resell, or exploit any portion of the Service without our express written permission.', 'dawp'); ?></p>
@@ -140,7 +140,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 
         <section id="accuracy" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('3. Accuracy, Completeness, and Timeliness of Information', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Site information may not always be complete, accurate, or current.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Site information may not always be complete, current, or error-free.', 'dawp'); ?></h2>
           <p><?php esc_html_e('We try to ensure that information on this site is accurate and up to date, but we do not guarantee that all information, including product descriptions, pricing, availability, compatibility information, or images, is always complete, accurate, or current.', 'dawp'); ?></p>
           <p><?php esc_html_e('The material on this site is provided for general information only and should not be relied upon as the sole basis for making decisions without verifying more specific, complete, or timely information.', 'dawp'); ?></p>
           <p><?php esc_html_e('We reserve the right to modify site content at any time, but we are not obligated to update any information except as required by law.', 'dawp'); ?></p>
@@ -148,7 +148,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 
         <section id="service-prices" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('4. Modifications to the Service and Prices', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Prices and services may change without notice.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Prices, listings, and services may change without notice.', 'dawp'); ?></h2>
           <p><?php esc_html_e('Prices for products may change without notice.', 'dawp'); ?></p>
           <p><?php esc_html_e('We reserve the right to modify, suspend, or discontinue any part of the Service, including product listings, categories, features, promotions, or checkout functionality, at any time without notice.', 'dawp'); ?></p>
           <p><?php esc_html_e('We shall not be liable to you or to any third party for any modification, price change, suspension, or discontinuation of the Service.', 'dawp'); ?></p>
@@ -175,6 +175,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <p><?php esc_html_e('We reserve the right to refuse, limit, or cancel any order you place with us. This may include limitations on quantities purchased per person, household, payment method, address, or order.', 'dawp'); ?></p>
           <p><?php esc_html_e('In the event that we make a change to or cancel an order, we may attempt to notify you using the email address, billing address, and/or phone number provided at the time the order was made.', 'dawp'); ?></p>
           <p><?php esc_html_e('You agree to provide current, complete, and accurate purchase, payment, shipping, and account information for all transactions. You agree to promptly update your account and other information, including your email address, shipping address, and payment details, so we can complete your transactions and contact you as needed.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Before payment is completed, checkout displays the available payment methods, item prices, shipping costs if any, taxes where applicable, discounts, and the final order total. Please review the full order summary and posted policies before placing an order.', 'dawp'); ?></p>
         </section>
 
         <section id="optional-tools" class="qb-policy-card">
@@ -211,7 +212,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <p class="qb-eyebrow"><?php esc_html_e('11. Errors, Inaccuracies, and Omissions', 'dawp'); ?></p>
           <h2><?php esc_html_e('We may correct inaccurate site or order information.', 'dawp'); ?></h2>
           <p><?php esc_html_e('Occasionally, there may be information on our site or in the Service that contains typographical errors, inaccuracies, or omissions relating to product descriptions, pricing, promotions, shipping charges, availability, estimated delivery times, or other content.', 'dawp'); ?></p>
-          <p><?php esc_html_e('We reserve the right to correct any errors, inaccuracies, or omissions, and to change or update information or cancel orders if any information in the Service or on any related website is inaccurate at any time without prior notice, including after you have submitted your order, subject to applicable law.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We reserve the right to correct any errors, inaccuracies, or omissions, and to change or update information or cancel orders if any information in the Service or on any related website is inaccurate at any time without prior notice, including after you have submitted your order, subject to applicable law. If an order is cancelled after payment because of an error or availability issue, we will notify you and issue any applicable refund to the original payment method.', 'dawp'); ?></p>
         </section>
 
         <section id="prohibited" class="qb-policy-card">

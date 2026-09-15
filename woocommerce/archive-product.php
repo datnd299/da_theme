@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop and product category archive template for Velmo Custom.
+ * Shop and product category archive template for Velmos.
  *
  * @package dawp
  */
@@ -12,29 +12,25 @@ $queried_term  = $is_category ? get_queried_object() : null;
 $category_data = $is_category && $queried_term && !is_wp_error($queried_term) ? qb_get_product_category_data($queried_term->slug) : null;
 $shop_url      = get_permalink(wc_get_page_id('shop'));
 $shop_url      = $shop_url ?: home_url('/shop/');
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
 
 if ($category_data) {
     $page_title  = $category_data['name'];
     $headline    = $category_data['headline'];
     $description = $category_data['description'];
-    $intro       = $category_data['intro'];
     $hero_image  = qb_theme_asset_image_url($category_data['image']);
-    $highlights  = $category_data['highlights'];
 } elseif ($is_category && $queried_term && !is_wp_error($queried_term)) {
     $page_title  = $queried_term->name;
     $headline    = $queried_term->name;
-    $description = $queried_term->description ?: 'Browse modern watch styles selected for confident form, refined materials, and everyday presence.';
-    $intro       = 'Review case, strap, movement, size, finish, and care details on each product page before ordering.';
-    $hero_image  = '';
-    $highlights  = ['Modern luxury watches', 'Refined materials', 'Clear product details'];
+    $description = $queried_term->description ?: 'Browse Velmos watch styles selected for confident form, refined materials, and everyday presence.';
+    $thumbnail_id = get_term_meta((int) $queried_term->term_id, 'thumbnail_id', true);
+    $hero_image  = $thumbnail_id ? wp_get_attachment_image_url((int) $thumbnail_id, 'large') : '';
+    $hero_image  = $hero_image ?: get_template_directory_uri() . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/68.jpg';
 } else {
     $page_title  = 'All Watches';
-    $headline    = 'Crafted with Precision.';
-    $description = 'Discover refined luxury watches with clean presentation, considered materials, and precise product detail.';
-    $intro       = sprintf('Shop the %s edit built around proportion, craftsmanship, and timeless contemporary design.', $brand_name);
-    $hero_image  = get_template_directory_uri() . '/assets/images/luxuryimagecollection%20(2)/37.jpg';
-    $highlights  = ['Modern luxury watches', 'Precise presentation', 'Secure checkout'];
+    $headline    = 'Shop Velmos Watches.';
+    $description = 'Discover the main watch collection distributed by velmoscustom, selected for clean presentation, considered materials, and precise product detail.';
+    $hero_image  = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/68.jpg';
 }
 
 if (!$hero_image && function_exists('wc_placeholder_img_src')) {
@@ -42,7 +38,6 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
 }
 
 $live_categories = function_exists('qb_get_live_product_categories') ? qb_get_live_product_categories() : [];
-$hero_kicker     = $is_category ? __('Category Edit', 'dawp') : __('Shop The Collection', 'dawp');
 
 get_header();
 ?>
@@ -66,25 +61,10 @@ get_header();
                 <p class="shop-eyebrow"><?php echo esc_html(sprintf(__('%s Collection', 'dawp'), $brand_name)); ?></p>
                 <h1 class="shop-hero__title"><?php echo esc_html($headline); ?></h1>
                 <p class="shop-hero__copy"><?php echo esc_html($description); ?></p>
-                <p class="shop-hero__intro"><?php echo esc_html($intro); ?></p>
-
-                <div class="shop-hero__actions">
-                    <a class="shop-hero__button" href="#main-content"><?php esc_html_e('View Timepieces', 'dawp'); ?></a>
-                    <?php if ($is_category) : ?>
-                        <a class="shop-hero__link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('All Watches', 'dawp'); ?></a>
-                    <?php endif; ?>
-                </div>
-
-                <div class="shop-hero__highlights" aria-label="<?php esc_attr_e('Collection highlights', 'dawp'); ?>">
-                    <?php foreach ($highlights as $highlight) : ?>
-                        <span><?php echo esc_html($highlight); ?></span>
-                    <?php endforeach; ?>
-                </div>
             </div>
 
             <?php if ($hero_image) : ?>
                 <div class="shop-hero__media">
-                    <span class="shop-hero__kicker"><?php echo esc_html($hero_kicker); ?></span>
                     <?php
                     echo qb_responsive_image(
                         $hero_image,
@@ -99,17 +79,28 @@ get_header();
                         ]
                     );
                     ?>
-                    <div class="shop-hero__caption" aria-hidden="true">
-                        <span><?php esc_html_e('Precision', 'dawp'); ?></span>
-                        <span><?php esc_html_e('Craft', 'dawp'); ?></span>
-                        <span><?php esc_html_e('Detail', 'dawp'); ?></span>
-                    </div>
                 </div>
             <?php endif; ?>
         </div>
     </section>
 
     <div class="shop-container">
+        <?php if (!empty($live_categories)) : ?>
+            <nav class="shop-category-strip" aria-label="<?php esc_attr_e('Shop categories', 'dawp'); ?>">
+                <a class="shop-category-strip__item <?php echo !$is_category ? 'is-active' : ''; ?>" href="<?php echo esc_url($shop_url); ?>">
+                    <span><?php esc_html_e('All', 'dawp'); ?></span>
+                </a>
+                <?php foreach ($live_categories as $category) : ?>
+                    <?php
+                    $current = $queried_term && !is_wp_error($queried_term) && (int) $queried_term->term_id === (int) $category->term_id;
+                    ?>
+                    <a class="shop-category-strip__item <?php echo $current ? 'is-active' : ''; ?>" href="<?php echo esc_url(function_exists('qb_product_term_url') ? qb_product_term_url($category) : get_term_link($category)); ?>">
+                        <span><?php echo esc_html($category->name); ?></span>
+                    </a>
+                <?php endforeach; ?>
+            </nav>
+        <?php endif; ?>
+
         <div class="shop-toolbar">
             <div class="shop-toolbar__left">
                 <span class="shop-toolbar__count">
@@ -206,16 +197,6 @@ get_header();
             </main>
         </div>
 
-        <section class="shop-care">
-            <div>
-                <h2><?php esc_html_e('Material, Size & Care Details', 'dawp'); ?></h2>
-                <p><?php echo esc_html(sprintf(__('%s product pages should include available material or finish notes, case size, strap information, movement details where available, and simple watch care guidance.', 'dawp'), $brand_name)); ?></p>
-            </div>
-            <div>
-                <h2><?php esc_html_e('Modern Watch Shopping', 'dawp'); ?></h2>
-                <p><?php esc_html_e('The collection is positioned around modern luxury watch ecommerce without fake luxury, replica, designer-inspired, or unsupported performance claims.', 'dawp'); ?></p>
-            </div>
-        </section>
     </div>
 </div>
 

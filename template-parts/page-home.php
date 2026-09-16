@@ -123,6 +123,7 @@ $room_cards = [
     ['title' => __('Garden & Tools', 'dawp'), 'copy' => __('Garden, patio and useful tools for home projects and outdoor care.', 'dawp'), 'image' => 'Garden_lounge_area_with_hanging_202607161300.jpeg', 'image_hint' => 'garden-tools.jpeg', 'slug' => 'garden-tools'],
     ['title' => __('Electronics', 'dawp'), 'copy' => __('Entertainment, connected tech and useful electronic essentials.', 'dawp'), 'image' => 'Modern_living_room_smart_electro…_202607161235.jpeg', 'image_hint' => 'electronics.jpeg', 'slug' => 'electronics'],
     ['title' => __('Sports & Outdoors', 'dawp'), 'copy' => __('Fitness, recreation and outdoor activity gear for active days.', 'dawp'), 'image' => 'Home_gym_setup_cork_mat_202607241524.jpeg', 'image_hint' => 'sports-outdoors.jpeg', 'slug' => 'sports-outdoors'],
+    ['title' => __('Auto & Tire', 'dawp'), 'copy' => __('Tires and practical auto essentials for daily driving, road trips and seasonal changes.', 'dawp'), 'image' => 'Auto_Tire_garage_essentials.png', 'image_hint' => 'auto-tire.jpeg', 'slug' => 'auto-tire'],
     ['title' => __('Toys & Outdoor Play', 'dawp'), 'copy' => __('Toys, games and outdoor play favorites for kids and family time.', 'dawp'), 'image' => 'Children_playing_tumble_tower_game_202607241524.jpeg', 'image_hint' => 'toys-outdoor-play.jpeg', 'slug' => 'toys-outdoor-play'],
     ['title' => __('Beauty & Personal Care', 'dawp'), 'copy' => __('Beauty, grooming, wellness and personal care products for daily routines.', 'dawp'), 'image' => 'Skincare_bottles_on_marble_vanity_202607241524.jpeg', 'image_hint' => 'beauty-personal-care.jpeg', 'slug' => 'beauty-personal-care'],
     ['title' => __('Pets', 'dawp'), 'copy' => __('Pet care, comfort, toys and everyday supplies for home companions.', 'dawp'), 'image' => 'Pet_bed_with_cat_202607241524.jpeg', 'image_hint' => 'pets.jpeg', 'slug' => 'pets'],
@@ -206,6 +207,17 @@ if (function_exists('wc_get_products')) {
     .mmd-room-card__cta { margin-top:auto; padding-top:16px; color:var(--mmd-accent); font-size:.76rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
     .mmd-room-card:hover, .mmd-product-card:hover { border-color:#D0B8AE; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
     .mmd-room-card:hover img, .mmd-collection-card:hover img { transform:scale(1.04); }
+    .mmd-auto-tire { display:grid; gap:28px; align-items:center; }
+    .mmd-auto-tire__media { min-height:320px; overflow:hidden; position:relative; }
+    .mmd-auto-tire__media img { width:100%; height:100%; min-height:320px; object-fit:cover; }
+    .mmd-auto-tire__badge { position:absolute; left:16px; bottom:16px; max-width:280px; background:rgba(255,255,255,.94); border:1px solid var(--mmd-line); padding:15px; color:var(--mmd-ink); font-size:.84rem; font-weight:700; line-height:1.45; }
+    .mmd-auto-tire__content h2 { font-size:clamp(1.75rem, 3vw, 2.65rem); line-height:1.12; }
+    .mmd-auto-tire__copy { margin-top:16px; line-height:1.68; font-size:.96rem; }
+    .mmd-auto-tire__points { display:grid; gap:12px; margin-top:22px; }
+    .mmd-auto-tire__point { border-left:3px solid var(--mmd-accent); background:#fff; padding:13px 15px; }
+    .mmd-auto-tire__point strong { display:block; color:var(--mmd-ink); font-size:.9rem; line-height:1.35; }
+    .mmd-auto-tire__point span { display:block; margin-top:4px; color:#665D56; font-size:.88rem; line-height:1.5; }
+    .mmd-auto-tire__actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
     .mmd-collection-grid { display:grid; gap:18px; }
     .mmd-collection-card { display:grid; min-height:330px; color:#fff; text-decoration:none; }
     .mmd-collection-card img, .mmd-collection-card__content { grid-area:1/1; }
@@ -260,7 +272,7 @@ if (function_exists('wc_get_products')) {
     .mmd-newsletter input { min-height:48px; border:1px solid rgba(255,255,255,.28); background:#fff; padding:0 14px; color:var(--mmd-ink); }
     .mmd-newsletter button { min-height:48px; border:1px solid var(--mmd-accent); background:var(--mmd-accent); color:#fff; cursor:pointer; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
     @media (min-width:700px) { .mmd-room-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-collection-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-season-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-gallery-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-newsletter form { grid-template-columns:1fr auto; justify-self:end; } }
-    @media (min-width:900px) { .mmd-hero__grid { grid-template-columns:.94fr 1.06fr; } .mmd-story { grid-template-columns:1.06fr .94fr; } .mmd-product-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-trust-grid { grid-template-columns:repeat(5, minmax(0, 1fr)); } .mmd-newsletter__inner { grid-template-columns:1fr minmax(380px, 540px); } }
+    @media (min-width:900px) { .mmd-hero__grid { grid-template-columns:.94fr 1.06fr; } .mmd-auto-tire { grid-template-columns:1.05fr .95fr; } .mmd-story { grid-template-columns:1.06fr .94fr; } .mmd-product-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-trust-grid { grid-template-columns:repeat(5, minmax(0, 1fr)); } .mmd-newsletter__inner { grid-template-columns:1fr minmax(380px, 540px); } }
     @media (max-width:699px) { .mmd-section { padding:50px 0; } .mmd-section__head { align-items:start; flex-direction:column; } .mmd-room-grid, .mmd-product-grid, .mmd-season-grid, .mmd-trust-grid { display:flex; gap:14px; margin-inline:-16px; overflow-x:auto; padding-inline:16px; padding-bottom:4px; scroll-snap-type:x mandatory; scrollbar-width:none; } .mmd-room-grid::-webkit-scrollbar, .mmd-product-grid::-webkit-scrollbar, .mmd-season-grid::-webkit-scrollbar, .mmd-trust-grid::-webkit-scrollbar { display:none; } .mmd-room-card, .mmd-product-card, .mmd-season-card, .mmd-trust-card { flex:0 0 clamp(17rem, 82vw, 21rem); max-width:clamp(17rem, 82vw, 21rem); scroll-snap-align:start; } .mmd-gallery-grid { gap:10px; } .mmd-hero__note { left:14px; right:14px; } }
 </style>
 
@@ -304,6 +316,38 @@ if (function_exists('wc_get_products')) {
                         </span>
                     </a>
                 <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="mmd-section mmd-section--soft" aria-labelledby="mmd-auto-tire-title">
+        <div class="mmd-container mmd-auto-tire">
+            <div class="mmd-auto-tire__media">
+                <?php echo $mmd_img('Auto_Tire_family_suv_tires.png', __('New all-season tires staged beside a family SUV', 'dawp'), '', 980, 520, 'lazy', '(max-width: 899px) 100vw, 52vw'); ?>
+                <div class="mmd-auto-tire__badge"><?php esc_html_e('Reliable tire essentials for daily drives, family trips and changing seasons.', 'dawp'); ?></div>
+            </div>
+            <div class="mmd-auto-tire__content">
+                <p class="mmd-eyebrow"><?php esc_html_e('Auto & Tire', 'dawp'); ?></p>
+                <h2 id="mmd-auto-tire-title"><?php esc_html_e('Tires are an everyday essential for American families.', 'dawp'); ?></h2>
+                <p class="mmd-auto-tire__copy"><?php esc_html_e('From yearly replacements to seasonal tire needs, MegaMallDepot helps households shop practical auto and tire products with the same clear value and convenience they expect from every department.', 'dawp'); ?></p>
+                <div class="mmd-auto-tire__points" aria-label="<?php esc_attr_e('Auto and tire highlights', 'dawp'); ?>">
+                    <div class="mmd-auto-tire__point">
+                        <strong><?php esc_html_e('Season-ready selection', 'dawp'); ?></strong>
+                        <span><?php esc_html_e('Support for all-season, summer and cold-weather driving needs.', 'dawp'); ?></span>
+                    </div>
+                    <div class="mmd-auto-tire__point">
+                        <strong><?php esc_html_e('Built for routine replacement', 'dawp'); ?></strong>
+                        <span><?php esc_html_e('A practical category for households that review tread, mileage and safety every year.', 'dawp'); ?></span>
+                    </div>
+                    <div class="mmd-auto-tire__point">
+                        <strong><?php esc_html_e('For daily family mobility', 'dawp'); ?></strong>
+                        <span><?php esc_html_e('Essential auto products for commutes, errands, school runs and road trips.', 'dawp'); ?></span>
+                    </div>
+                </div>
+                <div class="mmd-auto-tire__actions">
+                    <a class="mmd-btn mmd-btn--primary" href="<?php echo esc_url($mmd_cat_url('auto-tire')); ?>"><?php esc_html_e('Shop Auto & Tire', 'dawp'); ?></a>
+                    <a class="mmd-btn mmd-btn--secondary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse All Products', 'dawp'); ?></a>
+                </div>
             </div>
         </div>
     </section>

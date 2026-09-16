@@ -31,6 +31,11 @@ function dawp_lbq_product_categories() {
             'description' => __('Sports, fitness, recreation and outdoor activity products.', 'dawp'),
             'short'       => __('Fitness, recreation and outdoor activity gear.', 'dawp'),
         ],
+        'auto-tire' => [
+            'name'        => __('Auto & Tire', 'dawp'),
+            'description' => __('Tires and practical auto essentials for daily driving, road trips, yearly replacement needs and seasonal changes.', 'dawp'),
+            'short'       => __('Tires and auto essentials for family mobility.', 'dawp'),
+        ],
         'toys-outdoor-play' => [
             'name'        => __('Toys & Outdoor Play', 'dawp'),
             'description' => __('Toys, games and outdoor play products for kids and families.', 'dawp'),
@@ -68,8 +73,51 @@ function dawp_lbq_product_category_slugs() {
     return array_keys(dawp_lbq_product_categories());
 }
 
+function dawp_product_category_slug($slug) {
+    $slug = sanitize_title($slug);
+
+    $map = [
+        'essentials' => 'home',
+        'home'       => 'home',
+        'furniture'  => 'home',
+        'electronics'=> 'electronics',
+        'smart'      => 'electronics',
+        'kitchen'    => 'home',
+        'outdoor'    => 'sports-outdoors',
+        'garden'     => 'garden-tools',
+        'tools'      => 'garden-tools',
+        'sports'     => 'sports-outdoors',
+        'toys'       => 'toys-outdoor-play',
+        'beauty'     => 'beauty-personal-care',
+        'pets'       => 'pets',
+        'school'     => 'school-office-art-supplies',
+        'office'     => 'school-office-art-supplies',
+        'art'        => 'school-office-art-supplies',
+    ];
+
+    return $map[$slug] ?? $slug;
+}
+
 function dawp_is_lbq_product_category_slug($slug) {
     return in_array($slug, dawp_lbq_product_category_slugs(), true);
+}
+
+function dawp_product_category_url($slug) {
+    $slug = dawp_product_category_slug($slug);
+
+    if (taxonomy_exists('product_cat')) {
+        $term = get_term_by('slug', $slug, 'product_cat');
+
+        if ($term && !is_wp_error($term)) {
+            $link = get_term_link($term, 'product_cat');
+
+            if (!is_wp_error($link)) {
+                return $link;
+            }
+        }
+    }
+
+    return home_url('/product-category/' . trim($slug, '/') . '/');
 }
 
 function dawp_lbq_product_category_terms() {

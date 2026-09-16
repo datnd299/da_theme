@@ -39,6 +39,10 @@ $shop_cover_images = [
         'url' => $home_image('Living_Room.jpeg'),
         'alt' => __('Modern living room ready for entertainment and connected devices', 'dawp'),
     ],
+    'auto-tire' => [
+        'url' => $home_image('Auto_Tire_category_cover.png'),
+        'alt' => __('Auto and tire essentials arranged in a clean modern garage', 'dawp'),
+    ],
     'sports-outdoors' => [
         'url' => $gallery_image('Home_gym_setup_cork_mat_202607241524.jpeg'),
         'alt' => __('Home gym setup with fitness and outdoor activity gear', 'dawp'),

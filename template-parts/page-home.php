@@ -12,10 +12,12 @@ defined('ABSPATH') || exit;
 .eyebrow { display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .12em; font-weight: 700; color: var(--muted); text-transform: uppercase; }
 .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 18px var(--lime); animation: pulse 1.8s infinite; }
 @keyframes pulse { 50% { opacity: .35; } }
-.hero { min-height: 100svh; position: relative; display: flex; align-items: center; padding: 128px 0 70px; overflow: hidden; }
+.hero { --hero-mx: 72%; --hero-my: 42%; min-height: 100svh; position: relative; display: flex; align-items: center; padding: 128px 0 70px; overflow: hidden; }
+.hero:before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(circle at var(--hero-mx) var(--hero-my), rgba(200,255,61,.2), rgba(80,255,166,.075) 20%, transparent 42%); opacity: 0; mix-blend-mode: screen; transition: opacity .2s ease; }
+.hero:hover:before, .hero.is-touch-hot:before { opacity: 1; }
 #signalCanvas, #heroCursorCanvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 #signalCanvas { opacity: .8; }
-#heroCursorCanvas { z-index: 1; opacity: .95; mix-blend-mode: screen; }
+#heroCursorCanvas { z-index: 1; opacity: 1; mix-blend-mode: screen; }
 .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 54px 54px; mask-image: linear-gradient(to bottom, black, transparent 90%); }
 .glow { position: absolute; width: 650px; height: 650px; border-radius: 50%; right: -160px; top: 12%; background: radial-gradient(circle, rgba(200,255,61,.12), transparent 67%); filter: blur(20px); }
 .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.02fr .98fr; gap: 70px; align-items: center; }
@@ -383,16 +385,24 @@ defined('ABSPATH') || exit;
     my = event.clientY;
   });
   if (hero && trailCanvas && trailCtx) {
+    const updateHeroGlow = (clientX, clientY) => {
+      const rect = hero.getBoundingClientRect();
+      heroMouseX = clientX - rect.left;
+      heroMouseY = clientY - rect.top;
+      hero.style.setProperty('--hero-mx', `${heroMouseX}px`);
+      hero.style.setProperty('--hero-my', `${heroMouseY}px`);
+    };
+
     hero.addEventListener('pointerenter', () => {
       isHeroHot = true;
     });
     hero.addEventListener('pointerleave', () => {
       isHeroHot = false;
+      hero.style.setProperty('--hero-mx', '72%');
+      hero.style.setProperty('--hero-my', '42%');
     });
     hero.addEventListener('pointermove', event => {
-      const rect = hero.getBoundingClientRect();
-      heroMouseX = event.clientX - rect.left;
-      heroMouseY = event.clientY - rect.top;
+      updateHeroGlow(event.clientX, event.clientY);
       sparks.push({
         x: heroMouseX,
         y: heroMouseY,
@@ -405,6 +415,28 @@ defined('ABSPATH') || exit;
         hue: 78 + Math.random() * 34
       });
       if (sparks.length > 95) sparks.splice(0, sparks.length - 95);
+    }, { passive: true });
+    hero.addEventListener('touchstart', event => {
+      const touch = event.touches[0];
+      if (!touch) return;
+      isHeroHot = true;
+      hero.classList.add('is-touch-hot');
+      updateHeroGlow(touch.clientX, touch.clientY);
+    }, { passive: true });
+    hero.addEventListener('touchmove', event => {
+      const touch = event.touches[0];
+      if (!touch) return;
+      isHeroHot = true;
+      hero.classList.add('is-touch-hot');
+      updateHeroGlow(touch.clientX, touch.clientY);
+    }, { passive: true });
+    hero.addEventListener('touchend', () => {
+      isHeroHot = false;
+      setTimeout(() => hero.classList.remove('is-touch-hot'), 260);
+    }, { passive: true });
+    hero.addEventListener('touchcancel', () => {
+      isHeroHot = false;
+      hero.classList.remove('is-touch-hot');
     }, { passive: true });
   }
   resize();

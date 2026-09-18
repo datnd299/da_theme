@@ -27,6 +27,7 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     return [
+        'services'         => ['slug' => 'services',         'title' => 'Services', 'css' => 'tw-main.css'],
         'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'tw-about.css'],
         'faq'              => ['slug' => 'faq',              'title' => 'FAQ', 'css' => 'tw-faq.css'],
         'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'tw-contact.css'],

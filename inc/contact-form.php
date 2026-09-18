@@ -6,7 +6,7 @@
  */
 
 function dawp_contact_support_email() {
-    return 'support@orvelshop.com';
+    return get_option('admin_email');
 }
 
 function dawp_contact_form_redirect($status) {
@@ -40,7 +40,7 @@ function dawp_handle_contact_form() {
     $order       = isset($_POST['contact_order']) ? sanitize_text_field(wp_unslash($_POST['contact_order'])) : '';
     $message     = isset($_POST['contact_message']) ? sanitize_textarea_field(wp_unslash($_POST['contact_message'])) : '';
     $consent     = isset($_POST['contact_consent']);
-    $valid_topics = ['Order question', 'Tracking help', 'Return request', 'Product or size question', 'Damaged or incorrect item', 'Other'];
+    $valid_topics = ['General inquiry', 'Marketing services', 'Business development', 'Partnership', 'Support', 'Other'];
 
     if (
         '' === $name ||
@@ -55,7 +55,7 @@ function dawp_handle_contact_form() {
 
     $subject = sprintf(
         /* translators: %s: contact form topic. */
-        __('Orvel contact: %s', 'dawp'),
+        __('Website contact: %s', 'dawp'),
         $topic
     );
 

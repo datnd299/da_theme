@@ -1,11 +1,9 @@
 <?php
 add_action('after_setup_theme', 'dawp_setup');
-add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
 remove_action('wp_head', 'wp_site_icon', 99);
-add_action('wp_head', 'dawp_logo_favicon', 100);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'OT-' . $order_id;
+    return $order_id;
 }
 function dawp_setup() {
     add_theme_support('title-tag');
@@ -24,16 +22,6 @@ function dawp_setup() {
 function dawp_asset_ver($relative_path) {
     $absolute = get_template_directory() . '/' . ltrim($relative_path, '/');
     return file_exists($absolute) ? (string) filemtime($absolute) : '1.0.0';
-}
-
-function dawp_logo_favicon() {
-    $logo_url = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/news/logoorvel.png';
-    $favicon_url = function_exists('qb_i0_image_url') ? qb_i0_image_url($logo_url, 32, 32) : $logo_url;
-    $apple_touch_icon_url = function_exists('qb_i0_image_url') ? qb_i0_image_url($logo_url, 180, 180) : $logo_url;
-    ?>
-    <link rel="icon" href="<?php echo esc_url($favicon_url); ?>" type="image/png" sizes="32x32">
-    <link rel="apple-touch-icon" href="<?php echo esc_url($apple_touch_icon_url); ?>" sizes="180x180">
-    <?php
 }
 
 add_action('template_redirect', 'redirect_search_to_product');
@@ -64,8 +52,9 @@ function dawp_scripts() {
 
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
 
-    if ( is_front_page() ) {
-        wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
+    $request_path = trim(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '', '/');
+    if ( is_front_page() || is_home() || $request_path === '' ) {
+        wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], dawp_asset_ver('assets/css/tw/tw-home.css'));
         dawp_remove_styles();
     }
 

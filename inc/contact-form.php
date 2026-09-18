@@ -6,14 +6,14 @@
  */
 
 function dawp_contact_support_email() {
-    return 'support@velmoscustom.com';
+    return 'hello@clixframe.com';
 }
 
 function dawp_contact_mailto_url($subject = '', $body = '') {
     $email = sanitize_email(dawp_contact_support_email());
 
     if (!$email) {
-        $email = 'support@velmoscustom.com';
+        $email = 'hello@clixframe.com';
     }
 
     $query = [];
@@ -60,7 +60,7 @@ function dawp_handle_contact_form() {
     $order       = isset($_POST['contact_order']) ? sanitize_text_field(wp_unslash($_POST['contact_order'])) : '';
     $message     = isset($_POST['contact_message']) ? sanitize_textarea_field(wp_unslash($_POST['contact_message'])) : '';
     $consent     = isset($_POST['contact_consent']);
-    $valid_topics = ['Order question', 'Tracking help', 'Return request', 'Product or size question', 'Damaged or incorrect item', 'Other'];
+    $valid_topics = ['Growth inquiry', 'Paid media', 'Conversion optimization', 'Digital operations', 'Partnership', 'Other'];
 
     if (
         '' === $name ||
@@ -75,7 +75,7 @@ function dawp_handle_contact_form() {
 
     $subject = sprintf(
         /* translators: %s: contact form topic. */
-        __('Velmos contact: %s', 'dawp'),
+        __('Clixframe inquiry: %s', 'dawp'),
         $topic
     );
 

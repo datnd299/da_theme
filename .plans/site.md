@@ -1,86 +1,313 @@
-VELMOCUSTOM.COM — SITE OVERVIEW
+# CLIXFRAME.COM — SITE.MD
 
-Brand
+Version: 2.0
 
-Name: Velmo Custom
-Domain: velmocustom.com
-Category: Luxury watches
-Brand Idea: Crafted with Precision.
+## 1. BRAND
 
-Velmo Custom is a refined luxury watch store focused on precision, craftsmanship and timeless contemporary design.
+Brand: Clixframe
+Domain: clixframe.com
 
-Direction
+Clixframe is a digital growth and operations agency.
 
-Heritage Precision × Contemporary Elegance × Quiet Craftsmanship
+We help businesses grow through advertising, marketing, conversion,
+digital operations, customer management and performance optimization.
 
-The website should feel like a modern watch maison: sophisticated, precise, calm and highly refined.
+Clixframe should not feel like a traditional marketing agency.
 
-Take inspiration from high-watchmaking editorial design and Breguet's emphasis on timepieces, craftsmanship and heritage storytelling, while keeping Velmo Custom original and ecommerce-focused.
+Position the company as:
 
-Main Pages
+**THE DIGITAL GROWTH ENGINE BEHIND THE BUSINESS.**
 
-Home
+---
 
-Shop
+## 2. CORE PROMISE
 
-About
+**WE TURN ATTENTION INTO GROWTH.**
 
-Contact
+Clixframe connects the entire digital customer journey:
 
-FAQ
+Attention → Click → Lead → Conversation → Customer → Retention → Revenue
 
-Shipping & Returns
+The goal is measurable business growth, not vanity metrics.
 
-Privacy Policy
+---
 
-Terms & Conditions
+## 3. CORE SYSTEM
 
-My Account
+Clixframe operates through four stages:
 
-Cart
+### ATTRACT
 
-Checkout
+Get the right attention.
 
-Ecommerce
+Paid advertising
+Creative marketing
+Content
+Audience strategy
 
-Built for WordPress + WooCommerce.
+### CONVERT
 
-Products, categories, prices, stock, images, URLs, cart, checkout and account data must remain dynamic. Never hard-code WooCommerce commerce data.
+Turn attention into customers.
+
+Lead generation
+Funnels
+Retargeting
+Conversion optimization
+
+### OPERATE
+
+Keep every touchpoint moving.
+
+Campaign management
+Digital operations
+Customer management
+Customer care
+
+### SCALE
+
+Turn performance into momentum.
+
+Analytics
+Optimization
+Automation
+Retention
+Cross-platform expansion
+
+---
+
+## 4. CORE CAPABILITIES
+
+Paid Media
+Performance Marketing
+Creative Marketing
+Lead Generation
+Conversion Optimization
+Digital Operations
+Customer Management
+Customer Care
+Analytics & Optimization
+Growth Strategy
+
+---
+
+## 5. PLATFORMS
+
+Primary digital ecosystem:
+
+Meta / Facebook
+Google
+TikTok
+Instagram
+YouTube
+
+Platforms are distribution channels.
+
+Clixframe's real product is the connected growth system behind them.
+
+---
+
+## 6. TARGET CLIENTS
+
+Growth-stage businesses
+Ecommerce brands
+Service businesses
+Emerging brands
+Established businesses expanding digitally
+Entrepreneurs and personal brands
+
+---
+
+## 7. BUSINESS OUTCOMES
+
+Prioritize:
+
+Revenue growth
+Customer acquisition
+Qualified leads
+Conversion rate
+Advertising efficiency
+Customer retention
+Operational efficiency
+Cross-platform scalability
+
+---
+
+## 8. WEBSITE POSITIONING
+
+The website should communicate:
+
+Growth
+Performance
+Technology
+Speed
+Precision
+Multi-platform capability
+Connected operations
+Customer journey management
+
+The experience should feel closer to a growth technology company
+than a conventional agency website.
+
+---
+
+## 9. HOMEPAGE
+
+Homepage storytelling:
+
+Hero
+→ Clixframe Growth Engine
+→ Platform Ecosystem
+→ How Clixframe Grows
+→ Customer Journey
+→ Performance Intelligence
+→ Connected Ecosystem
+→ Final CTA
+
+Hero message:
+
+**WE TURN ATTENTION INTO GROWTH.**
+
+Primary CTA:
+
+**Start Growing ↗**
+
+Homepage should use immersive UI and interactive storytelling
+instead of many small marketing sections.
+
+---
+
+## 10. SITE STRUCTURE
+
+/
 
 Homepage
 
-Hero Statement → Featured Timepieces → Craftsmanship Story → Products → Signature Details → Brand Story → Product Focus → Newsletter
+/services
 
-Keep the homepage selective, elegant and visually calm.
+Overview of Clixframe capabilities.
 
-Content Style
+/how-we-grow
 
-Short, refined, intelligent and craftsmanship-led.
+Explain ATTRACT → CONVERT → OPERATE → SCALE.
 
-Examples:
+/work
 
-Crafted with Precision.
+Case studies and verified performance results.
 
-Defined by Detail.
+/about
 
-The Art of Time.
+Clixframe positioning, philosophy and team.
 
-Precision in Every Detail.
+/contact
 
-Designed to Endure.
+Growth inquiry and contact.
 
-Avoid exaggerated luxury language, long marketing copy and generic ecommerce messaging.
+Future:
 
-Visual Principles
+/insights
+/careers
 
-Prioritize refined watch photography, macro craftsmanship details, porcelain/ivory space, elegant serif typography, restrained navy and champagne accents, precise editorial layouts, clean product presentation, generous whitespace and subtle motion.
+---
 
-Avoid generic ecommerce templates, excessive black/gold, oversized headlines, rounded card-heavy UI, heavy shadows, gradients, visual clutter and flashy animation.
+## 11. CASE STUDIES
 
-Brand Safety
+Use:
 
-Velmo Custom must remain an independent brand/store. Do not copy third-party logos, wording, imagery, product naming, packaging or protected brand identities.
+Challenge
+→ Strategy
+→ Execution
+→ Result
 
-Core Principle
+Prioritize measurable outcomes.
 
-Craftsmanship creates distinction. Precision creates trust. The timepiece remains the hero.
+Never fabricate client names, revenue, ROAS, CPA or other results.
+
+Demo dashboard numbers must always be treated as illustrative UI data.
+
+---
+
+## 12. COPY STYLE
+
+Short.
+Confident.
+Performance-focused.
+Modern.
+Direct.
+
+Lead with outcomes before services.
+
+Avoid generic agency language.
+
+Avoid excessive buzzwords.
+
+Avoid unsupported claims.
+
+---
+
+## 13. VISUAL DIRECTION
+
+Follow `design-system.md`.
+
+Core identity:
+
+Signal Lime
+Dark performance environments
+Clixframe X
+Signal Lines
+Performance Interfaces
+Moving Data
+
+High-tech should come from data, interfaces, precision and motion,
+not excessive futuristic effects.
+
+---
+
+## 14. GLOBAL SITE ARCHITECTURE
+
+Header and Footer are global components.
+
+They must not be rebuilt inside individual page bodies.
+
+Each page contains only its own `<main>` content.
+
+Global:
+
+Header
+Footer
+Shared CSS / Design Tokens
+Shared JavaScript
+
+Page-specific:
+
+Homepage Body
+Services Body
+How We Grow Body
+Work Body
+About Body
+Contact Body
+
+---
+
+## 15. BUILD RULE
+
+Use:
+
+`site.md` = what Clixframe is and says
+`design-system.md` = how Clixframe looks and behaves
+`homeplan.md` = homepage structure
+Noise reference = inspiration for rhythm and interaction
+
+Do not copy another company's logo, copy, proprietary assets
+or exact visual identity.
+
+Every page must feel unmistakably **CLIXFRAME**.
+
+---
+
+## NORTH STAR
+
+**ATTENTION × CONVERSION × OPERATIONS × RETENTION = GROWTH**
+
+**ATTRACT → CONVERT → OPERATE → SCALE**
+
+**THE DIGITAL GROWTH ENGINE BEHIND THE BUSINESS.**

@@ -27,9 +27,14 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     return [
-        'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'tw-about.css'],
+        'services'         => ['slug' => 'services',         'title' => 'Services', 'css' => ''],
+        'how-we-grow'      => ['slug' => 'how-we-grow',      'title' => 'How We Grow', 'css' => ''],
+        'work'             => ['slug' => 'work',             'title' => 'Work', 'css' => ''],
+        'about'            => ['slug' => 'about',            'title' => 'About', 'css' => ''],
+        'about-us'         => ['slug' => 'about',            'title' => 'About', 'css' => ''],
         'faq'              => ['slug' => 'faq',              'title' => 'FAQ', 'css' => 'tw-faq.css'],
-        'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'tw-contact.css'],
+        'contact'          => ['slug' => 'contact',          'title' => 'Contact', 'css' => ''],
+        'contact-us'       => ['slug' => 'contact',          'title' => 'Contact', 'css' => ''],
         'shipping-policy'  => ['slug' => 'shipping-policy',  'title' => 'Shipping Policy', 'css' => 'tw-ship.css'],
         'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'css' => 'tw-ship.css'],
         'shipping-returns' => ['slug' => 'shipping-returns', 'title' => 'Shipping & Returns', 'css' => 'tw-ship.css'],

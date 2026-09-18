@@ -1,6 +1,6 @@
 <?php
 /**
- * SEO + structured data for Velmos.
+ * SEO + structured data for Clixframe.
  *
  * No SEO plugin (Rank Math / Yoast) is active on this site, so the theme is
  * responsible for:
@@ -21,11 +21,11 @@ defined('ABSPATH') || exit;
  * Storefront brand name. Filterable for reuse on other stores.
  */
 function dawp_brand_name() {
-    return apply_filters('dawp_brand_name', 'Velmos');
+    return apply_filters('dawp_brand_name', 'Clixframe');
 }
 
 /**
- * Primary market country (ISO 3166-1 alpha-2). Velmos ships U.S.-only per
+ * Primary market country (ISO 3166-1 alpha-2). Kept for legacy WooCommerce
  * every policy page, so structured data / shipping data key off this rather
  * than the WooCommerce base-country option. Filterable.
  */
@@ -39,7 +39,7 @@ function dawp_store_country() {
 function dawp_default_description() {
     return apply_filters(
         'dawp_default_description',
-        'Velmos is the signature watch destination distributed by velmoscustom, offering selected timepieces with precise detail, considered design, and dependable service.'
+        'Clixframe is a digital growth and operations agency that turns attention into measurable growth across advertising, conversion, customer operations and performance optimization.'
     );
 }
 
@@ -50,41 +50,61 @@ function dawp_get_virtual_seo() {
     $uri = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?? '', '/');
 
     $map = [
+        'services' => [
+            'title'       => 'Services',
+            'description' => 'Explore Clixframe services across paid media, performance marketing, lead generation, conversion optimization, digital operations and analytics.',
+        ],
+        'how-we-grow' => [
+            'title'       => 'How We Grow',
+            'description' => 'See how Clixframe connects attract, convert, operate and scale into one digital growth system.',
+        ],
+        'work' => [
+            'title'       => 'Work',
+            'description' => 'Review how Clixframe frames performance work through challenge, strategy, execution and verified results.',
+        ],
+        'about' => [
+            'title'       => 'About',
+            'description' => 'Learn about Clixframe, the digital growth engine behind businesses ready to connect attention, conversion, operations and retention.',
+        ],
         'about-us' => [
-            'title'       => 'About Us',
-            'description' => 'Learn about Velmos, the signature watch collection distributed by velmoscustom for customers who value precision, presence, and everyday wearability.',
+            'title'       => 'About',
+            'description' => 'Learn about Clixframe, the digital growth engine behind businesses ready to connect attention, conversion, operations and retention.',
         ],
         'faq' => [
             'title'       => 'FAQ',
-            'description' => 'Find answers to common questions about Velmos watch orders, shipping, returns, refunds, product details, and support.',
+            'description' => 'Find answers to common questions about Clixframe growth services, platforms, performance measurement and engagement fit.',
+        ],
+        'contact' => [
+            'title'       => 'Contact',
+            'description' => 'Contact Clixframe to discuss growth, paid media, conversion optimization, digital operations or customer journey management.',
         ],
         'contact-us' => [
-            'title'       => 'Contact Us',
-            'description' => 'Contact Velmos support for help with orders, returns, or product inquiries. Customer service hours: Monday-Friday, 9:00 AM-6:00 PM PST.',
+            'title'       => 'Contact',
+            'description' => 'Contact Clixframe to discuss growth, paid media, conversion optimization, digital operations or customer journey management.',
         ],
         'shipping-policy' => [
-            'title'       => 'Shipping Policy',
-            'description' => 'Velmos shipping policy: U.S. delivery, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.',
+            'title'       => 'Delivery Policy',
+            'description' => 'Clixframe delivery policy for digital services, project timelines, campaign work, reporting and client operations.',
         ],
         'return-refund-policy' => [
             'title'       => 'Return & Refund Policy',
-            'description' => 'Velmos return and refund policy: 30-day return window, return by mail, no restocking fee, and refunds to the original payment method within 7 business days.',
+            'description' => 'Clixframe return and refund policy for digital growth services, scoped agreements and work already performed.',
         ],
         'shipping-returns' => [
-            'title'       => 'Shipping & Returns',
-            'description' => 'Choose the Velmos Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.',
+            'title'       => 'Delivery & Refunds',
+            'description' => 'Clixframe delivery and refund expectations for digital growth engagements.',
         ],
         'terms-conditions' => [
             'title'       => 'Terms & Conditions',
-            'description' => 'Read the terms and conditions for shopping at Velmos, including purchase policies and site use guidelines.',
+            'description' => 'Read the terms and conditions for using the Clixframe website and understanding informational site content.',
         ],
         'privacy-policy' => [
             'title'       => 'Privacy Policy',
-            'description' => 'Learn how Velmos collects, uses, and protects your personal information when you shop with us.',
+            'description' => 'Learn how Clixframe may collect, use and protect information from website visitors, inquiries and client communications.',
         ],
         'track-order' => [
-            'title'       => 'Track Your Order',
-            'description' => 'Track your Velmos order status. Enter your order number and email to check your delivery progress.',
+            'title'       => 'Project Tracking',
+            'description' => 'Active Clixframe clients can track project, campaign and operations status through shared workspaces or support contact.',
         ],
     ];
 
@@ -107,7 +127,7 @@ function dawp_document_title_parts($parts) {
 
     if (is_front_page()) {
         $parts['title']   = dawp_brand_name();
-        $parts['tagline'] = 'Modern Luxury Watches';
+        $parts['tagline'] = 'Digital Growth Engine';
         return $parts;
     }
 
@@ -240,7 +260,7 @@ function dawp_head_meta() {
 
     $title = wp_get_document_title();
 
-    echo "\n<!-- Velmos SEO -->\n";
+    echo "\n<!-- Clixframe SEO -->\n";
 
     if ($description) {
         printf('<meta name="description" content="%s">' . "\n", esc_attr($description));
@@ -276,7 +296,7 @@ function dawp_head_meta() {
         printf('<meta name="twitter:image" content="%s">' . "\n", esc_url($image));
     }
 
-    echo "<!-- /Velmos SEO -->\n\n";
+    echo "<!-- /Clixframe SEO -->\n\n";
 }
 
 // WordPress core only prints rel=canonical for singular views with a real
@@ -302,7 +322,7 @@ function dawp_org_website_schema() {
     $brand = dawp_brand_name();
     $home  = home_url('/');
     $logo  = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
-    $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
+    $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'hello@clixframe.com';
 
     $organization = [
         '@type'  => 'Organization',

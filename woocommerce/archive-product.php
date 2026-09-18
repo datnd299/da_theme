@@ -12,8 +12,8 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse practical beauty accessories, makeup organizers, fashion accents, everyday essentials, and small giftable finds from LBQ Shop.', 'dawp');
-$archive_eyebrow = __('LBQ Shop Collection', 'dawp');
+$archive_description = __('Personalized T-Shirts, Hoodies, Long Sleeve Tees, Crewnecks, and Tank Tops — every design is made yours with a custom name, text, or photo-based print.', 'dawp');
+$archive_eyebrow = __('Eliteshop Express Collection', 'dawp');
 
 if ($archive_term && !is_wp_error($archive_term)) {
     $archive_title = $archive_term->name;

@@ -1,22 +1,22 @@
 /* =============================================================
-   TRACK ORDER PAGE - LBQ Shop
+   TRACK ORDER PAGE - Eliteshop Express
    ============================================================= */
 
 .track-order-page {
-  --track-ink: #2F2A28;
-  --track-soft-ink: #4B403C;
-  --track-muted: #6F625D;
-  --track-rose: #C87F86;
-  --track-rose-dark: #8A4F56;
-  --track-rose-muted: #A96870;
-  --track-blush: #FBEDEA;
-  --track-cream: #F8F2EE;
-  --track-paper: #FFFDFC;
-  --track-border: #E8DAD4;
+  --track-ink: #111827;
+  --track-soft-ink: #374151;
+  --track-muted: #4B5563;
+  --track-rose: #FF5A5F;
+  --track-rose-dark: #E14247;
+  --track-rose-muted: #FF5A5F;
+  --track-blush: #FFF1F0;
+  --track-cream: #F9FAFB;
+  --track-paper: #FFFFFF;
+  --track-border: #E5E7EB;
   --track-white: #FFFFFF;
-  --track-danger: #8A332B;
-  --track-success: #315B3D;
-  --track-shadow: 0 20px 44px rgba(138, 79, 86, 0.12);
+  --track-danger: #DC2626;
+  --track-success: #16A34A;
+  --track-shadow: 0 20px 44px rgba(225, 66, 71, 0.12);
 
   background: var(--track-paper);
   color: var(--track-ink);
@@ -45,7 +45,7 @@
 .track-hero {
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(47, 42, 40, 0.88), rgba(138, 79, 86, 0.78)),
+    linear-gradient(135deg, rgba(17, 24, 39, 0.88), rgba(225, 66, 71, 0.78)),
     linear-gradient(90deg, var(--track-cream), var(--track-blush));
   color: var(--track-white);
   padding: 4rem 1rem;
@@ -59,7 +59,7 @@
 }
 
 .track-hero .track-eyebrow {
-  color: #F6D5CF;
+  color: #FFD9D6;
 }
 
 .track-hero__title {
@@ -133,7 +133,7 @@
   border-radius: 0.5rem;
   background: rgba(255, 253, 252, 0.12);
   padding: 1.25rem;
-  box-shadow: 0 22px 50px rgba(47, 42, 40, 0.22);
+  box-shadow: 0 22px 50px rgba(17, 24, 39, 0.22);
   backdrop-filter: blur(10px);
 }
 
@@ -163,7 +163,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.375rem;
-  background: #F6D5CF;
+  background: #FFD9D6;
   color: var(--track-rose-dark);
   font-weight: 900;
 }
@@ -251,7 +251,7 @@
   border: 1px solid var(--track-border);
   border-radius: 0.5rem;
   background: var(--track-white);
-  box-shadow: 0 1px 3px rgba(47, 42, 40, 0.04);
+  box-shadow: 0 1px 3px rgba(17, 24, 39, 0.04);
 }
 
 .track-form-card {
@@ -382,7 +382,7 @@
 .track-more-card:hover,
 .track-category-card:hover {
   border-color: var(--track-rose);
-  box-shadow: 0 16px 34px rgba(138, 79, 86, 0.12);
+  box-shadow: 0 16px 34px rgba(225, 66, 71, 0.12);
   transform: translateY(-2px);
 }
 
@@ -516,7 +516,7 @@
   border-radius: 0.375rem !important;
   background: var(--track-rose) !important;
   color: var(--track-white) !important;
-  box-shadow: 0 14px 28px rgba(138, 79, 86, 0.16) !important;
+  box-shadow: 0 14px 28px rgba(225, 66, 71, 0.16) !important;
   cursor: pointer !important;
   font-family: var(--font-heading, "Manrope", "Inter", system-ui, sans-serif) !important;
   font-size: 0.875rem !important;
@@ -533,7 +533,7 @@
 .track-order-page .woocommerce-form-row button.button:hover,
 .track-order-page button.button:hover {
   background: var(--track-ink) !important;
-  box-shadow: 0 16px 32px rgba(47, 42, 40, 0.18) !important;
+  box-shadow: 0 16px 32px rgba(17, 24, 39, 0.18) !important;
   transform: translateY(-1px) !important;
 }
 
@@ -557,7 +557,7 @@
 .track-order-page .woocommerce-message,
 .track-order-page .woocommerce-info {
   border: 1px solid rgba(49, 91, 61, 0.22) !important;
-  background: #F0FAF3 !important;
+  background: #F0FDF4 !important;
   color: var(--track-success) !important;
 }
 

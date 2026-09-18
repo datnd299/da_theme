@@ -7,6 +7,7 @@ require_once get_template_directory() . '/inc/virtual-pages.php';
 require_once get_template_directory() . '/inc/woo-tweaks.php';
 require_once get_template_directory() . '/inc/contact-form.php';
 require_once get_template_directory() . '/inc/side-cart.php';
+require_once get_template_directory() . '/inc/pod-variants.php';
 add_filter('manage_edit-shop_order_columns', 'pys_add_purchase_column');
 add_filter('manage_woocommerce_page_wc-orders_columns', 'pys_add_purchase_column');
 function pys_add_purchase_column($columns) {

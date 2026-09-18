@@ -1,27 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  /* === COLORS - MyBaapStore backgrounds === */
+  /* === COLORS - Eliteshop Express backgrounds === */
   --color-background: #FFFFFF;
-  --color-surface: #EAF4FF;
-  --color-surface-alt: #FFFFFF;
+  --color-surface: #F9FAFB;
+  --color-surface-alt: #F3F4F6;
 
-  /* === COLORS - MyBaapStore text === */
-  --color-foreground: #1F2937;
-  --color-foreground-muted: #667085;
-  --color-muted: #667085;
+  /* === COLORS - Eliteshop Express text === */
+  --color-foreground: #111827;
+  --color-foreground-muted: #4B5563;
+  --color-muted: #6B7280;
 
-  /* === COLORS - MyBaapStore brand === */
-  --color-accent: #2F80ED;
-  --color-accent-hover: #102A43;
-  --color-accent-soft: #EAF4FF;
-  --color-accent-blush: #5BA8A0;
-  --color-accent-sage: #FFFFFF;
+  /* === COLORS - Eliteshop Express brand === */
+  --color-accent: #FF5A5F;
+  --color-accent-hover: #E14247;
+  --color-accent-soft: #FFF1F0;
+  --color-accent-2: #0056D2;
+  --color-accent-2-hover: #003F9E;
+  --color-accent-blush: #FFF1F0;
+  --color-accent-sage: #0056D2;
 
   /* === COLORS - UI === */
   --color-border: #E5E7EB;
-  --color-alert: #C0392B;
-  --color-success: #5BA8A0;
+  --color-alert: #DC2626;
+  --color-success: #16A34A;
 
   /* === LEGACY COMPATIBILITY TOKENS === */
   --color-slickBlack: #0B0F0D;
@@ -33,18 +35,18 @@
   --color-slickMuted: #6B7280;
 
   /* === BORDER RADIUS === */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(31, 41, 55, 0.07);
-  --shadow-card-hover: 0 10px 30px rgba(16, 42, 67, 0.16);
+  --shadow-card: 0 1px 3px rgba(17, 24, 39, 0.06);
+  --shadow-card-hover: 0 12px 28px rgba(17, 24, 39, 0.12);
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Inter', 'Manrope', system-ui, sans-serif;
-  --font-heading: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Poppins', 'Montserrat', system-ui, sans-serif;
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);

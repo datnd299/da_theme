@@ -1,47 +1,47 @@
 /* =============================================================
-   main.css - Vivisshop Design System
+   main.css - Eliteshop Express Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
 
 :root {
   /* === BACKGROUNDS === */
-  --color-background: #FFFDFC;
+  --color-background: #FFFFFF;
   /* Clean white page background */
-  --color-surface: #F8F2EE;
-  /* Warm section/card background */
-  --color-surface-alt: #FFF3F1;
-  /* Soft blush hover states and alt sections */
+  --color-surface: #F9FAFB;
+  /* Section/card background */
+  --color-surface-alt: #F3F4F6;
+  /* Hover states and alt sections */
 
   /* === TEXT === */
-  --color-foreground: #2F2A28;
+  --color-foreground: #111827;
   /* Primary text — headings, product names */
-  --color-foreground-muted: #6F625D;
+  --color-foreground-muted: #4B5563;
   /* Secondary text — descriptions, meta */
-  --color-muted: #6F625D;
+  --color-muted: #6B7280;
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #C87F86;
-  /* Dusty rose primary CTA and links */
-  --color-accent-hover: #4B403C;
-  /* Deep warm-brown hover state */
-  --color-accent-soft: #FFF3F1;
-  /* Soft blush subtle highlights and badges */
-  --color-accent-blush: #A8B99A;
-  /* Muted sage secondary accent */
+  --color-accent: #FF5A5F;
+  /* Vibrant orange primary CTA and links */
+  --color-accent-hover: #E14247;
+  /* Primary CTA hover state */
+  --color-accent-soft: #FFF1F0;
+  /* Soft orange subtle highlights and badges */
+  --color-accent-blush: #FFF1F0;
+  /* Alias kept for compatibility with older markup */
 
   /* === UI === */
-  --color-border: #E8DAD4;
+  --color-border: #E5E7EB;
   /* Border — cards, dividers */
-  --color-alert: #8A332B;
+  --color-alert: #DC2626;
   /* Error / alert */
-  --color-success: #A8B99A;
+  --color-success: #16A34A;
   /* Success / helpful state */
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Inter', 'Manrope', system-ui, sans-serif;
-  --font-heading: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Poppins', 'Montserrat', system-ui, sans-serif;
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -58,14 +58,14 @@
   --container-pad-desktop: 24px;
 
   /* === BORDER RADIUS === */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card: 0 1px 3px rgba(17, 24, 39, 0.06);
+  --shadow-card-hover: 0 12px 28px rgba(17, 24, 39, 0.12);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
@@ -76,6 +76,63 @@
 
 .free-shipping-banner {
   margin-top: 10px;
+}
+
+/* =============================================================
+   ANNOUNCEMENT MARQUEE (header top bar, all pages)
+   ============================================================= */
+
+.announcement-marquee {
+  overflow: hidden;
+  background-color: var(--color-foreground);
+}
+
+.announcement-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: announcement-scroll 28s linear infinite;
+}
+
+.announcement-marquee__track:hover {
+  animation-play-state: paused;
+}
+
+.announcement-marquee__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  padding: 0.55rem 2rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+@keyframes announcement-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announcement-marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+  }
+}
+
+/* Mobile nav panel toggled by assets/js/main.js (.menu-toggle / .main-navigation) */
+.main-navigation.is-open {
+  display: block;
+}
+
+/* Homepage "Try Our Customization Engine" preset buttons */
+.demo-preset-btn.is-active {
+  background-color: var(--color-foreground);
+  color: #FFFFFF;
 }
 
 .woocommerce-product-gallery {
@@ -1105,4 +1162,35 @@ body.woocommerce-account {
 
 body.side-cart-open {
   overflow: hidden;
+}
+
+/* === POD VARIANT LINE-ITEM META ===
+ * Shared across every surface that shows cart/order item attributes: side
+ * cart, WooCommerce Cart/Checkout blocks, order-received, emails. WooCommerce
+ * (and the block variants via the Store API) all render the same dl.variation
+ * markup from wc_get_formatted_cart_item_data(), so styling it once here
+ * covers every surface instead of duplicating it per page CSS file.
+ */
+.variation {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 6px;
+  margin: 4px 0 0;
+  padding: 0;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.variation dt {
+  font-weight: 700;
+  color: var(--color-foreground);
+}
+
+.variation dd {
+  margin: 0;
+  color: var(--color-foreground-muted);
+}
+
+.variation dd p {
+  margin: 0;
 }

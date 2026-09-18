@@ -306,4 +306,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Homepage "Try Our Customization Engine" live demo: types into the
+    // input or picks a preset, both update the SVG mockup's printed text.
+    const demoInput   = document.getElementById('demo-name-input');
+    const demoText    = document.getElementById('demo-print-text');
+    const demoTeeFill = document.getElementById('demo-tee-fill');
+    const demoPresets = document.querySelectorAll('[data-demo-preset]');
+
+    if (demoInput && demoText) {
+        demoInput.addEventListener('input', () => {
+            demoText.textContent = (demoInput.value || 'YOUR TEXT').toUpperCase().slice(0, 14);
+            demoPresets.forEach((btn) => btn.classList.remove('is-active'));
+        });
+    }
+
+    demoPresets.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const text  = btn.dataset.demoPreset;
+            const color = btn.dataset.demoColor;
+
+            if (demoText) demoText.textContent = text;
+            if (demoInput) demoInput.value = text;
+            if (demoTeeFill && color) demoTeeFill.setAttribute('fill', color);
+
+            demoPresets.forEach((b) => b.classList.toggle('is-active', b === btn));
+        });
+    });
+
+    // Footer newsletter signup: client-side only for now (no ESP wired up
+    // yet), just confirms the email was captured so the form isn't a dead end.
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('#newsletter-email');
+            const message     = newsletterForm.querySelector('.newsletter-form__message');
+
+            if (!emailInput || !emailInput.checkValidity()) {
+                if (emailInput) emailInput.reportValidity();
+                return;
+            }
+
+            if (message) {
+                message.textContent = 'Thanks! Your 15% off code is on its way to your inbox.';
+                message.hidden = false;
+            }
+            newsletterForm.reset();
+        });
+    }
+
+    // Generic horizontal scroll-snap carousel (used by the homepage
+    // testimonials section) driven by [data-carousel] / [data-carousel-track]
+    // / [data-carousel-prev] / [data-carousel-next] markup.
+    document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+        const track = carousel.querySelector('[data-carousel-track]');
+        const prev  = carousel.querySelector('[data-carousel-prev]');
+        const next  = carousel.querySelector('[data-carousel-next]');
+        if (!track) return;
+
+        const scrollByCard = (direction) => {
+            const card   = track.querySelector(':scope > *');
+            const amount = card ? card.getBoundingClientRect().width + 24 : track.clientWidth * 0.8;
+            track.scrollBy({ left: direction * amount, behavior: 'smooth' });
+        };
+
+        if (prev) prev.addEventListener('click', () => scrollByCard(-1));
+        if (next) next.addEventListener('click', () => scrollByCard(1));
+    });
+
 });

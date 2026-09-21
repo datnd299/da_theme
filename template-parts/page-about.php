@@ -37,6 +37,15 @@ dawp_clixframe_pages_style();
       <div class="cf-flow"><div>ECOMMERCE</div><span>x</span><div>SERVICE BUSINESSES</div><span>x</span><div>EMERGING BRANDS</div><span>x</span><div>FOUNDERS</div><span>x</span><div class="active">GROWTH-STAGE TEAMS</div></div>
     </div>
   </section>
+  <section class="cf-section cf-section--paper">
+    <div class="container">
+      <header class="cf-intro"><div class="cf-eyebrow">COMPANY INFORMATION</div><h2>The legal entity behind Clixframe.</h2></header>
+      <div class="cf-grid">
+        <article class="cf-card"><small>COMPANY NAME</small><h3>Norvexa Holdings LLC</h3></article>
+        <article class="cf-card"><small>REGISTERED ADDRESS</small><h3>4461 South St, Brookshire, TX 77423</h3></article>
+      </div>
+    </div>
+  </section>
   <section class="cf-final">
     <div class="container"><div class="cf-eyebrow"><span class="cf-dot"></span>CLIXFRAME NORTH STAR</div><h2>ATTENTION X CONVERSION X OPERATIONS X RETENTION = <em>GROWTH.</em></h2><a class="btn primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start Growing</a></div>
   </section>

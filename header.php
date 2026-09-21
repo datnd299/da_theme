@@ -49,6 +49,7 @@ body.clixframe-site {
   color: var(--white);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   overflow-x: hidden;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M12 3v18M7 3h10M7 21h10' stroke='%23f5f6f1' stroke-width='2' stroke-linecap='round' fill='none'/></svg>") 12 12, text;
 }
 
 .clixframe-site a { color: inherit; text-decoration: none; }

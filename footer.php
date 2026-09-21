@@ -12,10 +12,11 @@ defined('ABSPATH') || exit;
 .footer { border-top: 1px solid var(--line); padding: 70px 0 28px; }
 .footer-top { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
 .footer-brand { font-size: clamp(50px, 8vw, 115px); font-weight: 800; letter-spacing: -.07em; }
-.footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+.footer-links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
 .footer-links small { display: block; color: #717770; font-size: 9px; margin-bottom: 15px; }
 .footer-links a,
 .footer-links span { display: block; margin: 10px 0; color: #c3c7c1; font-size: 13px; }
+.footer-links .footer-company-name { color: #eef0ec; font-weight: 700; }
 .footer-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 60px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 10px; color: #737972; }
 @media (max-width: 900px) {
   .footer-top { grid-template-columns: 1fr; }
@@ -48,6 +49,11 @@ defined('ABSPATH') || exit;
           <small><?php esc_html_e('CONNECT', 'dawp'); ?></small>
           <a href="<?php echo esc_url(home_url('/contact/')); ?>"><?php esc_html_e('Start Growing', 'dawp'); ?></a>
           <a href="mailto:hello@clixframe.com"><?php esc_html_e('Contact', 'dawp'); ?></a>
+        </div>
+        <div>
+          <small><?php esc_html_e('COMPANY', 'dawp'); ?></small>
+          <span class="footer-company-name">Norvexa Holdings LLC</span>
+          <span>4461 South St, Brookshire, TX 77423</span>
         </div>
       </div>
     </div>

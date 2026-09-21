@@ -8,12 +8,11 @@
 defined('ABSPATH') || exit;
 
 $theme_uri   = get_template_directory_uri();
-$image_base  = $theme_uri . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/';
 $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $contact_url = home_url('/contact-us/');
 
-$velmo_image = static function ($file, $alt, $class = '', $loading = 'lazy') use ($image_base) {
-    $src = $image_base . rawurlencode($file);
+$velmo_image = static function ($file, $alt, $class = '', $loading = 'lazy') {
+    $src = qb_velmo_image_url($file);
 
     if (function_exists('qb_responsive_image')) {
         return qb_responsive_image($src, $alt, [
@@ -40,10 +39,10 @@ $velmo_image = static function ($file, $alt, $class = '', $loading = 'lazy') use
         </div>
         <div class="vm-about-hero__visual" aria-hidden="true">
             <figure class="vm-about-frame vm-about-frame--large">
-                <?php echo $velmo_image('62.jpg', __('Velmo chronograph with a white dial and blue leather strap', 'dawp'), 'vm-cover', 'eager'); ?>
+                <?php echo $velmo_image('62-v2.jpg', __('Velmo chronograph with a white dial and blue leather strap', 'dawp'), 'vm-cover', 'eager'); ?>
             </figure>
             <figure class="vm-about-frame vm-about-frame--small">
-                <?php echo $velmo_image('63.jpg', __('Velmo skeleton chronograph with green sub-dials', 'dawp'), 'vm-cover'); ?>
+                <?php echo $velmo_image('63-v2.jpg', __('Velmo skeleton chronograph with green sub-dials', 'dawp'), 'vm-cover'); ?>
             </figure>
         </div>
     </div>
@@ -78,7 +77,7 @@ $velmo_image = static function ($file, $alt, $class = '', $loading = 'lazy') use
 
 <section class="vm-about-split">
     <figure class="vm-about-split__image">
-        <?php echo $velmo_image('64.jpg', __('Velmo moon-phase watch in rose gold with a brown leather strap', 'dawp'), 'vm-cover'); ?>
+        <?php echo $velmo_image('64-v2.jpg', __('Velmo moon-phase watch in rose gold with a brown leather strap', 'dawp'), 'vm-cover'); ?>
     </figure>
     <div class="vm-about-split__copy">
         <span class="vm-kicker"><?php esc_html_e('The Velmo Experience', 'dawp'); ?></span>
@@ -89,7 +88,7 @@ $velmo_image = static function ($file, $alt, $class = '', $loading = 'lazy') use
 
 <section class="vm-about-feature">
     <div class="vm-about-feature__media" aria-hidden="true">
-        <?php echo $velmo_image('65.jpg', __('Velmo black tonneau watch with a visible tourbillon', 'dawp'), 'vm-cover'); ?>
+        <?php echo $velmo_image('65-v2.jpg', __('Velmo black tonneau watch with a visible tourbillon', 'dawp'), 'vm-cover'); ?>
     </div>
     <div class="vm-about-feature__shade" aria-hidden="true"></div>
     <div class="vm-about-wrap vm-about-feature__content">

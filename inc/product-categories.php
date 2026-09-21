@@ -17,7 +17,7 @@ function qb_product_category_definitions() {
                 __('Polished finish', 'dawp'),
                 __('Formal-ready detail', 'dawp'),
             ],
-            'image'       => 'luxuryimagecollection (1)/velmoscustome_image/68.jpg',
+            'image'       => 'luxuryimagecollection (1)/velmoscustome_image/68-v2.jpg',
         ],
         'diver-watches' => [
             'name'        => __('Diver Watches', 'dawp'),
@@ -29,7 +29,7 @@ function qb_product_category_definitions() {
                 __('High-legibility dials', 'dawp'),
                 __('Sport-informed cases', 'dawp'),
             ],
-            'image'       => 'luxuryimagecollection (1)/velmoscustome_image/64.jpg',
+            'image'       => 'luxuryimagecollection (1)/velmoscustome_image/64-v2.jpg',
         ],
         'chronograph-watches' => [
             'name'        => __('Chronograph Watches', 'dawp'),
@@ -41,7 +41,7 @@ function qb_product_category_definitions() {
                 __('Timing-inspired style', 'dawp'),
                 __('Technical presence', 'dawp'),
             ],
-            'image'       => 'luxuryimagecollection (1)/velmoscustome_image/70.jpg',
+            'image'       => 'luxuryimagecollection (1)/velmoscustome_image/70-v2.jpg',
         ],
     ];
 }
@@ -122,5 +122,20 @@ function qb_theme_asset_image_url($filename) {
     $relative_path = 'assets/images/home/' . ltrim($filename, '/');
     $file_path = trailingslashit(get_template_directory()) . $relative_path;
 
-    return file_exists($file_path) ? trailingslashit(get_template_directory_uri()) . $relative_path : '';
+    if (!file_exists($file_path)) {
+        return '';
+    }
+
+    return add_query_arg('ver', dawp_asset_ver($relative_path), trailingslashit(get_template_directory_uri()) . $relative_path);
+}
+
+/**
+ * Versioned URL for a Velmo photo in assets/images/home/luxuryimagecollection (1)/velmoscustome_image/.
+ * The ?ver= (file mtime) changes whenever the image is replaced, so browsers and CDNs refetch it.
+ */
+function qb_velmo_image_url($file) {
+    $relative_path = 'assets/images/home/luxuryimagecollection (1)/velmoscustome_image/' . ltrim($file, '/');
+    $url = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/' . rawurlencode(ltrim($file, '/'));
+
+    return add_query_arg('ver', dawp_asset_ver($relative_path), $url);
 }

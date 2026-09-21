@@ -11,8 +11,8 @@ $support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mail
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $track_url     = home_url('/track-order/');
 $faq_url       = home_url('/faq/');
-$hero_image    = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/66.jpg';
-$detail_image  = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/67.jpg';
+$hero_image    = qb_velmo_image_url('66-v2.jpg');
+$detail_image  = qb_velmo_image_url('67-v2.jpg');
 $status        = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 
 $status_messages = [

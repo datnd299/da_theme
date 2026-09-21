@@ -25,12 +25,12 @@ if ($category_data) {
     $description = $queried_term->description ?: 'Browse Velmo watch styles selected for confident form, refined materials, and everyday presence.';
     $thumbnail_id = get_term_meta((int) $queried_term->term_id, 'thumbnail_id', true);
     $hero_image  = $thumbnail_id ? wp_get_attachment_image_url((int) $thumbnail_id, 'large') : '';
-    $hero_image  = $hero_image ?: get_template_directory_uri() . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/68.jpg';
+    $hero_image  = $hero_image ?: qb_velmo_image_url('68-v2.jpg');
 } else {
     $page_title  = 'All Watches';
     $headline    = 'Shop Velmo Watches.';
     $description = 'Discover the Velmo watch collection, presented with clean photography, considered materials, and precise product detail.';
-    $hero_image  = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/68.jpg';
+    $hero_image  = qb_velmo_image_url('68-v2.jpg');
 }
 
 if (!$hero_image && function_exists('wc_placeholder_img_src')) {

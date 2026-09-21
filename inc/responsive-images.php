@@ -34,6 +34,14 @@ function qb_i0_image_url($url, $width = 0, $height = 0, $mode = 'resize') {
 
     $query = ['ssl' => 1];
 
+    // Keep the source URL's ?ver= so a replaced image gets a fresh CDN/browser cache key.
+    if (!empty($parts['query'])) {
+        parse_str($parts['query'], $source_query);
+        if (!empty($source_query['ver'])) {
+            $query['ver'] = sanitize_text_field($source_query['ver']);
+        }
+    }
+
     if ($width && $height) {
         $query[$mode] = absint($width) . ',' . absint($height);
     } elseif ($width) {

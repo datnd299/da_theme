@@ -1,6 +1,6 @@
 <?php
 /**
- * Side cart drawer - lightweight AJAX mini-cart for Velmos.
+ * Side cart drawer - lightweight AJAX mini-cart for Velmo.
  *
  * Markup lives here, styles in assets/css/main.css (SIDE CART DRAWER block),
  * behaviour in assets/js/main.js (initCartDrawer).

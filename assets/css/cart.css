@@ -1,6 +1,6 @@
 /* ===================================================
    CART PAGE — WooCommerce Block Cart
-   Velmo Custom Brand - Mobile-first - Pure CSS - No @apply
+   Velmo Brand - Mobile-first - Pure CSS - No @apply
    =================================================== */
 
 :root {
@@ -820,7 +820,7 @@
   background: var(--qb-cart-gold);
 }
 
-/* Velmo Custom ecommerce alignment */
+/* Velmo ecommerce alignment */
 :root {
   --qb-cart-bg: #FFFFFF;
   --qb-cart-cream: #F5F4F1;

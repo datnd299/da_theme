@@ -1,5 +1,5 @@
 /* ================================================
-   Velmo Custom - Checkout & Thank You Page
+   Velmo - Checkout & Thank You Page
    Brand palette: #10243a / #111111 / #d1ae68 / #a5a5a0 / #f5f4f1
    ================================================ */
 
@@ -1419,7 +1419,7 @@ div[data-shortcode="checkout"] {
 }
 
 /* ================================================
-   VELMO CUSTOM FINAL OVERRIDES
+   VELMO FINAL OVERRIDES
    Keeps block and classic checkout aligned with the current watch palette.
    ================================================ */
 
@@ -1549,7 +1549,7 @@ button#place_order:hover,
     background-color: rgba(179, 138, 82, 0.12) !important;
 }
 
-/* Velmo Custom final checkout and order-received alignment */
+/* Velmo final checkout and order-received alignment */
 :root {
     --orvel-ink: #10243A;
     --orvel-pearl: #F5F4F1;
@@ -1678,7 +1678,7 @@ button#place_order:hover,
     color: var(--orvel-ink) !important;
 }
 
-/* Velmo Custom palette guard for classic and block checkout variants. */
+/* Velmo palette guard for classic and block checkout variants. */
 body.woocommerce-checkout,
 body.woocommerce-order-received {
     background-color: #F5F4F1 !important;

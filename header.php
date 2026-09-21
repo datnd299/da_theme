@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header for Velmos.
+ * Theme header for Velmo.
  *
  * @package dawp
  */
@@ -11,11 +11,11 @@ $cart_count  = (class_exists('WooCommerce') && WC()->cart) ? WC()->cart->get_car
 $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $account_url = get_permalink(get_option('woocommerce_myaccount_page_id'));
 $account_url = $account_url ?: home_url('/my-account/');
-$brand_name  = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
+$brand_name  = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo';
 $logo_url    = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
 $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [
     ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
-    ['title' => __('Watch', 'dawp'), 'url' => home_url('/shop/')],
+    ['title' => __('Shop', 'dawp'), 'url' => home_url('/shop/')],
     ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
     ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
 ];
@@ -362,7 +362,7 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
 <header id="masthead" class="qb-site-header" role="banner">
     <div class="qb-announcement">
         <div class="qb-header-wrap">
-            <?php esc_html_e('Velmos - Distributed by velmoscustom', 'dawp'); ?>
+            <?php esc_html_e('Velmo - Crafted with Precision', 'dawp'); ?>
         </div>
     </div>
 
@@ -422,6 +422,7 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
                 <?php $is_current = function_exists('dawp_is_current_url') && dawp_is_current_url($item['url']); ?>
                 <a class="<?php echo $is_current ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"><?php echo esc_html($item['title']); ?></a>
             <?php endforeach; ?>
+            <a href="<?php echo esc_url($account_url); ?>"><?php esc_html_e('My Account', 'dawp'); ?></a>
         </nav>
     </div>
 </header>

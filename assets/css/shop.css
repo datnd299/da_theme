@@ -1,4 +1,4 @@
-/* Velmo Custom shop and product category pages */
+/* Velmo shop and product category pages */
 :root {
   --qb-shop-bg: #ffffff;
   --qb-shop-cream: #f5f4f1;
@@ -904,7 +904,7 @@ ul.products {
   }
 }
 
-/* Velmo Custom final archive alignment */
+/* Velmo final archive alignment */
 .shop-page {
   --qb-shop-bg: #FFFFFF;
   --qb-shop-cream: #F5F4F1;

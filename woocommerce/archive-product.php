@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop and product category archive template for Velmos.
+ * Shop and product category archive template for Velmo.
  *
  * @package dawp
  */
@@ -12,7 +12,7 @@ $queried_term  = $is_category ? get_queried_object() : null;
 $category_data = $is_category && $queried_term && !is_wp_error($queried_term) ? qb_get_product_category_data($queried_term->slug) : null;
 $shop_url      = get_permalink(wc_get_page_id('shop'));
 $shop_url      = $shop_url ?: home_url('/shop/');
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
+$brand_name    = function_exists('dawp_product_brand_name') ? dawp_product_brand_name() : 'Velmo';
 
 if ($category_data) {
     $page_title  = $category_data['name'];
@@ -22,14 +22,14 @@ if ($category_data) {
 } elseif ($is_category && $queried_term && !is_wp_error($queried_term)) {
     $page_title  = $queried_term->name;
     $headline    = $queried_term->name;
-    $description = $queried_term->description ?: 'Browse Velmos watch styles selected for confident form, refined materials, and everyday presence.';
+    $description = $queried_term->description ?: 'Browse Velmo watch styles selected for confident form, refined materials, and everyday presence.';
     $thumbnail_id = get_term_meta((int) $queried_term->term_id, 'thumbnail_id', true);
     $hero_image  = $thumbnail_id ? wp_get_attachment_image_url((int) $thumbnail_id, 'large') : '';
     $hero_image  = $hero_image ?: get_template_directory_uri() . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/68.jpg';
 } else {
     $page_title  = 'All Watches';
-    $headline    = 'Shop Velmos Watches.';
-    $description = 'Discover the main watch collection distributed by velmoscustom, selected for clean presentation, considered materials, and precise product detail.';
+    $headline    = 'Shop Velmo Watches.';
+    $description = 'Discover the Velmo watch collection, presented with clean photography, considered materials, and precise product detail.';
     $hero_image  = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection%20(1)/velmoscustome_image/68.jpg';
 }
 

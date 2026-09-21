@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$store_name     = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
-$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmos return support', 'dawp'), __('Please include your order number, checkout email, item name, and reason for return.', 'dawp')) : 'mailto:' . $support_email;
+$store_name     = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo';
+$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo return support', 'dawp'), __('Please include your order number, checkout email, item name, and reason for return.', 'dawp')) : 'mailto:' . $support_email;
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal = home_url('/contact-us/');
 ?>
@@ -102,7 +102,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 21, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php esc_html_e('Eligible items may be returned within 30 days of delivery when they meet the conditions below.', 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -236,7 +236,7 @@ $support_portal = home_url('/contact-us/');
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PT.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

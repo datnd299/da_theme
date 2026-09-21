@@ -3,13 +3,13 @@
  * Template Part: Track Your Order
  */
 
-$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmos tracking support', 'dawp'), __('Please include your order number and checkout email.', 'dawp')) : 'mailto:' . $support_email;
+$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo tracking support', 'dawp'), __('Please include your order number and checkout email.', 'dawp')) : 'mailto:' . $support_email;
 $track_categories = function_exists('qb_product_category_definitions') ? qb_product_category_definitions() : [];
 ?>
 
-<main class="track-order-page">
+<div class="track-order-page">
 
     <section class="track-hero">
         <div class="track-hero__inner">
@@ -90,5 +90,5 @@ $track_categories = function_exists('qb_product_category_definitions') ? qb_prod
         </section>
     <?php endif; ?>
 
-</main>
+</div>
 

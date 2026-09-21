@@ -1,5 +1,5 @@
 /* =============================================================
-   main.css - Velmo Custom Design System
+   main.css - Velmo Design System
    Pure CSS only. All values reference CSS variables.
    Mobile legacy overrides are isolated near the bottom.
    ============================================================= */
@@ -1033,3 +1033,52 @@ a.dawp-cart-item__name:hover {
     animation-duration: 1600ms;
   }
 }
+
+/* Homepage newsletter: consent line, honeypot and status message */
+.vm-newsletter .vm-newsletter__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.vm-newsletter .vm-newsletter__consent {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--color-foreground-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.vm-newsletter .vm-newsletter__consent input {
+  flex: 0 0 auto;
+  width: 16px;
+  min-height: 0;
+  height: 16px;
+  margin-top: 2px;
+  padding: 0;
+  accent-color: var(--color-accent);
+}
+
+.vm-newsletter .vm-newsletter__consent a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.vm-newsletter .vm-newsletter__status {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.vm-newsletter .vm-newsletter__status--invalid,
+.vm-newsletter .vm-newsletter__status--failed {
+  color: var(--color-alert);
+}
+

@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmos terms support', 'dawp')) : 'mailto:' . $support_email;
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo terms support', 'dawp')) : 'mailto:' . $support_email;
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 
@@ -79,7 +79,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
       <div>
         <p class="qb-eyebrow"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Terms of Service', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 21, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php echo esc_html(sprintf('Important terms for using %s, placing orders, and contacting support.', $brand_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
@@ -308,7 +308,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PT.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

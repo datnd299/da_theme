@@ -1,4 +1,4 @@
-/* Velmo Custom track order page */
+/* Velmo track order page */
 
 .track-order-page {
   --track-brass-soft: #d1ae68;
@@ -23,7 +23,7 @@
   font-family: var(--track-font);
 }
 
-/* Velmo Custom final tracking alignment */
+/* Velmo final tracking alignment */
 .track-order-page {
   --track-brass-soft: #D1AE68;
   --track-cream: #F5F4F1;

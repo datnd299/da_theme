@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
-$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
-$support_mailto    = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmos support question', 'dawp'), __('Please include your order number and checkout email if this is about an existing order.', 'dawp')) : 'mailto:' . $support_email;
+$store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo';
+$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+$support_mailto    = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo support question', 'dawp'), __('Please include your order number and checkout email if this is about an existing order.', 'dawp')) : 'mailto:' . $support_email;
 $store_address     = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal    = home_url('/contact-us/');
 $shipping_policy   = home_url('/shipping-policy/');
@@ -26,7 +26,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Can I change an order after checkout?', 'dawp'),
-                'a' => __('Please contact us right away if order details need to be updated. Orders placed before 5:00 PM PST start processing the same business day, while orders placed after 5:00 PM PST or during the weekend start the next business day. Changes cannot be guaranteed once processing or fulfillment has begun, but support will check what can still be done.', 'dawp'),
+                'a' => __('Please contact us right away if order details need to be updated. Orders placed before 5:00 PM PT start processing the same business day, while orders placed after 5:00 PM PT or during the weekend start the next business day. Changes cannot be guaranteed once processing or fulfillment has begun, but support will check what can still be done.', 'dawp'),
             ],
             [
                 'q' => __('Can I cancel my order after placing it?', 'dawp'),
@@ -34,7 +34,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Why has my order not shipped yet?', 'dawp'),
-                'a' => __('Orders follow a 5:00 PM PST cutoff and 1-3 business day handling period. Fulfillment runs Monday-Friday, excluding weekends and official U.S. public holidays. Certain intricate, high-demand, or separately packed watch items may need extra preparation time.', 'dawp'),
+                'a' => __('Orders follow a 5:00 PM PT cutoff and 1-3 business day handling period. Fulfillment runs Monday-Friday, excluding weekends and official U.S. public holidays. Certain intricate, high-demand, or separately packed watch items may need extra preparation time.', 'dawp'),
             ],
         ],
     ],
@@ -76,7 +76,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('What condition must a return be in?', 'dawp'),
-                'a' => __('Eligible returns must be unworn, unused, undamaged, and in original, unaltered condition with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and included accessories.', 'dawp'),
+                'a' => __('Eligible returns must be unworn, unused, undamaged, and in original, unaltered condition with all original packaging, tags, labels, manuals, warranty cards, watch boxes, and included accessories.', 'dawp'),
             ],
             [
                 'q' => __('Do you charge a restocking fee?', 'dawp'),
@@ -84,7 +84,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Who pays return shipping?', 'dawp'),
-                'a' => __('We cover 100% of return shipping costs or provide a prepaid shipping label when the item is defective, damaged, incorrect, missing essential parts, or not functioning as intended. For customer remorse returns, such as wrong item, size, color, model, fit preference, or no longer wanting the item, the customer is responsible for return shipping, and the actual return label cost may be deducted from the final refund amount.', 'dawp'),
+                'a' => __('We cover 100% of return shipping and email a prepaid shipping label when the item is defective, damaged, or incorrect (wrong item or carrier damage). For customer remorse returns, such as ordering the wrong item, style, or strap size, changing your mind, or an item that does not suit you, the customer is responsible for return shipping. If we provide a prepaid label by email, the actual label cost is deducted from the final refund amount.', 'dawp'),
             ],
             [
                 'q' => __('How are refunds handled?', 'dawp'),
@@ -125,9 +125,9 @@ $faq_sections = [
                 'a' => __('We aim to display product colors and finishes clearly, but slight differences may occur due to screen settings, photography lighting, production updates, or inventory changes.', 'dawp'),
             ],
             [
-                'q' => __('Do your watches make unsupported brand or performance claims?', 'dawp'),
+                'q' => __('How are the watches described on the site?', 'dawp'),
                 'a' => sprintf(
-                    __('No. %s sells watches and watch accessories. We avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
+                    __('%s describes each watch from the details on its product page. We avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims. If you need a detail confirmed before ordering, contact support.', 'dawp'),
                     $store_name
                 ),
             ],
@@ -252,7 +252,7 @@ $faq_sections = [
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('FAQ', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 21, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php echo esc_html(sprintf(__('Browse concise answers for orders, U.S. shipping, tracking, returns, refunds, watch details, checkout, privacy, and customer support at %s.', 'dawp'), $store_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -286,7 +286,7 @@ $faq_sections = [
           <ul class="qb-glance-list">
             <li><strong><?php esc_html_e('Ships To', 'dawp'); ?></strong><?php esc_html_e('United States domestic orders only', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Standard Shipping', 'dawp'); ?></strong><?php esc_html_e('Free nationwide with no minimum', 'dawp'); ?></li>
-            <li><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><?php esc_html_e('5:00 PM Pacific Standard Time, Monday-Friday', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><?php esc_html_e('5:00 PM Pacific Time, Monday-Friday', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Delivery Time', 'dawp'); ?></strong><?php esc_html_e('6-10 business days', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Return Window', 'dawp'); ?></strong><?php esc_html_e('30 days of delivery', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Restocking Fee', 'dawp'); ?></strong><?php esc_html_e('No restocking fee for eligible returns', 'dawp'); ?></li>
@@ -350,7 +350,7 @@ $faq_sections = [
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PT.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

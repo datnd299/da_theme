@@ -4,7 +4,7 @@ Direction
 
 Heritage Maison × Quiet Luxury × Precision Minimalism
 
-Velmo Custom should feel refined, calm and timeless.
+Velmo should feel refined, calm and timeless.
 The design should rely on typography, imagery, whitespace and proportion—not decoration.
 
 Colors

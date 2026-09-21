@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$store_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmos support request', 'dawp'), __('Please include your order number if this is about an existing order.', 'dawp')) : 'mailto:' . $support_email;
+$store_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo support request', 'dawp'), __('Please include your order number if this is about an existing order.', 'dawp')) : 'mailto:' . $support_email;
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $track_url     = home_url('/track-order/');
 $faq_url       = home_url('/faq/');
@@ -43,7 +43,7 @@ $topics = [
       </div>
     </div>
     <figure class="ot-contact-hero__image">
-      <img src="<?php echo esc_url($hero_image); ?>" alt="<?php esc_attr_e('Minimal watch detail on a clean surface', 'dawp'); ?>" loading="eager">
+      <img src="<?php echo esc_url($hero_image); ?>" alt="<?php esc_attr_e('Velmo engraved skeleton chronograph beside a Velmo presentation box', 'dawp'); ?>" loading="eager">
     </figure>
   </div>
 </section>
@@ -80,7 +80,7 @@ $topics = [
         </div>
         <div>
           <span><?php esc_html_e('Hours', 'dawp'); ?></span>
-          <p><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST', 'dawp'); ?></p>
+          <p><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PT', 'dawp'); ?></p>
         </div>
         <?php if ($store_address) : ?>
           <div>
@@ -145,7 +145,7 @@ $topics = [
 <section class="ot-contact-editorial">
   <div class="ot-wrap ot-contact-editorial__grid">
     <figure class="ot-contact-editorial__image">
-      <img src="<?php echo esc_url($detail_image); ?>" alt="<?php esc_attr_e('Watch packaging prepared for customer delivery', 'dawp'); ?>" loading="lazy">
+      <img src="<?php echo esc_url($detail_image); ?>" alt="<?php esc_attr_e('Velmo rose-gold tachymeter chronograph with a brown leather strap', 'dawp'); ?>" loading="lazy">
     </figure>
     <div class="ot-contact-editorial__copy">
       <span class="ot-kicker"><?php esc_html_e('Before You Send', 'dawp'); ?></span>

@@ -1,6 +1,6 @@
 <?php
 /**
- * SEO + structured data for Velmos.
+ * SEO + structured data for Velmo.
  *
  * No SEO plugin (Rank Math / Yoast) is active on this site, so the theme is
  * responsible for:
@@ -18,14 +18,23 @@
 defined('ABSPATH') || exit;
 
 /**
- * Storefront brand name. Filterable for reuse on other stores.
+ * Brand / store name (matches the logo, domain velmocustom.com and footer
+ * copyright). Filterable for reuse on other stores.
  */
 function dawp_brand_name() {
-    return apply_filters('dawp_brand_name', 'Velmos');
+    return apply_filters('dawp_brand_name', 'Velmo');
 }
 
 /**
- * Primary market country (ISO 3166-1 alpha-2). Velmos ships U.S.-only per
+ * Brand used as the default Product `brand` in structured data and in
+ * product-facing copy. Same as the store brand unless filtered.
+ */
+function dawp_product_brand_name() {
+    return apply_filters('dawp_product_brand_name', dawp_brand_name());
+}
+
+/**
+ * Primary market country (ISO 3166-1 alpha-2). Velmo ships U.S.-only per
  * every policy page, so structured data / shipping data key off this rather
  * than the WooCommerce base-country option. Filterable.
  */
@@ -39,7 +48,7 @@ function dawp_store_country() {
 function dawp_default_description() {
     return apply_filters(
         'dawp_default_description',
-        'Velmos is the signature watch destination distributed by velmoscustom, offering selected timepieces with precise detail, considered design, and dependable service.'
+        'Velmo is a refined luxury watch store focused on precision, craftsmanship, and timeless contemporary design.'
     );
 }
 
@@ -52,39 +61,39 @@ function dawp_get_virtual_seo() {
     $map = [
         'about-us' => [
             'title'       => 'About Us',
-            'description' => 'Learn about Velmos, the signature watch collection distributed by velmoscustom for customers who value precision, presence, and everyday wearability.',
+            'description' => 'Learn about Velmo, a refined luxury watch store shaped by precision, craftsmanship, and timeless contemporary design.',
         ],
         'faq' => [
             'title'       => 'FAQ',
-            'description' => 'Find answers to common questions about Velmos watch orders, shipping, returns, refunds, product details, and support.',
+            'description' => 'Find answers to common questions about Velmo orders, shipping, returns, refunds, watch details, and support.',
         ],
         'contact-us' => [
             'title'       => 'Contact Us',
-            'description' => 'Contact Velmos support for help with orders, returns, or product inquiries. Customer service hours: Monday-Friday, 9:00 AM-6:00 PM PST.',
+            'description' => 'Contact Velmo support for help with orders, returns, or product inquiries. Customer service hours: Monday-Friday, 9:00 AM-6:00 PM PT.',
         ],
         'shipping-policy' => [
             'title'       => 'Shipping Policy',
-            'description' => 'Velmos shipping policy: U.S. delivery, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.',
+            'description' => 'Velmo shipping policy: U.S. delivery, 5:00 PM PT cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.',
         ],
         'return-refund-policy' => [
             'title'       => 'Return & Refund Policy',
-            'description' => 'Velmos return and refund policy: 30-day return window, return by mail, no restocking fee, and refunds to the original payment method within 7 business days.',
+            'description' => 'Velmo return and refund policy: 30-day return window, return by mail, no restocking fee, and refunds to the original payment method within 7 business days.',
         ],
         'shipping-returns' => [
             'title'       => 'Shipping & Returns',
-            'description' => 'Choose the Velmos Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.',
+            'description' => 'Choose the Velmo Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.',
         ],
         'terms-conditions' => [
             'title'       => 'Terms & Conditions',
-            'description' => 'Read the terms and conditions for shopping at Velmos, including purchase policies and site use guidelines.',
+            'description' => 'Read the terms and conditions for shopping at Velmo, including purchase policies and site use guidelines.',
         ],
         'privacy-policy' => [
             'title'       => 'Privacy Policy',
-            'description' => 'Learn how Velmos collects, uses, and protects your personal information when you shop with us.',
+            'description' => 'Learn how Velmo collects, uses, and protects your personal information when you shop with us.',
         ],
         'track-order' => [
             'title'       => 'Track Your Order',
-            'description' => 'Track your Velmos order status. Enter your order number and email to check your delivery progress.',
+            'description' => 'Track your Velmo order status. Enter your order number and email to check your delivery progress.',
         ],
     ];
 
@@ -107,7 +116,7 @@ function dawp_document_title_parts($parts) {
 
     if (is_front_page()) {
         $parts['title']   = dawp_brand_name();
-        $parts['tagline'] = 'Modern Luxury Watches';
+        $parts['tagline'] = 'Luxury Watches';
         return $parts;
     }
 
@@ -151,12 +160,12 @@ function dawp_current_description() {
             if ($text) {
                 return wp_trim_words($text, 32, '');
             }
-            return sprintf('Shop the %s at %s — modern luxury watches built for precision with presence.', $product->get_name(), dawp_brand_name());
+            return sprintf('Shop the %s at %s — luxury watches built with precision and refined detail.', $product->get_name(), dawp_brand_name());
         }
     }
 
     if (function_exists('is_shop') && is_shop()) {
-        return sprintf('Shop modern luxury watches at %s — refined materials, clean presentation, and precise product detail.', dawp_brand_name());
+        return sprintf('Shop luxury watches at %s — refined materials, clean presentation, and precise product detail.', dawp_brand_name());
     }
 
     if (is_product_category() || is_product_tag()) {
@@ -165,7 +174,7 @@ function dawp_current_description() {
             return wp_trim_words(wp_strip_all_tags($term->description), 32, '');
         }
         if ($term && !is_wp_error($term)) {
-            return sprintf('Browse %s at %s — modern luxury watches with confident form and refined presence.', $term->name, dawp_brand_name());
+            return sprintf('Browse %s at %s — luxury watches with confident form and refined presence.', $term->name, dawp_brand_name());
         }
     }
 
@@ -240,7 +249,7 @@ function dawp_head_meta() {
 
     $title = wp_get_document_title();
 
-    echo "\n<!-- Velmos SEO -->\n";
+    echo "\n<!-- Velmo SEO -->\n";
 
     if ($description) {
         printf('<meta name="description" content="%s">' . "\n", esc_attr($description));
@@ -276,7 +285,7 @@ function dawp_head_meta() {
         printf('<meta name="twitter:image" content="%s">' . "\n", esc_url($image));
     }
 
-    echo "<!-- /Velmos SEO -->\n\n";
+    echo "<!-- /Velmo SEO -->\n\n";
 }
 
 // WordPress core only prints rel=canonical for singular views with a real
@@ -302,7 +311,7 @@ function dawp_org_website_schema() {
     $brand = dawp_brand_name();
     $home  = home_url('/');
     $logo  = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
-    $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
+    $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
 
     $organization = [
         '@type'  => 'Organization',
@@ -407,11 +416,11 @@ function dawp_schema_postal_address() {
 
 /**
  * Brand for a product: WooCommerce Brands taxonomy → a "brand" attribute →
- * the storefront name.
+ * the product brand name.
  */
 function dawp_get_product_brand($product) {
     if (!$product instanceof WC_Product) {
-        return dawp_brand_name();
+        return dawp_product_brand_name();
     }
 
     foreach (['product_brand', 'pwb-brand', 'yith_product_brand'] as $taxonomy) {
@@ -431,7 +440,7 @@ function dawp_get_product_brand($product) {
         }
     }
 
-    return dawp_brand_name();
+    return dawp_product_brand_name();
 }
 
 /**
@@ -444,6 +453,8 @@ function dawp_merchant_return_policy() {
         'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
         'merchantReturnDays'   => 30,
         'returnMethod'         => 'https://schema.org/ReturnByMail',
+        'refundType'           => 'https://schema.org/FullRefund',
+        'merchantReturnLink'   => home_url('/return-refund-policy/'),
     ];
 }
 

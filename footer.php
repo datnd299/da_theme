@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme footer for Velmos.
+ * Theme footer for Velmo.
  *
  * @package dawp
  */
@@ -8,9 +8,9 @@
 defined('ABSPATH') || exit;
 
 $current_year  = date_i18n('Y');
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmoscustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmos support request', 'dawp')) : 'mailto:' . $support_email;
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo support request', 'dawp')) : 'mailto:' . $support_email;
 $logo_url      = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [
@@ -29,6 +29,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
             ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
             ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
             ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
+            ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
         ],
     ],
     [
@@ -249,11 +250,11 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
             <div class="qb-footer-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s home', 'dawp'), $brand_name)); ?>">
                     <img class="qb-footer-logo" src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($brand_name); ?>">
-                    <span class="qb-footer-tagline"><?php esc_html_e('Velmos by velmoscustom', 'dawp'); ?></span>
+                    <span class="qb-footer-tagline"><?php esc_html_e('Crafted with Precision', 'dawp'); ?></span>
                 </a>
 
                 <p class="qb-footer-copy">
-                    <?php esc_html_e('Velmos watches are selected and distributed by velmoscustom for clear design, confident detail, and reliable everyday presence.', 'dawp'); ?>
+                    <?php esc_html_e('Velmo is a refined luxury watch store focused on precision, craftsmanship, and timeless contemporary design.', 'dawp'); ?>
                 </p>
 
                 <div class="qb-footer-contact">
@@ -261,7 +262,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm1-13h-2v5.35l4.25 2.55 1-1.62L13 11.35V7Z"/>
                         </svg>
-                        <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?>
+                        <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PT.', 'dawp'); ?>
                     </span>
 
                     <a href="<?php echo esc_url($support_mailto); ?>" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">

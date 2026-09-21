@@ -2,12 +2,12 @@ VELMOCUSTOM.COM — SITE OVERVIEW
 
 Brand
 
-Name: Velmo Custom
+Name: Velmo
 Domain: velmocustom.com
 Category: Luxury watches
 Brand Idea: Crafted with Precision.
 
-Velmo Custom is a refined luxury watch store focused on precision, craftsmanship and timeless contemporary design.
+Velmo is a refined luxury watch store focused on precision, craftsmanship and timeless contemporary design.
 
 Direction
 
@@ -15,7 +15,7 @@ Heritage Precision × Contemporary Elegance × Quiet Craftsmanship
 
 The website should feel like a modern watch maison: sophisticated, precise, calm and highly refined.
 
-Take inspiration from high-watchmaking editorial design and Breguet's emphasis on timepieces, craftsmanship and heritage storytelling, while keeping Velmo Custom original and ecommerce-focused.
+Take inspiration from high-watchmaking editorial design and Breguet's emphasis on timepieces, craftsmanship and heritage storytelling, while keeping Velmo original and ecommerce-focused.
 
 Main Pages
 
@@ -79,7 +79,7 @@ Avoid generic ecommerce templates, excessive black/gold, oversized headlines, ro
 
 Brand Safety
 
-Velmo Custom must remain an independent brand/store. Do not copy third-party logos, wording, imagery, product naming, packaging or protected brand identities.
+Velmo must remain an independent brand/store. Do not copy third-party logos, wording, imagery, product naming, packaging or protected brand identities.
 
 Core Principle
 

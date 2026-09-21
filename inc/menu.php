@@ -2,11 +2,18 @@
 function dawp_main_menu_items() {
     return [
         ['title' => __('Home', 'dawp'),       'url' => home_url('/')],
-        ['title' => __('Watch', 'dawp'),      'url' => home_url('/shop/')],
+        ['title' => __('Shop', 'dawp'),       'url' => home_url('/shop/')],
         ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
         ['title' => __('About Us', 'dawp'),   'url' => home_url('/about-us/')],
     ];
 }
+function dawp_account_url() {
+    $account_id = function_exists('wc_get_page_id') ? wc_get_page_id('myaccount') : 0;
+    $url        = $account_id > 0 ? get_permalink($account_id) : '';
+
+    return $url ? $url : home_url('/my-account/');
+}
+
 function dawp_is_current_url($url) {
     $current = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
     $target  = trim(parse_url($url, PHP_URL_PATH) ?? '', '/');
@@ -31,6 +38,8 @@ function dawp_footer_columns() {
                 ['title' => 'About Us',           'url' => home_url('/about-us/')],
                 ['title' => 'FAQ',                'url' => home_url('/faq/')],
                 ['title' => 'Contact Us',         'url' => home_url('/contact-us/')],
+                ['title' => 'Track Order',        'url' => home_url('/track-order/')],
+                ['title' => 'My Account',         'url' => dawp_account_url()],
             ],
         ],
         [

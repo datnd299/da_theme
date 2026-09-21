@@ -16,6 +16,9 @@ $returns_url  = home_url('/return-refund-policy/');
 $shipping_url = home_url('/shipping-policy/');
 $privacy_url  = home_url('/privacy-policy/');
 $status       = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
+$support_phone = '+1 (800) 899-5135';
+$support_phone_tel = '+18008995135';
+$store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
@@ -175,8 +178,8 @@ $support_cards = [
                 <h2 id="cf-response-title"><?php esc_html_e('Response times', 'dawp'); ?></h2>
                 <p><?php esc_html_e('Most messages receive a reply within one business day. Order-specific requests are easier to resolve when you include your order number.', 'dawp'); ?></p>
                 <div class="cf-contact-hours">
-                    <div><strong><?php esc_html_e('Monday-Friday', 'dawp'); ?></strong><span><?php esc_html_e('9:00 AM-6:00 PM', 'dawp'); ?></span></div>
-                    <div><strong><?php esc_html_e('Saturday', 'dawp'); ?></strong><span><?php esc_html_e('Limited email support', 'dawp'); ?></span></div>
+                    <div><strong><?php esc_html_e('Monday-Friday', 'dawp'); ?></strong><span><?php esc_html_e('9:00 AM-5:00 PM PST', 'dawp'); ?></span></div>
+                    <div><strong><?php esc_html_e('Saturday', 'dawp'); ?></strong><span><?php esc_html_e('Closed', 'dawp'); ?></span></div>
                     <div><strong><?php esc_html_e('Sunday', 'dawp'); ?></strong><span><?php esc_html_e('Closed', 'dawp'); ?></span></div>
                 </div>
             </aside>
@@ -245,7 +248,15 @@ $support_cards = [
                     <ul class="cf-contact-info-list">
                         <li>
                             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
-                            <div><strong><?php esc_html_e('Email', 'dawp'); ?></strong><a href="mailto:support@crowdfused.com">support@crowdfused.com</a></div>
+                            <div><strong><?php esc_html_e('Email', 'dawp'); ?></strong><a href="mailto:contact@crowdfused.com">contact@crowdfused.com</a></div>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <div><strong><?php esc_html_e('Phone', 'dawp'); ?></strong><a href="tel:<?php echo esc_attr($support_phone_tel); ?>"><?php echo esc_html($support_phone); ?></a></div>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+                            <div><strong><?php esc_html_e('Address', 'dawp'); ?></strong><span><?php echo esc_html($store_address); ?></span></div>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>

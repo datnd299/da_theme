@@ -11,7 +11,9 @@ if (!defined('ABSPATH')) {
 
 $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
-$support_email  = 'support@Crowdfused.com';
+$support_email  = 'contact@crowdfused.com';
+$support_phone  = '+1 (800) 899-5135';
+$support_phone_tel = '+18008995135';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $logo_path       = get_template_directory() . '/assets/img/logo_file/logo_crowd_cropped.png';
@@ -126,6 +128,10 @@ $footer_columns = [
                     <div>
                         <dt><?php esc_html_e('Email:', 'dawp'); ?></dt>
                         <dd><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
+                    </div>
+                    <div>
+                        <dt><?php esc_html_e('Phone:', 'dawp'); ?></dt>
+                        <dd><a href="tel:<?php echo esc_attr($support_phone_tel); ?>"><?php echo esc_html($support_phone); ?></a></dd>
                     </div>
                     <div>
                         <dt><?php esc_html_e('Address:', 'dawp'); ?></dt>

@@ -195,8 +195,8 @@ function dawp_rank_math_organization_schema() {
         '@id'   => home_url('/#organization'),
         'name'  => get_bloginfo('name'),
         'url'   => home_url('/'),
-        'email' => 'support@Crowdfused.com',
-        'telephone' => '826-207-1399',
+        'email' => 'contact@crowdfused.com',
+        'telephone' => '+18008995135',
         'logo'  => [
             '@type' => 'ImageObject',
             'url'   => get_template_directory_uri() . '/assets/img/logo_file/logo_crowd_cropped.png',
@@ -204,8 +204,8 @@ function dawp_rank_math_organization_schema() {
         'contactPoint' => [
             [
                 '@type'       => 'ContactPoint',
-                'telephone'   => '826-207-1399',
-                'email'       => 'support@Crowdfused.com',
+                'telephone'   => '+18008995135',
+                'email'       => 'contact@crowdfused.com',
                 'contactType' => 'customer support',
                 'areaServed'  => 'US',
                 'availableLanguage' => ['en'],
@@ -276,7 +276,7 @@ function dawp_rank_math_faq_items($slug) {
         ],
         [
             'question' => 'How do I contact Crowdfused?',
-            'answer'   => 'Customers can contact Crowdfused support by email at support@Crowdfused.com or through the Contact Us page.',
+            'answer'   => 'Customers can contact Crowdfused support by email at contact@crowdfused.com or through the Contact Us page.',
         ],
     ];
 

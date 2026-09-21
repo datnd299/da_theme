@@ -9,8 +9,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'support@Crowdfused.com';
-$support_phone = '826-207-1399';
+$support_email = 'contact@crowdfused.com';
+$support_phone = '+1 (800) 899-5135';
+$support_phone_tel = '+18008995135';
 $store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $track_url     = home_url('/track-order/');
 $contact_url   = home_url('/contact-us/');
@@ -238,7 +239,7 @@ $shipping_faqs = [
                 <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#222222] bg-white px-6 text-sm font-extrabold text-[#222222] transition hover:bg-[#FAFAFA]">
                     <?php echo esc_html($support_email); ?>
                 </a>
-                <a href="tel:<?php echo esc_attr($support_phone); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#222222] bg-white px-6 text-sm font-extrabold text-[#222222] transition hover:bg-[#FAFAFA]">
+                <a href="tel:<?php echo esc_attr($support_phone_tel); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#222222] bg-white px-6 text-sm font-extrabold text-[#222222] transition hover:bg-[#FAFAFA]">
                     <?php echo esc_html($support_phone); ?>
                 </a>
             </div>
@@ -259,7 +260,7 @@ $shipping_faqs = [
                              <?php if ($support_email === $detail['value']) : ?>
                                  <a href="mailto:<?php echo esc_attr($support_email); ?>" class="mt-3 block text-sm leading-6 text-[#666666] transition hover:text-[#F58220]"><?php echo esc_html($detail['value']); ?></a>
                              <?php elseif ($support_phone === $detail['value']) : ?>
-                                 <a href="tel:<?php echo esc_attr($support_phone); ?>" class="mt-3 block text-sm leading-6 text-[#666666] transition hover:text-[#F58220]"><?php echo esc_html($detail['value']); ?></a>
+                                 <a href="tel:<?php echo esc_attr($support_phone_tel); ?>" class="mt-3 block text-sm leading-6 text-[#666666] transition hover:text-[#F58220]"><?php echo esc_html($detail['value']); ?></a>
                              <?php else : ?>
                                  <p class="mt-3 text-sm leading-6 text-[#666666]"><?php echo esc_html($detail['value']); ?></p>
                              <?php endif; ?>

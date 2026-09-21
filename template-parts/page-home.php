@@ -209,13 +209,6 @@ $cf_why_shop = [
     ],
 ];
 
-$cf_testimonials = [
-    ['name' => __('Amara K.', 'dawp'), 'location' => __('Austin, TX', 'dawp'), 'rating' => '5.0', 'copy' => __('The kitchen tools I ordered are genuinely well made, and checkout was quick. It felt like shopping somewhere that actually curates what it sells.', 'dawp')],
-    ['name' => __('Jordan T.', 'dawp'), 'location' => __('Denver, CO', 'dawp'), 'rating' => '5.0', 'copy' => __('Tracking updates were clear from the moment my order shipped. Everything arrived exactly as described, no surprises.', 'dawp')],
-    ['name' => __('Priya S.', 'dawp'), 'location' => __('Seattle, WA', 'dawp'), 'rating' => '4.8', 'copy' => __('I was hunting for smart home gadgets that did not feel gimmicky. Crowdfused had exactly that balance of useful and well designed.', 'dawp')],
-    ['name' => __('Marcus B.', 'dawp'), 'location' => __('Raleigh, NC', 'dawp'), 'rating' => '5.0', 'copy' => __('Support answered my question about a return within a day and made the whole process painless.', 'dawp')],
-    ['name' => __('Elena R.', 'dawp'), 'location' => __('Phoenix, AZ', 'dawp'), 'rating' => '4.9', 'copy' => __('Our patio finally feels finished. The product pages made it easy to know what I was getting before I bought it.', 'dawp')],
-];
 ?>
 
 <style>
@@ -586,45 +579,6 @@ $cf_testimonials = [
                         <span class="cf-whyshop-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><?php echo $item['icon']; ?></svg></span>
                         <h3><?php echo esc_html($item['title']); ?></h3>
                         <p><?php echo esc_html($item['copy']); ?></p>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="cf-section" id="reviews" aria-labelledby="cf-reviews-title">
-        <div class="cf-container">
-            <div class="cf-section__head">
-                <div>
-                    <p class="cf-eyebrow"><?php esc_html_e('Social Proof', 'dawp'); ?></p>
-                    <h2 id="cf-reviews-title"><?php esc_html_e('Trusted By Thousands', 'dawp'); ?></h2>
-                </div>
-                <div class="cf-slider-nav" data-slider-nav="cf-review-track">
-                    <button type="button" class="cf-slider-nav__btn" data-slider-prev aria-label="<?php esc_attr_e('Previous reviews', 'dawp'); ?>">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
-                    </button>
-                    <button type="button" class="cf-slider-nav__btn" data-slider-next aria-label="<?php esc_attr_e('Next reviews', 'dawp'); ?>">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
-                    </button>
-                </div>
-            </div>
-            <div class="cf-review-grid" id="cf-review-track">
-                <?php foreach ($cf_testimonials as $review) :
-                    $initials = '';
-                    foreach (explode(' ', $review['name']) as $part) {
-                        $initials .= mb_substr($part, 0, 1);
-                    }
-                    ?>
-                    <div class="cf-review">
-                        <div class="cf-review__head">
-                            <span class="cf-review__avatar" aria-hidden="true"><?php echo esc_html($initials); ?></span>
-                            <div>
-                                <span class="cf-review__name"><?php echo esc_html($review['name']); ?></span>
-                                <span class="cf-review__location"><?php echo esc_html($review['location']); ?></span>
-                            </div>
-                        </div>
-                        <?php echo $cf_rating_html($review['rating'], 1); ?>
-                        <p class="cf-review__copy">&ldquo;<?php echo esc_html($review['copy']); ?>&rdquo;</p>
                     </div>
                 <?php endforeach; ?>
             </div>

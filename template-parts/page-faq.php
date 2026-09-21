@@ -11,8 +11,9 @@ if (!defined('ABSPATH')) {
 
 $store_name     = 'Crowdfused';
 $site_domain    = 'Crowdfused.com';
-$support_email  = 'support@Crowdfused.com';
-$support_phone  = '826-207-1399';
+$support_email  = 'contact@crowdfused.com';
+$support_phone  = '+1 (800) 899-5135';
+$support_phone_tel = '+18008995135';
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
@@ -298,7 +299,7 @@ $quick_links = [
                         <div class="rounded-md border border-[#E9ECEF] bg-white p-5">
                             <dt class="text-sm font-extrabold text-[#222222]"><?php esc_html_e('Customer Support Phone', 'dawp'); ?></dt>
                             <dd class="mt-3 text-sm leading-7 text-[#666666]">
-                                <a class="font-bold text-[#F58220] underline decoration-[#F58220]/40 underline-offset-4 transition hover:text-[#E96F00]" href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a>
+                                <a class="font-bold text-[#F58220] underline decoration-[#F58220]/40 underline-offset-4 transition hover:text-[#E96F00]" href="tel:<?php echo esc_attr($support_phone_tel); ?>"><?php echo esc_html($support_phone); ?></a>
                             </dd>
                         </div>
                         <div class="rounded-md border border-[#E9ECEF] bg-white p-5">

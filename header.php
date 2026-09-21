@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'support@Crowdfused.com';
+$support_email = 'contact@crowdfused.com';
 $home_url      = home_url('/');
 $shop_url      = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $contact_url   = home_url('/contact-us/');

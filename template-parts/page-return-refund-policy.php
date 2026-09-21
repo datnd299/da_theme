@@ -10,8 +10,9 @@ if (!defined('ABSPATH')) {
 }
 
 $store_name     = 'Crowdfused';
-$support_email  = 'support@Crowdfused.com';
-$support_phone  = '826-207-1399';
+$support_email  = 'contact@crowdfused.com';
+$support_phone  = '+1 (800) 899-5135';
+$support_phone_tel = '+18008995135';
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
@@ -98,7 +99,7 @@ $contact_cards = [
     [
         'label' => __('Phone', 'dawp'),
         'value' => $support_phone,
-        'url'   => 'tel:' . $support_phone,
+        'url'   => 'tel:' . $support_phone_tel,
     ],
     [
         'label' => __('Contact Support', 'dawp'),

@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop and product category archive template for Velmos.
+ * Shop and product category archive template for Clixframe.
  *
  * @package dawp
  */
@@ -12,7 +12,7 @@ $queried_term  = $is_category ? get_queried_object() : null;
 $category_data = $is_category && $queried_term && !is_wp_error($queried_term) ? qb_get_product_category_data($queried_term->slug) : null;
 $shop_url      = get_permalink(wc_get_page_id('shop'));
 $shop_url      = $shop_url ?: home_url('/shop/');
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmos';
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Clixframe';
 
 if ($category_data) {
     $page_title  = $category_data['name'];

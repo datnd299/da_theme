@@ -10,7 +10,7 @@ function qb_product_category_definitions() {
         'dress-watches' => [
             'name'        => __('Dress Watches', 'dawp'),
             'headline'    => __('Dress Watches With A Clean Formal Line.', 'dawp'),
-            'description' => __('Explore refined Velmos dress watches selected for slim profiles, polished finishes, and confident daily-to-evening wear.', 'dawp'),
+            'description' => __('Explore refined Clixframe dress watches selected for slim profiles, polished finishes, and confident daily-to-evening wear.', 'dawp'),
             'intro'       => __('A focused edit of watches for sharper outfits, quieter details, and occasions where the wrist should feel composed.', 'dawp'),
             'highlights'  => [
                 __('Slim profile', 'dawp'),
@@ -22,7 +22,7 @@ function qb_product_category_definitions() {
         'diver-watches' => [
             'name'        => __('Diver Watches', 'dawp'),
             'headline'    => __('Diver Watches Built For Strong Presence.', 'dawp'),
-            'description' => __('Browse Velmos diver-style watches with bold bezels, legible dials, and sturdy case proportions for everyday confidence.', 'dawp'),
+            'description' => __('Browse Clixframe diver-style watches with bold bezels, legible dials, and sturdy case proportions for everyday confidence.', 'dawp'),
             'intro'       => __('These pieces lean into sport utility and visual clarity, with product pages covering fit, finish, strap, and care notes.', 'dawp'),
             'highlights'  => [
                 __('Bold bezel form', 'dawp'),
@@ -34,7 +34,7 @@ function qb_product_category_definitions() {
         'chronograph-watches' => [
             'name'        => __('Chronograph Watches', 'dawp'),
             'headline'    => __('Chronograph Watches With Measured Detail.', 'dawp'),
-            'description' => __('Shop Velmos chronograph watches selected for layered dials, balanced subregisters, and a more technical wrist presence.', 'dawp'),
+            'description' => __('Shop Clixframe chronograph watches selected for layered dials, balanced subregisters, and a more technical wrist presence.', 'dawp'),
             'intro'       => __('A practical category for customers who like added dial depth, timing-inspired design, and a sharper instrument feel.', 'dawp'),
             'highlights'  => [
                 __('Layered dial layout', 'dawp'),

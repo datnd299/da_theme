@@ -25,13 +25,14 @@ function dawp_brand_name() {
 }
 
 /**
- * Primary market country (ISO 3166-1 alpha-2). Defaults to the WooCommerce
- * store country so visible policy copy and structured data stay aligned.
+ * Market country (ISO 3166-1 alpha-2) the store sells and ships to. The visible
+ * Shipping / Return policies say "U.S. only", so structured data (return
+ * policy country, shipping destination, areaServed) is pinned to US rather than
+ * derived from the WooCommerce base country, which is the business address and
+ * can legitimately differ from the shipping market.
  */
 function dawp_store_country() {
-    $country = function_exists('dawp_get_store_country_code') ? dawp_get_store_country_code() : 'US';
-
-    return apply_filters('dawp_store_country', $country);
+    return apply_filters('dawp_store_country', 'US');
 }
 
 /**
@@ -157,7 +158,7 @@ function dawp_current_description() {
     }
 
     if (function_exists('is_shop') && is_shop()) {
-        return sprintf('Shop Zorex Craft watches - refined styling, clean presentation, and precise product detail from our own brand.', dawp_brand_name());
+        return sprintf('Shop %s watches - refined styling, clean presentation, and precise product detail from our own brand.', dawp_brand_name());
     }
 
     if (is_product_category() || is_product_tag()) {
@@ -436,7 +437,10 @@ function dawp_get_product_brand($product) {
 }
 
 /**
- * Return policy node mirroring template-parts/page-return-refund-policy.php.
+ * Return policy node mirroring template-parts/page-return-refund-policy.php
+ * (30 days from delivery, return by mail, no restocking fee, refund to the
+ * original payment method; the customer pays return shipping for change-of-mind
+ * returns, Zorex Craft pays for defective / damaged / incorrect items).
  */
 function dawp_merchant_return_policy() {
     return [
@@ -445,6 +449,9 @@ function dawp_merchant_return_policy() {
         'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
         'merchantReturnDays'   => 30,
         'returnMethod'         => 'https://schema.org/ReturnByMail',
+        'returnFees'           => 'https://schema.org/ReturnFeesCustomerResponsibility',
+        'refundType'           => 'https://schema.org/FullRefund',
+        'merchantReturnLink'   => home_url('/return-refund-policy/'),
     ];
 }
 
@@ -468,6 +475,10 @@ function dawp_offer_shipping_details() {
         ],
         'deliveryTime'        => [
             '@type'        => 'ShippingDeliveryTime',
+            'businessDays' => [
+                '@type'     => 'OpeningHoursSpecification',
+                'dayOfWeek' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            ],
             'handlingTime' => [
                 '@type'    => 'QuantitativeValue',
                 'minValue' => 1,

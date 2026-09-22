@@ -118,8 +118,8 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
     <div class="qb-wrap qb-hero__grid">
       <div>
         <p class="qb-eyebrow"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
-        <h1 class="qb-title"><?php esc_html_e('Terms of Service', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <h1 class="qb-title"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></h1>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 21, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php echo esc_html(sprintf('Key terms for using %s, placing orders, and accessing support.', $brand_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
@@ -181,7 +181,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <section id="accuracy" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('3. Accuracy, Completeness, and Timeliness of Information', 'dawp'); ?></p>
           <h2><?php esc_html_e('We work to keep product and order information clear and current.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('We make reasonable efforts to keep product descriptions, pricing, availability, compatibility information, and images accurate and up to date. If we discover a clear error, we will correct it promptly and, when it affects an order, contact you using the details provided at checkout.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We make reasonable efforts to keep product descriptions, pricing, availability, and images accurate and up to date. If we discover a clear error, we will correct it promptly and, when it affects an order, contact you using the details provided at checkout.', 'dawp'); ?></p>
           <p><?php esc_html_e('Please review the product page, cart, shipping details, return policy, and checkout total before completing payment.', 'dawp'); ?></p>
           <p><?php esc_html_e('We reserve the right to modify site content at any time, but we are not obligated to update any information except as required by law.', 'dawp'); ?></p>
         </section>
@@ -198,7 +198,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <p class="qb-eyebrow"><?php esc_html_e('5. Products or Services', 'dawp'); ?></p>
           <h2><?php esc_html_e('Some products or services may be limited or online only.', 'dawp'); ?></h2>
           <p><?php esc_html_e('Certain products or services may be available exclusively online through the website. Some products may have limited quantities, category-specific restrictions, or delivery limitations based on destination, carrier, or local law.', 'dawp'); ?></p>
-          <p><?php esc_html_e('Product images are for illustrative purposes only. While we make reasonable efforts to display product colors, packaging, and details accurately, we cannot guarantee your device display will reflect exact product appearance.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Product images are intended to represent the product you will receive. We make reasonable efforts to display colors, finishes, and details accurately, but slight differences may occur because of screen settings and photography lighting.', 'dawp'); ?></p>
           <p><?php esc_html_e('We reserve the right, but are not obligated, to:', 'dawp'); ?></p>
           <ul>
             <li><?php esc_html_e('Limit the sales of our products or Services to any person, region, or jurisdiction.', 'dawp'); ?></li>
@@ -215,12 +215,13 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <p><?php esc_html_e('We reserve the right to refuse, limit, or cancel any order you place with us. This may include limitations on quantities purchased per person, household, payment method, address, or order.', 'dawp'); ?></p>
           <p><?php esc_html_e('In the event that we make a change to or cancel an order, we may attempt to notify you using the email address, billing address, and/or phone number provided at the time the order was made.', 'dawp'); ?></p>
           <p><?php esc_html_e('You agree to provide current, complete, and accurate purchase, payment, shipping, and account information for all transactions. You agree to promptly update your account and other information, including your email address, shipping address, and payment details, so we can complete your transactions and contact you as needed.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Payments and pricing: All prices are shown in U.S. dollars (USD). Payment is processed through PayPal, including eligible card payments offered through PayPal checkout. The order total, including shipping charges and any applicable taxes, is displayed before you confirm payment, and no additional fees are added after you pay.', 'dawp'); ?></p>
         </section>
 
         <section id="optional-tools" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('7. Optional Tools', 'dawp'); ?></p>
           <h2><?php esc_html_e('Third-party tools are used at your own discretion.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('We may provide you with access to third-party tools or features, such as financing options, shipping estimators, product comparison tools, chat tools, or integrations, that we do not monitor or control.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We may provide you with access to third-party tools or features, such as shipping estimators, product comparison tools, or other integrations, that we do not monitor or control.', 'dawp'); ?></p>
           <p><?php esc_html_e('These tools are provided "as is" and "as available" without warranties, representations, or conditions of any kind and without endorsement.', 'dawp'); ?></p>
           <p><?php esc_html_e('Your use of optional third-party tools is entirely at your own risk and discretion, and you should review the terms provided by the relevant third-party provider(s).', 'dawp'); ?></p>
         </section>

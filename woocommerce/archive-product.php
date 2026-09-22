@@ -217,17 +217,17 @@ get_header();
                 <article class="shop-care__item">
                     <span class="shop-care__item-num" aria-hidden="true">01</span>
                     <h3><?php esc_html_e('Material, Size & Care', 'dawp'); ?></h3>
-                    <p><?php echo esc_html(sprintf(__('%s product pages include material or finish notes, case size, strap information, movement details, and simple watch care guidance.', 'dawp'), $brand_name)); ?></p>
+                    <p><?php echo esc_html(sprintf(__('%s product pages list the available material or finish, case size, strap and movement details so you can compare watches before ordering.', 'dawp'), $brand_name)); ?></p>
                 </article>
                 <article class="shop-care__item">
                     <span class="shop-care__item-num" aria-hidden="true">02</span>
                     <h3><?php esc_html_e('Zorex Watch Shopping', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('The collection is presented as Zorex Craft watches only, without fake luxury, replica, designer-inspired, reseller, or unsupported performance claims.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Every watch in the catalog is a Zorex Craft watch, sold directly by Zorex Craft.', 'dawp'); ?></p>
                 </article>
                 <article class="shop-care__item">
                     <span class="shop-care__item-num" aria-hidden="true">03</span>
                     <h3><?php esc_html_e('Secure & Transparent Checkout', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Every order is processed through secure payment with clear pricing, shipping estimates, and return policy details available before you complete your purchase.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Payment is processed securely through PayPal. Pricing, shipping details, and our return policy are available before you complete your purchase.', 'dawp'); ?></p>
                 </article>
             </div>
         </section>

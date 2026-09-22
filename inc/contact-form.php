@@ -112,3 +112,52 @@ function dawp_handle_contact_form() {
 
 add_action('admin_post_dawp_contact_form', 'dawp_handle_contact_form');
 add_action('admin_post_nopriv_dawp_contact_form', 'dawp_handle_contact_form');
+
+/**
+ * Newsletter sign-up (homepage). Subscribing is the opt-in described in the
+ * Privacy Policy; the address is emailed to support so it can be added to the
+ * mailing list. Nothing is stored in the database.
+ */
+function dawp_newsletter_redirect($status) {
+    $redirect = wp_get_referer();
+
+    if (!$redirect) {
+        $redirect = home_url('/');
+    }
+
+    $redirect = remove_query_arg(['newsletter_status'], $redirect);
+    wp_safe_redirect(add_query_arg('newsletter_status', $status, $redirect) . '#newsletter');
+    exit;
+}
+
+function dawp_handle_newsletter_signup() {
+    if (
+        !isset($_POST['dawp_newsletter_nonce']) ||
+        !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['dawp_newsletter_nonce'])), 'dawp_newsletter_signup')
+    ) {
+        dawp_newsletter_redirect('invalid');
+    }
+
+    $honeypot = isset($_POST['website']) ? trim(sanitize_text_field(wp_unslash($_POST['website']))) : '';
+    if ('' !== $honeypot) {
+        dawp_newsletter_redirect('sent');
+    }
+
+    $email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+
+    if ('' === $email || !is_email($email)) {
+        dawp_newsletter_redirect('invalid');
+    }
+
+    $sent = wp_mail(
+        dawp_contact_support_email(),
+        __('Zorex Craft newsletter sign-up', 'dawp'),
+        sprintf("New newsletter sign-up (opted in on the homepage):\n\nEmail: %s", $email),
+        ['Content-Type: text/plain; charset=UTF-8', sprintf('Reply-To: %s', $email)]
+    );
+
+    dawp_newsletter_redirect($sent ? 'sent' : 'failed');
+}
+
+add_action('admin_post_dawp_newsletter_signup', 'dawp_handle_newsletter_signup');
+add_action('admin_post_nopriv_dawp_newsletter_signup', 'dawp_handle_newsletter_signup');

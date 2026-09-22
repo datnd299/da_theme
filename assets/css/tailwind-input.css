@@ -22,7 +22,7 @@
   --color-alert:    #C0392B;
   --color-success:  #5C8A6A;
 
-  /* === SLICKTEE BRAND TOKENS === */
+  /* === ZOREX CRAFT BRAND TOKENS === */
   --color-slickBlack:  #0B0F0D;
   --color-slickGreen:  #123D2A;
   --color-slickActive: #22C55E;
@@ -2302,6 +2302,20 @@
   .zc-newsletter__form input:focus {
     border-color: #173B57;
     box-shadow: 0 0 0 3px rgba(23, 59, 87, .12);
+  }
+
+  .zc-newsletter__note {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: #707579;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .zc-newsletter__note a {
+    color: #173B57;
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   @media (max-width: 980px) {

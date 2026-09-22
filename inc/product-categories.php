@@ -16,7 +16,7 @@ function qb_product_category_definitions() {
             'highlights'  => [
                 __('Slim profiles and elegant cases', 'dawp'),
                 __('Classic dial layouts', 'dawp'),
-                __('Leather, bracelet and precious-tone finishes', 'dawp'),
+                __('Leather strap and bracelet styles', 'dawp'),
             ],
         ],
         'sport-watches' => [

@@ -118,7 +118,7 @@ function dawp_cart_drawer_footer() {
                 <span><?php esc_html_e('Subtotal', 'dawp'); ?></span>
                 <strong><?php echo wp_kses_post($cart->get_cart_subtotal()); ?></strong>
             </div>
-            <p class="dawp-cart-drawer__note"><?php esc_html_e('Shipping and taxes calculated at checkout.', 'dawp'); ?></p>
+            <p class="dawp-cart-drawer__note"><?php esc_html_e('Free standard U.S. shipping. Any applicable taxes are shown at checkout.', 'dawp'); ?></p>
             <div class="dawp-cart-drawer__actions">
                 <a class="dawp-cart-drawer__btn dawp-cart-drawer__btn--outline" href="<?php echo esc_url(wc_get_cart_url()); ?>"><?php esc_html_e('View Cart', 'dawp'); ?></a>
                 <a class="dawp-cart-drawer__btn dawp-cart-drawer__btn--primary" href="<?php echo esc_url(wc_get_checkout_url()); ?>"><?php esc_html_e('Checkout', 'dawp'); ?></a>

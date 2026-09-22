@@ -127,7 +127,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 21, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php esc_html_e("Free standard U.S. shipping with clear delivery timelines shown before checkout.", 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -159,8 +159,8 @@ $support_portal = home_url('/contact-us/');
               <p><?php esc_html_e('Completely free for all orders nationwide. There is no minimum purchase requirement to qualify for free standard shipping.', 'dawp'); ?></p>
             </div>
             <div class="qb-info-panel qb-info-panel--soft">
-              <h3><?php esc_html_e('Optional Upgraded Shipping', 'dawp'); ?></h3>
-              <p><?php esc_html_e('If expedited or assisted shipping services are available for your destination, the exact cost will be displayed clearly on the checkout page before you complete your payment.', 'dawp'); ?></p>
+              <h3><?php esc_html_e('Expedited Shipping', 'dawp'); ?></h3>
+              <p><?php esc_html_e('Standard shipping is included on every order. If an expedited option is offered for your address, its exact cost is shown at checkout before you pay. The delivery times on this page apply to standard shipping.', 'dawp'); ?></p>
             </div>
           </div>
         </section>
@@ -192,7 +192,7 @@ $support_portal = home_url('/contact-us/');
         <section id="multi-item-orders" class="qb-policy-card">
           <h2><?php esc_html_e('Multi-Item Orders & Specialized Handling', 'dawp'); ?></h2>
           <p><?php esc_html_e('If your purchase includes multiple watches or diverse watch items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
-          <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain intricate or high-demand watch items may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
+          <p><?php esc_html_e('You will receive a tracking number for each package at no additional cost. During holiday periods, or when an order needs an address review, handling may take longer than usual; if your order is affected we will email you.', 'dawp'); ?></p>
         </section>
 
         <section id="tracking" class="qb-policy-card">
@@ -215,7 +215,7 @@ $support_portal = home_url('/contact-us/');
           <p><?php esc_html_e('Your satisfaction is our priority. If your order encounters delays, tracking stops updating, or the package is marked as delivered but has not arrived, please reach out to our dedicated support team immediately.', 'dawp'); ?></p>
           <p><?php esc_html_e('To help us investigate and resolve the issue with the carrier swiftly, please provide:', 'dawp'); ?></p>
           <ul>
-            <li><?php esc_html_e('Your exact Order Number, such as #VC-1001.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Your exact Order Number, such as #ZC-1001.', 'dawp'); ?></li>
             <li><?php esc_html_e('The specific Email Address utilized during checkout.', 'dawp'); ?></li>
             <li><?php esc_html_e('The full and complete Delivery Address.', 'dawp'); ?></li>
             <li><?php esc_html_e('Clear, well-lit photos if the package container or watch item arrived damaged.', 'dawp'); ?></li>

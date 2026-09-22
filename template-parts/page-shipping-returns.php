@@ -66,7 +66,7 @@ $support_email = function_exists('dawp_contact_support_email') ? dawp_contact_su
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('Policy Center', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 21, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php esc_html_e('Quick access to shipping, returns, refunds, and order support.', 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>

@@ -34,7 +34,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Why has my order not shipped yet?', 'dawp'),
-                'a' => __('Orders have a 5:00 PM Pacific Time cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding weekends and official U.S. public holidays. Some intricate, high-demand, or separately packed watch items may require additional processing time.', 'dawp'),
+                'a' => __('Orders have a 5:00 PM Pacific Time cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding weekends and official U.S. public holidays. During holiday periods, or when an order needs an address review, handling may take longer; we will email you if your order is affected.', 'dawp'),
             ],
         ],
     ],
@@ -49,7 +49,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('How much does standard shipping cost?', 'dawp'),
-                'a' => __('Standard U.S. shipping is free nationwide for every order with no minimum purchase requirement. If expedited or assisted shipping is available for your destination, the exact cost will be shown clearly at checkout before payment.', 'dawp'),
+                'a' => __('Standard U.S. shipping is free nationwide for every order with no minimum purchase requirement. If an expedited option is offered for your address, its exact cost is shown at checkout before payment.', 'dawp'),
             ],
             [
                 'q' => __('How long does shipping take?', 'dawp'),
@@ -76,7 +76,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('What condition must a return be in?', 'dawp'),
-                'a' => __('Eligible returns must be unworn, unused, undamaged, and in original, unaltered condition with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and included accessories.', 'dawp'),
+                'a' => __('Eligible returns must be unworn, unused, undamaged, and in original, unaltered condition with all original packaging, the watch box, tags, labels, printed materials, and included accessories.', 'dawp'),
             ],
             [
                 'q' => __('Do you charge a restocking fee?', 'dawp'),
@@ -84,7 +84,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Who pays return shipping?', 'dawp'),
-                'a' => __('We cover 100% of return shipping costs and provide a prepaid shipping label when the item is defective, damaged, incorrect, missing essential parts, or not functioning as intended. For customer remorse returns, such as wrong item, size, color, model, fit preference, or no longer wanting the item, the customer is responsible for return shipping. If we provide a label for convenience, the actual label cost is disclosed before you ship and may be deducted from the final refund amount.', 'dawp'),
+                'a' => __('We cover 100% of return shipping costs and provide a prepaid shipping label when the item is defective, damaged, or incorrect (wrong item, carrier damage, or defective). For customer remorse returns, such as ordering the wrong item, style, or strap size, changing your mind, or an item that does not suit you, the customer is responsible for return shipping. If we provide a label for convenience, the actual label cost is disclosed before you ship and may be deducted from the final refund amount.', 'dawp'),
             ],
             [
                 'q' => __('How are refunds handled?', 'dawp'),
@@ -127,7 +127,7 @@ $faq_sections = [
             [
                 'q' => __('Are these Zorex Craft watches or third-party brands?', 'dawp'),
                 'a' => sprintf(
-                    __('%s sells its own Zorex Craft watches and related accessories. We do not position the site as a distributor of other watch brands, and we avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
+                    __('%s sells its own Zorex Craft watches and related accessories. We do not sell watches from other brands.', 'dawp'),
                     $store_name
                 ),
             ],
@@ -252,7 +252,7 @@ $faq_sections = [
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('FAQ', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 21, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php echo esc_html(sprintf(__('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, watch details, checkout, privacy, and customer support at %s.', 'dawp'), $store_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -290,7 +290,7 @@ $faq_sections = [
             <li><strong><?php esc_html_e('Delivery Time', 'dawp'); ?></strong><?php esc_html_e('6-10 business days', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Return Window', 'dawp'); ?></strong><?php esc_html_e('30 days of delivery', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Restocking Fee', 'dawp'); ?></strong><?php esc_html_e('No restocking fee for eligible returns', 'dawp'); ?></li>
-            <li><strong><?php esc_html_e('Refund Timing', 'dawp'); ?></strong><?php esc_html_e('Within 7 business days after approval', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Refund Timing', 'dawp'); ?></strong><?php esc_html_e('Within 7 business days after your return is approved', 'dawp'); ?></li>
           </ul>
         </section>
 

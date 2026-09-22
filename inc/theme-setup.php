@@ -5,7 +5,7 @@ remove_action('wp_head', 'wp_site_icon', 99);
 add_action('wp_head', 'dawp_logo_favicon', 100);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'VC-' . $order_id;
+    return 'ZC-' . $order_id;
 }
 function dawp_setup() {
     add_theme_support('title-tag');

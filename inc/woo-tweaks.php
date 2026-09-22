@@ -18,6 +18,16 @@ function dawp_is_oldest_first_product_archive() {
         && (is_shop() || is_product_category());
 }
 
+/**
+ * Archives default to oldest-first, but the footer "New Arrivals" link
+ * (?orderby=date) must really show the newest products first.
+ */
+function dawp_product_archive_order() {
+    $requested = isset($_GET['orderby']) ? sanitize_key(wp_unslash($_GET['orderby'])) : '';
+
+    return 'date' === $requested ? 'DESC' : 'ASC';
+}
+
 function dawp_force_oldest_product_archive_ordering($args) {
     if (!dawp_is_oldest_first_product_archive()) {
         return $args;
@@ -25,7 +35,7 @@ function dawp_force_oldest_product_archive_ordering($args) {
 
     return [
         'orderby'  => 'date',
-        'order'    => 'ASC',
+        'order'    => dawp_product_archive_order(),
         'meta_key' => '',
     ];
 }
@@ -36,7 +46,7 @@ function dawp_force_oldest_product_archive_query($query) {
     }
 
     $query->set('orderby', 'date');
-    $query->set('order', 'ASC');
+    $query->set('order', dawp_product_archive_order());
     $query->set('meta_key', '');
 }
 
@@ -63,7 +73,8 @@ function dawp_normalize_tracking_order_id($order_id) {
         return $tracking_id;
     }
 
-    if (preg_match('/^(?:OT|CV|VC)\s*-\s*(\d+)$/i', $tracking_id, $matches)) {
+    // ZC- is the current Zorex Craft prefix; OT/CV/VC are legacy prefixes kept so old order numbers still resolve.
+    if (preg_match('/^(?:ZC|OT|CV|VC)\s*-\s*(\d+)$/i', $tracking_id, $matches)) {
         return $matches[1];
     }
 

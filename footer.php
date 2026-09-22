@@ -27,6 +27,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
             ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
             ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
             ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
+            ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
         ],
     ],
     [

@@ -122,7 +122,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
       <div>
         <p class="qb-eyebrow"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 21, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php echo esc_html(sprintf('How %s collects, uses, and protects your information.', $brand_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -138,7 +138,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <div class="qb-dark-card">
           <p class="qb-eyebrow"><?php esc_html_e('Privacy Sections', 'dawp'); ?></p>
           <h2 class="qb-title" style="font-size:clamp(28px,3vw,42px);"><?php esc_html_e('Transparent by design.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Review how we collect information, the tools we use, how data is shared, SMS terms, your rights, retention, and contact details.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Review how we collect information, the tools we use, how data is shared, your rights, retention, and contact details.', 'dawp'); ?></p>
           <nav class="qb-side-nav" aria-label="<?php esc_attr_e('Privacy sections', 'dawp'); ?>">
             <a href="#collect"><?php esc_html_e('How We Collect', 'dawp'); ?></a>
             <a href="#tools"><?php esc_html_e('Tools & Services', 'dawp'); ?></a>
@@ -146,7 +146,6 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             <a href="#payments"><?php esc_html_e('Payments & Security', 'dawp'); ?></a>
             <a href="#cookies"><?php esc_html_e('Cookies', 'dawp'); ?></a>
             <a href="#sharing"><?php esc_html_e('Sharing', 'dawp'); ?></a>
-            <a href="#messaging"><?php esc_html_e('Messaging Terms', 'dawp'); ?></a>
             <a href="#rights"><?php esc_html_e('Your Privacy Rights', 'dawp'); ?></a>
             <a href="#contact-info"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
           </nav>
@@ -185,7 +184,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <h2><?php esc_html_e('We use trusted services to operate our store efficiently.', 'dawp'); ?></h2>
           <ul>
             <li><?php esc_html_e('Website platform: WordPress and WooCommerce.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Analytics: Google Analytics to understand site usage and improve performance.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Analytics: Website analytics tools (such as Google Analytics, where enabled) to understand site usage and improve performance.', 'dawp'); ?></li>
             <li><?php esc_html_e('Payments: PayPal, including eligible card payment options when offered through PayPal checkout.', 'dawp'); ?></li>
             <li><?php esc_html_e('Email communication: Used for order updates and customer communication.', 'dawp'); ?></li>
             <li><?php esc_html_e('Customer support: Contact form, support email, and customer support systems.', 'dawp'); ?></li>
@@ -221,7 +220,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             <li><?php esc_html_e('Ensure the website functions properly.', 'dawp'); ?></li>
             <li><?php esc_html_e('Remember your preferences and cart.', 'dawp'); ?></li>
             <li><?php esc_html_e('Analyze traffic and user behavior.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Improve product recommendations.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Improve the shopping experience.', 'dawp'); ?></li>
           </ul>
           <p><?php esc_html_e('You can manage cookies through your browser settings.', 'dawp'); ?></p>
         </section>
@@ -232,45 +231,9 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <h3><?php esc_html_e('Data Sharing', 'dawp'); ?></h3>
           <ul>
             <li><?php esc_html_e('Customer data is not shared with third parties for promotional or marketing purposes.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Mobile opt-in and consent are never shared with anyone for any purpose.', 'dawp'); ?></li>
           </ul>
-          <p><?php esc_html_e('Any information sharing that may be mentioned elsewhere in this policy excludes mobile opt-in data.', 'dawp'); ?></p>
           <p><?php esc_html_e('We only share your information when necessary to operate our business, including with service providers for payments, shipping, analytics, hosting, customer support, when required by law or legal processes, or to prevent fraud and protect our business.', 'dawp'); ?></p>
           <p><?php esc_html_e('We do not sell your personal information.', 'dawp'); ?></p>
-        </section>
-
-        <section id="messaging" class="qb-policy-card">
-          <p class="qb-eyebrow"><?php echo esc_html(sprintf('%s Messaging Terms and Conditions', $brand_name)); ?></p>
-          <h2><?php esc_html_e('These terms apply if you opt in to SMS messaging.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Review the program details, opt-out instructions, support options, carrier limits, and message rate information before subscribing.', 'dawp'); ?></p>
-          <div class="qb-policy-section">
-            <h3><?php esc_html_e('Program Messages', 'dawp'); ?></h3>
-            <p><?php esc_html_e('The messaging program may include general conversational messaging to answer questions and provide support to customers, promotional offers or discounts, and promotion of our products or services.', 'dawp'); ?></p>
-          </div>
-          <div class="qb-policy-section">
-            <h3><?php esc_html_e('How to Opt Out', 'dawp'); ?></h3>
-            <p><?php esc_html_e('You can cancel the SMS service at any time. Text STOP to the phone number from which you received messages. After you send STOP, we will send an SMS confirmation that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, sign up as you did the first time and we will start sending SMS messages to you again.', 'dawp'); ?></p>
-          </div>
-          <div class="qb-policy-section">
-            <h3><?php esc_html_e('Help and Support', 'dawp'); ?></h3>
-            <p><?php printf(
-                /* translators: %s: support email address. */
-                esc_html__('If you are experiencing issues with the messaging program, reply with HELP for more assistance, or get help directly at %s.', 'dawp'),
-                '<a href="' . esc_url($support_mailto) . '">' . esc_html($support_email) . '</a>'
-            ); ?></p>
-          </div>
-          <div class="qb-policy-section">
-            <h3><?php esc_html_e('Carrier Delivery and Rates', 'dawp'); ?></h3>
-            <ul>
-              <li><?php esc_html_e('Carriers are not liable for delayed or undelivered messages.', 'dawp'); ?></li>
-              <li><?php esc_html_e('Message and data rates may apply for any messages sent to you from us and to us from you.', 'dawp'); ?></li>
-              <li><?php esc_html_e('Message frequency will vary based on communication needs. If you have questions about your text plan or data plan, contact your wireless provider.', 'dawp'); ?></li>
-            </ul>
-          </div>
-          <div class="qb-policy-section">
-            <h3><?php esc_html_e('Privacy Questions', 'dawp'); ?></h3>
-            <p><?php esc_html_e('If you have questions regarding privacy, please read the rest of this Privacy Policy.', 'dawp'); ?></p>
-          </div>
         </section>
 
         <section id="rights" class="qb-policy-card">
@@ -279,9 +242,11 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <ul>
             <li><?php esc_html_e('Access or update your personal information.', 'dawp'); ?></li>
             <li><?php esc_html_e('Request deletion of your data.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Correct inaccurate personal information.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Request details about the categories of personal information we collect and how it is used.', 'dawp'); ?></li>
             <li><?php esc_html_e('Opt out of marketing communications.', 'dawp'); ?></li>
           </ul>
-          <p><?php esc_html_e('To submit a request, please contact us using the details below.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Residents of certain U.S. states, including California, may have additional rights under state privacy laws. We do not sell your personal information, and we will not treat you differently for exercising your privacy rights. To submit a request, please contact us using the details below; we respond within the time required by applicable law.', 'dawp'); ?></p>
           <h3><?php esc_html_e('Data Retention', 'dawp'); ?></h3>
           <p><?php esc_html_e('We retain personal information only as long as necessary to fulfill orders and provide services, provide customer support, and comply with legal and financial obligations.', 'dawp'); ?></p>
           <h3><?php esc_html_e('Children\'s Privacy', 'dawp'); ?></h3>

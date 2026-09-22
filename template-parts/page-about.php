@@ -9,6 +9,10 @@ defined('ABSPATH') || exit;
 
 $asset_base = trailingslashit(get_template_directory_uri()) . 'assets/images/Zorexwatch/';
 $shop_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$brand_name     = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Zorex Craft';
+$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@zorexcraft.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Zorex Craft support request', 'dawp')) : 'mailto:' . $support_email;
+$store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 
 <section class="zc-about-hero">
@@ -53,7 +57,27 @@ $shop_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('
     <div class="zc-wrap zc-about-values">
         <article><span></span><h3><?php esc_html_e('Our own watches', 'dawp'); ?></h3><p><?php esc_html_e('The catalog is built around Zorex Craft models, organized by use, style and product detail rather than outside labels.', 'dawp'); ?></p></article>
         <article><span></span><h3><?php esc_html_e('Information-led', 'dawp'); ?></h3><p><?php esc_html_e('Names, prices and available specifications remain readable so every Zorex watch can be compared without visual clutter.', 'dawp'); ?></p></article>
-        <article><span></span><h3><?php esc_html_e('No inflated claims', 'dawp'); ?></h3><p><?php esc_html_e('We keep the language direct and avoid unsupported heritage, certification, warranty, material or investment promises.', 'dawp'); ?></p></article>
+        <article><span></span><h3><?php esc_html_e('No inflated claims', 'dawp'); ?></h3><p><?php esc_html_e('We keep the language direct and describe each watch only with details we can support.', 'dawp'); ?></p></article>
+    </div>
+</section>
+
+<section class="zc-about-section zc-about-section--white">
+    <div class="zc-wrap zc-about-values">
+        <article>
+            <span></span>
+            <h3><?php esc_html_e('Who we are', 'dawp'); ?></h3>
+            <p><?php echo esc_html(sprintf(__('%s is an independent watch brand. We sell our own watches directly through this website and do not resell other watch brands.', 'dawp'), $brand_name)); ?></p>
+        </article>
+        <article>
+            <span></span>
+            <h3><?php esc_html_e('Talk to us', 'dawp'); ?></h3>
+            <p><a href="<?php echo esc_url($support_mailto); ?>"><?php echo esc_html($support_email); ?></a><br><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time. We aim to reply within 1 business day.', 'dawp'); ?></p>
+        </article>
+        <article>
+            <span></span>
+            <h3><?php esc_html_e('Store details', 'dawp'); ?></h3>
+            <p><?php if ($store_address) : ?><?php echo esc_html($store_address); ?><br><?php endif; ?><?php esc_html_e('We ship within the United States only. Free standard shipping and a 30-day return window are explained in our', 'dawp'); ?> <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a> <?php esc_html_e('and', 'dawp'); ?> <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>.</p>
+        </article>
     </div>
 </section>
 

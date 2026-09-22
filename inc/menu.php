@@ -21,8 +21,6 @@ function dawp_footer_columns() {
             'links' => [
                 ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
                 ['title' => __('New Arrivals', 'dawp'),         'url' => home_url('/shop/?orderby=date')],
-                ['title' => __('Featured Watches', 'dawp'),     'url' => home_url('/shop/?featured=1')],
-                ['title' => __('Sale Watches', 'dawp'),         'url' => home_url('/shop/?product_visibility=onsale')],
             ],
         ],
         [
@@ -31,6 +29,7 @@ function dawp_footer_columns() {
                 ['title' => 'About Us',           'url' => home_url('/about-us/')],
                 ['title' => 'FAQ',                'url' => home_url('/faq/')],
                 ['title' => 'Contact Us',         'url' => home_url('/contact-us/')],
+                ['title' => 'Track Order',        'url' => home_url('/track-order/')],
             ],
         ],
         [

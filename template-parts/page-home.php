@@ -76,6 +76,7 @@ $popular_products = zc_home_products([
 ]);
 
 $style_categories = function_exists('qb_product_category_definitions') ? qb_product_category_definitions() : [];
+$newsletter_status = isset($_GET['newsletter_status']) ? sanitize_key(wp_unslash($_GET['newsletter_status'])) : '';
 ?>
 
 <section class="zc-hero">
@@ -235,16 +236,35 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
     </div>
 </section>
 
-<section class="zc-newsletter">
+<section class="zc-newsletter" id="newsletter">
     <div class="zc-wrap zc-newsletter__grid">
         <div>
             <span class="zc-kicker"><?php esc_html_e('Newsletter', 'dawp'); ?></span>
             <h2><?php esc_html_e('Notes from Zorex.', 'dawp'); ?></h2>
         </div>
-        <form class="zc-newsletter__form" action="#" method="post">
-            <label class="screen-reader-text" for="zc-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
-            <input id="zc-newsletter-email" type="email" name="email" placeholder="<?php esc_attr_e('Email address', 'dawp'); ?>">
+        <form class="zc-newsletter__form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+            <input type="hidden" name="action" value="dawp_newsletter_signup">
+            <?php wp_nonce_field('dawp_newsletter_signup', 'dawp_newsletter_nonce'); ?>
+            <div class="zc-contact-hidden">
+                <label for="zc-newsletter-website"><?php esc_html_e('Website', 'dawp'); ?></label>
+                <input id="zc-newsletter-website" type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <label class="qb-sr-only" for="zc-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
+            <input id="zc-newsletter-email" type="email" name="email" required autocomplete="email" placeholder="<?php esc_attr_e('Email address', 'dawp'); ?>">
             <button class="zc-button zc-button--primary" type="submit"><?php esc_html_e('Subscribe', 'dawp'); ?></button>
+            <p class="zc-newsletter__note">
+                <?php
+                if ('sent' === $newsletter_status) {
+                    esc_html_e('Thank you. You are subscribed.', 'dawp');
+                } elseif ('failed' === $newsletter_status) {
+                    esc_html_e('Sign-up could not be completed. Please email support instead.', 'dawp');
+                } elseif ('invalid' === $newsletter_status) {
+                    esc_html_e('Please enter a valid email address and try again.', 'dawp');
+                } else {
+                    echo esc_html__('By subscribing you agree to receive occasional emails from Zorex Craft. Unsubscribe any time. See our', 'dawp') . ' <a href="' . esc_url(home_url('/privacy-policy/')) . '">' . esc_html__('Privacy Policy', 'dawp') . '</a>.';
+                }
+                ?>
+            </p>
         </form>
     </div>
 </section>

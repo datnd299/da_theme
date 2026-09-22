@@ -188,14 +188,6 @@ $nav_items = [
 <a href="#content" class="cf-skip"><?php esc_html_e('Skip to content', 'dawp'); ?></a>
 
 <header id="site-header" class="cf-header" role="banner">
-    <div class="cf-header__announce">
-        <div class="cf-header__inner cf-header__announce-row">
-            <div class="cf-header__support">
-                <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
-            </div>
-        </div>
-    </div>
-
     <div class="cf-header__inner cf-header__main">
         <a href="<?php echo esc_url($home_url); ?>" class="cf-logo" aria-label="<?php esc_attr_e('Crowdfused home', 'dawp'); ?>">
             <?php

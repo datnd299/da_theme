@@ -198,11 +198,6 @@ $cf_why_shop = [
         'icon'  => '<path d="M3 7h11v9H3z"></path><path d="M14 10.5h4l3 2.5v3h-7z"></path><circle cx="7.5" cy="18" r="1.8"></circle><circle cx="17.5" cy="18" r="1.8"></circle>',
     ],
     [
-        'title' => __('Trusted by Customers', 'dawp'),
-        'copy'  => __('Over 70% of shoppers return for more great deals.', 'dawp'),
-        'icon'  => '<path d="M12 3.2 14.5 9l6.3.6-4.8 4.1 1.5 6.1L12 16.8 6.5 19.8 8 13.7 3.2 9.6 9.5 9z"></path>',
-    ],
-    [
         'title' => __('30-Day Return Policy', 'dawp'),
         'copy'  => __('Enjoy easy, hassle-free returns within 30 days for a confident shopping experience.', 'dawp'),
         'icon'  => '<path d="M5.5 5.5h9a3.5 3.5 0 0 1 0 7H9"></path><path d="m11 9.5-3-3 3-3"></path><path d="M5.5 12v7h13v-7"></path>',

@@ -213,15 +213,11 @@ function dawp_rank_math_organization_schema() {
         ],
     ];
 
-    if (function_exists('dawp_get_store_address')) {
-        $address = dawp_get_store_address();
-        if ($address) {
-            $schema['address'] = [
-                '@type' => 'PostalAddress',
-                'streetAddress' => $address,
-            ];
-        }
-    }
+    $address = '229 W General Screven Way, Hinesville, GA 31313';
+    $schema['address'] = [
+        '@type' => 'PostalAddress',
+        'streetAddress' => $address,
+    ];
 
     return $schema;
 }

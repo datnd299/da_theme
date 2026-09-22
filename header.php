@@ -190,7 +190,6 @@ $nav_items = [
 <header id="site-header" class="cf-header" role="banner">
     <div class="cf-header__announce">
         <div class="cf-header__inner cf-header__announce-row">
-            <p><?php esc_html_e('Free Shipping on Eligible Orders — Innovation Made Everyday', 'dawp'); ?></p>
             <div class="cf-header__support">
                 <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
             </div>

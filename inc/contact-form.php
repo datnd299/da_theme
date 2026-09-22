@@ -58,8 +58,8 @@ function dawp_contact_meta_box_cb($post) {
     echo '</tbody></table>';
 }
 
-add_action('admin_post_nopriv_lbq_contact_form', 'dawp_handle_contact_form');
-add_action('admin_post_lbq_contact_form', 'dawp_handle_contact_form');
+add_action('admin_post_nopriv_contact_form', 'dawp_handle_contact_form');
+add_action('admin_post_contact_form', 'dawp_handle_contact_form');
 
 function dawp_handle_contact_form() {
     $redirect_base = home_url('/contact-us/');
@@ -69,9 +69,9 @@ function dawp_handle_contact_form() {
         $redirect_base = remove_query_arg('contact_status', $referer);
     }
 
-    $nonce = isset($_POST['lbq_contact_nonce']) ? sanitize_text_field(wp_unslash($_POST['lbq_contact_nonce'])) : '';
+    $nonce = isset($_POST['contact_nonce']) ? sanitize_text_field(wp_unslash($_POST['contact_nonce'])) : '';
 
-    if (!$nonce || !wp_verify_nonce($nonce, 'lbq_contact_form')) {
+    if (!$nonce || !wp_verify_nonce($nonce, 'contact_form')) {
         wp_safe_redirect(add_query_arg('contact_status', 'error', $redirect_base));
         exit;
     }

@@ -18,7 +18,7 @@ $privacy_url  = home_url('/privacy-policy/');
 $status       = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 $support_phone = '+1 (800) 899-5135';
 $support_phone_tel = '+18008995135';
-$store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
+$store_address = '229 W General Screven Way, Hinesville, GA 31313';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
@@ -199,8 +199,8 @@ $support_cards = [
                 <?php endif; ?>
 
                 <form class="cf-contact-form" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
-                    <input type="hidden" name="action" value="lbq_contact_form">
-                    <?php wp_nonce_field('lbq_contact_form', 'lbq_contact_nonce'); ?>
+                    <input type="hidden" name="action" value="contact_form">
+                    <?php wp_nonce_field('contact_form', 'contact_nonce'); ?>
                     <div class="cf-contact-honeypot" aria-hidden="true">
                         <label for="company_website"><?php esc_html_e('Company website', 'dawp'); ?></label>
                         <input id="company_website" type="text" name="company_website" tabindex="-1" autocomplete="off">

@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 $support_email = 'contact@crowdfused.com';
 $support_phone = '+1 (800) 899-5135';
 $support_phone_tel = '+18008995135';
-$store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
+$store_address = '229 W General Screven Way, Hinesville, GA 31313';
 $track_url     = home_url('/track-order/');
 $contact_url   = home_url('/contact-us/');
 $last_updated  = __('May 29, 2026', 'dawp');

@@ -101,7 +101,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: September 21, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 25, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php esc_html_e("Standard U.S. shipping is free, and delivery timelines are presented clearly before checkout.", 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -149,15 +149,15 @@ $support_portal = home_url('/contact-us/');
             </div>
             <div class="qb-timeline-item">
               <strong><?php esc_html_e('Order Handling Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('1-3 business days. Orders placed after cutoff begin processing the following business day.', 'dawp'); ?></span>
+              <span><?php esc_html_e('1-2 business days. Orders placed after cutoff begin processing the following business day.', 'dawp'); ?></span>
             </div>
             <div class="qb-timeline-item">
               <strong><?php esc_html_e('Transit Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('5-7 business days, Monday to Friday.', 'dawp'); ?></span>
+              <span><?php esc_html_e('3-5 business days, Monday to Friday.', 'dawp'); ?></span>
             </div>
             <div class="qb-timeline-item">
               <strong><?php esc_html_e('Estimated Delivery Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('6-10 business days total from the date of purchase.', 'dawp'); ?></span>
+              <span><?php esc_html_e('4-7 business days total from the date of purchase.', 'dawp'); ?></span>
             </div>
           </div>
           <p><?php esc_html_e('Delivery estimates reflect our standard shipping windows. We and our courier partners work to meet them, though severe weather, carrier capacity, or regional holidays may occasionally cause delays.', 'dawp'); ?></p>
@@ -165,20 +165,20 @@ $support_portal = home_url('/contact-us/');
 
         <section id="multi-item-orders" class="qb-policy-card">
           <h2><?php esc_html_e('Multi-Item Orders & Specialized Handling', 'dawp'); ?></h2>
-          <p><?php esc_html_e('If your purchase includes multiple watches or diverse watch items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
+          <p><?php esc_html_e('If your purchase includes multiple watches or watch items, they may be prepared in different fulfillment batches. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
           <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain intricate or high-demand watch items may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
         </section>
 
         <section id="tracking" class="qb-policy-card">
           <h2><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
-          <p><?php echo esc_html(sprintf('To guarantee safe and efficient delivery, %s partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', $store_name)); ?></p>
+          <p><?php echo esc_html(sprintf('For safe and efficient delivery, %s partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', $store_name)); ?></p>
           <ul class="qb-carrier-list">
             <li><?php esc_html_e('USPS', 'dawp'); ?></li>
             <li><?php esc_html_e('UPS', 'dawp'); ?></li>
             <li><?php esc_html_e('FedEx', 'dawp'); ?></li>
             <li><?php esc_html_e('DHL', 'dawp'); ?></li>
           </ul>
-          <p><?php esc_html_e('The final carrier service is dynamically selected when your package is securely labeled and prepared at our fulfillment center. Once your order is dispatched, an automated shipping confirmation email containing a direct tracking link and courier details will be sent to your registered email address.', 'dawp'); ?></p>
+          <p><?php esc_html_e('The final carrier service is dynamically selected when your package is securely labeled and prepared at our fulfillment center. Once your order is dispatched, an automated shipping confirmation email containing a direct tracking link and courier details will be sent to the email address used at checkout.', 'dawp'); ?></p>
           <div class="qb-actions">
             <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
           </div>

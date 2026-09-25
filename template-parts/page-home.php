@@ -105,7 +105,7 @@ if (class_exists('WooCommerce')) {
 
 <section class="vm-hero">
     <div class="vm-hero__media" aria-hidden="true">
-        <?php echo $velmo_image('70-v2.jpg', __('Velmo chronograph with a carbon-fibre case and blue aventurine dial', 'dawp'), 'vm-cover', 'eager'); ?>
+        <?php echo $velmo_image('70-v2.jpg', __('Velmo chronograph with a marbled black case and sparkling blue dial', 'dawp'), 'vm-cover', 'eager'); ?>
     </div>
     <div class="vm-hero__shade" aria-hidden="true"></div>
     <div class="vm-wrap vm-hero__content">
@@ -154,7 +154,7 @@ if (class_exists('WooCommerce')) {
 
 <section class="vm-split vm-split--image-left">
     <figure class="vm-split__image">
-        <?php echo $velmo_image('58-v2.jpg', __('Velmo skeleton watch with a rose-gold bezel and brown leather strap', 'dawp'), 'vm-cover'); ?>
+        <?php echo $velmo_image('58-v2.jpg', __('Velmo skeleton watch with a rose-gold-tone bezel and brown leather strap', 'dawp'), 'vm-cover'); ?>
     </figure>
     <div class="vm-split__copy">
         <span class="vm-kicker"><?php esc_html_e('Signature Details', 'dawp'); ?></span>
@@ -166,7 +166,7 @@ if (class_exists('WooCommerce')) {
 
 <section class="vm-feature">
     <div class="vm-feature__media" aria-hidden="true">
-        <?php echo $velmo_image('59-v2.jpg', __('Velmo blue-dial chronograph in steel and rose gold', 'dawp'), 'vm-cover'); ?>
+        <?php echo $velmo_image('59-v2.jpg', __('Velmo blue-dial chronograph in silver and rose-gold tones', 'dawp'), 'vm-cover'); ?>
     </div>
     <div class="vm-wrap vm-feature__content">
         <span class="vm-kicker"><?php esc_html_e('Signature Details', 'dawp'); ?></span>
@@ -202,14 +202,14 @@ if (class_exists('WooCommerce')) {
         <a class="vm-link" href="<?php echo esc_url($about_url); ?>"><?php esc_html_e('Learn about Velmo', 'dawp'); ?></a>
     </div>
     <figure class="vm-split__image">
-        <?php echo $velmo_image('60-v2.jpg', __('Velmo rose-gold skeleton chronograph on a navy backdrop', 'dawp'), 'vm-cover'); ?>
+        <?php echo $velmo_image('60-v2.jpg', __('Velmo rose-gold-tone skeleton chronograph on a navy backdrop', 'dawp'), 'vm-cover'); ?>
     </figure>
 </section>
 
 <section class="vm-boutique">
     <div class="vm-wrap vm-boutique__grid">
         <figure>
-            <?php echo $velmo_image('61-v2.jpg', __('Velmo tourbillon watch with a blue leather strap on black marble', 'dawp'), 'vm-cover'); ?>
+            <?php echo $velmo_image('61-v2.jpg', __('Velmo open-heart watch with a blue strap on black marble', 'dawp'), 'vm-cover'); ?>
         </figure>
         <div>
             <span class="vm-kicker"><?php esc_html_e('Customer Support', 'dawp'); ?></span>

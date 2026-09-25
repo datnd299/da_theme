@@ -77,7 +77,7 @@ $velmo_image = static function ($file, $alt, $class = '', $loading = 'lazy') {
 
 <section class="vm-about-split">
     <figure class="vm-about-split__image">
-        <?php echo $velmo_image('64-v2.jpg', __('Velmo moon-phase watch in rose gold with a brown leather strap', 'dawp'), 'vm-cover'); ?>
+        <?php echo $velmo_image('64-v2.jpg', __('Velmo moon-phase watch in a rose-gold tone with a brown strap', 'dawp'), 'vm-cover'); ?>
     </figure>
     <div class="vm-about-split__copy">
         <span class="vm-kicker"><?php esc_html_e('The Velmo Experience', 'dawp'); ?></span>
@@ -88,7 +88,7 @@ $velmo_image = static function ($file, $alt, $class = '', $loading = 'lazy') {
 
 <section class="vm-about-feature">
     <div class="vm-about-feature__media" aria-hidden="true">
-        <?php echo $velmo_image('65-v2.jpg', __('Velmo black tonneau watch with a visible tourbillon', 'dawp'), 'vm-cover'); ?>
+        <?php echo $velmo_image('65-v2.jpg', __('Velmo black tonneau watch with an open-worked dial', 'dawp'), 'vm-cover'); ?>
     </div>
     <div class="vm-about-feature__shade" aria-hidden="true"></div>
     <div class="vm-about-wrap vm-about-feature__content">

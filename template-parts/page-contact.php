@@ -145,7 +145,7 @@ $topics = [
 <section class="ot-contact-editorial">
   <div class="ot-wrap ot-contact-editorial__grid">
     <figure class="ot-contact-editorial__image">
-      <img src="<?php echo esc_url($detail_image); ?>" alt="<?php esc_attr_e('Velmo rose-gold tachymeter chronograph with a brown leather strap', 'dawp'); ?>" loading="lazy">
+      <img src="<?php echo esc_url($detail_image); ?>" alt="<?php esc_attr_e('Velmo rose-gold-tone tachymeter chronograph with a brown strap', 'dawp'); ?>" loading="lazy">
     </figure>
     <div class="ot-contact-editorial__copy">
       <span class="ot-kicker"><?php esc_html_e('Before You Send', 'dawp'); ?></span>

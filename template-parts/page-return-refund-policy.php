@@ -102,7 +102,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: September 21, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 25, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php esc_html_e('Eligible items may be returned within 30 days of delivery when they meet the conditions below.', 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -192,8 +192,8 @@ $support_portal = home_url('/contact-us/');
           <ul>
             <li><?php esc_html_e('Inspection: Once your return package is received at our warehouse, we will inspect the item within 1-2 business days to ensure it meets our return criteria.', 'dawp'); ?></li>
             <li><?php esc_html_e('Approval & Timing: If approved, your refund will be processed automatically back to your original payment method within 7 business days.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Refund Method: All refunds will be issued solely to your original method of payment within 7 business days of inspection. We do not offer store credit or gift cards as a refund method for returns.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Issues with Returns: If a return is approved but is found to be missing accessories, tags, boxes, or shows signs of wear, we reserve the right to refuse the refund and will offer to ship the item back to you at your expense.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Refund Method: All refunds will be issued solely to your original method of payment. We do not offer store credit or gift cards as a refund method for returns.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Issues with Returns: If a returned item arrives missing accessories, tags, or boxes, or shows signs of wear, it will not be approved for a refund, and we will offer to ship the item back to you at your expense.', 'dawp'); ?></li>
             <li><?php esc_html_e('Delayed Refunds: If you have not received your refund after 15 business days of approval, please check with your bank or credit card company first, then contact us.', 'dawp'); ?></li>
           </ul>
           <div class="qb-actions">
@@ -208,8 +208,7 @@ $support_portal = home_url('/contact-us/');
             <li><?php esc_html_e('Items explicitly marked as "Final Sale" or "Non-Returnable" on the product page.', 'dawp'); ?></li>
             <li><?php esc_html_e('Gift cards or digital products/downloads.', 'dawp'); ?></li>
             <li><?php esc_html_e('Personalized, engraved, adjusted, resized, or custom-made items.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Final-sale accessories, opened consumable care items, or hygiene-sensitive items where the product seal has been broken.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Items that have been worn, washed, altered, or damaged after delivery.', 'dawp'); ?></li>
+                        <li><?php esc_html_e('Items that have been worn, altered, or damaged after delivery.', 'dawp'); ?></li>
           </ul>
         </section>
 

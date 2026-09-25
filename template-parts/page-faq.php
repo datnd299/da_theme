@@ -27,7 +27,7 @@ $privacy_url  = home_url('/privacy-policy/');
 $terms_url    = home_url('/terms-conditions/');
 $track_url    = home_url('/track-order/');
 $contact_url  = home_url('/contact-us/');
-$last_updated = __('August 28, 2026', 'dawp');
+$last_updated = __('September 25, 2026', 'dawp');
 
 $policy_highlights = [
     [
@@ -62,7 +62,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('How long does order handling and delivery take?', 'dawp'),
-                'answer'   => __('Order handling takes 1-2 business days (Monday to Friday), excluding standard U.S. public holidays. Standard transit takes 3-5 business days (Monday to Friday), so estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
+                'answer'   => __('Handling time (processing time) is 1-2 business days (Monday to Friday), excluding standard U.S. public holidays. Transit time is 3-5 business days (Monday to Friday) after your order ships, so estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
             ],
             [
                 'question' => __('Which carriers do you use?', 'dawp'),
@@ -115,7 +115,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Which items are non-returnable?', 'dawp'),
-                'answer'   => __('Items marked as Final Sale or Non-Returnable, gift cards or digital products/downloads, personalized or custom-made items, hygiene-sensitive sealed or consumable items with broken seals, and items used, installed, altered, or damaged after delivery are not eligible for return.', 'dawp'),
+                'answer'   => __('Items marked as Final Sale or Non-Returnable on the product page, watches that have been worn, altered, or damaged after delivery, and watches returned without their original packaging, box, manuals, or included components are not eligible for return.', 'dawp'),
             ],
             [
                 'question' => __('What should I do if my package is damaged or lost?', 'dawp'),
@@ -140,7 +140,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Do product photos and colors always look exactly the same in person?', 'dawp'),
-                'answer'   => __('We work to present descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small differences in color, texture, or appearance may occur because of screen settings, digital photography lighting, or supplier updates.', 'dawp'),
+                'answer'   => __('We work to present descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small differences in color, texture, or appearance may occur because of screen settings or digital photography lighting.', 'dawp'),
             ],
             [
                 'question' => __('Do you sell counterfeit or replica products?', 'dawp'),
@@ -148,7 +148,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Do your products make medical, safety, or treatment claims?', 'dawp'),
-                'answer'   => __('No. Our catalog is focused on watches and watch accessories. We do not sell dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+                'answer'   => __('No. Our catalog is focused on automatic mechanical watches. We do not sell dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
             ],
             [
                 'question' => __('Where can I find product details?', 'dawp'),

@@ -27,7 +27,7 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     $default_image = dawp_imagewatch_url('1.png');
-    $policy_date = '2026-08-28';
+    $policy_date = '2026-09-25';
 
     return [
         'about-us'             => ['slug' => 'about',                'title' => 'About Reluxwatches', 'desc' => 'Learn more about Reluxwatches, an automatic mechanical watch brand behind The Voyager, The Odyssey and The Eternal collections.', 'keywords' => 'Reluxwatches, about Reluxwatches, automatic watches, mechanical watches', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches automatic mechanical watches'],

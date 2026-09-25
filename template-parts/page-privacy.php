@@ -15,10 +15,10 @@ $support_email  = 'support@reluxwatches.com';
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM Pacific Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
-$last_updated   = __('August 28, 2026', 'dawp');
+$last_updated   = __('September 25, 2026', 'dawp');
 
 $policy_intro = [
-    __('At Reluxwatches, accessible via Reluxwatches.com (the "Site"), we are deeply committed to protecting the privacy, security, and personal data of our visitors and customers. This Privacy Policy outlines how your personal information is collected, utilized, shared, and securely protected when you browse our catalog, create an account, interact with our customer support, or purchase watches and watch accessories from our online store.', 'dawp'),
+    __('At Reluxwatches, accessible via Reluxwatches.com (the "Site"), we are deeply committed to protecting the privacy, security, and personal data of our visitors and customers. This Privacy Policy outlines how your personal information is collected, utilized, shared, and securely protected when you browse our catalog, create an account, interact with our customer support, or purchase watches from our online store.', 'dawp'),
     __('By accessing our Site or placing an order, you acknowledge and agree to the data management practices described in this policy.', 'dawp'),
 ];
 

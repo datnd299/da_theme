@@ -65,94 +65,68 @@ $get_product_category_name = static function ($product) {
     return $cats[0]->name;
 };
 
-$render_home_product_card = static function ($product, $fallback = []) use ($get_product_category_name) {
-    if ($product && function_exists('wc_get_product')) {
-        $category = $get_product_category_name($product);
-        ?>
-        <article class="product-card">
-          <a class="product-card-link" href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
-            <div class="product-image">
-              <?php
-              echo function_exists('dawp_get_product_responsive_image')
-                  ? dawp_get_product_responsive_image($product, 'home-product-img', 560, 700, '(max-width: 767px) 50vw, 25vw')
-                  : $product->get_image('woocommerce_single', ['class' => 'home-product-img', 'loading' => 'lazy']);
-              ?>
-            </div>
-            <?php if ($category) : ?><div class="product-meta"><?php echo esc_html($category); ?></div><?php endif; ?>
-            <div class="product-name"><?php echo esc_html($product->get_name()); ?></div>
-            <div class="product-price"><?php echo wp_kses_post($product->get_price_html()); ?></div>
-          </a>
-        </article>
-        <?php
-        return;
-    }
-
+$render_home_product_card = static function ($product) use ($get_product_category_name) {
+    $category = $get_product_category_name($product);
     ?>
     <article class="product-card">
-      <div class="product-image"><?php
-        echo function_exists('dawp_get_responsive_image')
-            ? dawp_get_responsive_image($fallback['image'], $fallback['alt'], '', 560, 700, 'lazy', '(max-width: 767px) 50vw, 25vw')
-            : '<img src="' . esc_url($fallback['image']) . '" alt="' . esc_attr($fallback['alt']) . '" loading="lazy" decoding="async">';
-      ?></div>
-      <div class="product-meta"><?php echo esc_html($fallback['category']); ?></div>
-      <div class="product-name"><?php echo esc_html($fallback['name']); ?></div>
-      <div class="product-price"><?php echo esc_html($fallback['price']); ?></div>
+      <a class="product-card-link" href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
+        <div class="product-image">
+          <?php
+          echo function_exists('dawp_get_product_responsive_image')
+              ? dawp_get_product_responsive_image($product, 'home-product-img', 560, 700, '(max-width: 767px) 50vw, 25vw')
+              : $product->get_image('woocommerce_single', ['class' => 'home-product-img', 'loading' => 'lazy']);
+          ?>
+        </div>
+        <?php if ($category) : ?><div class="product-meta"><?php echo esc_html($category); ?></div><?php endif; ?>
+        <div class="product-name"><?php echo esc_html($product->get_name()); ?></div>
+        <div class="product-price"><?php echo wp_kses_post($product->get_price_html()); ?></div>
+      </a>
     </article>
     <?php
 };
 
-$render_home_products = static function ($query_args, $fallback_products) use ($render_home_product_card) {
+// Only real, purchasable WooCommerce products are shown — no placeholder items or prices.
+$get_home_products = static function ($query_args) {
     $products = [];
 
-    if (class_exists('WooCommerce') && class_exists('WP_Query')) {
-        $product_query = new WP_Query(array_merge([
-            'post_type'              => 'product',
-            'post_status'            => 'publish',
-            'posts_per_page'         => 4,
-            'ignore_sticky_posts'    => true,
-            'no_found_rows'          => true,
-            'update_post_meta_cache' => true,
-            'update_post_term_cache' => true,
-        ], $query_args));
+    if (!class_exists('WooCommerce') || !class_exists('WP_Query')) {
+        return $products;
+    }
 
-        while ($product_query->have_posts()) {
-            $product_query->the_post();
-            $product = wc_get_product(get_the_ID());
+    $product_query = new WP_Query(array_merge([
+        'post_type'              => 'product',
+        'post_status'            => 'publish',
+        'posts_per_page'         => 4,
+        'ignore_sticky_posts'    => true,
+        'no_found_rows'          => true,
+        'update_post_meta_cache' => true,
+        'update_post_term_cache' => true,
+    ], $query_args));
 
-            if ($product && $product->is_visible()) {
-                $products[] = $product;
-            }
+    while ($product_query->have_posts()) {
+        $product_query->the_post();
+        $product = wc_get_product(get_the_ID());
+
+        if ($product && $product->is_visible()) {
+            $products[] = $product;
         }
-
-        wp_reset_postdata();
     }
 
-    if (!empty($products)) {
-        foreach ($products as $product) {
-            $render_home_product_card($product);
-        }
+    wp_reset_postdata();
 
-        return;
-    }
-
-    foreach ($fallback_products as $fallback) {
-        $render_home_product_card(null, $fallback);
-    }
+    return $products;
 };
 
-$new_in_fallback_products = [
-    ['image' => $imagewatch('5.png'), 'alt' => 'Relux automatic watch', 'category' => 'The Voyager', 'name' => 'Voyager GMT Automatic', 'price' => '$429'],
-    ['image' => $imagewatch('6.png'), 'alt' => 'Relux automatic watch', 'category' => 'The Odyssey', 'name' => 'Odyssey Sunray Automatic', 'price' => '$389'],
-    ['image' => $imagewatch('7.png'), 'alt' => 'Relux automatic watch', 'category' => 'The Eternal', 'name' => 'Eternal Slim Automatic', 'price' => '$459'],
-    ['image' => $imagewatch('8.png'), 'alt' => 'Relux automatic watch', 'category' => 'The Voyager', 'name' => 'Voyager Field Automatic', 'price' => '$399'],
-];
+$new_in_products = $get_home_products([
+    'orderby' => 'date',
+    'order'   => 'DESC',
+]);
 
-$popular_fallback_products = [
-    ['image' => $imagewatch('11.png'), 'alt' => 'Relux automatic bestseller', 'category' => 'The Eternal', 'name' => 'Eternal Heritage Automatic', 'price' => '$449'],
-    ['image' => $imagewatch('12.png'), 'alt' => 'Relux automatic bestseller', 'category' => 'The Odyssey', 'name' => 'Odyssey Two-Tone Automatic', 'price' => '$419'],
-    ['image' => $imagewatch('13.png'), 'alt' => 'Relux automatic bestseller', 'category' => 'The Voyager', 'name' => 'Voyager Explorer Automatic', 'price' => '$469'],
-    ['image' => $imagewatch('14.png'), 'alt' => 'Relux automatic bestseller', 'category' => 'The Eternal', 'name' => 'Eternal Moonphase Automatic', 'price' => '$499'],
-];
+$popular_products = $get_home_products([
+    'meta_key' => 'total_sales',
+    'orderby'  => 'meta_value_num',
+    'order'    => 'DESC',
+]);
 ?>
 <style>
 :root{
@@ -522,7 +496,7 @@ p{
       <div class="hero-copy">
         <div class="eyebrow">Relux / Automatic Collection</div>
         <h1>MECHANICAL. BY DESIGN.</h1>
-        <p>Self-winding automatic watches with visible movement, sapphire crystal and finishing built to last for years — every Relux watch ships with a 2-year warranty.</p>
+        <p>Self-winding automatic watches with durable cases and finishing built to last for years — every Relux watch ships with a 2-year warranty.</p>
         <a class="btn btn-light" href="<?php echo esc_url($shop_url); ?>">SHOP ALL →</a>
         <div class="hero-proof">
           <span>2-Year Warranty</span>
@@ -560,6 +534,7 @@ p{
     </div>
   </section>
 
+  <?php if ($new_in_products) : ?>
   <section class="section-tight">
     <div class="container">
       <div class="section-head">
@@ -571,15 +546,11 @@ p{
       </div>
 
       <div class="product-grid">
-        <?php
-        $render_home_products([
-            'orderby' => 'date',
-            'order'   => 'DESC',
-        ], $new_in_fallback_products);
-        ?>
+        <?php foreach ($new_in_products as $product) { $render_home_product_card($product); } ?>
       </div>
     </div>
   </section>
+  <?php endif; ?>
 
   <section class="section">
     <div class="container">
@@ -590,7 +561,7 @@ p{
         <div class="split-copy">
           <div class="eyebrow">Automatic Movement</div>
           <h2>NO BATTERY. NO SHORTCUTS.</h2>
-          <p>Every Relux watch is powered by a self-winding automatic movement, visible through an exhibition caseback, and backed by our 2-year warranty against manufacturing defects.</p>
+          <p>Every Relux watch is powered by a self-winding automatic movement, most models show it through an exhibition caseback, and every watch is backed by our 2-year warranty against manufacturing defects.</p>
           <div><a class="btn" href="<?php echo esc_url($home_category_urls['voyager']); ?>">DISCOVER RELUX →</a></div>
         </div>
       </div>
@@ -620,13 +591,14 @@ p{
         <div class="campaign-content">
           <div class="eyebrow">Relux Craftsmanship</div>
           <h2>LESS NOISE. MORE MOVEMENT.</h2>
-          <p>Automatic calibers, sapphire crystal and finishing you can see through the caseback — built to outlast trends, and covered by a 2-year warranty.</p>
+          <p>Automatic calibers, durable cases and considered finishing — built to outlast trends, and covered by a 2-year warranty.</p>
           <a class="btn btn-light" href="<?php echo esc_url($home_category_urls['eternal']); ?>">EXPLORE THE ETERNAL →</a>
         </div>
       </div>
     </div>
   </section>
 
+  <?php if ($popular_products) : ?>
   <section class="section-tight">
     <div class="container">
       <div class="section-head">
@@ -638,16 +610,11 @@ p{
       </div>
 
       <div class="product-grid">
-        <?php
-        $render_home_products([
-            'meta_key' => 'total_sales',
-            'orderby'  => 'meta_value_num',
-            'order'    => 'DESC',
-        ], $popular_fallback_products);
-        ?>
+        <?php foreach ($popular_products as $product) { $render_home_product_card($product); } ?>
       </div>
     </div>
   </section>
+  <?php endif; ?>
 
   <section class="section" id="newsletter">
     <div class="container">

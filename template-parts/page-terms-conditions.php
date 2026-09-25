@@ -14,7 +14,7 @@ $site_domain    = 'Reluxwatches.com';
 $support_email  = 'support@reluxwatches.com';
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM Pacific Time', 'dawp');
-$last_updated   = __('August 28, 2026', 'dawp');
+$last_updated   = __('September 25, 2026', 'dawp');
 $shipping_url   = home_url('/shipping-policy/');
 $returns_url    = home_url('/return-refund-policy/');
 $warranty_url   = home_url('/warranty-policy/');
@@ -25,8 +25,8 @@ $shipping_parameters = [
     __('Shipping Locations: Reluxwatches currently ships exclusively within the United States domestic market.', 'dawp'),
     __('Shipping Fees: Standard U.S. shipping is free ($0.00) for all orders nationwide with no minimum purchase requirement. Any optional upgraded shipping cost, if available, is shown clearly at checkout before payment.', 'dawp'),
     __('Daily Order Cutoff Time: 5:00 PM Pacific Time (Monday to Friday). Orders placed after this time begin processing on the following business day.', 'dawp'),
-    __('Handling Time: Current order handling and packaging time is 1-2 business days (Monday to Friday), excluding standard U.S. public holidays.', 'dawp'),
-    __('Transit Time: Standard U.S. transit takes 3-5 business days (Monday to Friday). Estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
+    __('Handling Time (Processing Time): 1-2 business days (Monday to Friday), excluding standard U.S. public holidays.', 'dawp'),
+    __('Transit Time: 3-5 business days (Monday to Friday) after your order ships. Estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
     __('Carriers & Tracking: Orders are shipped using trusted domestic U.S. carriers such as USPS, UPS, FedEx, or DHL. Tracking details are emailed once an order is dispatched.', 'dawp'),
 ];
 
@@ -70,14 +70,14 @@ $sections = [
         'title' => __('1. Online Store Scope & Content Accuracy', 'dawp'),
         'copy'  => [
             __('Reluxwatches is an e-commerce store focused on automatic mechanical watches across three collections: The Voyager, The Odyssey, and The Eternal.', 'dawp'),
-            __('We work to present product descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small variations in color, texture, or physical appearance may occur due to individual screen monitor settings, digital photography lighting, or periodic supplier updates.', 'dawp'),
+            __('We work to present product descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small variations in color, texture, or physical appearance may occur due to individual screen monitor settings or digital photography lighting.', 'dawp'),
             __('Reluxwatches strictly adheres to ethical commerce: we do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
         ],
     ],
     [
         'title' => __('2. Website Use & Eligibility', 'dawp'),
         'copy'  => [
-            __('By agreeing to these Terms, you represent that you are at least the age of majority in your state or province of residence. You agree to use this website only for lawful purposes and in a manner that does not interfere with store operations, checkout security, customer account databases, or other visitors experience.', 'dawp'),
+            __('By agreeing to these Terms, you represent that you are at least the age of majority in your state of residence. You agree to use this website only for lawful purposes and in a manner that does not interfere with store operations, checkout security, customer account databases, or the experience of other visitors.', 'dawp'),
             __('You may not misuse the Site, attempt unauthorized system access, transmit destructive codes such as viruses or malware, or deploy automated scraping tools to harvest our data without permission.', 'dawp'),
         ],
     ],
@@ -111,13 +111,13 @@ $sections = [
     [
         'title' => __('6. Returns, Refunds, and Consumer Rights', 'dawp'),
         'copy'  => [
-            __('We provide a transparent and risk-free return window for our watches and watch accessories:', 'dawp'),
+            __('We provide a clear 30-day return window for our watches:', 'dawp'),
         ],
         'list'  => $return_terms,
         'after' => [
-            'text' => __('For step-by-step instructions, please read our Refund & Return Policy.', 'dawp'),
+            'text' => __('For step-by-step instructions, please read our Return & Refund Policy.', 'dawp'),
             'url'  => $returns_url,
-            'link' => __('Refund & Return Policy', 'dawp'),
+            'link' => __('Return & Refund Policy', 'dawp'),
         ],
     ],
     [
@@ -147,7 +147,7 @@ $sections = [
         'title' => __('9. Intellectual Property & Liability Limitations', 'dawp'),
         'copy'  => [
             __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to Reluxwatches and are protected by copyright laws.', 'dawp'),
-            __('To the fullest extent permitted by applicable law, Reluxwatches shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product consumption.', 'dawp'),
+            __('To the fullest extent permitted by applicable law, Reluxwatches shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product use.', 'dawp'),
         ],
     ],
     [

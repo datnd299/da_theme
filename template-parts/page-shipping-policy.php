@@ -13,7 +13,7 @@ $support_email = 'support@reluxwatches.com';
 $store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $track_url     = home_url('/track-order/');
 $contact_url   = home_url('/contact-us/');
-$last_updated  = __('August 28, 2026', 'dawp');
+$last_updated  = __('September 25, 2026', 'dawp');
 
 $shipping_costs = [
     [
@@ -32,12 +32,12 @@ $delivery_times = [
         'copy'  => __('5:00 PM Pacific Time (Monday to Friday).', 'dawp'),
     ],
     [
-        'title' => __('Order Handling Time', 'dawp'),
-        'copy'  => __('1-2 business days (Monday to Friday). Orders placed after cutoff begin processing the following business day.', 'dawp'),
+        'title' => __('Handling Time (Processing Time)', 'dawp'),
+        'copy'  => __('1-2 business days (Monday to Friday), excluding standard U.S. public holidays. Orders placed after cutoff begin processing the following business day.', 'dawp'),
     ],
     [
         'title' => __('Transit Time', 'dawp'),
-        'copy'  => __('3-5 business days (Monday to Friday).', 'dawp'),
+        'copy'  => __('3-5 business days (Monday to Friday) after your order ships.', 'dawp'),
     ],
     [
         'title' => __('Estimated Delivery Time', 'dawp'),
@@ -53,10 +53,10 @@ $carriers = [
 ];
 
 $issue_requirements = [
-    __('Your exact Order Number, such as SHH-1001.', 'dawp'),
+    __('Your exact Order Number, such as RLX-1001.', 'dawp'),
     __('The specific Email Address utilized during checkout.', 'dawp'),
     __('The full and complete Delivery Address.', 'dawp'),
-    __('Clear, well-lit photos if the package container, watch, or watch accessory arrived damaged.', 'dawp'),
+    __('Clear, well-lit photos if the package or watch arrived damaged.', 'dawp'),
 ];
 
 $contact_details = [
@@ -92,7 +92,7 @@ $shipping_faqs = [
     ],
     [
         'question' => __('How long will my order take to arrive?', 'dawp'),
-        'answer'   => __('Order handling takes 1-2 business days and standard transit takes 3-5 business days, so estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
+        'answer'   => __('Handling time (processing time) is 1-2 business days and transit time is 3-5 business days, so estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
     ],
     [
         'question' => __('Will I receive tracking information?', 'dawp'),
@@ -146,7 +146,7 @@ if (function_exists('dawp_register_faq_schema')) {
                 <p><?php esc_html_e('We currently ship exclusively within the United States. Reluxwatches serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
                 <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
                 <div class="border-l-4 border-[#E9E9E9] bg-[#FAFAFA] p-5 text-[#777777]">
-                    <p><?php esc_html_e('Some watch and accessory orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Multi-watch orders may ship separately if items are prepared in different fulfillment batches or require distinct packing methods to ensure safe transit.', 'dawp'); ?></p>
                 </div>
             </div>
         </section>
@@ -193,8 +193,8 @@ if (function_exists('dawp_register_faq_schema')) {
                 <?php esc_html_e('Multi-Item Orders & Specialized Handling', 'dawp'); ?>
             </h2>
             <div class="mt-5 space-y-5 text-sm leading-7 text-[#777777] sm:text-base">
-                <p><?php esc_html_e('If your purchase includes multiple watches or accessories, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
-                <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain high-demand watch styles or accessories may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
+                <p><?php esc_html_e('If your purchase includes multiple watches, they may be prepared in different fulfillment batches. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
+                <p><?php esc_html_e('You will receive a unique tracking number for each package. Every package still follows the same 1-2 business day handling time and 3-5 business day transit time stated above.', 'dawp'); ?></p>
             </div>
         </section>
 

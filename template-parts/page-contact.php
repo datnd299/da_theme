@@ -10,6 +10,8 @@ if (!$shop_url) {
 $track_url    = home_url('/track-order/');
 $shipping_url = home_url('/shipping-policy/');
 $returns_url  = home_url('/return-refund-policy/');
+$warranty_url = home_url('/warranty-policy/');
+$store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 ?>
 <style>
 :root{
@@ -161,7 +163,7 @@ input:focus,select:focus,textarea:focus{border-color:#999}
      <div class="field">
       <label for="contact_topic">Subject</label>
       <select id="contact_topic" name="contact_topic">
-       <option value="order">Order Support</option><option value="product">Product Question</option><option value="shipping">Shipping</option><option value="return">Returns</option><option value="other">General Enquiry</option>
+       <option value="order">Order Support</option><option value="product">Product Question</option><option value="shipping">Shipping</option><option value="return">Returns</option><option value="warranty">Warranty Claim</option><option value="privacy">Privacy Request</option><option value="other">General Enquiry</option>
       </select>
      </div>
      <div class="field"><label for="order_number">Order Number (optional)</label><input id="order_number" name="order_number" type="text" autocomplete="off"></div>
@@ -180,12 +182,23 @@ input:focus,select:focus,textarea:focus{border-color:#999}
     <a href="mailto:support@reluxwatches.com">support@reluxwatches.com</a>
    </div>
    <div class="info-item">
+    <h3>Customer Service Hours</h3>
+    <p>Monday - Friday, 9:00 AM - 5:00 PM Pacific Time</p>
+   </div>
+   <div class="info-item">
     <h3>Response Time</h3>
     <p>We aim to respond within 1–2 business days.</p>
    </div>
+   <?php if ($store_address) : ?>
+   <div class="info-item">
+    <h3>Business Address</h3>
+    <p><?php echo esc_html($store_address); ?></p>
+   </div>
+   <?php endif; ?>
    <div class="info-item">
     <h3>Need a quick answer?</h3>
-    <p>Shipping and return information may already answer your question.</p>
+    <p>Shipping, return and warranty information may already answer your question.</p>
+    <a href="<?php echo esc_url($warranty_url); ?>">2-YEAR WARRANTY →</a>
    </div>
   </aside>
  </div>

@@ -5,7 +5,13 @@ add_filter( 'woocommerce_admin_report_data', 'fake_sales_report_data', 999 );
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'SHH-' . $order_id;
+    return 'RLX-' . $order_id;
+}
+
+// Let customers paste the prefixed order number (e.g. RLX-1001) into the Track Order form.
+add_filter('woocommerce_shortcode_order_tracking_order_id', 'dawp_strip_order_number_prefix');
+function dawp_strip_order_number_prefix($order_id) {
+    return preg_replace('/^(RLX|SHH)-/i', '', trim((string) $order_id));
 }
 function fake_sales_report_data( $report_data ) {
     if ( ! is_admin() ) {

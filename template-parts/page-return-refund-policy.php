@@ -14,7 +14,7 @@ $support_email  = 'support@reluxwatches.com';
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM Pacific Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
-$last_updated   = __('August 28, 2026', 'dawp');
+$last_updated   = __('September 25, 2026', 'dawp');
 
 $return_eligibility = [
     __('Return Window: You must initiate your return request within 30 days of delivery.', 'dawp'),
@@ -42,7 +42,7 @@ $delivery_issues = [
     ],
     [
         'title' => __('Lost Packages / Never Arrived', 'dawp'),
-        'copy'  => __('If your tracking status shows no updates for an extended period, or is marked "Delivered" but you did not receive it, please contact us within 30 days of the recorded delivery date. We will investigate with the carrier.', 'dawp'),
+        'copy'  => __('If your tracking status shows no updates for an extended period, or is marked "Delivered" but you did not receive it, please contact us within 30 days of the recorded delivery date. We will investigate with the carrier and send a free replacement or a full refund if the package is confirmed lost.', 'dawp'),
     ],
 ];
 
@@ -74,10 +74,8 @@ $refund_process = [
 
 $non_returnable_items = [
     __('Items explicitly marked as "Final Sale" or "Non-Returnable" on the product page.', 'dawp'),
-    __('Gift cards or digital products/downloads.', 'dawp'),
-    __('Personalized, engraved, configured, assembled, or custom-made items.', 'dawp'),
-    __('Hygiene-sensitive, sealed, or consumable items where the product seal has been broken.', 'dawp'),
-    __('Items that have been used, installed, altered, or damaged after delivery.', 'dawp'),
+    __('Watches that have been worn, altered, or damaged after delivery.', 'dawp'),
+    __('Watches returned without their original packaging, box, manuals, or included components.', 'dawp'),
 ];
 
 $contact_cards = [

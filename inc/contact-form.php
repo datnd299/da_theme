@@ -87,6 +87,7 @@ function dawp_handle_contact_form() {
         'shipping' => 'Shipping question',
         'return'   => 'Return or refund request',
         'product'  => 'Product question',
+        'warranty' => 'Warranty claim',
         'privacy'  => 'Privacy request',
         'other'    => 'General support',
     ];

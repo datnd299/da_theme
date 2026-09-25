@@ -129,7 +129,7 @@ p{font-size:15px;line-height:1.72;color:var(--muted)}
    <h2>LESS NOISE.<br>MORE MOVEMENT.</h2>
   </div>
   <div class="brand-copy">
-   <p>Relux was created for people who want a real mechanical watch without the traditional luxury markup. Every watch across The Voyager, The Odyssey and The Eternal runs on a self-winding automatic movement, visible through an exhibition caseback.</p>
+   <p>Relux was created for people who want a real mechanical watch without the traditional luxury markup. Every watch across The Voyager, The Odyssey and The Eternal runs on a self-winding automatic movement, and most models show it through an exhibition caseback.</p>
    <p>We believe a watch should be judged on what's inside it: the movement, the finishing and how long it lasts. That's why every Relux watch ships with a 2-year warranty against manufacturing defects.</p>
   </div>
  </div>
@@ -164,8 +164,8 @@ p{font-size:15px;line-height:1.72;color:var(--muted)}
    <p>Three simple principles guide the way we think about our watches and the Relux experience.</p>
   </div>
   <div class="values">
-   <article class="value"><span class="num">01</span><h3>Real Movement</h3><p>Self-winding automatic calibers, visible through an exhibition caseback. No batteries.</p></article>
-   <article class="value"><span class="num">02</span><h3>Built to Endure</h3><p>Sapphire crystal, durable cases and finishing backed by a 2-year warranty.</p></article>
+   <article class="value"><span class="num">01</span><h3>Real Movement</h3><p>Self-winding automatic calibers, with an exhibition caseback on most models. No batteries.</p></article>
+   <article class="value"><span class="num">02</span><h3>Built to Endure</h3><p>Durable cases and considered finishing, backed by a 2-year warranty.</p></article>
    <article class="value"><span class="num">03</span><h3>Three Clear Collections</h3><p>The Voyager, The Odyssey and The Eternal, each with a distinct point of view.</p></article>
   </div>
  </div>

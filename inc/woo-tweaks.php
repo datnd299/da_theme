@@ -18,8 +18,8 @@ function dawp_single_product_benefits() {
 
     $benefits = [
         [
-            'title' => __('Fast Shipping', 'dawp'),
-            'copy'  => __('Reliable delivery across the United States.', 'dawp'),
+            'title' => __('U.S. Shipping', 'dawp'),
+            'copy'  => __('Ships in 1-2 business days, delivered in 3-5 business days.', 'dawp'),
             'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7z"/><path d="M7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M18 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>',
         ],
         [
@@ -33,9 +33,9 @@ function dawp_single_product_benefits() {
             'icon'  => '<span aria-hidden="true">30</span>',
         ],
         [
-            'title' => __('Friendly Support', 'dawp'),
-            'copy'  => __('Helpful service whenever you need order guidance.', 'dawp'),
-            'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0v4a3 3 0 0 1-3 3h-2"/><path d="M4 13h3v5H4z"/><path d="M17 13h3v5h-3z"/><path d="M10 19h5"/></svg>',
+            'title' => __('2-Year Warranty', 'dawp'),
+            'copy'  => __('Covers manufacturing defects in the movement, case, crystal, crown, dial and hands.', 'dawp'),
+            'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>',
         ],
     ];
     ?>

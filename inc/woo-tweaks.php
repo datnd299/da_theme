@@ -11,10 +11,29 @@ add_filter('woocommerce_get_catalog_ordering_args', 'dawp_force_oldest_product_a
 add_action('pre_get_posts', 'dawp_force_oldest_product_archive_query', 99);
 
 function dawp_is_oldest_first_product_archive() {
+    // An explicit ?orderby= (e.g. the "New Arrivals" link) keeps WooCommerce's
+    // own ordering so the link shows what its label promises.
     return !is_admin()
+        && empty($_GET['orderby'])
         && function_exists('is_shop')
         && function_exists('is_product_category')
         && (is_shop() || is_product_category());
+}
+
+// "Featured Watches" link (/shop/?featured=1): limit the archive to featured products.
+add_action('pre_get_posts', 'dawp_featured_product_archive_query', 99);
+function dawp_featured_product_archive_query($query) {
+    if (is_admin() || !$query->is_main_query() || empty($_GET['featured']) || !function_exists('is_shop') || !is_shop()) {
+        return;
+    }
+
+    $tax_query   = (array) $query->get('tax_query');
+    $tax_query[] = [
+        'taxonomy' => 'product_visibility',
+        'field'    => 'name',
+        'terms'    => 'featured',
+    ];
+    $query->set('tax_query', $tax_query);
 }
 
 function dawp_force_oldest_product_archive_ordering($args) {

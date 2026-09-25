@@ -11,6 +11,13 @@ $about_url       = home_url('/about-us/');
 $hero_image      = $theme_uri . '/assets/images/home/corvel-watch-hero.png';
 $editorial_image = $theme_uri . '/assets/images/home/img3.jpeg';
 
+$newsletter_status   = isset($_GET['newsletter']) ? sanitize_key(wp_unslash($_GET['newsletter'])) : '';
+$newsletter_messages = [
+    'sent'    => __('Thank you. You are on the list.', 'dawp'),
+    'invalid' => __('Please enter a valid email address.', 'dawp'),
+    'failed'  => __('We could not sign you up right now. Please try again later.', 'dawp'),
+];
+
 if (!function_exists('dawp_home_products')) {
     function dawp_home_products($args = []) {
         if (!class_exists('WooCommerce')) {
@@ -114,7 +121,7 @@ if (count($latest_products) < 4) {
             <div class="max-w-[610px]">
                 <p class="mb-5 text-[12px] font-semibold uppercase tracking-[.26em] text-[#B38A52]"><?php esc_html_e('Corvel', 'dawp'); ?></p>
                 <h1 class="font-serif text-[clamp(42px,6vw,64px)] leading-[.98] tracking-normal"><?php esc_html_e('Precision with Presence.', 'dawp'); ?></h1>
-                <p class="mt-6 max-w-[470px] text-[16px] leading-7 text-[#D8D6CF]"><?php esc_html_e('Automatic mechanical watches with confident form, refined materials, and a movement that never stops.', 'dawp'); ?></p>
+                <p class="mt-6 max-w-[470px] text-[16px] leading-7 text-[#D8D6CF]"><?php esc_html_e('Automatic mechanical watches with confident form, refined materials, and a self-winding movement powered by your wrist.', 'dawp'); ?></p>
                 <div class="mt-9 flex flex-wrap gap-3">
                     <a class="cv-btn cv-btn--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
                     <a class="cv-btn cv-btn--ghost" href="<?php echo esc_url($about_url); ?>"><?php esc_html_e('About Us', 'dawp'); ?></a>
@@ -287,11 +294,22 @@ if (count($latest_products) < 4) {
                 <p class="mb-4 text-[12px] font-semibold uppercase tracking-[.24em] text-[#D7B987]"><?php esc_html_e('Private Notes', 'dawp'); ?></p>
                 <h2 class="font-serif text-[clamp(30px,3.6vw,42px)] leading-tight"><?php esc_html_e('New drops. Quietly delivered.', 'dawp'); ?></h2>
             </div>
-            <form class="flex gap-3 md:col-span-5 md:col-start-8" action="<?php echo esc_url(home_url('/')); ?>" method="post">
-                <label class="sr-only" for="cv-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
-                <input id="cv-newsletter-email" class="min-h-12 min-w-0 flex-1 border border-white/25 bg-white px-4 text-[14px] text-[#171A19] outline-none placeholder:text-[#777]" type="email" name="email" placeholder="<?php esc_attr_e('Email address', 'dawp'); ?>">
-                <button class="cv-btn cv-btn--dark shrink-0" type="submit"><?php esc_html_e('Join', 'dawp'); ?></button>
-            </form>
+            <div id="cv-newsletter" class="md:col-span-5 md:col-start-8">
+                <?php if (!empty($newsletter_messages[$newsletter_status])) : ?>
+                    <p class="mb-3 text-[14px] leading-6 text-[#D7B987]"><?php echo esc_html($newsletter_messages[$newsletter_status]); ?></p>
+                <?php endif; ?>
+                <form class="flex gap-3" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+                    <input type="hidden" name="action" value="dawp_newsletter">
+                    <?php wp_nonce_field('dawp_newsletter', 'dawp_newsletter_nonce'); ?>
+                    <label class="sr-only" for="cv-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
+                    <input id="cv-newsletter-email" class="min-h-12 min-w-0 flex-1 border border-white/25 bg-white px-4 text-[14px] text-[#171A19] outline-none placeholder:text-[#777]" type="email" name="newsletter_email" autocomplete="email" required placeholder="<?php esc_attr_e('Email address', 'dawp'); ?>">
+                    <button class="cv-btn cv-btn--dark shrink-0" type="submit"><?php esc_html_e('Join', 'dawp'); ?></button>
+                </form>
+                <p class="mt-3 text-[12px] leading-5 text-[#D8D6CF]">
+                    <?php esc_html_e('Occasional emails about new releases. Unsubscribe anytime. See our', 'dawp'); ?>
+                    <a class="underline" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>.
+                </p>
+            </div>
         </div>
     </section>
 </div>

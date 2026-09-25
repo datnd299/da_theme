@@ -7,7 +7,7 @@ $support_email = function_exists('dawp_contact_support_email') ? dawp_contact_su
 $track_categories = function_exists('qb_product_category_definitions') ? qb_product_category_definitions() : [];
 ?>
 
-<main class="track-order-page">
+<div class="track-order-page">
 
     <section class="track-hero">
         <div class="track-hero__inner">
@@ -88,5 +88,5 @@ $track_categories = function_exists('qb_product_category_definitions') ? qb_prod
         </section>
     <?php endif; ?>
 
-</main>
+</div>
 

@@ -9,6 +9,7 @@ $current_year = date_i18n('Y');
 $account_url  = get_permalink(get_option('woocommerce_myaccount_page_id'));
 $account_url  = $account_url ?: home_url('/my-account/');
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
 
 $footer_shop_links = [
     ['title' => __('Shop All Watches', 'dawp'), 'url' => home_url('/shop/')],
@@ -259,11 +260,11 @@ $footer_company_links = [
                         </svg>
                         <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?>
                     </span>
-                    <a href="mailto:support@corvelshop.com" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
+                    <a href="mailto:<?php echo esc_attr($support_email); ?>" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.38l7 4.38 7-4.38V6.5a.5.5 0 0 0-.5-.5h-13Zm13 12a.5.5 0 0 0 .5-.5V9.25l-6.47 4.04a1 1 0 0 1-1.06 0L5 9.25v8.25a.5.5 0 0 0 .5.5h13Z"/>
                         </svg>
-                        support@corvelshop.com
+                        <?php echo esc_html($support_email); ?>
                     </a>
                     <?php if ($store_address) : ?>
                         <span>

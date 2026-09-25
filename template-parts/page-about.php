@@ -148,8 +148,8 @@ $editorial_image  = $theme_uri . '/assets/images/home/corvel-watch-hero.png';
                 <div class="grid gap-7 sm:grid-cols-3 md:col-span-7 md:col-start-6">
                     <div>
                         <span class="cv-detail-line"></span>
-                        <h3 class="cv-detail-title"><?php esc_html_e('Dynamic Store', 'dawp'); ?></h3>
-                        <p class="cv-detail-copy"><?php esc_html_e('Products, pricing, stock, checkout, and account flows stay powered by WooCommerce.', 'dawp'); ?></p>
+                        <h3 class="cv-detail-title"><?php esc_html_e('Free U.S. Shipping', 'dawp'); ?></h3>
+                        <p class="cv-detail-copy"><?php esc_html_e('Free standard shipping on every U.S. order, with an estimated 4-7 business day delivery.', 'dawp'); ?></p>
                     </div>
                     <div>
                         <span class="cv-detail-line"></span>

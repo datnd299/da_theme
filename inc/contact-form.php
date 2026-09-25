@@ -81,3 +81,27 @@ function dawp_handle_contact_form() {
 
 add_action('admin_post_dawp_contact_form', 'dawp_handle_contact_form');
 add_action('admin_post_nopriv_dawp_contact_form', 'dawp_handle_contact_form');
+
+/**
+ * Homepage newsletter sign-up: forwards the opt-in to the support inbox.
+ */
+function dawp_handle_newsletter() {
+    $redirect = home_url('/');
+    $status   = 'invalid';
+    $email    = isset($_POST['newsletter_email']) ? sanitize_email(wp_unslash($_POST['newsletter_email'])) : '';
+
+    if (
+        isset($_POST['dawp_newsletter_nonce']) &&
+        wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['dawp_newsletter_nonce'])), 'dawp_newsletter') &&
+        is_email($email)
+    ) {
+        $sent   = wp_mail(dawp_contact_support_email(), __('Corvel newsletter sign-up', 'dawp'), sprintf('Email: %s', $email));
+        $status = $sent ? 'sent' : 'failed';
+    }
+
+    wp_safe_redirect(add_query_arg('newsletter', $status, $redirect) . '#cv-newsletter');
+    exit;
+}
+
+add_action('admin_post_dawp_newsletter', 'dawp_handle_newsletter');
+add_action('admin_post_nopriv_dawp_newsletter', 'dawp_handle_newsletter');

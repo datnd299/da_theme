@@ -4,7 +4,9 @@
  *
  * Editorial overview of the three Corvel collections. The collections are
  * defined in theme code (inc/product-categories.php) — there is no matching
- * WooCommerce taxonomy — so every action link points at the live Shop.
+ * WooCommerce taxonomy by default — so each action link resolves via
+ * qb_theme_collections(): the matching category if one exists, otherwise
+ * this page's own section anchor.
  *
  * @package dawp
  */
@@ -76,7 +78,7 @@ $collections = function_exists('qb_theme_collections') ? qb_theme_collections() 
     <div class="qb-wrap">
       <?php $i = 0; foreach ($collections as $collection) : $i++; ?>
         <?php $image = function_exists('qb_theme_asset_image_url') ? qb_theme_asset_image_url($collection['image']) : ''; ?>
-        <article class="qb-collection">
+        <article class="qb-collection" id="<?php echo esc_attr($collection['slug']); ?>">
           <div class="qb-collection__media">
             <?php if ($image) : ?>
               <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($collection['name']); ?>" loading="lazy" width="1200" height="900">

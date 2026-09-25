@@ -143,7 +143,7 @@ get_header();
                         <?php if (function_exists('qb_theme_collections')) : ?>
                             <?php foreach (qb_theme_collections() as $collection) : ?>
                                 <li>
-                                    <a href="<?php echo esc_url(home_url('/collections/')); ?>">
+                                    <a href="<?php echo esc_url($collection['url']); ?>">
                                         <span><?php echo esc_html($collection['name']); ?></span>
                                     </a>
                                 </li>
@@ -203,11 +203,11 @@ get_header();
         <section class="shop-care">
             <div>
                 <h2><?php esc_html_e('Movement, Size & Care Details', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Corvel product pages should include the movement type (automatic / self-winding), case size, crystal, water resistance, strap information, and simple mechanical-watch care guidance.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Review the movement type, case size, crystal, water resistance, strap details, and care guidance on each product page before ordering. Questions? Contact support before you buy.', 'dawp'); ?></p>
             </div>
             <div>
                 <h2><?php esc_html_e('Warranty & Honest Claims', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Every Corvel mechanical watch carries a 2-year limited warranty. We do not use replica, designer-inspired, chronometer-certified, or unsupported accuracy claims.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Every Corvel mechanical watch carries a 2-year limited warranty. Corvel designs its own watches and does not make chronometer-certification or unsupported accuracy claims.', 'dawp'); ?></p>
             </div>
         </section>
     </div>

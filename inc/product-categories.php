@@ -60,19 +60,18 @@ function qb_product_category_definitions() {
  *
  * Each collection links to its matching WooCommerce category (by slug) when
  * one exists, so the customer lands on live, in-stock product data for that
- * category. Falls back to /product-category/{slug}/ if the term isn't
- * created yet, and to the Shop if categories aren't in use at all.
+ * category. Without a matching term it points at the collection's section on
+ * the /collections/ page, never at a /product-category/ URL that would 404.
  */
 function qb_theme_collections() {
-    $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-    $items    = [];
+    $items = [];
 
     foreach (qb_product_category_definitions() as $slug => $data) {
-        $url = taxonomy_exists('product_cat') ? qb_product_category_url($slug) : $shop_url;
+        $url = qb_product_category_url($slug);
 
         $items[$slug] = array_merge($data, [
             'slug' => $slug,
-            'url'  => $url ?: $shop_url,
+            'url'  => $url ?: home_url('/collections/#' . $slug),
         ]);
     }
 
@@ -101,7 +100,7 @@ function qb_product_category_url($slug) {
         }
     }
 
-    return home_url('/product-category/' . trailingslashit($slug));
+    return '';
 }
 
 function qb_get_live_product_categories($args = []) {

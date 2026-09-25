@@ -96,7 +96,7 @@ function dawp_single_product_service_notes() {
         [
             'icon'  => 'clock',
             'title' => __('Estimated delivery', 'dawp'),
-            'text'  => __('Handling takes 1-3 business days and transit takes 5-7 business days.', 'dawp'),
+            'text'  => __('Handling takes 1-2 business days and transit takes 3-5 business days.', 'dawp'),
         ],
         [
             'icon'  => 'refresh',

@@ -64,7 +64,7 @@ function dawp_get_virtual_seo() {
         ],
         'shipping-policy' => [
             'title'       => 'Shipping Policy',
-            'description' => 'Orvel shipping policy: U.S. delivery, 5:00 PM Pacific Time cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.',
+            'description' => 'Orvel shipping policy: U.S. delivery, 5:00 PM Pacific Time cutoff, 1-2 business day handling, 3-5 business day transit, free standard shipping, and tracking support.',
         ],
         'return-refund-policy' => [
             'title'       => 'Return & Refund Policy',
@@ -451,7 +451,7 @@ function dawp_merchant_return_policy() {
 
 /**
  * Shipping node mirroring template-parts/page-shipping-policy.php
- * (free U.S. standard shipping, 1-3 day handling, 5-7 day transit).
+ * (free U.S. standard shipping, 1-2 day handling, 3-5 day transit).
  */
 function dawp_offer_shipping_details() {
     $currency = function_exists('get_woocommerce_currency') ? get_woocommerce_currency() : 'USD';
@@ -473,13 +473,13 @@ function dawp_offer_shipping_details() {
             'handlingTime' => [
                 '@type'    => 'QuantitativeValue',
                 'minValue' => 1,
-                'maxValue' => 3,
+                'maxValue' => 2,
                 'unitCode' => 'DAY',
             ],
             'transitTime'  => [
                 '@type'    => 'QuantitativeValue',
-                'minValue' => 5,
-                'maxValue' => 7,
+                'minValue' => 3,
+                'maxValue' => 5,
                 'unitCode' => 'DAY',
             ],
         ],

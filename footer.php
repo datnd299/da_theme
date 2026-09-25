@@ -16,8 +16,8 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
     [
         'title' => __('Shop', 'dawp'),
         'links' => [
-            ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
-            ['title' => __('New Arrivals', 'dawp'), 'url' => home_url('/shop/?orderby=date')],
+            ['title' => __('All Watches', 'dawp'), 'url' => home_url('/shop/')],
+            ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
         ],
     ],
     [
@@ -33,6 +33,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
         'links' => [
             ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
             ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
+            ['title' => __('Warranty Policy', 'dawp'), 'url' => home_url('/warranty-policy/')],
             ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
             ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
         ],
@@ -246,7 +247,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
             <div class="qb-footer-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s home', 'dawp'), $brand_name)); ?>">
                     <img class="qb-footer-logo" src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($brand_name); ?>">
-                    <span class="qb-footer-tagline"><?php esc_html_e('Precision with Presence', 'dawp'); ?></span>
+                    <span class="qb-footer-tagline"><?php esc_html_e('Time, Refined.', 'dawp'); ?></span>
                 </a>
 
                 <p class="qb-footer-copy">

@@ -9,6 +9,7 @@ $shop_url  = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('s
 $faq_url   = home_url('/faq/');
 $hero_img  = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/ssss.png';
 $detail_img = $theme_uri . '/assets/images/home/luxuryimagecollection (1)/news/1.png';
+$store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $status    = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 
 $status_messages = [
@@ -66,9 +67,19 @@ $status_messages = [
                     <a href="mailto:<?php echo esc_attr(dawp_contact_support_email()); ?>"><?php echo esc_html(dawp_contact_support_email()); ?></a>
                 </div>
                 <div>
+                    <span><?php esc_html_e('Customer Service Hours', 'dawp'); ?></span>
+                    <p><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM Pacific Time', 'dawp'); ?></p>
+                </div>
+                <div>
                     <span><?php esc_html_e('Response Window', 'dawp'); ?></span>
                     <p><?php esc_html_e('Within 1 business day', 'dawp'); ?></p>
                 </div>
+                <?php if ($store_address) : ?>
+                    <div>
+                        <span><?php esc_html_e('Address', 'dawp'); ?></span>
+                        <p><?php echo esc_html($store_address); ?></p>
+                    </div>
+                <?php endif; ?>
                 <div>
                     <span><?php esc_html_e('Need Order Details?', 'dawp'); ?></span>
                     <p><?php esc_html_e('Include your order number so we can review it quickly.', 'dawp'); ?></p>

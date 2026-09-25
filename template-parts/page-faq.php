@@ -34,7 +34,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Why has my order not shipped yet?', 'dawp'),
-                'a' => __('Orders have a 5:00 PM Pacific Time cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding weekends and official U.S. public holidays. Some intricate, high-demand, or separately packed watch items may require additional processing time.', 'dawp'),
+                'a' => __('Orders have a 5:00 PM Pacific Time cutoff and a 1-2 business day handling time. Fulfillment takes place Monday-Friday, excluding weekends and official U.S. public holidays. Some intricate, high-demand, or separately packed watch items may require additional processing time.', 'dawp'),
             ],
         ],
     ],
@@ -53,7 +53,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('How long does shipping take?', 'dawp'),
-                'a' => __('Order handling usually takes 1-3 business days and transit usually takes 5-7 business days, for a total estimated delivery time of 6-10 business days. Business days do not include weekends or official U.S. public holidays.', 'dawp'),
+                'a' => __('Order handling usually takes 1-2 business days and transit usually takes 3-5 business days, for a total estimated delivery time of 4-7 business days. Business days do not include weekends or official U.S. public holidays.', 'dawp'),
             ],
             [
                 'q' => __('Will I receive tracking information?', 'dawp'),
@@ -76,7 +76,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('What condition must a return be in?', 'dawp'),
-                'a' => __('Eligible returns must be unworn, unused, undamaged, and in original, unaltered condition with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and included accessories.', 'dawp'),
+                'a' => __('Eligible returns must be unworn, unused, undamaged, and in original, unaltered condition with all original packaging, tags, labels, manuals, warranty cards, watch boxes, and any included accessories.', 'dawp'),
             ],
             [
                 'q' => __('Do you charge a restocking fee?', 'dawp'),
@@ -84,7 +84,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Who pays return shipping?', 'dawp'),
-                'a' => __('We cover 100% of return shipping costs or provide a prepaid shipping label when the item is defective, damaged, incorrect, missing essential parts, or not functioning as intended. For customer remorse returns, such as wrong item, size, color, model, fit preference, or no longer wanting the item, the customer is responsible for return shipping, and the actual return label cost may be deducted from the final refund amount.', 'dawp'),
+                'a' => __('We cover 100% of return shipping costs or provide a prepaid shipping label when the item is defective, damaged, incorrect, missing essential parts, or not functioning as intended. For customer remorse returns, such as ordering the wrong item, strap size, color, or model, fit preference, or no longer wanting the item, the customer is responsible for return shipping, and the actual cost of the prepaid return label we provide is deducted from the final refund amount.', 'dawp'),
             ],
             [
                 'q' => __('How are refunds handled?', 'dawp'),
@@ -107,7 +107,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('What if tracking has stopped updating?', 'dawp'),
-                'a' => __('If tracking has not updated for an extended period or your delivery is delayed beyond the estimated 6-10 business day delivery window, contact support so we can review the shipment and open an investigation with the carrier. Please include your order number, checkout email, confirmed delivery address, and photos of the outer packaging if the shipment arrived damaged.', 'dawp'),
+                'a' => __('If tracking has not updated for an extended period or your delivery is delayed beyond the estimated 4-7 business day delivery window, contact support so we can review the shipment and open an investigation with the carrier. Please include your order number, checkout email, confirmed delivery address, and photos of the outer packaging if the shipment arrived damaged.', 'dawp'),
             ],
         ],
     ],
@@ -127,7 +127,7 @@ $faq_sections = [
             [
                 'q' => __('Do your watches make unsupported brand or performance claims?', 'dawp'),
                 'a' => sprintf(
-                    __('No. %s creates and sells its own watches and watch accessories. We avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
+                    __('No. %s designs and sells its own watches. We avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
                     $store_name
                 ),
             ],
@@ -261,7 +261,7 @@ $faq_sections = [
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('FAQ', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 25, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php echo esc_html(sprintf(__('Find straightforward answers about orders, U.S. shipping, tracking, returns, refunds, warranty coverage, watch details, checkout, privacy, and support at %s.', 'dawp'), $store_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -296,7 +296,7 @@ $faq_sections = [
             <li><strong><?php esc_html_e('Ships To', 'dawp'); ?></strong><?php esc_html_e('United States domestic orders only', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Standard Shipping', 'dawp'); ?></strong><?php esc_html_e('Free nationwide with no minimum', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><?php esc_html_e('5:00 PM Pacific Time, Monday-Friday', 'dawp'); ?></li>
-            <li><strong><?php esc_html_e('Delivery Time', 'dawp'); ?></strong><?php esc_html_e('6-10 business days', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Delivery Time', 'dawp'); ?></strong><?php esc_html_e('4-7 business days', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Return Window', 'dawp'); ?></strong><?php esc_html_e('30 days of delivery', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Restocking Fee', 'dawp'); ?></strong><?php esc_html_e('No restocking fee for eligible returns', 'dawp'); ?></li>
             <li><strong><?php esc_html_e('Refund Timing', 'dawp'); ?></strong><?php esc_html_e('Within 7 business days after approval', 'dawp'); ?></li>
@@ -331,6 +331,7 @@ $faq_sections = [
           <div class="qb-actions">
             <a class="qb-button" href="<?php echo esc_url($shipping_policy); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
             <a class="qb-button qb-button--secondary" href="<?php echo esc_url($return_policy); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
+            <a class="qb-button qb-button--secondary" href="<?php echo esc_url($warranty_policy); ?>"><?php esc_html_e('Warranty Policy', 'dawp'); ?></a>
             <a class="qb-button qb-button--secondary" href="<?php echo esc_url($track_order_page); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
           </div>
         </section>

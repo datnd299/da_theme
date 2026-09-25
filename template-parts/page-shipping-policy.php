@@ -103,7 +103,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 25, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php esc_html_e("Free standard U.S. shipping, with delivery timing presented clearly before checkout.", 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -151,15 +151,15 @@ $support_portal = home_url('/contact-us/');
             </div>
             <div class="qb-timeline-item">
               <strong><?php esc_html_e('Order Handling Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('1-3 business days. Orders placed after cutoff begin processing the following business day.', 'dawp'); ?></span>
+              <span><?php esc_html_e('1-2 business days. Orders placed after cutoff begin processing the following business day.', 'dawp'); ?></span>
             </div>
             <div class="qb-timeline-item">
               <strong><?php esc_html_e('Transit Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('5-7 business days, Monday to Friday.', 'dawp'); ?></span>
+              <span><?php esc_html_e('3-5 business days, Monday to Friday.', 'dawp'); ?></span>
             </div>
             <div class="qb-timeline-item">
               <strong><?php esc_html_e('Estimated Delivery Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('6-10 business days total from the date of purchase.', 'dawp'); ?></span>
+              <span><?php esc_html_e('4-7 business days total from the date of purchase.', 'dawp'); ?></span>
             </div>
           </div>
           <p><?php esc_html_e('Delivery estimates reflect our standard fulfillment benchmarks. We and our courier partners work to meet these timelines, although extreme weather, carrier capacity, or regional holidays may occasionally cause delays.', 'dawp'); ?></p>
@@ -191,7 +191,7 @@ $support_portal = home_url('/contact-us/');
           <p><?php esc_html_e('If your order is delayed, tracking stops updating, or the package is marked delivered but has not arrived, please contact our support team promptly.', 'dawp'); ?></p>
           <p><?php esc_html_e('To help us investigate and resolve the issue with the carrier swiftly, please provide:', 'dawp'); ?></p>
           <ul>
-            <li><?php esc_html_e('Your exact Order Number, such as #CV1001.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Your exact Order Number, such as OT-1001.', 'dawp'); ?></li>
             <li><?php esc_html_e('The specific Email Address utilized during checkout.', 'dawp'); ?></li>
             <li><?php esc_html_e('The full and complete Delivery Address.', 'dawp'); ?></li>
             <li><?php esc_html_e('Clear, well-lit photos if the package container or watch item arrived damaged.', 'dawp'); ?></li>

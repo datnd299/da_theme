@@ -80,7 +80,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
       <div>
         <p class="qb-eyebrow"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Terms of Service', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 25, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php echo esc_html(sprintf('Important terms for using %s, placing orders, and contacting support.', $brand_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
@@ -116,7 +116,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <p class="qb-eyebrow"><?php esc_html_e('Overview', 'dawp'); ?></p>
           <h2><?php echo esc_html(sprintf('This website is operated by %s.', $brand_name)); ?></h2>
           <p><?php echo esc_html(sprintf('Throughout the site, the terms "we," "us," and "our" refer to %s. We provide this website, including all information, tools, products, and services available from this site, to you conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.', $brand_name)); ?></p>
-          <p><?php esc_html_e('By visiting our site and/or purchasing something from us, you engage in our "Service" and agree to be bound by these Terms of Service ("Terms"), including any additional terms, conditions, and policies referenced here or available by hyperlink, including our Privacy Policy, Shipping Policy, and Return & Refund Policy.', 'dawp'); ?></p>
+          <p><?php esc_html_e('By visiting our site and/or purchasing something from us, you engage in our "Service" and agree to be bound by these Terms of Service ("Terms"), including any additional terms, conditions, and policies referenced here or available by hyperlink, including our Privacy Policy, Shipping Policy, Return & Refund Policy, and Warranty Policy.', 'dawp'); ?></p>
           <p><?php esc_html_e('These Terms apply to all users of the site, including without limitation browsers, customers, account holders, merchants/partners (if applicable), and contributors of content.', 'dawp'); ?></p>
           <p><?php esc_html_e('Please read these Terms carefully before accessing or using our website. If you do not agree to all the terms and conditions, you may not access the website or use any services.', 'dawp'); ?></p>
         </section>
@@ -239,7 +239,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <p class="qb-eyebrow"><?php esc_html_e('13. Disclaimer of Warranties; Limitation of Liability', 'dawp'); ?></p>
           <h2><?php esc_html_e('The Service is provided as available and subject to legal limits.', 'dawp'); ?></h2>
           <p><?php esc_html_e('We do not guarantee, represent, or warrant that your use of our Service will be uninterrupted, timely, secure, or error-free.', 'dawp'); ?></p>
-          <p><?php esc_html_e('To the fullest extent permitted by law, the Service and all products and services delivered to you through the Service are provided "as is" and "as available", without any warranties or conditions of any kind, either express or implied, except where prohibited by law.', 'dawp'); ?></p>
+          <p><?php esc_html_e('To the fullest extent permitted by law, the Service and all products and services delivered to you through the Service are provided "as is" and "as available", without any warranties or conditions of any kind, either express or implied, except as expressly provided in our 2-Year Limited Warranty or where prohibited by law.', 'dawp'); ?></p>
           <p><?php echo esc_html(sprintf('To the fullest extent permitted by law, %s, its affiliates, officers, directors, employees, agents, contractors, suppliers, and service providers shall not be liable for any indirect, incidental, punitive, special, or consequential damages arising from your use of the Service or any products purchased through the Service.', $brand_name)); ?></p>
           <p><?php esc_html_e('Nothing in these Terms limits liability that cannot be limited under applicable law, such as certain consumer rights.', 'dawp'); ?></p>
         </section>
@@ -272,7 +272,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <section id="entire-agreement" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('17. Entire Agreement', 'dawp'); ?></p>
           <h2><?php esc_html_e('These Terms and posted policies form the full agreement.', 'dawp'); ?></h2>
-          <p><?php echo esc_html(sprintf('These Terms, together with any policies or operating rules posted by us on this site, including our Privacy Policy, Shipping Policy, and Return & Refund Policy, constitute the entire agreement between you and %s regarding your use of the Service and supersede any prior or contemporaneous agreements, communications, or proposals.', $brand_name)); ?></p>
+          <p><?php echo esc_html(sprintf('These Terms, together with any policies or operating rules posted by us on this site, including our Privacy Policy, Shipping Policy, Return & Refund Policy, and Warranty Policy, constitute the entire agreement between you and %s regarding your use of the Service and supersede any prior or contemporaneous agreements, communications, or proposals.', $brand_name)); ?></p>
         </section>
 
         <section id="governing-law" class="qb-policy-card">

@@ -2,7 +2,7 @@
 function dawp_main_menu_items() {
     return [
         ['title' => __('Home', 'dawp'),        'url' => home_url('/')],
-        ['title' => __('Watch', 'dawp'),       'url' => home_url('/shop/')],
+        ['title' => __('Watches', 'dawp'),     'url' => home_url('/shop/')],
         ['title' => __('Contact Us', 'dawp'),  'url' => home_url('/contact-us/')],
         ['title' => __('About Us', 'dawp'),    'url' => home_url('/about-us/')],
         ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
@@ -20,10 +20,11 @@ function dawp_footer_columns() {
         [
             'title' => 'Shop',
             'links' => [
-                ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-                ['title' => __('New Arrivals', 'dawp'),         'url' => home_url('/shop/?orderby=date')],
-                ['title' => __('Featured Watches', 'dawp'),     'url' => home_url('/shop/?featured=1')],
-                ['title' => __('Sale Watches', 'dawp'),         'url' => home_url('/shop/?product_visibility=onsale')],
+                ['title' => __('All Watches', 'dawp'),          'url' => home_url('/shop/')],
+                ['title' => __('Dress Watches', 'dawp'),        'url' => qb_product_category_url('dress-watches')],
+                ['title' => __('Sport Watches', 'dawp'),        'url' => qb_product_category_url('sport-watches')],
+                ['title' => __('Skeleton Watches', 'dawp'),     'url' => qb_product_category_url('skeleton-watches')],
+                ['title' => __('Track Order', 'dawp'),          'url' => home_url('/track-order/')],
             ],
         ],
         [

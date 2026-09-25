@@ -204,11 +204,11 @@ get_header();
         <section class="shop-care">
             <div>
                 <h2><?php esc_html_e('Material, Size & Care Details', 'dawp'); ?></h2>
-                <p><?php echo esc_html(sprintf(__('%s product pages should include available material or finish notes, case size, strap information, movement details where available, and simple watch care guidance.', 'dawp'), $brand_name)); ?></p>
+                <p><?php esc_html_e('Each product page lists the available material or finish notes, case size, strap information, movement details, and watch care guidance. If a detail you need is missing, contact support before ordering.', 'dawp'); ?></p>
             </div>
             <div>
-                <h2><?php esc_html_e('Modern Watch Shopping', 'dawp'); ?></h2>
-                <p><?php esc_html_e('The collection is positioned around original watch ecommerce without fake luxury, replica, designer-inspired, or unsupported performance claims.', 'dawp'); ?></p>
+                <h2><?php esc_html_e('Original Orvel Designs', 'dawp'); ?></h2>
+                <p><?php echo esc_html(sprintf(__('Every watch in this collection is an original %s design, backed by free U.S. standard shipping, a 30-day return window, and a 2-year limited warranty.', 'dawp'), $brand_name)); ?></p>
             </div>
         </section>
     </div>

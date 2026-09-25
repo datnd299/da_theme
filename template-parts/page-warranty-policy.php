@@ -102,7 +102,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('Warranty Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('2-Year Limited Warranty', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 25, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php echo esc_html(sprintf('Every %s watch is covered by a 2-year limited warranty against manufacturing defects from the original date of purchase.', $store_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -124,7 +124,7 @@ $support_portal = home_url('/contact-us/');
             <li><?php esc_html_e('Dial, hand, or hardware faults caused by a manufacturing error rather than daily wear.', 'dawp'); ?></li>
           </ul>
           <div class="qb-callout">
-            <p><?php esc_html_e('The warranty period begins on the delivery date confirmed by your order and shipping records.', 'dawp'); ?></p>
+            <p><?php esc_html_e('The warranty period begins on the original purchase date shown on your order confirmation.', 'dawp'); ?></p>
           </div>
         </section>
 
@@ -138,10 +138,10 @@ $support_portal = home_url('/contact-us/');
             </div>
             <div class="qb-info-panel qb-info-panel--soft">
               <h3><?php esc_html_e('Unauthorized Service', 'dawp'); ?></h3>
-              <p><?php esc_html_e('Damage caused by drops, misuse, unauthorized repair or disassembly, battery replacement by a third party, or loss/theft.', 'dawp'); ?></p>
+              <p><?php esc_html_e('Damage caused by drops, misuse, unauthorized repair or disassembly, third-party battery replacement on battery-powered models, or loss/theft.', 'dawp'); ?></p>
             </div>
           </div>
-          <p><?php esc_html_e('Battery replacement, strap wear, and cosmetic changes from everyday use are considered normal maintenance and are not covered under this warranty.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Battery replacement on battery-powered models, strap wear, and cosmetic changes from everyday use are considered normal maintenance and are not covered under this warranty.', 'dawp'); ?></p>
         </section>
 
         <section id="warranty-claim" class="qb-policy-card">

@@ -15,7 +15,7 @@ $brand_name  = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel';
 $logo_url    = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/news/logoorvel.png';
 $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [
     ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
-    ['title' => __('Watch', 'dawp'), 'url' => home_url('/shop/')],
+    ['title' => __('Watches', 'dawp'), 'url' => home_url('/shop/')],
     ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
     ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
 ];

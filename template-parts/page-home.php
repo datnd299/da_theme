@@ -167,7 +167,7 @@ $newsletter_status = isset($_GET['newsletter_status']) ? sanitize_key(wp_unslash
                 <span class="zc-kicker"><?php esc_html_e('Latest Zorex Watches', 'dawp'); ?></span>
                 <h2><?php esc_html_e('New releases, easy to compare.', 'dawp'); ?></h2>
             </div>
-            <a class="zc-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop latest', 'dawp'); ?></a>
+            <a class="zc-link" href="<?php echo esc_url(add_query_arg('orderby', 'date', $shop_url)); ?>"><?php esc_html_e('Shop latest', 'dawp'); ?></a>
         </div>
         <div class="zc-products zc-products--eight">
             <?php foreach ($latest_products as $product) : ?>

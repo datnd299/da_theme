@@ -458,6 +458,7 @@ get_header();
       <form class="qb-404__search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
         <label for="qb-404-search"><?php esc_html_e('Search', 'dawp'); ?></label>
         <input id="qb-404-search" type="search" name="s" placeholder="<?php esc_attr_e('Search watches and collections...', 'dawp'); ?>" value="<?php echo esc_attr(get_search_query()); ?>">
+        <input type="hidden" name="post_type" value="product">
         <button type="submit"><?php esc_html_e('Search', 'dawp'); ?></button>
       </form>
 

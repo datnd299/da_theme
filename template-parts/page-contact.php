@@ -12,7 +12,6 @@ $support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_s
 $support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Zorex Craft support request', 'dawp')) : 'mailto:' . $support_email;
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $contact_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
-$shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $track_url      = home_url('/track-order/');
 ?>
 
@@ -102,11 +101,11 @@ $track_url      = home_url('/track-order/');
         <div>
             <span class="zc-kicker"><?php esc_html_e('Before You Write', 'dawp'); ?></span>
             <h2><?php esc_html_e('Need policy details?', 'dawp'); ?></h2>
-            <p><?php esc_html_e('For shipping, returns and common order questions, the policy pages may answer the essentials immediately.', 'dawp'); ?></p>
+            <p><?php esc_html_e('For shipping, returns and common order questions, the FAQ and policy pages may answer the essentials immediately.', 'dawp'); ?></p>
             <div class="zc-actions">
                 <a class="zc-button zc-button--secondary" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
-                <a class="zc-button zc-button--secondary" href="<?php echo esc_url($track_url); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
-                <a class="zc-button zc-button--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
+                <a class="zc-button zc-button--secondary" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
+                <a class="zc-button zc-button--secondary" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
             </div>
         </div>
     </div>

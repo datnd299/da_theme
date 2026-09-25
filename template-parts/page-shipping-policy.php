@@ -127,7 +127,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
-        <p class="qb-updated"><?php esc_html_e('Last Updated: September 21, 2026', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: September 25, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php esc_html_e("Free standard U.S. shipping with clear delivery timelines shown before checkout.", 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -175,15 +175,15 @@ $support_portal = home_url('/contact-us/');
             </div>
             <div class="qb-timeline-item">
               <strong><?php esc_html_e('Order Handling Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('1-3 business days. Orders placed after cutoff begin processing the following business day.', 'dawp'); ?></span>
+              <span><?php esc_html_e('1-2 business days. Orders placed after cutoff begin processing the following business day.', 'dawp'); ?></span>
             </div>
             <div class="qb-timeline-item">
               <strong><?php esc_html_e('Transit Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('5-7 business days, Monday to Friday.', 'dawp'); ?></span>
+              <span><?php esc_html_e('3-5 business days, Monday to Friday.', 'dawp'); ?></span>
             </div>
             <div class="qb-timeline-item">
               <strong><?php esc_html_e('Estimated Delivery Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('6-10 business days total from the date of purchase.', 'dawp'); ?></span>
+              <span><?php esc_html_e('4-7 business days total from the date of purchase.', 'dawp'); ?></span>
             </div>
           </div>
           <p><?php esc_html_e('Delivery estimates are carefully calculated windows reflecting our standard delivery benchmarks. While we and our courier partners work diligently to meet these timelines, unexpected delays due to extreme weather, carrier capacity issues, or regional holidays may occasionally occur.', 'dawp'); ?></p>
@@ -191,7 +191,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="multi-item-orders" class="qb-policy-card">
           <h2><?php esc_html_e('Multi-Item Orders & Specialized Handling', 'dawp'); ?></h2>
-          <p><?php esc_html_e('If your purchase includes multiple watches or diverse watch items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
+          <p><?php esc_html_e('If your purchase includes multiple watches or watch items, they may be prepared in different fulfillment batches. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
           <p><?php esc_html_e('You will receive a tracking number for each package at no additional cost. During holiday periods, or when an order needs an address review, handling may take longer than usual; if your order is affected we will email you.', 'dawp'); ?></p>
         </section>
 
@@ -228,7 +228,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="contact-info" class="qb-policy-card">
           <h2><?php esc_html_e('Customer Support Contact Information', 'dawp'); ?></h2>
-          <p><?php esc_html_e('For any questions regarding your shipment, custom delivery requests, or transit inquiries, please contact us directly through our official channels. We aim to reply within 1 business day.', 'dawp'); ?></p>
+          <p><?php esc_html_e('For any questions regarding your shipment, delivery address, or transit inquiries, please contact us directly through our official channels. We aim to reply within 1 business day.', 'dawp'); ?></p>
           <div class="qb-contact-card">
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Store Name', 'dawp'); ?></strong>

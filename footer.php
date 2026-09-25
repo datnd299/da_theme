@@ -365,7 +365,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
     <section>
         <div class="qb-footer-wrap qb-footer-kicker">
             <div>
-                <span class="qb-footer-kicker__eyebrow"><?php esc_html_e('Curated Timepieces', 'dawp'); ?></span>
+                <span class="qb-footer-kicker__eyebrow"><?php esc_html_e('Designed by Zorex', 'dawp'); ?></span>
                 <h2><?php esc_html_e('Built for easier collecting, gifting, and everyday choosing.', 'dawp'); ?></h2>
             </div>
             <p class="qb-footer-note">

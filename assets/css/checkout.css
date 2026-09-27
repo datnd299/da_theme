@@ -667,19 +667,74 @@ body.woocommerce-checkout .col2-set {
     gap: 1.25rem;
 }
 
+/* Override Tailwind's .col-1/.col-2 grid-column utilities that clash with WooCommerce class names */
 body.woocommerce-checkout .col-1,
 body.woocommerce-checkout .col-2 {
+    grid-column: 1 / -1;
     float: none;
     width: 100%;
     min-width: 0;
 }
 
-body.woocommerce-checkout .col-2,
-body.woocommerce-checkout .woocommerce-additional-fields {
+body.woocommerce-checkout .col-2 {
+    display: grid;
+    gap: 1.25rem;
+}
+
+/* Smart Coupons: available coupons accordion */
+body.woocommerce-checkout .wc_coupon_message_wrap:not(:has(*)) {
+    display: none;
+}
+
+body.woocommerce-checkout #coupons_list {
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    border: 1px solid #E7D8C8;
+    border-radius: 10px;
+    box-shadow: 0 14px 34px rgba(75, 53, 40, 0.06);
+}
+
+body.woocommerce-checkout #coupons_list .sc-accordion-header {
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border: 0;
+    border-radius: 0;
+    color: #2F2925;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+body.woocommerce-checkout #coupons_list .sc-accordion-header .sc-arrow-icon {
+    flex-shrink: 0;
+    color: #B89B83;
+}
+
+body.woocommerce-checkout #coupons_list .sc-accordion-content {
+    background-color: #FFF8EF;
+}
+
+body.woocommerce-checkout #coupons_list .sc-accordion-content.open {
+    border-top: 1px solid #E7D8C8;
+}
+
+body.woocommerce-checkout #coupons_list .sc-no-coupon {
+    height: auto;
+    padding: 1.25rem 1.5rem;
+    color: #756A62;
+    font-size: 0.875rem;
+}
+
+/* Hide the shipping card when WooCommerce renders it empty (no shipping zones) */
+body.woocommerce-checkout .woocommerce-shipping-fields:not(:has(*)),
+body.woocommerce-checkout .woocommerce-additional-fields:not(:has(.form-row)) {
     display: none;
 }
 
 body.woocommerce-checkout .woocommerce-billing-fields,
+body.woocommerce-checkout .woocommerce-shipping-fields,
 body.woocommerce-checkout .woocommerce-additional-fields,
 body.woocommerce-checkout #order_review {
     background-color: #FFFFFF;
@@ -703,8 +758,44 @@ body.woocommerce-checkout #order_review_heading {
     text-transform: uppercase;
 }
 
+body.woocommerce-checkout #ship-to-different-address {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 1rem;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+body.woocommerce-checkout #ship-to-different-address label {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin: 0;
+    color: #2F2925;
+    font-size: 0.9375rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+body.woocommerce-checkout #ship-to-different-address input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin: 0;
+    accent-color: #B89B83;
+    cursor: pointer;
+}
+
+body.woocommerce-checkout .shipping_address {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #E7D8C8;
+}
+
 body.woocommerce-checkout .woocommerce-billing-fields__field-wrapper,
-body.woocommerce-checkout .woocommerce-shipping-fields__field-wrapper {
+body.woocommerce-checkout .woocommerce-shipping-fields__field-wrapper,
+body.woocommerce-checkout .woocommerce-additional-fields__field-wrapper {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 1rem 1rem;
@@ -972,36 +1063,45 @@ body.woocommerce-checkout .clear {
 @media (min-width: 960px) {
     body.woocommerce-checkout .woocommerce form.checkout {
         grid-template-columns: minmax(0, 1fr) minmax(330px, 380px);
-        gap: 2.25rem;
+        column-gap: 2.25rem;
+        row-gap: 0;
+    }
+
+    /* Left column: coupon message → available coupons → customer details */
+    body.woocommerce-checkout .wc_coupon_message_wrap {
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: 1.25rem;
+    }
+
+    body.woocommerce-checkout #coupons_list {
+        grid-column: 1;
+        grid-row: 2;
+        margin-bottom: 1.25rem;
     }
 
     body.woocommerce-checkout .col2-set {
         grid-column: 1;
-        grid-row: 1;
+        grid-row: 3;
         grid-template-columns: minmax(0, 1fr);
         align-items: start;
-        gap: 0;
+        gap: 1.25rem;
     }
 
     body.woocommerce-checkout #order_review_heading,
     body.woocommerce-checkout #order_review {
         grid-column: 2;
-        grid-row: 1;
+        grid-row: 1 / span 3;
+        align-self: start;
     }
 
     body.woocommerce-checkout #order_review_heading {
         align-self: start;
-        position: sticky;
-        top: 6.5rem;
         z-index: 2;
     }
 
     body.woocommerce-checkout #order_review {
-        position: sticky;
-        top: 10.15rem;
         margin-top: 3.65rem;
-        max-height: calc(100vh - 11.5rem);
-        overflow: auto;
     }
 }
 

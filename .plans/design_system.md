@@ -1,8 +1,8 @@
-# Gudwear.com Design System
+# GnomonHoldings.com Design System
 
 ## Core Design Philosophy
 
-Gudwear.com should feel like a clean, natural, and trustworthy women's fashion store for comfortable everyday clothing.
+GnomonHoldings.com should feel like a clean, natural, and trustworthy women's fashion store for comfortable everyday clothing.
 
 The website experience must be:
 
@@ -15,13 +15,13 @@ The website experience must be:
 * Boutique-inspired
 * GMC-safe
 
-Gudwear.com is not a fast-fashion trend site, teen brand, clubwear store, luxury runway label, or random marketplace.
+GnomonHoldings.com is not a fast-fashion trend site, teen brand, clubwear store, luxury runway label, or random marketplace.
 
 ---
 
 # Design Archetype
 
-Gudwear.com =
+GnomonHoldings.com =
 
 **Good Everyday Wear For Women**
 
@@ -98,7 +98,7 @@ Section spacing:
 
 # Color System
 
-Gudwear.com should feel natural, fresh, and lightly polished.
+GnomonHoldings.com should feel natural, fresh, and lightly polished.
 
 ## Primary Palette
 
@@ -307,7 +307,7 @@ Trust cards:
 Header:
 
 * Clean white or warm ivory
-* Logo: Gudwear.com
+* Logo: GnomonHoldings.com
 * Navigation: New Arrivals, Casual Tops, Tunic Tops, Blouses & Shirts, Dresses, Contact
 * Text: Deep Ink
 * Hover: Olive Green
@@ -324,7 +324,7 @@ Footer:
 
 Hero:
 
-* Introduce Gudwear.com clearly
+* Introduce GnomonHoldings.com clearly
 * Headline: `Good Everyday Wear For Women`
 * Subheadline: relaxed tops, tunics, blouses, and easy wardrobe pieces made for comfort and quiet confidence
 * CTAs: Shop Casual Tops, Explore Tunics
@@ -344,7 +344,7 @@ Featured sections:
 
 Trust section:
 
-* Why Women Choose Gudwear.com
+* Why Women Choose GnomonHoldings.com
 * Comfortable fits
 * Natural details
 * Easy repeat styling
@@ -354,8 +354,8 @@ Trust section:
 
 Newsletter:
 
-* Use `gudwear-newsletter-email` as the input id
-* Copy should mention Gudwear.com, new arrivals, seasonal favorites, and everyday outfit ideas
+* Use `gnomon-newsletter-email` as the input id
+* Copy should mention GnomonHoldings.com, new arrivals, seasonal favorites, and everyday outfit ideas
 
 ---
 
@@ -405,4 +405,4 @@ Performance priorities:
 
 Final design goal:
 
-> Gudwear.com should look like a clean, trustworthy women's fashion store offering comfortable everyday pieces with a fresh olive, ivory, and stone visual direction.
+> GnomonHoldings.com should look like a clean, trustworthy women's fashion store offering comfortable everyday pieces with a fresh olive, ivory, and stone visual direction.

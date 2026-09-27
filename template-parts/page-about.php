@@ -11,7 +11,7 @@ $asset = static function ($path) use ($theme_uri) {
     return $theme_uri . '/assets/img/' . ltrim($path, '/');
 };
 
-$support_email = 'support@gudwear.com';
+$support_email = 'support@gnomonholdings.com';
 $support_link = '<a class="font-semibold text-[#4B3528] underline decoration-[#B89B83] underline-offset-4" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>';
 $link_support_email = static function ($text) use ($support_email, $support_link) {
     return str_replace(esc_html($support_email), $support_link, esc_html($text));
@@ -78,7 +78,7 @@ $trust_cards = [
     ],
     [
         'title' => __('Customer Support', 'dawp'),
-        'copy'  => __('Contact support@gudwear.com. Business hours: Monday-Friday, 9:00 AM-5:00 PM.', 'dawp'),
+        'copy'  => __('Contact support@gnomonholdings.com. Business hours: Monday-Friday, 9:00 AM-5:00 PM.', 'dawp'),
     ],
 ];
 ?>
@@ -93,7 +93,7 @@ $trust_cards = [
                 </h2>
             </div>
             <div class="space-y-5 text-base leading-8 text-[#756A62]">
-                <p><?php esc_html_e('Gudwear.com was created around a simple idea: everyday clothing should be comfortable, easy to style, and softly feminine without feeling loud or overly trendy.', 'dawp'); ?></p>
+                <p><?php esc_html_e('GnomonHoldings.com was created around a simple idea: everyday clothing should be comfortable, easy to style, and softly feminine without feeling loud or overly trendy.', 'dawp'); ?></p>
                 <p><?php esc_html_e('Our collection direction focuses on mens edits, women collections, personalized apparel, easy wardrobe pieces, and seasonal styles that suit daily routines.', 'dawp'); ?></p>
                 <p><?php esc_html_e('We keep the store focused so customers can quickly understand what we offer, browse clear categories, and shop with confidence through transparent support and policy information.', 'dawp'); ?></p>
             </div>
@@ -105,10 +105,10 @@ $trust_cards = [
             <div class="max-w-3xl">
                 <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Our Focus', 'dawp'); ?></p>
                 <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Made for comfort-first, everyday dressing.', 'dawp'); ?></h2>
-                <p class="mt-4 text-base leading-7 text-[#756A62]"><?php esc_html_e('The Gudwear.com experience is built around a clear women\'s apparel niche and a calm shopping journey.', 'dawp'); ?></p>
+                <p class="mt-4 text-base leading-7 text-[#756A62]"><?php esc_html_e('The GnomonHoldings.com experience is built around a clear women\'s apparel niche and a calm shopping journey.', 'dawp'); ?></p>
             </div>
 
-            <div class="about-focus-slider mt-10 gap-5 sm:grid sm:grid-cols-2 lg:grid-cols-4" aria-label="<?php esc_attr_e('Gudwear focus points', 'dawp'); ?>">
+            <div class="about-focus-slider mt-10 gap-5 sm:grid sm:grid-cols-2 lg:grid-cols-4" aria-label="<?php esc_attr_e('Gnomon Holdings focus points', 'dawp'); ?>">
                 <?php foreach ($focus_cards as $index => $card) : ?>
                     <div class="about-focus-slide rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm">
                         <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full <?php echo 1 === $index % 2 ? 'bg-[#A8B99A]' : 'bg-[#B89B83]'; ?> text-sm font-bold text-white">
@@ -119,7 +119,7 @@ $trust_cards = [
                     </div>
                 <?php endforeach; ?>
             </div>
-            <div class="about-focus-slider-controls mt-4" aria-label="<?php esc_attr_e('Gudwear focus slider controls', 'dawp'); ?>">
+            <div class="about-focus-slider-controls mt-4" aria-label="<?php esc_attr_e('Gnomon Holdings focus slider controls', 'dawp'); ?>">
                 <button class="about-focus-slider-button about-focus-slider-prev" type="button" aria-label="<?php esc_attr_e('Previous focus item', 'dawp'); ?>">
                     <span aria-hidden="true">&lsaquo;</span>
                 </button>
@@ -133,7 +133,7 @@ $trust_cards = [
 
     <section class="bg-white py-16 lg:py-24">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
-            <img src="<?php echo esc_url($asset('gallery/Gudwear/Women_Collection_Easy_Tees_202607271343.jpeg')); ?>" alt="<?php esc_attr_e('Relaxed Gudwear everyday apparel styled for daily wear', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
+            <img src="<?php echo esc_url($asset('gallery/GnomonHoldings/Women_Collection_Easy_Tees_202607271343.jpeg')); ?>" alt="<?php esc_attr_e('Relaxed Gnomon Holdings everyday apparel styled for daily wear', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
             <div>
                 <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('What We Choose', 'dawp'); ?></p>
                 <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Soft pieces that fit into real routines.', 'dawp'); ?></h2>
@@ -158,11 +158,11 @@ $trust_cards = [
 
     <section class="bg-[#FFF8EF] py-16 lg:py-24">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-8 lg:[&>*:first-child]:order-2">
-            <img src="<?php echo esc_url($asset('gallery/Gudwear/Graphic_apparel_for_daily_rotation_202607271339.jpeg')); ?>" alt="<?php esc_attr_e('Gudwear graphic apparel styled for a relaxed polished day', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
+            <img src="<?php echo esc_url($asset('gallery/GnomonHoldings/Graphic_apparel_for_daily_rotation_202607271339.jpeg')); ?>" alt="<?php esc_attr_e('Gnomon Holdings graphic apparel styled for a relaxed polished day', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
             <div>
                 <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Our Store Standards', 'dawp'); ?></p>
                 <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Clear, honest, and focused on women\'s apparel.', 'dawp'); ?></h2>
-                <p class="mt-5 text-base leading-8 text-[#756A62]"><?php esc_html_e('Gudwear.com is built to present a legitimate, coherent fashion store with transparent customer information and realistic product direction.', 'dawp'); ?></p>
+                <p class="mt-5 text-base leading-8 text-[#756A62]"><?php esc_html_e('GnomonHoldings.com is built to present a legitimate, coherent fashion store with transparent customer information and realistic product direction.', 'dawp'); ?></p>
                 <div class="mt-7 grid gap-3">
                     <?php foreach ($values as $value) : ?>
                         <div class="flex gap-3 rounded-2xl border border-[#E7D8C8] bg-white p-4">

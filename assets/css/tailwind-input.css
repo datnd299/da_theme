@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* === COLORS - Gudwear.com backgrounds === */
+  /* === COLORS - GnomonHoldings.com backgrounds === */
   --color-background: #FFFFFF;
   --color-surface: #FFF8EF;
   --color-surface-alt: #F3E7DA;
 
-  /* === COLORS - Gudwear.com text === */
+  /* === COLORS - GnomonHoldings.com text === */
   --color-foreground: #2F2925;
   --color-foreground-muted: #756A62;
   --color-muted: #8C8178;
 
-  /* === COLORS - Gudwear.com brand === */
+  /* === COLORS - GnomonHoldings.com brand === */
   --color-accent: #B89B83;
   --color-accent-hover: #4B3528;
   --color-accent-soft: #F3E7DA;

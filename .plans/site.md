@@ -1,21 +1,21 @@
-# Gudwear.com Site.md
+# GnomonHoldings.com Site.md
 
 ## Store Information
 
-* **Website:** Gudwear.com
+* **Website:** GnomonHoldings.com
 * **Language:** English
 * **Store Type:** Women's Casual Fashion Store
 * **Primary Market:** United States
 * **Target Audience:** Women aged 30-45
 * **Style Direction:** Clean, relaxed, naturally polished everyday fashion
-* **Support Email:** [support@gudwear.com](mailto:support@gudwear.com)
+* **Support Email:** [support@gnomonholdings.com](mailto:support@gnomonholdings.com)
 * **Business Hours:** Monday-Friday, 9:00 AM-6:00 PM EST
 
 ---
 
 # Brand Positioning
 
-Gudwear.com is a women's apparel store focused on easy, comfortable clothing that still feels neat, modern, and thoughtfully styled.
+GnomonHoldings.com is a women's apparel store focused on easy, comfortable clothing that still feels neat, modern, and thoughtfully styled.
 
 The brand should feel:
 
@@ -28,7 +28,7 @@ The brand should feel:
 * Fresh
 * Everyday-friendly
 
-Gudwear.com should not feel like teen streetwear, luxury runway fashion, clubwear, or a random fashion marketplace.
+GnomonHoldings.com should not feel like teen streetwear, luxury runway fashion, clubwear, or a random fashion marketplace.
 
 The core promise:
 
@@ -38,7 +38,7 @@ The core promise:
 
 # Core Store Concept
 
-Gudwear.com offers wearable women's clothing for daily routines, casual workdays, errands, weekends, travel, and relaxed gatherings.
+GnomonHoldings.com offers wearable women's clothing for daily routines, casual workdays, errands, weekends, travel, and relaxed gatherings.
 
 Main product direction:
 
@@ -72,7 +72,7 @@ Secondary customers include women aged 45-55 who prefer relaxed boutique-style p
 
 # Customer Psychology
 
-Gudwear.com customers are not chasing loud trends. They want reliable pieces that make them feel comfortable, capable, and naturally put together.
+GnomonHoldings.com customers are not chasing loud trends. They want reliable pieces that make them feel comfortable, capable, and naturally put together.
 
 They respond well to:
 
@@ -124,13 +124,13 @@ Optional categories:
 * Weekend Styles
 * Relaxed Fit Collection
 
-Keep the catalog focused and curated. Gudwear.com should feel like a coherent apparel shop, not a mixed-product warehouse.
+Keep the catalog focused and curated. GnomonHoldings.com should feel like a coherent apparel shop, not a mixed-product warehouse.
 
 ---
 
 # Visual Direction
 
-Gudwear.com should use realistic lifestyle and ecommerce imagery with a clean natural feel.
+GnomonHoldings.com should use realistic lifestyle and ecommerce imagery with a clean natural feel.
 
 Images should show:
 
@@ -170,13 +170,13 @@ Recommended homepage flow:
 4. Soft Graphic Tops Feature
 5. Blouses & Shirts Feature
 6. New Arrivals
-7. Why Women Choose Gudwear.com
+7. Why Women Choose GnomonHoldings.com
 8. Shipping / Returns / Customer Support
 9. Newsletter
 
 Homepage priorities:
 
-* Brand name and domain are clearly Gudwear.com
+* Brand name and domain are clearly GnomonHoldings.com
 * Fresh visual feel: more olive, ink, ivory, and stone
 * Comfort-first but clean and polished
 * Clear category routes
@@ -187,7 +187,7 @@ Homepage priorities:
 
 # Trust & Policy Requirements
 
-Gudwear.com should include:
+GnomonHoldings.com should include:
 
 * About Us
 * Contact Us
@@ -200,7 +200,7 @@ Gudwear.com should include:
 
 Trust elements:
 
-* support@gudwear.com
+* support@gnomonholdings.com
 * Business hours
 * Processing and shipping timeline
 * 30-day return window
@@ -229,7 +229,7 @@ Eligible items should be unworn, unwashed, unused, in original condition, and re
 
 # GMC Compliance Direction
 
-Gudwear.com must appear as a legitimate women's apparel store with a focused product niche and transparent policies.
+GnomonHoldings.com must appear as a legitimate women's apparel store with a focused product niche and transparent policies.
 
 Avoid:
 
@@ -245,4 +245,4 @@ Avoid:
 
 Final build goal:
 
-> Gudwear.com should feel like a clean, trustworthy women's fashion store offering comfortable everyday tops, tunics, blouses, dresses, and easy wardrobe pieces for women aged 30-45.
+> GnomonHoldings.com should feel like a clean, trustworthy women's fashion store offering comfortable everyday tops, tunics, blouses, dresses, and easy wardrobe pieces for women aged 30-45.

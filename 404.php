@@ -58,7 +58,7 @@ $quick_links = [
                     <?php esc_html_e('This page slipped out of the wardrobe.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#756A62] sm:text-lg">
-                    <?php esc_html_e('The link may be outdated, but you can keep browsing Gudwear.com for mens edits, women collections, personalized apparel, and fresh arrivals.', 'dawp'); ?>
+                    <?php esc_html_e('The link may be outdated, but you can keep browsing GnomonHoldings.com for mens edits, women collections, personalized apparel, and fresh arrivals.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-7 text-sm font-bold text-white shadow-lg shadow-[#4B3528]/10 transition hover:bg-[#4B3528]">

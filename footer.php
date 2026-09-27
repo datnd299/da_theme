@@ -38,7 +38,7 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
 
 $home_url = home_url('/');
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-$logo_path = '/assets/img/gallery/Gudwear/gudwear-logo-white.png';
+$logo_path = '/assets/img/gallery/GnomonHoldings/gnomonholdings-logo-white.svg';
 $payment_methods = [
     [
         'label' => __('Visa', 'dawp'),
@@ -65,12 +65,12 @@ $payment_methods = [
     <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
         <div class="grid gap-8 lg:grid-cols-[0.9fr_1.7fr] lg:items-start">
             <div>
-                <a href="<?php echo esc_url($home_url); ?>" class="inline-flex flex-col items-start" aria-label="<?php esc_attr_e('Gudwear.com home', 'dawp'); ?>">
+                <a href="<?php echo esc_url($home_url); ?>" class="inline-flex flex-col items-start" aria-label="<?php esc_attr_e('GnomonHoldings.com home', 'dawp'); ?>">
                     <span class="flex h-12 w-44 items-center">
                         <?php if (file_exists(get_template_directory() . $logo_path)) : ?>
-                            <img src="<?php echo esc_url(get_template_directory_uri() . $logo_path); ?>" alt="<?php esc_attr_e('Gudwear.com', 'dawp'); ?>" class="max-h-12 w-auto object-contain">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . $logo_path); ?>" alt="<?php esc_attr_e('GnomonHoldings.com', 'dawp'); ?>" class="max-h-12 w-auto object-contain">
                         <?php else : ?>
-                            GW
+                            GH
                         <?php endif; ?>
                     </span>
                     <span class="mt-2 block text-sm font-semibold text-white/75">
@@ -83,14 +83,14 @@ $payment_methods = [
                 </p>
 
                 <div class="mt-5 grid gap-2 text-sm text-white/80">
-                    <a href="mailto:support@gudwear.com" class="inline-flex items-center gap-3 transition hover:text-[#F3E7DA]">
+                    <a href="mailto:support@gnomonholdings.com" class="inline-flex items-center gap-3 transition hover:text-[#F3E7DA]">
                         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#F3E7DA]" aria-hidden="true">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                                 <path d="m22 7-8.97 5.7a2 2 0 0 1-2.06 0L2 7"></path>
                             </svg>
                         </span>
-                        <span>support@gudwear.com</span>
+                        <span>support@gnomonholdings.com</span>
                     </a>
                     <p class="inline-flex items-center gap-3">
                         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#F3E7DA]" aria-hidden="true">
@@ -140,7 +140,7 @@ $payment_methods = [
                     printf(
                         esc_html__('Copyright %1$s %2$s. All rights reserved.', 'dawp'),
                         esc_html(date_i18n('Y')),
-                        esc_html__('Gudwear.com', 'dawp')
+                        esc_html__('GnomonHoldings.com', 'dawp')
                     );
                     ?>
                 </p>

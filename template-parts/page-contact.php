@@ -59,6 +59,8 @@ $track_url      = home_url('/track-order/');
                         esc_html_e('Thank you. Your message has been sent.', 'dawp');
                     } elseif ('failed' === $contact_status) {
                         esc_html_e('The message could not be sent. Please email support directly.', 'dawp');
+                    } elseif ('captcha' === $contact_status) {
+                        esc_html_e('Please complete the verification check and try again.', 'dawp');
                     } else {
                         esc_html_e('Please check the required fields and try again.', 'dawp');
                     }
@@ -89,8 +91,12 @@ $track_url      = home_url('/track-order/');
                 <div class="zc-form-row"><label for="zc-contact-order"><?php esc_html_e('Order Number', 'dawp'); ?></label><input id="zc-contact-order" type="text" name="contact_order" autocomplete="off"></div>
                 <div class="zc-form-row zc-form-row--full"><label for="zc-contact-message"><?php esc_html_e('Message', 'dawp'); ?></label><textarea id="zc-contact-message" name="contact_message" rows="7" required></textarea></div>
                 <label class="zc-contact-consent"><input type="checkbox" name="contact_consent" required><span><?php esc_html_e('I agree to be contacted about this request.', 'dawp'); ?></span></label>
+                <div class="zc-contact-captcha">
+                    <altcha-widget challenge="<?php echo esc_url(dawp_altcha_base_url() . '/challenge'); ?>" name="altcha"></altcha-widget>
+                </div>
                 <button class="zc-button zc-button--primary" type="submit"><?php esc_html_e('Send Message', 'dawp'); ?></button>
             </form>
+            <script type="module" src="<?php echo esc_url(dawp_altcha_base_url() . '/altcha.min.js'); ?>" async></script>
         </div>
     </div>
 </section>

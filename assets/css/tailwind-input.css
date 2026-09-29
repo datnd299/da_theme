@@ -2783,7 +2783,8 @@
   }
 
   .zc-form-row--full,
-  .zc-contact-consent {
+  .zc-contact-consent,
+  .zc-contact-captcha {
     grid-column: 1 / -1;
   }
 
@@ -2859,7 +2860,8 @@
   }
 
   .zc-contact-alert--invalid,
-  .zc-contact-alert--failed {
+  .zc-contact-alert--failed,
+  .zc-contact-alert--captcha {
     border-color: #B78373;
     background: #FFF8F4;
     color: #6B2D22;

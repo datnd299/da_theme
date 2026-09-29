@@ -137,49 +137,6 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
 
     .sgs-footer-column a:hover { color: #fca5a5; }
 
-    .sgs-footer-newsletter {
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      background: rgba(255,255,255,0.04);
-      padding: 20px;
-    }
-
-    .sgs-footer-newsletter h3 {
-      margin: 0; color: #fff;
-      font-family: var(--font-heading);
-      font-size: 18px; line-height: 1.25;
-    }
-
-    .sgs-footer-newsletter p {
-      margin: 6px 0 0;
-      color: rgba(255,255,255,0.6);
-      font-size: 14px; line-height: 1.6;
-    }
-
-    .sgs-footer-form {
-      display: flex; width: 100%; gap: 8px;
-      margin-top: 14px;
-    }
-
-    .sgs-footer-form input {
-      min-width: 0; width: 100%; height: 44px;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 6px;
-      background: #fff; color: var(--ink, #111827);
-      padding: 0 14px; outline: none; font-size: 16px;
-      font-family: var(--font-body);
-    }
-
-    .sgs-footer-form button {
-      height: 44px; border: 0; border-radius: 6px;
-      background: var(--red, #B31942); color: #fff;
-      padding: 0 16px; font-weight: 700; cursor: pointer;
-      font-family: var(--font-body); font-size: 14px;
-      letter-spacing: 0.04em;
-    }
-
-    .sgs-footer-form button:hover { background: var(--red-dark, #8a1433); }
-
     .sgs-footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.08);
       background: rgba(0,0,0,0.15);
@@ -208,7 +165,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
 
     @media (min-width: 1024px) {
       .sgs-footer-main {
-        grid-template-columns: minmax(260px, 1.2fr) repeat(3, minmax(130px, 0.7fr)) minmax(260px, 0.9fr);
+        grid-template-columns: minmax(260px, 1.4fr) repeat(3, minmax(130px, 1fr));
         align-items: start;
         gap: clamp(24px, 3vw, 44px);
       }
@@ -216,13 +173,9 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
 
     @media (max-width: 1120px) and (min-width: 760px) {
       .sgs-footer-main {
-        grid-template-columns: minmax(250px, 1.1fr) repeat(2, minmax(140px, 1fr));
+        grid-template-columns: repeat(3, minmax(140px, 1fr));
       }
-      .sgs-footer-newsletter {
-        grid-column: 1 / -1;
-        grid-template-columns: 1fr minmax(280px, 420px);
-        align-items: center;
-      }
+      .sgs-footer-info { grid-column: 1 / -1; max-width: none; }
     }
 
     @media (max-width: 560px) {
@@ -245,7 +198,6 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
         scroll-snap-align: start;
         padding: 14px 16px;
       }
-      .sgs-footer-form { flex-direction: column; }
     }
   </style>
 
@@ -339,18 +291,6 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
         <li><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>">Privacy Policy</a></li>
         <li><a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>">Terms &amp; Conditions</a></li>
       </ul>
-    </div>
-
-    <div class="sgs-footer-newsletter">
-      <div>
-        <h3>Get New Patriotic Drops &amp; Gift Ideas</h3>
-        <p>Receive offers, patriotic apparel drops, and gift ideas.</p>
-      </div>
-      <form class="sgs-footer-form" onsubmit="event.preventDefault(); this.reset(); alert('Thanks for signing up!');">
-        <label class="sr-only" for="sgs-footer-email"><?php esc_html_e('Email address', 'shopgraphicshirt'); ?></label>
-        <input id="sgs-footer-email" type="email" placeholder="<?php esc_attr_e('Enter your email', 'shopgraphicshirt'); ?>" required>
-        <button type="submit"><?php esc_html_e('Sign Up', 'shopgraphicshirt'); ?></button>
-      </form>
     </div>
   </div>
 

@@ -342,13 +342,6 @@
 .sgs-about p{margin:14px auto 22px;max-width:540px;color:var(--muted);font-size:.92rem;line-height:1.6}
 
 /* ── Newsletter ── */
-.sgs-newsletter{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;padding:clamp(24px,3.5vw,36px);border:1px solid var(--line);border-radius:var(--radius);background:var(--white);box-shadow:var(--shadow-sm)}
-.sgs-newsletter h2{margin:0;font-family:var(--font-heading);font-size:clamp(1.1rem,2vw,1.5rem);font-weight:700;color:var(--ink);line-height:1.15}
-.sgs-newsletter__form{display:flex;gap:10px}
-.sgs-newsletter input{flex:1;min-width:0;height:54px;padding:0 18px;border:1.5px solid var(--line);border-radius:var(--radius);background:#fafafa;color:var(--ink);outline:none;font-size:1rem;font-family:var(--font-body)}
-.sgs-newsletter input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(179,25,66,.12)}
-.sgs-newsletter .sgs-btn{min-height:54px}
-@media(max-width:768px){.sgs-newsletter{grid-template-columns:1fr}.sgs-newsletter__form{flex-direction:column}.sgs-newsletter .sgs-btn{width:100%}}
 
 /* ── Breadcrumbs ── */
 .sgs-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;padding:14px 0;color:var(--muted);font-size:.82rem;font-weight:500}

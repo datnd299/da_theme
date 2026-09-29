@@ -332,17 +332,6 @@ $sgs_cat_bg = static function ($key) use ($sgs_home_cat_images) {
       <p>ShopGraphicShirt is a patriotic apparel and custom gift brand created for proud Americans who want meaningful products that carry classic style and American pride.</p>
       <a href="/about-us/" class="sgs-btn sgs-btn--secondary">Learn More →</a>
     </div>
-
-    <div class="sgs-newsletter">
-      <div>
-        <h2>Get New Patriotic Drops And Gift Ideas</h2>
-      </div>
-      <form class="sgs-newsletter__form" onsubmit="event.preventDefault(); this.reset(); alert('Thanks for signing up!');">
-        <label class="sr-only" for="sgs-hm-email">Email</label>
-        <input id="sgs-hm-email" type="email" placeholder="Enter your email" required>
-        <button class="sgs-btn sgs-btn--primary" type="submit">Sign Up</button>
-      </form>
-    </div>
   </div>
 
 </section>

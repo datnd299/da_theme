@@ -158,7 +158,7 @@ $footer_columns = [
 
     <div class="cf-footer__bottom">
         <div class="cf-footer__inner cf-footer__bottom-row">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Crowdfused. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
+            <p><?php echo esc_html(gmdate('Y')); ?> Crowdfused.</p>
             <div class="cf-footer__payments" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
                 <?php foreach ($payment_methods as $method) : ?>
                     <?php

@@ -8,15 +8,15 @@
 $sgs_best_sellers_url = dawp_product_category_url('best-sellers');
 $sgs_bomber_jackets_url = dawp_product_category_url('bomber-jackets');
 $sgs_flag_tees_url = dawp_product_category_url('american-flag-tees');
-$sgs_hats_url = dawp_product_category_url('hats-beanies');
+$sgs_hawaiian_url = dawp_product_category_url('hawaiian-shirt');
 $sgs_premium_tees_url = dawp_product_category_url('premium-t-shirts');
-$sgs_accessories_url = dawp_product_category_url('patches-pins');
+$sgs_hunting_url = dawp_product_category_url('hunting-collection');
 $sgs_home_cat_images = [
   'flag-tees' => 'assets/img/home/cat-flag-tees.png',
   'bomber' => 'assets/img/home/cat-bomber.png',
-  'hats' => 'assets/img/home/cat-hats.png',
+  'hawaiian' => 'assets/img/home/cat-hawaiian.jpeg',
   'tees' => 'assets/img/home/cat-tees.png',
-  'accessories' => 'assets/img/home/cat-accessories.png',
+  'hunting' => 'assets/img/home/cat-hunting.jpeg',
   'best-seller' => 'assets/img/home/cat-best-seller.png',
 ];
 $sgs_home_hero_bg = sprintf(
@@ -105,13 +105,13 @@ $sgs_cat_bg = static function ($key) use ($sgs_home_cat_images) {
           <span class="sgs-cat__cta">Shop Collection</span>
         </div>
       </a>
-      <!-- Hats & Beanies -->
-      <a href="<?php echo esc_url($sgs_hats_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('hats')); ?>">
+      <!-- Hawaiian Shirt -->
+      <a href="<?php echo esc_url($sgs_hawaiian_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('hawaiian')); ?>">
         <div class="sgs-cat__overlay"></div>
         <div class="sgs-cat__content">
-          <span class="sgs-cat__eyebrow">Hats &amp; Beanies</span>
-          <h3>Headwear</h3>
-          <p>Snapbacks, dad hats, beanies with flag embroidery.</p>
+          <span class="sgs-cat__eyebrow">Hawaiian Shirt</span>
+          <h3>Aloha Style</h3>
+          <p>Relaxed button-ups with bold patriotic and tropical prints.</p>
           <span class="sgs-cat__cta">Shop Collection</span>
         </div>
       </a>
@@ -125,13 +125,13 @@ $sgs_cat_bg = static function ($key) use ($sgs_home_cat_images) {
           <span class="sgs-cat__cta">Shop Collection</span>
         </div>
       </a>
-      <!-- Accessories -->
-      <a href="<?php echo esc_url($sgs_accessories_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('accessories')); ?>">
+      <!-- Hunting Collection -->
+      <a href="<?php echo esc_url($sgs_hunting_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('hunting')); ?>">
         <div class="sgs-cat__overlay"></div>
         <div class="sgs-cat__content">
-          <span class="sgs-cat__eyebrow">Patches &amp; Pins</span>
-          <h3>Accessories</h3>
-          <p>Patches, pins, mugs for everyday American pride.</p>
+          <span class="sgs-cat__eyebrow">Hunting Collection</span>
+          <h3>Outdoor Ready</h3>
+          <p>Hunting graphics and camo styles for the great outdoors.</p>
           <span class="sgs-cat__cta">Shop Collection</span>
         </div>
       </a>

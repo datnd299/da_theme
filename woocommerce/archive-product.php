@@ -83,6 +83,7 @@ $sgs_cover_bg = sprintf(
 .sgs-shop-sidebar__categories li a[aria-current]{background:var(--red);color:var(--white);font-weight:700}
 .sgs-shop-sidebar__categories .count{color:var(--muted);font-size:.78rem}
 .sgs-shop-sidebar__categories li a[aria-current] .count{color:rgba(255,255,255,.7)}
+.sgs-shop-sidebar__subcategories{list-style:none;margin:4px 0 0 12px;padding:0 0 0 10px;border-left:1.5px solid var(--line);display:grid;gap:4px}
 .sgs-shop-sidebar__toggle{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;padding:10px 12px;border:0;background:var(--antique);border-radius:5px;cursor:pointer;font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--navy);text-align:left}
 .sgs-shop-sidebar__toggle-icon{transition:transform 200ms;flex:0 0 auto}
 .sgs-shop-sidebar__widget--open .sgs-shop-sidebar__toggle-icon{transform:rotate(180deg)}
@@ -95,6 +96,8 @@ $sgs_cover_bg = sprintf(
 .sgs-shop-product{display:flex;flex-direction:column;padding:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);position:relative;transition:transform 180ms,border-color 180ms,box-shadow 180ms}
 .sgs-shop-product:hover{transform:translateY(-3px);border-color:var(--red);box-shadow:0 8px 24px rgba(0,0,0,.1)}
 .sgs-shop-product__badge{position:absolute;top:10px;left:10px;z-index:2;background:var(--red);color:var(--white);font-family:var(--font-heading);font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:4px}
+.sgs-shop-product__badge--oos{background:var(--navy)}
+.sgs-shop-product__badge--oos~.sgs-shop-product__media-link img{opacity:.55}
 .sgs-shop-product__img{aspect-ratio:1;background:#f5f5f5;border-radius:var(--radius);display:grid;place-items:center;margin-bottom:12px;overflow:hidden}
 .sgs-shop-product__media-link{display:block;color:inherit;text-decoration:none}
 .sgs-shop-product__img img{width:100%;height:100%;object-fit:cover}
@@ -208,9 +211,52 @@ $sgs_cover_bg = sprintf(
       </div>
 
       <?php
+      // Shop by Collections: every product category, nested by parent.
+      $sgs_cat_terms = get_terms([
+        'taxonomy'   => 'product_cat',
+        'hide_empty' => false,
+        'pad_counts' => true,
+      ]);
+      $sgs_cat_children = [];
+      if (!is_wp_error($sgs_cat_terms)) {
+        foreach ($sgs_cat_terms as $t) {
+          if ($t->slug !== 'uncategorized') $sgs_cat_children[$t->parent][] = $t;
+        }
+      }
+      $sgs_current_cat = is_product_category() ? get_queried_object_id() : 0;
+      $sgs_render_cats = function ($parent, $depth) use (&$sgs_render_cats, $sgs_cat_children, $sgs_current_cat) {
+        if (empty($sgs_cat_children[$parent])) return;
+        echo $depth
+          ? '<ul class="sgs-shop-sidebar__subcategories">'
+          : '<ul class="sgs-shop-sidebar__categories sgs-shop-sidebar__panel" id="sgs-sidebar-collections">';
+        foreach ($sgs_cat_children[$parent] as $t) {
+          printf(
+            '<li><a href="%s"%s>%s <span class="count">(%d)</span></a>',
+            esc_url(get_term_link($t)),
+            $t->term_id === $sgs_current_cat ? ' aria-current="page"' : '',
+            esc_html($t->name),
+            (int) $t->count
+          );
+          $sgs_render_cats($t->term_id, $depth + 1);
+          echo '</li>';
+        }
+        echo '</ul>';
+      };
+      if (!empty($sgs_cat_children[0])) : ?>
+      <div class="sgs-shop-sidebar__widget sgs-shop-sidebar__widget--accordion sgs-shop-sidebar__widget--open">
+        <h3 class="sgs-shop-sidebar__title">
+          <button class="sgs-shop-sidebar__toggle" type="button" aria-expanded="true" aria-controls="sgs-sidebar-collections">
+            <span><?php esc_html_e('Shop by Collections', 'dawp'); ?></span>
+            <svg class="sgs-shop-sidebar__toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </h3>
+        <?php $sgs_render_cats(0, 0); ?>
+      </div>
+      <?php endif;
+
       $mega_sections = function_exists('dawp_megamenu_sections') ? dawp_megamenu_sections() : [];
       foreach ($mega_sections as $si => $section) :
-        if (empty($section['links'])) continue;
+        if (empty($section['links']) || $section['title'] === __('Shop by Collections', 'dawp')) continue;
         $items = [];
         $has_current = false;
         foreach ($section['links'] as $link) {
@@ -251,7 +297,9 @@ $sgs_cover_bg = sprintf(
             global $product;
             $product_url = get_permalink($product->get_id()); ?>
             <div class="sgs-shop-product">
-              <?php if ($product->is_on_sale()) : ?>
+              <?php if (!$product->is_in_stock()) : ?>
+                <span class="sgs-shop-product__badge sgs-shop-product__badge--oos">Out of stock</span>
+              <?php elseif ($product->is_on_sale()) : ?>
                 <span class="sgs-shop-product__badge">Sale</span>
               <?php endif; ?>
               <a class="sgs-shop-product__media-link" href="<?php echo esc_url($product_url); ?>" aria-label="<?php echo esc_attr($product->get_name()); ?>">

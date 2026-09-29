@@ -12,6 +12,16 @@ $cart_url = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/
 $cart_count = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
 $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $account_url = $account_url ? $account_url : home_url('/my-account/');
+
+// FiboSearch (AJAX autocomplete) — fall back to the native WP product search if the plugin is inactive
+$has_fibo = shortcode_exists('fibosearch');
+$search_placeholder = __('Search patriotic gifts...', 'shopgraphicshirt');
+if ($has_fibo) {
+    add_filter('dgwt/wcas/labels', function ($labels) use ($search_placeholder) {
+        $labels['search_placeholder'] = $search_placeholder;
+        return $labels;
+    });
+}
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -249,6 +259,54 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
             font-size: 15px; font-weight: 700;
         }
 
+        /* ── FiboSearch ── */
+        .sgs-fibo.sgs-desktop-search { width: clamp(240px, 22vw, 320px); }
+        .sgs-fibo .dgwt-wcas-search-wrapp { min-width: 0; max-width: none; margin: 0; }
+        .sgs-fibo .dgwt-wcas-sf-wrapp { padding: 0; background: transparent; }
+
+        .sgs-fibo .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+            height: 44px; padding: 0 58px 0 14px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: var(--radius);
+            background: var(--white); color: var(--ink);
+            font-family: var(--font-body); font-size: 16px; font-weight: 500;
+        }
+
+        .sgs-fibo .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input:focus {
+            box-shadow: 0 0 0 3px rgba(179,25,66,0.2);
+        }
+
+        .sgs-fibo .dgwt-wcas-open .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+
+        .sgs-fibo .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit {
+            width: 44px; min-width: 44px; height: 44px; min-height: 44px; padding: 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            background: var(--red); text-shadow: none;
+        }
+
+        .sgs-fibo .dgwt-wcas-open .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit {
+            border-radius: 0 var(--radius) 0 0;
+        }
+
+        .sgs-fibo .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit::before { display: none; }
+        .sgs-fibo .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit:hover { background: var(--red-dark); }
+        .sgs-fibo .dgwt-wcas-sf-wrapp .dgwt-wcas-preloader { right: 50px; }
+
+        .dgwt-wcas-suggestions-wrapp {
+            border-color: var(--line) !important;
+            border-radius: 0 0 var(--radius) var(--radius) !important;
+            box-shadow: 0 12px 28px rgba(11,31,58,0.16);
+            font-family: var(--font-body);
+        }
+
+        .dgwt-wcas-suggestion { color: var(--ink); }
+        .dgwt-wcas-suggestion-selected { background: var(--antique) !important; }
+        .dgwt-wcas-st strong,
+        .dgwt-wcas-sp strong { color: var(--red); }
+        .dgwt-wcas-suggestion-more .dgwt-wcas-st-more { color: var(--navy); font-weight: 700; }
+
         .sgs-mobile-only { display: none; }
 
         .sgs-cat-expand {
@@ -353,14 +411,20 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
         </nav>
 
         <div class="sgs-header-actions">
-            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="sgs-search sgs-desktop-search">
-                <input type="hidden" name="post_type" value="product">
-                <label class="sr-only" for="sgs-prod-search"><?php esc_html_e('Search patriotic gifts...', 'shopgraphicshirt'); ?></label>
-                <input id="sgs-prod-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search patriotic gifts...', 'shopgraphicshirt'); ?>">
-                <button type="submit" aria-label="<?php esc_attr_e('Search', 'shopgraphicshirt'); ?>">
-                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" /></svg>
-                </button>
-            </form>
+            <?php if ($has_fibo) : ?>
+                <div class="sgs-fibo sgs-desktop-search">
+                    <?php echo do_shortcode('[fibosearch layout="classic" style="solaris" submit_btn="1" mobile_overlay="0" darken_bg="0"]'); ?>
+                </div>
+            <?php else : ?>
+                <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="sgs-search sgs-desktop-search">
+                    <input type="hidden" name="post_type" value="product">
+                    <label class="sr-only" for="sgs-prod-search"><?php echo esc_html($search_placeholder); ?></label>
+                    <input id="sgs-prod-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php echo esc_attr($search_placeholder); ?>">
+                    <button type="submit" aria-label="<?php esc_attr_e('Search', 'shopgraphicshirt'); ?>">
+                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" /></svg>
+                    </button>
+                </form>
+            <?php endif; ?>
 
             <button id="sgs-mobile-search-toggle" class="sgs-icon-btn sgs-mobile-only" type="button" aria-controls="sgs-mobile-search" aria-expanded="false">
                 <span class="sr-only"><?php esc_html_e('Search', 'shopgraphicshirt'); ?></span>
@@ -379,12 +443,18 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
     </div>
 
     <div id="sgs-mobile-search" class="sgs-mobile-panel hidden">
-        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="sgs-search sgs-mobile-search-form">
-            <input type="hidden" name="post_type" value="product">
-            <label class="sr-only" for="sgs-mobile-search-input"><?php esc_html_e('Search patriotic gifts...', 'shopgraphicshirt'); ?></label>
-            <input id="sgs-mobile-search-input" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search patriotic gifts...', 'shopgraphicshirt'); ?>">
-            <button type="submit"><?php esc_html_e('Search', 'shopgraphicshirt'); ?></button>
-        </form>
+        <?php if ($has_fibo) : ?>
+            <div class="sgs-fibo sgs-mobile-search-form">
+                <?php echo do_shortcode('[fibosearch layout="classic" style="solaris" submit_btn="1" mobile_overlay="0" darken_bg="0"]'); ?>
+            </div>
+        <?php else : ?>
+            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="sgs-search sgs-mobile-search-form">
+                <input type="hidden" name="post_type" value="product">
+                <label class="sr-only" for="sgs-mobile-search-input"><?php echo esc_html($search_placeholder); ?></label>
+                <input id="sgs-mobile-search-input" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php echo esc_attr($search_placeholder); ?>">
+                <button type="submit"><?php esc_html_e('Search', 'shopgraphicshirt'); ?></button>
+            </form>
+        <?php endif; ?>
     </div>
 
     <nav id="sgs-mobile-menu" class="sgs-mobile-panel hidden" aria-label="<?php esc_attr_e('Mobile navigation', 'shopgraphicshirt'); ?>">

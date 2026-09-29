@@ -639,6 +639,13 @@
   line-height: 1;
   box-shadow: 0 8px 18px rgba(11, 31, 58, 0.18);
 }
+/* Out-of-stock badge + dimmed image */
+.product-card__badge--oos {
+  background: var(--color-navy);
+}
+.product-card.outofstock .product-card__img {
+  opacity: 0.55;
+}
 /* WooCommerce native sale badge */
 .shop-page ul.products li.product .onsale,
 .shop-page .product-card .onsale,

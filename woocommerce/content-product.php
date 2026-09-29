@@ -23,7 +23,9 @@ $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
                     ); ?>
                 </div>
 
-                <?php if ($product->is_on_sale()) : ?>
+                <?php if (!$product->is_in_stock()) : ?>
+                    <span class="product-card__badge product-card__badge--oos">Out of stock</span>
+                <?php elseif ($product->is_on_sale()) : ?>
                     <span class="product-card__badge">Sale</span>
                 <?php endif; ?>
 

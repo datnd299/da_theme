@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('sgs-mobile-menu');
     const mobileSearchToggle = document.getElementById('sgs-mobile-search-toggle');
     const mobileSearch = document.getElementById('sgs-mobile-search');
-    const mobileSearchInput = document.getElementById('sgs-mobile-search-input');
+    const mobileSearchInput = document.querySelector('#sgs-mobile-search .dgwt-wcas-search-input, #sgs-mobile-search-input');
 
     // Scroll shadow
     if (header) {
@@ -474,7 +474,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         document.addEventListener('click', (event) => {
-            if (!header.contains(event.target)) closeMobilePanels();
+            // FiboSearch mounts its suggestions dropdown on <body>, outside the header
+            if (!header.contains(event.target) && !event.target.closest('.dgwt-wcas-suggestions-wrapp, .dgwt-wcas-details-wrapp')) closeMobilePanels();
         });
 
         document.addEventListener('keydown', (event) => {

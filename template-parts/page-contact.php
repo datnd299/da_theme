@@ -17,6 +17,7 @@ $status_messages = [
     'sent'    => __('Your message has been received. Our support team aims to reply within 1 business day.', 'dawp'),
     'invalid' => __('Please check the required fields and try again.', 'dawp'),
     'failed'  => __('We could not send your message right now. Please email us directly.', 'dawp'),
+    'captcha' => __('Please complete the verification check and try again.', 'dawp'),
 ];
 
 $topics = [
@@ -187,6 +188,9 @@ $topics = [
                         <input class="mt-1 h-4 w-4 shrink-0 accent-[#263C33]" type="checkbox" name="contact_consent" required>
                         <span><?php esc_html_e('I agree that Corvel may use this information to respond to my request.', 'dawp'); ?></span>
                     </label>
+
+                    <script type="module" src="<?php echo esc_url(dawp_altcha_url('/altcha.min.js')); ?>" async></script>
+                    <altcha-widget class="block max-w-full" name="altcha" challenge="<?php echo esc_url(dawp_altcha_url('/challenge')); ?>" style="--altcha-max-width:100%;--altcha-border-radius:0;--altcha-color-border:#B8B8B2;--altcha-color-base:#F5F2EB"></altcha-widget>
 
                     <button class="cv-btn cv-btn--dark w-full sm:w-fit" type="submit"><?php esc_html_e('Send Message', 'dawp'); ?></button>
                 </form>

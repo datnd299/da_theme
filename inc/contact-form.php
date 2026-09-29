@@ -9,6 +9,43 @@ function dawp_contact_support_email() {
     return 'support@corvelshop.com';
 }
 
+function dawp_altcha_url($path = '') {
+    return 'https://altcha.corvelshop.com' . $path;
+}
+
+/**
+ * Verify an ALTCHA payload against the self-hosted server. Fails closed and
+ * rejects replays of an already-accepted payload.
+ */
+function dawp_verify_altcha($payload) {
+    if ('' === $payload || strlen($payload) > 4096) {
+        return false;
+    }
+
+    $replay_key = 'dawp_altcha_' . md5($payload);
+    if (get_transient($replay_key)) {
+        return false;
+    }
+
+    $response = wp_remote_post(dawp_altcha_url('/verify'), [
+        'timeout' => 8,
+        'headers' => ['Content-Type' => 'application/json'],
+        'body'    => wp_json_encode(['payload' => $payload]),
+    ]);
+
+    if (is_wp_error($response) || 200 !== wp_remote_retrieve_response_code($response)) {
+        return false;
+    }
+
+    $data = json_decode(wp_remote_retrieve_body($response), true);
+    if (empty($data['verified']) || true !== $data['verified']) {
+        return false;
+    }
+
+    set_transient($replay_key, 1, DAY_IN_SECONDS);
+    return true;
+}
+
 function dawp_contact_form_redirect($status) {
     $redirect = wp_get_referer();
 
@@ -32,6 +69,11 @@ function dawp_handle_contact_form() {
     $honeypot = isset($_POST['website']) ? trim(sanitize_text_field(wp_unslash($_POST['website']))) : '';
     if ('' !== $honeypot) {
         dawp_contact_form_redirect('sent');
+    }
+
+    $altcha = isset($_POST['altcha']) ? trim(wp_unslash($_POST['altcha'])) : '';
+    if (!dawp_verify_altcha($altcha)) {
+        dawp_contact_form_redirect('captcha');
     }
 
     $name        = isset($_POST['contact_name']) ? sanitize_text_field(wp_unslash($_POST['contact_name'])) : '';

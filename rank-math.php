@@ -138,7 +138,32 @@ add_filter('rank_math/json_ld', function($data) {
     $schema_type = $page['schema_type'] ?? 'WebPage';
 
     if (function_exists('dawp_rank_math_organization_schema')) {
-        $data['dawp_organization'] = dawp_rank_math_organization_schema();
+        $custom_org = dawp_rank_math_organization_schema();
+
+        // Rank Math's own Local SEO module already outputs an Organization
+        // node with the same @id (home_url('/') . '#organization'). Merge
+        // our verified contact/address data into that existing node instead
+        // of adding a second node with a duplicate @id.
+        $org_key = null;
+        foreach ($data as $key => $entity) {
+            if (!is_array($entity)) {
+                continue;
+            }
+            $types = isset($entity['@type']) ? (array) $entity['@type'] : [];
+            if (in_array('Organization', $types, true)) {
+                $org_key = $key;
+                break;
+            }
+        }
+
+        if ($org_key) {
+            $data[$org_key]['email']       = $custom_org['email'];
+            $data[$org_key]['telephone']   = $custom_org['telephone'];
+            $data[$org_key]['contactPoint'] = $custom_org['contactPoint'];
+            $data[$org_key]['address']     = $custom_org['address'];
+        } else {
+            $data['dawp_organization'] = $custom_org;
+        }
     }
 
     if (function_exists('dawp_rank_math_website_schema')) {

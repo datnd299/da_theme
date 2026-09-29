@@ -64,6 +64,7 @@ input:focus,select:focus,textarea:focus{border-color:#999}
 .form-alert{margin:0 0 22px;padding:14px 16px;border-left:3px solid var(--green);background:var(--soft);font-size:14px;line-height:1.55}
 .form-alert--error{border-left-color:#b42318;background:#fff4f2;color:#7a271a}
 .field--hidden{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.field--captcha altcha-widget{--altcha-max-width:100%;--altcha-border-radius:0;--altcha-color-border:var(--line)}
 
 /* INFO */
 .info{padding:34px;background:var(--soft);border-top:3px solid var(--green)}
@@ -149,6 +150,8 @@ input:focus,select:focus,textarea:focus{border-color:#999}
     <p class="form-alert form-alert--success" role="status">Thank you. Your message has been sent and our team will reply as soon as possible.</p>
    <?php elseif ('error' === $contact_status) : ?>
     <p class="form-alert form-alert--error" role="alert">Please check your details and try sending the message again.</p>
+   <?php elseif ('captcha' === $contact_status) : ?>
+    <p class="form-alert form-alert--error" role="alert">Please complete the verification check and try sending the message again.</p>
    <?php endif; ?>
    <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
     <input type="hidden" name="action" value="lbq_contact_form">
@@ -169,9 +172,13 @@ input:focus,select:focus,textarea:focus{border-color:#999}
      <div class="field"><label for="order_number">Order Number (optional)</label><input id="order_number" name="order_number" type="text" autocomplete="off"></div>
     </div>
     <div class="field"><label for="contact_message">Message</label><textarea id="contact_message" name="contact_message" required></textarea></div>
+    <div class="field field--captcha">
+     <altcha-widget challenge="<?php echo esc_url(dawp_altcha_base_url() . '/challenge'); ?>" name="altcha"></altcha-widget>
+    </div>
     <button class="button" type="submit">SEND MESSAGE →</button>
     <p class="form-note">Please do not include payment or other sensitive information.</p>
    </form>
+   <script type="module" src="<?php echo esc_url(dawp_altcha_base_url() . '/altcha.min.js'); ?>" async></script>
   </div>
 
   <aside class="info">

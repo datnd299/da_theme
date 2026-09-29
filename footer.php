@@ -6,7 +6,7 @@
  */
 
 $current_year = date_i18n('Y');
-$brand_name   = 'Tizezap';
+$brand_name   = 'Tirezap';
 
 $term_url = static function ($slug) {
     return function_exists('dawp_product_category_url')
@@ -121,7 +121,7 @@ $footer_payment_methods = [
                     </p>
                     <p>
                         <strong class="text-white"><?php esc_html_e('Support:', 'dawp'); ?></strong>
-                        <a href="mailto:support@tizezap.com" class="transition hover:text-[#93C5FD]">support@tizezap.com</a>
+                        <a href="mailto:support@tirezap.com" class="transition hover:text-[#93C5FD]">support@tirezap.com</a>
                     </p>
                     <p>
                         <strong class="text-white"><?php esc_html_e('Phone:', 'dawp'); ?></strong>

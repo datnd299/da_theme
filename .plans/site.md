@@ -1,21 +1,21 @@
-# Tizezap — Site.md
+# Tirezap — Site.md
 
 ## Store Information
 
-* **Domain:** tizezap.com
-* **Brand Name:** Tizezap
+* **Domain:** tirezap.com
+* **Brand Name:** Tirezap
 * **Language:** English
 * **Store Type:** Tire & Auto Essentials Store
 * **Primary Market:** United States
 * **Core Products:** Car tires, SUV tires, light truck tires, trailer tires, all-season tires, winter tires, performance tires
-* **Support Email:** [support@tizezap.com](mailto:support@tizezap.com)
+* **Support Email:** [support@tirezap.com](mailto:support@tirezap.com)
 * **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
 ---
 
 ## Brand Positioning
 
-Tizezap is an online tire store focused on reliable tires for everyday driving, road comfort, vehicle compatibility, and practical tire shopping.
+Tirezap is an online tire store focused on reliable tires for everyday driving, road comfort, vehicle compatibility, and practical tire shopping.
 
 Core message:
 
@@ -23,7 +23,7 @@ Core message:
 
 Expanded message:
 
-> Tizezap helps drivers find suitable tires for cars, SUVs, trucks, trailers, and seasonal driving needs with clear product details and practical support.
+> Tirezap helps drivers find suitable tires for cars, SUVs, trucks, trailers, and seasonal driving needs with clear product details and practical support.
 
 The store should feel:
 
@@ -48,7 +48,7 @@ The store should not feel like:
 
 ## Core Store Concept
 
-Tizezap sells tires for different vehicle needs and driving conditions.
+Tirezap sells tires for different vehicle needs and driving conditions.
 
 The site should help customers shop by:
 
@@ -395,7 +395,7 @@ Avoid:
 
 ## GMC-Safe Rules
 
-Tizezap must appear as a legitimate tire store with clear product data and transparent policies.
+Tirezap must appear as a legitimate tire store with clear product data and transparent policies.
 
 Must include:
 

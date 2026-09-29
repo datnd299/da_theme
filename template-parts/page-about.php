@@ -3,12 +3,12 @@
  * Template Part: page-about
  */
 
-$tizezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tizezap/');
+$tirezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tirezap/');
 
 $images = [
-    'hero'        => $tizezap_gallery_uri . 'tire-hero-road.png',
-    'tread'       => $tizezap_gallery_uri . 'all-season-tread.png',
-    'suv_trailer' => $tizezap_gallery_uri . 'suv-trailer-tires.png',
+    'hero'        => $tirezap_gallery_uri . 'tire-hero-road.png',
+    'tread'       => $tirezap_gallery_uri . 'all-season-tread.png',
+    'suv_trailer' => $tirezap_gallery_uri . 'suv-trailer-tires.png',
 ];
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
@@ -52,7 +52,7 @@ $trust_items = [
     <!-- Hero -->
     <section class="relative min-h-[560px] overflow-hidden bg-[#0B1F33] text-white">
         <img <?php echo dawp_responsive_image_attrs($images['hero'], 1600, 900, '100vw', [768, 1200, 1600]); ?>
-             alt="<?php esc_attr_e('Tire on an open road representing everyday driving support from Tizezap', 'dawp'); ?>"
+             alt="<?php esc_attr_e('Tire on an open road representing everyday driving support from Tirezap', 'dawp'); ?>"
              class="absolute inset-0 h-full w-full object-cover"
              loading="eager"
              fetchpriority="high">
@@ -61,7 +61,7 @@ $trust_items = [
         <div class="relative mx-auto flex min-h-[560px] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
             <div class="max-w-3xl">
                 <p class="mb-5 inline-flex rounded-md border border-[#FDBA74]/50 bg-[#F97316]/15 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#FDBA74]">
-                    <?php esc_html_e('About Tizezap', 'dawp'); ?>
+                    <?php esc_html_e('About Tirezap', 'dawp'); ?>
                 </p>
 
                 <h1 class="font-heading text-5xl font-black leading-[0.98] text-white sm:text-6xl lg:text-7xl">
@@ -69,7 +69,7 @@ $trust_items = [
                 </h1>
 
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-[#E5E7EB]">
-                    <?php esc_html_e('Tizezap helps drivers shop for car, SUV, light truck, trailer, winter, performance, and all-season tires with clear product details and fitment reminders.', 'dawp'); ?>
+                    <?php esc_html_e('Tirezap helps drivers shop for car, SUV, light truck, trailer, winter, performance, and all-season tires with clear product details and fitment reminders.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -99,7 +99,7 @@ $trust_items = [
                 </h2>
 
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#4B5563]">
-                    <?php esc_html_e('Choosing tires online should not depend on vague descriptions or oversized promises. Tizezap focuses on practical tire categories, readable specifications, and reminders that help customers confirm size and compatibility before ordering.', 'dawp'); ?>
+                    <?php esc_html_e('Choosing tires online should not depend on vague descriptions or oversized promises. Tirezap focuses on practical tire categories, readable specifications, and reminders that help customers confirm size and compatibility before ordering.', 'dawp'); ?>
                 </p>
                 <p class="mt-4 max-w-2xl text-base leading-8 text-[#4B5563]">
                     <?php esc_html_e('Our goal is to support everyday drivers who need road-ready tire options for commuting, family vehicles, light-duty utility driving, towing needs, and seasonal conditions.', 'dawp'); ?>
@@ -167,7 +167,7 @@ $trust_items = [
                 </h2>
 
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#4B5563]">
-                    <?php esc_html_e('Tizezap is focused on tire and auto essentials, not unrelated auto parts. Customers can browse by tire type, vehicle need, seasonal condition, and product specification.', 'dawp'); ?>
+                    <?php esc_html_e('Tirezap is focused on tire and auto essentials, not unrelated auto parts. Customers can browse by tire type, vehicle need, seasonal condition, and product specification.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -222,7 +222,7 @@ $trust_items = [
                         <?php esc_html_e('Support Information', 'dawp'); ?>
                     </p>
                     <p class="mt-3 text-sm font-semibold leading-7 text-white">
-                        <?php esc_html_e('Email support@tizezap.com. Business hours are Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York).', 'dawp'); ?>
+                        <?php esc_html_e('Email support@tirezap.com. Business hours are Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York).', 'dawp'); ?>
                     </p>
                 </div>
 

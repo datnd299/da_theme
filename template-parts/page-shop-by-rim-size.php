@@ -3,9 +3,9 @@
  * Template Part: page-shop-by-rim-size
  */
 
-$tizezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tizezap/');
-$hero_image = $tizezap_gallery_uri . 'tire-hero-road.png';
-$tread_image = $tizezap_gallery_uri . 'all-season-tread.png';
+$tirezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tirezap/');
+$hero_image = $tirezap_gallery_uri . 'tire-hero-road.png';
+$tread_image = $tirezap_gallery_uri . 'all-season-tread.png';
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
     ? get_permalink(wc_get_page_id('shop'))
@@ -52,14 +52,14 @@ $popular_rims = ['R17', 'R18', 'R20'];
 <div id="primary" class="rim-size-page">
     <section class="rim-hero">
         <img <?php echo dawp_responsive_image_attrs($hero_image, 1600, 900, '100vw', [768, 1200, 1600]); ?>
-             alt="<?php esc_attr_e('Tizezap tire shop cover for shopping by rim size', 'dawp'); ?>"
+             alt="<?php esc_attr_e('Tirezap tire shop cover for shopping by rim size', 'dawp'); ?>"
              class="rim-hero__image"
              loading="eager"
              fetchpriority="high">
         <div class="rim-hero__overlay"></div>
         <div class="rim-hero__inner">
             <div class="rim-hero__copy">
-                <p class="rim-eyebrow"><?php esc_html_e('Tizezap Rim Size Finder', 'dawp'); ?></p>
+                <p class="rim-eyebrow"><?php esc_html_e('Tirezap Rim Size Finder', 'dawp'); ?></p>
                 <h1><?php esc_html_e('Shop By Rim Size', 'dawp'); ?></h1>
                 <p><?php esc_html_e('Choose your wheel diameter first, then jump straight to the tire size category that matches the sidewall marking on your current tire.', 'dawp'); ?></p>
                 <div class="rim-hero__actions">
@@ -84,7 +84,7 @@ $popular_rims = ['R17', 'R18', 'R20'];
                 <p><?php esc_html_e('For example, 225/65R17 uses the R17 tab. This keeps browsing focused and reduces the chance of opening the wrong tire category.', 'dawp'); ?></p>
             </div>
             <img <?php echo dawp_responsive_image_attrs($tread_image, 640, 480, '(max-width: 1023px) 100vw, 40vw', [360, 520, 640]); ?>
-                 alt="<?php esc_attr_e('Close-up tire tread used for Tizezap tire shopping guidance', 'dawp'); ?>"
+                 alt="<?php esc_attr_e('Close-up tire tread used for Tirezap tire shopping guidance', 'dawp'); ?>"
                  loading="lazy">
         </div>
     </section>
@@ -124,7 +124,7 @@ $popular_rims = ['R17', 'R18', 'R20'];
                     <div class="tz-panel__top">
                         <div>
                             <h3><?php echo esc_html(sprintf(__('Tire sizes for %s wheels', 'dawp'), $rim)); ?></h3>
-                            <p><?php esc_html_e('Tap a size to open the matching Tizezap product category.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Tap a size to open the matching Tirezap product category.', 'dawp'); ?></p>
                         </div>
                         <?php if (in_array($rim, $popular_rims, true)) : ?>
                             <span><?php esc_html_e('Popular', 'dawp'); ?></span>
@@ -152,7 +152,7 @@ $popular_rims = ['R17', 'R18', 'R20'];
             <h2><?php esc_html_e('Double-check before checkout', 'dawp'); ?></h2>
             <p><?php esc_html_e('Confirm tire size, rim size, load index, speed rating, vehicle requirements, and quantity before placing your order.', 'dawp'); ?></p>
         </div>
-        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="rim-button rim-button--dark"><?php esc_html_e('Ask Tizezap Support', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="rim-button rim-button--dark"><?php esc_html_e('Ask Tirezap Support', 'dawp'); ?></a>
     </section>
 </div>
 

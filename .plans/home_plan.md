@@ -1,4 +1,4 @@
-# Tizezap — Home Plan
+# Tirezap — Home Plan
 
 ## Homepage Goal
 
@@ -12,7 +12,7 @@ Reliable Tires For Everyday Driving
 
 The homepage must make customers understand:
 
-* Tizezap sells tires, not general auto parts
+* Tirezap sells tires, not general auto parts
 * Customers can shop by tire type and vehicle need
 * Tire size and compatibility must be checked before purchase
 * Product details, shipping, returns, and support are clear
@@ -37,7 +37,7 @@ Use 5 sections:
 
 ## Purpose
 
-Introduce Tizezap as a trustworthy tire store for everyday drivers.
+Introduce Tirezap as a trustworthy tire store for everyday drivers.
 
 ## Content
 
@@ -292,7 +292,7 @@ Clear support from tire selection to delivery.
 Short paragraph:
 
 ```txt
-Tizezap provides clear product details, tire fitment reminders, order tracking, and customer support to help you shop with confidence.
+Tirezap provides clear product details, tire fitment reminders, order tracking, and customer support to help you shop with confidence.
 ```
 
 Trust cards:

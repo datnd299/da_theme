@@ -18,8 +18,8 @@
 $cart_count  = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
 $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $account_url = get_permalink(get_option('woocommerce_myaccount_page_id')) ?: home_url('/my-account/');
-$brand_name  = 'Tizezap';
-$tizezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tizezap/');
+$brand_name  = 'Tirezap';
+$tirezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tirezap/');
 $shop_url    = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
     ? get_permalink(wc_get_page_id('shop'))
     : home_url('/shop/');
@@ -73,7 +73,7 @@ $best_seller_feature = [
     'title' => __('Best Seller: All-Season Tires', 'dawp'),
     'copy'  => __('A practical starting point for everyday commuters comparing comfort, fitment, and year-round road use.', 'dawp'),
     'url'   => $term_url('all-season-tires'),
-    'image' => $tizezap_gallery_uri . 'all-season-tread.png',
+    'image' => $tirezap_gallery_uri . 'all-season-tread.png',
 ];
 
 $nav_items = [
@@ -206,10 +206,10 @@ $nav_items = [
                       method="get"
                       action="<?php echo esc_url(home_url('/')); ?>"
                       class="hidden items-center xl:flex">
-                    <label for="tizezap-header-search" class="sr-only">
+                    <label for="tirezap-header-search" class="sr-only">
                         <?php esc_html_e('Search tires', 'dawp'); ?>
                     </label>
-                    <input id="tizezap-header-search"
+                    <input id="tirezap-header-search"
                            type="search"
                            name="s"
                            placeholder="<?php esc_attr_e('Search tire size...', 'dawp'); ?>"
@@ -218,10 +218,10 @@ $nav_items = [
                 </form>
 
                 <button type="button"
-                        id="tizezap-mobile-search-toggle"
+                        id="tirezap-mobile-search-toggle"
                         class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#E5E7EB] text-[#0B1F33] transition hover:bg-[#F4F6F8] xl:hidden"
                         aria-label="<?php esc_attr_e('Search', 'dawp'); ?>"
-                        aria-controls="tizezap-mobile-search"
+                        aria-controls="tirezap-mobile-search"
                         aria-expanded="false">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <circle cx="11" cy="11" r="8"></circle>
@@ -246,10 +246,10 @@ $nav_items = [
                 </a>
 
                 <button type="button"
-                        id="tizezap-mobile-menu-toggle"
+                        id="tirezap-mobile-menu-toggle"
                         class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#E5E7EB] text-[#0B1F33] transition hover:bg-[#F4F6F8] lg:hidden"
                         aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>"
-                        aria-controls="tizezap-mobile-menu"
+                        aria-controls="tirezap-mobile-menu"
                         aria-expanded="false">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -261,7 +261,7 @@ $nav_items = [
         </div>
     </div>
 
-    <div id="tizezap-mobile-search" class="hidden border-t border-[#E5E7EB] bg-white xl:hidden">
+    <div id="tirezap-mobile-search" class="hidden border-t border-[#E5E7EB] bg-white xl:hidden">
         <form role="search"
               method="get"
               action="<?php echo esc_url(home_url('/')); ?>"
@@ -282,7 +282,7 @@ $nav_items = [
         </form>
     </div>
 
-    <div id="tizezap-mobile-menu" class="hidden border-t border-[#E5E7EB] bg-white lg:hidden">
+    <div id="tirezap-mobile-menu" class="hidden border-t border-[#E5E7EB] bg-white lg:hidden">
         <nav class="mx-auto grid max-w-7xl gap-1 px-4 py-4 sm:px-6" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">
             <?php foreach ($nav_items as $item) : ?>
                 <a href="<?php echo esc_url($item['url']); ?>"

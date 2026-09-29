@@ -28,15 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const masthead = document.getElementById('masthead');
-    const mobileMenuToggle = document.getElementById('tizezap-mobile-menu-toggle');
-    const mobileMenu = document.getElementById('tizezap-mobile-menu');
-    const mobileSearchToggle = document.getElementById('tizezap-mobile-search-toggle');
-    const mobileSearch = document.getElementById('tizezap-mobile-search');
+    const mobileMenuToggle = document.getElementById('tirezap-mobile-menu-toggle');
+    const mobileMenu = document.getElementById('tirezap-mobile-menu');
+    const mobileSearchToggle = document.getElementById('tirezap-mobile-search-toggle');
+    const mobileSearch = document.getElementById('tirezap-mobile-search');
 
     const setMobilePanelTop = () => {
         if (!masthead) return;
         document.documentElement.style.setProperty(
-            '--tizezap-mobile-panel-top',
+            '--tirezap-mobile-panel-top',
             `${Math.max(0, masthead.getBoundingClientRect().bottom)}px`
         );
     };

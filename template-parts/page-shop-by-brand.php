@@ -3,9 +3,9 @@
  * Template Part: page-shop-by-brand
  */
 
-$tizezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tizezap/');
-$hero_image = $tizezap_gallery_uri . 'tire-hero-road.png';
-$tread_image = $tizezap_gallery_uri . 'all-season-tread.png';
+$tirezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tirezap/');
+$hero_image = $tirezap_gallery_uri . 'tire-hero-road.png';
+$tread_image = $tirezap_gallery_uri . 'all-season-tread.png';
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
     ? get_permalink(wc_get_page_id('shop'))
@@ -137,16 +137,16 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
 <div id="primary" class="rim-size-page brand-page">
     <section class="rim-hero">
         <img <?php echo dawp_responsive_image_attrs($hero_image, 1600, 900, '100vw', [768, 1200, 1600]); ?>
-             alt="<?php esc_attr_e('Tizezap tire shop cover for shopping by tire brand', 'dawp'); ?>"
+             alt="<?php esc_attr_e('Tirezap tire shop cover for shopping by tire brand', 'dawp'); ?>"
              class="rim-hero__image"
              loading="eager"
              fetchpriority="high">
         <div class="rim-hero__overlay"></div>
         <div class="rim-hero__inner">
             <div class="rim-hero__copy">
-                <p class="rim-eyebrow"><?php esc_html_e('Tizezap Brand Finder', 'dawp'); ?></p>
+                <p class="rim-eyebrow"><?php esc_html_e('Tirezap Brand Finder', 'dawp'); ?></p>
                 <h1><?php esc_html_e('Shop By Brand', 'dawp'); ?></h1>
-                <p><?php esc_html_e('Choose a known tire brand first, then jump straight to matching products or brand terms available in the Tizezap catalog.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Choose a known tire brand first, then jump straight to matching products or brand terms available in the Tirezap catalog.', 'dawp'); ?></p>
                 <div class="rim-hero__actions">
                     <a href="#brand-tool" class="rim-button rim-button--primary"><?php esc_html_e('Find Tire Brand', 'dawp'); ?></a>
                     <a href="<?php echo esc_url($shop_url); ?>" class="rim-button rim-button--ghost"><?php esc_html_e('Shop All Tires', 'dawp'); ?></a>
@@ -169,7 +169,7 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
                 <p><?php esc_html_e('This list focuses on well-known tire brands that Walmart currently surfaces in its tire brand shopping experience, with a mix of premium, everyday, truck, SUV, and value choices.', 'dawp'); ?></p>
             </div>
             <img <?php echo dawp_responsive_image_attrs($tread_image, 640, 480, '(max-width: 1023px) 100vw, 40vw', [360, 520, 640]); ?>
-                 alt="<?php esc_attr_e('Close-up tire tread used for Tizezap tire brand shopping guidance', 'dawp'); ?>"
+                 alt="<?php esc_attr_e('Close-up tire tread used for Tirezap tire brand shopping guidance', 'dawp'); ?>"
                  loading="lazy">
         </div>
     </section>
@@ -210,7 +210,7 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
                     <div class="tz-panel__top">
                         <div>
                             <h3><?php echo esc_html(sprintf(__('%s tire brands', 'dawp'), $group)); ?></h3>
-                            <p><?php esc_html_e('Tap a brand to search matching Tizezap products by brand keyword.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Tap a brand to search matching Tirezap products by brand keyword.', 'dawp'); ?></p>
                         </div>
                         <?php if ('premium' === $group_id) : ?>
                             <span><?php esc_html_e('Top picks', 'dawp'); ?></span>
@@ -250,7 +250,7 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
             <h2><?php esc_html_e('Choose brand after fitment.', 'dawp'); ?></h2>
             <p><?php esc_html_e('Brand is only one part of tire selection. Confirm tire size, rim size, load index, speed rating, vehicle requirements, and quantity before placing your order.', 'dawp'); ?></p>
         </div>
-        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="rim-button rim-button--dark"><?php esc_html_e('Ask Tizezap Support', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="rim-button rim-button--dark"><?php esc_html_e('Ask Tirezap Support', 'dawp'); ?></a>
     </section>
 </div>
 

@@ -3,17 +3,17 @@
  * Template Part: page-home
  */
 
-$tizezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tizezap/');
+$tirezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tirezap/');
 
 $images = [
-    'hero'        => $tizezap_gallery_uri . 'tire-hero-road.png',
-    'all_season'  => $tizezap_gallery_uri . 'category-all-season-tires.png',
-    'suv'         => $tizezap_gallery_uri . 'category-suv-crossover-tires.png',
-    'light_truck' => $tizezap_gallery_uri . 'category-light-truck-tires.png',
-    'performance' => $tizezap_gallery_uri . 'category-performance-tires.png',
-    'trailer'     => $tizezap_gallery_uri . 'category-trailer-tires.png',
-    'winter'      => $tizezap_gallery_uri . 'category-winter-tires.png',
-    'suv_trailer' => $tizezap_gallery_uri . 'suv-trailer-tires.png',
+    'hero'        => $tirezap_gallery_uri . 'tire-hero-road.png',
+    'all_season'  => $tirezap_gallery_uri . 'category-all-season-tires.png',
+    'suv'         => $tirezap_gallery_uri . 'category-suv-crossover-tires.png',
+    'light_truck' => $tirezap_gallery_uri . 'category-light-truck-tires.png',
+    'performance' => $tirezap_gallery_uri . 'category-performance-tires.png',
+    'trailer'     => $tirezap_gallery_uri . 'category-trailer-tires.png',
+    'winter'      => $tirezap_gallery_uri . 'category-winter-tires.png',
+    'suv_trailer' => $tirezap_gallery_uri . 'suv-trailer-tires.png',
 ];
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
@@ -298,7 +298,7 @@ $trust_cards = [
                     </h2>
 
                     <p class="mt-5 max-w-2xl text-base leading-8 text-[#D1D5DB]">
-                        <?php esc_html_e('Tizezap provides clear product details, tire fitment reminders, order tracking, and customer support to help you shop with confidence.', 'dawp'); ?>
+                        <?php esc_html_e('Tirezap provides clear product details, tire fitment reminders, order tracking, and customer support to help you shop with confidence.', 'dawp'); ?>
                     </p>
 
                     <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -353,7 +353,7 @@ $trust_cards = [
                     </div>
 
                     <p class="text-sm leading-7 text-[#D1D5DB]">
-                        <?php esc_html_e('Support: support@tizezap.com. Business hours: Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York).', 'dawp'); ?>
+                        <?php esc_html_e('Support: support@tirezap.com. Business hours: Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York).', 'dawp'); ?>
                     </p>
                 </div>
             </div>

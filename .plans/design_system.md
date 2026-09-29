@@ -1,4 +1,4 @@
-# Tizezap — Design System
+# Tirezap — Design System
 
 ## Design Goal
 
@@ -315,7 +315,7 @@ practical tire shopping
 
 ## Final Design Feeling
 
-Tizezap should look like:
+Tirezap should look like:
 
 > A clean, trustworthy online tire store helping drivers find tires for cars, SUVs, trucks, trailers, and seasonal driving needs.
 

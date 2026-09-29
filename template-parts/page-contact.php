@@ -3,11 +3,11 @@
  * Template Part: page-contact
  */
 
-$tizezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tizezap/');
+$tirezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tirezap/');
 
 $images = [
-    'hero'  => $tizezap_gallery_uri . 'tire-hero-road.png',
-    'tread' => $tizezap_gallery_uri . 'all-season-tread.png',
+    'hero'  => $tirezap_gallery_uri . 'tire-hero-road.png',
+    'tread' => $tirezap_gallery_uri . 'all-season-tread.png',
 ];
 
 $contact_cards = [
@@ -19,8 +19,8 @@ $contact_cards = [
     ],
     [
         'title' => __('Email Support', 'dawp'),
-        'copy'  => __('support@tizezap.com', 'dawp'),
-        'url'   => 'mailto:support@tizezap.com',
+        'copy'  => __('support@tirezap.com', 'dawp'),
+        'url'   => 'mailto:support@tirezap.com',
         'icon'  => 'email',
     ],
     [
@@ -56,7 +56,7 @@ $help_topics = [
     <!-- Hero -->
     <section class="relative min-h-[480px] overflow-hidden bg-[#0B1F33] text-white">
         <img <?php echo dawp_responsive_image_attrs($images['hero'], 1600, 900, '100vw', [768, 1200, 1600]); ?>
-             alt="<?php esc_attr_e('Road-ready tire image for Tizezap customer support', 'dawp'); ?>"
+             alt="<?php esc_attr_e('Road-ready tire image for Tirezap customer support', 'dawp'); ?>"
              class="absolute inset-0 h-full w-full object-cover"
              loading="eager"
              fetchpriority="high">
@@ -65,7 +65,7 @@ $help_topics = [
         <div class="relative mx-auto flex min-h-[480px] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
             <div class="max-w-3xl">
                 <p class="mb-5 inline-flex rounded-md border border-white/20 bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-white">
-                    <?php esc_html_e('Contact Tizezap', 'dawp'); ?>
+                    <?php esc_html_e('Contact Tirezap', 'dawp'); ?>
                 </p>
                 <h1 class="font-heading text-5xl font-black leading-[0.98] text-white sm:text-6xl lg:text-7xl">
                     <?php esc_html_e('Tire support before and after your order.', 'dawp'); ?>
@@ -159,7 +159,7 @@ $help_topics = [
                         </div>
                     <?php elseif ($contact_status === 'failed') : ?>
                         <div class="mt-5 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800" role="alert">
-                            <?php esc_html_e('Sorry, your message could not be sent right now. Please email us directly at support@tizezap.com.', 'dawp'); ?>
+                            <?php esc_html_e('Sorry, your message could not be sent right now. Please email us directly at support@tirezap.com.', 'dawp'); ?>
                         </div>
                     <?php endif; ?>
 

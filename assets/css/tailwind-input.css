@@ -658,6 +658,10 @@
     @apply mt-1 h-4 w-4 shrink-0 accent-[#10243A];
   }
 
+  .ot-contact-captcha {
+    @apply md:col-span-2;
+  }
+
   .ot-contact-form .ot-btn {
     @apply md:w-fit;
   }
@@ -672,7 +676,8 @@
   }
 
   .ot-contact-alert--invalid,
-  .ot-contact-alert--failed {
+  .ot-contact-alert--failed,
+  .ot-contact-alert--captcha {
     @apply border-[#B78373] bg-[#FFF8F4] text-[#6B2D22];
   }
 

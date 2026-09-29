@@ -19,6 +19,7 @@ $status_messages = [
     'sent'    => __('Thank you. Your message has been sent and our support team will reply within 1 business day.', 'dawp'),
     'invalid' => __('Please review the form and make sure all required fields are complete.', 'dawp'),
     'failed'  => __('We could not send your message right now. Please email support directly.', 'dawp'),
+    'captcha' => __('Please complete the verification check and try again.', 'dawp'),
 ];
 
 $topics = [
@@ -136,8 +137,12 @@ $topics = [
           <input type="checkbox" name="contact_consent" value="1" required>
           <span><?php esc_html_e('I agree to be contacted about this request using the information provided.', 'dawp'); ?></span>
         </label>
+        <div class="ot-contact-captcha">
+          <altcha-widget challenge="<?php echo esc_url(dawp_altcha_base_url() . '/challenge'); ?>" name="altcha"></altcha-widget>
+        </div>
         <button class="ot-btn ot-btn--dark" type="submit"><?php esc_html_e('Submit Request', 'dawp'); ?></button>
       </form>
+      <script type="module" src="<?php echo esc_url(dawp_altcha_base_url() . '/altcha.min.js'); ?>" async></script>
     </div>
   </div>
 </section>

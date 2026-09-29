@@ -592,6 +592,17 @@
     @apply mt-1 h-4 w-4 shrink-0 accent-[#111312];
   }
 
+  .ot-contact-captcha {
+    @apply md:col-span-2;
+    --altcha-border-color: #CBC4B8;
+    --altcha-border-radius: 2px;
+    --altcha-color-base: #FFFFFF;
+    --altcha-color-base-content: #111312;
+    --altcha-color-primary: #111312;
+    --altcha-color-primary-content: #FFFFFF;
+    --altcha-max-width: 320px;
+  }
+
   .ot-contact-form .ot-btn {
     @apply md:w-fit;
   }

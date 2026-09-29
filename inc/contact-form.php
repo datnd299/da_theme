@@ -9,6 +9,30 @@ function dawp_contact_support_email() {
     return 'support@orveltime.com';
 }
 
+function dawp_altcha_base_url() {
+    return 'https://altcha.orveltime.com';
+}
+
+function dawp_altcha_verify($payload) {
+    if ('' === $payload) {
+        return false;
+    }
+
+    $response = wp_remote_post(dawp_altcha_base_url() . '/verify', [
+        'timeout' => 10,
+        'headers' => ['Content-Type' => 'application/json'],
+        'body'    => wp_json_encode(['payload' => $payload]),
+    ]);
+
+    if (is_wp_error($response) || 200 !== wp_remote_retrieve_response_code($response)) {
+        return false;
+    }
+
+    $result = json_decode(wp_remote_retrieve_body($response), true);
+
+    return is_array($result) && !empty($result['verified']);
+}
+
 function dawp_contact_form_redirect($status) {
     $redirect = wp_get_referer();
 
@@ -34,7 +58,12 @@ function dawp_handle_contact_form() {
         dawp_contact_form_redirect('sent');
     }
 
-    $name        = isset($_POST['contact_name']) ? sanitize_text_field(wp_unslash($_POST['contact_name'])) : '';
+    $altcha = isset($_POST['altcha']) ? sanitize_text_field(wp_unslash($_POST['altcha'])) : '';
+    if (!dawp_altcha_verify($altcha)) {
+        dawp_contact_form_redirect('captcha');
+    }
+
+    $name       = isset($_POST['contact_name']) ? sanitize_text_field(wp_unslash($_POST['contact_name'])) : '';
     $email       = isset($_POST['contact_email']) ? sanitize_email(wp_unslash($_POST['contact_email'])) : '';
     $topic       = isset($_POST['contact_topic']) ? sanitize_text_field(wp_unslash($_POST['contact_topic'])) : '';
     $order       = isset($_POST['contact_order']) ? sanitize_text_field(wp_unslash($_POST['contact_order'])) : '';

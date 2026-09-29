@@ -16,6 +16,7 @@ $status_messages = [
     'sent'    => __('Thank you. Your note has been received.', 'dawp'),
     'invalid' => __('Please complete the required fields and try again.', 'dawp'),
     'failed'  => __('We could not send your message. Please email us directly.', 'dawp'),
+    'captcha' => __('Please complete the verification check and try again.', 'dawp'),
 ];
 ?>
 
@@ -90,7 +91,7 @@ $status_messages = [
 
         <div class="ot-contact-form-wrap">
             <?php if ($status && isset($status_messages[$status])) : ?>
-                <div class="ot-contact-alert ot-contact-alert--<?php echo esc_attr($status); ?>">
+                <div class="ot-contact-alert ot-contact-alert--<?php echo esc_attr('captcha' === $status ? 'invalid' : $status); ?>">
                     <?php echo esc_html($status_messages[$status]); ?>
                 </div>
             <?php endif; ?>
@@ -135,8 +136,12 @@ $status_messages = [
                     <input type="checkbox" name="contact_consent" required>
                     <span><?php esc_html_e('I agree to be contacted about this request.', 'dawp'); ?></span>
                 </label>
+                <div class="ot-contact-captcha">
+                    <altcha-widget challenge="<?php echo esc_url(dawp_altcha_base_url() . '/challenge'); ?>" name="altcha"></altcha-widget>
+                </div>
                 <button class="ot-btn ot-btn--dark" type="submit"><?php esc_html_e('Submit Request', 'dawp'); ?></button>
             </form>
+            <script type="module" src="<?php echo esc_url(dawp_altcha_base_url() . '/altcha.min.js'); ?>" async></script>
         </div>
     </div>
 </section>

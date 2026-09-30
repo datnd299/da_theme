@@ -181,6 +181,7 @@ function dawp_get_store_address_parts() {
 
     $country = trim(wp_strip_all_tags($country));
     $state   = trim(wp_strip_all_tags($state));
+    $state_code = $state;
 
     if ($country && $state && $countries) {
         $states = $countries->get_states($country);
@@ -207,6 +208,7 @@ function dawp_get_store_address_parts() {
         'address_2'    => $address_2,
         'city'         => $city,
         'state'        => $state,
+        'state_code'   => $state_code,
         'postcode'     => $postcode,
         'country'      => $country,
         'country_name' => $country_name,
@@ -215,12 +217,8 @@ function dawp_get_store_address_parts() {
 
 function dawp_get_store_address_line() {
     $address     = dawp_get_store_address_parts();
-    $city_region = trim(implode(', ', array_filter([$address['city'], trim($address['state'] . ' ' . $address['postcode'])])));
+    $city_region = trim(implode(', ', array_filter([$address['city'], trim($address['state_code'] . ' ' . $address['postcode'])])));
     $parts       = array_filter([$address['address_1'], $address['address_2'], $city_region]);
-
-    if ($address['country_name']) {
-        $parts[] = $address['country_name'];
-    }
 
     return implode(', ', $parts);
 }

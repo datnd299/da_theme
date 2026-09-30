@@ -4,13 +4,13 @@ add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2)
 add_filter('woocommerce_shortcode_order_tracking_order_id', 'dawp_normalize_tracking_order_number', 9);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'SLK-' . $order_id;
+    return 'TIZ-' . $order_id;
 }
 
 function dawp_normalize_tracking_order_number($order_id) {
     $order_id = trim((string) $order_id);
 
-    if (preg_match('/^SLK[-\s#]*(\d+)$/i', $order_id, $matches)) {
+    if (preg_match('/\d+/', $order_id, $matches)) {
         return $matches[1];
     }
 

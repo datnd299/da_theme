@@ -11,8 +11,8 @@ if (!defined('ABSPATH')) {
 
 $theme_uri      = get_template_directory_uri();
 $theme_dir      = get_template_directory();
-$store_name     = 'Chronel';
-$support_email  = 'concierge@chronelshop.com';
+$store_name     = 'Celvia';
+$support_email  = 'concierge@celviaus.com';
 $support_phone  = '757-804-6538';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
@@ -219,7 +219,7 @@ $contact_faqs = [
     <section class="mmd-contact-hero" aria-labelledby="mmd-contact-title">
         <div class="mmd-contact-container mmd-contact-hero__grid">
             <div class="mmd-contact-hero__content">
-                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact Chronel', 'dawp'); ?></p>
+                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact Celvia', 'dawp'); ?></p>
                 <h1 id="mmd-contact-title"><?php esc_html_e('Concierge support for confident watch ownership.', 'dawp'); ?></h1>
                 <p class="mmd-contact-hero__copy"><?php esc_html_e('Questions about a reference, sizing, delivery, authentication or a return? Our customer care team is here to help from discovery to ownership.', 'dawp'); ?></p>
                 <div class="mmd-contact-hero__actions">

@@ -20,7 +20,7 @@ if (!$account_url) {
     $account_url = home_url('/my-account/');
 }
 
-$support_email  = 'concierge@chronelshop.com';
+$support_email  = 'concierge@celviaus.com';
 $support_phone  = '+1 757 804 6538';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : __('Private showroom appointments available by request.', 'dawp');
@@ -134,8 +134,8 @@ $payment_methods = [
     <div class="lux-footer__inner">
         <div class="lux-footer__top">
             <section aria-label="<?php esc_attr_e('Brand and contact information', 'dawp'); ?>">
-                <a class="lux-footer__brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Chronel home', 'dawp'); ?>">
-                    <img class="lux-footer__logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo/chronel-logo-white.png'); ?>" width="180" height="56" alt="<?php esc_attr_e('Chronel', 'dawp'); ?>" loading="lazy">
+                <a class="lux-footer__brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Celvia home', 'dawp'); ?>">
+                    <img class="lux-footer__logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo/celvia-logo-white.svg'); ?>" width="180" height="56" alt="<?php esc_attr_e('Celvia', 'dawp'); ?>" loading="lazy">
                     <span><?php esc_html_e('Fine Timepieces', 'dawp'); ?></span>
                 </a>
                 <p class="lux-footer__intro"><?php esc_html_e('Rolex, Patek Philippe, Audemars Piguet, Omega and other Swiss houses, each piece inspected before it reaches you.', 'dawp'); ?></p>
@@ -181,7 +181,7 @@ $payment_methods = [
         </div>
 
         <div class="lux-footer__bottom">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Chronel. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Celvia. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
             <nav class="lux-footer__legal" aria-label="<?php esc_attr_e('Legal links', 'dawp'); ?>">
                 <?php foreach ($legal_links as $link) : ?>
                     <a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a>

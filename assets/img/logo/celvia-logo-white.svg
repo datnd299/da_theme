@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 162" role="img" aria-label="Celvia">
+  <title>Celvia</title>
+  <g fill="none" stroke="#ffffff">
+    <circle cx="81" cy="81" r="66" stroke-width="3"/>
+    <circle cx="81" cy="81" r="58" stroke-width="1.2"/>
+  </g>
+  <g fill="#ffffff" font-family="Didot, 'Bodoni 72', 'Playfair Display', Georgia, 'Times New Roman', serif">
+    <text x="70" y="112" font-size="92" text-anchor="middle">C</text>
+    <text x="96" y="104" font-size="58" font-style="italic" text-anchor="middle">V</text>
+    <text x="172" y="104" font-size="64" letter-spacing="10">CELVIA</text>
+  </g>
+  <rect x="174" y="118" width="338" height="1.5" fill="#ffffff"/>
+</svg>

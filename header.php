@@ -18,7 +18,7 @@ $shop_url      = function_exists('wc_get_page_permalink') ? wc_get_page_permalin
 $account_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $cart_url      = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count    = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
-$logo_url      = get_template_directory_uri() . '/assets/img/logo/chronel-logo-black.png';
+$logo_url      = get_template_directory_uri() . '/assets/img/logo/celvia-logo-black.svg';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
@@ -182,8 +182,8 @@ $mobile_extra_items = [
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
         </button>
 
-        <a href="<?php echo esc_url($home_url); ?>" class="lux-brand" aria-label="<?php esc_attr_e('Chronel home', 'dawp'); ?>">
-            <img class="lux-brand__logo" src="<?php echo esc_url($logo_url); ?>" width="180" height="54" alt="<?php esc_attr_e('Chronel', 'dawp'); ?>">
+        <a href="<?php echo esc_url($home_url); ?>" class="lux-brand" aria-label="<?php esc_attr_e('Celvia home', 'dawp'); ?>">
+            <img class="lux-brand__logo" src="<?php echo esc_url($logo_url); ?>" width="180" height="54" alt="<?php esc_attr_e('Celvia', 'dawp'); ?>">
         </a>
 
         <nav class="lux-primary-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">

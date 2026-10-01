@@ -1,6 +1,6 @@
 <?php
 /**
- * Shipping policy page for Chronel.
+ * Shipping policy page for Celvia.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'concierge@chronelshop.com';
+$support_email = 'concierge@celviaus.com';
 $support_phone = '757-804-6538';
 $store_address = '57 Calvert St, Woodbridge, VA 22191-2840';
 $track_url     = home_url('/track-order/');
@@ -63,7 +63,7 @@ $issue_requirements = [
 $contact_details = [
     [
         'label' => __('Store Name', 'dawp'),
-        'value' => __('Chronel', 'dawp'),
+        'value' => __('Celvia', 'dawp'),
     ],
     [
         'label' => __('Customer Support Email', 'dawp'),
@@ -85,8 +85,8 @@ $contact_details = [
 
 $shipping_faqs = [
     [
-        'question' => __('Where does Chronel ship?', 'dawp'),
-        'answer'   => __('Chronel currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
+        'question' => __('Where does Celvia ship?', 'dawp'),
+        'answer'   => __('Celvia currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
     ],
     [
         'question' => __('How much does standard shipping cost?', 'dawp'),
@@ -141,7 +141,7 @@ $shipping_faqs = [
                 <?php esc_html_e('Shipping Locations & Market', 'dawp'); ?>
             </h2>
             <div class="mt-5 space-y-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
-                <p><?php esc_html_e('We currently ship exclusively within the United States. Chronel serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
+                <p><?php esc_html_e('We currently ship exclusively within the United States. Celvia serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
                 <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
                 <div class="border-l-4 border-[#D8C7BE] bg-[#F8F5F0] p-5 text-[#4A4A4A]">
                     <p><?php esc_html_e('Some timepiece orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
@@ -201,7 +201,7 @@ $shipping_faqs = [
                 <?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?>
             </h2>
             <p class="mt-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
-                <?php esc_html_e('To guarantee safe and efficient delivery, Chronel partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?>
+                <?php esc_html_e('To guarantee safe and efficient delivery, Celvia partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?>
             </p>
             <div class="mt-5 flex flex-wrap gap-3">
                 <?php foreach ($carriers as $carrier) : ?>

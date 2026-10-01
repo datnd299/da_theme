@@ -1,6 +1,6 @@
 <?php
 /**
- * One-off image prep for the USWS product photos.
+ * One-off image prep for the Genymora product photos.
  *
  * Drop the raw studio shots in as:
  *   assets/img/hero.jpeg

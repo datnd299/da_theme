@@ -1,6 +1,6 @@
 <?php
 /**
- * Homepage for US Watch Store.
+ * Homepage for Genymora.
  *
  * Hallmark · genre: modern-minimal · macrostructure: Bento Grid (H2 split-diptych
  * hero, irregular-span category grid, F6 product-card-grid new arrivals)
@@ -21,7 +21,7 @@ if (!$shop_url) {
 
 $theme_img_uri     = get_template_directory_uri() . '/assets/img';
 $new_arrivals_url  = add_query_arg('orderby', 'date', $shop_url);
-$support_email    = 'support@uswatchstore.com';
+$support_email    = 'support@genymora.com';
 $business_hours   = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $home_products_query = null;
 
@@ -83,7 +83,7 @@ $dawp_category_link = static function ($term) use ($shop_url) {
 };
 
 /**
- * Category photography -- one watch shot per USWS style family.
+ * Category photography -- one watch shot per Genymora style family.
  */
 $category_image_files = [
     'classic-style' => 'cat/classic.webp',
@@ -153,7 +153,7 @@ if (function_exists('get_terms') && count($categories) < 2) {
             $categories[] = [
                 'name'        => $term->name,
                 'slug'        => $term->slug,
-                'description' => $term_description ? wp_strip_all_tags($term_description) : __('Explore this collection from US Watch Store.', 'dawp'),
+                'description' => $term_description ? wp_strip_all_tags($term_description) : __('Explore this collection from Genymora.', 'dawp'),
                 'url'         => $dawp_category_link($term),
             ];
         }
@@ -162,14 +162,14 @@ if (function_exists('get_terms') && count($categories) < 2) {
 
 $value_points = [
     __('Free US shipping on all orders', 'dawp'),
-    __('2-year warranty on every USWS watch', 'dawp'),
+    __('2-year warranty on every Genymora watch', 'dawp'),
     __('30-day returns, no questions asked', 'dawp'),
 ];
 
 $quality_points = [
     [
-        'title' => __('Assembled by USWS', 'dawp'),
-        'copy'  => __('Every USWS watch is put together by our own team - one line, one standard, no outsourced quality.', 'dawp'),
+        'title' => __('Assembled by Genymora', 'dawp'),
+        'copy'  => __('Every Genymora watch is put together by our own team - one line, one standard, no outsourced quality.', 'dawp'),
         'icon'  => 'shield',
     ],
     [
@@ -249,13 +249,13 @@ $render_icon = static function ($icon) {
         <div class="mx-auto grid w-full max-w-7xl gap-10 px-4 pb-10 pt-14 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14 lg:px-8 lg:pb-16 lg:pt-24">
             <div class="max-w-2xl text-white">
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-accent-blush">
-                    <?php esc_html_e('USWS · Self-Winding Automatic', 'dawp'); ?>
+                    <?php esc_html_e('Genymora · Self-Winding Automatic', 'dawp'); ?>
                 </p>
                 <h1 id="dawp-hero-title" class="mt-5 font-heading text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
                     <?php esc_html_e('Automatic watches, designed and assembled in-house.', 'dawp'); ?>
                 </h1>
                 <p class="mt-6 max-w-xl text-base leading-8 text-white/85 sm:text-lg">
-                    <?php esc_html_e('USWS is our own line of self-winding automatic watches, offered in two styles - Classic and Elegant. Every watch is assembled, regulated, and inspected by US Watch Store, and backed by a 2-year warranty.', 'dawp'); ?>
+                    <?php esc_html_e('Genymora is our own line of self-winding automatic watches, offered in two styles - Classic and Elegant. Every watch is assembled, regulated, and inspected by Genymora, and backed by a 2-year warranty.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -273,7 +273,7 @@ $render_icon = static function ($icon) {
                 <span class="absolute right-3 top-3 h-3 w-3 border-r border-t border-white/30"></span>
                 <span class="absolute bottom-3 left-3 h-3 w-3 border-b border-l border-white/30"></span>
                 <span class="absolute bottom-3 right-3 h-3 w-3 border-b border-r border-white/30"></span>
-                <img src="<?php echo esc_url($theme_img_uri . '/hero.webp'); ?>" alt="<?php esc_attr_e('USWS automatic watch, blue dial, steel bracelet', 'dawp'); ?>" class="absolute inset-0 h-full w-full object-contain p-5 sm:p-6" width="652" height="1055" fetchpriority="high">
+                <img src="<?php echo esc_url($theme_img_uri . '/hero.webp'); ?>" alt="<?php esc_attr_e('Genymora automatic watch, blue dial, steel bracelet', 'dawp'); ?>" class="absolute inset-0 h-full w-full object-contain p-5 sm:p-6" width="652" height="1055" fetchpriority="high">
                 <span class="absolute bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.14em] text-white/50">
                     <?php esc_html_e('Timed & Inspected In-House', 'dawp'); ?>
                 </span>
@@ -312,7 +312,7 @@ $render_icon = static function ($icon) {
                                 <img src="<?php echo esc_url($get_category_image($category['slug'])); ?>" alt="<?php echo esc_attr($category['name']); ?>" class="h-44 w-44 object-contain sm:h-52 sm:w-52" width="300" height="300" loading="lazy">
                             </div>
                             <div class="flex flex-1 flex-col p-6 sm:p-8">
-                                <span class="text-xs font-extrabold uppercase tracking-[0.14em] text-accent-blush"><?php esc_html_e('USWS Automatic', 'dawp'); ?></span>
+                                <span class="text-xs font-extrabold uppercase tracking-[0.14em] text-accent-blush"><?php esc_html_e('Genymora Automatic', 'dawp'); ?></span>
                                 <h3 class="mt-2 font-heading text-2xl font-extrabold text-foreground"><?php echo esc_html($category['name']); ?></h3>
                                 <p class="mt-3 text-sm leading-6 text-foreground-muted"><?php echo esc_html($category['description']); ?></p>
                                 <span class="mt-5 inline-flex items-center text-sm font-bold text-accent-blush">
@@ -335,7 +335,7 @@ $render_icon = static function ($icon) {
                     <h2 id="new-arrivals-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground">
                         <?php esc_html_e('New arrivals', 'dawp'); ?>
                     </h2>
-                    <p class="mt-3 text-sm leading-6 text-foreground-muted"><?php esc_html_e('The latest USWS automatics to join the lineup.', 'dawp'); ?></p>
+                    <p class="mt-3 text-sm leading-6 text-foreground-muted"><?php esc_html_e('The latest Genymora automatics to join the lineup.', 'dawp'); ?></p>
                     <a href="<?php echo esc_url($new_arrivals_url); ?>" class="mt-6 inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-accent px-6 text-sm font-bold text-white transition hover:bg-accent-hover lg:flex lg:w-full">
                         <?php esc_html_e('Shop New Arrivals', 'dawp'); ?>
                     </a>
@@ -370,8 +370,8 @@ $render_icon = static function ($icon) {
                     </div>
                 <?php else : ?>
                     <div class="rounded-md border border-border bg-surface p-6">
-                        <h3 class="font-heading text-xl font-extrabold text-foreground"><?php esc_html_e('Browse the USWS lineup', 'dawp'); ?></h3>
-                        <p class="mt-3 max-w-2xl text-sm leading-6 text-foreground-muted"><?php esc_html_e('Watches are being added. Browse the shop to see every available USWS automatic.', 'dawp'); ?></p>
+                        <h3 class="font-heading text-xl font-extrabold text-foreground"><?php esc_html_e('Browse the Genymora lineup', 'dawp'); ?></h3>
+                        <p class="mt-3 max-w-2xl text-sm leading-6 text-foreground-muted"><?php esc_html_e('Watches are being added. Browse the shop to see every available Genymora automatic.', 'dawp'); ?></p>
                         <a href="<?php echo esc_url($shop_url); ?>" class="mt-5 inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-accent px-6 text-sm font-bold text-white transition hover:bg-accent-hover">
                             <?php esc_html_e('Browse All Watches', 'dawp'); ?>
                         </a>
@@ -386,7 +386,7 @@ $render_icon = static function ($icon) {
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-start lg:gap-14">
                 <h2 id="quality-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
-                    <?php esc_html_e('Every USWS watch passes through our own hands.', 'dawp'); ?>
+                    <?php esc_html_e('Every Genymora watch passes through our own hands.', 'dawp'); ?>
                 </h2>
                 <div class="grid gap-8 sm:grid-cols-3">
                     <?php foreach ($quality_points as $point) : ?>
@@ -414,10 +414,10 @@ $render_icon = static function ($icon) {
                         <?php esc_html_e('A mechanical watch that runs on movement, not batteries.', 'dawp'); ?>
                     </h2>
                     <p class="mt-5 text-base leading-8 text-white/80">
-                        <?php esc_html_e('USWS builds one thing: a self-winding automatic watch, wound by the motion of your wrist and finished in two distinct styles.', 'dawp'); ?>
+                        <?php esc_html_e('Genymora builds one thing: a self-winding automatic watch, wound by the motion of your wrist and finished in two distinct styles.', 'dawp'); ?>
                     </p>
                     <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-accent px-6 text-sm font-bold text-white transition hover:bg-white hover:text-foreground">
-                        <?php esc_html_e('Shop USWS', 'dawp'); ?>
+                        <?php esc_html_e('Shop Genymora', 'dawp'); ?>
                     </a>
                 </div>
 

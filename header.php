@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@uswatchstore.com';
+$support_email  = 'support@genymora.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $home_url       = home_url('/');
 $theme_img_uri  = get_template_directory_uri() . '/assets/img';
@@ -61,10 +61,10 @@ $nav_links = [
 $store_schema = [
     '@context' => 'https://schema.org',
     '@type'    => 'OnlineStore',
-    'name'     => 'US Watch Store',
+    'name'     => 'Genymora',
     'url'      => home_url('/'),
     'logo'     => $theme_img_uri . '/logo.png',
-    'description' => __('US Watch Store designs and assembles USWS - a line of self-winding automatic watches in Classic and Elegant styles, backed by a 2-year warranty and free US shipping.', 'dawp'),
+    'description' => __('Genymora designs and assembles a line of self-winding automatic watches in Classic and Elegant styles, backed by a 2-year warranty and free US shipping.', 'dawp'),
     'email'       => $support_email,
     'priceRange'  => '$$',
     'hasMerchantReturnPolicy' => [
@@ -146,8 +146,8 @@ if (!empty($wc_address_1)) {
     <div id="site-bar" class="nav__bar border-b border-transparent bg-surface/0 transition-[background-color,border-color,box-shadow] duration-300 ease-out">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between gap-4 sm:h-[4.25rem]">
-                <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center gap-2 text-foreground" aria-label="<?php esc_attr_e('US Watch Store home', 'dawp'); ?>">
-                    <img src="<?php echo esc_url($theme_img_uri . '/logo.png'); ?>" alt="<?php esc_attr_e('US Watch Store', 'dawp'); ?>" class="h-8 w-auto shrink-0 sm:h-9" width="143" height="80">
+                <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center gap-2 text-foreground" aria-label="<?php esc_attr_e('Genymora home', 'dawp'); ?>">
+                    <img src="<?php echo esc_url($theme_img_uri . '/logo.svg'); ?>" alt="<?php esc_attr_e('Genymora', 'dawp'); ?>" class="h-8 w-auto shrink-0 sm:h-9" width="260" height="64">
                 </a>
 
                 <nav class="hidden items-center gap-1 xl:flex" aria-label="<?php esc_attr_e('Main store navigation', 'dawp'); ?>">
@@ -215,7 +215,7 @@ if (!empty($wc_address_1)) {
             <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6">
                 <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mb-4 flex items-center rounded-sm border border-border bg-surface-alt px-4 py-3">
                     <label class="sr-only" for="mobile-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
-                    <input id="mobile-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search USWS automatic watches', 'dawp'); ?>" class="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted">
+                    <input id="mobile-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search Genymora automatic watches', 'dawp'); ?>" class="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted">
                     <input type="hidden" name="post_type" value="product">
                     <button type="submit" class="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-sm bg-surface text-accent-hover" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

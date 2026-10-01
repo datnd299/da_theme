@@ -1,6 +1,6 @@
 <?php
 /**
- * About page for US Watch Store.
+ * About page for Genymora.
  *
  * Hallmark · genre: modern-minimal · macrostructure: Long Document (continuous
  * narrative core, restrained supporting sections, no repeated eyebrow tics)
@@ -20,7 +20,7 @@ if (!$shop_url) {
 }
 
 $theme_img_uri  = get_template_directory_uri() . '/assets/img';
-$support_email  = 'support@uswatchstore.com';
+$support_email  = 'support@genymora.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 
 $lbq_category_url = static function ($slug) {
@@ -42,12 +42,12 @@ $lbq_category_url = static function ($slug) {
 $brand_pillars = [
     [
         'title' => __('We Build It, We Back It', 'dawp'),
-        'copy'  => __('USWS is our own watch line. We are responsible for how every watch is designed, assembled, regulated, and warrantied.', 'dawp'),
+        'copy'  => __('Genymora is our own watch line. We are responsible for how every watch is designed, assembled, regulated, and warrantied.', 'dawp'),
         'icon'  => 'gear',
     ],
     [
         'title' => __('One Movement, Two Styles', 'dawp'),
-        'copy'  => __('Every USWS watch runs the same self-winding automatic movement. Classic and Elegant are two design directions, not two tiers of quality.', 'dawp'),
+        'copy'  => __('Every Genymora watch runs the same self-winding automatic movement. Classic and Elegant are two design directions, not two tiers of quality.', 'dawp'),
         'icon'  => 'watch',
     ],
     [
@@ -71,7 +71,7 @@ $category_links = [
 ];
 
 $standards = [
-    __('Every USWS watch is assembled by our own team and regulated on a timing machine before it ships.', 'dawp'),
+    __('Every Genymora watch is assembled by our own team and regulated on a timing machine before it ships.', 'dawp'),
     __('We make one type of watch: a self-winding automatic, in two styles - Classic and Elegant.', 'dawp'),
     __('Each watch is covered by a 2-year warranty against movement and assembly defects.', 'dawp'),
     __('Product pages state case size, water resistance, power reserve, and materials clearly, so you know exactly what you are buying.', 'dawp'),
@@ -135,19 +135,19 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
         <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-12 lg:px-8">
             <div class="max-w-2xl">
                 <p class="inline-flex rounded-sm border border-border bg-surface px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-accent-blush">
-                    <?php esc_html_e('About USWS by US Watch Store', 'dawp'); ?>
+                    <?php esc_html_e('About Genymora', 'dawp'); ?>
                 </p>
                 <h1 id="about-hero-title" class="mt-5 font-heading text-4xl font-extrabold leading-tight text-foreground sm:text-5xl lg:text-6xl">
                     <?php esc_html_e('One automatic watch, built by us, in two styles.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-xl text-base leading-8 text-muted sm:text-lg">
-                    <?php esc_html_e('USWS is the in-house watch line from US Watch Store: one self-winding automatic movement, two styles - Classic and Elegant. Every watch is designed, assembled, regulated, and inspected by us, then backed by a 2-year warranty.', 'dawp'); ?>
+                    <?php esc_html_e('Genymora is our in-house watch line: one self-winding automatic movement, two styles - Classic and Elegant. Every watch is designed, assembled, regulated, and inspected by us, then backed by a 2-year warranty.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-7 grid max-w-2xl gap-3 sm:grid-cols-3">
                     <div class="flex items-start gap-3 rounded-sm border border-border bg-surface p-4">
                         <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
-                        <span class="text-sm font-bold leading-6 text-foreground"><?php esc_html_e('Designed and assembled by USWS', 'dawp'); ?></span>
+                        <span class="text-sm font-bold leading-6 text-foreground"><?php esc_html_e('Designed and assembled by Genymora', 'dawp'); ?></span>
                     </div>
                     <div class="flex items-start gap-3 rounded-sm border border-border bg-surface p-4">
                         <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
@@ -170,7 +170,7 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
             </div>
 
             <figure class="relative">
-                <?php $render_visual('cat/elegant.webp', 'aspect-[5/4] w-full rounded-md lg:aspect-[4/5]', __('A USWS automatic watch, Elegant style', 'dawp')); ?>
+                <?php $render_visual('cat/elegant.webp', 'aspect-[5/4] w-full rounded-md lg:aspect-[4/5]', __('A Genymora automatic watch, Elegant style', 'dawp')); ?>
                 <figcaption class="mt-4 rounded-sm border border-border bg-surface p-4 text-sm font-bold leading-6 text-foreground">
                     <?php esc_html_e('One movement, finished two ways - a watch you can wear every day and dress up when it counts.', 'dawp'); ?>
                 </figcaption>
@@ -186,7 +186,7 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
             </h2>
             <div class="mt-6 space-y-5 text-lg leading-8 text-foreground-muted">
                 <p>
-                    <?php esc_html_e('USWS started from one idea: a well-made self-winding automatic watch should not cost what most brands charge for the name on the dial. So we built our own.', 'dawp'); ?>
+                    <?php esc_html_e('Genymora started from one idea: a well-made self-winding automatic watch should not cost what most brands charge for the name on the dial. So we built our own.', 'dawp'); ?>
                 </p>
                 <p>
                     <?php esc_html_e('We design the watch, choose the movement, assemble it, regulate it on a timing machine, and inspect it - then sell it directly, with a 2-year warranty and real support behind it. Two styles, Classic and Elegant, both running the same self-winding automatic movement. No inflated markups, no story you can\'t verify.', 'dawp'); ?>
@@ -226,7 +226,7 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
                     <?php esc_html_e('Two styles, one movement.', 'dawp'); ?>
                 </h2>
                 <p class="mt-5 text-base leading-8 text-foreground-muted">
-                    <?php esc_html_e('USWS is deliberately narrow. Classic is built for daily wear - legible, understated, tough enough to ignore. Elegant is the dressed-up version - slimmer, polished, made for the occasions that ask for it. Same self-winding automatic movement inside both.', 'dawp'); ?>
+                    <?php esc_html_e('Genymora is deliberately narrow. Classic is built for daily wear - legible, understated, tough enough to ignore. Elegant is the dressed-up version - slimmer, polished, made for the occasions that ask for it. Same self-winding automatic movement inside both.', 'dawp'); ?>
                 </p>
                 <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-foreground px-6 text-sm font-bold text-white transition hover:bg-accent-hover">
                     <?php esc_html_e('Browse All Watches', 'dawp'); ?>
@@ -252,7 +252,7 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
             <div>
                 <h2 id="about-standards-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
-                    <?php esc_html_e('What we hold every USWS watch to.', 'dawp'); ?>
+                    <?php esc_html_e('What we hold every Genymora watch to.', 'dawp'); ?>
                 </h2>
                 <p class="mt-5 text-base leading-8 text-foreground-muted">
                     <?php esc_html_e('Because we assemble the watch, the standard is ours to keep: real regulation, honest specs, and no claims we can\'t stand behind.', 'dawp'); ?>
@@ -268,7 +268,7 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
                 </div>
             </div>
 
-            <?php $render_visual('cat/classic.webp', 'aspect-[4/5] w-full rounded-md', __('A USWS automatic watch, Classic style', 'dawp')); ?>
+            <?php $render_visual('cat/classic.webp', 'aspect-[4/5] w-full rounded-md', __('A Genymora automatic watch, Classic style', 'dawp')); ?>
         </div>
     </section>
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Return & refund policy page for US Watch Store.
+ * Return & refund policy page for Genymora.
  *
  * Hallmark · genre: modern-minimal · macrostructure: Long Document (genuinely
  * ordinal return steps keep numbering - ordinal content is the documented
@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@uswatchstore.com';
+$support_email  = 'support@genymora.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $last_updated   = __('August 21, 2026', 'dawp');
@@ -31,7 +31,7 @@ $return_requirements = [
 ];
 
 $return_process = [
-    __('Email support@uswatchstore.com with your order number, the watch you would like to return, and the reason for the request.', 'dawp'),
+    __('Email support@genymora.com with your order number, the watch you would like to return, and the reason for the request.', 'dawp'),
     __('Wait for return instructions and a return authorization before sending anything back so the return can be matched to your order.', 'dawp'),
     __('Pack the watch securely in its original box with all papers and accessories, and ship it using a trackable, insured method.', 'dawp'),
     __('Once the return is received, we inspect it within 3-5 business days to confirm it meets the eligibility requirements.', 'dawp'),
@@ -39,9 +39,9 @@ $return_process = [
 ];
 
 $warranty_claim = [
-    __('Every USWS watch is covered by a 2-year limited warranty, starting from the delivery date, against defects in the automatic movement and factory assembly under normal use.', 'dawp'),
+    __('Every Genymora watch is covered by a 2-year limited warranty, starting from the delivery date, against defects in the automatic movement and factory assembly under normal use.', 'dawp'),
     __('Accidental damage, water damage beyond the watch\'s rated resistance, damage from unauthorized repair or case-opening, normal wear (strap wear, crystal scratches, case scuffing), and the normal timekeeping variance of a mechanical movement are not covered.', 'dawp'),
-    __('To file a warranty claim, email support@uswatchstore.com with your order number, a description of the issue, and photos or video if applicable. We will confirm coverage and arrange a repair, replacement, or refund.', 'dawp'),
+    __('To file a warranty claim, email support@genymora.com with your order number, a description of the issue, and photos or video if applicable. We will confirm coverage and arrange a repair, replacement, or refund.', 'dawp'),
 ];
 
 $sections = [
@@ -57,15 +57,15 @@ $sections = [
         'title' => __('2. Return Shipping Costs', 'dawp'),
         'copy'  => [
             __('Customers are responsible for return shipping costs on standard, no-questions-asked returns.', 'dawp'),
-            __('If the item arrived damaged, defective, or different from what you ordered, US Watch Store covers the cost of return shipping and will provide a prepaid label or reimburse reasonable shipping costs. See Section 7.', 'dawp'),
-            __('We recommend using a trackable, insured shipping method for standard returns. US Watch Store is not responsible for return packages lost or damaged in transit back to us.', 'dawp'),
+            __('If the item arrived damaged, defective, or different from what you ordered, Genymora covers the cost of return shipping and will provide a prepaid label or reimburse reasonable shipping costs. See Section 7.', 'dawp'),
+            __('We recommend using a trackable, insured shipping method for standard returns. Genymora is not responsible for return packages lost or damaged in transit back to us.', 'dawp'),
         ],
     ],
     [
         'title' => __('3. Refund Processing and Timing', 'dawp'),
         'copy'  => [
             __('Once your return is received, we inspect it within 3-5 business days to confirm it meets the eligibility requirements in Section 1.', 'dawp'),
-            __('US Watch Store charges $0 restocking fees. There are no hidden fees or restocking penalties applied to eligible returns.', 'dawp'),
+            __('Genymora charges $0 restocking fees. There are no hidden fees or restocking penalties applied to eligible returns.', 'dawp'),
             __('Approved refunds are issued to the original payment method used at checkout. Because shipping is free on all orders, refunds reflect the full product price paid; no shipping charge is deducted because none was collected.', 'dawp'),
             __('After a refund is issued, it may take an additional 5-10 business days for the credit to appear on your statement, depending on your bank or card issuer.', 'dawp'),
             __('If a return does not meet the eligibility requirements, we will contact you with options, which may include returning the item to you at your cost or offering a partial refund reflecting any diminished value.', 'dawp'),
@@ -80,31 +80,31 @@ $sections = [
     [
         'title' => __('5. How to Start a Return', 'dawp'),
         'copy'  => [
-            __('Email support@uswatchstore.com with your order number, the watch you would like to return, and the reason for the request. Wait for return instructions and authorization before sending anything back so the return can be matched to your order and processed without delay.', 'dawp'),
+            __('Email support@genymora.com with your order number, the watch you would like to return, and the reason for the request. Wait for return instructions and authorization before sending anything back so the return can be matched to your order and processed without delay.', 'dawp'),
             $store_address
-                ? sprintf(__('Authorized returns are shipped to our store facility: US Watch Store Returns, %s.', 'dawp'), $store_address)
+                ? sprintf(__('Authorized returns are shipped to our store facility: Genymora Returns, %s.', 'dawp'), $store_address)
                 : __('Authorized returns are shipped to our return facility specified in your return authorization instructions.', 'dawp'),
         ],
     ],
     [
         'title' => __('6. Refund Method', 'dawp'),
         'copy'  => [
-            __('All eligible refunds, whether from a standard return, a warranty claim resolved as a refund, or a damaged or incorrect item, are issued to the original payment method used at checkout. US Watch Store does not issue cash refunds or refunds to a different payment method or third party.', 'dawp'),
+            __('All eligible refunds, whether from a standard return, a warranty claim resolved as a refund, or a damaged or incorrect item, are issued to the original payment method used at checkout. Genymora does not issue cash refunds or refunds to a different payment method or third party.', 'dawp'),
         ],
     ],
     [
         'title' => __('7. Damaged, Defective, or Incorrect Items', 'dawp'),
         'copy'  => [
-            __('If your order arrives damaged, defective, or different from what you ordered, contact support@uswatchstore.com within 7 days of delivery with your order number and photos of the issue.', 'dawp'),
+            __('If your order arrives damaged, defective, or different from what you ordered, contact support@genymora.com within 7 days of delivery with your order number and photos of the issue.', 'dawp'),
             __('We will arrange a free replacement, exchange, or full refund, including any return shipping cost, at no charge to you.', 'dawp'),
         ],
     ],
     [
         'title' => __('8. 2-Year Warranty in Full', 'dawp'),
         'copy'  => [
-            __('Every USWS watch includes a 2-year limited warranty, starting from the delivery date, covering defects in materials and workmanship affecting the automatic movement and factory assembly under normal use.', 'dawp'),
+            __('Every Genymora watch includes a 2-year limited warranty, starting from the delivery date, covering defects in materials and workmanship affecting the automatic movement and factory assembly under normal use.', 'dawp'),
             __('The warranty does not cover: accidental damage such as drops, impacts, or crushing; water damage exceeding the watch\'s rated water resistance; damage from unauthorized repair or case-opening by a third party; normal wear such as strap wear, crystal scratches, or case scuffing; and the normal timekeeping variance of a mechanical movement (roughly -10 to +20 seconds per day).', 'dawp'),
-            __('To file a warranty claim, email support@uswatchstore.com with your order number, a description of the issue, and photos or video if applicable. We will review the claim, confirm coverage, and arrange a repair, replacement, or refund at our discretion. Turnaround time is typically 10-15 business days after we receive the watch, where a physical inspection is required.', 'dawp'),
+            __('To file a warranty claim, email support@genymora.com with your order number, a description of the issue, and photos or video if applicable. We will review the claim, confirm coverage, and arrange a repair, replacement, or refund at our discretion. Turnaround time is typically 10-15 business days after we receive the watch, where a physical inspection is required.', 'dawp'),
         ],
     ],
 ];

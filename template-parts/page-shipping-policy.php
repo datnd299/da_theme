@@ -1,6 +1,6 @@
 <?php
 /**
- * Shipping policy page for US Watch Store.
+ * Shipping policy page for Genymora.
  *
  * Hallmark · genre: modern-minimal · macrostructure: Long Document (genuinely
  * ordinal shipping steps keep numbering - ordinal content is the documented
@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email      = 'support@uswatchstore.com';
+$support_email      = 'support@genymora.com';
 $business_hours     = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $last_updated       = __('August 21, 2026', 'dawp');
 $track_url          = home_url('/track-order/');
@@ -60,7 +60,7 @@ $sections = [
     [
         'title' => __('1. Where We Ship', 'dawp'),
         'copy'  => [
-            __('US Watch Store currently ships only to addresses within the United States, including Alaska, Hawaii, and US territories where our carriers provide service. We do not currently offer international shipping outside the United States.', 'dawp'),
+            __('Genymora currently ships only to addresses within the United States, including Alaska, Hawaii, and US territories where our carriers provide service. We do not currently offer international shipping outside the United States.', 'dawp'),
             __('We can deliver to residential and commercial addresses, as well as P.O. boxes and military APO/FPO/DPO addresses where supported by the carrier. Delivery to P.O. boxes and military addresses may take longer than the standard estimate.', 'dawp'),
         ],
     ],
@@ -96,22 +96,22 @@ $sections = [
     [
         'title' => __('6. Shipping Address Accuracy', 'dawp'),
         'copy'  => [
-            __('You are responsible for entering a complete and accurate shipping address at checkout. US Watch Store is not responsible for delayed, misdirected, or undelivered packages resulting from an incorrect or incomplete address provided by the customer.', 'dawp'),
-            __('If you notice an error in your shipping address, contact support@uswatchstore.com as soon as possible after placing your order. We will do our best to update it before the order ships, but we cannot guarantee changes once an order has entered processing or shipped.', 'dawp'),
+            __('You are responsible for entering a complete and accurate shipping address at checkout. Genymora is not responsible for delayed, misdirected, or undelivered packages resulting from an incorrect or incomplete address provided by the customer.', 'dawp'),
+            __('If you notice an error in your shipping address, contact support@genymora.com as soon as possible after placing your order. We will do our best to update it before the order ships, but we cannot guarantee changes once an order has entered processing or shipped.', 'dawp'),
         ],
     ],
     [
         'title' => __('7. Lost, Stolen, or Delayed Packages', 'dawp'),
         'copy'  => [
             __('If tracking shows your package as delivered but you have not received it, please check with neighbors and building management and allow up to 48 hours, as carriers occasionally mark packages delivered slightly before arrival.', 'dawp'),
-            __('If a package is confirmed lost in transit or does not arrive within a reasonable time after the estimated delivery window, contact support@uswatchstore.com with your order number so we can file a claim with the carrier and arrange a replacement or refund.', 'dawp'),
-            __('US Watch Store is not responsible for packages stolen after delivery is confirmed, but we are happy to help you file a report with the carrier or local authorities if needed.', 'dawp'),
+            __('If a package is confirmed lost in transit or does not arrive within a reasonable time after the estimated delivery window, contact support@genymora.com with your order number so we can file a claim with the carrier and arrange a replacement or refund.', 'dawp'),
+            __('Genymora is not responsible for packages stolen after delivery is confirmed, but we are happy to help you file a report with the carrier or local authorities if needed.', 'dawp'),
         ],
     ],
     [
         'title' => __('8. Order Changes and Cancellations', 'dawp'),
         'copy'  => [
-            __('If you need to change or cancel an order, contact support@uswatchstore.com as soon as possible. We can typically accommodate changes or cancellations only before an order has entered processing or shipped; once shipped, an order must instead be handled under our Return & Refund Policy.', 'dawp'),
+            __('If you need to change or cancel an order, contact support@genymora.com as soon as possible. We can typically accommodate changes or cancellations only before an order has entered processing or shipped; once shipped, an order must instead be handled under our Return & Refund Policy.', 'dawp'),
         ],
     ],
     [
@@ -123,7 +123,7 @@ $sections = [
     [
         'title' => __('10. Damaged Packages', 'dawp'),
         'copy'  => [
-            __('If your package arrives visibly damaged, note it or take photos before opening if possible, and contact support@uswatchstore.com within 48 hours of delivery with your order number and photos of the damage so we can arrange a free replacement or refund.', 'dawp'),
+            __('If your package arrives visibly damaged, note it or take photos before opening if possible, and contact support@genymora.com within 48 hours of delivery with your order number and photos of the damage so we can arrange a free replacement or refund.', 'dawp'),
         ],
     ],
 ];
@@ -153,7 +153,7 @@ $render_icon = static function ($icon) {
                         <?php esc_html_e('Clear delivery timelines on every order.', 'dawp'); ?>
                     </h1>
                     <p class="mt-5 max-w-2xl text-base leading-8 text-foreground-muted">
-                        <?php esc_html_e('US Watch Store ships every watch with transparent processing and tracking details so you know what to expect after checkout.', 'dawp'); ?>
+                        <?php esc_html_e('Genymora ships every watch with transparent processing and tracking details so you know what to expect after checkout.', 'dawp'); ?>
                     </p>
                 </div>
 

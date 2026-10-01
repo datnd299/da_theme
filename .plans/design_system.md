@@ -1,4 +1,4 @@
-# Design System - US Watch Store / USWS ("Modern Steel & Blue")
+# Design System - Genymora ("Modern Steel & Blue")
 
 Source of truth for all visual tokens. Matches `assets/css/tailwind-input.css`
 (`@theme` block) exactly - if you change one, change both.

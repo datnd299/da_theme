@@ -1,6 +1,6 @@
 <?php
 /**
- * Privacy policy page for US Watch Store.
+ * Privacy policy page for Genymora.
  *
  * Hallmark · genre: modern-minimal · macrostructure: Long Document (continuous
  * prose sections, no per-section card boxes)
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@uswatchstore.com';
+$support_email  = 'support@genymora.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $last_updated   = __('August 21, 2026', 'dawp');
@@ -42,9 +42,9 @@ $sections = [
     [
         'title' => __('1. Overview and Scope', 'dawp'),
         'copy'  => [
-            __('This Privacy Policy explains how US Watch Store ("we," "us," or "our"), operating uswatchstore.com from San Diego, California, collects, uses, discloses, and protects information when you visit our website, browse products, place an order, contact customer support, or otherwise interact with our store.', 'dawp'),
+            __('This Privacy Policy explains how Genymora ("we," "us," or "our"), operating genymora.com from San Diego, California, collects, uses, discloses, and protects information when you visit our website, browse products, place an order, contact customer support, or otherwise interact with our store.', 'dawp'),
             __('By using this website or providing information to us, you agree to the practices described in this Privacy Policy. If you do not agree, please do not use the website or submit personal information to us.', 'dawp'),
-            __('This policy applies to information collected through uswatchstore.com. It does not apply to information collected offline or through third-party websites and social media platforms we do not control, including any linked Instagram or Facebook pages.', 'dawp'),
+            __('This policy applies to information collected through genymora.com. It does not apply to information collected offline or through third-party websites and social media platforms we do not control, including any linked Instagram or Facebook pages.', 'dawp'),
         ],
     ],
     [
@@ -62,7 +62,7 @@ $sections = [
             __('Order processing and fulfillment: to confirm, process, pack, ship, and track your order; to calculate applicable sales tax; and to send order confirmations, shipping notifications, and delivery updates.', 'dawp'),
             __('Customer support: to respond to questions, process return and warranty requests, and resolve billing or delivery issues.', 'dawp'),
             __('Store operations and security: to maintain website functionality, detect and prevent fraud or unauthorized transactions, enforce our Terms of Service, and comply with legal, tax, and accounting obligations.', 'dawp'),
-            __('Marketing, with your consent where required: if you opt in, to send product updates, promotions, or store news by email. You may unsubscribe at any time using the link in any marketing email or by contacting support@uswatchstore.com.', 'dawp'),
+            __('Marketing, with your consent where required: if you opt in, to send product updates, promotions, or store news by email. You may unsubscribe at any time using the link in any marketing email or by contacting support@genymora.com.', 'dawp'),
             __('Analytics and improvement: to understand how visitors use the website, measure the performance of pages and product listings, and improve site speed, navigation, and merchandising.', 'dawp'),
         ],
     ],
@@ -80,14 +80,14 @@ $sections = [
         'copy'  => [
             __('We share information with service providers who perform functions on our behalf, including: payment processors that authorize and process card and PayPal transactions; shipping carriers such as USPS, UPS, and FedEx that deliver orders and provide tracking; email and customer-support platforms; website hosting and content-delivery providers; and the analytics and advertising platforms described in Section 4.', 'dawp'),
             __('These service providers may use your information only as necessary to provide their services to us and are contractually or otherwise required to protect it.', 'dawp'),
-            __('We may disclose information if required by law, subpoena, or legal process; to protect the rights, property, or safety of US Watch Store, our customers, or others; to investigate fraud or security issues; or in connection with a merger, acquisition, financing, or sale of business assets, in which case information may be transferred as part of that transaction.', 'dawp'),
+            __('We may disclose information if required by law, subpoena, or legal process; to protect the rights, property, or safety of Genymora, our customers, or others; to investigate fraud or security issues; or in connection with a merger, acquisition, financing, or sale of business assets, in which case information may be transferred as part of that transaction.', 'dawp'),
             __('We do not sell personal information to third parties for money, and we do not share personal information with third parties for their own independent marketing purposes without your consent.', 'dawp'),
         ],
     ],
     [
         'title' => __('6. Payment Information and Security', 'dawp'),
         'copy'  => [
-            __('Checkout payments are processed by PCI-DSS-compliant third-party payment processors and PayPal. US Watch Store does not store full card numbers, card verification codes (CVV), or complete payment credentials on its own servers.', 'dawp'),
+            __('Checkout payments are processed by PCI-DSS-compliant third-party payment processors and PayPal. Genymora does not store full card numbers, card verification codes (CVV), or complete payment credentials on its own servers.', 'dawp'),
             __('Payment processors and PayPal maintain their own privacy and security practices governing the payment information you provide directly to them during checkout.', 'dawp'),
         ],
     ],
@@ -109,7 +109,7 @@ $sections = [
         'title' => __('9. Your Privacy Rights and Choices', 'dawp'),
         'copy'  => [
             __('Depending on your state of residence, you may have the right to request access to, correction of, or deletion of certain personal information we hold about you, and to opt out of marketing communications.', 'dawp'),
-            __('To exercise these rights, email support@uswatchstore.com with your request and enough detail, such as your order number or the email address used to order, for us to locate and verify your information. We will respond within a reasonable time and may need to verify your identity before completing certain requests.', 'dawp'),
+            __('To exercise these rights, email support@genymora.com with your request and enough detail, such as your order number or the email address used to order, for us to locate and verify your information. We will respond within a reasonable time and may need to verify your identity before completing certain requests.', 'dawp'),
             __('You may unsubscribe from marketing emails at any time using the unsubscribe link included in those emails; you will still receive transactional emails related to orders you place, such as order confirmations and shipping updates.', 'dawp'),
         ],
     ],
@@ -118,7 +118,7 @@ $sections = [
         'copy'  => [
             __('If you are a California resident, the California Consumer Privacy Act (CCPA), as amended by the California Privacy Rights Act (CPRA), gives you additional rights, including the right to know the categories and specific pieces of personal information collected, the right to request deletion, the right to correct inaccurate information, and the right to opt out of the sale or sharing of personal information.', 'dawp'),
             __('In the preceding 12 months, we have collected the categories of personal information described in Section 2 for the business purposes described in Section 3. We do not sell personal information for monetary consideration, and beyond the advertising and analytics cookies described in Section 4, we do not share personal information in a manner that constitutes a "sale" or "share" requiring an opt-out link under the CCPA/CPRA.', 'dawp'),
-            __('California residents may submit a CCPA/CPRA request by emailing support@uswatchstore.com. We will not discriminate against you for exercising your privacy rights.', 'dawp'),
+            __('California residents may submit a CCPA/CPRA request by emailing support@genymora.com. We will not discriminate against you for exercising your privacy rights.', 'dawp'),
         ],
     ],
     [
@@ -130,13 +130,13 @@ $sections = [
     [
         'title' => __('12. Children\'s Privacy', 'dawp'),
         'copy'  => [
-            __('US Watch Store is intended for general audiences and is not directed to children under 13. We do not knowingly collect personal information from children under 13. If we learn that we have inadvertently collected such information, we will take reasonable steps to delete it.', 'dawp'),
+            __('Genymora is intended for general audiences and is not directed to children under 13. We do not knowingly collect personal information from children under 13. If we learn that we have inadvertently collected such information, we will take reasonable steps to delete it.', 'dawp'),
         ],
     ],
     [
         'title' => __('13. International Visitors', 'dawp'),
         'copy'  => [
-            __('US Watch Store currently ships only within the United States and operates from the United States. If you access the website from outside the United States, your information will be transferred to, stored, and processed in the United States, which may have different data protection laws than your country of residence.', 'dawp'),
+            __('Genymora currently ships only within the United States and operates from the United States. If you access the website from outside the United States, your information will be transferred to, stored, and processed in the United States, which may have different data protection laws than your country of residence.', 'dawp'),
         ],
     ],
     [
@@ -149,8 +149,8 @@ $sections = [
         'title' => __('15. Contact Us', 'dawp'),
         'copy'  => [
             $store_address
-                ? sprintf(__('Questions, requests, or concerns about this Privacy Policy or your personal information can be sent to support@uswatchstore.com or by mail to US Watch Store, %s.', 'dawp'), $store_address)
-                : __('Questions, requests, or concerns about this Privacy Policy or your personal information can be sent to support@uswatchstore.com.', 'dawp'),
+                ? sprintf(__('Questions, requests, or concerns about this Privacy Policy or your personal information can be sent to support@genymora.com or by mail to Genymora, %s.', 'dawp'), $store_address)
+                : __('Questions, requests, or concerns about this Privacy Policy or your personal information can be sent to support@genymora.com.', 'dawp'),
         ],
     ],
 ];
@@ -177,10 +177,10 @@ $render_icon = static function ($icon) {
                     </span>
                 </div>
                 <h1 id="privacy-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-foreground sm:text-5xl">
-                    <?php esc_html_e('How US Watch Store handles customer information.', 'dawp'); ?>
+                    <?php esc_html_e('How Genymora handles customer information.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-foreground-muted">
-                    <?php esc_html_e('This Privacy Policy explains how US Watch Store collects, uses, shares, and protects information when you visit our website, place an order, or contact our support team.', 'dawp'); ?>
+                    <?php esc_html_e('This Privacy Policy explains how Genymora collects, uses, shares, and protects information when you visit our website, place an order, or contact our support team.', 'dawp'); ?>
                 </p>
             </div>
 
@@ -207,7 +207,7 @@ $render_icon = static function ($icon) {
                 <div class="rounded-md border border-border bg-surface p-6">
                     <h2 id="privacy-content-title" class="font-heading text-xl font-extrabold text-foreground"><?php esc_html_e('Policy overview', 'dawp'); ?></h2>
                     <p class="mt-4 text-sm leading-7 text-foreground-muted">
-                        <?php esc_html_e('US Watch Store uses customer information to operate a watch store, process orders, provide support, and maintain a secure shopping experience.', 'dawp'); ?>
+                        <?php esc_html_e('Genymora uses customer information to operate a watch store, process orders, provide support, and maintain a secure shopping experience.', 'dawp'); ?>
                     </p>
                     <div class="mt-6 border-t border-border pt-5 text-sm leading-7 text-foreground-muted">
                         <?php

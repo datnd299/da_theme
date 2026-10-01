@@ -1,6 +1,6 @@
 <?php
 /**
- * Billing terms & conditions page for US Watch Store.
+ * Billing terms & conditions page for Genymora.
  *
  * Hallmark · genre: modern-minimal · macrostructure: Long Document (continuous
  * prose sections, no per-section card boxes)
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email     = 'support@uswatchstore.com';
+$support_email     = 'support@genymora.com';
 $last_updated      = __('August 21, 2026', 'dawp');
 $terms_url         = home_url('/terms-of-service/');
 $privacy_url       = home_url('/privacy-policy/');
@@ -22,7 +22,7 @@ $contact_url       = home_url('/contact-us/');
 $billing_highlights = [
     [
         'title' => __('Secure Payment Processing', 'dawp'),
-        'copy'  => __('Payments are handled by PCI-DSS-compliant third-party payment providers. US Watch Store does not store full card numbers on its own systems.', 'dawp'),
+        'copy'  => __('Payments are handled by PCI-DSS-compliant third-party payment providers. Genymora does not store full card numbers on its own systems.', 'dawp'),
     ],
     [
         'title' => __('Charged at Checkout', 'dawp'),
@@ -38,7 +38,7 @@ $sections = [
     [
         'title' => __('1. Accepted Payment Methods', 'dawp'),
         'copy'  => [
-            __('US Watch Store accepts Visa, Mastercard, American Express, and PayPal at checkout. Available payment methods may vary by order or location.', 'dawp'),
+            __('Genymora accepts Visa, Mastercard, American Express, and PayPal at checkout. Available payment methods may vary by order or location.', 'dawp'),
             __('Card payments are processed through PCI-DSS-compliant payment processors using SSL/TLS encryption; PayPal transactions are processed under PayPal\'s own security terms. We do not accept cash, check, money order, or cryptocurrency.', 'dawp'),
         ],
     ],
@@ -51,7 +51,7 @@ $sections = [
     [
         'title' => __('3. Currency', 'dawp'),
         'copy'  => [
-            __('All prices are displayed and charged in US Dollars (USD). If your card is issued in a different currency, your bank or card network may apply its own conversion rate and any associated foreign transaction fee; US Watch Store has no control over and does not receive any portion of such fees.', 'dawp'),
+            __('All prices are displayed and charged in US Dollars (USD). If your card is issued in a different currency, your bank or card network may apply its own conversion rate and any associated foreign transaction fee; Genymora has no control over and does not receive any portion of such fees.', 'dawp'),
         ],
     ],
     [
@@ -63,7 +63,7 @@ $sections = [
     [
         'title' => __('5. Sales Tax', 'dawp'),
         'copy'  => [
-            __('Applicable sales tax is calculated at checkout based on your shipping address and applicable state and local law, and is displayed as a separate line item before you confirm payment. US Watch Store collects and remits sales tax in states where required by law.', 'dawp'),
+            __('Applicable sales tax is calculated at checkout based on your shipping address and applicable state and local law, and is displayed as a separate line item before you confirm payment. Genymora collects and remits sales tax in states where required by law.', 'dawp'),
         ],
     ],
     [
@@ -76,7 +76,7 @@ $sections = [
         'title' => __('7. Billing Accuracy and Authorization', 'dawp'),
         'copy'  => [
             __('You are responsible for providing accurate billing name, address, and payment details. By submitting payment information, you represent that you are authorized to use the selected payment method.', 'dawp'),
-            __('US Watch Store is not responsible for delays or declined payments caused by incorrect or outdated billing information.', 'dawp'),
+            __('Genymora is not responsible for delays or declined payments caused by incorrect or outdated billing information.', 'dawp'),
         ],
     ],
     [
@@ -100,14 +100,14 @@ $sections = [
     [
         'title' => __('11. Billing Disputes and Chargebacks', 'dawp'),
         'copy'  => [
-            __('If you believe you were billed in error, contact support before filing a chargeback with your bank so we can review and resolve the issue directly. Unrecognized charges should be reported to support@uswatchstore.com with your order number.', 'dawp'),
+            __('If you believe you were billed in error, contact support before filing a chargeback with your bank so we can review and resolve the issue directly. Unrecognized charges should be reported to support@genymora.com with your order number.', 'dawp'),
             __('Filing a chargeback for a charge that was properly authorized, rather than contacting support first, may delay resolution and affect your ability to place future orders.', 'dawp'),
         ],
     ],
     [
         'title' => __('12. No Recurring Charges or Subscriptions', 'dawp'),
         'copy'  => [
-            __('US Watch Store sells watches as one-time purchases. We do not enroll customers in subscriptions, membership programs, or recurring billing of any kind. Every charge on your statement corresponds to a specific order you placed.', 'dawp'),
+            __('Genymora sells watches as one-time purchases. We do not enroll customers in subscriptions, membership programs, or recurring billing of any kind. Every charge on your statement corresponds to a specific order you placed.', 'dawp'),
         ],
     ],
     [
@@ -140,7 +140,7 @@ $sections = [
                         <?php esc_html_e('How payment and billing work at checkout.', 'dawp'); ?>
                     </h1>
                     <p class="mt-5 max-w-2xl text-base leading-8 text-foreground-muted">
-                        <?php esc_html_e('These terms explain accepted payment methods, when your card is charged, pricing and taxes, and how billing disputes are handled at US Watch Store.', 'dawp'); ?>
+                        <?php esc_html_e('These terms explain accepted payment methods, when your card is charged, pricing and taxes, and how billing disputes are handled at Genymora.', 'dawp'); ?>
                     </p>
                 </div>
 

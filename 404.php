@@ -75,7 +75,7 @@ $support_links = [
                     <?php esc_html_e('This page is not available.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-foreground-muted sm:text-lg">
-                    <?php esc_html_e('The link may have changed, but the full USWS lineup - Classic and Elegant - is still a click away.', 'dawp'); ?>
+                    <?php esc_html_e('The link may have changed, but the full Genymora lineup - Classic and Elegant - is still a click away.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-accent px-6 text-sm font-bold text-white transition hover:bg-accent-hover">

@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for US Watch Store / USWS.
+ * Product category defaults for Genymora.
  *
  * Two style families - both are self-winding automatic watches.
  *
@@ -15,12 +15,12 @@ function dawp_lbq_product_categories() {
     return [
         'classic-style' => [
             'name'        => __('Classic Style', 'dawp'),
-            'description' => __('Everyday USWS automatics with legible dials and understated steel cases - the watch you reach for every morning.', 'dawp'),
+            'description' => __('Everyday Genymora automatics with legible dials and understated steel cases - the watch you reach for every morning.', 'dawp'),
             'short'       => __('Everyday automatics with legible dials and understated cases.', 'dawp'),
         ],
         'elegant-style' => [
             'name'        => __('Elegant Style', 'dawp'),
-            'description' => __('Dress USWS automatics with slim profiles, polished finishing, and refined detailing for the occasions that call for it.', 'dawp'),
+            'description' => __('Dress Genymora automatics with slim profiles, polished finishing, and refined detailing for the occasions that call for it.', 'dawp'),
             'short'       => __('Dress automatics with slim profiles and polished finishing.', 'dawp'),
         ],
     ];

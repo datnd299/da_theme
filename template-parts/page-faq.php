@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQ page for US Watch Store.
+ * FAQ page for Genymora.
  *
  * Hallmark · genre: modern-minimal · macrostructure: Conversational FAQ
  * nav: N12 · footer: Ft1 · design-system: .plans/design_system.md (locked)
@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@uswatchstore.com';
+$support_email  = 'support@genymora.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
@@ -28,15 +28,15 @@ $contact_url  = home_url('/contact-us/');
 
 $faq_groups = [
     [
-        'label' => __('About USWS', 'dawp'),
+        'label' => __('About Genymora', 'dawp'),
         'items' => [
             [
-                'question' => __('What is USWS?', 'dawp'),
-                'answer'   => __('USWS is the in-house watch line from US Watch Store. We design the watch, choose the movement, assemble it, regulate it, and inspect it before it ships. It is the only brand of watch sold on this site.', 'dawp'),
+                'question' => __('What is Genymora?', 'dawp'),
+                'answer'   => __('Genymora is our in-house watch line. We design the watch, choose the movement, assemble it, regulate it, and inspect it before it ships. It is the only brand of watch sold on this site.', 'dawp'),
             ],
             [
-                'question' => __('Where are USWS watches made?', 'dawp'),
-                'answer'   => __('USWS watches are designed and assembled by our own team. Each watch is regulated on a timing machine and inspected before dispatch.', 'dawp'),
+                'question' => __('Where are Genymora watches made?', 'dawp'),
+                'answer'   => __('Genymora watches are designed and assembled by our own team. Each watch is regulated on a timing machine and inspected before dispatch.', 'dawp'),
             ],
             [
                 'question' => __('What is the difference between Classic Style and Elegant Style?', 'dawp'),
@@ -53,11 +53,11 @@ $faq_groups = [
             ],
             [
                 'question' => __('What is the power reserve, and what happens if my watch stops?', 'dawp'),
-                'answer'   => __('A fully wound USWS movement holds roughly 38-42 hours of power reserve when off the wrist - check your watch\'s product page for the exact figure. If it stops, wind the crown about 20-30 turns to restart it, reset the time, and put it back on your wrist.', 'dawp'),
+                'answer'   => __('A fully wound Genymora movement holds roughly 38-42 hours of power reserve when off the wrist - check your watch\'s product page for the exact figure. If it stops, wind the crown about 20-30 turns to restart it, reset the time, and put it back on your wrist.', 'dawp'),
             ],
             [
                 'question' => __('How accurate is an automatic watch?', 'dawp'),
-                'answer'   => __('A mechanical movement is not quartz-accurate. A daily variance of about -10 to +20 seconds per day is normal and within specification for a USWS automatic - it is not a defect. Accuracy also shifts slightly with how much you wear it and the positions it rests in overnight.', 'dawp'),
+                'answer'   => __('A mechanical movement is not quartz-accurate. A daily variance of about -10 to +20 seconds per day is normal and within specification for a Genymora automatic - it is not a defect. Accuracy also shifts slightly with how much you wear it and the positions it rests in overnight.', 'dawp'),
             ],
             [
                 'question' => __('How do I size or adjust the strap or bracelet?', 'dawp'),
@@ -69,7 +69,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Does an automatic watch need servicing?', 'dawp'),
-                'answer'   => __('Like any mechanical watch, a USWS automatic benefits from a movement service every few years to keep timekeeping and water resistance within spec. Have servicing done by a qualified watchmaker; unauthorized case-opening voids the warranty.', 'dawp'),
+                'answer'   => __('Like any mechanical watch, a Genymora automatic benefits from a movement service every few years to keep timekeeping and water resistance within spec. Have servicing done by a qualified watchmaker; unauthorized case-opening voids the warranty.', 'dawp'),
             ],
         ],
     ],
@@ -99,7 +99,7 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('What does the 2-year warranty cover?', 'dawp'),
-                'answer'   => __('Every USWS watch includes a 2-year warranty covering defects in the automatic movement and factory assembly under normal use - such as a movement that will not wind or hold time within spec, a faulty crown, or a defective component.', 'dawp'),
+                'answer'   => __('Every Genymora watch includes a 2-year warranty covering defects in the automatic movement and factory assembly under normal use - such as a movement that will not wind or hold time within spec, a faulty crown, or a defective component.', 'dawp'),
             ],
             [
                 'question' => __('What is not covered by the warranty?', 'dawp'),
@@ -120,11 +120,11 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('How is each watch checked before it ships?', 'dawp'),
-                'answer'   => __('Every USWS watch is assembled by our team, regulated on a timing machine, and then inspected - rotor wind, crown action, water-resistance seals, and bracelet hardware - before it is packed. Case size, power reserve, water resistance, and materials are stated on each product page.', 'dawp'),
+                'answer'   => __('Every Genymora watch is assembled by our team, regulated on a timing machine, and then inspected - rotor wind, crown action, water-resistance seals, and bracelet hardware - before it is packed. Case size, power reserve, water resistance, and materials are stated on each product page.', 'dawp'),
             ],
             [
                 'question' => __('Is checkout secure?', 'dawp'),
-                'answer'   => __('Payments are processed through third-party payment providers. US Watch Store does not store full payment card numbers on its own systems.', 'dawp'),
+                'answer'   => __('Payments are processed through third-party payment providers. Genymora does not store full payment card numbers on its own systems.', 'dawp'),
             ],
             [
                 'question' => __('How do I contact support?', 'dawp'),
@@ -169,10 +169,10 @@ $quick_links = [
             <div>
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-accent-blush"><?php esc_html_e('FAQ', 'dawp'); ?></p>
                 <h1 id="faq-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-foreground sm:text-5xl">
-                    <?php esc_html_e('Quick answers about USWS automatic watches.', 'dawp'); ?>
+                    <?php esc_html_e('Quick answers about Genymora automatic watches.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-foreground-muted">
-                    <?php esc_html_e('What USWS is, how a self-winding automatic works, strap sizing, water resistance, servicing, warranty, shipping, and returns.', 'dawp'); ?>
+                    <?php esc_html_e('What Genymora is, how a self-winding automatic works, strap sizing, water resistance, servicing, warranty, shipping, and returns.', 'dawp'); ?>
                 </p>
             </div>
 
@@ -252,7 +252,7 @@ $quick_links = [
                 <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                     <div>
                         <h2 class="font-heading text-2xl font-extrabold text-foreground"><?php esc_html_e('One automatic movement, finished two ways.', 'dawp'); ?></h2>
-                        <p class="mt-3 text-sm leading-7 text-foreground-muted"><?php esc_html_e('Browse USWS in Classic and Elegant styles, with clear policy information available before checkout.', 'dawp'); ?></p>
+                        <p class="mt-3 text-sm leading-7 text-foreground-muted"><?php esc_html_e('Browse Genymora in Classic and Elegant styles, with clear policy information available before checkout.', 'dawp'); ?></p>
                     </div>
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-foreground px-6 text-sm font-bold text-white transition hover:bg-accent-hover">
                         <?php esc_html_e('Shop Watches', 'dawp'); ?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact page for US Watch Store.
+ * Contact page for Genymora.
  *
  * Hallmark · genre: modern-minimal · macrostructure: Split Studio (diptych -
  * info column paired with the support form; form field names/logic in
@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@uswatchstore.com';
+$support_email  = 'support@genymora.com';
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $track_url      = home_url('/track-order/');
@@ -52,7 +52,7 @@ $support_cards = [
 if (!empty($store_address)) {
     $support_cards[] = [
         'title' => __('Store Location', 'dawp'),
-        'copy'  => __('Our business location and fulfillment center for US Watch Store orders.', 'dawp'),
+        'copy'  => __('Our business location and fulfillment center for Genymora orders.', 'dawp'),
         'meta'  => $store_address,
         'icon'  => 'map-pin',
     ];
@@ -119,7 +119,7 @@ $render_icon = static function ($icon) {
                     <?php esc_html_e('Clear support for your watch order.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-foreground-muted">
-                    <?php esc_html_e('Have a question about an order, a watch, a return request, or store policy? Contact US Watch Store and include the details our support team needs to help.', 'dawp'); ?>
+                    <?php esc_html_e('Have a question about an order, a watch, a return request, or store policy? Contact Genymora and include the details our support team needs to help.', 'dawp'); ?>
                 </p>
             </div>
 
@@ -213,7 +213,7 @@ $render_icon = static function ($icon) {
                         <svg class="mt-0.5 h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </svg>
-                        <p><?php esc_html_e('Thank you. Your message has been sent to US Watch Store support.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Thank you. Your message has been sent to Genymora support.', 'dawp'); ?></p>
                     </div>
                 <?php elseif ($status === 'error') : ?>
                     <div class="mt-6 flex gap-3 rounded-sm border border-alert/30 bg-alert/10 p-4 text-sm leading-6 text-alert" role="alert">
@@ -271,7 +271,7 @@ $render_icon = static function ($icon) {
                         echo wp_kses(
                             sprintf(
                                 /* translators: privacy policy link */
-                                __('By submitting this form, you agree that US Watch Store may use your details to respond to your request. Review our %s for more information.', 'dawp'),
+                                __('By submitting this form, you agree that Genymora may use your details to respond to your request. Review our %s for more information.', 'dawp'),
                                 '<a class="font-bold text-accent-hover underline decoration-accent/40 underline-offset-4 transition hover:text-foreground" href="' . esc_url($privacy_url) . '">' . esc_html__('Privacy Policy', 'dawp') . '</a>'
                             ),
                             [
@@ -330,9 +330,9 @@ $render_icon = static function ($icon) {
             <div class="rounded-md border border-border bg-surface p-6 sm:p-8">
                 <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                     <div>
-                        <h2 class="font-heading text-2xl font-extrabold text-foreground"><?php esc_html_e('Transparent customer care for USWS orders.', 'dawp'); ?></h2>
+                        <h2 class="font-heading text-2xl font-extrabold text-foreground"><?php esc_html_e('Transparent customer care for Genymora orders.', 'dawp'); ?></h2>
                         <p class="mt-3 text-sm leading-7 text-foreground-muted">
-                            <?php esc_html_e('US Watch Store keeps support, shipping, return, privacy, and terms information visible so you can buy a USWS automatic with clear expectations.', 'dawp'); ?>
+                            <?php esc_html_e('Genymora keeps support, shipping, return, privacy, and terms information visible so you can buy a Genymora automatic with clear expectations.', 'dawp'); ?>
                         </p>
                     </div>
                     <div class="flex flex-col gap-3 sm:flex-row">

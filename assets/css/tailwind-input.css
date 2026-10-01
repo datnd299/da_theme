@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* === COLORS - US Watch Store backgrounds === */
+  /* === COLORS - Genymora backgrounds === */
   --color-background: #F7F9FB;
   --color-surface: #FFFFFF;
   --color-surface-alt: #EEF2F6;
 
-  /* === COLORS - US Watch Store text === */
+  /* === COLORS - Genymora text === */
   --color-foreground: #10151C;
   --color-foreground-muted: #4B5563;
   --color-muted: #64748B;
 
-  /* === COLORS - US Watch Store brand (Modern Steel & Blue) === */
+  /* === COLORS - Genymora brand (Modern Steel & Blue) === */
   --color-accent: #1F4E79;
   --color-accent-hover: #14324D;
   --color-accent-soft: #E6EDF5;

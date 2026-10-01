@@ -5,7 +5,7 @@ add_filter( 'woocommerce_admin_report_data', 'fake_sales_report_data', 999 );
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'USWS-' . $order_id;
+    return 'GNM-' . $order_id;
 }
 function fake_sales_report_data( $report_data ) {
     if ( ! is_admin() ) {
@@ -584,10 +584,10 @@ function dawp_product_json_ld_schema() {
         'name'        => $product->get_name(),
         'image'       => $image_url ? [$image_url] : [],
         'description' => wp_strip_all_tags($product->get_short_description() ?: $product->get_description()),
-        'sku'         => $product->get_sku() ?: 'USWS-' . $product->get_id(),
+        'sku'         => $product->get_sku() ?: 'GNM-' . $product->get_id(),
         'brand'       => [
             '@type' => 'Brand',
-            'name'  => 'USWS',
+            'name'  => 'Genymora',
         ],
         'offers'      => [
             '@type'           => 'Offer',

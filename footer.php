@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@uswatchstore.com';
+$support_email  = 'support@genymora.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $theme_img_uri  = get_template_directory_uri() . '/assets/img';
 
@@ -51,7 +51,7 @@ if (!$account_url) {
 
 $trust_badges = [
     ['label' => __('Free US Shipping', 'dawp'), 'detail' => __('on all orders', 'dawp')],
-    ['label' => __('2-Year Warranty', 'dawp'), 'detail' => __('on every USWS watch', 'dawp')],
+    ['label' => __('2-Year Warranty', 'dawp'), 'detail' => __('on every Genymora watch', 'dawp')],
     ['label' => __('30-Day Returns', 'dawp'), 'detail' => __('no questions asked', 'dawp')],
     ['label' => __('Timed In-House', 'dawp'), 'detail' => __('regulated before shipping', 'dawp')],
 ];
@@ -100,11 +100,11 @@ $link_groups = [
 
         <div class="flex flex-col gap-8 border-b border-white/10 pb-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center rounded-sm bg-white px-3 py-2" aria-label="<?php esc_attr_e('US Watch Store home', 'dawp'); ?>">
-                    <img src="<?php echo esc_url($theme_img_uri . '/logo.png'); ?>" alt="<?php esc_attr_e('US Watch Store', 'dawp'); ?>" class="h-8 w-auto shrink-0" width="143" height="80">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center rounded-sm bg-white px-3 py-2" aria-label="<?php esc_attr_e('Genymora home', 'dawp'); ?>">
+                    <img src="<?php echo esc_url($theme_img_uri . '/logo.svg'); ?>" alt="<?php esc_attr_e('Genymora', 'dawp'); ?>" class="h-8 w-auto shrink-0" width="260" height="64">
                 </a>
                 <p class="mt-3 max-w-sm text-sm leading-6 text-white/60">
-                    <?php esc_html_e('USWS by US Watch Store. Self-winding automatic watches in Classic and Elegant styles - designed, assembled, and timed in-house.', 'dawp'); ?>
+                    <?php esc_html_e('Genymora. Self-winding automatic watches in Classic and Elegant styles - designed, assembled, and timed in-house.', 'dawp'); ?>
                 </p>
             </div>
 
@@ -163,8 +163,8 @@ $link_groups = [
         </div>
 
         <div class="mt-6 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/45 lg:flex-row lg:items-center lg:justify-between">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> <?php esc_html_e('US Watch Store. All rights reserved.', 'dawp'); ?></p>
-            <p class="text-white/35"><?php esc_html_e('uswatchstore.com', 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> <?php esc_html_e('Genymora. All rights reserved.', 'dawp'); ?></p>
+            <p class="text-white/35"><?php esc_html_e('genymora.com', 'dawp'); ?></p>
         </div>
     </div>
 </footer>

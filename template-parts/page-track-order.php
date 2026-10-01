@@ -1,6 +1,6 @@
 <?php
 /**
- * Track order page for US Watch Store.
+ * Track order page for Genymora.
  *
  * Hallmark · genre: modern-minimal · macrostructure: standard lookup
  * convention (C2 inline-form-as-cta lookup + real WooCommerce order
@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@uswatchstore.com';
+$support_email  = 'support@genymora.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $faq_url        = home_url('/faq/');
@@ -91,7 +91,7 @@ $policy_links = [
         <div class="track-hero__inner">
             <div class="track-hero__copy">
                 <p class="track-eyebrow"><?php esc_html_e('Order Tracking', 'dawp'); ?></p>
-                <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track your US Watch Store order.', 'dawp'); ?></h1>
+                <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track your Genymora order.', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
                     <?php esc_html_e('Enter your order ID and billing email to check your shipment status, order items, and delivery details.', 'dawp'); ?>
                 </p>
@@ -198,7 +198,7 @@ $policy_links = [
         <div class="track-more-section__inner">
             <div class="track-section-heading track-section-heading--center">
                 <h2 id="track-helpful-title"><?php esc_html_e('Helpful links for your order.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Review the same store support pages used across US Watch Store.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Review the same store support pages used across Genymora.', 'dawp'); ?></p>
             </div>
 
             <div class="track-more-grid">
@@ -215,7 +215,7 @@ $policy_links = [
     <section class="track-category-section" aria-labelledby="track-category-title">
         <div class="track-category-section__inner">
             <div class="track-category-section__header">
-                <h2 id="track-category-title"><?php esc_html_e('The USWS lineup.', 'dawp'); ?></h2>
+                <h2 id="track-category-title"><?php esc_html_e('The Genymora lineup.', 'dawp'); ?></h2>
                 <p><?php esc_html_e('Two styles of self-winding automatic watch - Classic and Elegant.', 'dawp'); ?></p>
             </div>
 

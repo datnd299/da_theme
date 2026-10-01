@@ -1,7 +1,7 @@
 <?php
 add_action('after_setup_theme', 'dawp_setup');
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
-add_filter('woocommerce_shortcode_order_tracking_order_id', 'dawp_normalize_tracking_order_number', 9);
+// add_filter('woocommerce_shortcode_order_tracking_order_id', 'dawp_normalize_tracking_order_number', 9);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
     return 'TIZ-' . $order_id;

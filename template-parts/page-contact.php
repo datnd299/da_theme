@@ -11,11 +11,11 @@ if (!defined('ABSPATH')) {
 
 $theme_uri      = get_template_directory_uri();
 $theme_dir      = get_template_directory();
-$store_name     = 'MegaMallDepot';
-$support_email  = 'support@megamalldepot.com';
-$support_phone  = '757-804-6538';
+$store_name     = 'Medial Market';
+$support_email  = dawp_store('email');
+$support_phone  = dawp_store('phone');
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_address  = dawp_store('address');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $track_url      = home_url('/track-order/');
 $shipping_url   = home_url('/shipping-policy/');
@@ -137,10 +137,10 @@ $contact_faqs = [
 ?>
 
 <style>
-    .mmd-contact { --mmd-ink:#2B2B2B; --mmd-text:#4A4A4A; --mmd-ivory:#F8F5F0; --mmd-line:#E8E5DF; --mmd-accent:#A45A3F; --mmd-accent-dark:#7F422F; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
+    .mmd-contact { --mmd-ink:#13343B; --mmd-text:#3D4B50; --mmd-ivory:#F3F7F5; --mmd-line:#DDE6E2; --mmd-accent:#0F6E5E; --mmd-accent-dark:#0A5246; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:var(--font-sans); letter-spacing:0; }
     .mmd-contact * { box-sizing:border-box; }
     .mmd-contact p { margin:0; }
-    .mmd-contact h1, .mmd-contact h2, .mmd-contact h3 { margin:0; color:var(--mmd-ink); font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; line-height:1.05; letter-spacing:0; }
+    .mmd-contact h1, .mmd-contact h2, .mmd-contact h3 { margin:0; color:var(--mmd-ink); font-family:var(--font-heading); font-weight:600; line-height:1.05; letter-spacing:0; }
     .mmd-contact-container { width:min(100% - 48px, 1280px); margin-inline:auto; }
     .mmd-contact-eyebrow { margin:0 0 10px; color:var(--mmd-accent); font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
     .mmd-contact-btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--mmd-ink); border-radius:2px; padding:0 22px; font-size:.78rem; font-weight:700; letter-spacing:.035em; text-decoration:none; text-transform:uppercase; transition:background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease; }
@@ -155,7 +155,7 @@ $contact_faqs = [
     .mmd-contact-hero__grid { display:grid; gap:30px; min-height:560px; padding:42px 0; }
     .mmd-contact-hero__content { display:flex; flex-direction:column; justify-content:center; max-width:640px; }
     .mmd-contact-hero h1 { font-size:clamp(2.35rem, 5vw, 4.25rem); line-height:1.08; }
-    .mmd-contact-hero__copy { max-width:590px; margin-top:18px; color:#554E49; font-size:clamp(.96rem, 1.2vw, 1.05rem); line-height:1.7; }
+    .mmd-contact-hero__copy { max-width:590px; margin-top:18px; color:#55656A; font-size:clamp(.96rem, 1.2vw, 1.05rem); line-height:1.7; }
     .mmd-contact-hero__actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
     .mmd-contact-hero__media { min-height:360px; position:relative; overflow:hidden; }
     .mmd-contact-hero__media img { width:100%; height:100%; min-height:360px; object-fit:cover; }
@@ -168,9 +168,9 @@ $contact_faqs = [
     .mmd-contact-methods, .mmd-contact-help, .mmd-contact-steps, .mmd-contact-faq-grid { display:grid; gap:18px; }
     .mmd-contact-card, .mmd-contact-step, .mmd-contact-help-card, .mmd-contact-form-card, .mmd-contact-sidebar, .mmd-contact-faq { background:#fff; border:1px solid var(--mmd-line); border-radius:4px; transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
     .mmd-contact-card, .mmd-contact-step, .mmd-contact-help-card, .mmd-contact-faq { padding:24px; }
-    .mmd-contact-card:hover, .mmd-contact-help-card:hover, .mmd-contact-faq:hover { border-color:#D0B8AE; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
+    .mmd-contact-card:hover, .mmd-contact-help-card:hover, .mmd-contact-faq:hover { border-color:#B7D3CB; box-shadow:0 18px 34px rgba(19,52,59,.09); transform:translateY(-3px); }
     .mmd-contact-card svg { width:32px; height:32px; margin-bottom:15px; color:var(--mmd-accent); fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-    .mmd-contact-card h3, .mmd-contact-step h3, .mmd-contact-help-card h3, .mmd-contact-faq summary { font-family:Inter, Arial, sans-serif; font-size:.95rem; font-weight:800; line-height:1.34; }
+    .mmd-contact-card h3, .mmd-contact-step h3, .mmd-contact-help-card h3, .mmd-contact-faq summary { font-family:var(--font-sans); font-size:.95rem; font-weight:800; line-height:1.34; }
     .mmd-contact-card p, .mmd-contact-step p, .mmd-contact-help-card p, .mmd-contact-faq p { margin-top:10px; font-size:.92rem; line-height:1.6; }
     .mmd-contact-card a, .mmd-contact-help-card a { display:inline-flex; margin-top:16px; color:var(--mmd-accent); font-size:.78rem; font-weight:800; letter-spacing:.05em; text-decoration:none; text-transform:uppercase; }
     .mmd-contact-main { display:grid; gap:28px; align-items:start; }
@@ -181,13 +181,13 @@ $contact_faqs = [
     .mmd-contact-field label { color:var(--mmd-ink); font-size:.78rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
     .mmd-contact-field input, .mmd-contact-field select, .mmd-contact-field textarea { width:100%; border:1px solid var(--mmd-line); border-radius:2px; background:#fff; color:var(--mmd-ink); font:inherit; min-height:48px; padding:0 14px; transition:border-color .18s ease, box-shadow .18s ease; }
     .mmd-contact-field textarea { min-height:150px; padding:14px; resize:vertical; }
-    .mmd-contact-field input:focus, .mmd-contact-field select:focus, .mmd-contact-field textarea:focus { border-color:var(--mmd-accent); box-shadow:0 0 0 3px rgba(164,90,63,.12); outline:0; }
+    .mmd-contact-field input:focus, .mmd-contact-field select:focus, .mmd-contact-field textarea:focus { border-color:var(--mmd-accent); box-shadow:0 0 0 3px rgba(15,110,94,.12); outline:0; }
     .mmd-contact-form__row { display:grid; gap:14px; }
     .mmd-contact-honeypot { clip:rect(0 0 0 0); clip-path:inset(50%); height:1px; margin:-1px; overflow:hidden; position:absolute; white-space:nowrap; width:1px; }
     .mmd-contact-notice { border-radius:3px; padding:13px 14px; font-size:.9rem; font-weight:800; line-height:1.5; }
     .mmd-contact-notice--success { border:1px solid #B9D8C6; background:#F0FAF3; color:#286642; }
-    .mmd-contact-notice--error { border:1px solid #E3B5AA; background:#FFF2EF; color:#8A3327; }
-    .mmd-contact-form__note { color:#70665F; font-size:.86rem; line-height:1.55; }
+    .mmd-contact-notice--error { border:1px solid #B7D3CB; background:#E3F1ED; color:#8A3327; }
+    .mmd-contact-form__note { color:#55656A; font-size:.86rem; line-height:1.55; }
     .mmd-contact-form button { cursor:pointer; }
     .mmd-contact-sidebar dl { display:grid; gap:16px; margin:22px 0 0; }
     .mmd-contact-sidebar div { border-top:1px solid var(--mmd-line); padding-top:16px; }
@@ -195,16 +195,16 @@ $contact_faqs = [
     .mmd-contact-sidebar dd { margin:7px 0 0; font-size:.94rem; line-height:1.55; }
     .mmd-contact-steps { counter-reset:contact-step; }
     .mmd-contact-step { position:relative; padding-left:70px; }
-    .mmd-contact-step:before { counter-increment:contact-step; content:counter(contact-step, decimal-leading-zero); position:absolute; left:22px; top:22px; display:flex; align-items:center; justify-content:center; width:34px; height:34px; border:1px solid #D8C7BE; color:var(--mmd-accent); font-weight:800; }
+    .mmd-contact-step:before { counter-increment:contact-step; content:counter(contact-step, decimal-leading-zero); position:absolute; left:22px; top:22px; display:flex; align-items:center; justify-content:center; width:34px; height:34px; border:1px solid #B7D3CB; color:var(--mmd-accent); font-weight:800; }
     .mmd-contact-help-card { display:block; color:inherit; text-decoration:none; }
     .mmd-contact-faq summary { cursor:pointer; list-style:none; color:var(--mmd-ink); }
     .mmd-contact-faq summary::-webkit-details-marker { display:none; }
-    .mmd-contact-faq summary span { color:var(--mmd-accent); float:right; font-family:Inter, Arial, sans-serif; }
+    .mmd-contact-faq summary span { color:var(--mmd-accent); float:right; font-family:var(--font-sans); }
     .mmd-contact-cta { background:var(--mmd-ink); color:#fff; padding:62px 0; }
     .mmd-contact-cta__inner { display:grid; gap:22px; align-items:center; }
     .mmd-contact-cta h2 { color:#fff; }
     .mmd-contact-cta p { max-width:640px; margin-top:12px; color:rgba(255,255,255,.76); line-height:1.65; }
-    .mmd-contact-cta .mmd-contact-eyebrow { color:#D8B19F; }
+    .mmd-contact-cta .mmd-contact-eyebrow { color:#B7D3CB; }
     .mmd-contact-cta__actions { display:flex; flex-wrap:wrap; gap:12px; }
     .mmd-contact-cta .mmd-contact-btn--primary { border-color:#fff; background:#fff; color:var(--mmd-ink); }
     .mmd-contact-cta .mmd-contact-btn--primary:hover { border-color:var(--mmd-accent); background:var(--mmd-accent); color:#fff; }
@@ -219,7 +219,7 @@ $contact_faqs = [
     <section class="mmd-contact-hero" aria-labelledby="mmd-contact-title">
         <div class="mmd-contact-container mmd-contact-hero__grid">
             <div class="mmd-contact-hero__content">
-                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact MegaMallDepot', 'dawp'); ?></p>
+                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact Medial Market', 'dawp'); ?></p>
                 <h1 id="mmd-contact-title"><?php esc_html_e('Helpful support for a calmer home shopping experience.', 'dawp'); ?></h1>
                 <p class="mmd-contact-hero__copy"><?php esc_html_e('Questions about an order, delivery, product details or a return? Our customer care team is here to help you shop with confidence from inspiration to arrival.', 'dawp'); ?></p>
                 <div class="mmd-contact-hero__actions">
@@ -321,10 +321,12 @@ $contact_faqs = [
                         <dt><?php esc_html_e('Email', 'dawp'); ?></dt>
                         <dd><a class="mmd-contact-link" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
                     </div>
+                    <?php if ($support_phone) : ?>
                     <div>
                         <dt><?php esc_html_e('Phone', 'dawp'); ?></dt>
                         <dd><a class="mmd-contact-link" href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a></dd>
                     </div>
+                    <?php endif; ?>
                     <?php if ($store_address) : ?>
                         <div>
                             <dt><?php esc_html_e('Business Address', 'dawp'); ?></dt>

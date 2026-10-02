@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 56" width="252" height="56" role="img" aria-labelledby="mm-logo-title">
+  <title id="mm-logo-title">Medial Market</title>
+  <rect x="2" y="4" width="48" height="48" rx="12" fill="#0F6E5E"/>
+  <path d="M12 26.5 26 15l14 11.5" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16.5 41V29.5l9.5 7 9.5-7V41" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="41" cy="13" r="5" fill="#F08A3C" stroke="#0F6E5E" stroke-width="2"/>
+  <text x="62" y="27" font-family="'Plus Jakarta Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="22" font-weight="800" letter-spacing="-0.4" fill="#13343B">Medial</text>
+  <text x="62" y="47" font-family="'Plus Jakarta Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="700" letter-spacing="3.6" fill="#0F6E5E">MARKET</text>
+</svg>

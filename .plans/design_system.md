@@ -1,305 +1,79 @@
-# MegaMallDepot — Design System
+# Medial Market — Design System
 
-## Design Direction
+## Direction
 
-Inspired by premium home retailers like Williams Sonoma.
+Friendly, bright, value-focused home store. Clear prices, big search, orange buy buttons, calm teal brand. Conversion first; lifestyle photography supports, never hides, the products.
 
-Website should feel:
-
-* Warm
-* Elegant
-* Editorial
-* Spacious
-* Premium
-* Lifestyle-first
-
-Customers should feel they are browsing a modern home magazine rather than a discount ecommerce website.
-
-Avoid:
-
-* Marketplace appearance
-* Heavy promotional banners
-* Flash sale styling
-* Overstock product grids
-* Technology-first layouts
+Avoid: dark themes, flash-sale banners, countdowns, serif display fonts, more than one accent color per component.
 
 ---
 
-# Color System
+## Color Tokens
 
-## Primary
+Defined in `assets/css/tailwind-input.css` (`@theme`) and mirrored in `assets/css/main.css` (`:root`). Templates and WooCommerce CSS must use `var(--color-*)`.
 
-```txt
-Charcoal
-#2B2B2B
-```
+| Token | Hex | Use |
+|---|---|---|
+| `--color-foreground` | `#13343B` | Deep teal ink: headings, text, announcement bar, footer |
+| `--color-foreground-muted` | `#55656A` | Body copy, descriptions |
+| `--color-muted` | `#6B7A7E` | Captions, meta |
+| `--color-accent` | `#0F6E5E` | Brand teal: links, search button, nav "Shop All", secondary buttons |
+| `--color-accent-hover` | `#0A5246` | Teal hover |
+| `--color-accent-soft` | `#E3F1ED` | Icon chips, active nav pill |
+| `--color-accent-blush` | `#F08A3C` | Logo dot, small highlights only |
+| `--color-value` | `#C2410C` | Add to cart, Proceed to checkout, Place order, sale price/badge |
+| `--color-value-hover` | `#9A3412` | Value hover |
+| `--color-value-soft` | `#FFF1E6` | Value tint |
+| `--color-background` | `#FFFFFF` | Page |
+| `--color-surface` | `#F3F7F5` | Soft mint sections, cards hover |
+| `--color-surface-alt` | `#FBF8F3` | Warm alt section |
+| `--color-border` | `#DDE6E2` | Borders, dividers |
+| `--color-star` | `#E8A317` | Rating stars |
+| `--color-success` | `#2E7D5B` | Check marks, success notices |
+| `--color-alert` | `#B42318` | Errors |
 
-Used for:
-
-* Logo
-* Navigation
-* Headlines
-
----
-
-## Secondary
-
-```txt
-Warm Ivory
-#F8F5F0
-```
-
-Used for:
-
-* Section backgrounds
-* Hero
-* Editorial blocks
+White text on `--color-value` = 5.2:1, on `--color-accent` = 6.1:1 (AA).
 
 ---
 
-## Accent
+## Typography
 
-```txt
-Terracotta
-#A45A3F
-```
+* Headings: **Plus Jakarta Sans** 700–800 (`--font-heading`)
+* Body / UI: **Inter** 400–700 (`--font-sans`)
+* Loaded from Google Fonts in `header.php` with `display=swap`
 
-Used for:
-
-* Buttons
-* Small highlights
-* Links
+Scale: hero `clamp(2.2rem, 5vw, 3.6rem)`; section H2 `clamp(1.5rem, 2.6vw, 2.1rem)`; product title `.9rem/600`; price `1.08rem/800`.
 
 ---
 
-## Neutral
+## Layout
 
-```txt
-White
-#FFFFFF
-
-Border
-#E8E5DF
-
-Text
-#4A4A4A
-```
+* Container: `min(100% - 32px, 1280px)`
+* Section padding: 48px mobile / 64px desktop
+* Product grid: 2 cols mobile → 3 tablet (≥640px) → 4 desktop (≥1024px)
+* Category grid: 2 → 3 cols
+* Radius: cards 16px, buttons pill, inputs pill/10px
 
 ---
 
-# Typography
+## Components
 
-Headings
+**Header (not sticky):** dark announcement bar → logo + pill search (teal border, teal "Search" button) + Track / Account / Cart (orange count badge) → category nav row (Shop All teal pill + 6 categories, About/Contact right). Mobile: hamburger + logo + icons, full-width search always visible, drawer menu.
 
-```txt
-Cormorant Garamond
-```
+**Buttons:** primary buy = orange pill (`--color-value`); secondary = outlined ink pill; on-image = white pill.
 
-Body
+**Product card:** 1:1 image, sale badge (orange pill), category caption, 2-line title, stars only when real reviews exist, price (sale in orange, regular struck), full-width orange Add to cart.
 
-```txt
-Inter
-```
-
-Style:
-
-* Large elegant headings
-* Small readable body text
-* Editorial spacing
-
-Avoid:
-
-* Bold oversized typography
-* Tech fonts
-* Decorative scripts
+**Footer:** mint trust strip (4 icons) → dark teal main area (logo on white chip, contact, Shop / Customer Care / Policies) → copyright + payment logos.
 
 ---
 
-# Layout System
+## Motion
 
-Container
-
-```txt
-max-w-7xl mx-auto
-```
-
-Spacing
-
-```txt
-py-16 md:py-24
-```
-
-Grid
-
-```txt
-2–4 columns
-```
-
-Lots of whitespace.
-
-Content should breathe.
+Image hover scale 1.04–1.05, color transitions 150–250ms, button press scale .98. No auto-playing carousels, no pop-ups on load.
 
 ---
 
-# Header
+## Logo
 
-Structure
-
-```txt
-Announcement Bar
-
-Logo
-
-Search
-
-Account
-
-Wishlist
-
-Cart
-
-Category Navigation
-```
-
-Header should feel minimal and premium.
-
----
-
-# Hero Section
-
-Use large editorial photography.
-
-Layout:
-
-50% imagery
-
-50% content
-
-Content includes:
-
-* Small eyebrow
-* Elegant headline
-* Short description
-* One primary CTA
-
-Avoid crowded hero content.
-
----
-
-# Homepage Components
-
-Use:
-
-* Lifestyle Hero
-* Shop By Collection
-* Editorial Promotion
-* Featured Products
-* Seasonal Collections
-* Brand Story
-* Customer Reviews
-
-Do not place large product grids immediately after the hero.
-
----
-
-# Product Cards
-
-Display:
-
-* Large image
-* Product name
-* Price
-* Rating
-* Quick View
-
-Hover:
-
-* Soft image zoom
-* Fade transition
-
-No aggressive sale badges.
-
----
-
-# Image Direction
-
-Use:
-
-* Bright kitchens
-* Modern dining rooms
-* Elegant living spaces
-* Natural lighting
-* Premium home styling
-* Lifestyle photography
-
-Products should appear inside beautiful homes.
-
-Avoid:
-
-* White cutout backgrounds only
-* Dark scenes
-* Heavy graphics
-* Busy compositions
-
----
-
-# Buttons
-
-Primary
-
-```txt
-Background
-#2B2B2B
-
-Text
-White
-```
-
-Secondary
-
-```txt
-Border
-#2B2B2B
-
-Background
-Transparent
-```
-
-Buttons should feel refined rather than promotional.
-
----
-
-# Motion
-
-Use:
-
-* Fade In
-* Soft hover
-* Image zoom
-* Gentle transitions
-
-Avoid:
-
-* Fast sliders
-* Flashing banners
-* Large animations
-
----
-
-# Visual Style
-
-Every section should alternate between:
-
-* Editorial storytelling
-* Lifestyle imagery
-* Product collections
-
-The homepage should read like a premium home inspiration magazine instead of a traditional ecommerce catalog.
-
----
-
-# Final Feeling
-
-MegaMallDepot should feel like:
-
-"A thoughtfully curated home destination where customers discover beautiful products through inspiring spaces, timeless design and a calm shopping experience."
+`assets/img/medialmarket-logo.svg` — teal rounded-square house/M mark with orange dot, "Medial" wordmark + spaced "MARKET".

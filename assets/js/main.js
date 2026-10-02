@@ -3,13 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.querySelector('.menu-toggle');
     const nav    = document.querySelector('.main-navigation');
 
-    // Scroll shadow
-    if (header) {
-        const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-    }
-
     // Mobile menu toggle
     if (toggle && nav) {
         toggle.addEventListener('click', () => {

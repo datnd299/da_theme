@@ -1,7 +1,7 @@
 <?php
 /**
- * MegaMallDepot - Shop / Archive Product Template
- * Design System: Modern general merchandise, conversion-first
+ * Medial Market - Shop / Archive Product Template
+ * Design System: Budget-friendly home & living, conversion-first
  * Section 10: Category / Shop Page rules
  */
 defined('ABSPATH') || exit;
@@ -12,8 +12,8 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse practical home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products from MegaMallDepot.', 'dawp');
-$archive_eyebrow = __('MegaMallDepot Collection', 'dawp');
+$archive_description = __('Browse budget-friendly furniture, kitchen and dining, outdoor and patio, home decor, kids and pet essentials from Medial Market, with free U.S. standard shipping.', 'dawp');
+$archive_eyebrow = __('Medial Market Collection', 'dawp');
 $archive_slug = 'shop';
 $home_image = static function ($filename) {
     return get_theme_file_uri('assets/img/home/' . $filename);
@@ -24,44 +24,32 @@ $gallery_image = static function ($filename) {
 
 $shop_cover_images = [
     'shop' => [
-        'url' => $home_image('Home_essentials_on_shelf_202607171221.jpeg'),
-        'alt' => __('Curated home essentials arranged on a warm modern shelf', 'dawp'),
-    ],
-    'home' => [
-        'url' => $home_image('Home_essentials_on_shelf_202607171221.jpeg'),
-        'alt' => __('Bright modern shelves styled with everyday home essentials', 'dawp'),
-    ],
-    'garden-tools' => [
-        'url' => $gallery_image('Garden_lounge_area_with_hanging_202607161300.jpeg'),
-        'alt' => __('Garden lounge area with outdoor tools and patio essentials', 'dawp'),
-    ],
-    'electronics' => [
         'url' => $home_image('Living_Room.jpeg'),
-        'alt' => __('Modern living room ready for entertainment and connected devices', 'dawp'),
+        'alt' => __('Bright living room with a gray sofa, media console and floor lamp', 'dawp'),
     ],
-    'auto-tire' => [
-        'url' => $home_image('Auto_Tire_category_cover.png'),
-        'alt' => __('Auto and tire essentials arranged in a clean modern garage', 'dawp'),
+    'furniture' => [
+        'url' => $home_image('Modern_furniture_clean-lined_pieces_202607171201.jpeg'),
+        'alt' => __('Clean-lined living room furniture in neutral tones', 'dawp'),
     ],
-    'sports-outdoors' => [
-        'url' => $gallery_image('Home_gym_setup_cork_mat_202607241524.jpeg'),
-        'alt' => __('Home gym setup with fitness and outdoor activity gear', 'dawp'),
+    'kitchen-dining' => [
+        'url' => $home_image('Kitchen_need.jpeg'),
+        'alt' => __('Bright kitchen with cookware and everyday dining essentials', 'dawp'),
     ],
-    'toys-outdoor-play' => [
+    'outdoor-patio' => [
+        'url' => $home_image('Outdoor.jpeg'),
+        'alt' => __('Patio seating area ready for outdoor living', 'dawp'),
+    ],
+    'home-decor' => [
+        'url' => $home_image('Bedroom.jpeg'),
+        'alt' => __('Calm bedroom styled with layered bedding and decor', 'dawp'),
+    ],
+    'kids-baby' => [
         'url' => $gallery_image('Children_playing_tumble_tower_game_202607241524.jpeg'),
-        'alt' => __('Children playing an outdoor tumble tower game', 'dawp'),
-    ],
-    'beauty-personal-care' => [
-        'url' => $gallery_image('Skincare_bottles_on_marble_vanity_202607241524.jpeg'),
-        'alt' => __('Skincare and personal care bottles arranged on a marble vanity', 'dawp'),
+        'alt' => __('Children playing a tumble tower game together', 'dawp'),
     ],
     'pets' => [
         'url' => $gallery_image('Pet_bed_with_cat_202607241524.jpeg'),
-        'alt' => __('Comfortable pet bed styled for everyday pet care', 'dawp'),
-    ],
-    'school-office-art-supplies' => [
-        'url' => $gallery_image('Minimalist_home_office_desk_setup_202607241524.jpeg'),
-        'alt' => __('Minimalist desk setup with office and school supplies', 'dawp'),
+        'alt' => __('Cat resting on a soft pet bed', 'dawp'),
     ],
 ];
 if ($archive_term && !is_wp_error($archive_term)) {
@@ -343,7 +331,7 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
                 loadMoreBtn.style.paddingLeft = '2rem';
                 loadMoreBtn.style.paddingRight = '2rem';
                 loadMoreBtn.style.borderRadius = '0.375rem';
-                loadMoreBtn.style.backgroundColor = '#A45A3F';
+                loadMoreBtn.style.backgroundColor = '#0F6E5E';
                 loadMoreBtn.style.color = '#ffffff';
                 loadMoreBtn.style.fontWeight = '700';
                 loadMoreBtn.style.fontSize = '0.875rem';
@@ -351,8 +339,8 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
                 loadMoreBtn.style.cursor = 'pointer';
                 loadMoreBtn.style.transition = 'background-color 0.2s';
                 
-                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#7F422F'; };
-                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#A45A3F'; };
+                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#0A5246'; };
+                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#0F6E5E'; };
 
                 loadMoreBtn.innerHTML = 'Load More Product';
                 

@@ -19,6 +19,11 @@ if (!is_wp_error($cats) && !empty($cats)) {
         $cat_name = $cat->name;
         break;
     }
+
+    // Imported products often sit only in leaf categories (e.g. "Bar Stools").
+    if ('' === $cat_name) {
+        $cat_name = $cats[0]->name;
+    }
 }
 ?>
 <li <?php wc_product_class('product-card', $product); ?>>

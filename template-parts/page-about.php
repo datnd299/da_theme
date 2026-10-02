@@ -1,6 +1,6 @@
 <?php
 /**
- * Premium about page template part.
+ * Medial Market about page template part.
  *
  * @package dawp
  */
@@ -9,211 +9,177 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$theme_uri   = get_template_directory_uri();
-$theme_dir   = get_template_directory();
-$shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-$contact_url = home_url('/contact-us/');
-$returns_url = home_url('/return-refund-policy/');
-$shipping_url = home_url('/shipping-policy/');
-$store_address = '57 Calvert St, Woodbridge, VA 22191-2840';
+$theme_uri     = get_template_directory_uri();
+$theme_dir     = get_template_directory();
+$shop_url      = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$contact_url   = home_url('/contact-us/');
+$store_name    = dawp_store('name');
+$support_email = dawp_store('email');
+$support_phone = dawp_store('phone');
+$store_address = dawp_store('address');
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$mmd_about_asset = static function ($file) use ($theme_uri, $theme_dir) {
-    $relative = 'assets/img/gallery/' . $file;
-    $path     = $theme_dir . '/' . $relative;
-
-    if (!file_exists($path)) {
-        $relative = 'assets/img/home/' . $file;
-        $path     = $theme_dir . '/' . $relative;
+$mm_about_img = static function ($file, $alt, $width = 900, $height = 700, $loading = 'lazy', $sizes = '', $priority = '') use ($theme_uri, $theme_dir) {
+    $url = $theme_uri . '/assets/img/home/' . $file;
+    foreach (['assets/img/home/', 'assets/img/gallery/'] as $dir) {
+        if (file_exists($theme_dir . '/' . $dir . $file)) {
+            $url = add_query_arg('ver', filemtime($theme_dir . '/' . $dir . $file), $theme_uri . '/' . $dir . $file);
+            break;
+        }
     }
 
-    $url = $theme_uri . '/' . $relative;
-
-    if (file_exists($path)) {
-        return add_query_arg('ver', filemtime($path), $url);
-    }
-
-    return $url;
+    return dawp_get_responsive_image($url, $alt, '', $width, $height, $loading, $sizes, $priority);
 };
 
-$mmd_about_img = static function ($file, $alt, $class = '', $width = 900, $height = 700, $loading = 'lazy', $sizes = '') use ($mmd_about_asset) {
-    $url = $mmd_about_asset($file);
-
-    if (function_exists('dawp_get_responsive_image')) {
-        return dawp_get_responsive_image($url, $alt, $class, $width, $height, $loading, $sizes);
-    }
-
-    return sprintf(
-        '<img src="%s" alt="%s" class="%s" width="%d" height="%d" loading="%s" decoding="async">',
-        esc_url($url),
-        esc_attr($alt),
-        esc_attr($class),
-        (int) $width,
-        (int) $height,
-        esc_attr($loading)
-    );
-};
+$categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [];
 
 $principles = [
     [
-        'title' => __('Practical, everyday selection', 'dawp'),
-        'copy'  => __('We look for products that genuinely make everyday life easier, from home and kitchen basics to outdoor gear, tech, toys and family essentials.', 'dawp'),
+        'title' => __('Focused on the home', 'dawp'),
+        'copy'  => __('We stay in one lane: furniture, kitchen, outdoor, decor, kids and pet essentials. A focused catalog makes it easier to compare options and find the right fit.', 'dawp'),
     ],
     [
-        'title' => __('Built for real households', 'dawp'),
-        'copy'  => __('Our catalog is shaped around real routines: busy kitchens, home offices, active outdoor time, pet care, school needs and everyday family life.', 'dawp'),
+        'title' => __('Fair, visible pricing', 'dawp'),
+        'copy'  => __('Prices are shown on every product card and product page. Standard U.S. shipping is free, and any optional upgrade is shown at checkout before you pay.', 'dawp'),
     ],
     [
-        'title' => __('Clear, organized shopping', 'dawp'),
-        'copy'  => __('With departments spanning home, electronics, outdoors, beauty, pets and school supplies, we keep each category clearly organized with honest product details.', 'dawp'),
+        'title' => __('Clear product details', 'dawp'),
+        'copy'  => __('Product pages list dimensions, materials, color options and what is included, so you know what is arriving before you order.', 'dawp'),
+    ],
+    [
+        'title' => __('Policies in plain English', 'dawp'),
+        'copy'  => __('Shipping times, the 30-day return window and refund timing are written out clearly and linked from every page of the store.', 'dawp'),
     ],
 ];
 
-$values = [
-    __('Everyday home & kitchen essentials', 'dawp'),
-    __('Electronics, outdoor gear & family supplies', 'dawp'),
-    __('Transparent shipping and returns', 'dawp'),
-    __('Helpful support after purchase', 'dawp'),
-];
-
-$trust_items = [
-    [__('Secure Checkout', 'dawp'), __('Encrypted checkout helps protect your payment details from cart to confirmation.', 'dawp')],
-    [__('Fast Shipping', 'dawp'), __('Orders are handled in 1-2 business days, with estimated delivery usually in 4-7 business days.', 'dawp')],
-    [__('Easy Returns', 'dawp'), __('Eligible unused items can be returned within 30 days after delivery.', 'dawp')],
-    [__('Order Tracking', 'dawp'), __('Tracking details are provided once your order ships so you can follow each step.', 'dawp')],
+$facts = [
+    ['label' => __('Shipping', 'dawp'), 'value' => __('Free standard shipping on U.S. orders, usually 4-7 business days', 'dawp'), 'url' => home_url('/shipping-policy/')],
+    ['label' => __('Returns', 'dawp'), 'value' => __('30 days from delivery for unused items in original packaging', 'dawp'), 'url' => home_url('/return-refund-policy/')],
+    ['label' => __('Payments', 'dawp'), 'value' => __('Visa, Mastercard, American Express and PayPal via secure checkout', 'dawp'), 'url' => home_url('/terms-conditions/')],
+    ['label' => __('Support', 'dawp'), 'value' => __('Email replies within 1 business day, Monday to Friday', 'dawp'), 'url' => $contact_url],
 ];
 ?>
 
 <style>
-    .mmd-about { --mmd-ink:#2B2B2B; --mmd-text:#4A4A4A; --mmd-ivory:#F8F5F0; --mmd-line:#E8E5DF; --mmd-accent:#A45A3F; --mmd-accent-dark:#7F422F; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
-    .mmd-about * { box-sizing:border-box; }
-    .mmd-about p { margin:0; }
-    .mmd-about h1, .mmd-about h2, .mmd-about h3 { margin:0; color:var(--mmd-ink); font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; line-height:1.05; letter-spacing:0; }
-    .mmd-about-container { width:min(100% - 48px, 1280px); margin-inline:auto; }
-    .mmd-about-eyebrow { margin:0 0 10px; color:var(--mmd-accent); font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
-    .mmd-about-btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--mmd-ink); border-radius:2px; padding:0 22px; font-size:.78rem; font-weight:700; letter-spacing:.035em; text-decoration:none; text-transform:uppercase; transition:background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease; }
-    .mmd-about-btn:hover { transform:translateY(-1px); }
-    .mmd-about-btn--primary { background:var(--mmd-ink); color:#fff; }
-    .mmd-about-btn--primary:hover { background:var(--mmd-accent); border-color:var(--mmd-accent); color:#fff; }
-    .mmd-about-btn--secondary { background:transparent; color:var(--mmd-ink); }
-    .mmd-about-btn--secondary:hover { background:var(--mmd-ink); color:#fff; }
-    .mmd-about-link { color:var(--mmd-accent); font-weight:800; text-decoration:none; }
-    .mmd-about-link:hover { color:var(--mmd-accent-dark); text-decoration:underline; text-underline-offset:4px; }
-    .mmd-about-hero { background:var(--mmd-ivory); border-bottom:1px solid var(--mmd-line); }
-    .mmd-about-hero__grid { display:grid; gap:30px; min-height:560px; padding:42px 0; }
-    .mmd-about-hero__content { display:flex; flex-direction:column; justify-content:center; max-width:640px; }
-    .mmd-about-hero h1 { font-size:clamp(2.35rem, 5vw, 4.25rem); line-height:1.08; }
-    .mmd-about-hero__copy { max-width:590px; margin-top:18px; color:#554E49; font-size:clamp(.96rem, 1.2vw, 1.05rem); line-height:1.7; }
-    .mmd-about-hero__actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
-    .mmd-about-hero__media { min-height:360px; position:relative; overflow:hidden; }
-    .mmd-about-hero__media img { width:100%; height:100%; min-height:360px; object-fit:cover; }
-    .mmd-about-hero__note { position:absolute; right:18px; bottom:18px; max-width:280px; background:rgba(255,255,255,.94); border:1px solid var(--mmd-line); padding:16px; color:var(--mmd-ink); font-size:.84rem; line-height:1.5; }
-    .mmd-about-section { padding:68px 0; }
-    .mmd-about-section--soft { background:var(--mmd-ivory); }
-    .mmd-about-section__head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:28px; }
-    .mmd-about-section__head h2 { font-size:clamp(1.7rem, 2.8vw, 2.55rem); line-height:1.12; }
-    .mmd-about-section__head p:not(.mmd-about-eyebrow) { max-width:600px; margin-top:10px; font-size:.95rem; line-height:1.62; }
-    .mmd-about-story { display:grid; gap:32px; align-items:center; }
-    .mmd-about-story__media { display:grid; grid-template-columns:1fr .76fr; gap:14px; align-items:end; }
-    .mmd-about-story__media img { width:100%; object-fit:cover; }
-    .mmd-about-story__media img:first-child { aspect-ratio:4/5; }
-    .mmd-about-story__media img:last-child { aspect-ratio:4/3; margin-bottom:34px; }
-    .mmd-about-story__content h2 { font-size:clamp(1.75rem, 3vw, 2.65rem); line-height:1.12; }
-    .mmd-about-story__content p { margin-top:16px; line-height:1.68; font-size:.96rem; }
-    .mmd-about-values { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
-    .mmd-about-values span { border:1px solid #D8C7BE; background:#fff; color:var(--mmd-ink); padding:9px 12px; font-size:.78rem; font-weight:800; letter-spacing:.03em; text-transform:uppercase; }
-    .mmd-about-address { margin-top:20px; font-size:.92rem; line-height:1.6; color:var(--mmd-text); }
-    .mmd-about-address strong { color:var(--mmd-ink); }
-    .mmd-about-principles, .mmd-about-trust, .mmd-about-policy-grid, .mmd-about-gallery { display:grid; gap:18px; }
-    .mmd-about-principles { grid-template-columns:1fr; }
-    .mmd-about-card, .mmd-about-trust-card, .mmd-about-policy-card { background:#fff; border:1px solid var(--mmd-line); border-radius:4px; transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
-    .mmd-about-card { padding:26px; }
-    .mmd-about-card h3, .mmd-about-trust-card h3, .mmd-about-policy-card h3 { font-family:Inter, Arial, sans-serif; font-size:.94rem; font-weight:800; line-height:1.32; }
-    .mmd-about-card p, .mmd-about-trust-card p, .mmd-about-policy-card p { margin-top:10px; font-size:.92rem; line-height:1.6; }
-    .mmd-about-card:hover, .mmd-about-trust-card:hover, .mmd-about-policy-card:hover { border-color:#D0B8AE; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
-    .mmd-about-feature { display:grid; gap:28px; align-items:center; }
-    .mmd-about-feature__media { min-height:330px; overflow:hidden; }
-    .mmd-about-feature__media img { width:100%; height:100%; min-height:330px; object-fit:cover; }
-    .mmd-about-feature__content h2 { font-size:clamp(1.75rem, 3vw, 2.65rem); line-height:1.12; }
-    .mmd-about-feature__content p { margin-top:16px; line-height:1.68; font-size:.96rem; }
-    .mmd-about-feature__content .mmd-about-btn { margin-top:28px; }
-    .mmd-about-trust { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-about-trust-card { padding:22px; }
-    .mmd-about-trust-card span { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; margin-bottom:14px; border:1px solid #D8C7BE; color:var(--mmd-accent); font-weight:800; }
-    .mmd-about-policy-grid { grid-template-columns:1fr; }
-    .mmd-about-policy-card { display:block; color:inherit; padding:24px; text-decoration:none; }
-    .mmd-about-gallery { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-about-gallery img { width:100%; aspect-ratio:1; object-fit:cover; }
-    .mmd-about-cta { background:var(--mmd-ink); color:#fff; padding:62px 0; }
-    .mmd-about-cta__inner { display:grid; gap:22px; align-items:center; }
-    .mmd-about-cta h2 { color:#fff; font-size:clamp(1.75rem, 3vw, 2.65rem); }
-    .mmd-about-cta p { max-width:620px; margin-top:12px; color:rgba(255,255,255,.76); line-height:1.65; }
-    .mmd-about-cta .mmd-about-eyebrow { color:#D8B19F; }
-    .mmd-about-cta__actions { display:flex; flex-wrap:wrap; gap:12px; }
-    .mmd-about-cta .mmd-about-btn--primary { border-color:#fff; background:#fff; color:var(--mmd-ink); }
-    .mmd-about-cta .mmd-about-btn--primary:hover { border-color:var(--mmd-accent); background:var(--mmd-accent); color:#fff; }
-    .mmd-about-cta .mmd-about-btn--secondary { border-color:rgba(255,255,255,.55); color:#fff; }
-    .mmd-about-cta .mmd-about-btn--secondary:hover { border-color:#fff; background:#fff; color:var(--mmd-ink); }
-    @media (min-width:700px) { .mmd-about-principles { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-about-policy-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-about-gallery { grid-template-columns:repeat(4, minmax(0, 1fr)); } }
-    @media (min-width:900px) { .mmd-about-hero__grid { grid-template-columns:.94fr 1.06fr; } .mmd-about-story { grid-template-columns:1.06fr .94fr; } .mmd-about-feature { grid-template-columns:.96fr 1.04fr; } .mmd-about-trust { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-about-cta__inner { grid-template-columns:1fr auto; } .mmd-about-cta__actions { justify-content:flex-end; } }
-    @media (max-width:699px) { .mmd-about-container { width:min(100% - 40px, 1280px); } .mmd-about-section { padding:50px 0; } .mmd-about-section__head { align-items:start; flex-direction:column; } .mmd-about-principles, .mmd-about-trust, .mmd-about-policy-grid { display:flex; gap:14px; margin-inline:0; overflow-x:auto; padding-inline:0; padding-bottom:4px; scroll-snap-type:x mandatory; scrollbar-width:none; } .mmd-about-principles::-webkit-scrollbar, .mmd-about-trust::-webkit-scrollbar, .mmd-about-policy-grid::-webkit-scrollbar { display:none; } .mmd-about-card, .mmd-about-trust-card, .mmd-about-policy-card { flex:0 0 clamp(17rem, 82vw, 21rem); max-width:clamp(17rem, 82vw, 21rem); scroll-snap-align:start; } .mmd-about-gallery { gap:10px; } .mmd-about-hero__note { left:14px; right:14px; } .mmd-about-cta__actions .mmd-about-btn { width:100%; } }
+    .mm-about { color:var(--color-foreground); font-family:var(--font-sans); }
+    .mm-about *, .mm-about *::before, .mm-about *::after { box-sizing:border-box; }
+    .mm-about h1, .mm-about h2, .mm-about h3 { margin:0; color:var(--color-foreground); font-family:var(--font-heading); letter-spacing:-.01em; }
+    .mm-about p { margin:0; }
+    .mm-about__wrap { width:min(100% - 32px, 1280px); margin-inline:auto; }
+    .mm-about__eyebrow { margin-bottom:12px; color:var(--color-accent); font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .mm-about__section { padding:48px 0; }
+    .mm-about__section--soft { background:var(--color-surface); }
+    .mm-about__btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; border:2px solid transparent; border-radius:var(--radius-pill); padding:0 26px; font-size:.95rem; font-weight:700; text-decoration:none; transition:background var(--duration-fast) var(--ease-fluid), color var(--duration-fast) var(--ease-fluid); }
+    .mm-about__btn--value { background:var(--color-value); color:#fff; }
+    .mm-about__btn--value:hover { background:var(--color-value-hover); color:#fff; }
+    .mm-about__btn--ghost { border-color:var(--color-foreground); color:var(--color-foreground); }
+    .mm-about__btn--ghost:hover { background:var(--color-foreground); color:#fff; }
+    .mm-about__hero { background:linear-gradient(180deg, var(--color-surface) 0%, #fff 100%); }
+    .mm-about__hero-grid { display:grid; gap:28px; align-items:center; padding:32px 0 48px; }
+    .mm-about__hero h1 { font-size:clamp(2rem, 4.4vw, 3.2rem); font-weight:800; line-height:1.1; }
+    .mm-about__lead { max-width:560px; margin-top:16px; color:var(--color-foreground-muted); font-size:1.05rem; line-height:1.7; }
+    .mm-about__actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+    .mm-about__media { border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4 / 3; box-shadow:var(--shadow-card-hover); }
+    .mm-about__media img { display:block; width:100%; height:100%; object-fit:cover; }
+    .mm-about__story { display:grid; gap:28px; align-items:center; }
+    .mm-about__story h2, .mm-about__head h2 { font-size:clamp(1.5rem, 2.6vw, 2.1rem); font-weight:800; line-height:1.2; }
+    .mm-about__story p:not(.mm-about__eyebrow) { margin-top:14px; color:var(--color-foreground-muted); line-height:1.75; }
+    .mm-about__head { max-width:720px; margin-bottom:24px; }
+    .mm-about__head p:not(.mm-about__eyebrow) { margin-top:10px; color:var(--color-foreground-muted); line-height:1.65; }
+    .mm-about__cats { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:12px; }
+    .mm-about__cat { display:block; border:1px solid var(--color-border); border-radius:var(--radius-lg); background:#fff; padding:18px; color:inherit; text-decoration:none; transition:border-color var(--duration-fast) var(--ease-fluid), box-shadow var(--duration-fast) var(--ease-fluid); }
+    .mm-about__cat:hover { border-color:var(--color-accent); box-shadow:var(--shadow-card); }
+    .mm-about__cat h3 { font-size:1rem; font-weight:700; }
+    .mm-about__cat p { margin-top:6px; color:var(--color-foreground-muted); font-size:.88rem; line-height:1.5; }
+    .mm-about__cards { display:grid; gap:14px; }
+    .mm-about__card { border:1px solid var(--color-border); border-radius:var(--radius-lg); background:#fff; padding:22px; }
+    .mm-about__card h3 { font-size:1.05rem; font-weight:700; }
+    .mm-about__card p { margin-top:8px; color:var(--color-foreground-muted); font-size:.92rem; line-height:1.65; }
+    .mm-about__facts { display:grid; gap:12px; margin:0; }
+    .mm-about__fact { display:block; border-left:4px solid var(--color-accent); border-radius:var(--radius-sm); background:#fff; padding:16px 18px; color:inherit; text-decoration:none; }
+    .mm-about__fact strong { display:block; color:var(--color-accent); font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .mm-about__fact span { display:block; margin-top:6px; font-weight:600; line-height:1.5; }
+    .mm-about__info { border-radius:var(--radius-lg); background:var(--color-foreground); color:rgba(255,255,255,.85); padding:28px; }
+    .mm-about__info h2 { color:#fff; font-size:1.4rem; font-weight:800; }
+    .mm-about__info dl { display:grid; gap:12px; margin:18px 0 0; }
+    .mm-about__info dt { color:#fff; font-weight:700; }
+    .mm-about__info dd { margin:2px 0 0; }
+    .mm-about__info a { color:#FFD3B0; }
+    @media (min-width: 640px) {
+        .mm-about__cats { grid-template-columns:repeat(3, minmax(0, 1fr)); }
+        .mm-about__cards { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+        .mm-about__facts { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1024px) {
+        .mm-about__section { padding:64px 0; }
+        .mm-about__hero-grid { grid-template-columns:1fr 1.05fr; gap:56px; padding:48px 0 64px; }
+        .mm-about__story { grid-template-columns:1fr 1fr; gap:56px; }
+        .mm-about__cards { grid-template-columns:repeat(4, minmax(0, 1fr)); }
+        .mm-about__trust { display:grid; grid-template-columns:1.4fr 1fr; gap:32px; align-items:start; }
+    }
 </style>
 
-<div class="mmd-about">
-    <section class="mmd-about-hero" aria-labelledby="mmd-about-title">
-        <div class="mmd-about-container mmd-about-hero__grid">
-            <div class="mmd-about-hero__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('About MegaMallDepot', 'dawp'); ?></p>
-                <h1 id="mmd-about-title"><?php esc_html_e('An everyday essentials store built for real American households.', 'dawp'); ?></h1>
-                <p class="mmd-about-hero__copy"><?php esc_html_e('MegaMallDepot helps families handle everyday life in one place, from home and kitchen essentials to electronics, outdoor gear, toys, beauty care, pet supplies and school essentials.', 'dawp'); ?></p>
-                <div class="mmd-about-hero__actions">
-                    <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
-                    <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
+<div class="mm-about">
+    <section class="mm-about__hero" aria-labelledby="mm-about-title">
+        <div class="mm-about__wrap mm-about__hero-grid">
+            <div>
+                <p class="mm-about__eyebrow"><?php esc_html_e('About Medial Market', 'dawp'); ?></p>
+                <h1 id="mm-about-title"><?php esc_html_e('Your budget-friendly market for a well-furnished home.', 'dawp'); ?></h1>
+                <p class="mm-about__lead"><?php esc_html_e('Medial Market is an online home and living store serving customers across the United States. We bring furniture, kitchen, outdoor, decor, kids and pet essentials together in one place, at prices that leave room in the budget.', 'dawp'); ?></p>
+                <div class="mm-about__actions">
+                    <a class="mm-about__btn mm-about__btn--value" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop All Products', 'dawp'); ?></a>
+                    <a class="mm-about__btn mm-about__btn--ghost" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
                 </div>
             </div>
-            <div class="mmd-about-hero__media">
-                <?php echo $mmd_about_img('Living_Room.jpeg', __('Bright living room styled with refined furniture and decor', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
-                <div class="mmd-about-hero__note"><?php esc_html_e('Our point of view is simple: everyday shopping should be easy, honest and organized by what you actually need.', 'dawp'); ?></div>
+            <div class="mm-about__media">
+                <?php echo $mm_about_img('Living_Room.jpeg', __('Bright living room with a gray sofa, media console and floor lamp', 'dawp'), 1376, 768, 'eager', '(max-width: 1023px) 100vw, 50vw', 'high'); ?>
             </div>
         </div>
     </section>
 
-    <section class="mmd-about-section" aria-labelledby="mmd-about-story-title">
-        <div class="mmd-about-container mmd-about-story">
-            <div class="mmd-about-story__media">
-                <?php echo $mmd_about_img('Dining.jpeg', __('Elegant dining room with natural light', 'dawp'), '', 620, 780, 'lazy', '(max-width: 899px) 58vw, 31vw'); ?>
-                <?php echo $mmd_about_img('Home_essentials_on_shelf_202607171221.jpeg', __('Curated home essentials arranged on a shelf', 'dawp'), '', 480, 360, 'lazy', '(max-width: 899px) 43vw, 23vw'); ?>
+    <section class="mm-about__section" aria-labelledby="mm-about-story-title">
+        <div class="mm-about__wrap mm-about__story">
+            <div class="mm-about__media">
+                <?php echo $mm_about_img('Home_essentials_on_shelf_202607171221.jpeg', __('Wooden shelf with folded linens, a ceramic pitcher and a potted plant', 'dawp'), 1376, 768, 'lazy', '(max-width: 1023px) 100vw, 50vw'); ?>
             </div>
-            <div class="mmd-about-story__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('Our Story', 'dawp'); ?></p>
-                <h2 id="mmd-about-story-title"><?php esc_html_e('Built for the everyday needs of a busy household.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('We built MegaMallDepot to make everyday shopping simpler for busy households: one place for home essentials, electronics, outdoor gear, toys, beauty care, pet supplies and school essentials, each selected for real, practical use rather than just filling a catalog.', 'dawp'); ?></p>
-                <p><?php esc_html_e('Every department is chosen for usefulness, reliable quality and fair pricing, so it is easier to take care of a home and family without shopping across a dozen different stores.', 'dawp'); ?></p>
-                <div class="mmd-about-values">
-                    <?php foreach ($values as $value) : ?>
-                        <span><?php echo esc_html($value); ?></span>
-                    <?php endforeach; ?>
-                </div>
-                <p class="mmd-about-address"><strong><?php esc_html_e('Store Address:', 'dawp'); ?></strong> <?php echo esc_html($store_address); ?></p>
+            <div>
+                <p class="mm-about__eyebrow"><?php esc_html_e('Why we exist', 'dawp'); ?></p>
+                <h2 id="mm-about-story-title"><?php esc_html_e('A comfortable home should not require a big budget.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Setting up a first apartment, refreshing a living room, making space for a new baby or getting the patio ready for summer usually means buying from several different stores. Medial Market brings those everyday home categories into one organized shop.', 'dawp'); ?></p>
+                <p><?php esc_html_e('We focus on practical pieces with clear specifications and honest prices, ship them free within the U.S., and keep a team available by email to answer questions before and after you buy.', 'dawp'); ?></p>
             </div>
         </div>
     </section>
 
-    <section class="mmd-about-section mmd-about-section--soft" aria-labelledby="mmd-about-principles-title">
-        <div class="mmd-about-container">
-            <div class="mmd-about-section__head">
-                <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('What Guides Us', 'dawp'); ?></p>
-                    <h2 id="mmd-about-principles-title"><?php esc_html_e('A refined shopping experience, from inspiration to checkout.', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Our store is organized by department, so browsing across home, electronics, outdoors, beauty, pets and school essentials stays easy, warm and helpful.', 'dawp'); ?></p>
-                </div>
+    <section class="mm-about__section mm-about__section--soft" aria-labelledby="mm-about-cats-title">
+        <div class="mm-about__wrap">
+            <div class="mm-about__head">
+                <p class="mm-about__eyebrow"><?php esc_html_e('What we carry', 'dawp'); ?></p>
+                <h2 id="mm-about-cats-title"><?php esc_html_e('Six departments for every corner of the home', 'dawp'); ?></h2>
             </div>
-            <div class="mmd-about-principles">
+            <div class="mm-about__cats">
+                <?php foreach ($categories as $slug => $category) : ?>
+                    <a class="mm-about__cat" href="<?php echo esc_url(dawp_product_category_url($slug)); ?>">
+                        <h3><?php echo esc_html($category['name']); ?></h3>
+                        <p><?php echo esc_html($category['short']); ?></p>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="mm-about__section" aria-labelledby="mm-about-principles-title">
+        <div class="mm-about__wrap">
+            <div class="mm-about__head">
+                <p class="mm-about__eyebrow"><?php esc_html_e('How we work', 'dawp'); ?></p>
+                <h2 id="mm-about-principles-title"><?php esc_html_e('What you can expect when you shop with us', 'dawp'); ?></h2>
+            </div>
+            <div class="mm-about__cards">
                 <?php foreach ($principles as $principle) : ?>
-                    <article class="mmd-about-card">
+                    <article class="mm-about__card">
                         <h3><?php echo esc_html($principle['title']); ?></h3>
                         <p><?php echo esc_html($principle['copy']); ?></p>
                     </article>
@@ -222,94 +188,37 @@ $trust_items = [
         </div>
     </section>
 
-    <section class="mmd-about-section" aria-labelledby="mmd-about-curation-title">
-        <div class="mmd-about-container mmd-about-feature">
-            <div class="mmd-about-feature__media">
-                <?php echo $mmd_about_img('Kitchen_essentials_tools_cookware_202607171159.jpeg', __('Kitchen tools and cookware arranged for daily cooking', 'dawp'), '', 780, 620, 'lazy', '(max-width: 899px) 100vw, 46vw'); ?>
-            </div>
-            <div class="mmd-about-feature__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('What We Carry', 'dawp'); ?></p>
-                <h2 id="mmd-about-curation-title"><?php esc_html_e('A wide range of everyday essentials, organized by department.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('From home, kitchen and outdoor living to electronics, toys, beauty, pet supplies and school & office essentials, each department is organized so it is easy to find what you need. Product pages list clear details on materials, specifications and everyday use, so you can shop with confidence across every category.', 'dawp'); ?></p>
-                <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse The Shop', 'dawp'); ?></a>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-about-section mmd-about-section--soft" aria-labelledby="mmd-about-trust-title">
-        <div class="mmd-about-container">
-            <div class="mmd-about-section__head">
-                <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('Reliable Shopping', 'dawp'); ?></p>
-                    <h2 id="mmd-about-trust-title"><?php esc_html_e('Trust built into each step of the experience.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-about-trust">
-                <?php foreach ($trust_items as $index => $item) : ?>
-                    <article class="mmd-about-trust-card">
-                        <span><?php echo esc_html(str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT)); ?></span>
-                        <h3><?php echo esc_html($item[0]); ?></h3>
-                        <p><?php echo esc_html($item[1]); ?></p>
-                    </article>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-about-section" aria-labelledby="mmd-about-policies-title">
-        <div class="mmd-about-container">
-            <div class="mmd-about-section__head">
-                <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('Helpful Details', 'dawp'); ?></p>
-                    <h2 id="mmd-about-policies-title"><?php esc_html_e('Clear policies for a calmer purchase.', 'dawp'); ?></h2>
-                </div>
-                <a class="mmd-about-link" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Need help?', 'dawp'); ?></a>
-            </div>
-            <div class="mmd-about-policy-grid">
-                <a class="mmd-about-policy-card" href="<?php echo esc_url($shipping_url); ?>">
-                    <h3><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Review handling time, transit estimates and tracking information before you order.', 'dawp'); ?></p>
-                </a>
-                <a class="mmd-about-policy-card" href="<?php echo esc_url($returns_url); ?>">
-                    <h3><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Learn how eligible unused items can be returned within 30 days after delivery.', 'dawp'); ?></p>
-                </a>
-                <a class="mmd-about-policy-card" href="<?php echo esc_url(home_url('/track-order/')); ?>">
-                    <h3><?php esc_html_e('Track Order', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Follow your shipment once tracking details have been shared after dispatch.', 'dawp'); ?></p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-about-section mmd-about-section--soft" aria-labelledby="mmd-about-gallery-title">
-        <div class="mmd-about-container">
-            <div class="mmd-about-section__head">
-                <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('Our World', 'dawp'); ?></p>
-                    <h2 id="mmd-about-gallery-title"><?php esc_html_e('Spaces that inspire the way we curate.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-about-gallery">
-                <?php echo $mmd_about_img('Bedroom.jpeg', __('Layered bedroom with soft textiles', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('Outdoor.jpeg', __('Outdoor living space for relaxed entertaining', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('Elegant_Dining_Evenings.jpeg', __('Elegant dining table prepared for evening hosting', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('Fresh_Utility_Spaces.jpeg', __('Fresh utility space with organized home essentials', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-about-cta" aria-labelledby="mmd-about-cta-title">
-        <div class="mmd-about-container mmd-about-cta__inner">
+    <section class="mm-about__section mm-about__section--soft" aria-labelledby="mm-about-trust-title">
+        <div class="mm-about__wrap mm-about__trust">
             <div>
-                <p class="mmd-about-eyebrow"><?php esc_html_e('Everything Your Home and Family Need', 'dawp'); ?></p>
-                <h2 id="mmd-about-cta-title"><?php esc_html_e('Find everyday essentials for every part of your life.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Discover home, electronics, outdoor, beauty, pet and school essentials selected to make everyday American living more organized, practical and reliable.', 'dawp'); ?></p>
+                <div class="mm-about__head">
+                    <p class="mm-about__eyebrow"><?php esc_html_e('Store policies at a glance', 'dawp'); ?></p>
+                    <h2 id="mm-about-trust-title"><?php esc_html_e('Know the details before you order', 'dawp'); ?></h2>
+                </div>
+                <div class="mm-about__facts">
+                    <?php foreach ($facts as $fact) : ?>
+                        <a class="mm-about__fact" href="<?php echo esc_url($fact['url']); ?>">
+                            <strong><?php echo esc_html($fact['label']); ?></strong>
+                            <span><?php echo esc_html($fact['value']); ?></span>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
             </div>
-            <div class="mmd-about-cta__actions">
-                <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
-                <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('View FAQs', 'dawp'); ?></a>
-            </div>
+            <aside class="mm-about__info" aria-labelledby="mm-about-info-title">
+                <h2 id="mm-about-info-title"><?php esc_html_e('Business information', 'dawp'); ?></h2>
+                <dl>
+                    <div><dt><?php esc_html_e('Store name', 'dawp'); ?></dt><dd><?php echo esc_html($store_name); ?></dd></div>
+                    <div><dt><?php esc_html_e('Website', 'dawp'); ?></dt><dd><?php echo esc_html(dawp_store('domain')); ?></dd></div>
+                    <div><dt><?php esc_html_e('Email', 'dawp'); ?></dt><dd><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd></div>
+                    <?php if ($support_phone) : ?>
+                        <div><dt><?php esc_html_e('Phone', 'dawp'); ?></dt><dd><a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $support_phone)); ?>"><?php echo esc_html($support_phone); ?></a></dd></div>
+                    <?php endif; ?>
+                    <?php if ($store_address) : ?>
+                        <div><dt><?php esc_html_e('Address', 'dawp'); ?></dt><dd><?php echo esc_html($store_address); ?></dd></div>
+                    <?php endif; ?>
+                    <div><dt><?php esc_html_e('Support hours', 'dawp'); ?></dt><dd><?php echo esc_html(dawp_store('hours')); ?></dd></div>
+                </dl>
+            </aside>
         </div>
     </section>
 </div>

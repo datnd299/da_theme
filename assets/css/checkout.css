@@ -1,17 +1,17 @@
 /* Checkout and thank-you pages */
 
 :root {
-    --checkout-primary: #A45A3F;
-    --checkout-primary-dark: #7F422F;
-    --checkout-accent: #D8B26E;
-    --checkout-bg: #F8F5F0;
-    --checkout-surface: #FFFFFF;
-    --checkout-text: #2B2B2B;
-    --checkout-muted: #746B64;
-    --checkout-border: #E8E5DF;
-    --checkout-border-strong: #D8C7BE;
+    --checkout-primary: var(--color-accent);
+    --checkout-primary-dark: var(--color-accent-hover);
+    --checkout-accent: var(--color-accent-blush);
+    --checkout-bg: var(--color-surface);
+    --checkout-surface: var(--color-background);
+    --checkout-text: var(--color-foreground);
+    --checkout-muted: var(--color-foreground-muted);
+    --checkout-border: var(--color-border);
+    --checkout-border-strong: #B7D3CB;
     --checkout-radius: 8px;
-    --checkout-shadow: 0 14px 34px rgba(43, 43, 43, 0.07);
+    --checkout-shadow: 0 14px 34px rgba(19, 52, 59, 0.07);
 }
 
 body.woocommerce-checkout,
@@ -239,7 +239,7 @@ body.woocommerce-checkout .woo-page *::after,
 .wp-block-woocommerce-checkout .wc-blocks-components-select__select:focus {
     border-color: var(--checkout-primary);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(164, 90, 63, 0.14);
+    box-shadow: 0 0 0 3px rgba(15, 110, 94, 0.14);
 }
 
 .woocommerce-checkout .select2-container {
@@ -435,6 +435,13 @@ body.woocommerce-checkout .woo-page *::after,
 .wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button {
     width: 100%;
     min-height: 3.25rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-value);
+}
+
+.woocommerce-checkout .place-order .button.alt:hover,
+.wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button:hover {
+    background: var(--color-value-hover);
 }
 
 .woocommerce-checkout button.button:hover,
@@ -724,7 +731,7 @@ body.woocommerce-checkout .woo-page *::after,
     .woocommerce-checkout form.checkout [id="order_review"],
     .wp-block-woocommerce-checkout .wc-block-components-sidebar {
         position: sticky;
-        top: 6rem;
+        top: 24px;
     }
 
     .woocommerce-checkout form.checkout .woocommerce-checkout-review-order,

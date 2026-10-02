@@ -1,42 +1,28 @@
 /* ============================================================
-   Product Page - Topgoodmart
-   Topgoodmart store: clean, modern, conversion-focused
+   Product Page - Medial Market
+   Budget-friendly home store: clean, modern, conversion-focused
    ============================================================ */
 
 /* CSS Variables */
 :root {
-  --color-bg:             #FFFFFF;
-  --color-bg-subtle:      #F8F5F0;
-  --color-bg-muted:       #F6F3EE;
-  --color-text-primary:   #2B2B2B;
-  --color-text-secondary: #554E49;
-  --color-text-muted:     #77706A;
-  --color-text-soft:      #77706A;
-  --color-border:         #E8E5DF;
-  --color-accent:         #A45A3F;
-  --color-accent-hover:   #7F422F;
-  --color-accent-warm:    #D0B8AE;
-  --color-button-bg:      var(--color-accent);
-  --color-button-hover:   var(--color-accent-hover);
-  --color-button-text:    var(--color-bg);
-  --color-sale:           #A45A3F;
-  --color-blush:          #F1E5DF;
-  --color-navy:           #2B2B2B;
-  --color-navy-light:     #77706A;
-  --color-ring:           rgba(164, 90, 63, 0.18);
-  --color-background:     var(--color-bg);
-  --color-foreground:     var(--color-text-primary);
-  --color-foreground-muted: var(--color-text-muted);
-  --color-muted:          var(--color-text-soft);
-  --color-success:        var(--color-accent);
-  --color-alert:          var(--color-sale);
-  --font-primary:         Inter, 'Avenir Next', Avenir, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  --font-sans:            var(--font-primary);
-  --radius-md:            8px;
-  --radius-lg:            16px;
+  --color-bg:             var(--color-background);
+  --color-bg-subtle:      var(--color-surface);
+  --color-bg-muted:       var(--color-surface-alt);
+  --color-text-primary:   var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-muted);
+  --color-text-muted:     var(--color-muted);
+  --color-text-soft:      var(--color-muted);
+  --color-accent-warm:    #B7D3CB;
+  --color-button-bg:      var(--color-value);
+  --color-button-hover:   var(--color-value-hover);
+  --color-button-text:    #FFFFFF;
+  --color-sale:           var(--color-value);
+  --color-blush:          var(--color-accent-soft);
+  --color-navy:           var(--color-foreground);
+  --color-navy-light:     var(--color-muted);
+  --color-ring:           rgba(15, 110, 94, 0.18);
+  --font-primary:         var(--font-sans);
   --radius-xl:            24px;
-  --shadow-card:          0 1px 4px rgba(43, 43, 43, 0.06);
-  --shadow-card-hover:    0 14px 34px rgba(43, 43, 43, 0.10);
 }
 
 /* === 1. PAGE LAYOUT === */
@@ -108,7 +94,7 @@ body.single-product .woo-page__container {
   border-radius: 999px;
   background: var(--color-bg);
   color: var(--color-sale);
-  box-shadow: 0 8px 18px rgba(43, 43, 43, 0.12);
+  box-shadow: 0 8px 18px rgba(19, 52, 59, 0.12);
   font-family: var(--font-primary);
   font-size: 0.7rem;
   font-weight: 900;
@@ -301,7 +287,7 @@ body.single-product .woo-page__container {
   border-radius: var(--radius-md);
   background: var(--color-bg);
   color: var(--color-text-primary);
-  box-shadow: 0 8px 18px rgba(43, 43, 43, 0.10);
+  box-shadow: 0 8px 18px rgba(19, 52, 59, 0.10);
   cursor: pointer;
   transform: translateY(-50%);
 }

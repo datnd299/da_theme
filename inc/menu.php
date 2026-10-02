@@ -1,16 +1,7 @@
 <?php
 
 function dawp_shop_category_items() {
-    $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'home'                       => ['name' => __('Home', 'dawp')],
-        'garden-tools'               => ['name' => __('Garden & Tools', 'dawp')],
-        'electronics'                => ['name' => __('Electronics', 'dawp')],
-        'sports-outdoors'            => ['name' => __('Sports & Outdoors', 'dawp')],
-        'toys-outdoor-play'          => ['name' => __('Toys & Outdoor Play', 'dawp')],
-        'beauty-personal-care'       => ['name' => __('Beauty & Personal Care', 'dawp')],
-        'pets'                       => ['name' => __('Pets', 'dawp')],
-        'school-office-art-supplies' => ['name' => __('School, Office & Art Supplies', 'dawp')],
-    ];
+    $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [];
 
     $items = [];
 

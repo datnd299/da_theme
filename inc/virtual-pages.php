@@ -27,27 +27,27 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     return [
-        'about-us'             => ['slug' => 'about',                'title' => 'About MegaMallDepot', 'desc' => 'Learn more about MegaMallDepot, a modern online store for practical home, technology and everyday lifestyle products.', 'keywords' => 'MegaMallDepot, about MegaMallDepot, home essentials store, online lifestyle store', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=86'],
-        'faq'                  => ['slug' => 'faq',                  'title' => 'MegaMallDepot FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, payments and support at MegaMallDepot.', 'keywords' => 'MegaMallDepot FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'FAQPage'],
-        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact MegaMallDepot', 'desc' => 'Contact MegaMallDepot support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact MegaMallDepot, MegaMallDepot support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => get_template_directory_uri() . '/assets/img/gallery/Customer_support_scene_in_office_202607161445.jpeg'],
-        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review MegaMallDepot shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'MegaMallDepot shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
-        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review MegaMallDepot shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'MegaMallDepot shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
-        'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'desc' => 'Read the MegaMallDepot return and refund policy, including return eligibility, return shipping, exchanges and refund timing.', 'keywords' => 'MegaMallDepot return policy, refund policy, returns, refund timing', 'css' => 'tw-ship.css', 'canonical_path' => 'return-refund-policy', 'schema_type' => 'WebPage'],
-        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the MegaMallDepot terms and conditions for browsing the website, placing orders, payments, policies and customer support.', 'keywords' => 'MegaMallDepot terms, terms and conditions, store policies, website terms', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage'],
-        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how MegaMallDepot collects, uses, protects and manages customer information, cookies, privacy requests and account data.', 'keywords' => 'MegaMallDepot privacy policy, customer data, cookies, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivacyPolicy'],
-        'track-order'          => ['slug' => 'track-order',          'title' => 'Track Your MegaMallDepot Order', 'desc' => 'Track your MegaMallDepot order online using your order ID and billing email, or contact support for shipment help.', 'keywords' => 'track MegaMallDepot order, order tracking, shipment status, order status', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage'],
+        'about-us'             => ['slug' => 'about',                'title' => 'About Medial Market', 'desc' => 'Medial Market is a U.S. online home store offering budget-friendly furniture, kitchen, outdoor, decor, kids and pet essentials with free standard shipping.', 'keywords' => 'Medial Market, about Medial Market, budget home store, affordable furniture online', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => get_template_directory_uri() . '/assets/img/home/Living_Room.jpeg'],
+        'faq'                  => ['slug' => 'faq',                  'title' => 'Medial Market FAQs', 'desc' => 'Answers to common questions about Medial Market orders, free shipping, delivery times, 30-day returns, payments and customer support.', 'keywords' => 'Medial Market FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'FAQPage'],
+        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact Medial Market', 'desc' => 'Contact Medial Market customer support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact Medial Market, Medial Market support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => get_template_directory_uri() . '/assets/img/gallery/Customer_support_scene_in_office_202607161445.jpeg'],
+        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Medial Market shipping policy: free U.S. standard shipping, 1-2 business day handling, 3-5 business day transit and order tracking details.', 'keywords' => 'Medial Market shipping policy, delivery times, free shipping, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
+        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Medial Market shipping policy: free U.S. standard shipping, 1-2 business day handling, 3-5 business day transit and order tracking details.', 'keywords' => 'Medial Market shipping policy, delivery times, free shipping, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
+        'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'desc' => 'Read the Medial Market 30-day return and refund policy, including eligibility, return shipping, exchanges and refund timing.', 'keywords' => 'Medial Market return policy, refund policy, returns, refund timing', 'css' => 'tw-ship.css', 'canonical_path' => 'return-refund-policy', 'schema_type' => 'WebPage'],
+        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the Medial Market terms and conditions for using the website, placing orders, payments, store policies and customer support.', 'keywords' => 'Medial Market terms, terms and conditions, store policies, website terms', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage'],
+        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how Medial Market collects, uses, protects and manages customer information, cookies, privacy requests and account data.', 'keywords' => 'Medial Market privacy policy, customer data, cookies, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivacyPolicy'],
+        'track-order'          => ['slug' => 'track-order',          'title' => 'Track Your Medial Market Order', 'desc' => 'Track your Medial Market order online with your order number and billing email, or contact support for shipment help.', 'keywords' => 'track Medial Market order, order tracking, shipment status, order status', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage'],
     ];
 }
 
 function dawp_home_page_seo_data() {
     return [
         'slug'           => 'home',
-        'title'          => 'MegaMallDepot - Home, Electronics & Everyday Essentials',
-        'desc'           => 'Shop MegaMallDepot for practical home essentials, furniture, electronics, smart home products, kitchen favorites and outdoor living picks.',
-        'keywords'       => 'MegaMallDepot, home essentials, furniture, electronics, kitchen products, outdoor living',
+        'title'          => 'Medial Market - Budget-Friendly Furniture & Home Essentials',
+        'desc'           => 'Shop Medial Market for budget-friendly furniture, kitchen and dining, outdoor and patio, home decor, kids and pet essentials. Free U.S. standard shipping and 30-day returns.',
+        'keywords'       => 'Medial Market, affordable furniture, home essentials, kitchen and dining, patio furniture, home decor',
         'canonical_path' => '',
         'schema_type'    => 'WebSite',
-        'image'          => get_template_directory_uri() . '/assets/img/home/Home_essentials_on_shelf_202607171221.jpeg',
+        'image'          => get_template_directory_uri() . '/assets/img/home/Living_Room.jpeg',
     ];
 }
 
@@ -160,10 +160,10 @@ function dawp_rank_math_organization_schema() {
         '@id'   => home_url('/#organization'),
         'name'  => get_bloginfo('name'),
         'url'   => home_url('/'),
-        'email' => 'support@megamalldepot.com',
+        'email' => dawp_store('email'),
         'logo'  => [
             '@type' => 'ImageObject',
-            'url'   => get_template_directory_uri() . '/assets/img/home/megamalldepot-logo.png',
+            'url'   => get_template_directory_uri() . '/assets/img/medialmarket-logo.svg',
         ],
     ];
 }
@@ -191,20 +191,20 @@ function dawp_rank_math_faq_schema_entities($slug) {
 
     $items = [
         [
-            'question' => 'Where does MegaMallDepot ship?',
-            'answer'   => 'MegaMallDepot currently ships exclusively within the United States domestic market.',
+            'question' => 'Where does Medial Market ship?',
+            'answer'   => 'Medial Market currently ships to addresses within the United States only.',
         ],
         [
             'question' => 'How much does shipping cost?',
-            'answer'   => 'Shipping cost is shown during checkout before payment is processed.',
+            'answer'   => 'Standard shipping within the United States is free on every order. Any optional upgraded shipping cost is shown at checkout before payment.',
         ],
         [
             'question' => 'What is the return window?',
             'answer'   => 'Eligible products can be returned within 30 days after delivery.',
         ],
         [
-            'question' => 'How do I contact MegaMallDepot?',
-            'answer'   => 'Customers can contact MegaMallDepot support by email at support@megamalldepot.com or through the Contact Us page.',
+            'question' => 'How do I contact Medial Market?',
+            'answer'   => 'Email support@medialmarket.com or use the Contact Us page. The team replies within 1 business day, Monday to Friday.',
         ],
     ];
 

@@ -1,50 +1,54 @@
 @import "tailwindcss";
 
 @theme {
-  /* === COLORS - MyBaapStore backgrounds === */
+  /* === COLORS - Medial Market backgrounds === */
   --color-background: #FFFFFF;
-  --color-surface: #EAF4FF;
-  --color-surface-alt: #FFFFFF;
+  --color-surface: #F3F7F5;
+  --color-surface-alt: #FBF8F3;
 
-  /* === COLORS - MyBaapStore text === */
-  --color-foreground: #1F2937;
-  --color-foreground-muted: #667085;
-  --color-muted: #667085;
+  /* === COLORS - Medial Market text === */
+  --color-foreground: #13343B;
+  --color-foreground-muted: #55656A;
+  --color-muted: #6B7A7E;
 
-  /* === COLORS - MyBaapStore brand === */
-  --color-accent: #2F80ED;
-  --color-accent-hover: #102A43;
-  --color-accent-soft: #EAF4FF;
-  --color-accent-blush: #5BA8A0;
+  /* === COLORS - Medial Market brand === */
+  --color-accent: #0F6E5E;
+  --color-accent-hover: #0A5246;
+  --color-accent-soft: #E3F1ED;
+  --color-accent-blush: #F08A3C;
   --color-accent-sage: #FFFFFF;
+  --color-value: #C2410C;
+  --color-value-hover: #9A3412;
+  --color-value-soft: #FFF1E6;
 
   /* === COLORS - UI === */
-  --color-border: #E5E7EB;
-  --color-alert: #C0392B;
-  --color-success: #5BA8A0;
+  --color-border: #DDE6E2;
+  --color-alert: #B42318;
+  --color-success: #2E7D5B;
+  --color-star: #E8A317;
 
   /* === LEGACY COMPATIBILITY TOKENS === */
-  --color-slickBlack: #0B0F0D;
-  --color-slickGreen: #123D2A;
-  --color-slickActive: #22C55E;
-  --color-slickLime: #A3E635;
-  --color-slickSoft: #F5F7FA;
-  --color-slickText: #111827;
-  --color-slickMuted: #6B7280;
+  --color-slickBlack: #13343B;
+  --color-slickGreen: #0F6E5E;
+  --color-slickActive: #2E7D5B;
+  --color-slickLime: #F08A3C;
+  --color-slickSoft: #F3F7F5;
+  --color-slickText: #13343B;
+  --color-slickMuted: #55656A;
 
   /* === BORDER RADIUS === */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(31, 41, 55, 0.07);
-  --shadow-card-hover: 0 10px 30px rgba(16, 42, 67, 0.16);
+  --shadow-card: 0 1px 3px rgba(19, 52, 59, 0.08);
+  --shadow-card-hover: 0 12px 28px rgba(19, 52, 59, 0.14);
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Avenir Next for Best Buy', 'Avenir Next', Avenir, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  --font-heading: 'Avenir Next for Best Buy', 'Avenir Next', Avenir, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --font-sans: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);

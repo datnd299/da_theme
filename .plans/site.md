@@ -1,321 +1,128 @@
-# MegaMallDepot — Site.md
+# Medial Market — Site.md
 
 ## Store Information
 
-* **Website:** megamalldepot.com
+* **Website:** medialmarket.com
+* **Brand name:** Medial Market (always two words, never "MedialMarket")
+* **Tagline:** Your Budget-Friendly Home Market
 * **Language:** English
-* **Primary Market:** United States
-* **Store Type:** Premium Home & Lifestyle Ecommerce
-* **Industry:** Home • Kitchen • Furniture • Decor • Living
+* **Primary Market:** United States (ships to U.S. addresses only)
+* **Store Type:** Budget-friendly home & living e-commerce
+* **Support email:** support@medialmarket.com
+* **Phone / business address:** pending — set in `inc/store-info.php` (rows are hidden while empty)
+* **Support hours:** Monday – Friday, 9:00 AM – 5:00 PM, GMT-08:00 Pacific Standard Time
+* **Order number prefix:** `MDM-`
+
+All business details live in `inc/store-info.php` (`dawp_store()`); templates must read from there instead of hardcoding.
 
 ---
 
 # Brand Positioning
 
-MegaMallDepot is a modern American home and lifestyle retailer inspired by premium home shopping experiences. The store focuses on quality products that elevate everyday living, combining elegant design with accessible pricing.
+Medial Market is a U.S. online home and living store that brings practical furniture, kitchen, outdoor, decor, kids and pet essentials together in one organized shop, at prices that leave room in the budget.
 
 The storefront should feel:
 
-* Warm
-* Premium
-* Modern
-* Elegant
+* Friendly
+* Practical
+* Trustworthy
 * Organized
-* Inspirational
+* Value-focused (not cheap)
 
 Avoid:
 
-* Discount warehouse appearance
+* Flash-sale / countdown styling
+* Fake "compare at" discounts
 * Marketplace clutter
-* Electronics-first branding
-* Generic dropshipping style
+* Categories outside home & living (electronics, auto, beauty, apparel, supplements)
 
 ---
 
 # Target Audience
 
-## Primary Customers
+* Renters and first-time homeowners furnishing on a budget
+* Young families (nursery, kids room, backyard play)
+* Pet owners
+* Age 25–55, U.S. nationwide
 
-* Homeowners
-* Couples
-* Families
-* Interior enthusiasts
-* Home improvement shoppers
-
-Age:
-
-* 28–60
-
-Shopping motivation:
-
-* Upgrade home spaces
-* Seasonal decorating
-* Better kitchen experiences
-* Comfortable everyday living
+Shopping motivation: furnish a room, replace a worn piece, get the patio ready, make space for a baby or pet — without overspending.
 
 ---
 
-# Main Categories
+# Main Categories (theme-defined in `inc/product-categories.php`)
 
-## Kitchen & Dining
+| Slug | Name | Covers |
+|---|---|---|
+| `furniture` | Furniture | Sofas, accent chairs, beds, dressers, nightstands, dining sets, desks, bookcases, storage |
+| `kitchen-dining` | Kitchen & Dining | Cookware, small appliances, utensils, bar stools, kitchen carts, organization |
+| `outdoor-patio` | Outdoor & Patio | Patio sets, umbrellas, gazebos, fire pits, garden tools, sheds |
+| `home-decor` | Home Decor & Bedding | Rugs, mirrors, lamps, faux plants, bedding, decorative accents |
+| `kids-baby` | Kids & Baby | Kids furniture, play kitchens, ride-on toys, high chairs, baby gear |
+| `pets` | Pets | Dog kennels, cat trees, pet beds, pet gates |
 
-Cookware, bakeware, coffee, dining essentials and kitchen tools.
-
----
-
-## Furniture
-
-Living room, bedroom, dining room and home office furniture.
-
----
-
-## Home Decor
-
-Wall décor, mirrors, rugs, lighting, decorative accessories and seasonal styling.
+Imported leaf categories from the old site (e.g. Bar Stools, Gazebos, Cat Trees) should be set as children of these six.
 
 ---
 
-## Bedding & Bath
+# Homepage Structure
 
-Bedding collections, towels, bath accessories and everyday comfort.
+1. Announcement bar (free shipping · 30-day returns · secure checkout)
+2. Header: logo, large search, Track / Account / Cart, category nav (not sticky)
+3. Hero 50/50: "Furnish every room for less." + Shop All Products CTA
+4. Shop by category (6 image cards)
+5. Best sellers (product grid, price + Add to cart visible)
+6. Two department promo banners (Kitchen & Dining, Outdoor & Patio)
+7. New arrivals
+8. Popular searches (chips linking to product search)
+9. Why Medial Market (4 value points)
+10. Support CTA (Contact / Track Order)
+11. Footer: trust strip, contact, Shop / Customer Care / Policies, payment logos
 
----
-
-## Storage & Organization
-
-Closet organization, shelving, storage solutions and utility essentials.
-
----
-
-## Outdoor Living
-
-Patio furniture, outdoor décor, garden accessories and entertaining essentials.
-
----
-
-# Homepage Direction
-
-Homepage should inspire customers while making shopping effortless.
-
-Recommended sections:
-
-1. Hero Lifestyle Banner
-2. Shop By Room
-3. Featured Collections
-4. Best Sellers
-5. Seasonal Inspiration
-6. Why Shop MegaMallDepot
-7. Customer Reviews
+No testimonials or star claims unless they come from real WooCommerce reviews.
 
 ---
 
-# Hero Direction
+# Trust Elements (required)
 
-Main message:
-
-"Beautiful Spaces Begin At Home"
-
-Supporting message:
-
-"Discover thoughtfully selected furniture, décor and home essentials designed for modern American living."
-
-Primary CTA:
-
-* Shop Collection
-
-Secondary CTA:
-
-* Explore New Arrivals
-
-Hero imagery:
-
-* Bright luxury interior
-* Designer-inspired living room
-* Elegant dining table
-* Warm natural lighting
-
----
-
-# Product Experience
-
-Each product card should include:
-
-* Product image
-* Product name
-* Collection
-* Price
-* Rating
-* Quick View
-* Add to Cart
-
-Products should emphasize lifestyle before specifications.
-
----
-
-# Product Content Direction
-
-Descriptions should be:
-
-* Elegant
-* Inspiring
-* Benefit-focused
-* Lifestyle-oriented
-
-Include:
-
-* Materials
-* Design inspiration
-* Everyday functionality
-* Care information
-
-Avoid:
-
-* Technical specifications first
-* Keyword stuffing
-* Cheap promotional language
-
----
-
-# Trust Elements
-
-Required:
-
-* Secure Checkout
-* Fast Shipping
-* Easy Returns
-* Order Tracking
-* Dedicated Customer Support
-
-Shopping experience should feel:
-
-* Premium
-* Helpful
-* Relaxing
-* Trustworthy
+* Free standard U.S. shipping on every order
+* 30-day returns
+* Secure checkout (Visa, Mastercard, American Express, PayPal)
+* Order tracking page
+* Email support with 1-business-day reply
 
 ---
 
 # Shipping Information
 
-Default shipping parameters:
-
-Order cutoff:
-
-5:00 PM (GMT-08:00) Pacific Standard Time (Los Angeles)
-
-Orders placed after the cutoff begin processing on the next business day.
-
-Handling time:
-
-1–2 business days (Monday–Friday)
-
-Transit time:
-
-3–5 business days (Monday–Friday)
-
-Estimated delivery:
-
-Usually 4–7 business days
-
-Tracking information is provided once orders are shipped.
+* Order cutoff: 5:00 PM (GMT-08:00) Pacific Standard Time
+* Handling time: 1–2 business days (Monday–Friday)
+* Transit time: 3–5 business days (Monday–Friday)
+* Estimated delivery: usually 4–7 business days
+* Standard U.S. shipping: free, no minimum
+* Carriers: USPS, UPS, FedEx, DHL
+* Tracking provided once orders ship
 
 ---
 
-# Return & Refund Direction
+# Return & Refund
 
-Return window:
-
-30 days after delivery
-
-Eligible returns:
-
-* Unused
-* Original condition
-* Original packaging
-* Complete accessories included
-
-Return experience should be:
-
-* Simple
-* Transparent
-* Customer-friendly
+* Return window: 30 days after delivery
+* Eligible: unused, original condition, original packaging, all parts/accessories included
+* Return address is sent with the return authorization (until a business address is published)
 
 ---
 
 # Brand Tone
 
-Use:
-
-* Warm
-* Elegant
-* Helpful
-* Refined
-* Inspiring
-
-Avoid:
-
-* Aggressive sales language
-* Flash-sale appearance
-* Overstock style
-* Marketplace terminology
-
----
-
-# Visual Direction
-
-Website should resemble a premium lifestyle retailer rather than a general marketplace.
-
-Use:
-
-* Bright interiors
-* Editorial lifestyle photography
-* Large product imagery
-* Spacious layouts
-* Neutral backgrounds
-
-Avoid:
-
-* Busy promotional graphics
-* Heavy discount banners
-* Dark themes
-* Technology-focused visuals
+Use: warm, plain-spoken, helpful, honest about prices and timelines.
+Avoid: hype, urgency tricks, "luxury/premium" claims, invented statistics (customer counts, founding year, ratings).
 
 ---
 
 # GMC Compliance Direction
 
-Website should demonstrate:
-
-* Clear home & lifestyle niche
-* Original product content
-* Transparent policies
-* Consistent branding
-* Mobile-friendly shopping
-* Trustworthy ecommerce experience
-
-Avoid:
-
-* Mixed unrelated categories
-* Thin product pages
-* Misleading promotions
-* Fake reviews
-
----
-
-# Brand Promise
-
-MegaMallDepot provides:
-
-* Beautiful home inspiration
-* Carefully selected collections
-* Reliable shopping experience
-* Convenient delivery
-* Everyday quality for modern living
-
----
-
-# Final Brand Statement
-
-MegaMallDepot is:
-
-"A modern home and lifestyle destination helping American families create beautiful, comfortable spaces through thoughtfully curated furniture, décor and everyday essentials."
+* One clear niche: home & living
+* Consistent business info on About, Contact, footer and policies
+* Policies match checkout and WooCommerce shipping settings
+* No fake reviews, no misleading discounts
+* Mobile-friendly, fast, secure checkout

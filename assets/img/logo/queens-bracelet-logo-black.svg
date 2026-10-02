@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 108" width="360" height="108" role="img" aria-label="Queens Bracelet">
+  <g fill="none" stroke="#1b1b1b">
+    <circle cx="54" cy="54" r="44" stroke-width="2.5"/>
+    <circle cx="54" cy="54" r="38" stroke-width="1"/>
+  </g>
+  <g fill="#1b1b1b">
+    <path d="M33 68 L29 41 L42 53 L54 33 L66 53 L79 41 L75 68 Z"/>
+    <rect x="33" y="71" width="42" height="5" rx="1"/>
+    <circle cx="29" cy="39" r="3"/>
+    <circle cx="54" cy="31" r="3.2"/>
+    <circle cx="79" cy="39" r="3"/>
+    <text x="112" y="58" font-family="Didot, 'Bodoni 72', Georgia, 'Times New Roman', serif" font-size="40" letter-spacing="4">QUEENS</text>
+    <text x="114" y="87" font-family="Georgia, 'Times New Roman', serif" font-size="17" letter-spacing="14.6">BRACELET</text>
+  </g>
+</svg>

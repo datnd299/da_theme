@@ -1,6 +1,6 @@
 <?php
 /**
- * Chronel - Shop / Archive Product Template
+ * Queens Bracelet - Shop / Archive Product Template
  * Design System: Modern Quiet Luxury
  */
 defined('ABSPATH') || exit;

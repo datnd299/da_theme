@@ -1,0 +1,238 @@
+19081159299|Furniture
+16313662005|Furniture
+19143265207|Furniture
+19999851932|Furniture
+21036173189|Furniture
+20230705290|Furniture
+21036173197|Furniture
+9119809382|Furniture
+15560001392|Furniture
+21046500535|Furniture
+18127300617|Furniture
+20923054188|Furniture
+20179807415|Furniture
+19511110788|Furniture
+19550103114|Furniture
+5455436907|Furniture
+20101210483|Furniture
+15602718959|Furniture
+20617369227|Furniture
+20962613806|Furniture
+20380271875|Furniture
+20677007260|Furniture
+20192066658|Furniture
+17576616887|Furniture
+19952069028|Furniture
+17523971805|Furniture
+19720018224|Furniture
+20383367468|Furniture
+18489406811|Furniture
+20285767985|Furniture
+20454013097|Furniture
+20910470754|Furniture
+19979772303|Furniture
+20651257476|Furniture
+6028179084|Furniture
+20031564655|Furniture
+20999717180|Furniture
+20388515923|Furniture
+19938920658|Furniture
+20809208918|Furniture
+
+20812222263|Kitchen & Dining
+20167112358|Kitchen & Dining
+20523760994|Kitchen & Dining
+20206654221|Kitchen & Dining
+20809316758|Kitchen & Dining
+20969461327|Kitchen & Dining
+20776001096|Kitchen & Dining
+20975256902|Kitchen & Dining
+20817919426|Kitchen & Dining
+20854162781|Kitchen & Dining
+20664800755|Kitchen & Dining
+20291853260|Kitchen & Dining
+14155974979|Kitchen & Dining
+20602604994|Kitchen & Dining
+20984221313|Kitchen & Dining
+20909462632|Kitchen & Dining
+20956001176|Kitchen & Dining
+20899117649|Kitchen & Dining
+20765766874|Kitchen & Dining
+20410418524|Kitchen & Dining
+20198966508|Kitchen & Dining
+21010356823|Kitchen & Dining
+20267656952|Kitchen & Dining
+20194866788|Kitchen & Dining
+20900456228|Kitchen & Dining
+20472757482|Kitchen & Dining
+20949457792|Kitchen & Dining
+20813370986|Kitchen & Dining
+20627772926|Kitchen & Dining
+20069804215|Kitchen & Dining
+21017858306|Kitchen & Dining
+20797161201|Kitchen & Dining
+20288411386|Kitchen & Dining
+20895802865|Kitchen & Dining
+20639624587|Kitchen & Dining
+20223266311|Kitchen & Dining
+20229869246|Kitchen & Dining
+20277805836|Kitchen & Dining
+20960069787|Kitchen & Dining
+19441961287|Kitchen & Dining
+
+19978466083|Outdoor & Patio
+20272115300|Outdoor & Patio
+19938906513|Outdoor & Patio
+20230705290|Outdoor & Patio
+20998101865|Outdoor & Patio
+20028014136|Outdoor & Patio
+20264703752|Outdoor & Patio
+20383367468|Outdoor & Patio
+20813917211|Outdoor & Patio
+20316313002|Outdoor & Patio
+20148117931|Outdoor & Patio
+20208206304|Outdoor & Patio
+20261208400|Outdoor & Patio
+20981566541|Outdoor & Patio
+20256814164|Outdoor & Patio
+20975171763|Outdoor & Patio
+20755014966|Outdoor & Patio
+20734719439|Outdoor & Patio
+20706910567|Outdoor & Patio
+20935620824|Outdoor & Patio
+20645570019|Outdoor & Patio
+19879053453|Outdoor & Patio
+20756006364|Outdoor & Patio
+20269567346|Outdoor & Patio
+21057657822|Outdoor & Patio
+20879110250|Outdoor & Patio
+21066005543|Outdoor & Patio
+20755014010|Outdoor & Patio
+21047364482|Outdoor & Patio
+21000824861|Outdoor & Patio
+19980015997|Outdoor & Patio
+20228623860|Outdoor & Patio
+20849009233|Outdoor & Patio
+20219522305|Outdoor & Patio
+20994359666|Outdoor & Patio
+20276817829|Outdoor & Patio
+21039311703|Outdoor & Patio
+20785210373|Outdoor & Patio
+20278768975|Outdoor & Patio
+19938506263|Outdoor & Patio
+
+20210319153|Home Decor & Bedding
+20229100717|Home Decor & Bedding
+20719256780|Home Decor & Bedding
+20882117365|Home Decor & Bedding
+20714071075|Home Decor & Bedding
+20451050353|Home Decor & Bedding
+20589670159|Home Decor & Bedding
+20053673266|Home Decor & Bedding
+20185421735|Home Decor & Bedding
+21064960683|Home Decor & Bedding
+20911921581|Home Decor & Bedding
+20871055025|Home Decor & Bedding
+20927669185|Home Decor & Bedding
+20567501168|Home Decor & Bedding
+20871223278|Home Decor & Bedding
+20886901698|Home Decor & Bedding
+20678860948|Home Decor & Bedding
+20238802081|Home Decor & Bedding
+20957772468|Home Decor & Bedding
+20986551331|Home Decor & Bedding
+20926566051|Home Decor & Bedding
+21029972543|Home Decor & Bedding
+20235707541|Home Decor & Bedding
+21030500711|Home Decor & Bedding
+20993367320|Home Decor & Bedding
+20274972800|Home Decor & Bedding
+20646914080|Home Decor & Bedding
+21023223023|Home Decor & Bedding
+20955206130|Home Decor & Bedding
+21067153865|Home Decor & Bedding
+20906557264|Home Decor & Bedding
+20949065197|Home Decor & Bedding
+20546912970|Home Decor & Bedding
+20976068356|Home Decor & Bedding
+20299019575|Home Decor & Bedding
+20985505474|Home Decor & Bedding
+20948668021|Home Decor & Bedding
+20916067353|Home Decor & Bedding
+21019006053|Home Decor & Bedding
+19932151305|Home Decor & Bedding
+
+21043768982|Kids & Baby
+20988011255|Kids & Baby
+6874208484|Kids & Baby
+20983418676|Kids & Baby
+20851505105|Kids & Baby
+1771428409|Kids & Baby
+20784269391|Kids & Baby
+20175050028|Kids & Baby
+19884468745|Kids & Baby
+20998560851|Kids & Baby
+18898306946|Kids & Baby
+9560665288|Kids & Baby
+108530143|Kids & Baby
+2450809711|Kids & Baby
+14236674925|Kids & Baby
+21074353460|Kids & Baby
+20593361266|Kids & Baby
+8883656075|Kids & Baby
+15507251013|Kids & Baby
+21014405488|Kids & Baby
+16644268440|Kids & Baby
+6425924735|Kids & Baby
+20702412440|Kids & Baby
+2689290609|Kids & Baby
+2279849954|Kids & Baby
+20699217293|Kids & Baby
+20963208302|Kids & Baby
+16209763321|Kids & Baby
+3226826982|Kids & Baby
+16387471738|Kids & Baby
+684431811|Kids & Baby
+18789362241|Kids & Baby
+12912368966|Kids & Baby
+20493415281|Kids & Baby
+20175668433|Kids & Baby
+21023355803|Kids & Baby
+371740348|Kids & Baby
+20429352920|Kids & Baby
+19457753074|Kids & Baby
+
+
+20393957269|Pets
+48674093|Pets
+17628906|Pets
+20730059466|Pets
+20147170490|Pets
+20243110854|Pets
+185130519|Pets
+17366973545|Pets
+20979112837|Pets
+15440706677|Pets
+20773619133|Pets
+21011514315|Pets
+14689368036|Pets
+26443785|Pets
+18928003815|Pets
+16354466065|Pets
+20790403570|Pets
+20890858064|Pets
+20960055637|Pets
+20038700179|Pets
+20783152650|Pets
+16029859488|Pets
+965158932|Pets
+16881814974|Pets
+20219369246|Pets
+20336253507|Pets
+14208865922|Pets
+15936423318|Pets
+489625877|Pets
+20770224896|Pets
+19669469|Pets
+3904700944|Pets
+20579913086|Pets

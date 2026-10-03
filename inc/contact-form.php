@@ -58,6 +58,30 @@ function dawp_contact_meta_box_cb($post) {
     echo '</tbody></table>';
 }
 
+function dawp_altcha_base_url() {
+    return 'https://altcha.megamalldepot.com';
+}
+
+function dawp_altcha_verify($payload) {
+    if ('' === $payload) {
+        return false;
+    }
+
+    $response = wp_remote_post(dawp_altcha_base_url() . '/verify', [
+        'timeout' => 10,
+        'headers' => ['Content-Type' => 'application/json'],
+        'body'    => wp_json_encode(['payload' => $payload]),
+    ]);
+
+    if (is_wp_error($response) || 200 !== wp_remote_retrieve_response_code($response)) {
+        return false;
+    }
+
+    $result = json_decode(wp_remote_retrieve_body($response), true);
+
+    return is_array($result) && !empty($result['verified']);
+}
+
 add_action('admin_post_nopriv_lbq_contact_form', 'dawp_handle_contact_form');
 add_action('admin_post_lbq_contact_form', 'dawp_handle_contact_form');
 
@@ -79,6 +103,12 @@ function dawp_handle_contact_form() {
     $honeypot = isset($_POST['company_website']) ? trim((string) wp_unslash($_POST['company_website'])) : '';
     if ($honeypot !== '') {
         wp_safe_redirect(add_query_arg('contact_status', 'success', $redirect_base));
+        exit;
+    }
+
+    $altcha = isset($_POST['altcha']) ? sanitize_text_field(wp_unslash($_POST['altcha'])) : '';
+    if (!dawp_altcha_verify($altcha)) {
+        wp_safe_redirect(add_query_arg('contact_status', 'captcha', $redirect_base));
         exit;
     }
 

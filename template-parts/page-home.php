@@ -190,7 +190,7 @@ if (function_exists('wc_get_products')) {
     .mmd-section { padding:68px 0; }
     .mmd-section--soft { background:var(--mmd-ivory); }
     .mmd-section__head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:28px; }
-    .mmd-section__head h2, .mmd-newsletter h2 { font-size:clamp(1.7rem, 2.8vw, 2.55rem); line-height:1.12; }
+    .mmd-section__head h2 { font-size:clamp(1.7rem, 2.8vw, 2.55rem); line-height:1.12; }
     .mmd-section__head p:not(.mmd-eyebrow) { max-width:590px; margin-top:10px; font-size:.95rem; line-height:1.62; }
     .mmd-text-link { color:var(--mmd-accent); font-weight:800; text-decoration:none; }
     .mmd-text-link:hover { color:var(--mmd-accent-dark); text-decoration:underline; text-underline-offset:4px; }
@@ -264,15 +264,8 @@ if (function_exists('wc_get_products')) {
     .mmd-trust-card p { margin-top:8px; font-size:.9rem; line-height:1.56; }
     .mmd-gallery-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
     .mmd-gallery-grid img { width:100%; aspect-ratio:1; object-fit:cover; }
-    .mmd-newsletter { padding:62px 0; background:var(--mmd-ink); color:#fff; }
-    .mmd-newsletter h2 { color:#fff; }
-    .mmd-newsletter__inner { display:grid; gap:24px; align-items:center; }
-    .mmd-newsletter p:not(.mmd-eyebrow) { max-width:560px; margin-top:10px; color:rgba(255,255,255,.76); font-size:.95rem; line-height:1.62; }
-    .mmd-newsletter form { display:grid; gap:10px; width:100%; max-width:540px; }
-    .mmd-newsletter input { min-height:48px; border:1px solid rgba(255,255,255,.28); background:#fff; padding:0 14px; color:var(--mmd-ink); }
-    .mmd-newsletter button { min-height:48px; border:1px solid var(--mmd-accent); background:var(--mmd-accent); color:#fff; cursor:pointer; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
-    @media (min-width:700px) { .mmd-room-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-collection-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-season-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-gallery-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-newsletter form { grid-template-columns:1fr auto; justify-self:end; } }
-    @media (min-width:900px) { .mmd-hero__grid { grid-template-columns:.94fr 1.06fr; } .mmd-auto-tire { grid-template-columns:1.05fr .95fr; } .mmd-story { grid-template-columns:1.06fr .94fr; } .mmd-product-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-trust-grid { grid-template-columns:repeat(5, minmax(0, 1fr)); } .mmd-newsletter__inner { grid-template-columns:1fr minmax(380px, 540px); } }
+    @media (min-width:700px) { .mmd-room-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-collection-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-season-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-gallery-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } }
+    @media (min-width:900px) { .mmd-hero__grid { grid-template-columns:.94fr 1.06fr; } .mmd-auto-tire { grid-template-columns:1.05fr .95fr; } .mmd-story { grid-template-columns:1.06fr .94fr; } .mmd-product-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-trust-grid { grid-template-columns:repeat(5, minmax(0, 1fr)); } }
     @media (max-width:699px) { .mmd-section { padding:50px 0; } .mmd-section__head { align-items:start; flex-direction:column; } .mmd-room-grid, .mmd-product-grid, .mmd-season-grid, .mmd-trust-grid { display:flex; gap:14px; margin-inline:-16px; overflow-x:auto; padding-inline:16px; padding-bottom:4px; scroll-snap-type:x mandatory; scrollbar-width:none; } .mmd-room-grid::-webkit-scrollbar, .mmd-product-grid::-webkit-scrollbar, .mmd-season-grid::-webkit-scrollbar, .mmd-trust-grid::-webkit-scrollbar { display:none; } .mmd-room-card, .mmd-product-card, .mmd-season-card, .mmd-trust-card { flex:0 0 clamp(17rem, 82vw, 21rem); max-width:clamp(17rem, 82vw, 21rem); scroll-snap-align:start; } .mmd-gallery-grid { gap:10px; } .mmd-hero__note { left:14px; right:14px; } }
 </style>
 
@@ -492,21 +485,6 @@ if (function_exists('wc_get_products')) {
                 <?php echo $mmd_img('Garden_lounge_area_with_hanging_202607161300.jpeg', __('Garden lounge area with relaxed outdoor seating', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
                 <?php echo $mmd_img('Dining_area_with_kitchen_favorites_202607161311.jpeg', __('Dining area styled with kitchen favorites', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
             </div>
-        </div>
-    </section>
-
-    <section class="mmd-newsletter" aria-labelledby="mmd-newsletter-title">
-        <div class="mmd-container mmd-newsletter__inner">
-            <div>
-                <p class="mmd-eyebrow"><?php esc_html_e('Bring Inspiration Home', 'dawp'); ?></p>
-                <h2 id="mmd-newsletter-title"><?php esc_html_e('Receive new edits, room ideas and thoughtful finds.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Sign up for a calmer inbox with seasonal home inspiration and product discoveries from MegaMallDepot.', 'dawp'); ?></p>
-            </div>
-            <form action="<?php echo esc_url(home_url('/')); ?>" method="post">
-                <label class="screen-reader-text" for="mmd-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
-                <input id="mmd-newsletter-email" type="email" name="email" placeholder="<?php esc_attr_e('Email address', 'dawp'); ?>" required>
-                <button type="submit"><?php esc_html_e('Sign Up', 'dawp'); ?></button>
-            </form>
         </div>
     </section>
 </div>

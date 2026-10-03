@@ -187,6 +187,7 @@ $contact_faqs = [
     .mmd-contact-notice { border-radius:3px; padding:13px 14px; font-size:.9rem; font-weight:800; line-height:1.5; }
     .mmd-contact-notice--success { border:1px solid #B9D8C6; background:#F0FAF3; color:#286642; }
     .mmd-contact-notice--error { border:1px solid #E3B5AA; background:#FFF2EF; color:#8A3327; }
+    .mmd-contact-captcha altcha-widget { --altcha-max-width:100%; --altcha-border-radius:2px; --altcha-color-border:var(--mmd-line); }
     .mmd-contact-form__note { color:#70665F; font-size:.86rem; line-height:1.55; }
     .mmd-contact-form button { cursor:pointer; }
     .mmd-contact-sidebar dl { display:grid; gap:16px; margin:22px 0 0; }
@@ -269,6 +270,8 @@ $contact_faqs = [
                     <input class="mmd-contact-honeypot" id="mmd-contact-company" type="text" name="company_website" tabindex="-1" autocomplete="off">
                     <?php if ($status === 'success') : ?>
                         <div class="mmd-contact-notice mmd-contact-notice--success" role="status"><?php esc_html_e('Thank you. Your message has been received and our support team will reply as soon as possible.', 'dawp'); ?></div>
+                    <?php elseif ($status === 'captcha') : ?>
+                        <div class="mmd-contact-notice mmd-contact-notice--error" role="alert"><?php esc_html_e('We could not verify that you are human. Please complete the verification and try again.', 'dawp'); ?></div>
                     <?php elseif ($status === 'error') : ?>
                         <div class="mmd-contact-notice mmd-contact-notice--error" role="alert"><?php esc_html_e('Please check the required fields and try again.', 'dawp'); ?></div>
                     <?php endif; ?>
@@ -303,9 +306,13 @@ $contact_faqs = [
                         <label for="mmd-contact-message"><?php esc_html_e('Message', 'dawp'); ?></label>
                         <textarea id="mmd-contact-message" name="contact_message" required></textarea>
                     </div>
+                    <div class="mmd-contact-captcha">
+                        <altcha-widget challenge="<?php echo esc_url(dawp_altcha_base_url() . '/challenge'); ?>" name="altcha"></altcha-widget>
+                    </div>
                     <p class="mmd-contact-form__note"><?php esc_html_e('Please do not include full payment card numbers or sensitive account credentials in your message.', 'dawp'); ?></p>
                     <button class="mmd-contact-btn mmd-contact-btn--primary" type="submit"><?php esc_html_e('Send Message', 'dawp'); ?></button>
                 </form>
+                <script type="module" src="<?php echo esc_url(dawp_altcha_base_url() . '/altcha.min.js'); ?>" async></script>
             </article>
 
             <aside class="mmd-contact-sidebar" aria-labelledby="mmd-contact-details-title">

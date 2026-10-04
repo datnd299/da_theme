@@ -10,23 +10,23 @@ function dawp_product_category_definitions() {
     return [
         'the-meridian' => [
             'name'        => __('The Meridian', 'dawp'),
-            'description' => __('The everyday dress watch. Clean enough for a boardroom, easy enough for a Saturday. Hand-assembled in 316L steel around a carefully selected automatic movement.', 'dawp'),
+            'description' => __('Everyday dress watches. Clean enough for a boardroom, easy enough for a Saturday. Case size, materials, and movement type are listed on each product page.', 'dawp'),
         ],
         'the-abyss' => [
             'name'        => __('The Abyss', 'dawp'),
-            'description' => __('The dive watch. Rated for real use in the water, worn just as easily on land. Every gear train hand-finished, for those who look twice at a movement.', 'dawp'),
+            'description' => __('Dive-style watches with rotating bezels and legible dials, worn just as easily on land. Water resistance varies by model and is listed on each product page.', 'dawp'),
         ],
         'the-sovereign' => [
             'name'        => __('The Sovereign', 'dawp'),
-            'description' => __('The statement piece. Finished entirely by hand in our atelier. Worn for the moments that call for more — built for the room, not just the wrist.', 'dawp'),
+            'description' => __('Statement watches. Bolder cases and finishes for the moments that call for more — built for the room, not just the wrist.', 'dawp'),
         ],
         'the-aviator' => [
             'name'        => __('The Aviator', 'dawp'),
-            'description' => __('The pilot\'s watch. Vintage in line, modern in movement. Built for travel and worn just as well at a desk, for those who keep two clocks.', 'dawp'),
+            'description' => __('Pilot-style watches. Vintage lines and large, easy-to-read dials. Made for travel and worn just as well at a desk.', 'dawp'),
         ],
         'limited-editions' => [
             'name'        => __('Limited Editions', 'dawp'),
-            'description' => __('Numbered series, produced once. Each piece carries its own serial and is retired when the run closes.', 'dawp'),
+            'description' => __('Limited-availability pieces. Quantities are small; current stock is shown on each product page.', 'dawp'),
         ],
     ];
 }
@@ -45,9 +45,9 @@ function dawp_collections() {
             'summary'   => __('Restrained enough for a cuff, easy enough to wear from morning meetings to evening plans. One watch for the whole day.', 'dawp'),
             'image'     => 'assets/img/watches/meridian.jpeg',
             'specs'     => [
-                __('39mm 316L steel case', 'dawp'),
-                __('Sunburst silver dial', 'dawp'),
-                __('100m water resistance', 'dawp'),
+                __('Clean, uncluttered dials', 'dawp'),
+                __('Everyday case sizes', 'dawp'),
+                __('Bracelets and leather straps', 'dawp'),
             ],
         ],
         [
@@ -55,12 +55,12 @@ function dawp_collections() {
             'name'      => __('The Abyss', 'dawp'),
             'kicker'    => __('Collection 02', 'dawp'),
             'tagline'   => __('The dive watch', 'dawp'),
-            'summary'   => __('Built for the water — a long night dive, a swim off the dock — and worn just as well on land. Finished by hand, gear by gear, for those who notice.', 'dawp'),
+            'summary'   => __('Built for the water — a swim off the dock, a day on the boat — and worn just as well on land.', 'dawp'),
             'image'     => 'assets/img/watches/abyss.jpeg',
             'specs'     => [
-                __('41mm 316L steel case', 'dawp'),
-                __('Unidirectional dive bezel', 'dawp'),
-                __('200m water resistance', 'dawp'),
+                __('Rotating dive-style bezels', 'dawp'),
+                __('Luminous hands and markers', 'dawp'),
+                __('Water resistance listed per model', 'dawp'),
             ],
         ],
         [
@@ -71,9 +71,9 @@ function dawp_collections() {
             'summary'   => __('Weight and presence for the day you want to be noticed — a closing, a dinner, an entrance.', 'dawp'),
             'image'     => 'assets/img/watches/sovereign.jpeg',
             'specs'     => [
-                __('40mm gold-finished 316L steel case', 'dawp'),
-                __('Day and date display', 'dawp'),
-                __('Five-link bracelet', 'dawp'),
+                __('Gold-tone and two-tone finishes', 'dawp'),
+                __('Bold, detailed dials', 'dawp'),
+                __('Link bracelets', 'dawp'),
             ],
         ],
         [
@@ -84,9 +84,9 @@ function dawp_collections() {
             'summary'   => __('A classic silhouette, worn modern — from a layover to a Monday meeting, for those who keep two clocks.', 'dawp'),
             'image'     => 'assets/img/watches/aviator.jpeg',
             'specs'     => [
-                __('42mm 316L steel case', 'dawp'),
-                __('Second time zone hand', 'dawp'),
-                __('Deep blue lacquer dial', 'dawp'),
+                __('Large, legible numerals', 'dawp'),
+                __('Pilot-style dials', 'dawp'),
+                __('Leather and fabric straps', 'dawp'),
             ],
         ],
     ];
@@ -164,7 +164,7 @@ function dawp_seed_product_categories() {
     }
 
     $seeded_version = get_option('dawp_seeded_product_categories_version');
-    $target_version = 'chronel-2026-08-collections-v2';
+    $target_version = 'chronel-2026-10-collections-v3';
 
     if ($seeded_version === $target_version) {
         return;

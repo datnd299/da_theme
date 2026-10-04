@@ -36,9 +36,9 @@ function dawp_megamenu_sections() {
             'title' => __('Discover', 'dawp'),
             'links' => [
                 ['title' => __('All Watches', 'dawp'), 'url' => home_url('/shop/'), 'description' => __('The complete catalogue.', 'dawp')],
-                ['title' => __('Limited Editions', 'dawp'), 'url' => dawp_product_category_url('limited-editions'), 'description' => __('Numbered series, produced once.', 'dawp')],
-                ['title' => __('The Atelier', 'dawp'), 'url' => home_url('/about-us/'), 'description' => __('How a CHRONEL watch is made.', 'dawp')],
-                ['title' => __('The Movement', 'dawp'), 'url' => home_url('/about-us/#movement'), 'description' => __('Carefully selected automatic, calibre CH-01.', 'dawp')],
+                ['title' => __('Limited Editions', 'dawp'), 'url' => dawp_product_category_url('limited-editions'), 'description' => __('Limited-availability pieces.', 'dawp')],
+                ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/'), 'description' => __('Who we are and how we choose.', 'dawp')],
+                ['title' => __('The Movement', 'dawp'), 'url' => home_url('/about-us/#movement'), 'description' => __('Automatic, mechanical, and quartz explained.', 'dawp')],
             ],
         ],
     ];

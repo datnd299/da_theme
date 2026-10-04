@@ -17,7 +17,7 @@ $dawp_support_email  = dawp_brand('support_email');
         <div>
             <span class="c-rule" aria-hidden="true"></span>
             <h2 id="register-title" class="font-heading text-h2 text-foreground"><?php esc_html_e('The register', 'dawp'); ?></h2>
-            <p class="mt-4 max-w-md text-body-sm text-foreground-muted"><?php esc_html_e('New references, limited series, and news from the atelier. Nothing more often than that.', 'dawp'); ?></p>
+            <p class="mt-4 max-w-md text-body-sm text-foreground-muted"><?php esc_html_e('New arrivals, limited pieces, and store news. Nothing more often than that.', 'dawp'); ?></p>
         </div>
         <form id="footer-newsletter-form" class="w-full">
             <label class="c-label" for="footer-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
@@ -40,7 +40,7 @@ $dawp_support_email  = dawp_brand('support_email');
                 <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'CHRONEL'); ?>">
                     <img src="<?php echo esc_url(dawp_asset_uri('assets/img/chrone_logo_white.png')); ?>" alt="<?php esc_attr_e('CHRONEL', 'dawp'); ?>" width="525" height="164" class="h-11 w-auto" loading="lazy" decoding="async">
                 </a>
-                <p class="mt-6 max-w-xs text-body-sm text-on-ink-muted"><?php esc_html_e('An independent atelier. Every watch assembled and regulated by hand, powered by a carefully selected automatic movement.', 'dawp'); ?></p>
+                <p class="mt-6 max-w-xs text-body-sm text-on-ink-muted"><?php esc_html_e('An independent watch store. A considered selection of dress, dive, statement, and pilot watches, each described plainly.', 'dawp'); ?></p>
 
                 <dl class="mt-8 space-y-4 text-caption">
                     <div>

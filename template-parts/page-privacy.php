@@ -54,7 +54,7 @@ $dawp_business_address = function_exists('dawp_get_woocommerce_store_address') ?
             <ul>
                 <li><?php esc_html_e('Order information: name, billing and delivery address, email, telephone number, and what you bought.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Payment information: handled by PayPal, our payment provider. We receive a confirmation and, where you pay by card, the last four digits. We never see or store the full card number.', 'dawp'); ?></li>
-                <li><?php esc_html_e('Ownership records: the serial number of your watch, the components fitted, and any service carried out.', 'dawp'); ?></li>
+                <li><?php esc_html_e('Ownership records: the watch you bought and any warranty or service requests.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Correspondence: messages you send through the contact form.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Technical information: IP address, browser, device type, and pages viewed.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Marketing preferences: your email address, if you join the register.', 'dawp'); ?></li>

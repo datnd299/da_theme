@@ -1,6 +1,6 @@
 <?php
 /**
- * Homepage — hero, collections, featured watches, atelier, movement, service.
+ * Homepage — hero, collections, featured watches, how we choose, movement, service.
  * See .plans/site.md §4.
  */
 
@@ -38,30 +38,30 @@ if (class_exists('WooCommerce')) {
 
         <div class="order-2 lg:order-1">
             <span class="c-rule" aria-hidden="true"></span>
-            <p class="c-eyebrow"><?php esc_html_e('Est. 2016 — United States', 'dawp'); ?></p>
+            <p class="c-eyebrow"><?php esc_html_e('Independent watch store — United States', 'dawp'); ?></p>
 
             <h1 id="hero-title" class="font-heading text-display font-light leading-[0.94] tracking-tight text-foreground">
                 <?php esc_html_e('Time,', 'dawp'); ?><br>
-                <span class="italic"><?php esc_html_e('measured', 'dawp'); ?></span> <?php esc_html_e('by hand.', 'dawp'); ?>
+                <span class="italic"><?php esc_html_e('well', 'dawp'); ?></span> <?php esc_html_e('chosen.', 'dawp'); ?>
             </h1>
 
             <p class="mt-8 max-w-md text-body text-foreground-muted">
-                <?php esc_html_e('An independent atelier building mechanical watches one at a time. Steel cases finished by hand. Carefully selected automatic movements, regulated in five positions.', 'dawp'); ?>
+                <?php esc_html_e('A small, considered selection of dress, dive, statement, and pilot watches. Brand, movement, and full specifications stated plainly on every product page.', 'dawp'); ?>
             </p>
 
             <div class="mt-10 flex flex-wrap gap-4">
                 <a class="c-btn" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('The Collections', 'dawp'); ?></a>
-                <a class="c-btn-ghost" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('The Atelier', 'dawp'); ?></a>
+                <a class="c-btn-ghost" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('About Us', 'dawp'); ?></a>
             </div>
 
             <dl class="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-border pt-8">
                 <div>
-                    <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php esc_html_e('Movement', 'dawp'); ?></dt>
-                    <dd class="m-0 mt-2 font-heading text-h3 text-foreground"><?php esc_html_e('Automatic', 'dawp'); ?></dd>
+                    <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php esc_html_e('Collections', 'dawp'); ?></dt>
+                    <dd class="m-0 mt-2 font-heading text-h3 text-foreground"><?php esc_html_e('Four', 'dawp'); ?></dd>
                 </div>
                 <div>
-                    <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php esc_html_e('Frequency', 'dawp'); ?></dt>
-                    <dd class="m-0 mt-2 font-heading text-h3 text-foreground"><?php esc_html_e('28,800', 'dawp'); ?></dd>
+                    <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php esc_html_e('Returns', 'dawp'); ?></dt>
+                    <dd class="m-0 mt-2 font-heading text-h3 text-foreground"><?php esc_html_e('30 days', 'dawp'); ?></dd>
                 </div>
                 <div>
                     <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php esc_html_e('Warranty', 'dawp'); ?></dt>
@@ -72,7 +72,7 @@ if (class_exists('WooCommerce')) {
 
         <div class="order-1 lg:order-2">
             <img src="<?php echo esc_url(dawp_asset_uri('assets/img/hero/hero-watch.png')); ?>"
-                 alt="<?php esc_attr_e('A CHRONEL automatic watch on a steel bracelet', 'dawp'); ?>"
+                 alt="<?php esc_attr_e('An automatic watch on a steel bracelet', 'dawp'); ?>"
                  width="896" height="1200" fetchpriority="high" decoding="async"
                  class="mx-auto h-[340px] w-auto sm:h-[440px] lg:h-[600px]">
         </div>
@@ -122,8 +122,8 @@ if (class_exists('WooCommerce')) {
         <div class="mb-12 flex flex-wrap items-end justify-between gap-6">
             <div class="max-w-xl">
                 <span class="c-rule" aria-hidden="true"></span>
-                <p class="c-eyebrow"><?php esc_html_e('Recently completed', 'dawp'); ?></p>
-                <h2 id="featured-title" class="c-title"><?php esc_html_e('Fresh from the bench.', 'dawp'); ?></h2>
+                <p class="c-eyebrow"><?php esc_html_e('New in', 'dawp'); ?></p>
+                <h2 id="featured-title" class="c-title"><?php esc_html_e('Recently added.', 'dawp'); ?></h2>
             </div>
             <a class="c-link" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('All watches', 'dawp'); ?></a>
         </div>
@@ -154,21 +154,21 @@ if (class_exists('WooCommerce')) {
 </section>
 <?php endif; ?>
 
-<!-- ============================================================ THE ATELIER -->
-<section class="border-b border-border bg-background section-y" aria-labelledby="atelier-title">
+<!-- ============================================================ HOW WE CHOOSE -->
+<section class="border-b border-border bg-background section-y" aria-labelledby="choose-title">
     <div class="container grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
         <div class="order-2 lg:order-1">
             <span class="c-rule" aria-hidden="true"></span>
-            <p class="c-eyebrow"><?php esc_html_e('The atelier', 'dawp'); ?></p>
-            <h2 id="atelier-title" class="c-title"><?php esc_html_e('One watchmaker. One watch. Start to finish.', 'dawp'); ?></h2>
-            <p class="c-lede"><?php esc_html_e('A CHRONEL is not passed down a line. A single watchmaker cases the movement, fits the dial and hands, sets the rate, and signs the certificate. It takes as long as it takes.', 'dawp'); ?></p>
+            <p class="c-eyebrow"><?php esc_html_e('How we choose', 'dawp'); ?></p>
+            <h2 id="choose-title" class="c-title"><?php esc_html_e('Fewer watches, described properly.', 'dawp'); ?></h2>
+            <p class="c-lede"><?php esc_html_e('We keep the catalogue small on purpose. Every watch is picked for its design, its build, and its value at the price — then listed with the details you need to judge it yourself.', 'dawp'); ?></p>
 
             <ul class="m-0 mt-10 list-none space-y-0 p-0">
                 <?php
                 $dawp_craft = [
-                    ['n' => '01', 't' => __('Cases finished by hand', 'dawp'), 'd' => __('316L steel, brushed along the lug and polished on the bevel. Each surface is worked separately.', 'dawp')],
-                    ['n' => '02', 't' => __('Movements regulated in five positions', 'dawp'), 'd' => __('Carefully selected automatic calibres, timed over 72 hours before the case back is closed.', 'dawp')],
-                    ['n' => '03', 't' => __('Sealed, numbered, recorded', 'dawp'), 'd' => __('Gaskets seated, pressure tested, serial engraved and entered in the atelier register.', 'dawp')],
+                    ['n' => '01', 't' => __('Specifications stated plainly', 'dawp'), 'd' => __('Brand, movement type, case size, materials, and water resistance on every product page.', 'dawp')],
+                    ['n' => '02', 't' => __('Sorted by how you wear it', 'dawp'), 'd' => __('Four collections — dress, dive, statement, pilot — so the right watch is easier to find.', 'dawp')],
+                    ['n' => '03', 't' => __('Help before you buy', 'dawp'), 'd' => __('Not sure about size or style? Client care replies within one business day.', 'dawp')],
                 ];
                 foreach ($dawp_craft as $step) : ?>
                     <li class="flex gap-6 border-t border-border py-6">
@@ -185,7 +185,7 @@ if (class_exists('WooCommerce')) {
         <div class="order-1 lg:order-2">
             <div class="border border-border bg-surface-alt">
                 <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/workbench.jpeg')); ?>"
-                     alt="<?php esc_attr_e('A watchmaker\'s bench with a loupe, tweezers, and a movement in its holder', 'dawp'); ?>"
+                     alt="<?php esc_attr_e('A loupe and watch tools on a bench', 'dawp'); ?>"
                      width="1200" height="896" loading="lazy" decoding="async" class="w-full">
             </div>
         </div>
@@ -197,26 +197,26 @@ if (class_exists('WooCommerce')) {
     <div class="container grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
         <div>
             <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.jpeg')); ?>"
-                 alt="<?php esc_attr_e('The calibre CH-01, a carefully selected automatic movement', 'dawp'); ?>"
+                 alt="<?php esc_attr_e('An automatic watch movement', 'dawp'); ?>"
                  width="1024" height="1024" loading="lazy" decoding="async"
                  class="mx-auto w-full max-w-[420px]">
         </div>
 
         <div>
             <span class="c-rule" aria-hidden="true"></span>
-            <p class="text-eyebrow font-medium uppercase tracking-wide text-accent"><?php esc_html_e('Calibre CH-01', 'dawp'); ?></p>
-            <h2 id="movement-title" class="mt-4 font-heading text-h2 font-light leading-[1.05] text-on-ink"><?php esc_html_e('A carefully chosen heart, set by hand.', 'dawp'); ?></h2>
-            <p class="mt-6 max-w-lg text-body-sm text-on-ink-muted"><?php esc_html_e('We select our automatic movements for a tolerance we could not better. Everything after that happens here: inspection, regulation, casing, and the final 72-hour test on the timing machine.', 'dawp'); ?></p>
+            <p class="text-eyebrow font-medium uppercase tracking-wide text-accent"><?php esc_html_e('The movement', 'dawp'); ?></p>
+            <h2 id="movement-title" class="mt-4 font-heading text-h2 font-light leading-[1.05] text-on-ink"><?php esc_html_e('Know what is inside.', 'dawp'); ?></h2>
+            <p class="mt-6 max-w-lg text-body-sm text-on-ink-muted"><?php esc_html_e('Automatic, mechanical, or quartz — each is powered differently and needs different care. Every product page states the movement type and the maker\'s specifications, so you can compare like with like.', 'dawp'); ?></p>
 
             <dl class="mt-10 grid grid-cols-2 gap-px border border-border-ink bg-border-ink sm:grid-cols-3">
                 <?php
                 $dawp_specs = [
-                    ['t' => __('Type', 'dawp'), 'v' => __('Automatic', 'dawp')],
-                    ['t' => __('Jewels', 'dawp'), 'v' => __('24', 'dawp')],
-                    ['t' => __('Frequency', 'dawp'), 'v' => __('28,800 vph', 'dawp')],
-                    ['t' => __('Power reserve', 'dawp'), 'v' => __('~40 hours', 'dawp')],
-                    ['t' => __('Crystal', 'dawp'), 'v' => __('Sapphire', 'dawp')],
-                    ['t' => __('Case', 'dawp'), 'v' => __('316L steel', 'dawp')],
+                    ['t' => __('Automatic', 'dawp'), 'v' => __('Self-winding', 'dawp')],
+                    ['t' => __('Mechanical', 'dawp'), 'v' => __('Hand-wound', 'dawp')],
+                    ['t' => __('Quartz', 'dawp'), 'v' => __('Battery', 'dawp')],
+                    ['t' => __('Case size', 'dawp'), 'v' => __('Per model', 'dawp')],
+                    ['t' => __('Crystal', 'dawp'), 'v' => __('Per model', 'dawp')],
+                    ['t' => __('Water resistance', 'dawp'), 'v' => __('Per model', 'dawp')],
                 ];
                 foreach ($dawp_specs as $spec) : ?>
                     <div class="bg-ink p-5">

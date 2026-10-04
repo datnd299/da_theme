@@ -16,7 +16,7 @@ $collections = function_exists('dawp_collections') ? dawp_collections() : [];
 
 $eyebrow     = __('The catalogue', 'dawp');
 $title       = __('All Watches', 'dawp');
-$description = __('Every reference currently built in the atelier. Each one is hand-assembled around a carefully selected automatic movement.', 'dawp');
+$description = __('Every watch currently in stock, across all four collections. Brand, movement, and full specifications are listed on each product page.', 'dawp');
 
 if (is_search()) {
     $eyebrow     = __('Search', 'dawp');
@@ -167,7 +167,7 @@ if (is_search()) {
                     <div class="shop-empty">
                         <span class="c-rule c-rule--center" aria-hidden="true"></span>
                         <h2><?php esc_html_e('Nothing here yet.', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('This collection has no watches available at the moment. New references are added as they leave the bench.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('This collection has no watches available at the moment. New watches are added regularly.', 'dawp'); ?></p>
                         <div class="shop-empty__actions">
                             <a class="c-btn" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('All watches', 'dawp'); ?></a>
                         </div>

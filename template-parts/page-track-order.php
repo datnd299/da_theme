@@ -21,7 +21,7 @@ $dawp_support_email = dawp_brand('support_email');
         <div class="max-w-3xl">
             <span class="c-rule" aria-hidden="true"></span>
             <p class="c-eyebrow"><?php esc_html_e('Client care', 'dawp'); ?></p>
-            <h1 id="track-hero-title" class="font-heading text-h1 font-light leading-[1.02] tracking-tight text-foreground"><?php esc_html_e('Follow your watch from the bench to your door.', 'dawp'); ?></h1>
+            <h1 id="track-hero-title" class="font-heading text-h1 font-light leading-[1.02] tracking-tight text-foreground"><?php esc_html_e('Follow your watch from dispatch to your door.', 'dawp'); ?></h1>
             <p class="c-lede"><?php esc_html_e('Enter the order number from your confirmation email and the address you used at checkout.', 'dawp'); ?></p>
         </div>
     </div>
@@ -65,7 +65,7 @@ $dawp_support_email = dawp_brand('support_email');
                 $dawp_statuses = [
                     ['t' => __('Processing', 'dawp'), 'd' => __('Your order is confirmed and the watch is being prepared. Sizing and engraving happen at this stage.', 'dawp')],
                     ['t' => __('On hold', 'dawp'), 'd' => __('We are waiting on something — usually payment verification. Client care will already have written to you.', 'dawp')],
-                    ['t' => __('Completed', 'dawp'), 'd' => __('The watch has left the atelier. Your dispatch email carries the carrier tracking link.', 'dawp')],
+                    ['t' => __('Completed', 'dawp'), 'd' => __('The watch has shipped. Your dispatch email carries the carrier tracking link.', 'dawp')],
                     ['t' => __('Cancelled', 'dawp'), 'd' => __('The order was cancelled. Any payment taken is refunded to the original method.', 'dawp')],
                 ];
                 foreach ($dawp_statuses as $status) : ?>

@@ -98,8 +98,8 @@ function dawp_single_product_assurances() {
     $badges = [
         [
             'icon'  => '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-            'title' => __('Carefully selected automatic movement', 'dawp'),
-            'copy'  => __('24 jewels, 28,800 vph, regulated in five positions.', 'dawp'),
+            'title' => __('Specifications stated plainly', 'dawp'),
+            'copy'  => __('Brand, movement, and case details as supplied by the maker.', 'dawp'),
         ],
         [
             'icon'  => '<path d="M12 3l7 3v5c0 4.3-2.9 8.2-7 9.6C7.9 19.2 5 15.3 5 11V6l7-3z"/><path d="M9 12l2 2 4-4.5"/>',
@@ -112,9 +112,9 @@ function dawp_single_product_assurances() {
             'copy'  => __('Signature required, fully insured across the United States.', 'dawp'),
         ],
         [
-            'icon'  => '<path d="M12 3l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 15.7 6.9 18.5l1.2-5.6L4 9l5.6-.6z"/>',
-            'title' => __('Individually numbered', 'dawp'),
-            'copy'  => __('Serial engraved on the case back and recorded on the certificate.', 'dawp'),
+            'icon'  => '<path d="M4 9h11a5 5 0 0 1 0 10H9"/><path d="M8 5L4 9l4 4"/>',
+            'title' => __('30-day returns', 'dawp'),
+            'copy'  => __('Return an unworn watch in its original condition.', 'dawp'),
         ],
     ];
     ?>
@@ -133,19 +133,19 @@ function dawp_single_product_assurances() {
 }
 
 /**
- * A quiet atelier band below the product summary.
+ * A quiet brand band below the product summary.
  */
 function dawp_single_product_atelier_banner() {
     ?>
-    <section class="dawp-atelier-banner" aria-label="<?php esc_attr_e('About the atelier', 'dawp'); ?>">
+    <section class="dawp-atelier-banner" aria-label="<?php esc_attr_e('About CHRONEL', 'dawp'); ?>">
         <div class="dawp-atelier-banner__figure" aria-hidden="true">
             <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.jpeg')); ?>" alt="" width="1024" height="1024" loading="lazy" decoding="async">
         </div>
         <div class="dawp-atelier-banner__content">
-            <p class="dawp-atelier-banner__eyebrow"><?php esc_html_e('Calibre CH-01', 'dawp'); ?></p>
-            <h2><?php esc_html_e('Assembled by one watchmaker, start to finish.', 'dawp'); ?></h2>
-            <p><?php esc_html_e('Every movement is cased, timed, and inspected by the same hands. Nothing leaves the atelier until it holds its rate across five positions.', 'dawp'); ?></p>
-            <a class="dawp-atelier-banner__link" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('Inside the atelier', 'dawp'); ?></a>
+            <p class="dawp-atelier-banner__eyebrow"><?php esc_html_e('How we choose', 'dawp'); ?></p>
+            <h2><?php esc_html_e('Chosen for design, build, and value.', 'dawp'); ?></h2>
+            <p><?php esc_html_e('We keep a short catalogue and describe every watch plainly — brand, movement, case size, materials, and water resistance — so you know exactly what you are buying.', 'dawp'); ?></p>
+            <a class="dawp-atelier-banner__link" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('About CHRONEL', 'dawp'); ?></a>
         </div>
     </section>
     <?php

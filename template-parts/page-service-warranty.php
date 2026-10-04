@@ -32,27 +32,27 @@ $dawp_business_address = function_exists('dawp_get_woocommerce_store_address') ?
 
         <section>
             <h2><?php esc_html_e('1. The five-year warranty', 'dawp'); ?></h2>
-            <p><?php esc_html_e('Every CHRONEL movement is covered for five years from the delivery date against defects in materials and workmanship. If a covered fault appears, we repair or replace the movement and cover shipping in both directions.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Every watch bought from CHRONEL is covered for five years from the delivery date against defects in materials and workmanship of the movement. If a covered fault appears, we repair or replace the movement and cover shipping in both directions.', 'dawp'); ?></p>
             <p><?php esc_html_e('The warranty does not cover:', 'dawp'); ?></p>
             <ul>
                 <li><?php esc_html_e('Normal wear to the case, crystal, bracelet, or clasp.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Accidental damage, impact, or misuse.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Water ingress where the recommended gasket service has not been carried out.', 'dawp'); ?></li>
-                <li><?php esc_html_e('Any work carried out by a watchmaker other than CHRONEL.', 'dawp'); ?></li>
+                <li><?php esc_html_e('Repairs or alterations made by anyone other than CHRONEL or the watch\'s maker.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Loss or theft.', 'dawp'); ?></li>
             </ul>
-            <p><?php esc_html_e('The warranty is attached to the serial number, not to the buyer, and transfers with the watch.', 'dawp'); ?></p>
+            <p><?php esc_html_e('The warranty is attached to the watch, not to the buyer, and transfers with it. Keep your order confirmation as proof of purchase.', 'dawp'); ?></p>
         </section>
 
         <section>
             <h2><?php esc_html_e('2. The lifetime service programme', 'dawp'); ?></h2>
-            <p><?php esc_html_e('For as long as you own the watch, we service it at cost. We recommend a full service every five to seven years. A full service means the movement is disassembled, cleaned, lubricated, reassembled, and regulated in five positions; the gaskets are replaced; and the case is pressure tested and refinished.', 'dawp'); ?></p>
-            <p><?php esc_html_e('Because every serial is recorded with its full component list, we can service a CHRONEL correctly decades after it was built. Turnaround is typically four to six weeks. You are quoted before any work begins.', 'dawp'); ?></p>
+            <p><?php esc_html_e('For as long as you own the watch, we service it at cost. We recommend a full service every five to seven years. A full service means the movement is cleaned, lubricated, and adjusted, or the battery replaced on a quartz watch; the gaskets are replaced; and water resistance is tested.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Turnaround is typically four to six weeks. You are quoted before any work begins.', 'dawp'); ?></p>
         </section>
 
         <section>
             <h2><?php esc_html_e('3. Water resistance', 'dawp'); ?></h2>
-            <p><?php esc_html_e('The Meridian, The Sovereign, and The Aviator are rated to 100 metres. The Abyss is rated to 200 metres with a screw-down crown. These ratings assume intact gaskets and a fully closed crown. Water resistance is not permanent; have it tested at each service, and always before swimming or diving.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Water resistance varies by model and is stated on each product page. Ratings assume intact gaskets and a fully closed crown. Water resistance is not permanent; have it tested at each service, and always before swimming or diving.', 'dawp'); ?></p>
         </section>
 
         <section>
@@ -60,7 +60,7 @@ $dawp_business_address = function_exists('dawp_get_woocommerce_store_address') ?
             <p><?php
                 printf(
                     /* translators: 1: support email link, 2: contact page link */
-                    esc_html__('Write to %1$s or use the %2$s with your serial number and a description of the fault. Do not send a watch to us without a service authorisation; unauthorised parcels cannot be insured on arrival.', 'dawp'),
+                    esc_html__('Write to %1$s or use the %2$s with your order number and a description of the fault. Do not send a watch to us without a service authorisation; unauthorised parcels cannot be insured on arrival.', 'dawp'),
                     '<a href="mailto:' . esc_attr($dawp_support_email) . '">' . esc_html($dawp_support_email) . '</a>',
                     '<a href="' . esc_url(home_url('/contact-us/')) . '">' . esc_html__('Contact page', 'dawp') . '</a>'
                 );

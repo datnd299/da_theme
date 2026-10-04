@@ -202,7 +202,7 @@ $dawp_cart_count  = (function_exists('WC') && WC() && WC()->cart) ? WC()->cart->
                 <span class="c-rule c-rule--center" aria-hidden="true"></span>
                 <p class="c-eyebrow"><?php esc_html_e('Nothing selected', 'dawp'); ?></p>
                 <h2><?php esc_html_e('Your cart is empty.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Four collections, each built on the same carefully selected automatic calibre. Take your time.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Four collections, sorted by how a watch is worn. Take your time.', 'dawp'); ?></p>
                 <a class="c-btn" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('All watches', 'dawp'); ?></a>
             </div>
 

@@ -13,7 +13,7 @@ if (!function_exists('dawp_brand')) {
         $brand = [
             'name'          => 'CHRONEL',
             'domain'        => 'chronelwatches.com',
-            'tagline'       => __('Hand-assembled. Every movement carefully selected.', 'dawp'),
+            'tagline'       => __('Fewer watches, chosen with care.', 'dawp'),
             'support_email' => 'support@chronelwatches.com',
             'atelier_email' => 'atelier@chronelwatches.com',
             'hours'             => __('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Time', 'dawp'),

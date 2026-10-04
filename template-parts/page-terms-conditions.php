@@ -55,8 +55,7 @@ $dawp_business_address = function_exists('dawp_get_woocommerce_store_address') ?
 
         <section>
             <h2><?php esc_html_e('4. Product description', 'dawp'); ?></h2>
-            <p><?php esc_html_e('We describe every watch as accurately as we can: case material and size, movement, crystal, water resistance, and the origin of each principal component. Illustrations are drawn to represent the design and cannot reproduce metal finishing or dial colour exactly, which also vary with your screen.', 'dawp'); ?></p>
-            <p><?php esc_html_e('Because watches are finished by hand, small variations between individual pieces are normal and are not defects.', 'dawp'); ?></p>
+            <p><?php esc_html_e('We describe every watch as accurately as we can, using the specifications supplied by its maker: brand, case material and size, movement type, crystal, and water resistance. Photographs cannot reproduce metal finishing or dial colour exactly, which also vary with your screen.', 'dawp'); ?></p>
         </section>
 
         <section>

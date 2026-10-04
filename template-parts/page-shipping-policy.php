@@ -45,7 +45,7 @@ $dawp_business_address = function_exists('dawp_get_woocommerce_store_address') ?
             <p><?php
                 printf(
                     /* translators: %s: handling time */
-                    esc_html__('Handling takes %s, Monday to Friday. This covers three steps: assembly, quality check, and packing. Weekends and public holidays are not business days and do not count toward handling time.', 'dawp'),
+                    esc_html__('Handling takes %s, Monday to Friday. This covers three steps: order verification, packing, and dispatch. Weekends and public holidays are not business days and do not count toward handling time.', 'dawp'),
                     esc_html(dawp_brand('handling_time'))
                 );
             ?></p>
@@ -89,7 +89,7 @@ $dawp_business_address = function_exists('dawp_get_woocommerce_store_address') ?
             <p><?php
                 printf(
                     /* translators: %s: link to the track order page */
-                    esc_html__('A dispatch email with a tracking link is sent the moment your watch leaves the atelier. You can also follow it on the %s using your order number and the email used at checkout.', 'dawp'),
+                    esc_html__('A dispatch email with a tracking link is sent the moment your watch ships. You can also follow it on the %s using your order number and the email used at checkout.', 'dawp'),
                     '<a href="' . esc_url(home_url('/track-order/')) . '">' . esc_html__('Track Your Order page', 'dawp') . '</a>'
                 );
             ?></p>
@@ -109,10 +109,9 @@ $dawp_business_address = function_exists('dawp_get_woocommerce_store_address') ?
         <section>
             <h2><?php esc_html_e('10. What arrives with the watch', 'dawp'); ?></h2>
             <ul>
-                <li><?php esc_html_e('The watch, sized as requested, in its presentation case.', 'dawp'); ?></li>
-                <li><?php esc_html_e('A certificate carrying the individual serial number and the date of assembly.', 'dawp'); ?></li>
-                <li><?php esc_html_e('A service record booklet for future entries.', 'dawp'); ?></li>
-                <li><?php esc_html_e('A bracelet sizing tool and every link removed during sizing.', 'dawp'); ?></li>
+                <li><?php esc_html_e('The watch, sized as requested, in the packaging supplied by its maker.', 'dawp'); ?></li>
+                <li><?php esc_html_e('Any manual, warranty card, or documentation supplied by the maker.', 'dawp'); ?></li>
+                <li><?php esc_html_e('Every link removed during sizing.', 'dawp'); ?></li>
             </ul>
         </section>
 

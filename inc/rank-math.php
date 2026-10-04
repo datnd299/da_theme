@@ -204,7 +204,7 @@ function dawp_rank_math_virtual_page_schema($data, $jsonld) {
     if ($page['path'] === 'home') {
         $schema['about'] = [
             '@type' => 'Thing',
-            'name'  => 'Handcrafted luxury watches with carefully selected automatic movements',
+            'name'  => 'Dress, dive, statement, and pilot watches from established makers',
         ];
     }
 

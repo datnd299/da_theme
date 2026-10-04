@@ -42,10 +42,10 @@ $dawp_store_address = function_exists('dawp_get_woocommerce_store_address') ? da
                 </dd>
             </div>
             <div class="bg-background p-8">
-                <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php esc_html_e('The atelier', 'dawp'); ?></dt>
+                <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php esc_html_e('Product questions', 'dawp'); ?></dt>
                 <dd class="m-0 mt-3">
                     <a class="font-heading text-h3 text-foreground transition-colors duration-400 ease-fluid hover:text-accent-deep" href="mailto:<?php echo esc_attr($dawp_atelier_email); ?>"><?php echo esc_html($dawp_atelier_email); ?></a>
-                    <span class="mt-2 block text-body-sm text-foreground-muted"><?php esc_html_e('Technical questions about your watch.', 'dawp'); ?></span>
+                    <span class="mt-2 block text-body-sm text-foreground-muted"><?php esc_html_e('Specifications, sizing, and choosing a model.', 'dawp'); ?></span>
                 </dd>
             </div>
             <div class="bg-background p-8">
@@ -143,7 +143,7 @@ $dawp_store_address = function_exists('dawp_get_woocommerce_store_address') ? da
         <ul class="m-0 grid list-none grid-cols-1 gap-px border border-border bg-border p-0 lg:grid-cols-3">
             <?php
             $dawp_quick = [
-                ['t' => __('Where is my order?', 'dawp'), 'd' => __('A tracking link is emailed the moment your watch leaves the atelier. You can also check the Track Your Order page.', 'dawp'), 'url' => home_url('/track-order/'), 'cta' => __('Track your order', 'dawp')],
+                ['t' => __('Where is my order?', 'dawp'), 'd' => __('A tracking link is emailed the moment your watch ships. You can also check the Track Your Order page.', 'dawp'), 'url' => home_url('/track-order/'), 'cta' => __('Track your order', 'dawp')],
                 ['t' => __('Which size should I choose?', 'dawp'), 'd' => __('Send us your wrist measurement and we will recommend a case size and set the bracelet before dispatch.', 'dawp'), 'url' => home_url('/faq/'), 'cta' => __('Sizing guidance', 'dawp')],
                 ['t' => __('How do I return a watch?', 'dawp'), 'd' => __('Thirty days from delivery, unworn and complete. Write to client care and we will issue a return authorisation.', 'dawp'), 'url' => home_url('/returns/'), 'cta' => __('Returns policy', 'dawp')],
             ];

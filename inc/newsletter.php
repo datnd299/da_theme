@@ -63,8 +63,8 @@ function dawp_newsletter_subscribe() {
     $site_name = get_bloginfo('name') ?: dawp_brand('name');
     $subject   = 'Welcome to ' . $site_name;
     $message   = "Thank you for joining the {$site_name} register.\n\n"
-        . "You will hear from us when a new reference leaves the atelier, when a limited series opens, and when we have something worth your attention. Nothing more often than that.\n\n"
-        . "The {$site_name} Atelier";
+        . "You will hear from us when new watches arrive, when limited pieces become available, and when we have something worth your attention. Nothing more often than that.\n\n"
+        . "The {$site_name} Team";
 
     $sent = wp_mail($email, $subject, $message, ['Content-Type: text/plain; charset=UTF-8']);
 
@@ -123,7 +123,7 @@ function dawp_contact_submit() {
     $confirm_body = "Dear {$name},\n\n"
         . "Thank you for writing to us. Client care will reply within one business day.\n\n"
         . "Client care is open Monday to Friday, 9:00 AM to 5:00 PM (GMT-05:00) Eastern Time.\n\n"
-        . "The {$site_name} Atelier";
+        . "The {$site_name} Team";
 
     wp_mail(
         $email,

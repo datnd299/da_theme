@@ -20,10 +20,10 @@ if (!$account_url) {
     $account_url = home_url('/my-account/');
 }
 
-$support_email  = 'concierge@chronelshop.com';
-$support_phone  = '+1 757 804 6538';
+$support_email  = 'support@chronelshop.com';
+$support_phone  = '+1 304 585 0364';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM', 'dawp');
-$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : __('Private showroom appointments available by request.', 'dawp');
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : __('Business address available on request.', 'dawp');
 
 $footer_columns = [
     [
@@ -153,7 +153,7 @@ $payment_methods = [
                         <dd><?php echo esc_html($business_hours); ?></dd>
                     </div>
                     <div>
-                        <dt><?php esc_html_e('Showroom:', 'dawp'); ?></dt>
+                        <dt><?php esc_html_e('Business Address:', 'dawp'); ?></dt>
                         <dd><?php echo esc_html($store_address); ?></dd>
                     </div>
                 </dl>
@@ -213,6 +213,9 @@ $payment_methods = [
 </footer>
 
 <?php if (function_exists('dawp_cart_fab_markup')) : dawp_cart_fab_markup(); endif; ?>
+<a class="dawp-wa-fab" href="https://wa.me/<?php echo esc_attr(preg_replace('/[^0-9]/', '', $support_phone)); ?>" target="_blank" rel="noopener" aria-label="<?php esc_attr_e('Chat with us on WhatsApp', 'dawp'); ?>">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.47 9.47 0 0 1-4.83-1.32l-.35-.21-3.59.94.96-3.5-.23-.36a9.45 9.45 0 0 1-1.45-5.04c0-5.23 4.26-9.49 9.5-9.49 2.54 0 4.92.99 6.71 2.79a9.43 9.43 0 0 1 2.78 6.71c0 5.24-4.26 9.48-9.49 9.48zm8.08-17.56A11.35 11.35 0 0 0 12.05.6C5.75.6.63 5.72.62 12.01c0 2.01.53 3.98 1.53 5.71L.53 23.6l6.02-1.58a11.4 11.4 0 0 0 5.45 1.39h.01c6.29 0 11.41-5.12 11.42-11.41a11.34 11.34 0 0 0-3.3-8.06z"/></svg>
+</a>
 <?php if (function_exists('dawp_cart_drawer_markup')) : dawp_cart_drawer_markup(); endif; ?>
 
 <?php wp_footer(); ?>

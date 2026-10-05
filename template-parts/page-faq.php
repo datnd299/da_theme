@@ -11,8 +11,8 @@ if (!defined('ABSPATH')) {
 
 $store_name     = 'Chronel';
 $site_domain    = 'Chronel';
-$support_email  = 'concierge@chronelshop.com';
-$support_phone  = '757-804-6538';
+$support_email  = 'support@chronelshop.com';
+$support_phone  = '304-585-0364';
 $store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');

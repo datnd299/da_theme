@@ -9,8 +9,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'concierge@chronelshop.com';
-$support_phone = '757-804-6538';
+$support_email = 'support@chronelshop.com';
+$support_phone = '304-585-0364';
 $store_address = '57 Calvert St, Woodbridge, VA 22191-2840';
 $track_url     = home_url('/track-order/');
 $contact_url   = home_url('/contact-us/');

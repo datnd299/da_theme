@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_phone   = '+1 757 804 6538';
+$support_phone   = '+1 304 585 0364';
 $whatsapp_number = preg_replace('/[^0-9]/', '', $support_phone);
 $rating_text     = __('Rated 4.8/5 based on 13,000+ Reviews', 'dawp');
 $shipping_badge  = __('Secured Shipping & Customs Guarantee', 'dawp');

@@ -21,8 +21,8 @@ body.woocommerce-order-received {
     font-family: var(--font-sans, Inter, Arial, sans-serif);
 }
 
-body.woocommerce-checkout .woo-page > .container,
-body.woocommerce-order-received .woo-page > .container,
+body.woocommerce-checkout .woo-page>.container,
+body.woocommerce-order-received .woo-page>.container,
 .woocommerce-checkout .woocommerce.wp-block-group.alignwide,
 .wp-block-woocommerce-checkout {
     width: 100%;
@@ -667,6 +667,7 @@ body.woocommerce-checkout .woo-page *::after,
 }
 
 @media (min-width: 640px) {
+
     .woocommerce-checkout .woocommerce-billing-fields__field-wrapper,
     .woocommerce-checkout .woocommerce-shipping-fields__field-wrapper,
     .wp-block-woocommerce-checkout .wc-block-components-address-form {
@@ -689,8 +690,9 @@ body.woocommerce-checkout .woo-page *::after,
 }
 
 @media (min-width: 1024px) {
-    body.woocommerce-checkout .woo-page > .container,
-    body.woocommerce-order-received .woo-page > .container,
+
+    body.woocommerce-checkout .woo-page>.container,
+    body.woocommerce-order-received .woo-page>.container,
     .woocommerce-checkout .woocommerce.wp-block-group.alignwide,
     .wp-block-woocommerce-checkout {
         padding-inline: clamp(2rem, 4vw, 4rem);
@@ -743,8 +745,9 @@ body.woocommerce-checkout .woo-page *::after,
 }
 
 @media (max-width: 639px) {
-    body.woocommerce-checkout .woo-page > .container,
-    body.woocommerce-order-received .woo-page > .container,
+
+    body.woocommerce-checkout .woo-page>.container,
+    body.woocommerce-order-received .woo-page>.container,
     .woocommerce-checkout .woocommerce.wp-block-group.alignwide,
     .wp-block-woocommerce-checkout {
         width: 100%;
@@ -756,11 +759,24 @@ body.woocommerce-checkout .woo-page *::after,
     .woocommerce-checkout .woocommerce-shipping-fields,
     .woocommerce-checkout .woocommerce-additional-fields,
     .woocommerce-checkout .woocommerce-checkout-review-order,
-    .woocommerce-checkout [id="order_review"],
     .woocommerce-order-received .woocommerce-order,
     .wp-block-woocommerce-checkout .wc-block-components-checkout-step,
     .wp-block-woocommerce-checkout .wp-block-woocommerce-checkout-order-summary-block {
-        padding: 1rem;
+        padding: 0.875rem;
+    }
+
+    .woocommerce-checkout [id="order_review"] {
+        padding: 0;
+        border: 0;
+        background: transparent;
+    }
+
+    .woocommerce-checkout .wc_payment_method {
+        padding: 0.625rem 0.75rem;
+    }
+
+    .woocommerce-checkout .payment_box {
+        padding: 0.75rem;
     }
 
     .wp-block-woocommerce-checkout .wc-block-components-order-summary-item {

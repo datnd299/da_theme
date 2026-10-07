@@ -94,7 +94,7 @@ $sections = [
     [
         'title' => __('10. Refunds to Original Payment Method', 'dawp'),
         'copy'  => [
-            __('Approved refunds, including eligible returns, warranty resolutions, and cancellations, are issued to the original payment method used at checkout. Processing times vary by bank or card issuer, typically 5-10 business days after a refund is submitted. See our Return & Refund Policy for full return and warranty terms.', 'dawp'),
+            __('Approved refunds, including eligible returns, damaged or defective item resolutions, and cancellations, are issued to the original payment method used at checkout. Processing times vary by bank or card issuer, typically 5-10 business days after a refund is submitted. See our Return & Refund Policy for full return terms.', 'dawp'),
         ],
     ],
     [

@@ -50,7 +50,7 @@ $sections = [
     [
         'title' => __('2. Information We Collect', 'dawp'),
         'copy'  => [
-            __('Information you provide directly: your name, email address, phone number, shipping address, billing address, order details, payment-related information entered at checkout, messages sent through our contact form, and any details you include in return or warranty requests.', 'dawp'),
+            __('Information you provide directly: your name, email address, phone number, shipping address, billing address, order details, payment-related information entered at checkout, messages sent through our contact form, and any details you include in return requests.', 'dawp'),
             __('Information collected automatically: IP address, browser type and version, device type, operating system, referring website, pages viewed, time spent on pages, links clicked, approximate location derived from IP address, and cookie identifiers collected through server logs and the tracking technologies described in Section 4.', 'dawp'),
             __('Information from third parties: our payment processor and shipping carriers may share limited transaction or delivery-status information with us, such as payment confirmation, fraud-risk signals, and shipment tracking updates, to help us process and secure your order.', 'dawp'),
             __('We do not knowingly collect sensitive categories of personal information, such as government ID numbers, health information, or biometric data, through this website.', 'dawp'),
@@ -60,7 +60,7 @@ $sections = [
         'title' => __('3. How We Use Your Information', 'dawp'),
         'copy'  => [
             __('Order processing and fulfillment: to confirm, process, pack, ship, and track your order; to calculate applicable sales tax; and to send order confirmations, shipping notifications, and delivery updates.', 'dawp'),
-            __('Customer support: to respond to questions, process return and warranty requests, and resolve billing or delivery issues.', 'dawp'),
+            __('Customer support: to respond to questions, process return requests, and resolve billing or delivery issues.', 'dawp'),
             __('Store operations and security: to maintain website functionality, detect and prevent fraud or unauthorized transactions, enforce our Terms of Service, and comply with legal, tax, and accounting obligations.', 'dawp'),
             __('Marketing, with your consent where required: if you opt in, to send product updates, promotions, or store news by email. You may unsubscribe at any time using the link in any marketing email or by contacting support@uswatchstore.com.', 'dawp'),
             __('Analytics and improvement: to understand how visitors use the website, measure the performance of pages and product listings, and improve site speed, navigation, and merchandising.', 'dawp'),
@@ -94,7 +94,7 @@ $sections = [
     [
         'title' => __('7. Data Retention', 'dawp'),
         'copy'  => [
-            __('We retain order and transaction records for as long as necessary to fulfill orders, honor our 30-day return window and 2-year warranty, comply with tax and accounting requirements, resolve disputes, and enforce our agreements, generally for the period required by applicable US federal and California state recordkeeping laws.', 'dawp'),
+            __('We retain order and transaction records for as long as necessary to fulfill orders, honor our 30-day return window, comply with tax and accounting requirements, resolve disputes, and enforce our agreements, generally for the period required by applicable US federal and California state recordkeeping laws.', 'dawp'),
             __('Contact form messages and support correspondence are retained for as long as needed to resolve your inquiry and for a reasonable period afterward for quality and recordkeeping purposes, after which they may be deleted or anonymized.', 'dawp'),
         ],
     ],

@@ -51,9 +51,9 @@ if (!$account_url) {
 
 $trust_badges = [
     ['label' => __('Free US Shipping', 'dawp'), 'detail' => __('on all orders', 'dawp')],
-    ['label' => __('2-Year Warranty', 'dawp'), 'detail' => __('on every USWS watch', 'dawp')],
+    ['label' => __('Secure Checkout', 'dawp'), 'detail' => __('encrypted payments', 'dawp')],
     ['label' => __('30-Day Returns', 'dawp'), 'detail' => __('no questions asked', 'dawp')],
-    ['label' => __('Timed In-House', 'dawp'), 'detail' => __('regulated before shipping', 'dawp')],
+    ['label' => __('Checked Before Shipping', 'dawp'), 'detail' => __('every watch inspected', 'dawp')],
 ];
 
 $link_groups = [
@@ -104,7 +104,7 @@ $link_groups = [
                     <img src="<?php echo esc_url($theme_img_uri . '/logo.png'); ?>" alt="<?php esc_attr_e('US Watch Store', 'dawp'); ?>" class="h-8 w-auto shrink-0" width="143" height="80">
                 </a>
                 <p class="mt-3 max-w-sm text-sm leading-6 text-white/60">
-                    <?php esc_html_e('USWS by US Watch Store. Self-winding automatic watches in Classic and Elegant styles - designed, assembled, and timed in-house.', 'dawp'); ?>
+                    <?php esc_html_e('US Watch Store. Men\'s and women\'s watches in Classic and Elegant styles - hand-picked, checked before shipping, and delivered free across the US.', 'dawp'); ?>
                 </p>
             </div>
 

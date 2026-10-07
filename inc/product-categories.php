@@ -1,8 +1,8 @@
 <?php
 /**
- * Product category defaults for US Watch Store / USWS.
+ * Product category defaults for US Watch Store.
  *
- * Two style families - both are self-winding automatic watches.
+ * Two style families - each mixes automatic and quartz watches for men and women.
  *
  * @package dawp
  */
@@ -15,13 +15,13 @@ function dawp_lbq_product_categories() {
     return [
         'classic-style' => [
             'name'        => __('Classic Style', 'dawp'),
-            'description' => __('Everyday USWS automatics with legible dials and understated steel cases - the watch you reach for every morning.', 'dawp'),
-            'short'       => __('Everyday automatics with legible dials and understated cases.', 'dawp'),
+            'description' => __('Everyday watches for men and women with legible dials and hard-wearing cases - the watch you reach for every morning.', 'dawp'),
+            'short'       => __('Everyday watches with legible dials and hard-wearing cases.', 'dawp'),
         ],
         'elegant-style' => [
             'name'        => __('Elegant Style', 'dawp'),
-            'description' => __('Dress USWS automatics with slim profiles, polished finishing, and refined detailing for the occasions that call for it.', 'dawp'),
-            'short'       => __('Dress automatics with slim profiles and polished finishing.', 'dawp'),
+            'description' => __('Dress watches for men and women with slim profiles, polished finishing, and refined detailing for the occasions that call for it.', 'dawp'),
+            'short'       => __('Dress watches with slim profiles and polished finishing.', 'dawp'),
         ],
     ];
 }

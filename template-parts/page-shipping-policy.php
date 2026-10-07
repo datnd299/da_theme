@@ -90,7 +90,7 @@ $sections = [
         'title' => __('5. Order Tracking', 'dawp'),
         'copy'  => [
             __('You will receive a shipping confirmation email with tracking information once your order leaves our facility. Tracking updates may take 24-48 hours to appear after a shipping label is created.', 'dawp'),
-            __('You can also check order status anytime on our Track Order page using your order number and the email address or zip code used at checkout.', 'dawp'),
+            __('You can also check order status anytime on our Track Order page using your order number and the billing email used at checkout.', 'dawp'),
         ],
     ],
     [
@@ -123,7 +123,7 @@ $sections = [
     [
         'title' => __('10. Damaged Packages', 'dawp'),
         'copy'  => [
-            __('If your package arrives visibly damaged, note it or take photos before opening if possible, and contact support@uswatchstore.com within 48 hours of delivery with your order number and photos of the damage so we can arrange a free replacement or refund.', 'dawp'),
+            __('If your package arrives visibly damaged, note it or take photos before opening if possible, and contact support@uswatchstore.com within 7 days of delivery with your order number and photos of the damage so we can arrange a free replacement or refund.', 'dawp'),
         ],
     ],
 ];

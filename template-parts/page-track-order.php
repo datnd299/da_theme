@@ -51,12 +51,12 @@ $lbq_category_url = static function ($slug) {
 $category_links = [
     [
         'name' => __('Classic Style', 'dawp'),
-        'copy' => __('Everyday automatics with legible dials and understated steel cases.', 'dawp'),
+        'copy' => __('Everyday watches with legible dials and hard-wearing cases.', 'dawp'),
         'url'  => $lbq_category_url('classic-style'),
     ],
     [
         'name' => __('Elegant Style', 'dawp'),
-        'copy' => __('Dress automatics with slim profiles, polished finishing, and refined detailing.', 'dawp'),
+        'copy' => __('Dress watches with slim profiles, polished finishing, and refined detailing.', 'dawp'),
         'url'  => $lbq_category_url('elegant-style'),
     ],
 ];
@@ -215,8 +215,8 @@ $policy_links = [
     <section class="track-category-section" aria-labelledby="track-category-title">
         <div class="track-category-section__inner">
             <div class="track-category-section__header">
-                <h2 id="track-category-title"><?php esc_html_e('The USWS lineup.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Two styles of self-winding automatic watch - Classic and Elegant.', 'dawp'); ?></p>
+                <h2 id="track-category-title"><?php esc_html_e('Shop by style.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Two style families for men and women - Classic and Elegant.', 'dawp'); ?></p>
             </div>
 
             <div class="track-category-grid">

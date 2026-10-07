@@ -28,36 +28,40 @@ $contact_url  = home_url('/contact-us/');
 
 $faq_groups = [
     [
-        'label' => __('About USWS', 'dawp'),
+        'label' => __('About US Watch Store', 'dawp'),
         'items' => [
             [
-                'question' => __('What is USWS?', 'dawp'),
-                'answer'   => __('USWS is the in-house watch line from US Watch Store. We design the watch, choose the movement, assemble it, regulate it, and inspect it before it ships. It is the only brand of watch sold on this site.', 'dawp'),
+                'question' => __('What is US Watch Store?', 'dawp'),
+                'answer'   => __('US Watch Store is an online watch shop. We hand-pick men\'s and women\'s watches - automatic and quartz - check every one before it ships, and back each order with 30-day returns, and free US shipping.', 'dawp'),
             ],
             [
-                'question' => __('Where are USWS watches made?', 'dawp'),
-                'answer'   => __('USWS watches are designed and assembled by our own team. Each watch is regulated on a timing machine and inspected before dispatch.', 'dawp'),
+                'question' => __('Do you make your own watches?', 'dawp'),
+                'answer'   => __('No. We are a retailer, not a watchmaker. We source new watches from established watch suppliers, and each product page lists the brand, movement type, and key specifications.', 'dawp'),
             ],
             [
                 'question' => __('What is the difference between Classic Style and Elegant Style?', 'dawp'),
-                'answer'   => __('Both run the same self-winding automatic movement. Classic Style is built for daily wear - legible dials, understated steel cases. Elegant Style is the dress version - slimmer profiles, polished finishing, and more refined detailing. It is a design choice, not a quality tier.', 'dawp'),
+                'answer'   => __('Classic Style is built for daily wear - legible dials and hard-wearing cases. Elegant Style is the dress side - slimmer profiles, polished finishing, and more refined detailing. Both include men\'s and women\'s watches, and both offer automatic and quartz options.', 'dawp'),
             ],
         ],
     ],
     [
-        'label' => __('Automatic Movement & Care', 'dawp'),
+        'label' => __('Movements & Care', 'dawp'),
         'items' => [
             [
-                'question' => __('How does a self-winding automatic watch work?', 'dawp'),
-                'answer'   => __('A rotor inside the watch spins as your wrist moves and winds the mainspring automatically. There is no battery. Wear the watch regularly and it stays running on its own.', 'dawp'),
+                'question' => __('What is the difference between automatic and quartz?', 'dawp'),
+                'answer'   => __('An automatic (self-winding) watch is mechanical: a rotor spins as your wrist moves and winds the mainspring, so it needs no battery. A quartz watch runs on a battery and a quartz crystal - it is more accurate, needs no winding, and only needs a battery change every couple of years. Each product page states which movement the watch uses.', 'dawp'),
             ],
             [
-                'question' => __('What is the power reserve, and what happens if my watch stops?', 'dawp'),
-                'answer'   => __('A fully wound USWS movement holds roughly 38-42 hours of power reserve when off the wrist - check your watch\'s product page for the exact figure. If it stops, wind the crown about 20-30 turns to restart it, reset the time, and put it back on your wrist.', 'dawp'),
+                'question' => __('How often does a quartz watch need a new battery?', 'dawp'),
+                'answer'   => __('Most quartz watches run 1-3 years on a battery, depending on the model and features such as a backlight or alarm. Any watch shop or jeweler can replace it; ask them to check the seals afterward if the watch is water resistant.', 'dawp'),
             ],
             [
-                'question' => __('How accurate is an automatic watch?', 'dawp'),
-                'answer'   => __('A mechanical movement is not quartz-accurate. A daily variance of about -10 to +20 seconds per day is normal and within specification for a USWS automatic - it is not a defect. Accuracy also shifts slightly with how much you wear it and the positions it rests in overnight.', 'dawp'),
+                'question' => __('What is power reserve, and what if my automatic watch stops?', 'dawp'),
+                'answer'   => __('For automatic watches: a fully wound movement typically holds roughly 36-42 hours of power reserve when off the wrist - check your watch\'s product page for the exact figure. If it stops, wind the crown about 20-30 turns to restart it, reset the time, and put it back on your wrist.', 'dawp'),
+            ],
+            [
+                'question' => __('How accurate are automatic and quartz watches?', 'dawp'),
+                'answer'   => __('A mechanical movement is not quartz-accurate. A daily variance of about -10 to +20 seconds per day is normal for an automatic watch - it is not a defect. Quartz watches typically stay within about 15-20 seconds per month. Accuracy also shifts slightly with how much you wear it and the positions it rests in overnight.', 'dawp'),
             ],
             [
                 'question' => __('How do I size or adjust the strap or bracelet?', 'dawp'),
@@ -68,8 +72,8 @@ $faq_groups = [
                 'answer'   => __('Water resistance ratings describe conditions, not diving depth. 30M/3ATM: splash and rain only - not for swimming. 50M/5ATM: fine for hand-washing and light splashing. 100M/10ATM and above: suitable for swimming and snorkeling. Never operate the crown while the watch is wet, and check the rating on your watch\'s product page.', 'dawp'),
             ],
             [
-                'question' => __('Does an automatic watch need servicing?', 'dawp'),
-                'answer'   => __('Like any mechanical watch, a USWS automatic benefits from a movement service every few years to keep timekeeping and water resistance within spec. Have servicing done by a qualified watchmaker; unauthorized case-opening voids the warranty.', 'dawp'),
+                'question' => __('Does my watch need servicing?', 'dawp'),
+                'answer'   => __('Automatic watches benefit from a movement service every few years to keep timekeeping and water resistance within spec; quartz watches mostly need battery changes and an occasional seal check. Have servicing done by a qualified watchmaker or jeweler.', 'dawp'),
             ],
         ],
     ],
@@ -95,16 +99,8 @@ $faq_groups = [
         ],
     ],
     [
-        'label' => __('Warranty & Returns', 'dawp'),
+        'label' => __('Returns', 'dawp'),
         'items' => [
-            [
-                'question' => __('What does the 2-year warranty cover?', 'dawp'),
-                'answer'   => __('Every USWS watch includes a 2-year warranty covering defects in the automatic movement and factory assembly under normal use - such as a movement that will not wind or hold time within spec, a faulty crown, or a defective component.', 'dawp'),
-            ],
-            [
-                'question' => __('What is not covered by the warranty?', 'dawp'),
-                'answer'   => __('The warranty does not cover accidental damage, cracked crystals from impact, water damage from exceeding the rated resistance, damage from unauthorized case-opening or service, normal wear such as strap wear and case scuffing, or the normal timekeeping variance of a mechanical movement.', 'dawp'),
-            ],
             [
                 'question' => __('What is the return window?', 'dawp'),
                 'answer'   => __('You may request a return within 30 days of delivery for eligible items, no questions asked.', 'dawp'),
@@ -120,7 +116,7 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('How is each watch checked before it ships?', 'dawp'),
-                'answer'   => __('Every USWS watch is assembled by our team, regulated on a timing machine, and then inspected - rotor wind, crown action, water-resistance seals, and bracelet hardware - before it is packed. Case size, power reserve, water resistance, and materials are stated on each product page.', 'dawp'),
+                'answer'   => __('Every watch is unboxed, set to time, and checked that it runs, along with the crown, crystal, case finish, and strap or bracelet hardware, before it is packed. Movement type, case size, water resistance, and materials are stated on each product page.', 'dawp'),
             ],
             [
                 'question' => __('Is checkout secure?', 'dawp'),
@@ -169,10 +165,10 @@ $quick_links = [
             <div>
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-accent-blush"><?php esc_html_e('FAQ', 'dawp'); ?></p>
                 <h1 id="faq-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-foreground sm:text-5xl">
-                    <?php esc_html_e('Quick answers about USWS automatic watches.', 'dawp'); ?>
+                    <?php esc_html_e('Quick answers about buying a watch from us.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-foreground-muted">
-                    <?php esc_html_e('What USWS is, how a self-winding automatic works, strap sizing, water resistance, servicing, warranty, shipping, and returns.', 'dawp'); ?>
+                    <?php esc_html_e('Who we are, automatic vs quartz, strap sizing, water resistance, servicing, shipping, and returns.', 'dawp'); ?>
                 </p>
             </div>
 
@@ -251,8 +247,8 @@ $quick_links = [
             <div class="rounded-md border border-border bg-background p-6 sm:p-8">
                 <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                     <div>
-                        <h2 class="font-heading text-2xl font-extrabold text-foreground"><?php esc_html_e('One automatic movement, finished two ways.', 'dawp'); ?></h2>
-                        <p class="mt-3 text-sm leading-7 text-foreground-muted"><?php esc_html_e('Browse USWS in Classic and Elegant styles, with clear policy information available before checkout.', 'dawp'); ?></p>
+                        <h2 class="font-heading text-2xl font-extrabold text-foreground"><?php esc_html_e('Classic or Elegant - for him and for her.', 'dawp'); ?></h2>
+                        <p class="mt-3 text-sm leading-7 text-foreground-muted"><?php esc_html_e('Browse men\'s and women\'s watches in Classic and Elegant styles, with clear policy information available before checkout.', 'dawp'); ?></p>
                     </div>
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-foreground px-6 text-sm font-bold text-white transition hover:bg-accent-hover">
                         <?php esc_html_e('Shop Watches', 'dawp'); ?>

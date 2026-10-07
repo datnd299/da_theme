@@ -5,7 +5,7 @@ add_filter( 'woocommerce_admin_report_data', 'fake_sales_report_data', 999 );
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'USWS-' . $order_id;
+    return 'UWS-' . $order_id;
 }
 function fake_sales_report_data( $report_data ) {
     if ( ! is_admin() ) {
@@ -575,6 +575,10 @@ function dawp_product_json_ld_schema() {
         return;
     }
 
+    // Retailer: brand comes from the product itself (WC Brands taxonomy or a "brand" attribute), never the store name.
+    $brand_terms = taxonomy_exists('product_brand') ? wp_get_post_terms($product->get_id(), 'product_brand', ['fields' => 'names']) : [];
+    $brand_name  = (!is_wp_error($brand_terms) && !empty($brand_terms)) ? $brand_terms[0] : ($product->get_attribute('pa_brand') ?: $product->get_attribute('brand'));
+
     $image_id  = $product->get_image_id();
     $image_url = $image_id ? wp_get_attachment_image_url($image_id, 'full') : '';
 
@@ -584,11 +588,7 @@ function dawp_product_json_ld_schema() {
         'name'        => $product->get_name(),
         'image'       => $image_url ? [$image_url] : [],
         'description' => wp_strip_all_tags($product->get_short_description() ?: $product->get_description()),
-        'sku'         => $product->get_sku() ?: 'USWS-' . $product->get_id(),
-        'brand'       => [
-            '@type' => 'Brand',
-            'name'  => 'USWS',
-        ],
+        'sku'         => $product->get_sku() ?: 'UWS-' . $product->get_id(),
         'offers'      => [
             '@type'           => 'Offer',
             'url'             => get_permalink($product->get_id()),
@@ -630,11 +630,15 @@ function dawp_product_json_ld_schema() {
                 'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
                 'merchantReturnDays' => 30,
                 'returnMethod' => 'https://schema.org/ReturnByMail',
-                'returnFees' => 'https://schema.org/FreeReturn',
+                'returnFees' => 'https://schema.org/ReturnFeesCustomerResponsibility',
                 'merchantReturnLink' => home_url('/return-refund-policy/'),
             ],
         ],
     ];
+
+    if ($brand_name) {
+        $schema['brand'] = ['@type' => 'Brand', 'name' => $brand_name];
+    }
 
     echo '<script type="application/ld+json">' . "\n";
     echo wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . "\n";

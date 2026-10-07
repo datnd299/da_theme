@@ -64,7 +64,7 @@ $store_schema = [
     'name'     => 'US Watch Store',
     'url'      => home_url('/'),
     'logo'     => $theme_img_uri . '/logo.png',
-    'description' => __('US Watch Store designs and assembles USWS - a line of self-winding automatic watches in Classic and Elegant styles, backed by a 2-year warranty and free US shipping.', 'dawp'),
+    'description' => __('US Watch Store is an online watch shop offering men\'s and women\'s watches in Classic and Elegant styles, with 30-day returns and free US shipping.', 'dawp'),
     'email'       => $support_email,
     'priceRange'  => '$$',
     'hasMerchantReturnPolicy' => [
@@ -73,7 +73,7 @@ $store_schema = [
         'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
         'merchantReturnDays' => 30,
         'returnMethod' => 'https://schema.org/ReturnByMail',
-        'returnFees' => 'https://schema.org/FreeReturn',
+        'returnFees' => 'https://schema.org/ReturnFeesCustomerResponsibility',
         'merchantReturnLink' => home_url('/return-refund-policy/'),
     ],
 ];
@@ -215,7 +215,7 @@ if (!empty($wc_address_1)) {
             <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6">
                 <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mb-4 flex items-center rounded-sm border border-border bg-surface-alt px-4 py-3">
                     <label class="sr-only" for="mobile-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
-                    <input id="mobile-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search USWS automatic watches', 'dawp'); ?>" class="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted">
+                    <input id="mobile-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search watches', 'dawp'); ?>" class="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted">
                     <input type="hidden" name="post_type" value="product">
                     <button type="submit" class="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-sm bg-surface text-accent-hover" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

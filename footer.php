@@ -174,7 +174,7 @@ $payment_methods = [
         </div>
 
         <div class="lux-footer__assurance" aria-label="<?php esc_attr_e('Purchase assurances', 'dawp'); ?>">
-            <div><span><?php esc_html_e('Authenticated', 'dawp'); ?></span><small><?php esc_html_e('Verified references and documented inspection.', 'dawp'); ?></small></div>
+            <div><span><?php esc_html_e('Quality Inspected', 'dawp'); ?></span><small><?php esc_html_e('Every piece passes a strict quality inspection.', 'dawp'); ?></small></div>
             <div><span><?php esc_html_e('Insured Delivery', 'dawp'); ?></span><small><?php esc_html_e('Protected shipping with signature confirmation.', 'dawp'); ?></small></div>
             <div><span><?php esc_html_e('Warranty', 'dawp'); ?></span><small><?php esc_html_e('Coverage and service support after purchase.', 'dawp'); ?></small></div>
             <div><span><?php esc_html_e('Consultation', 'dawp'); ?></span><small><?php esc_html_e('Private advice for fit, gifting and selection.', 'dawp'); ?></small></div>

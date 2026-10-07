@@ -221,7 +221,7 @@ $contact_faqs = [
             <div class="mmd-contact-hero__content">
                 <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact Chronel', 'dawp'); ?></p>
                 <h1 id="mmd-contact-title"><?php esc_html_e('Concierge support for confident watch ownership.', 'dawp'); ?></h1>
-                <p class="mmd-contact-hero__copy"><?php esc_html_e('Questions about a reference, sizing, delivery, authentication or a return? Our customer care team is here to help from discovery to ownership.', 'dawp'); ?></p>
+                <p class="mmd-contact-hero__copy"><?php esc_html_e('Questions about a reference, sizing, delivery, quality or a return? Our customer care team is here to help from discovery to ownership.', 'dawp'); ?></p>
                 <div class="mmd-contact-hero__actions">
                     <a class="mmd-contact-btn mmd-contact-btn--primary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
                     <a class="mmd-contact-btn mmd-contact-btn--secondary" href="<?php echo esc_url($track_url); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>

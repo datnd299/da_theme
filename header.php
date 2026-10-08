@@ -2,7 +2,7 @@
 /**
  * Theme header — YourWatchStore.
  *
- * Premium / minimal / modern. Static announcement bar + sticky nav bar,
+ * Premium / minimal / modern. Static announcement bar + non-sticky nav bar,
  * three-section layout (brand · nav · actions). Tailwind utilities only.
  *
  * @package dawp
@@ -98,7 +98,8 @@ if (!empty($wc_address_1)) {
         body { font-family: "Inter", "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
         .font-heading { font-family: "Manrope", "Inter", system-ui, sans-serif; }
         html { scroll-behavior: smooth; }
-        #site-header.is-scrolled .nav__bar { box-shadow: 0 1px 0 var(--color-border), 0 6px 20px rgba(17,17,17,0.06); }
+        /* Lock header tokens — page CSS (cart.css, product.css) redefines these globally */
+        #site-header { --color-surface: #FFFFFF; --color-surface-alt: #F7F7F5; }
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
             #site-header, #site-header * { transition-duration: 1ms !important; }
@@ -119,7 +120,7 @@ if (!empty($wc_address_1)) {
     <?php esc_html_e('Skip to content', 'dawp'); ?>
 </a>
 
-<header id="site-header" class="sticky top-0 z-50">
+<header id="site-header" class="relative z-50">
     <div id="site-banner" class="flex h-9 items-center justify-center gap-2 bg-foreground px-4 text-center text-xs font-medium tracking-wide text-white">
         <p class="truncate">
             <?php esc_html_e('Free US shipping on every order · 30-day returns', 'dawp'); ?>

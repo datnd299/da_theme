@@ -295,7 +295,7 @@
 @media (min-width: 768px) {
   .wc-block-cart__sidebar {
     position: sticky;
-    top: 90px;
+    top: 24px;
   }
 }
 
@@ -1661,7 +1661,7 @@
   .cart-page .wc-block-cart__sidebar,
   .cart-page .cart-collaterals .cart_totals {
     position: sticky;
-    top: 96px;
+    top: 24px;
   }
 
   .cart-page .cart-collaterals {

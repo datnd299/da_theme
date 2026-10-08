@@ -8,13 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileSearch = document.getElementById('sgs-mobile-search');
     const mobileSearchInput = document.getElementById('sgs-mobile-search-input');
 
-    // Scroll shadow
-    if (header) {
-        const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-    }
-
     // Mobile menu toggle
     if (toggle && nav && header) {
         toggle.addEventListener('click', () => {

@@ -361,7 +361,7 @@
   }
   .shop-sidebar {
     position: sticky;
-    top: 128px;
+    top: 24px;
     bottom: auto;
     left: auto;
     right: auto;

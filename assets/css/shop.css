@@ -1,23 +1,23 @@
 /* ============================================================
-   Vivisshop Shop / Product Archive
+   Eliteshop Express Shop / Product Archive
    ============================================================ */
 
 :root {
-  --shop-bg: #FFF3F1;
-  --shop-surface: #FFFFFF;
-  --shop-surface-soft: #F8F2EE;
-  --shop-surface-muted: #F8F2EE;
-  --shop-text: #2F2A28;
-  --shop-heading: #4B403C;
-  --shop-muted: #6F625D;
-  --shop-soft-text: #6F625D;
-  --shop-border: #E8DAD4;
-  --shop-accent: #C87F86;
-  --shop-accent-dark: #4B403C;
-  --shop-blush: #A8B99A;
-  --shop-sale: #8A332B;
-  --shop-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --shop-heading-font: 'Manrope', 'Inter', system-ui, sans-serif;
+  --shop-bg: var(--color-surface);
+  --shop-surface: var(--color-background);
+  --shop-surface-soft: var(--color-surface);
+  --shop-surface-muted: var(--color-surface-alt);
+  --shop-text: var(--color-foreground);
+  --shop-heading: var(--color-foreground);
+  --shop-muted: var(--color-muted);
+  --shop-soft-text: var(--color-foreground-muted);
+  --shop-border: var(--color-border);
+  --shop-accent: var(--color-accent);
+  --shop-accent-dark: var(--color-foreground);
+  --shop-blush: var(--color-accent-2);
+  --shop-sale: var(--color-alert);
+  --shop-font: var(--font-sans);
+  --shop-heading-font: var(--font-heading);
   --shop-container: 1280px;
   --shop-pad: 16px;
 }
@@ -25,7 +25,7 @@
 .shop-page {
   min-height: 100vh;
   background:
-    linear-gradient(180deg, var(--shop-bg) 0, #FFFFFF 260px),
+    linear-gradient(180deg, var(--shop-bg) 0, var(--color-background) 260px),
     var(--shop-surface);
   color: var(--shop-text);
   font-family: var(--shop-font);
@@ -80,8 +80,8 @@
   border: 1px solid var(--shop-border);
   border-radius: 8px;
   background:
-    radial-gradient(circle at top right, rgba(200, 127, 134, 0.22), transparent 34%),
-    linear-gradient(135deg, #FFFFFF 0%, var(--shop-bg) 52%, var(--shop-surface-muted) 100%);
+    radial-gradient(circle at top right, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 34%),
+    linear-gradient(135deg, var(--color-background) 0%, var(--shop-bg) 52%, var(--shop-surface-muted) 100%);
 }
 
 .shop-header::after {
@@ -151,14 +151,14 @@
 }
 
 .shop-header__meta span {
-  border: 1px solid rgba(200, 127, 134, 0.35);
-  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+  background: color-mix(in srgb, var(--color-background) 68%, transparent);
   color: var(--shop-heading);
 }
 
 .shop-header__meta a {
   background: var(--shop-heading);
-  color: #FFFFFF;
+  color: var(--color-background);
   transition: background 180ms ease, transform 120ms ease;
 }
 
@@ -178,8 +178,8 @@
   overflow-x: auto;
   border: 1px solid var(--shop-border);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 10px 28px rgba(47, 42, 40, 0.05);
+  background: color-mix(in srgb, var(--color-background) 86%, transparent);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--color-foreground) 5%, transparent);
   scrollbar-width: thin;
 }
 
@@ -205,7 +205,7 @@
 .shop-category-nav a.is-current {
   border-color: var(--shop-accent);
   background: var(--shop-heading);
-  color: #FFFFFF;
+  color: var(--color-background);
 }
 
 .shop-category-nav .count {
@@ -224,8 +224,8 @@
 
 .shop-category-nav a.is-current .count,
 .shop-category-nav a:hover .count {
-  background: rgba(255, 255, 255, 0.18);
-  color: #FFFFFF;
+  background: color-mix(in srgb, var(--color-background) 18%, transparent);
+  color: var(--color-background);
 }
 
 .shop-toolbar {
@@ -238,8 +238,8 @@
   padding: 12px;
   border: 1px solid var(--shop-border);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 30px rgba(47, 42, 40, 0.06);
+  background: color-mix(in srgb, var(--color-background) 90%, transparent);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--color-foreground) 6%, transparent);
 }
 
 .shop-toolbar__left {
@@ -309,7 +309,7 @@
 .woocommerce-ordering select:focus,
 .shop-sort select:focus {
   border-color: var(--shop-accent);
-  box-shadow: 0 0 0 3px rgba(200, 127, 134, 0.18);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 18%, transparent);
 }
 
 .shop-layout {
@@ -330,7 +330,7 @@
   inset: 0;
   z-index: 99;
   visibility: hidden;
-  background: rgba(47, 42, 40, 0.44);
+  background: color-mix(in srgb, var(--color-foreground) 44%, transparent);
   opacity: 0;
   transition: opacity 200ms ease, visibility 200ms ease;
 }
@@ -351,7 +351,7 @@
   overflow-y: auto;
   border-radius: 8px 8px 0 0;
   background: var(--shop-surface);
-  box-shadow: 0 -20px 50px rgba(47, 42, 40, 0.2);
+  box-shadow: 0 -20px 50px color-mix(in srgb, var(--color-foreground) 20%, transparent);
   transform: translateY(100%);
   transition: transform 240ms ease;
 }
@@ -406,7 +406,7 @@
     padding: 18px;
     border: 1px solid var(--shop-border);
     border-radius: 8px;
-    box-shadow: 0 14px 34px rgba(47, 42, 40, 0.06);
+    box-shadow: 0 14px 34px color-mix(in srgb, var(--color-foreground) 6%, transparent);
     transform: none;
   }
 
@@ -509,7 +509,7 @@
   height: 17px;
   border: 3px solid var(--shop-surface);
   border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(47, 42, 40, 0.2);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-foreground) 20%, transparent);
 }
 
 .widget_price_filter .price_label {
@@ -529,7 +529,7 @@
   border: 0;
   border-radius: 999px;
   background: var(--shop-heading);
-  color: #FFFFFF;
+  color: var(--color-background);
   cursor: pointer;
   font: inherit;
   font-size: 0.84rem;
@@ -590,13 +590,13 @@ ul.products li.product,
   border: 1px solid var(--shop-border);
   border-radius: 8px;
   background: var(--shop-surface);
-  box-shadow: 0 8px 24px rgba(47, 42, 40, 0.05);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-foreground) 5%, transparent);
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
 .product-card:hover {
-  border-color: rgba(200, 127, 134, 0.55);
-  box-shadow: 0 18px 38px rgba(47, 42, 40, 0.12);
+  border-color: color-mix(in srgb, var(--color-accent) 55%, transparent);
+  box-shadow: 0 18px 38px color-mix(in srgb, var(--color-foreground) 12%, transparent);
   transform: translateY(-3px);
 }
 
@@ -617,7 +617,7 @@ ul.products li.product,
 .product-card__shell {
   aspect-ratio: 4 / 5;
   background:
-    linear-gradient(135deg, rgba(255, 243, 241, 0.72), rgba(248, 242, 238, 0.9)),
+    linear-gradient(135deg, color-mix(in srgb, var(--color-accent-soft) 72%, transparent), color-mix(in srgb, var(--color-surface) 90%, transparent)),
     var(--shop-surface-muted);
 }
 
@@ -652,9 +652,9 @@ ul.products li.product,
   margin: 0;
   padding: 5px 10px;
   border-radius: 999px;
-  background: #FFFFFF;
+  background: var(--color-background);
   color: var(--shop-sale);
-  box-shadow: 0 8px 18px rgba(47, 42, 40, 0.12);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--color-foreground) 12%, transparent);
   font-size: 0.7rem;
   font-weight: 900;
   line-height: 1.2;
@@ -670,8 +670,8 @@ ul.products li.product,
   gap: 6px;
   padding: 8px 11px;
   border-radius: 999px;
-  background: rgba(47, 42, 40, 0.9);
-  color: #FFFFFF;
+  background: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  color: var(--color-background);
   font-size: 0.78rem;
   font-weight: 800;
   opacity: 0;
@@ -770,7 +770,7 @@ ul.products li.product,
   border: 0;
   border-radius: 999px;
   background: var(--shop-heading);
-  color: #FFFFFF;
+  color: var(--color-background);
   font: inherit;
   font-size: 0.84rem;
   font-weight: 800;
@@ -782,7 +782,7 @@ ul.products li.product,
 .woocommerce ul.products li.product .button:hover,
 .add_to_cart_button:hover {
   background: var(--shop-accent);
-  color: #FFFFFF;
+  color: var(--color-background);
 }
 
 .woocommerce ul.products li.product .button:active,
@@ -834,7 +834,7 @@ ul.products li.product,
 .woocommerce-pagination .page-numbers li span.current {
   border-color: var(--shop-heading);
   background: var(--shop-heading);
-  color: #FFFFFF;
+  color: var(--color-background);
 }
 
 .shop-empty {
@@ -863,7 +863,7 @@ ul.products li.product,
   padding: 10px 18px;
   border-radius: 999px;
   background: var(--shop-accent);
-  color: #FFFFFF;
+  color: var(--color-background);
   font-weight: 800;
   text-decoration: none;
 }
@@ -902,15 +902,15 @@ ul.products li.product,
    ============================================================ */
 
 .shop-page {
-  --shop-bg: #FFF6F3;
-  --shop-surface-soft: #FFFDFC;
-  --shop-surface-muted: #F7EFEB;
-  --shop-ring: rgba(200, 127, 134, 0.18);
-  --shop-shadow-sm: 0 10px 28px rgba(47, 42, 40, 0.06);
-  --shop-shadow-md: 0 20px 48px rgba(47, 42, 40, 0.09);
+  --shop-bg: var(--color-surface);
+  --shop-surface-soft: var(--color-background);
+  --shop-surface-muted: var(--color-surface-alt);
+  --shop-ring: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  --shop-shadow-sm: 0 10px 28px color-mix(in srgb, var(--color-foreground) 6%, transparent);
+  --shop-shadow-md: 0 20px 48px color-mix(in srgb, var(--color-foreground) 9%, transparent);
   background:
-    linear-gradient(180deg, #FFF3F1 0, #FFFDFC 360px, #FFFFFF 100%),
-    #FFFFFF;
+    linear-gradient(180deg, var(--color-accent-soft) 0, var(--color-background) 360px, var(--color-background) 100%),
+    var(--color-background);
 }
 
 .shop-page *,
@@ -934,11 +934,11 @@ ul.products li.product,
   min-height: 0;
   margin-bottom: 16px;
   padding: clamp(26px, 4vw, 46px);
-  border-color: rgba(200, 127, 134, 0.22);
+  border-color: color-mix(in srgb, var(--color-accent) 22%, transparent);
   background:
-    radial-gradient(circle at 92% 12%, rgba(168, 185, 154, 0.24), transparent 28%),
-    radial-gradient(circle at 8% 18%, rgba(200, 127, 134, 0.18), transparent 30%),
-    linear-gradient(135deg, #FFFFFF 0%, #FFF3F1 54%, #F8F2EE 100%);
+    radial-gradient(circle at 92% 12%, color-mix(in srgb, var(--color-accent-2) 10%, transparent), transparent 28%),
+    radial-gradient(circle at 8% 18%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 30%),
+    linear-gradient(135deg, var(--color-background) 0%, var(--color-accent-soft) 54%, var(--color-surface) 100%);
   box-shadow: var(--shop-shadow-sm);
 }
 
@@ -954,7 +954,7 @@ ul.products li.product,
 
 .shop-page .shop-header__eyebrow {
   margin-bottom: 10px;
-  color: #8A4F56;
+  color: var(--color-accent-hover);
   font-size: 0.76rem;
   letter-spacing: 0.12em;
 }
@@ -968,7 +968,7 @@ ul.products li.product,
 .shop-page .shop-header__description {
   max-width: 760px;
   margin-top: 16px;
-  color: #574B47;
+  color: var(--color-foreground-muted);
   font-size: clamp(0.98rem, 1.25vw, 1.08rem);
   font-weight: 550;
   line-height: 1.65;
@@ -998,19 +998,19 @@ ul.products li.product,
 }
 
 .shop-page .shop-header__meta span {
-  border: 1px solid rgba(200, 127, 134, 0.35);
-  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+  background: color-mix(in srgb, var(--color-background) 72%, transparent);
   color: var(--shop-heading);
 }
 
 .shop-page .shop-header__meta a {
   background: var(--shop-heading);
-  color: #FFFFFF;
-  box-shadow: 0 10px 20px rgba(75, 64, 60, 0.14);
+  color: var(--color-background);
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--color-foreground) 14%, transparent);
 }
 
 .shop-page .shop-header__meta a:hover {
-  background: #8A4F56;
+  background: var(--color-accent-hover);
 }
 
 .shop-page .shop-category-nav {
@@ -1021,9 +1021,9 @@ ul.products li.product,
   margin: 0 0 16px;
   padding: 12px;
   overflow: visible;
-  border: 1px solid rgba(232, 218, 212, 0.95);
+  border: 1px solid color-mix(in srgb, var(--color-border) 95%, transparent);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
+  background: color-mix(in srgb, var(--color-background) 92%, transparent);
   box-shadow: var(--shop-shadow-sm);
 }
 
@@ -1038,21 +1038,21 @@ ul.products li.product,
   padding: 8px 13px;
   border: 1px solid var(--shop-border);
   border-radius: 999px;
-  background: #FFFFFF;
+  background: var(--color-background);
   color: var(--shop-heading);
   font-size: 0.84rem;
   font-weight: 800;
   line-height: 1.15;
   text-decoration: none;
   white-space: nowrap;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--color-background) 70%, transparent) inset;
 }
 
 .shop-page .shop-category-nav a:hover,
 .shop-page .shop-category-nav a.is-current {
-  border-color: #8A4F56;
-  background: #4B403C;
-  color: #FFFFFF;
+  border-color: var(--color-accent-hover);
+  background: var(--color-foreground);
+  color: var(--color-background);
 }
 
 .shop-page .shop-category-nav .count {
@@ -1063,8 +1063,8 @@ ul.products li.product,
   justify-content: center;
   padding: 0 7px;
   border-radius: 999px;
-  background: #FFF3F1;
-  color: #8A4F56;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-hover);
   font-size: 0.72rem;
   font-weight: 900;
   line-height: 1;
@@ -1072,8 +1072,8 @@ ul.products li.product,
 
 .shop-page .shop-category-nav a:hover .count,
 .shop-page .shop-category-nav a.is-current .count {
-  background: rgba(255, 255, 255, 0.18);
-  color: #FFFFFF;
+  background: color-mix(in srgb, var(--color-background) 18%, transparent);
+  color: var(--color-background);
 }
 
 .shop-page .shop-toolbar {
@@ -1084,9 +1084,9 @@ ul.products li.product,
   gap: 14px;
   margin: 0 0 24px;
   padding: 12px;
-  border: 1px solid rgba(232, 218, 212, 0.95);
+  border: 1px solid color-mix(in srgb, var(--color-border) 95%, transparent);
   border-radius: 8px;
-  background: #FFFFFF;
+  background: var(--color-background);
   box-shadow: var(--shop-shadow-md);
 }
 
@@ -1103,7 +1103,7 @@ ul.products li.product,
   align-items: center;
   padding: 0 12px;
   border-radius: 999px;
-  background: #F8F2EE;
+  background: var(--color-surface);
   color: var(--shop-heading);
   font-size: 0.88rem;
   font-weight: 850;
@@ -1119,11 +1119,11 @@ ul.products li.product,
   width: min(100%, 248px);
   min-height: 42px;
   border-radius: 999px;
-  background-color: #FFFFFF;
+  background-color: var(--color-background);
 }
 
 .shop-page .woocommerce-ordering select:focus {
-  border-color: #C87F86;
+  border-color: var(--color-accent);
   box-shadow: 0 0 0 4px var(--shop-ring);
 }
 
@@ -1140,14 +1140,14 @@ ul.products li.product,
 }
 
 .shop-page .shop-sidebar {
-  background: #FFFFFF;
+  background: var(--color-background);
 }
 
 @media (min-width: 1024px) {
   .shop-page .shop-sidebar {
     top: 104px;
     padding: 18px;
-    border-color: rgba(232, 218, 212, 0.95);
+    border-color: color-mix(in srgb, var(--color-border) 95%, transparent);
     box-shadow: var(--shop-shadow-sm);
   }
 }
@@ -1170,7 +1170,7 @@ ul.products li.product,
 .shop-page .woocommerce-widget-layered-nav-list__item a {
   min-height: 42px;
   padding: 9px 10px;
-  color: #6A5F5A;
+  color: var(--color-foreground-muted);
   line-height: 1.35;
 }
 
@@ -1179,8 +1179,8 @@ ul.products li.product,
 .shop-page .widget_product_categories a:hover,
 .shop-page .woocommerce-widget-layered-nav-list__item a:hover,
 .shop-page .woocommerce-widget-layered-nav-list__item--chosen a {
-  background: #FFF3F1;
-  color: #4B403C;
+  background: var(--color-accent-soft);
+  color: var(--color-foreground);
 }
 
 .shop-page .shop-main ul.products,
@@ -1218,21 +1218,21 @@ ul.products li.product,
 }
 
 .shop-page .product-card {
-  border-color: rgba(232, 218, 212, 0.95);
-  background: #FFFFFF;
+  border-color: color-mix(in srgb, var(--color-border) 95%, transparent);
+  background: var(--color-background);
   box-shadow: var(--shop-shadow-sm);
 }
 
 .shop-page .product-card:hover {
-  border-color: rgba(200, 127, 134, 0.6);
-  box-shadow: 0 22px 46px rgba(47, 42, 40, 0.13);
+  border-color: color-mix(in srgb, var(--color-accent) 60%, transparent);
+  box-shadow: 0 22px 46px color-mix(in srgb, var(--color-foreground) 13%, transparent);
 }
 
 .shop-page .product-card__shell {
   aspect-ratio: 4 / 5;
   background:
-    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.78), transparent 34%),
-    linear-gradient(135deg, #F8F2EE 0%, #FFFDFC 48%, #FFF3F1 100%);
+    radial-gradient(circle at 50% 38%, color-mix(in srgb, var(--color-background) 78%, transparent), transparent 34%),
+    linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 48%, var(--color-accent-soft) 100%);
 }
 
 .shop-page .product-card__img,
@@ -1243,7 +1243,7 @@ ul.products li.product,
 .shop-page .product-card__meta {
   gap: 12px;
   padding: 16px;
-  border-top: 1px solid rgba(232, 218, 212, 0.8);
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
 }
 
 .shop-page .product-card__title {

@@ -30,6 +30,10 @@
   /* Soft orange subtle highlights and badges */
   --color-accent-blush: #FFF1F0;
   /* Alias kept for compatibility with older markup */
+  --color-accent-2: #0056D2;
+  /* Electric blue secondary accent — links, icons, step numbers */
+  --color-accent-2-hover: #003F9E;
+  /* Secondary accent hover */
 
   /* === UI === */
   --color-border: #E5E7EB;

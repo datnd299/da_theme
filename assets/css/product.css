@@ -1,41 +1,28 @@
 /* ============================================================
-   Product Page - Vivisshop
-   Soft everyday fashion store: warm, polished, conversion-focused
+   Product Page - Eliteshop Express
+   Personalized POD apparel: clean, bright, conversion-focused.
+   Brand tokens (--color-*, --font-*, --radius-*, --shadow-*) come from
+   main.css :root — only page-local aliases are declared here.
    ============================================================ */
 
-/* CSS Variables */
 :root {
-  --color-bg: #FFFFFF;
-  --color-bg-subtle: #FFF3F1;
-  --color-bg-muted: #F8F2EE;
-  --color-text-primary: #2F2A28;
-  --color-text-secondary: #4B403C;
-  --color-text-muted: #6F625D;
-  --color-text-soft: #6F625D;
-  --color-border: #E8DAD4;
-  --color-accent: #C87F86;
-  --color-accent-hover: #4B403C;
-  --color-button-bg: var(--color-accent-hover);
-  --color-button-hover: var(--color-accent);
-  --color-button-text: var(--color-bg);
-  --color-sale: #8A332B;
-  --color-blush: #A8B99A;
-  --color-navy: #4B403C;
-  --color-navy-light: #6F625D;
-  --color-ring: rgba(200, 127, 134, 0.18);
-  --color-background: var(--color-bg);
-  --color-foreground: var(--color-text-primary);
-  --color-foreground-muted: var(--color-text-muted);
-  --color-muted: var(--color-text-soft);
-  --color-success: var(--color-accent);
-  --color-alert: var(--color-sale);
-  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-sans: var(--font-primary);
-  --radius-md: 8px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --shadow-card: 0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 14px 34px rgba(47, 42, 40, 0.12);
+  --color-bg: var(--color-background);
+  --color-bg-subtle: var(--color-surface);
+  --color-bg-muted: var(--color-surface-alt);
+  --color-text-primary: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground);
+  --color-text-muted: var(--color-foreground-muted);
+  --color-text-soft: var(--color-muted);
+  --color-button-bg: var(--color-accent);
+  --color-button-hover: var(--color-accent-hover);
+  --color-button-text: var(--color-background);
+  --color-sale: var(--color-alert);
+  --color-blush: var(--color-accent-2);
+  --color-navy: var(--color-foreground);
+  --color-navy-light: var(--color-foreground-muted);
+  --color-ring: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  --font-primary: var(--font-sans);
+  --radius-xl: 28px;
 }
 
 /* === 1. PAGE LAYOUT === */
@@ -106,7 +93,7 @@ body.pod-sizechart-open {
   border-radius: 999px;
   background: var(--color-bg);
   color: var(--color-sale);
-  box-shadow: 0 8px 18px rgba(47, 42, 40, 0.12);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--color-foreground) 12%, transparent);
   font-family: var(--font-primary);
   font-size: 0.7rem;
   font-weight: 900;
@@ -514,7 +501,7 @@ body.pod-sizechart-open {
 .pod-option.is-selected {
   background: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
-  color: #FFFFFF;
+  color: var(--color-background);
 }
 
 #pod-size-options .pod-option {
@@ -619,7 +606,7 @@ body.pod-sizechart-open {
 .pod-sizechart-modal__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(47, 42, 40, 0.5);
+  background: color-mix(in srgb, var(--color-foreground) 50%, transparent);
   opacity: 0;
   transition: opacity 0.2s ease;
 }
@@ -1510,7 +1497,7 @@ form.cart:not(.variations_form) {
   left: 8px;
   right: 8px;
   background-color: var(--color-navy);
-  color: #FFFFFF;
+  color: var(--color-background);
   padding: 10px;
   border-radius: var(--radius-md);
   display: flex;
@@ -1669,14 +1656,14 @@ form.cart:not(.variations_form) {
 .size-chart-wrap {
   max-width: 1100px;
   margin: 0 auto;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #333;
+  font-family: var(--font-sans);
+  color: var(--color-foreground);
 }
 
 .size-chart-title {
   text-align: center;
-  background: linear-gradient(90deg, #f6c453, #f9d97a);
-  color: #333;
+  background: var(--color-accent-soft);
+  color: var(--color-foreground);
   margin: 0 0 12px;
   padding: 14px 10px;
   font-size: 20px;
@@ -1686,8 +1673,8 @@ form.cart:not(.variations_form) {
 .size-chart-subtitle {
   margin: 20px 0 8px;
   padding: 8px 12px;
-  background: #333;
-  color: #fff;
+  background: var(--color-foreground);
+  color: var(--color-background);
   font-size: 15px;
   border-radius: 4px;
 }
@@ -1698,7 +1685,7 @@ form.cart:not(.variations_form) {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  border: 1px solid #eee;
+  border: 1px solid var(--color-border);
   border-radius: 6px;
 }
 
@@ -1711,7 +1698,7 @@ form.cart:not(.variations_form) {
 
 .size-chart-table th,
 .size-chart-table td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border);
   text-align: center;
   padding: 10px 8px;
   font-size: 14px;
@@ -1719,20 +1706,20 @@ form.cart:not(.variations_form) {
 }
 
 .size-chart-table thead th {
-  background: #fde9b8;
-  color: #333;
+  background: var(--color-accent-soft);
+  color: var(--color-foreground);
   font-size: 14px;
   position: sticky;
   top: 0;
 }
 
 .size-chart-table tbody tr:nth-child(even) {
-  background: #fffaf0;
+  background: var(--color-surface);
 }
 
 .size-chart-table td.size-col {
   font-weight: bold;
-  background: #fcf0d0;
+  background: var(--color-accent-soft);
 }
 
 /* ==========================================================================
@@ -1771,7 +1758,7 @@ form.cart:not(.variations_form) {
 
   .size-chart-table tr {
     margin-bottom: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-border);
     border-radius: 6px;
     overflow: hidden;
   }
@@ -1783,7 +1770,7 @@ form.cart:not(.variations_form) {
     text-align: right;
     white-space: normal;
     border: none;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border);
     padding: 8px 12px;
   }
 
@@ -1798,14 +1785,14 @@ form.cart:not(.variations_form) {
   .size-chart-table td::before {
     content: attr(data-label);
     font-weight: bold;
-    color: #555;
+    color: var(--color-foreground-muted);
     text-align: left;
     margin-right: 10px;
   }
 
   .size-chart-table td.size-col {
     font-size: 16px;
-    background: #fcf0d0;
+    background: var(--color-accent-soft);
     justify-content: center;
   }
 
@@ -1835,7 +1822,7 @@ form.cart:not(.variations_form) {
 .desc2 {
   width: 100% !important;
   margin: 0 auto !important;
-  font-family: 'Alexandria', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-family: var(--font-sans) !important;
 }
 
 .desc2 table {
@@ -1861,7 +1848,7 @@ form.cart:not(.variations_form) {
   padding-bottom: 10px !important;
   margin-bottom: 18px !important;
   margin-top: 28px !important;
-  border-bottom: 1px solid #e6f0ea !important;
+  border-bottom: 1px solid var(--color-border) !important;
 }
 
 .desc2 div[style*="letter-spacing: 2px"]:first-child {
@@ -1875,7 +1862,7 @@ form.cart:not(.variations_form) {
   bottom: -1px !important;
   width: 36px !important;
   height: 2px !important;
-  background: linear-gradient(90deg, #1a7a3a, #3fbf6f) !important;
+  background: var(--color-accent) !important;
   border-radius: 2px !important;
 }
 
@@ -1894,8 +1881,8 @@ form.cart:not(.variations_form) {
   width: 38px !important;
   height: 38px !important;
   border-radius: 12px !important;
-  background: linear-gradient(135deg, #1a7a3a, #3fbf6f) !important;
-  box-shadow: 0 4px 10px rgba(26, 122, 58, 0.25) !important;
+  background: var(--color-accent) !important;
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--color-accent) 25%, transparent) !important;
 }
 
 /* ---------- Tiêu đề từng tính năng (chữ đậm, đen) ---------- */
@@ -1909,17 +1896,17 @@ form.cart:not(.variations_form) {
 .desc2 div[style*="color: #666"] {
   font-size: 14.5px !important;
   line-height: 1.65 !important;
-  color: #7a8580 !important;
+  color: var(--color-foreground-muted) !important;
 }
 
 /* ---------- Khối bảng tính năng: nền mint dịu, không phải hồng ---------- */
 .desc2 table[style*="margin: 0 0 24px"],
 .desc2 table[style*="margin: 0 0 14px"] {
-  background-color: #f6faf7 !important;
+  background-color: var(--color-surface) !important;
   padding: 14px 16px !important;
   margin-bottom: 12px !important;
   border-radius: 12px !important;
-  border: 1px solid #edf3ef !important;
+  border: 1px solid var(--color-border) !important;
 }
 
 /* Bảng chứa 2 cột "Why You'll Love It" không cần nền (đã có bảng con bên trong) */
@@ -1935,31 +1922,31 @@ form.cart:not(.variations_form) {
 .desc2 div[style*="border-radius: 50%"] {
   width: 8px !important;
   height: 8px !important;
-  background: linear-gradient(135deg, #1a7a3a, #3fbf6f) !important;
-  box-shadow: 0 0 0 4px rgba(26, 122, 58, 0.1) !important;
+  background: var(--color-accent) !important;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 10%, transparent) !important;
 }
 
 /* ---------- Badge "Regular Fit" ---------- */
 .desc2 span[style*="border-radius: 20px"] {
-  background: linear-gradient(135deg, #1a7a3a, #3fbf6f) !important;
-  color: #ffffff !important;
+  background: var(--color-accent) !important;
+  color: var(--color-background) !important;
   border: none !important;
   font-weight: 600 !important;
   padding: 6px 20px !important;
-  box-shadow: 0 4px 14px rgba(26, 122, 58, 0.28) !important;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--color-accent) 28%, transparent) !important;
 }
 
 /* ---------- Khối ghi chú cuối (Note) ---------- */
 .desc2 div[style*="border-left: 3px solid #1a7a3a"] {
-  background: linear-gradient(135deg, #f2faf5, #e8f4ec) !important;
-  border-left: 4px solid #1a7a3a !important;
+  background: var(--color-accent-soft) !important;
+  border-left: 4px solid var(--color-accent) !important;
   border-radius: 12px !important;
   padding: 16px 18px !important;
-  box-shadow: inset 0 0 0 1px rgba(26, 122, 58, 0.06) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-accent) 6%, transparent) !important;
 }
 
 .desc2 div[style*="border-left: 3px solid #1a7a3a"] div {
-  color: #4c5a53 !important;
+  color: var(--color-foreground-muted) !important;
 }
 
 /* ---------- Responsive cho mobile ---------- */
@@ -1968,7 +1955,7 @@ form.cart:not(.variations_form) {
     padding: 18px 14px !important;
     border-radius: 14px !important;
     box-shadow: none !important;
-    border: 1px solid #eef2ef !important;
+    border: 1px solid var(--color-border) !important;
   }
 
   .desc2 div[style*="letter-spacing: 2px"] {
@@ -2023,24 +2010,24 @@ form.cart:not(.variations_form) {
 }
 
 .po-card {
-  font-family: 'Arial', sans-serif;
-  background: #fff;
-  border: 1px solid #e0e0e0;
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   max-width: 560px;
   width: 100%;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--color-foreground) 7%, transparent);
 }
 
 .po-header {
-  background: #1a1a2e;
+  background: var(--color-foreground);
   padding: 22px 28px 18px;
   text-align: center;
 }
 
 .po-header h1 {
-  color: #fff;
+  color: var(--color-background);
   font-size: 22px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -2049,7 +2036,7 @@ form.cart:not(.variations_form) {
 }
 
 .po-header p {
-  color: #aab0cc;
+  color: var(--color-border);
   font-size: 12px;
   margin-top: 4px;
   letter-spacing: 0.03em;
@@ -2059,7 +2046,7 @@ form.cart:not(.variations_form) {
   display: flex;
   justify-content: center;
   padding: 24px 28px 12px;
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .po-diagram svg {
@@ -2082,7 +2069,7 @@ form.cart:not(.variations_form) {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #888;
+  color: var(--color-muted);
   margin-bottom: 10px;
 }
 
@@ -2091,7 +2078,7 @@ form.cart:not(.variations_form) {
   content: '';
   flex: 1;
   height: 1px;
-  background: #e8e8e8;
+  background: var(--color-border);
 }
 
 .po-card table {
@@ -2105,10 +2092,10 @@ form.cart:not(.variations_form) {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #999;
+  color: var(--color-muted);
   padding: 8px 10px;
   text-align: center;
-  border-bottom: 1.5px solid #e8e8e8;
+  border-bottom: 1.5px solid var(--color-border);
 }
 
 .po-card thead th:first-child {
@@ -2117,7 +2104,7 @@ form.cart:not(.variations_form) {
 }
 
 .po-card tbody tr {
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .po-card tbody tr:last-child {
@@ -2125,13 +2112,13 @@ form.cart:not(.variations_form) {
 }
 
 .po-card tbody tr:nth-child(even) {
-  background: #fafafa;
+  background: var(--color-surface);
 }
 
 .po-card tbody td {
   padding: 10px 10px;
   text-align: center;
-  color: #222;
+  color: var(--color-foreground);
 }
 
 .po-card tbody td:first-child {
@@ -2139,13 +2126,13 @@ form.cart:not(.variations_form) {
   padding-left: 0;
   font-weight: 700;
   font-size: 14px;
-  color: #1a1a2e;
+  color: var(--color-foreground);
 }
 
 .po-note {
   margin: 16px 28px 20px;
   font-size: 11.5px;
-  color: #c0392b;
+  color: var(--color-alert);
   text-align: center;
   font-style: italic;
 }

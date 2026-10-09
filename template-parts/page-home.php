@@ -14,26 +14,8 @@ if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-/**
- * Small inline "tee" mockup reused across the hero, category and product
- * cards — no product photography exists for this brand yet, so visuals are
- * built as flat SVG instead of fabricating stock/lifestyle photos.
- */
-$dawp_tee_svg = static function ($fill = '#FF5A5F', $label = '', $label_color = '#FFFFFF', $extra_id = '') {
-    ob_start();
-    ?>
-    <svg viewBox="0 0 200 200" class="h-full w-full" role="img" aria-label="<?php echo esc_attr($label ? sprintf(__('Apparel mockup printed with "%s"', 'dawp'), $label) : __('Apparel mockup', 'dawp')); ?>">
-        <path
-            <?php echo $extra_id ? 'id="' . esc_attr($extra_id) . '"' : ''; ?>
-            d="M62,18 L84,8 C90,24 110,24 116,8 L138,18 L172,48 L150,72 L138,60 L138,188 L62,188 L62,60 L50,72 L28,48 Z"
-            fill="<?php echo esc_attr($fill); ?>"
-        ></path>
-        <?php if ($label) : ?>
-            <text x="100" y="118" text-anchor="middle" font-family="Poppins, Montserrat, sans-serif" font-weight="800" font-size="20" fill="<?php echo esc_attr($label_color); ?>"><?php echo esc_html($label); ?></text>
-        <?php endif; ?>
-    </svg>
-    <?php
-    return ob_get_clean();
+$home_img = static function ($name) {
+    return get_template_directory_uri() . '/assets/images/home/' . $name . '.webp';
 };
 ?>
 
@@ -85,8 +67,8 @@ $dawp_tee_svg = static function ($fill = '#FF5A5F', $label = '', $label_color = 
 
         <div class="relative mx-auto w-full max-w-sm">
             <div class="absolute -inset-6 -z-10 rounded-[40px] bg-[#FFF1F0]" aria-hidden="true"></div>
-            <div class="relative aspect-square w-full rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white p-10 shadow-[var(--shadow-card-hover)]">
-                <?php echo $dawp_tee_svg('#FF5A5F', 'ALEX', '#FFFFFF'); ?>
+            <div class="relative aspect-square w-full overflow-hidden rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white shadow-[var(--shadow-card-hover)]">
+                <img src="<?php echo esc_url($home_img('hero')); ?>" alt="<?php esc_attr_e('Personalized "If Alex can\'t fix it" hoodie and Mombie tee', 'dawp'); ?>" width="800" height="800" fetchpriority="high" class="h-full w-full object-cover">
             </div>
             <div class="absolute -bottom-5 -left-5 flex items-center gap-2 rounded-[var(--radius-md)] border border-[#E5E7EB] bg-white px-4 py-3 shadow-[var(--shadow-card)]">
                 <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0056D2]/10 text-[#0056D2]">
@@ -194,15 +176,15 @@ $dawp_tee_svg = static function ($fill = '#FF5A5F', $label = '', $label_color = 
         <div class="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
             <?php
             $categories = [
-                ['title' => __("Men's Apparel", 'dawp'), 'desc' => __('Tees, hoodies, crewnecks & tanks', 'dawp'), 'fill' => '#111827'],
-                ['title' => __("Women's Apparel", 'dawp'), 'desc' => __('Tees, hoodies, long sleeves & tanks', 'dawp'), 'fill' => '#FF5A5F'],
-                ['title' => __("Kids' Zone", 'dawp'), 'desc' => __('Playful, personalized tees for kids', 'dawp'), 'fill' => '#0056D2'],
+                ['title' => __("Men's Apparel", 'dawp'), 'desc' => __('Tees, hoodies, crewnecks & tanks', 'dawp'), 'img' => 'cat-men'],
+                ['title' => __("Women's Apparel", 'dawp'), 'desc' => __('Tees, hoodies, long sleeves & tanks', 'dawp'), 'img' => 'cat-women'],
+                ['title' => __("Kids' Zone", 'dawp'), 'desc' => __('Playful, personalized tees for kids', 'dawp'), 'img' => 'cat-kids'],
             ];
             foreach ($categories as $cat) :
                 ?>
                 <a href="<?php echo esc_url($shop_url); ?>" class="group col-span-2 flex items-center gap-5 rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white p-5 shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-card-hover)] sm:col-span-1 sm:flex-col sm:items-start sm:gap-4 sm:p-6">
-                    <span class="h-16 w-16 shrink-0 rounded-[var(--radius-md)] bg-[#F9FAFB] p-2.5 sm:h-24 sm:w-24 sm:p-4">
-                        <?php echo $dawp_tee_svg($cat['fill']); ?>
+                    <span class="h-16 w-16 shrink-0 overflow-hidden rounded-[var(--radius-md)] bg-[#F9FAFB] sm:aspect-square sm:h-auto sm:w-full">
+                        <img src="<?php echo esc_url($home_img($cat['img'])); ?>" alt="<?php echo esc_attr($cat['title']); ?>" width="600" height="600" loading="lazy" class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
                     </span>
                     <span>
                         <span class="font-heading block text-base font-bold text-[#111827] sm:text-lg"><?php echo esc_html($cat['title']); ?></span>
@@ -275,23 +257,21 @@ $dawp_tee_svg = static function ($fill = '#FF5A5F', $label = '', $label_color = 
         <div class="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
             <?php
             $trending = [
-                ['title' => __('The Ultimate Gamer Hoodie', 'dawp'), 'price' => '44.99', 'fill' => '#111827', 'label' => 'LVL UP', 'tags' => ['Best Seller']],
-                ['title' => __('Vintage Birth Year Tee', 'dawp'), 'price' => '26.99', 'fill' => '#0056D2', 'label' => '1998', 'tags' => ['Customizable']],
-                ['title' => __('Custom Pet Portrait Crewneck', 'dawp'), 'price' => '38.99', 'fill' => '#FF5A5F', 'label' => 'MAX', 'tags' => ['Best Seller', 'Customizable']],
-                ['title' => __('Best Friends Matching Tee', 'dawp'), 'price' => '24.99', 'fill' => '#16A34A', 'label' => 'BFF', 'tags' => ['Customizable']],
+                ['title' => __('The Ultimate Gamer Hoodie', 'dawp'), 'price' => '44.99', 'img' => 'trend-gamer-hoodie', 'tags' => ['Best Seller']],
+                ['title' => __('Vintage Birth Year Tee', 'dawp'), 'price' => '26.99', 'img' => 'trend-birth-year-tee', 'tags' => ['Customizable']],
+                ['title' => __('Custom Pet Portrait Crewneck', 'dawp'), 'price' => '38.99', 'img' => 'trend-pet-portrait-crewneck', 'tags' => ['Best Seller', 'Customizable']],
+                ['title' => __('Best Friends Matching Tee', 'dawp'), 'price' => '24.99', 'img' => 'trend-best-friends-tee', 'tags' => ['Customizable']],
             ];
             foreach ($trending as $item) :
                 ?>
                 <a href="<?php echo esc_url($shop_url); ?>" class="group overflow-hidden rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-card-hover)]">
-                    <span class="relative block aspect-square overflow-hidden bg-[#F9FAFB] p-6">
+                    <span class="relative block aspect-square overflow-hidden bg-[#F9FAFB]">
                         <span class="absolute left-2 top-2 z-10 flex flex-wrap gap-1">
                             <?php foreach ($item['tags'] as $tag) : ?>
                                 <span class="rounded-[var(--radius-sm)] bg-[#111827] px-2 py-1 text-[0.625rem] font-extrabold uppercase tracking-wide text-white"><?php echo esc_html($tag); ?></span>
                             <?php endforeach; ?>
                         </span>
-                        <span class="block h-full w-full transition duration-300 group-hover:scale-105">
-                            <?php echo $dawp_tee_svg($item['fill'], $item['label']); ?>
-                        </span>
+                        <img src="<?php echo esc_url($home_img($item['img'])); ?>" alt="<?php echo esc_attr($item['title']); ?>" width="600" height="600" loading="lazy" class="block h-full w-full object-cover transition duration-300 group-hover:scale-105">
                     </span>
                     <span class="block p-4">
                         <span class="font-heading block text-sm font-bold leading-snug text-[#111827]"><?php echo esc_html($item['title']); ?></span>

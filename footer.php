@@ -444,7 +444,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
 
     <div class="qb-footer-bottom">
         <div class="qb-footer-wrap qb-footer-bottom__inner">
-            <p>&copy; <?php echo esc_html($current_year); ?> <?php echo esc_html(sprintf(__('%s. All rights reserved.', 'dawp'), $brand_name)); ?></p>
+            <p>&copy; <?php echo esc_html($current_year); ?> <?php echo esc_html(sprintf(__('%s. All rights reserved.', 'dawp'), $brand_name)); ?> <?php echo esc_html(sprintf(__('%s is operated by Glodival LLC.', 'dawp'), $brand_name)); ?></p>
             <div class="qb-payment" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
                 <span><?php esc_html_e('PayPal', 'dawp'); ?></span>
                 <span><?php esc_html_e('Cards via PayPal', 'dawp'); ?></span>

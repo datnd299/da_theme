@@ -18,16 +18,6 @@ function dawp_single_product_benefits() {
 
     $benefits = [
         [
-            'title' => __('Preparing Watches', 'dawp'),
-            'copy'  => __('3-5 Day', 'dawp'),
-            'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>',
-        ],
-        [
-            'title' => __('Express Delivery', 'dawp'),
-            'copy'  => __('10-15 Business Days', 'dawp'),
-            'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7z"/><path d="M7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M18 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>',
-        ],
-        [
             'title' => __('Warranty', 'dawp'),
             'copy'  => __('2 Years', 'dawp'),
             'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-2.9 8-7 10-4.1-2-7-5.4-7-10V6z"/><path d="M9 12l2 2 4-5"/></svg>',

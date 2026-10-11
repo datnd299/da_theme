@@ -659,9 +659,6 @@ body.single-product .woo-page__container {
 }
 
 .pdp-subnav {
-  position: sticky;
-  top: 64px;
-  z-index: 20;
   display: flex;
   justify-content: center;
   gap: 32px;
@@ -700,7 +697,7 @@ body.single-product .woo-page__container {
   gap: 24px;
   padding: 48px 0;
   border-bottom: 1px solid var(--pdp-line);
-  scroll-margin-top: 140px;
+  scroll-margin-top: 90px;
 }
 
 .pdp-section:last-child {
@@ -728,7 +725,6 @@ body.single-product .woo-page__container {
 
 @media (min-width: 1024px) {
   .pdp-subnav {
-    top: 78px;
     gap: 56px;
   }
 

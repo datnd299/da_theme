@@ -55,7 +55,7 @@ $mobile_extra_items = [
         body { margin:0; color:var(--lux-charcoal); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; text-rendering:optimizeLegibility; }
         .lux-skip { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
         .lux-skip:focus { position:fixed; left:16px; top:16px; z-index:1000; width:auto; height:auto; padding:12px 16px; border:1px solid var(--lux-gold); border-radius:2px; background:var(--lux-ivory); color:var(--lux-black); font-weight:800; }
-        .lux-site-header { position:sticky; top:0; z-index:80; border-bottom:1px solid rgba(229,226,220,.82); background:rgba(247,245,240,.94); color:var(--lux-black); backdrop-filter:saturate(150%) blur(14px); }
+        .lux-site-header { position:relative; z-index:80; border-bottom:1px solid rgba(229,226,220,.82); background:rgba(247,245,240,.94); color:var(--lux-black); backdrop-filter:saturate(150%) blur(14px); }
         .lux-head-wrap { width:min(100% - 40px,1280px); margin-inline:auto; }
         .lux-service-bar { border-bottom:1px solid rgba(229,226,220,.35); background:var(--lux-black); color:var(--lux-ivory); }
         .lux-service-bar__row { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:20px; min-height:34px; font-size:12px; line-height:1.35; }

@@ -76,30 +76,11 @@ function dawp_pdp_brand() {
 }
 
 function dawp_pdp_reference() {
-    global $product;
-    $sku = $product->get_sku();
     ?>
     <div class="pdp-ref">
-        <?php if ($sku) : ?>
-            <span><?php echo esc_html(sprintf(__('Ref. %s', 'dawp'), $sku)); ?></span>
-        <?php endif; ?>
         <a href="#pdp-specs"><?php esc_html_e('View Specifications', 'dawp'); ?></a>
     </div>
     <?php
-}
-
-/**
- * Date that is $days business days (Mon-Fri) after today, in the site timezone.
- */
-function dawp_pdp_business_date($days) {
-    $date = new DateTime('now', wp_timezone());
-    while ($days > 0) {
-        $date->modify('+1 day');
-        if ((int) $date->format('N') < 6) {
-            $days--;
-        }
-    }
-    return wp_date('M j', $date->getTimestamp());
 }
 
 function dawp_pdp_price_note() {
@@ -109,12 +90,6 @@ function dawp_pdp_price_note() {
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/></svg>
             <strong><?php esc_html_e('Free Shipping', 'dawp'); ?></strong>
             <span><?php esc_html_e('on every order + free 30-day returns', 'dawp'); ?></span>
-        </p>
-        <p class="pdp-delivery__eta">
-            <?php
-            /* translators: 1: earliest delivery date, 2: latest delivery date */
-            printf(esc_html__('Estimated delivery: %1$s – %2$s', 'dawp'), '<strong>' . esc_html(dawp_pdp_business_date(13)) . '</strong>', '<strong>' . esc_html(dawp_pdp_business_date(20)) . '</strong>');
-            ?>
         </p>
         <p class="pdp-delivery__note"><?php esc_html_e('Hand-assembled and tested after you order, then shipped from Hong Kong with tracking.', 'dawp'); ?> <a href="#pdp-shipping"><?php esc_html_e('Details', 'dawp'); ?></a></p>
     </div>
@@ -197,7 +172,6 @@ function dawp_pdp_spec_groups($product) {
         'brand'      => ['brand'],
         'collection' => ['collection', 'family', 'series'],
         'model'      => ['model', 'modelno', 'modelnumber', 'modelname'],
-        'reference'  => ['reference', 'referenceno', 'referencenumber', 'ref', 'refno'],
         'movement'   => ['movement', 'movementtype'],
         'caliber'    => ['caliber', 'calibre'],
         'case_size'  => ['casesize', 'casediameter', 'diameter'],
@@ -252,10 +226,6 @@ function dawp_pdp_spec_groups($product) {
     if ($brand) {
         $add(__('Brand', 'dawp'), $brand->name);
     }
-    if ($product->get_sku()) {
-        $add(__('Reference', 'dawp'), $product->get_sku());
-    }
-
     foreach ($product->get_attributes() as $attribute) {
         if (!$attribute->get_visible()) {
             continue;
@@ -264,6 +234,10 @@ function dawp_pdp_spec_groups($product) {
         // Hide internal attributes whose name starts with "Watch" or "GMC" (case-insensitive).
         $raw_name = preg_replace('/^pa_/', '', $attribute->get_name());
         if (preg_match('/^\s*(watch|gmc)/i', $label) || preg_match('/^(watch|gmc)/i', $raw_name)) {
+            continue;
+        }
+        // Reference numbers are not shown on the product page.
+        if (in_array(preg_replace('/[^a-z]/', '', strtolower($label)), ['reference', 'referenceno', 'referencenumber', 'ref', 'refno'], true)) {
             continue;
         }
         if ($attribute->is_taxonomy()) {
@@ -328,6 +302,7 @@ function dawp_pdp_sections() {
                     <p class="pdp-eyebrow"><?php esc_html_e('Technical Data', 'dawp'); ?></p>
                     <h2><?php esc_html_e('Specifications', 'dawp'); ?></h2>
                 </header>
+                <div class="pdp-specs__body">
                 <?php if ($specs['key']) : ?>
                     <dl class="pdp-specs__key">
                         <?php foreach ($specs['key'] as $row) : ?>
@@ -361,6 +336,7 @@ function dawp_pdp_sections() {
                         </div>
                     </details>
                 <?php endif; ?>
+                </div>
             </section>
         <?php endif; ?>
 
@@ -412,6 +388,7 @@ function dawp_pdp_quality() {
                 </li>
             <?php endforeach; ?>
         </ol>
+        <?php if (function_exists('chronel_display_quality_check')) chronel_display_quality_check(); ?>
     </section>
     <?php
 }
@@ -450,19 +427,11 @@ function dawp_pdp_shipping() {
                     </li>
                 <?php endforeach; ?>
             </ol>
-            <p class="pdp-shipping__total">
-                <?php
-                /* translators: 1: earliest delivery date, 2: latest delivery date */
-                printf(esc_html__('Total: 13-20 business days from purchase. Order today and it should arrive between %1$s and %2$s.', 'dawp'), '<strong>' . esc_html(dawp_pdp_business_date(13)) . '</strong>', '<strong>' . esc_html(dawp_pdp_business_date(20)) . '</strong>');
-                ?>
-            </p>
             <div class="pdp-returns">
                 <h3><?php esc_html_e('Free 30-Day Returns', 'dawp'); ?></h3>
                 <ul>
-                    <li><?php esc_html_e('Start a return within 30 days of delivery, including if you simply changed your mind.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('We email you a prepaid return label, so return shipping costs you nothing.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Items must be unused and in their original condition.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Refunds go back to your original payment method within 7 business days of inspection.', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Return unused items within 30 days of delivery with a free prepaid label.', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Refunds are issued within 7 business days of inspection.', 'dawp'); ?></li>
                 </ul>
                 <p>
                     <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>

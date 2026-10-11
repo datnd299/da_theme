@@ -27,7 +27,7 @@ function chronel_get_product_reviews($product_id = null) {
             'author'  => 'duchamp',
             'date'    => '2025-09-01',
             'rating'  => 3,
-            'content' => 'Shipper has been very accommodating, responsive, friendly, and selfless. Seller even upgraded to express shipment at no charge knowing that the watches purchased with FedEx. Seller immediately sent out and replaced my order and managed to get order out to me on west coast USA in timely manner. The watches are perfect, no issues whatsoever. Everything was aligned, very accurate and aligned with description with the proper markings to Reference that is advertised(2020). Buy with confidence!',
+            'content' => 'Shipper has been very accommodating, responsive, friendly, and selfless. Seller even upgraded to express shipment at no charge knowing that the watches purchased with FedEx. Seller immediately sent out and replaced my order and managed to get order out to me on west coast USA in timely manner. The watches are perfect, no issues whatsoever. Everything was aligned, very accurate and aligned with description. Buy with confidence!',
         ],
         [
             'author'  => 'ivoibs',
@@ -92,3 +92,82 @@ add_filter('woocommerce_product_review_comment_form_args', function ($args) {
     $args['title_reply'] = __('Write a Review', 'dawp');
     return $args;
 });
+
+function chronel_display_quality_check() {
+    $icons = [
+        'finish'   => '<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/>',
+        'material' => '<path d="M6 3h12l3 6-9 12L3 9z"/><path d="M3 9h18M9 3l3 18M15 3l-3 18"/>',
+        'movement' => '<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/>',
+        'value'    => '<path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+        'trust'    => '<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+    ];
+    $groups = [
+        [
+            'icon'  => 'finish',
+            'title' => __('Product Finish & Precision', 'dawp'),
+            'items' => [
+                __('Design, dimensions, thickness, and weight match specifications exactly', 'dawp'),
+                __('Logo, dial, indices, hands, engravings, and serial numbers positioned with razor-sharp accuracy', 'dawp'),
+                __('Comfortable fit with exceptional overall finishing quality', 'dawp'),
+            ],
+        ],
+        [
+            'icon'  => 'material',
+            'title' => __('Premium Materials & Craftsmanship', 'dawp'),
+            'items' => [
+                __('Stainless Steel 316L/904L with sapphire crystal and ceramic bezel', 'dawp'),
+                __('Select models feature premium gold plating for enhanced luxury', 'dawp'),
+                __('Every detail—screw threads, water-resistance gaskets, bezel clicks—crafted with meticulous precision', 'dawp'),
+            ],
+        ],
+        [
+            'icon'  => 'movement',
+            'title' => __('Reliable Swiss & Japanese Movements', 'dawp'),
+            'items' => [
+                __('Premium automatic movements (Seiko NH35/NH36, Miyota 9015, Sellita SW200-1, ETA 2824-2) selected per model', 'dawp'),
+                __('Renowned movements engineered for durability with easy-to-access parts for maintenance', 'dawp'),
+                __('Tested for stability, accuracy, power reserve, rotor smoothness, and silent operation', 'dawp'),
+            ],
+        ],
+        [
+            'icon'  => 'value',
+            'title' => __('Fair Pricing & Exceptional Value', 'dawp'),
+            'items' => [
+                __('Competitive pricing delivering maximum quality for your investment', 'dawp'),
+                __('Premium craftsmanship at accessible price points', 'dawp'),
+            ],
+        ],
+        [
+            'icon'  => 'trust',
+            'title' => __('Trusted Seller & Buyer Protection', 'dawp'),
+            'items' => [
+                __('Serving tens of thousands of satisfied customers worldwide', 'dawp'),
+                __('Transparent exchange, return, and warranty policies designed to protect your purchase', 'dawp'),
+                __('Responsive customer support and reliable shipping', 'dawp'),
+            ],
+        ],
+    ];
+    ?>
+    <div class="pdp-quality-check">
+        <h3 class="pdp-quality-check__title"><?php esc_html_e('Quality Check & Standards', 'dawp'); ?></h3>
+
+        <div class="quality-check-grid">
+            <?php foreach ($groups as $group) : ?>
+                <div class="quality-check-item">
+                    <div class="quality-check-item__head">
+                        <span class="quality-check-item__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><?php echo $icons[$group['icon']]; // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG ?></svg>
+                        </span>
+                        <h4><?php echo esc_html($group['title']); ?></h4>
+                    </div>
+                    <ul>
+                        <?php foreach ($group['items'] as $item) : ?>
+                            <li><?php echo esc_html($item); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php
+}

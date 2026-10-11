@@ -381,6 +381,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initCartDrawer();
+
+    // Product details: collapse long descriptions behind Show More
+    const pdpContent = document.querySelector('[data-pdp-collapse]');
+    const pdpToggle = document.querySelector('[data-pdp-toggle]');
+    if (pdpContent && pdpToggle) {
+        if (pdpContent.scrollHeight > pdpContent.clientHeight + 40) {
+            pdpToggle.hidden = false;
+            pdpToggle.addEventListener('click', () => {
+                const open = pdpContent.classList.toggle('is-collapsed') === false;
+                pdpToggle.setAttribute('aria-expanded', String(open));
+                pdpToggle.querySelector('[data-more]').hidden = open;
+                pdpToggle.querySelector('[data-less]').hidden = !open;
+            });
+        } else {
+            pdpContent.classList.remove('is-collapsed');
+        }
+    }
 });
 document.querySelectorAll('img[data-lazy-src]').forEach(img => {
     const src = img.dataset.lazySrc;

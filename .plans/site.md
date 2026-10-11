@@ -9,23 +9,27 @@
   "pet portrait" style prints). Built on the theme's own `wp_pod_variants` engine
   (Style × Color, size handled via `wp_pod_size_prices`) — see `.plans/pod-variants-plan.md`.
   No traditional WooCommerce Variable Products.
-- **Market:** United States only. Prices in USD. Printed & shipped from the USA.
+- **Market:** United States only. Prices in USD. Never claim "Made in the USA" / "printed in the USA" / "shipped from the USA" anywhere.
 - **Positioning:** Modern, trustworthy, CRO-focused storefront. Personalization is the core
   differentiator — every section should reinforce "make it yours," not generic catalog browsing.
 - **Support email:** support@eliteshopexpress.com
 - **Business hours:** Monday–Friday, 9:00 AM–6:00 PM EST
 - **Company address (placeholder — verify/replace with the real registered business address
   before launch):** 447 Broadway, 2nd Floor, New York, NY 10013, United States
-- **Social:** Instagram, TikTok, Pinterest (placeholders — real handles TBD, do not fabricate
-  follower counts or link to real third-party accounts that aren't confirmed to be ours)
+- **Social:** none displayed (removed 2026-10-09)
 
 ## 2. Fulfillment & Policy Facts (used across footer, shipping, FAQ, terms)
 
 - Processing time: 2–4 business days before a design goes into production/print
 - US shipping: 5–7 business days after dispatch (standard); no international shipping for now
 - Free shipping threshold: orders over $50 (US)
-- Returns: 30-day window, but **personalized/custom items are final sale** unless defective or
-  misprinted (standard POD policy — avoid promising returns on custom-printed goods)
+- Returns: non-personalized items returnable within 30 days of delivery (unworn/unwashed, customer pays
+  return shipping, no restocking fee, email first). **Personalized items are final sale** unless damaged,
+  defective, misprinted or incorrect — report within 30 days with photo → free replacement or full refund
+  incl. shipping, usually no return needed
+- Cancellations/changes: free before production starts; not possible once printing begins
+- Refunds: to original payment method within 3–5 business days of approval (+5–10 days bank posting)
+- Lost packages: contact us if not delivered within 15 business days of dispatch
 - Secure checkout via WooCommerce (cards, PayPal, Apple Pay icons in footer — decorative only,
   do not claim a payment method isn't actually wired up in WooCommerce settings)
 - Order tracking: `/track-order/` page, order number + email lookup
@@ -58,13 +62,12 @@ already wired in `inc/side-cart.php` + `assets/js/main.js`).
 
 ## 5. Footer Columns
 
-1. Brand — wordmark, short blurb, company address (GMC business-identity signal), social links
+1. Brand — wordmark, short blurb, company address (GMC business-identity signal). No social links.
 2. Shop — Shop All, Men, Women, Kids, Personalized Gifts (→ `/shop/`)
-3. Support — How It Works, FAQ, Track Order, Contact Us
+3. Support — About Us, How It Works, FAQ, Track Order, Contact Us, My Account
 4. Policy — Privacy Policy, Terms & Conditions, Shipping Policy, Return & Refund Policy
    (`/shipping-returns/#returns`) — added for Google Merchant Center policy discoverability
-5. Newsletter — 15% off first order, email capture (client-side only placeholder; no ESP
-   integration exists yet — wiring to an email service provider is a follow-up task)
+5. Customer Care — support email, business hours, reply time, accepted payment icons. No newsletter form.
 
 ## 6. Out of scope this pass (explicitly not touched)
 

@@ -25,18 +25,16 @@ if (!$account_url) {
 }
 
 $nav_items = [
-    ['title' => __('Men', 'dawp'), 'url' => $shop_url],
-    ['title' => __('Women', 'dawp'), 'url' => $shop_url],
-    ['title' => __('Kids', 'dawp'), 'url' => $shop_url],
-    ['title' => __('Personalized Gifts', 'dawp'), 'url' => $shop_url],
-    ['title' => __('How It Works', 'dawp'), 'url' => home_url('/#how-it-works')],
+    ['title' => __('Shop', 'dawp'), 'url' => $shop_url],
+    ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
+    ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
     ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
 ];
 
 $announcements = [
     __('Free Shipping in the US for orders over $50', 'dawp'),
-    __('100% Satisfaction Guarantee', 'dawp'),
-    __('Printed & Shipped from the USA', 'dawp'),
+    __('Free Replacements for Misprints & Damage', 'dawp'),
+    __('Every Order Printed Just for You', 'dawp'),
     __('Personalize it. Make it yours.', 'dawp'),
 ];
 ?>
@@ -54,9 +52,9 @@ $announcements = [
         body { font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
         .font-heading { font-family: "Poppins", "Montserrat", system-ui, sans-serif; }
         html { scroll-behavior: smooth; }
-        .site-logo {
-            font-family: "Poppins", "Montserrat", system-ui, sans-serif;
-        }
+        .site-logo img { display: block; width: auto; max-width: none; height: 28px; }
+        @media (min-width: 640px) { .site-logo img { height: 36px; } }
+        @media (min-width: 1024px) { #site-header .site-logo img { height: 40px; } }
     </style>
 
     <?php wp_head(); ?>
@@ -69,7 +67,7 @@ $announcements = [
     <?php esc_html_e('Skip to content', 'dawp'); ?>
 </a>
 
-<header id="site-header" class="sticky top-0 z-50 bg-white/95 text-[#111827] backdrop-blur transition-shadow [&.is-scrolled]:shadow-[0_1px_3px_rgba(17,24,39,0.08)]" role="banner">
+<header id="site-header" class="relative z-50 bg-white text-[#111827]" role="banner">
     <div class="announcement-marquee">
         <div class="announcement-marquee__track">
             <?php for ($i = 0; $i < 2; $i++) : ?>
@@ -87,9 +85,8 @@ $announcements = [
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex min-h-20 items-center justify-between gap-4">
-            <a href="<?php echo esc_url($home_url); ?>" class="site-logo inline-flex shrink-0 items-center gap-0.5 py-2 text-2xl font-extrabold tracking-tight sm:text-[1.75rem]" aria-label="<?php esc_attr_e('Eliteshop Express home', 'dawp'); ?>">
-                <span class="text-[#FF5A5F]"><?php esc_html_e('Eliteshop', 'dawp'); ?></span>
-                <span class="text-[#111827]"><?php esc_html_e('Express', 'dawp'); ?></span>
+            <a href="<?php echo esc_url($home_url); ?>" class="site-logo inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('Eliteshop Express home', 'dawp'); ?>">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-eliteshop-express-400.png'); ?>" srcset="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-eliteshop-express-800.png'); ?> 2x" width="400" height="56" alt="<?php esc_attr_e('Eliteshop Express', 'dawp'); ?>">
             </a>
 
             <nav class="hidden items-center gap-1 xl:flex" aria-label="<?php esc_attr_e('Main store navigation', 'dawp'); ?>">

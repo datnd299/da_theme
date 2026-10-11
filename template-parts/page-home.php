@@ -28,7 +28,7 @@ $home_img = static function ($name) {
     <div class="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-8 lg:py-24">
         <div>
             <span class="inline-flex items-center gap-2 rounded-[var(--radius-pill)] bg-[#FFF1F0] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.14em] text-[#FF5A5F]">
-                <?php esc_html_e('Personalized apparel, made in the USA', 'dawp'); ?>
+                <?php esc_html_e('Personalized apparel, printed to order', 'dawp'); ?>
             </span>
 
             <h1 class="font-heading mt-5 text-4xl font-extrabold leading-[1.05] text-[#111827] sm:text-5xl lg:text-6xl">
@@ -60,7 +60,7 @@ $home_img = static function ($name) {
                 </div>
                 <div>
                     <dt class="font-heading text-2xl font-extrabold text-[#111827]"><?php esc_html_e('100%', 'dawp'); ?></dt>
-                    <dd class="text-xs font-semibold uppercase tracking-wide text-[#6B7280]"><?php esc_html_e('Made in the USA', 'dawp'); ?></dd>
+                    <dd class="text-xs font-semibold uppercase tracking-wide text-[#6B7280]"><?php esc_html_e('Printed to order', 'dawp'); ?></dd>
                 </div>
             </dl>
         </div>
@@ -88,8 +88,8 @@ $home_img = static function ($name) {
         <?php
         $trust_badges = [
             [
-                'title' => __('Printed & Shipped from the USA', 'dawp'),
-                'icon'  => '<path d="M4 6h16v12H4z"></path><path d="M4 10h16M8 6v4"></path>',
+                'title' => __('Free US Shipping Over $50', 'dawp'),
+                'icon'  => '<path d="M10 17h4V5H3v12h2"></path><path d="M14 8h4l3 3v6h-3"></path><circle cx="7" cy="17" r="2"></circle><circle cx="16" cy="17" r="2"></circle>',
             ],
             [
                 'title' => __('Premium Quality Material', 'dawp'),
@@ -141,7 +141,7 @@ $home_img = static function ($name) {
                 ],
                 [
                     'title' => __('We Bring It To Life', 'dawp'),
-                    'desc'  => __('We print and ship it from the USA, straight to your door — no minimums, one at a time.', 'dawp'),
+                    'desc'  => __('We print it to order and ship it straight to your door — no minimums, one at a time.', 'dawp'),
                     'icon'  => '<rect x="3" y="10" width="13" height="8" rx="1"></rect><path d="M16 13h3.5L21 16v2h-5"></path><circle cx="7" cy="19" r="1.6"></circle><circle cx="18" cy="19" r="1.6"></circle>',
                 ],
             ];

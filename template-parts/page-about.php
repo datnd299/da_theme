@@ -16,9 +16,9 @@ if (!$shop_url) {
 
 $values = [
     [
-        'title' => __('Made in the USA', 'dawp'),
-        'copy'  => __('Every order is printed and shipped from our own facilities in the United States — no overseas drop-shipping.', 'dawp'),
-        'icon'  => '<path d="M4 6h16v12H4z"></path><path d="M4 10h16M8 6v4"></path>',
+        'title' => __('Tracked US Delivery', 'dawp'),
+        'copy'  => __('Every order ships with tracking to any address in the United States, with free standard shipping on orders over $50.', 'dawp'),
+        'icon'  => '<path d="M10 17h4V5H3v12h2"></path><path d="M14 8h4l3 3v6h-3"></path><circle cx="7" cy="17" r="2"></circle><circle cx="16" cy="17" r="2"></circle>',
     ],
     [
         'title' => __('Print-to-Order Quality', 'dawp'),
@@ -47,7 +47,7 @@ $values = [
                     <?php esc_html_e('Apparel that\'s made to be yours.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-xl text-base leading-8 text-[#4B5563]">
-                    <?php esc_html_e('Eliteshop Express started with a simple idea: buying a T-shirt shouldn\'t mean settling for whatever\'s on the rack. Every piece we make is personalized, printed to order, and shipped from right here in the USA.', 'dawp'); ?>
+                    <?php esc_html_e('Eliteshop Express started with a simple idea: buying a T-shirt shouldn\'t mean settling for whatever\'s on the rack. Every piece we make is personalized, printed to order, and shipped straight to your door.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 flex flex-wrap gap-4">
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-pill)] bg-[#FF5A5F] px-7 py-3.5 text-sm font-bold text-white transition hover:bg-[#E14247]">
@@ -76,7 +76,7 @@ $values = [
                     <?php esc_html_e('We were tired of "personalized" shops that just slapped a name on a generic template. So we built our own print-on-demand system from the ground up — one design, thousands of possible combinations of name, text, color, and style.', 'dawp'); ?>
                 </p>
                 <p class="mt-4 text-base leading-8 text-[#4B5563]">
-                    <?php esc_html_e('Today, every order that comes through Eliteshop Express is printed one at a time, checked by hand, and shipped from the USA — whether it\'s a gift for a dog mom, a birth-year tee, or a matching set for best friends.', 'dawp'); ?>
+                    <?php esc_html_e('Today, every order that comes through Eliteshop Express is printed one at a time, checked by hand, and shipped with tracking — whether it\'s a gift for a dog mom, a birth-year tee, or a matching set for best friends.', 'dawp'); ?>
                 </p>
             </div>
             <div class="grid grid-cols-2 gap-4 sm:gap-6">
@@ -93,8 +93,8 @@ $values = [
                     <p class="mt-1 text-sm font-semibold text-[#6B7280]"><?php esc_html_e('Day print turnaround', 'dawp'); ?></p>
                 </div>
                 <div class="rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-[#F9FAFB] p-6">
-                    <p class="font-heading text-3xl font-extrabold text-[#111827]">100%</p>
-                    <p class="mt-1 text-sm font-semibold text-[#6B7280]"><?php esc_html_e('Made in the USA', 'dawp'); ?></p>
+                    <p class="font-heading text-3xl font-extrabold text-[#111827]">30</p>
+                    <p class="mt-1 text-sm font-semibold text-[#6B7280]"><?php esc_html_e('Day misprint & damage protection', 'dawp'); ?></p>
                 </div>
             </div>
         </div>

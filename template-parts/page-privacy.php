@@ -16,98 +16,139 @@ $contact_url      = home_url('/contact-us/');
 
 $sections = [
     [
-        'id'    => 'information-we-collect',
-        'title' => __('1. Information We Collect', 'dawp'),
+        'id'    => 'scope',
+        'title' => __('1. Who We Are & Scope of This Policy', 'dawp'),
         'body'  => [
-            __('We collect information you provide directly, information collected automatically, and information related to your order and personalization:', 'dawp'),
+            __('Eliteshop Express ("Eliteshop Express," "we," "us," or "our") operates eliteshopexpress.com, an online store selling personalized, print-on-demand apparel to customers in the United States.', 'dawp'),
+            __('This Privacy Policy explains what personal information we collect when you visit our website, place an order, contact support, or sign up for emails, and how we use, share, and protect it. By using our website, you agree to the practices described here.', 'dawp'),
+        ],
+    ],
+    [
+        'id'    => 'information-we-collect',
+        'title' => __('2. Information We Collect', 'dawp'),
+        'body'  => [
+            __('We collect the following categories of information:', 'dawp'),
         ],
         'list' => [
-            __('Contact information: name, email, shipping and billing address, phone number.', 'dawp'),
-            __('Order information: items purchased, order history, and communications with support.', 'dawp'),
-            __('Personalization content: any name, text, or photo you submit to appear on a printed product.', 'dawp'),
-            __('Payment information: processed directly by our payment providers — we do not store full card numbers.', 'dawp'),
-            __('Usage data: pages visited, device/browser type, and general location, collected via cookies and similar technologies.', 'dawp'),
+            __('Contact and identity information: your name, email address, phone number, and shipping and billing addresses.', 'dawp'),
+            __('Order information: the products, styles, colors, and sizes you buy, your order history, order totals, and any discount codes used.', 'dawp'),
+            __('Personalization content: the names, text, initials, dates, and photos you submit to be printed on a product.', 'dawp'),
+            __('Payment information: your payment is handled directly by our payment processors. We receive only limited details, such as the card type, the last four digits, and the transaction status. We never see or store your full card number.', 'dawp'),
+            __('Communications: messages you send through our contact form or by email, including photos you attach to a support request.', 'dawp'),
+            __('Device and usage information: IP address, browser and device type, pages viewed, links clicked, referring website, and approximate location based on IP address. This is collected automatically through cookies and similar technologies.', 'dawp'),
+        ],
+        'body_after' => [
+            __('We collect this information directly from you, automatically when you use our website, and from service providers who help us run our store (such as payment processors and shipping carriers).', 'dawp'),
         ],
     ],
     [
         'id'    => 'how-we-use',
-        'title' => __('2. How We Use Your Information', 'dawp'),
+        'title' => __('3. How We Use Your Information', 'dawp'),
         'list' => [
-            __('To process, print, and ship your order.', 'dawp'),
-            __('To communicate with you about your order, including tracking and support requests.', 'dawp'),
-            __('To personalize and improve our website and product recommendations.', 'dawp'),
-            __('To detect and prevent fraud or abuse of our checkout and customization tools.', 'dawp'),
-            __('To send marketing emails when you\'ve opted in (e.g., the newsletter signup) — you can unsubscribe at any time.', 'dawp'),
+            __('To process your payment, print your personalized order, and ship it to you.', 'dawp'),
+            __('To send order confirmations, shipping notifications, tracking details, and other service messages.', 'dawp'),
+            __('To answer support questions and handle cancellations, returns, replacements, and refunds.', 'dawp'),
+            __('To keep our website, checkout, and customization tools working properly, and to improve them.', 'dawp'),
+            __('To detect, prevent, and investigate fraud, unauthorized transactions, and misuse of our website.', 'dawp'),
+            __('To send marketing emails, such as new designs and offers, only if you have opted in, for example by checking the marketing box at checkout. Every marketing email has an unsubscribe link.', 'dawp'),
+            __('To comply with legal, tax, and accounting obligations and to enforce our Terms & Conditions.', 'dawp'),
         ],
     ],
     [
         'id'    => 'personalization-content',
-        'title' => __('3. How We Handle Personalization Content', 'dawp'),
+        'title' => __('4. How We Handle Personalization Content', 'dawp'),
         'body'  => [
-            __('Names, text, and photos you submit for printing are used solely to produce and quality-check your order. We do not sell this content, and we do not use customer-submitted photos in our own marketing without your separate, explicit permission.', 'dawp'),
+            __('Names, text, and photos you submit for printing are used only to produce your order, check its quality, and handle any support request about it. Access is limited to the team members and print partners who need it to make your item.', 'dawp'),
+            __('We do not sell personalization content, and we do not use your photos or personalized designs in our marketing without your separate, explicit permission. We keep uploaded photos only as long as needed to fulfill your order and handle any replacement request within the 30-day period after delivery. You can ask us to delete them at any time.', 'dawp'),
         ],
     ],
     [
         'id'    => 'cookies',
-        'title' => __('4. Cookies & Tracking Technologies', 'dawp'),
+        'title' => __('5. Cookies & Tracking Technologies', 'dawp'),
         'body'  => [
-            __('We use cookies and similar technologies to keep your cart working, remember your preferences, and understand how visitors use our site. You can control cookies through your browser settings; disabling them may affect site functionality such as the shopping cart.', 'dawp'),
+            __('We use cookies and similar technologies for the following purposes:', 'dawp'),
+        ],
+        'list' => [
+            __('Essential cookies keep your cart, checkout, and account sessions working. The website cannot function properly without them.', 'dawp'),
+            __('Preference cookies remember choices such as items in your cart and recently viewed products.', 'dawp'),
+            __('Analytics cookies help us understand how visitors use the website, so we can fix problems and improve the shopping experience.', 'dawp'),
+        ],
+        'body_after' => [
+            __('You can block or delete cookies in your browser settings. If you disable essential cookies, the cart and checkout may not work.', 'dawp'),
         ],
     ],
     [
         'id'    => 'sharing',
-        'title' => __('5. How We Share Information', 'dawp'),
+        'title' => __('6. How We Share Information', 'dawp'),
         'body'  => [
-            __('We share information only as needed to run our business:', 'dawp'),
+            __('We share personal information only with the following parties, and only as needed to run our store:', 'dawp'),
         ],
         'list' => [
-            __('Print & fulfillment partners, to produce and ship your order.', 'dawp'),
-            __('Payment processors, to securely handle checkout.', 'dawp'),
-            __('Shipping carriers, to deliver your order and provide tracking.', 'dawp'),
-            __('Analytics providers, to help us understand and improve site performance.', 'dawp'),
-            __('Legal authorities, when required by law or to protect our rights.', 'dawp'),
+            __('Print and fulfillment partners, who produce and pack your order. They receive your order details, personalization content, and shipping address.', 'dawp'),
+            __('Payment processors, who securely handle checkout and fraud screening.', 'dawp'),
+            __('Shipping carriers, who deliver your order and provide tracking. They receive your name, shipping address, and, where needed, your phone number.', 'dawp'),
+            __('Website, hosting, email, and analytics providers, who help us operate and improve the website.', 'dawp'),
+            __('Legal authorities and other parties, when required by law, or when needed to protect our rights, our customers, or the public.', 'dawp'),
+            __('A buyer or successor, if our business is sold or merged.', 'dawp'),
         ],
         'body_after' => [
-            __('We do not sell your personal information to third parties.', 'dawp'),
+            __('These service providers may use your information only to provide services to us. We do not sell your personal information, and we do not share it with third parties for their own marketing.', 'dawp'),
         ],
     ],
     [
         'id'    => 'retention',
-        'title' => __('6. Data Retention', 'dawp'),
+        'title' => __('7. Data Retention', 'dawp'),
         'body'  => [
-            __('We retain order and personalization information for as long as needed to fulfill your order, provide support, and meet our legal and accounting obligations, after which it is deleted or anonymized.', 'dawp'),
+            __('We keep order records for as long as needed to fulfill your order, provide support, and meet legal, tax, and accounting requirements, which is generally up to 7 years. Support messages are kept for up to 2 years. Marketing data is kept until you unsubscribe. Personalization photos are handled as described in section 4. After these periods, information is deleted or anonymized.', 'dawp'),
         ],
     ],
     [
         'id'    => 'your-rights',
-        'title' => __('7. Your Rights & Choices', 'dawp'),
+        'title' => __('8. Your Privacy Rights', 'dawp'),
         'body'  => [
-            __('Depending on where you live, you may have the right to access, correct, delete, or receive a copy of your personal information, or to opt out of certain uses. To exercise any of these rights, contact us using the details below.', 'dawp'),
+            __('Depending on your state of residence (for example, under the California Consumer Privacy Act and similar state privacy laws), you may have the right to:', 'dawp'),
+        ],
+        'list' => [
+            __('Know and access the personal information we hold about you, and receive a copy of it.', 'dawp'),
+            __('Correct inaccurate personal information.', 'dawp'),
+            __('Delete your personal information, subject to exceptions such as completing an order or meeting legal obligations.', 'dawp'),
+            __('Opt out of the sale or sharing of personal information and of targeted advertising. We do not sell personal information.', 'dawp'),
+            __('Not be discriminated against for exercising any of these rights.', 'dawp'),
+        ],
+        'body_after' => [
+            __('To make a request, email us from the address used on your order, or include your order number. We verify your identity before acting on a request and respond within 45 days. You may also use an authorized agent; we may ask for proof that the agent is authorized. To stop marketing emails, click the unsubscribe link in any email or contact us.', 'dawp'),
         ],
     ],
     [
         'id'    => 'children',
-        'title' => __('8. Children\'s Privacy', 'dawp'),
+        'title' => __('9. Children\'s Privacy', 'dawp'),
         'body'  => [
-            __('Our website is not directed to children under 13, and we do not knowingly collect personal information from children under 13.', 'dawp'),
+            __('Our website is not directed to children under 13, and we do not knowingly collect personal information from children under 13. We sell kids\' apparel, but purchases must be made by an adult. If you believe a child has given us personal information, contact us and we will delete it.', 'dawp'),
         ],
     ],
     [
         'id'    => 'security',
-        'title' => __('9. Security', 'dawp'),
+        'title' => __('10. Security', 'dawp'),
         'body'  => [
-            __('We use reasonable administrative and technical safeguards to protect your information. No method of transmission or storage is 100% secure, but we work to protect your data at every step of checkout and fulfillment.', 'dawp'),
+            __('Our website uses HTTPS encryption, and payments are handled by PCI-compliant payment processors. Access to customer data is limited to the people who need it to fulfill orders and provide support. No method of transmission or storage is 100% secure, but we take reasonable steps to protect your information.', 'dawp'),
+        ],
+    ],
+    [
+        'id'    => 'third-party-links',
+        'title' => __('11. Third-Party Websites', 'dawp'),
+        'body'  => [
+            __('Our website may link to third-party websites, such as payment providers or carrier tracking pages. Those websites have their own privacy practices, and we are not responsible for their content or how they handle your information.', 'dawp'),
         ],
     ],
     [
         'id'    => 'changes',
-        'title' => __('10. Changes to This Policy', 'dawp'),
+        'title' => __('12. Changes to This Policy', 'dawp'),
         'body'  => [
-            __('We may update this Privacy Policy from time to time. The "Last updated" date below reflects the most recent revision.', 'dawp'),
+            __('We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page shows when it was last changed. If we make material changes, we will post a notice on our website before they take effect.', 'dawp'),
         ],
     ],
 ];
-?>
+?>?>
 
 <div class="bg-white text-[#111827]">
     <section class="bg-[#F9FAFB] py-14 sm:py-20" aria-labelledby="privacy-title">
@@ -116,9 +157,9 @@ $sections = [
             <h1 id="privacy-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#111827] sm:text-5xl">
                 <?php esc_html_e('How we handle your information.', 'dawp'); ?>
             </h1>
-            <p class="mt-4 text-sm font-semibold text-[#6B7280]"><?php esc_html_e('Last updated: September 15, 2026', 'dawp'); ?></p>
+            <p class="mt-4 text-sm font-semibold text-[#6B7280]"><?php esc_html_e('Last updated: October 9, 2026', 'dawp'); ?></p>
             <p class="mt-5 max-w-2xl text-base leading-8 text-[#4B5563]">
-                <?php esc_html_e('This policy explains what information Eliteshop Express collects, including personalization content, and how it\'s used, shared, and protected.', 'dawp'); ?>
+                <?php esc_html_e('This policy explains what information Eliteshop Express collects when you shop with us, including the names, text, and photos you submit for personalization, and how we use, share, and protect it.', 'dawp'); ?>
             </p>
         </div>
     </section>
@@ -156,7 +197,7 @@ $sections = [
             <?php endforeach; ?>
 
             <div id="contact" class="scroll-mt-24 rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-[#F9FAFB] p-6 sm:p-8">
-                <h2 class="font-heading text-2xl font-bold text-[#111827]"><?php esc_html_e('11. Contact Us', 'dawp'); ?></h2>
+                <h2 class="font-heading text-2xl font-bold text-[#111827]"><?php esc_html_e('13. Contact Us', 'dawp'); ?></h2>
                 <p class="mt-4 text-base leading-8 text-[#4B5563]">
                     <?php esc_html_e('Questions about this Privacy Policy or a request about your information? Reach us at:', 'dawp'); ?>
                 </p>

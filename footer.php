@@ -37,6 +37,7 @@ $footer_columns = [
     [
         'title' => __('Support', 'dawp'),
         'links' => [
+            ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
             ['title' => __('How It Works', 'dawp'), 'url' => home_url('/#how-it-works')],
             ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
             ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
@@ -61,34 +62,13 @@ $footer_columns = [
     <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.1fr_0.7fr_0.7fr_0.7fr_1.1fr]">
             <div>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo inline-flex items-center gap-0.5 text-2xl font-extrabold tracking-tight" aria-label="<?php esc_attr_e('Eliteshop Express home', 'dawp'); ?>">
-                    <span class="text-[#FF5A5F]"><?php esc_html_e('Eliteshop', 'dawp'); ?></span>
-                    <span class="text-white"><?php esc_html_e('Express', 'dawp'); ?></span>
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo inline-flex items-center" aria-label="<?php esc_attr_e('Eliteshop Express home', 'dawp'); ?>">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-eliteshop-express-light-400.png'); ?>" srcset="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-eliteshop-express-light-800.png'); ?> 2x" width="400" height="56" alt="<?php esc_attr_e('Eliteshop Express', 'dawp'); ?>" loading="lazy">
                 </a>
                 <p class="mt-4 max-w-xs text-sm leading-6 text-white/70">
-                    <?php esc_html_e('Personalized apparel made your way. Choose a style, make it yours, and we print & ship it from the USA.', 'dawp'); ?>
+                    <?php esc_html_e('Personalized apparel made your way. Choose a style, make it yours, and we print it to order and ship it to your door.', 'dawp'); ?>
                 </p>
                 <p class="mt-4 max-w-xs text-sm leading-6 text-white/50"><?php echo esc_html($company_address); ?></p>
-
-                <div class="mt-6 flex items-center gap-3">
-                    <a class="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-md)] bg-white/10 text-white transition hover:bg-[#FF5A5F]" href="#" aria-label="<?php esc_attr_e('Eliteshop Express on Instagram', 'dawp'); ?>">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <rect width="18" height="18" x="3" y="3" rx="5"></rect>
-                            <circle cx="12" cy="12" r="4"></circle>
-                            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
-                        </svg>
-                    </a>
-                    <a class="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-md)] bg-white/10 text-white transition hover:bg-[#FF5A5F]" href="#" aria-label="<?php esc_attr_e('Eliteshop Express on TikTok', 'dawp'); ?>">
-                        <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true">
-                            <path d="M16.7 3c.4 2.2 1.9 3.9 4.3 4.1v3.1c-1.5.1-2.9-.4-4.1-1.2v6.6c0 3.4-2.7 5.9-5.9 5.9-3.4 0-6-2.7-6-6s2.7-6 6-6c.4 0 .8 0 1.2.1v3.2a2.9 2.9 0 0 0-1.2-.3 2.9 2.9 0 1 0 2.9 2.9V3h2.8Z"></path>
-                        </svg>
-                    </a>
-                    <a class="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-md)] bg-white/10 text-white transition hover:bg-[#FF5A5F]" href="#" aria-label="<?php esc_attr_e('Eliteshop Express on Pinterest', 'dawp'); ?>">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-                            <path d="M12 2a10 10 0 0 0-3.6 19.3c0-.8 0-1.7.2-2.5l1.4-6s-.3-.7-.3-1.7c0-1.6.9-2.8 2.1-2.8 1 0 1.5.7 1.5 1.6 0 1-.6 2.4-1 3.8-.2 1 .5 1.8 1.5 1.8 1.8 0 3.1-2.3 3.1-5 0-2.1-1.5-3.6-4.1-3.6-3 0-4.7 2.2-4.7 4.5 0 .9.3 1.8.8 2.4.1.1.1.2.1.3l-.3 1.2c0 .2-.2.2-.4.1-1.2-.5-1.9-2.2-1.9-3.6 0-2.9 2.1-5.6 6.1-5.6 3.2 0 5.7 2.3 5.7 5.3 0 3.2-2 5.7-4.8 5.7-.9 0-1.8-.5-2.1-1.1l-.6 2.2c-.2.8-.7 1.9-1.1 2.5A10 10 0 1 0 12 2Z"></path>
-                        </svg>
-                    </a>
-                </div>
             </div>
 
             <nav aria-label="<?php echo esc_attr($footer_columns[0]['title']); ?>">
@@ -117,9 +97,6 @@ $footer_columns = [
                     <li>
                         <a class="transition hover:text-[#FF5A5F]" href="<?php echo esc_url($account_url); ?>"><?php esc_html_e('My Account', 'dawp'); ?></a>
                     </li>
-                    <li>
-                        <a class="transition hover:text-[#FF5A5F]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
-                    </li>
                 </ul>
             </nav>
 
@@ -137,19 +114,12 @@ $footer_columns = [
             </nav>
 
             <div>
-                <h2 class="text-xs font-extrabold uppercase tracking-[0.16em] text-white/50"><?php esc_html_e('Get 15% Off', 'dawp'); ?></h2>
-                <p class="mt-4 text-sm leading-6 text-white/75"><?php esc_html_e('Subscribe for 15% off your first order plus early access to new personalized designs.', 'dawp'); ?></p>
-
-                <form id="newsletter-form" class="mt-4" novalidate>
-                    <label class="sr-only" for="newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
-                    <div class="flex items-center gap-2">
-                        <input id="newsletter-email" type="email" name="newsletter_email" required placeholder="<?php esc_attr_e('you@email.com', 'dawp'); ?>" class="min-w-0 flex-1 rounded-[var(--radius-md)] border border-white/20 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/40 focus:border-[#FF5A5F]">
-                        <button type="submit" class="inline-flex shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-[#FF5A5F] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#E14247]">
-                            <?php esc_html_e('Subscribe', 'dawp'); ?>
-                        </button>
-                    </div>
-                    <p class="newsletter-form__message mt-2 text-sm font-semibold text-[#4ADE80]" hidden></p>
-                </form>
+                <h2 class="text-xs font-extrabold uppercase tracking-[0.16em] text-white/50"><?php esc_html_e('Customer Care', 'dawp'); ?></h2>
+                <ul class="mt-4 grid gap-2 text-sm leading-6 text-white/75">
+                    <li><a class="transition hover:text-[#FF5A5F]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></li>
+                    <li><?php echo esc_html($business_hours); ?></li>
+                    <li><?php esc_html_e('We reply within 1 business day.', 'dawp'); ?></li>
+                </ul>
 
                 <div class="mt-6">
                     <p class="text-sm font-bold text-white"><?php esc_html_e('Accepted Payments', 'dawp'); ?></p>

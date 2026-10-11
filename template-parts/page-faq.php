@@ -71,15 +71,23 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('Can I return a personalized item?', 'dawp'),
-                'answer'   => __('Because every item is printed specifically for you, personalized orders are final sale once production starts. This does not affect your rights if the item arrives damaged, defective, or misprinted.', 'dawp'),
+                'answer'   => __('Because every item is printed specifically for you, personalized items are final sale and cannot be returned for a change of mind, wrong size, or a typo entered at checkout. This does not affect your right to a free replacement or full refund if the item arrives damaged, defective, misprinted, or incorrect.', 'dawp'),
             ],
             [
                 'question' => __('What if my order arrives damaged or misprinted?', 'dawp'),
-                'answer'   => __('Email us a photo of the item within 30 days of delivery and we will send a free replacement or a full refund — no return shipping required.', 'dawp'),
+                'answer'   => __('Email us a photo of the item within 30 days of delivery and we will send a free replacement or a full refund, including shipping. In most cases you do not need to send the item back.', 'dawp'),
+            ],
+            [
+                'question' => __('Can I return an item without personalization?', 'dawp'),
+                'answer'   => __('Yes. Non-personalized items can be returned within 30 days of delivery if they are unworn, unwashed, and in original condition. Email us first for return instructions. Return shipping is paid by the customer, and there is no restocking fee.', 'dawp'),
+            ],
+            [
+                'question' => __('How long do refunds take?', 'dawp'),
+                'answer'   => __('Approved refunds are issued to your original payment method within 3-5 business days. Your bank may need another 5-10 business days to post it.', 'dawp'),
             ],
             [
                 'question' => __('I ordered the wrong size — what now?', 'dawp'),
-                'answer'   => __('Contact support with your order number as soon as possible. If production hasn\'t started, we can usually update the size for you.', 'dawp'),
+                'answer'   => __('Contact support with your order number as soon as possible. If production hasn\'t started, we can update the size for free. Once printing has begun, personalized items cannot be exchanged for size.', 'dawp'),
             ],
         ],
     ],
@@ -88,7 +96,7 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('What products does Eliteshop Express sell?', 'dawp'),
-                'answer'   => __('Personalized T-shirts, hoodies, long sleeve tees, crewnecks, and tank tops for men, women, and kids, all printed to order in the USA.', 'dawp'),
+                'answer'   => __('Personalized T-shirts, hoodies, long sleeve tees, crewnecks, and tank tops for men, women, and kids, all printed to order just for you.', 'dawp'),
             ],
             [
                 'question' => __('How do I find my size?', 'dawp'),

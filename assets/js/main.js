@@ -3,13 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.querySelector('.menu-toggle');
     const nav    = document.querySelector('.main-navigation');
 
-    // Scroll shadow
-    if (header) {
-        const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-    }
-
     // Mobile menu toggle
     if (toggle && nav) {
         toggle.addEventListener('click', () => {
@@ -332,28 +325,6 @@ document.addEventListener('DOMContentLoaded', () => {
             demoPresets.forEach((b) => b.classList.toggle('is-active', b === btn));
         });
     });
-
-    // Footer newsletter signup: client-side only for now (no ESP wired up
-    // yet), just confirms the email was captured so the form isn't a dead end.
-    const newsletterForm = document.getElementById('newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const emailInput = newsletterForm.querySelector('#newsletter-email');
-            const message     = newsletterForm.querySelector('.newsletter-form__message');
-
-            if (!emailInput || !emailInput.checkValidity()) {
-                if (emailInput) emailInput.reportValidity();
-                return;
-            }
-
-            if (message) {
-                message.textContent = 'Thanks! Your 15% off code is on its way to your inbox.';
-                message.hidden = false;
-            }
-            newsletterForm.reset();
-        });
-    }
 
     // Generic horizontal scroll-snap carousel (used by the homepage
     // testimonials section) driven by [data-carousel] / [data-carousel-track]

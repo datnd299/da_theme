@@ -353,7 +353,7 @@ function dawp_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('woocommerce');
-    add_theme_support('wc-product-gallery-zoom');
+    // No 'wc-product-gallery-zoom': main.js handles hover zoom; WC's overlay + trigger clash with it
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 }

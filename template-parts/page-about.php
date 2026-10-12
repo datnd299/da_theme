@@ -1,6 +1,6 @@
 <?php
 /**
- * About Us page — Eliteshop Express.
+ * About page — SlickTee.
  *
  * @package dawp
  */
@@ -14,125 +14,91 @@ if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
+$img = static function ($name) {
+    return get_template_directory_uri() . '/assets/images/home/' . $name . '.webp';
+};
+
 $values = [
-    [
-        'title' => __('Tracked US Delivery', 'dawp'),
-        'copy'  => __('Every order ships with tracking to any address in the United States, with free standard shipping on orders over $50.', 'dawp'),
-        'icon'  => '<path d="M10 17h4V5H3v12h2"></path><path d="M14 8h4l3 3v6h-3"></path><circle cx="7" cy="17" r="2"></circle><circle cx="16" cy="17" r="2"></circle>',
-    ],
-    [
-        'title' => __('Print-to-Order Quality', 'dawp'),
-        'copy'  => __('Nothing sits on a shelf. Your design is printed fresh for you, checked, and packed with care.', 'dawp'),
-        'icon'  => '<path d="m12 2 2.6 6.3L21 9l-4.9 4.3L17.4 20 12 16.7 6.6 20l1.3-6.7L3 9l6.4-.7Z"></path>',
-    ],
-    [
-        'title' => __('Personalization First', 'dawp'),
-        'copy'  => __('We built our own live-preview customization engine so you always see exactly what will print.', 'dawp'),
-        'icon'  => '<path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path>',
-    ],
-    [
-        'title' => __('Real Customer Support', 'dawp'),
-        'copy'  => __('A real team answers order and personalization questions — usually within 1 business day.', 'dawp'),
-        'icon'  => '<path d="M4 4h16v12H7l-3 3z"></path>',
-    ],
+    ['title' => __('Made by fans', 'dawp'), 'copy' => __('Our designs come from artists who love the shows, games, cartoons and movies as much as you do — and from ideas our community sends us.', 'dawp')],
+    ['title' => __('Printed to order', 'dawp'), 'copy' => __('Nothing is mass-produced and left on a shelf. Each piece is printed after you order it, which means less waste and more choice.', 'dawp')],
+    ['title' => __('Premium basics', 'dawp'), 'copy' => __('Premium cotton fabric, finely tailored, with a lived-in vintage wash. High-quality basics with no fluff.', 'dawp')],
+    ['title' => __('Kinder inks', 'dawp'), 'copy' => __('Our direct-to-garment prints use Brother machines and inks that are non-hazardous, toxin-free, biodegradable and certified with an ECO PASSPORT by OEKO-TEX®.', 'dawp')],
+];
+
+$policies = [
+    ['title' => __('Shipping Information', 'dawp'), 'url' => home_url('/shipping-returns/')],
+    ['title' => __('Refund & Return Policy', 'dawp'), 'url' => home_url('/shipping-returns/#returns')],
+    ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
+    ['title' => __('Terms of Service', 'dawp'), 'url' => home_url('/terms-conditions/')],
 ];
 ?>
 
-<div class="bg-white text-[#111827]">
-    <section class="bg-[#F9FAFB] py-14 sm:py-20" aria-labelledby="about-title">
-        <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+<div class="bg-[#FBF7EF] text-[#17140F]">
+    <section class="border-b-2 border-[#17140F] py-14 sm:py-20" aria-labelledby="about-title">
+        <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#FF5A5F]"><?php esc_html_e('About Us', 'dawp'); ?></p>
-                <h1 id="about-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#111827] sm:text-5xl">
-                    <?php esc_html_e('Apparel that\'s made to be yours.', 'dawp'); ?>
-                </h1>
-                <p class="mt-5 max-w-xl text-base leading-8 text-[#4B5563]">
-                    <?php esc_html_e('Eliteshop Express started with a simple idea: buying a T-shirt shouldn\'t mean settling for whatever\'s on the rack. Every piece we make is personalized, printed to order, and shipped straight to your door.', 'dawp'); ?>
-                </p>
-                <div class="mt-8 flex flex-wrap gap-4">
-                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-pill)] bg-[#FF5A5F] px-7 py-3.5 text-sm font-bold text-white transition hover:bg-[#E14247]">
-                        <?php esc_html_e('Start Customizing', 'dawp'); ?>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-pill)] border-2 border-[#111827] px-7 py-3.5 text-sm font-bold text-[#111827] transition hover:bg-[#111827] hover:text-white">
-                        <?php esc_html_e('Contact Us', 'dawp'); ?>
-                    </a>
-                </div>
+                <span class="inline-flex -rotate-2 rounded-[4px] border-2 border-[#17140F] bg-[#F2B33D] px-3 py-1 text-xs font-extrabold uppercase tracking-[0.18em]"><?php esc_html_e('About SlickTee', 'dawp'); ?></span>
+                <h1 id="about-title" class="font-display mt-5 text-5xl uppercase leading-[0.95] sm:text-7xl"><?php esc_html_e('Art you can wear.', 'dawp'); ?><br><span class="text-[#D7351E]"><?php esc_html_e('Fandom you can feel.', 'dawp'); ?></span></h1>
+                <p class="mt-6 max-w-xl text-lg leading-relaxed text-[#4A4339]"><?php esc_html_e('Welcome to SLICKTEE — a vibrant, passionate clothing brand built around art. We make vintage-style tees, hoodies, sweatshirts, tank tops, shorts and caps featuring artwork inspired by the anime, games, cartoons, comics and movies you love.', 'dawp'); ?></p>
+                <p class="mt-4 max-w-xl text-base leading-relaxed text-[#4A4339]"><?php esc_html_e('Our customers’ interests are always our top priority. We hope you enjoy our products as much as we enjoy making them for you.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-[8px] border-2 border-[#17140F] bg-[#D7351E] px-7 text-sm font-extrabold uppercase tracking-wide text-[#FFFFFF] shadow-[4px_4px_0_#17140F] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[#B32813] hover:shadow-[2px_2px_0_#17140F]">
+                    <?php esc_html_e('Browse the collection', 'dawp'); ?> <span aria-hidden="true">→</span>
+                </a>
             </div>
-
-            <div class="mx-auto aspect-square w-full max-w-sm rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white p-10 shadow-[var(--shadow-card-hover)]">
-                <svg viewBox="0 0 200 200" class="h-full w-full" role="img" aria-label="<?php esc_attr_e('Eliteshop Express apparel mockup', 'dawp'); ?>">
-                    <path d="M62,18 L84,8 C90,24 110,24 116,8 L138,18 L172,48 L150,72 L138,60 L138,188 L62,188 L62,60 L50,72 L28,48 Z" fill="#0056D2"></path>
-                    <text x="100" y="118" text-anchor="middle" font-family="Poppins, Montserrat, sans-serif" font-weight="800" font-size="18" fill="#FFFFFF">SINCE '24</text>
-                </svg>
+            <div class="relative">
+                <img src="<?php echo esc_url($img('about-studio')); ?>" alt="<?php esc_attr_e('Printing an anime-style design onto a black tee in the SlickTee print studio', 'dawp'); ?>" width="1200" height="900" fetchpriority="high" class="block aspect-[4/3] w-full rounded-[14px] border-2 border-[#17140F] object-cover shadow-[8px_8px_0_#17140F]">
+                <span class="absolute -bottom-4 -left-2 rotate-[-4deg] rounded-[4px] border-2 border-[#17140F] bg-[#FBF7EF] px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#17140F] sm:-left-4"><?php esc_html_e('Every piece printed to order', 'dawp'); ?></span>
             </div>
         </div>
     </section>
 
-    <section class="bg-white py-14 sm:py-20" aria-labelledby="story-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-            <div>
-                <h2 id="story-title" class="font-heading text-3xl font-bold text-[#111827] sm:text-4xl"><?php esc_html_e('Our story', 'dawp'); ?></h2>
-                <p class="mt-5 text-base leading-8 text-[#4B5563]">
-                    <?php esc_html_e('We were tired of "personalized" shops that just slapped a name on a generic template. So we built our own print-on-demand system from the ground up — one design, thousands of possible combinations of name, text, color, and style.', 'dawp'); ?>
-                </p>
-                <p class="mt-4 text-base leading-8 text-[#4B5563]">
-                    <?php esc_html_e('Today, every order that comes through Eliteshop Express is printed one at a time, checked by hand, and shipped with tracking — whether it\'s a gift for a dog mom, a birth-year tee, or a matching set for best friends.', 'dawp'); ?>
-                </p>
-            </div>
-            <div class="grid grid-cols-2 gap-4 sm:gap-6">
-                <div class="rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-[#F9FAFB] p-6">
-                    <p class="font-heading text-3xl font-extrabold text-[#111827]">10K+</p>
-                    <p class="mt-1 text-sm font-semibold text-[#6B7280]"><?php esc_html_e('Happy customers', 'dawp'); ?></p>
-                </div>
-                <div class="rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-[#F9FAFB] p-6">
-                    <p class="font-heading text-3xl font-extrabold text-[#111827]">4.8/5</p>
-                    <p class="mt-1 text-sm font-semibold text-[#6B7280]"><?php esc_html_e('Average rating', 'dawp'); ?></p>
-                </div>
-                <div class="rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-[#F9FAFB] p-6">
-                    <p class="font-heading text-3xl font-extrabold text-[#111827]">2-4</p>
-                    <p class="mt-1 text-sm font-semibold text-[#6B7280]"><?php esc_html_e('Day print turnaround', 'dawp'); ?></p>
-                </div>
-                <div class="rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-[#F9FAFB] p-6">
-                    <p class="font-heading text-3xl font-extrabold text-[#111827]">30</p>
-                    <p class="mt-1 text-sm font-semibold text-[#6B7280]"><?php esc_html_e('Day misprint & damage protection', 'dawp'); ?></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-[#F9FAFB] py-14 sm:py-20" aria-labelledby="values-title">
+    <section class="py-16 lg:py-24" aria-labelledby="about-values-title">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="mx-auto max-w-2xl text-center">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#FF5A5F]"><?php esc_html_e('What We Stand For', 'dawp'); ?></p>
-                <h2 id="values-title" class="mt-3 font-heading text-3xl font-bold text-[#111827] sm:text-4xl"><?php esc_html_e('Our promise to every customer', 'dawp'); ?></h2>
-            </div>
-
-            <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                <?php foreach ($values as $value) : ?>
-                    <div class="rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white p-6 shadow-[var(--shadow-card)]">
-                        <span class="inline-flex h-12 w-12 items-center justify-center rounded-[var(--radius-md)] bg-[#FFF1F0] text-[#FF5A5F]" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><?php echo $value['icon']; ?></svg>
-                        </span>
-                        <h3 class="font-heading mt-4 text-base font-bold text-[#111827]"><?php echo esc_html($value['title']); ?></h3>
-                        <p class="mt-2 text-sm leading-relaxed text-[#4B5563]"><?php echo esc_html($value['copy']); ?></p>
-                    </div>
+            <h2 id="about-values-title" class="font-display text-4xl uppercase leading-none sm:text-5xl"><?php esc_html_e('We sweat the details', 'dawp'); ?></h2>
+            <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <?php foreach ($values as $i => $value) : ?>
+                    <article class="rounded-[14px] border-2 border-[#17140F] bg-[#FFFFFF] p-6">
+                        <span class="font-display text-4xl text-[#D7351E]"><?php echo esc_html(str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT)); ?></span>
+                        <h3 class="font-heading mt-3 text-lg font-extrabold uppercase"><?php echo esc_html($value['title']); ?></h3>
+                        <p class="mt-2 text-sm leading-relaxed text-[#4A4339]"><?php echo esc_html($value['copy']); ?></p>
+                    </article>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
 
-    <section class="bg-white py-14 sm:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="rounded-[var(--radius-lg)] bg-[#111827] p-8 sm:p-12">
-                <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-                    <div>
-                        <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#FF5A5F]"><?php esc_html_e('Ready When You Are', 'dawp'); ?></p>
-                        <h2 class="mt-3 font-heading text-2xl font-extrabold text-white sm:text-3xl"><?php esc_html_e('Make something that\'s 100% you.', 'dawp'); ?></h2>
-                    </div>
-                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-pill)] bg-[#FF5A5F] px-7 text-sm font-bold text-white transition hover:bg-[#E14247]">
-                        <?php esc_html_e('Start Customizing', 'dawp'); ?>
-                    </a>
-                </div>
+    <section class="border-y-2 border-[#17140F] bg-[#F2B33D] py-14" aria-labelledby="about-feedback-title">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:px-8">
+            <div>
+                <h2 id="about-feedback-title" class="font-display text-4xl uppercase leading-none sm:text-5xl"><?php esc_html_e('We love feedback', 'dawp'); ?></h2>
+                <p class="mt-4 max-w-xl text-base leading-relaxed"><?php esc_html_e('We have a lot of fun coming up with designs and are always open to hearing from the community. Many of our collections started as a request from a customer — so tell us what you want to see next.', 'dawp'); ?></p>
+            </div>
+            <div class="flex flex-wrap gap-3 lg:justify-end">
+                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center rounded-[8px] border-2 border-[#17140F] bg-[#17140F] px-6 text-sm font-extrabold uppercase tracking-wide text-[#FBF7EF] transition hover:bg-[#FBF7EF] hover:text-[#17140F]"><?php esc_html_e('Suggest a design', 'dawp'); ?></a>
+                <a href="https://www.trustpilot.com/review/slicktee.com" target="_blank" rel="noopener nofollow" class="inline-flex min-h-12 items-center rounded-[8px] border-2 border-[#17140F] bg-[#FBF7EF] px-6 text-sm font-extrabold uppercase tracking-wide transition hover:bg-[#17140F] hover:text-[#FBF7EF]"><?php esc_html_e('Reviews on Trustpilot ↗', 'dawp'); ?></a>
+                <a href="https://www.sitejabber.com/reviews/slicktee.com" target="_blank" rel="noopener nofollow" class="inline-flex min-h-12 items-center rounded-[8px] border-2 border-[#17140F] bg-[#FBF7EF] px-6 text-sm font-extrabold uppercase tracking-wide transition hover:bg-[#17140F] hover:text-[#FBF7EF]"><?php esc_html_e('Reviews on Sitejabber ↗', 'dawp'); ?></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 lg:py-24" aria-labelledby="about-business-title">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <div class="rounded-[14px] border-2 border-[#17140F] bg-[#17140F] p-6 text-[#FBF7EF] sm:p-8">
+                <h2 id="about-business-title" class="font-display text-3xl uppercase"><?php esc_html_e('Business information', 'dawp'); ?></h2>
+                <address class="mt-5 grid gap-4 text-sm not-italic leading-6 text-[#FBF7EF]/80">
+                    <span><strong class="block text-[#F2B33D]">SlickTee</strong>slicktee.com</span>
+                    <span><strong class="block text-[#F2B33D]"><?php esc_html_e('US Address', 'dawp'); ?></strong>304 S. Jones Blvd #3456, Las Vegas, NV 89107, United States</span>
+                    <span><strong class="block text-[#F2B33D]"><?php esc_html_e('Contact', 'dawp'); ?></strong><a class="underline hover:text-[#F2B33D]" href="mailto:support@slicktee.com">support@slicktee.com</a> · <?php esc_html_e('US', 'dawp'); ?> <a class="hover:text-[#F2B33D]" href="tel:+19093663939">+1 909-366-3939</a></span>
+                </address>
+            </div>
+            <div class="rounded-[14px] border-2 border-[#17140F] bg-[#FFFFFF] p-6 sm:p-8">
+                <h2 class="font-display text-3xl uppercase"><?php esc_html_e('Our policies', 'dawp'); ?></h2>
+                <p class="mt-3 text-sm leading-6 text-[#4A4339]"><?php esc_html_e('Clear rules, no fine-print surprises. Read how we ship, handle returns and protect your data.', 'dawp'); ?></p>
+                <ul class="mt-5 grid gap-2">
+                    <?php foreach ($policies as $policy) : ?>
+                        <li><a href="<?php echo esc_url($policy['url']); ?>" class="flex min-h-12 items-center justify-between rounded-[8px] border-2 border-[#17140F] px-4 text-sm font-extrabold transition hover:bg-[#F2B33D]"><?php echo esc_html($policy['title']); ?><span aria-hidden="true">→</span></a></li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         </div>
     </section>

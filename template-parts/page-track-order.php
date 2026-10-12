@@ -1,6 +1,6 @@
 <?php
 /**
- * Track order page — Eliteshop Express.
+ * Track order page — SlickTee.
  *
  * @package dawp
  */
@@ -9,8 +9,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@eliteshopexpress.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
+$support_email  = 'support@slicktee.com';
+$business_hours = __('Mon–Fri 10am–6pm, Sat 8am–6pm', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $faq_url        = home_url('/faq/');
 $shipping_url   = home_url('/shipping-returns/');
@@ -27,26 +27,30 @@ if (!$account_url) {
     $account_url = home_url('/my-account/');
 }
 
+$cat_url = static function ($slug) use ($shop_url) {
+    return function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : $shop_url;
+};
+
 $category_links = [
     [
-        'name' => __("Men's Apparel", 'dawp'),
-        'copy' => __('Personalized tees, hoodies, crewnecks & tanks.', 'dawp'),
-        'url'  => $shop_url,
+        'name' => __('Vintage Shirts', 'dawp'),
+        'copy' => __('Washed, oversized tees with bootleg-style artwork.', 'dawp'),
+        'url'  => $cat_url('vintage-shirts'),
     ],
     [
-        'name' => __("Women's Apparel", 'dawp'),
-        'copy' => __('Personalized tees, hoodies, long sleeves & tanks.', 'dawp'),
-        'url'  => $shop_url,
+        'name' => __('Vintage Hoodie', 'dawp'),
+        'copy' => __('Heavyweight, stonewashed hoodies with big back & front prints.', 'dawp'),
+        'url'  => $cat_url('vintage-hoodie'),
     ],
     [
-        'name' => __("Kids' Zone", 'dawp'),
-        'copy' => __('Playful, personalized tees sized for kids.', 'dawp'),
-        'url'  => $shop_url,
+        'name' => __('Vintage Shorts', 'dawp'),
+        'copy' => __('All-over print mesh shorts for every fandom.', 'dawp'),
+        'url'  => $cat_url('vintage-shorts'),
     ],
     [
-        'name' => __('Personalized Gifts', 'dawp'),
-        'copy' => __('Custom name, photo and pet portrait designs.', 'dawp'),
-        'url'  => $shop_url,
+        'name' => __('New Arrivals', 'dawp'),
+        'copy' => __('The latest drops across anime, games, horror and more.', 'dawp'),
+        'url'  => $cat_url('new-arrivals'),
     ],
 ];
 
@@ -63,7 +67,7 @@ $help_links = [
     ],
     [
         'title' => __('FAQ', 'dawp'),
-        'copy'  => __('Find quick answers about personalization, orders, and store policies.', 'dawp'),
+        'copy'  => __('Quick answers about orders, sizing, shipping and returns.', 'dawp'),
         'url'   => $faq_url,
     ],
 ];
@@ -80,7 +84,7 @@ $policy_links = [
         <div class="track-hero__inner">
             <div class="track-hero__copy">
                 <p class="track-eyebrow"><?php esc_html_e('Order Tracking', 'dawp'); ?></p>
-                <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track your Eliteshop Express order.', 'dawp'); ?></h1>
+                <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Where’s my order?', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
                     <?php esc_html_e('Enter your order ID and billing email to check your shipment status, order items, and delivery details.', 'dawp'); ?>
                 </p>
@@ -96,21 +100,21 @@ $policy_links = [
                         <span class="track-timeline__icon" aria-hidden="true">1</span>
                         <div>
                             <h2><?php esc_html_e('Order placed', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Your checkout and personalization details are received securely.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('We confirm your order by email. You have 24 hours to request changes.', 'dawp'); ?></p>
                         </div>
                     </div>
                     <div class="track-timeline__item">
                         <span class="track-timeline__icon" aria-hidden="true">2</span>
                         <div>
-                            <h2><?php esc_html_e('Printing', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Your personalized design is printed within 2-4 business days.', 'dawp'); ?></p>
+                            <h2><?php esc_html_e('Printed to order', 'dawp'); ?></h2>
+                            <p><?php esc_html_e('Your piece is printed, cut and finished in 5–7 business days.', 'dawp'); ?></p>
                         </div>
                     </div>
                     <div class="track-timeline__item">
                         <span class="track-timeline__icon" aria-hidden="true">3</span>
                         <div>
                             <h2><?php esc_html_e('On the way', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Standard US shipping typically takes 5-7 business days after dispatch.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('US delivery takes 7–10 days, international 7–15 days, with a tracking link by email.', 'dawp'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -178,7 +182,7 @@ $policy_links = [
                 </div>
                 <div class="track-badge">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
-                    <?php esc_html_e('2-4 Day Print Turnaround', 'dawp'); ?>
+                    <?php esc_html_e('5–7 Day Production', 'dawp'); ?>
                 </div>
             </div>
         </div>
@@ -189,7 +193,7 @@ $policy_links = [
             <div class="track-section-heading track-section-heading--center">
                 <p class="track-eyebrow"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
                 <h2 id="track-helpful-title"><?php esc_html_e('Helpful links for your order.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Review the same store support pages used across Eliteshop Express.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Shipping times, returns and support — all in one place.', 'dawp'); ?></p>
             </div>
 
             <div class="track-more-grid">
@@ -207,8 +211,8 @@ $policy_links = [
         <div class="track-category-section__inner">
             <div class="track-category-section__header">
                 <p class="track-eyebrow"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
-                <h2 id="track-category-title"><?php esc_html_e('Personalized apparel from Eliteshop Express.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Explore the same personalized categories featured across the current store experience.', 'dawp'); ?></p>
+                <h2 id="track-category-title"><?php esc_html_e('Keep browsing while you wait.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Vintage-washed fan art merch, printed to order.', 'dawp'); ?></p>
             </div>
 
             <div class="track-category-grid">

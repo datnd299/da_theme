@@ -1,5 +1,5 @@
 /* ============================================================
-   Eliteshop Express Shop / Product Archive
+   SlickTee Shop / Product Archive
    ============================================================ */
 
 :root {
@@ -908,9 +908,7 @@ ul.products li.product,
   --shop-ring: color-mix(in srgb, var(--color-accent) 18%, transparent);
   --shop-shadow-sm: 0 10px 28px color-mix(in srgb, var(--color-foreground) 6%, transparent);
   --shop-shadow-md: 0 20px 48px color-mix(in srgb, var(--color-foreground) 9%, transparent);
-  background:
-    linear-gradient(180deg, var(--color-accent-soft) 0, var(--color-background) 360px, var(--color-background) 100%),
-    var(--color-background);
+  background: var(--color-background);
 }
 
 .shop-page *,
@@ -934,12 +932,12 @@ ul.products li.product,
   min-height: 0;
   margin-bottom: 16px;
   padding: clamp(26px, 4vw, 46px);
-  border-color: color-mix(in srgb, var(--color-accent) 22%, transparent);
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
   background:
-    radial-gradient(circle at 92% 12%, color-mix(in srgb, var(--color-accent-2) 10%, transparent), transparent 28%),
-    radial-gradient(circle at 8% 18%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 30%),
-    linear-gradient(135deg, var(--color-background) 0%, var(--color-accent-soft) 54%, var(--color-surface) 100%);
-  box-shadow: var(--shop-shadow-sm);
+    radial-gradient(color-mix(in srgb, var(--color-border) 70%, transparent) 1px, transparent 1px) 0 0 / 14px 14px,
+    var(--color-surface);
+  box-shadow: var(--shadow-ink);
 }
 
 .shop-page .shop-header::after {
@@ -1218,21 +1216,23 @@ ul.products li.product,
 }
 
 .shop-page .product-card {
-  border-color: color-mix(in srgb, var(--color-border) 95%, transparent);
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
   background: var(--color-background);
-  box-shadow: var(--shop-shadow-sm);
+  box-shadow: none;
 }
 
 .shop-page .product-card:hover {
-  border-color: color-mix(in srgb, var(--color-accent) 60%, transparent);
-  box-shadow: 0 22px 46px color-mix(in srgb, var(--color-foreground) 13%, transparent);
+  border-color: var(--color-foreground);
+  box-shadow: var(--shadow-card-hover);
+  transform: translate(-3px, -3px);
 }
 
 .shop-page .product-card__shell {
   aspect-ratio: 4 / 5;
   background:
     radial-gradient(circle at 50% 38%, color-mix(in srgb, var(--color-background) 78%, transparent), transparent 34%),
-    linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 48%, var(--color-accent-soft) 100%);
+    var(--color-surface);
 }
 
 .shop-page .product-card__img,

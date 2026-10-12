@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQ page — Eliteshop Express.
+ * FAQ page — SlickTee.
  *
  * @package dawp
  */
@@ -9,249 +9,122 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@eliteshopexpress.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
-$shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$link = static function ($url, $label) {
+    return '<a class="font-bold text-[#17140F] underline decoration-[#D7351E] decoration-2 underline-offset-4 hover:text-[#D7351E]" href="' . esc_url($url) . '">' . esc_html($label) . '</a>';
+};
 
-if (!$shop_url) {
-    $shop_url = home_url('/shop/');
-}
+$contact  = $link(home_url('/contact-us/'), __('contact us', 'dawp'));
+$track    = $link(home_url('/track-order/'), __('Track Your Order', 'dawp'));
+$shipping = $link(home_url('/shipping-returns/'), __('Shipping Information', 'dawp'));
+$returns  = $link(home_url('/shipping-returns/#returns'), __('Refund & Return Policy', 'dawp'));
+$email    = $link('mailto:support@slicktee.com', 'support@slicktee.com');
 
-$shipping_url = home_url('/shipping-returns/');
-$privacy_url  = home_url('/privacy-policy/');
-$terms_url    = home_url('/terms-conditions/');
-$track_url    = home_url('/track-order/');
-$contact_url  = home_url('/contact-us/');
-
-$faq_groups = [
+$groups = [
     [
-        'label' => __('Personalization', 'dawp'),
+        'id'    => 'orders',
+        'title' => __('Orders & payment', 'dawp'),
         'items' => [
-            [
-                'question' => __('How does personalization work?', 'dawp'),
-                'answer'   => __('Pick a product, then add your name, text, or a photo where the design allows it. You\'ll see a live preview before adding it to your cart — nothing prints until you approve it.', 'dawp'),
-            ],
-            [
-                'question' => __('Can I edit my personalization after ordering?', 'dawp'),
-                'answer'   => __('Contact support immediately with your order number. We can usually update text before an order enters production, but cannot guarantee changes once printing has started.', 'dawp'),
-            ],
-            [
-                'question' => __('What if I misspell my personalization text?', 'dawp'),
-                'answer'   => __('Double-check the live preview before checkout — it prints exactly as entered. If you catch a mistake right after ordering, contact us right away.', 'dawp'),
-            ],
-            [
-                'question' => __('Can I upload a photo for a pet portrait design?', 'dawp'),
-                'answer'   => __('Yes, on designs that support it. Use a clear, well-lit photo for the best print quality.', 'dawp'),
-            ],
+            [__('Do I need an account to shop?', 'dawp'), __('No. You can check out as a guest every time. Creating an account simply saves your details for next time and lets you see your order history under “My Account”.', 'dawp')],
+            [__('How will I know my order is confirmed?', 'dawp'), __('Right after you place your order we email you a receipt with your order details. Orders go into production once payment is approved and the billing and delivery address are verified.', 'dawp')],
+            [__('I didn’t receive a confirmation email.', 'dawp'), sprintf(__('Check your spam or promotions folder, and the email linked to your PayPal account if you paid with PayPal. Still nothing? Please %s and we’ll resend it.', 'dawp'), $contact)],
+            [__('Which payment methods do you accept?', 'dawp'), __('We accept Visa, Mastercard, American Express and PayPal. Payment is taken when your order is placed, because work on your item starts right away. Our checkout is protected with 256-bit SSL encryption.', 'dawp')],
         ],
     ],
     [
-        'label' => __('Orders & Shipping', 'dawp'),
+        'id'    => 'changes',
+        'title' => __('Changes & cancellations', 'dawp'),
         'items' => [
-            [
-                'question' => __('How long does order processing take?', 'dawp'),
-                'answer'   => __('Each personalized item is printed to order within 2-4 business days before dispatch. Processing does not include weekends or holidays.', 'dawp'),
-            ],
-            [
-                'question' => __('How long does standard US shipping take?', 'dawp'),
-                'answer'   => __('After dispatch, standard US shipping typically takes 5-7 business days. We currently ship within the United States only.', 'dawp'),
-            ],
-            [
-                'question' => __('Will I receive tracking information?', 'dawp'),
-                'answer'   => __('Yes. Tracking information is emailed once your order ships, and you can look it up any time on our Track Order page.', 'dawp'),
-            ],
-            [
-                'question' => __('Do you offer free shipping?', 'dawp'),
-                'answer'   => __('Yes — orders over $50 shipped within the US ship free automatically at checkout.', 'dawp'),
-            ],
+            [__('Can I change my order?', 'dawp'), sprintf(__('Because every item is printed on demand, you can change the size, color, quantity or shipping address within 24 hours of ordering. Email %s with your order number and we’ll reply within 24 hours.', 'dawp'), $email)],
+            [__('Can I cancel my order?', 'dawp'), sprintf(__('Yes — within 24 hours of placing it. After that your order goes into production and can no longer be cancelled or changed. To cancel, %s or email %s.', 'dawp'), $contact, $email)],
         ],
     ],
     [
-        'label' => __('Returns & Refunds', 'dawp'),
+        'id'    => 'shipping',
+        'title' => __('Shipping & tracking', 'dawp'),
         'items' => [
-            [
-                'question' => __('Can I return a personalized item?', 'dawp'),
-                'answer'   => __('Because every item is printed specifically for you, personalized items are final sale and cannot be returned for a change of mind, wrong size, or a typo entered at checkout. This does not affect your right to a free replacement or full refund if the item arrives damaged, defective, misprinted, or incorrect.', 'dawp'),
-            ],
-            [
-                'question' => __('What if my order arrives damaged or misprinted?', 'dawp'),
-                'answer'   => __('Email us a photo of the item within 30 days of delivery and we will send a free replacement or a full refund, including shipping. In most cases you do not need to send the item back.', 'dawp'),
-            ],
-            [
-                'question' => __('Can I return an item without personalization?', 'dawp'),
-                'answer'   => __('Yes. Non-personalized items can be returned within 30 days of delivery if they are unworn, unwashed, and in original condition. Email us first for return instructions. Return shipping is paid by the customer, and there is no restocking fee.', 'dawp'),
-            ],
-            [
-                'question' => __('How long do refunds take?', 'dawp'),
-                'answer'   => __('Approved refunds are issued to your original payment method within 3-5 business days. Your bank may need another 5-10 business days to post it.', 'dawp'),
-            ],
-            [
-                'question' => __('I ordered the wrong size — what now?', 'dawp'),
-                'answer'   => __('Contact support with your order number as soon as possible. If production hasn\'t started, we can update the size for free. Once printing has begun, personalized items cannot be exchanged for size.', 'dawp'),
-            ],
+            [__('How much is shipping?', 'dawp'), sprintf(__('Shipping costs depend on the destination and number of items. Most items are $5.99 for the first item + $1.99 for each additional item. See %s for details.', 'dawp'), $shipping)],
+            [__('How long will my order take?', 'dawp'), __('Production takes 5–7 business days. After dispatch, US orders typically arrive in 7–10 days and international orders in 7–15 days. Holidays and severe weather can occasionally cause delays.', 'dawp')],
+            [__('Do you ship worldwide?', 'dawp'), __('Yes, we ship to most countries. We’re unable to ship to APO/FPO addresses or PO boxes.', 'dawp')],
+            [__('Where is my order?', 'dawp'), sprintf(__('As soon as your order ships we email you a tracking number and link. You can also check its status any time on our %s page.', 'dawp'), $track)],
+            [__('Why isn’t my tracking working?', 'dawp'), sprintf(__('Tracking updates once the carrier picks up and scans your package, which can take a few days after dispatch. If you ordered more than 21 days ago and still see no tracking, please %s with your order number and checkout email.', 'dawp'), $contact)],
+            [__('My order is past the estimated delivery date.', 'dawp'), sprintf(__('Please %s with your order number. If a package is lost in transit we’ll reprint and reship it at no cost to you.', 'dawp'), $contact)],
         ],
     ],
     [
-        'label' => __('Products & Sizing', 'dawp'),
+        'id'    => 'problems',
+        'title' => __('Returns & problems', 'dawp'),
         'items' => [
-            [
-                'question' => __('What products does Eliteshop Express sell?', 'dawp'),
-                'answer'   => __('Personalized T-shirts, hoodies, long sleeve tees, crewnecks, and tank tops for men, women, and kids, all printed to order just for you.', 'dawp'),
-            ],
-            [
-                'question' => __('How do I find my size?', 'dawp'),
-                'answer'   => __('Each product page includes a US size chart in inches. When between sizes, we generally recommend sizing up for a relaxed fit.', 'dawp'),
-            ],
-            [
-                'question' => __('How should I care for a personalized print?', 'dawp'),
-                'answer'   => __('Machine wash cold, inside out, and tumble dry low or hang dry to keep the print looking sharp for longer.', 'dawp'),
-            ],
+            [__('I received a damaged, misprinted or wrong item.', 'dawp'), sprintf(__('We’re sorry! Email a photo to %s within 14 days of delivery and we’ll send a free replacement or refund the item — no need to pay for return shipping.', 'dawp'), $email)],
+            [__('An item is missing from my order.', 'dawp'), sprintf(__('Items in one order are sometimes shipped separately, so check your email for a second tracking number. If something is still missing, email %s and we’ll resend it or refund it.', 'dawp'), $email)],
+            [__('Can I return an item I just don’t like?', 'dawp'), sprintf(__('Because each piece is made to order specifically for you, we can’t accept returns for change of mind or wrong size choice. Returns, exchanges and refunds apply to damaged, defective or incorrect items — see our %s.', 'dawp'), $returns)],
         ],
-    ],
-    [
-        'label' => __('Payment, Privacy & Support', 'dawp'),
-        'items' => [
-            [
-                'question' => __('Is checkout secure?', 'dawp'),
-                'answer'   => __('Payments are processed through secure, third-party payment providers. Eliteshop Express does not store full payment card numbers on its own systems.', 'dawp'),
-            ],
-            [
-                'question' => __('How is my information used?', 'dawp'),
-                'answer'   => __('Customer information — including any personalization text or photos you submit — is used to process and print your order, provide support, and prevent fraud. See our Privacy Policy for more detail.', 'dawp'),
-            ],
-            [
-                'question' => __('How do I contact support?', 'dawp'),
-                'answer'   => sprintf(
-                    /* translators: 1: email address, 2: business hours */
-                    __('Email %1$s. Business hours are %2$s.', 'dawp'),
-                    $support_email,
-                    $business_hours
-                ),
-            ],
-        ],
-    ],
-];
-
-$quick_links = [
-    [
-        'title' => __('Track Order', 'dawp'),
-        'copy'  => __('Use your order details to check shipment status.', 'dawp'),
-        'url'   => $track_url,
-    ],
-    [
-        'title' => __('Shipping & Returns', 'dawp'),
-        'copy'  => __('Review processing, delivery estimates, and our custom-print return policy.', 'dawp'),
-        'url'   => $shipping_url,
-    ],
-    [
-        'title' => __('Privacy Policy', 'dawp'),
-        'copy'  => __('Learn how customer information is collected, used, and protected.', 'dawp'),
-        'url'   => $privacy_url,
-    ],
-    [
-        'title' => __('Terms & Conditions', 'dawp'),
-        'copy'  => __('Read the store terms for website use and purchases.', 'dawp'),
-        'url'   => $terms_url,
     ],
 ];
 ?>
 
-<div class="bg-white text-[#111827]">
-    <section class="bg-[#F9FAFB] py-14 sm:py-20" aria-labelledby="faq-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:px-8">
-            <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#FF5A5F]"><?php esc_html_e('FAQ', 'dawp'); ?></p>
-                <h1 id="faq-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#111827] sm:text-5xl">
-                    <?php esc_html_e('Quick answers for personalized orders.', 'dawp'); ?>
-                </h1>
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#4B5563]">
-                    <?php esc_html_e('Find clear answers about personalization, orders, shipping, returns, sizing, and support.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white p-6 shadow-[var(--shadow-card)]">
-                <h2 class="font-heading text-2xl font-extrabold text-[#111827]"><?php esc_html_e('Need direct help?', 'dawp'); ?></h2>
-                <p class="mt-3 text-sm leading-7 text-[#4B5563]">
-                    <?php
-                    echo wp_kses(
-                        sprintf(
-                            /* translators: 1: support email, 2: business hours */
-                            __('Email %1$s with your order number or personalization question. Business hours: %2$s.', 'dawp'),
-                            '<a class="font-bold text-[#FF5A5F] underline decoration-[#FF5A5F]/40 underline-offset-4 transition hover:text-[#111827]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
-                            esc_html($business_hours)
-                        ),
-                        [
-                            'a' => [
-                                'class' => [],
-                                'href'  => [],
-                            ],
-                        ]
-                    );
-                    ?>
-                </p>
-                <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-pill)] bg-[#FF5A5F] px-6 text-sm font-bold text-white transition hover:bg-[#E14247]">
-                        <?php esc_html_e('Contact Support', 'dawp'); ?>
-                    </a>
-                    <a href="<?php echo esc_url($track_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-pill)] border-2 border-[#111827] bg-white px-6 text-sm font-bold text-[#111827] transition hover:bg-[#111827] hover:text-white">
-                        <?php esc_html_e('Track Order', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
+<div class="bg-[#FBF7EF] text-[#17140F]">
+    <section class="border-b-2 border-[#17140F] py-14 sm:py-20" aria-labelledby="faq-title">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <span class="inline-flex -rotate-2 rounded-[4px] border-2 border-[#17140F] bg-[#F2B33D] px-3 py-1 text-xs font-extrabold uppercase tracking-[0.18em]"><?php esc_html_e('Help Center', 'dawp'); ?></span>
+            <h1 id="faq-title" class="font-display mt-5 text-5xl uppercase leading-[0.95] sm:text-7xl"><?php esc_html_e('Frequently asked questions', 'dawp'); ?></h1>
+            <p class="mt-5 max-w-2xl text-lg leading-relaxed text-[#4A4339]"><?php esc_html_e('Quick answers about ordering, shipping, sizing and returns. Can’t find what you need? Our team replies within 24 hours.', 'dawp'); ?></p>
+            <nav class="mt-8 flex flex-wrap gap-2" aria-label="<?php esc_attr_e('FAQ topics', 'dawp'); ?>">
+                <?php foreach ($groups as $group) : ?>
+                    <a href="#<?php echo esc_attr($group['id']); ?>" class="inline-flex min-h-11 items-center rounded-[999px] border-2 border-[#17140F] bg-[#FFFFFF] px-4 text-xs font-extrabold uppercase tracking-wide transition hover:bg-[#F2B33D]"><?php echo esc_html($group['title']); ?></a>
+                <?php endforeach; ?>
+                <a href="#size-guide" class="inline-flex min-h-11 items-center rounded-[999px] border-2 border-[#17140F] bg-[#FFFFFF] px-4 text-xs font-extrabold uppercase tracking-wide transition hover:bg-[#F2B33D]"><?php esc_html_e('Size guide', 'dawp'); ?></a>
+            </nav>
         </div>
     </section>
 
-    <section class="bg-white py-14 sm:py-20" aria-labelledby="faq-content-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
-            <aside class="lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white p-6 shadow-[var(--shadow-card)]">
-                    <h2 id="faq-content-title" class="font-heading text-2xl font-extrabold text-[#111827]"><?php esc_html_e('Helpful links', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#4B5563]"><?php esc_html_e('Review the full policy pages for complete details before placing an order or requesting a return.', 'dawp'); ?></p>
-                    <div class="mt-6 grid gap-3">
-                        <?php foreach ($quick_links as $link) : ?>
-                            <a href="<?php echo esc_url($link['url']); ?>" class="rounded-[var(--radius-md)] border border-[#E5E7EB] bg-[#F9FAFB] p-4 transition hover:bg-[#FFF1F0]">
-                                <span class="block font-heading text-base font-extrabold text-[#111827]"><?php echo esc_html($link['title']); ?></span>
-                                <span class="mt-2 block text-sm leading-6 text-[#4B5563]"><?php echo esc_html($link['copy']); ?></span>
-                            </a>
+    <section class="py-14 sm:py-20">
+        <div class="mx-auto grid max-w-5xl gap-14 px-4 sm:px-6 lg:px-8">
+            <?php foreach ($groups as $group) : ?>
+                <div id="<?php echo esc_attr($group['id']); ?>" class="scroll-mt-24">
+                    <h2 class="font-display text-3xl uppercase sm:text-4xl"><?php echo esc_html($group['title']); ?></h2>
+                    <div class="mt-5 grid gap-3">
+                        <?php foreach ($group['items'] as $item) : ?>
+                            <details class="group rounded-[14px] border-2 border-[#17140F] bg-[#FFFFFF] open:shadow-[4px_4px_0_#17140F]">
+                                <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-base font-extrabold [&::-webkit-details-marker]:hidden">
+                                    <span><?php echo esc_html($item[0]); ?></span>
+                                    <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-[#17140F] text-lg leading-none transition group-open:rotate-45 group-open:bg-[#D7351E] group-open:text-[#FFFFFF]" aria-hidden="true">+</span>
+                                </summary>
+                                <div class="border-t-2 border-dashed border-[#E3D7C2] px-5 py-4 text-sm leading-7 text-[#4A4339]">
+                                    <?php echo wp_kses($item[1], ['a' => ['class' => [], 'href' => []]]); ?>
+                                </div>
+                            </details>
                         <?php endforeach; ?>
                     </div>
                 </div>
-            </aside>
+            <?php endforeach; ?>
 
-            <div class="grid gap-8">
-                <?php foreach ($faq_groups as $group) : ?>
-                    <section class="rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white p-6 shadow-[var(--shadow-card)]" aria-labelledby="<?php echo esc_attr(sanitize_title($group['label'])); ?>">
-                        <h2 id="<?php echo esc_attr(sanitize_title($group['label'])); ?>" class="font-heading text-2xl font-extrabold text-[#111827]"><?php echo esc_html($group['label']); ?></h2>
-                        <div class="mt-6 divide-y divide-[#E5E7EB]">
-                            <?php foreach ($group['items'] as $item) : ?>
-                                <details class="group py-5 first:pt-0 last:pb-0">
-                                    <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#111827]">
-                                        <span><?php echo esc_html($item['question']); ?></span>
-                                        <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[#FFF1F0] text-[#FF5A5F] transition group-open:rotate-45" aria-hidden="true">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm leading-7 text-[#4B5563]"><?php echo esc_html($item['answer']); ?></p>
-                                </details>
-                            <?php endforeach; ?>
+            <div id="size-guide" class="scroll-mt-24 rounded-[14px] border-2 border-[#17140F] bg-[#F4EDE0] p-6 sm:p-8">
+                <h2 class="font-display text-3xl uppercase sm:text-4xl"><?php esc_html_e('Size guide', 'dawp'); ?></h2>
+                <p class="mt-3 text-sm leading-7 text-[#4A4339]"><?php esc_html_e('Our range covers Classic Tees, Vintage T-Shirts, Vintage Shirts for Kids, Sweatshirts, Hoodies, Tank Tops, Leg Pants and Shorts. Each product page shows the size chart for that exact style — always check it before ordering, since items are made to order and can’t be exchanged for a different size.', 'dawp'); ?></p>
+                <div class="mt-6 grid gap-4 sm:grid-cols-3">
+                    <?php
+                    $measure = [
+                        [__('Chest / width', 'dawp'), __('Lay a shirt you love flat and measure straight across, armpit to armpit.', 'dawp')],
+                        [__('Length', 'dawp'), __('Measure from the highest point of the shoulder down to the bottom hem.', 'dawp')],
+                        [__('Compare', 'dawp'), __('Match those numbers to the chart on the product page. Between sizes? Pick the larger one for a relaxed fit.', 'dawp')],
+                    ];
+                    foreach ($measure as $i => $row) :
+                        ?>
+                        <div class="rounded-[8px] border-2 border-[#17140F] bg-[#FFFFFF] p-4">
+                            <span class="font-display text-2xl text-[#D7351E]"><?php echo esc_html($i + 1); ?></span>
+                            <p class="mt-1 text-sm font-extrabold uppercase"><?php echo esc_html($row[0]); ?></p>
+                            <p class="mt-1 text-sm leading-6 text-[#4A4339]"><?php echo esc_html($row[1]); ?></p>
                         </div>
-                    </section>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-[#F9FAFB] py-14 sm:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white p-6 sm:p-8">
-                <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-                    <div>
-                        <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#FF5A5F]"><?php esc_html_e('Shop With Clarity', 'dawp'); ?></p>
-                        <h2 class="mt-3 font-heading text-2xl font-extrabold text-[#111827]"><?php esc_html_e('Personalized apparel, printed just for you.', 'dawp'); ?></h2>
-                        <p class="mt-3 text-sm leading-7 text-[#4B5563]"><?php esc_html_e('Browse T-shirts, hoodies, and more — every design can be personalized, with clear policy information available before checkout.', 'dawp'); ?></p>
-                    </div>
-                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-pill)] bg-[#111827] px-6 text-sm font-bold text-white transition hover:bg-[#FF5A5F]">
-                        <?php esc_html_e('Shop Products', 'dawp'); ?>
-                    </a>
+                    <?php endforeach; ?>
                 </div>
+            </div>
+
+            <div class="rounded-[14px] border-2 border-[#17140F] bg-[#17140F] p-6 text-[#FBF7EF] sm:flex sm:items-center sm:justify-between sm:gap-6 sm:p-8">
+                <div>
+                    <h2 class="font-display text-3xl uppercase"><?php esc_html_e('Still have a question?', 'dawp'); ?></h2>
+                    <p class="mt-2 text-sm text-[#FBF7EF]/75"><?php esc_html_e('Email support@slicktee.com or call +1 909-366-3939 (Mon–Fri 10am–6pm, Sat 8am–6pm).', 'dawp'); ?></p>
+                </div>
+                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="mt-5 inline-flex min-h-12 shrink-0 items-center rounded-[8px] border-2 border-[#FBF7EF] bg-[#D7351E] px-6 text-sm font-extrabold uppercase tracking-wide text-[#FFFFFF] transition hover:bg-[#B32813] sm:mt-0"><?php esc_html_e('Contact support', 'dawp'); ?></a>
             </div>
         </div>
     </section>

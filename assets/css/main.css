@@ -1,51 +1,49 @@
 /* =============================================================
-   main.css - Eliteshop Express Design System
+   main.css - SlickTee Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
 
 :root {
   /* === BACKGROUNDS === */
-  --color-background: #FFFFFF;
-  /* Clean white page background */
-  --color-surface: #F9FAFB;
-  /* Section/card background */
-  --color-surface-alt: #F3F4F6;
-  /* Hover states and alt sections */
+  --color-background: #FBF7EF;
+  /* Cream "print paper" page background */
+  --color-surface: #F4EDE0;
+  /* Alternating section / card background */
+  --color-surface-alt: #EBE1CF;
+  /* Hover fills, inputs, alt sections */
 
   /* === TEXT === */
-  --color-foreground: #111827;
-  /* Primary text — headings, product names */
-  --color-foreground-muted: #4B5563;
-  /* Secondary text — descriptions, meta */
-  --color-muted: #6B7280;
-  /* Light text — captions, breadcrumbs */
+  --color-foreground: #17140F;
+  /* Ink — headings, product names, dark bands */
+  --color-foreground-muted: #4A4339;
+  /* Body copy, descriptions */
+  --color-muted: #6F665A;
+  /* Captions, breadcrumbs, meta */
 
   /* === BRAND === */
-  --color-accent: #FF5A5F;
-  /* Vibrant orange primary CTA and links */
-  --color-accent-hover: #E14247;
-  /* Primary CTA hover state */
-  --color-accent-soft: #FFF1F0;
-  /* Soft orange subtle highlights and badges */
-  --color-accent-blush: #FFF1F0;
+  --color-accent: #D7351E;
+  /* Vermilion — primary CTA (Add to Cart, Shop Now) */
+  --color-accent-hover: #B32813;
+  --color-accent-soft: #FBE3DC;
+  --color-accent-blush: #FBE3DC;
   /* Alias kept for compatibility with older markup */
-  --color-accent-2: #0056D2;
-  /* Electric blue secondary accent — links, icons, step numbers */
-  --color-accent-2-hover: #003F9E;
-  /* Secondary accent hover */
+  --color-accent-2: #1F3A68;
+  /* Prussian blue — secondary CTA, links, step numbers (white text safe) */
+  --color-accent-2-hover: #152A4E;
+  --color-highlight: #F2B33D;
+  /* Mustard — badges/stickers with ink text only */
+  --color-highlight-soft: #FCEFCF;
 
   /* === UI === */
-  --color-border: #E5E7EB;
-  /* Border — cards, dividers */
-  --color-alert: #DC2626;
-  /* Error / alert */
-  --color-success: #16A34A;
-  /* Success / helpful state */
+  --color-border: #E3D7C2;
+  --color-alert: #C42B1C;
+  --color-success: #2E7D4F;
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-heading: 'Poppins', 'Montserrat', system-ui, sans-serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-heading: 'Archivo', 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Anton', 'Archivo', Impact, sans-serif;
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -62,14 +60,16 @@
   --container-pad-desktop: 24px;
 
   /* === BORDER RADIUS === */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 3px rgba(17, 24, 39, 0.06);
-  --shadow-card-hover: 0 12px 28px rgba(17, 24, 39, 0.12);
+  --shadow-card: 0 1px 2px rgba(23, 20, 15, 0.08);
+  --shadow-card-hover: 6px 6px 0 #17140F;
+  /* Hard offset "sticker" shadow */
+  --shadow-ink: 4px 4px 0 #17140F;
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
@@ -107,9 +107,11 @@
   gap: 0.5rem;
   white-space: nowrap;
   padding: 0.55rem 2rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-background);
 }
 
 @keyframes announcement-scroll {
@@ -128,15 +130,115 @@
   }
 }
 
+/* =============================================================
+   FANDOM TICKER (homepage band under hero)
+   ============================================================= */
+
+.fandom-ticker {
+  overflow: hidden;
+  border-bottom: 2px solid var(--color-foreground);
+  background-color: var(--color-highlight);
+}
+
+.fandom-ticker__track {
+  display: flex;
+  width: max-content;
+  animation: announcement-scroll 36s linear infinite;
+}
+
+.fandom-ticker__item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.65rem 1.5rem 0.65rem 0;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-foreground);
+}
+
+.fandom-ticker__star {
+  color: var(--color-accent);
+  font-size: 0.6em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fandom-ticker__track {
+    animation: none;
+  }
+}
+
 /* Mobile nav panel toggled by assets/js/main.js (.menu-toggle / .main-navigation) */
-.main-navigation.is-open {
+.main-navigation.is-open,
+.mobile-search-panel.is-open {
   display: block;
 }
 
-/* Homepage "Try Our Customization Engine" preset buttons */
-.demo-preset-btn.is-active {
-  background-color: var(--color-foreground);
-  color: #FFFFFF;
+/* FiboSearch in header (.header-search wraps [fibosearch style="solaris"]) — same look in idle / focused / open states */
+.header-search .dgwt-wcas-search-wrapp { min-width: 0; max-width: none; margin: 0; }
+.header-search .dgwt-wcas-search-wrapp .dgwt-wcas-sf-wrapp { padding: 0; background: transparent; }
+.header-search .dgwt-wcas-search-wrapp .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input,
+.header-search .dgwt-wcas-search-wrapp.dgwt-wcas-search-focused .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input,
+.header-search .dgwt-wcas-open .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+  height: 44px;
+  padding: 0 46px 0 14px;
+  border: 2px solid #17140F;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #17140F;
+  font-size: 14px;
+  box-shadow: none;
+}
+.header-search .dgwt-wcas-search-wrapp .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input::placeholder { color: #6F665A; opacity: 1; font-style: normal; }
+.header-search .dgwt-wcas-search-wrapp .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input:focus { border-color: #D7351E; box-shadow: 0 0 0 4px #FBE3DC; outline: none; }
+.header-search .dgwt-wcas-search-wrapp .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit,
+.header-search .dgwt-wcas-open .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  width: 36px;
+  height: 36px !important;
+  min-height: 0;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: #F2B33D;
+  color: #17140F;
+  opacity: 1;
+  transform: none;
+}
+.header-search .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit::before { display: none; }
+.header-search .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit:hover { background: #D7351E; color: #FFFFFF; }
+.header-search .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit svg { position: static; width: 18px; height: 18px; margin: 0; }
+.header-search .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit path { fill: currentColor; }
+.header-search .dgwt-wcas-preloader { right: 44px; }
+.header-search .dgwt-wcas-close { right: 44px; }
+.dgwt-wcas-suggestions-wrapp {
+  border: 2px solid #17140F !important;
+  border-radius: 8px;
+  background: #FBF7EF;
+  box-shadow: 4px 4px 0 #17140F;
+  overflow: hidden;
+}
+.dgwt-wcas-suggestion { color: #17140F; }
+.dgwt-wcas-suggestion-selected { background: #F4EDE0 !important; }
+.dgwt-wcas-st strong,
+.dgwt-wcas-sp strong { color: #D7351E; }
+.dgwt-wcas-suggestion-more .dgwt-wcas-st-more { color: #1F3A68; font-weight: 700; }
+/* Desktop header search is narrow (lg:w-56 / xl:w-40) — widen the dropdown, right-aligned to the input */
+@media (min-width: 1024px) {
+  .dgwt-wcas-suggestions-wrapp { width: 380px !important; margin-left: -156px; }
+}
+@media (min-width: 1280px) {
+  .dgwt-wcas-suggestions-wrapp { margin-left: -220px; }
 }
 
 .woocommerce-product-gallery {
@@ -145,7 +247,7 @@
   width: 100%;
   height: auto;
   overflow: hidden;
-  background-color: #f7f7f7;
+  background-color: var(--color-surface);
 }
 
 /* =============================================================
@@ -1197,4 +1299,328 @@ body.side-cart-open {
 
 .variation dd p {
   margin: 0;
+}
+/* =============================================================
+   SLICKTEE "RETRO PRINT SHOP" LAYER — MY ACCOUNT + SIDE CART
+   Ink borders, hard offset shadows, Anton titles.
+   Keep at the end of the file — overrides the rules above.
+   ============================================================= */
+
+/* --- My Account: page + login / register / lost password --- */
+body.woocommerce-account,
+.woocommerce-account .site-content {
+  background: var(--color-background);
+}
+
+.woocommerce-account:not(.logged-in) .site-content .woocommerce {
+  max-width: 1040px;
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
+  background: #FFFFFF;
+  box-shadow: 8px 8px 0 var(--color-foreground);
+}
+
+.woocommerce-account:not(.logged-in) .site-content .woocommerce::before {
+  content: "Welcome back,\A fan.";
+  white-space: pre;
+  display: flex;
+  align-items: flex-end;
+  min-height: 150px;
+  padding: var(--space-lg);
+  border-bottom: 2px solid var(--color-foreground);
+  background:
+    radial-gradient(color-mix(in srgb, var(--color-highlight) 55%, transparent) 1.5px, transparent 1.5px) 0 0 / 16px 16px,
+    var(--color-foreground);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--color-background);
+}
+
+.woocommerce-account:not(.logged-in) .woocommerce h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.woocommerce-account .woocommerce form .form-row label {
+  color: var(--color-foreground);
+}
+
+.woocommerce-account .woocommerce input.input-text,
+.woocommerce-account .woocommerce textarea,
+.woocommerce-account .woocommerce select {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+}
+
+.woocommerce-account .woocommerce input.input-text:focus,
+.woocommerce-account .woocommerce textarea:focus,
+.woocommerce-account .woocommerce select:focus {
+  border-color: var(--color-accent);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.woocommerce-account .woocommerce input[type="checkbox"] {
+  accent-color: var(--color-accent);
+}
+
+.woocommerce-account .woocommerce .button,
+.woocommerce-account .woocommerce button.button,
+.woocommerce-account .woocommerce a.button {
+  min-height: 50px;
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 var(--color-foreground);
+  transition: transform var(--duration-fast) var(--ease-fluid), box-shadow var(--duration-fast) var(--ease-fluid), background var(--duration-fast) var(--ease-fluid);
+}
+
+.woocommerce-account .woocommerce .button:hover,
+.woocommerce-account .woocommerce button.button:hover,
+.woocommerce-account .woocommerce a.button:hover {
+  background: var(--color-accent-hover);
+  color: #FFFFFF;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--color-foreground);
+}
+
+.woocommerce-account .woocommerce .lost_password a,
+.woocommerce-account .woocommerce-MyAccount-content a:not(.button) {
+  font-weight: 800;
+  color: var(--color-foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+@media (min-width: 700px) {
+  .woocommerce-account:not(.logged-in) .site-content .woocommerce::before {
+    min-height: 100%;
+    padding: var(--space-2xl) var(--space-xl);
+    border-right: 2px solid var(--color-foreground);
+    border-bottom: 0;
+  }
+}
+
+/* --- My Account: logged-in dashboard --- */
+.woocommerce-account .woocommerce-MyAccount-navigation ul {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
+  background: #FFFFFF;
+  box-shadow: 4px 4px 0 var(--color-foreground);
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation a {
+  font-weight: 700;
+  color: var(--color-foreground);
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation a:hover,
+.woocommerce-account .woocommerce-MyAccount-navigation .is-active a {
+  background: var(--color-highlight);
+  color: var(--color-foreground);
+}
+
+.woocommerce-account .woocommerce-MyAccount-content {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
+  background: #FFFFFF;
+}
+
+.woocommerce-account .woocommerce-MyAccount-content mark {
+  background: var(--color-highlight);
+  color: var(--color-foreground);
+}
+
+.woocommerce-account .woocommerce table.shop_table {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
+}
+
+.woocommerce-account .woocommerce table.shop_table th {
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
+/* --- Header cart count badge (overrides Tailwind classes set in inc/side-cart.php) --- */
+.cart-count-badge {
+  border: 2px solid var(--color-foreground);
+  background: var(--color-highlight);
+  color: var(--color-foreground);
+}
+
+/* --- Side cart drawer --- */
+.side-cart__overlay {
+  background: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+}
+
+.side-cart__panel {
+  border-left: 2px solid var(--color-foreground);
+  background: var(--color-background);
+  box-shadow: -8px 0 0 color-mix(in srgb, var(--color-foreground) 18%, transparent);
+}
+
+.side-cart__header {
+  border-bottom: 2px solid var(--color-foreground);
+  background: var(--color-highlight);
+}
+
+.side-cart__title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-foreground);
+}
+
+.side-cart__count {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-foreground);
+}
+
+.side-cart__close {
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--color-foreground);
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+.side-cart__close:hover {
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
+.side-cart-item {
+  border-bottom: 2px dashed var(--color-border);
+}
+
+.side-cart-item__img-link {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.side-cart-item__name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--color-foreground);
+}
+
+.side-cart-item__name:hover {
+  color: var(--color-accent);
+}
+
+.side-cart-item__qty {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+}
+
+.side-cart-item__qty-btn:hover {
+  background: var(--color-highlight);
+  color: var(--color-foreground);
+}
+
+.side-cart-item__price {
+  font-weight: 900;
+  color: var(--color-accent);
+}
+
+.side-cart-item__remove:hover {
+  color: var(--color-accent);
+}
+
+.side-cart__empty-cta {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: #FFFFFF;
+  box-shadow: 4px 4px 0 var(--color-foreground);
+}
+
+.side-cart__empty-cta:hover {
+  background: var(--color-accent-hover);
+  color: #FFFFFF;
+}
+
+.side-cart__footer {
+  border-top: 2px solid var(--color-foreground);
+  background: var(--color-surface);
+}
+
+.side-cart__subtotal-row {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.side-cart__subtotal-value {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  color: var(--color-accent);
+}
+
+.side-cart__checkout-btn {
+  min-height: 54px;
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 var(--color-foreground);
+  transition: transform var(--duration-fast) var(--ease-fluid), box-shadow var(--duration-fast) var(--ease-fluid), background var(--duration-fast) var(--ease-fluid);
+}
+
+.side-cart__checkout-btn:hover {
+  background: var(--color-accent-hover);
+  color: #FFFFFF;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--color-foreground);
+}
+
+.side-cart__view-cart-link {
+  font-weight: 800;
+  color: var(--color-foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.side-cart__footer::after {
+  content: "Printed to order · Ships worldwide with tracking";
+  display: block;
+  margin-top: 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .side-cart__checkout-btn,
+  .woocommerce-account .woocommerce .button {
+    transition: none;
+  }
 }

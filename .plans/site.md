@@ -1,78 +1,77 @@
-# Site Info — Eliteshop Express (eliteshopexpress.com)
+# Site Info — SlickTee (slicktee.com)
+
+Content source: adapted 2026-10-12 from the previous brand's live site (home, about, contact, FAQs, shipping,
+refund, payment methods, privacy, terms, DMCA), captured 2026-10-12. Redesigned on the
+`anime.com` branch (forked from `big_pod`), keeping all POD features.
 
 ## 1. Business
 
-- **Brand:** Eliteshop Express
-- **Domain:** eliteshopexpress.com
-- **Model:** Print-on-demand (POD) personalized apparel — T-Shirts, Hoodies, Long Sleeve Tees,
-  Crewnecks, Tank Tops. Every design can be personalized (name, text, initials, photo-based
-  "pet portrait" style prints). Built on the theme's own `wp_pod_variants` engine
-  (Style × Color, size handled via `wp_pod_size_prices`) — see `.plans/pod-variants-plan.md`.
-  No traditional WooCommerce Variable Products.
-- **Market:** United States only. Prices in USD. Never claim "Made in the USA" / "printed in the USA" / "shipped from the USA" anywhere.
-- **Positioning:** Modern, trustworthy, CRO-focused storefront. Personalization is the core
-  differentiator — every section should reinforce "make it yours," not generic catalog browsing.
-- **Support email:** support@eliteshopexpress.com
-- **Business hours:** Monday–Friday, 9:00 AM–6:00 PM EST
-- **Company address (placeholder — verify/replace with the real registered business address
-  before launch):** 447 Broadway, 2nd Floor, New York, NY 10013, United States
-- **Social:** none displayed (removed 2026-10-09)
+- **Brand:** SlickTee (written SLICKTEE in the wordmark; domain slicktee.com). Tagline: "Fan Art Merch". Logo: red tee-shaped badge with an "S" + Anton wordmark, inline SVG in header/footer; favicon at `assets/images/favicon.svg`.
+- **Legal entity:** not published — brand name SlickTee only (no Ltd / company number until the owner confirms the registered entity)
+- **US Address:** 304 S. Jones Blvd #3456, Las Vegas, NV 89107, United States
+- **Email:** support@slicktee.com — replies within 24 hours
+- **Phones:** US +1 909-366-3939
+- **Support hours:** Mon–Fri 10am–6pm, Saturday 8am–6pm
+- **Model:** Print-on-demand fan art apparel — vintage-washed tees, hoodies, sweatshirts, tank
+  tops, shorts, leg pants, caps, kids' shirts, classic tees. Built on the theme's own
+  `wp_pod_variants` engine (Style × Color × Size) — see `.plans/pod-variants-plan.md`.
+- **Market:** Worldwide (US is the main market). Prices in USD.
+- **Positioning:** fan-made artwork from anime, games, cartoons, comics, horror and movies.
+  Never claim products are "officially licensed" or endorsed; footer + Terms §7 carry a
+  fan-art / trademark-owner disclaimer and a DMCA notice process.
+- **Production claims allowed (from the live About page):** premium cotton, vintage wash,
+  DTG printing with Brother machines and OEKO-TEX® ECO PASSPORT certified inks.
+- **Reviews:** only link to independent platforms (Trustpilot, Sitejabber, Webwiki). No
+  fabricated testimonials or rating numbers on the site.
 
-## 2. Fulfillment & Policy Facts (used across footer, shipping, FAQ, terms)
+## 2. Fulfillment & Policy Facts (used in header, footer, FAQ, shipping, terms)
 
-- Processing time: 2–4 business days before a design goes into production/print
-- US shipping: 5–7 business days after dispatch (standard); no international shipping for now
-- Free shipping threshold: orders over $50 (US)
-- Returns: non-personalized items returnable within 30 days of delivery (unworn/unwashed, customer pays
-  return shipping, no restocking fee, email first). **Personalized items are final sale** unless damaged,
-  defective, misprinted or incorrect — report within 30 days with photo → free replacement or full refund
-  incl. shipping, usually no return needed
-- Cancellations/changes: free before production starts; not possible once printing begins
-- Refunds: to original payment method within 3–5 business days of approval (+5–10 days bank posting)
-- Lost packages: contact us if not delivered within 15 business days of dispatch
-- Secure checkout via WooCommerce (cards, PayPal, Apple Pay icons in footer — decorative only,
-  do not claim a payment method isn't actually wired up in WooCommerce settings)
-- Order tracking: `/track-order/` page, order number + email lookup
+- Production: 5–7 business days (made to order)
+- Delivery after dispatch: US 7–10 days, international 7–15 days; tracking on every order
+- Shipping fee: most items $5.99 first item + $1.99 each additional. **No free-shipping claims.**
+- No shipping to APO/FPO or PO boxes
+- Lost package: report within 4 days after estimated delivery → free reprint + reship
+- Changes/cancellation: within 24 hours of ordering; afterwards in production, no changes
+- Returns: bespoke goods — only damaged, defective print, wrong size/color/design/style sent;
+  request within 14 days of receipt with photo; no return shipping/restocking fees in those cases
+- Refunds: full or partial; PayPal immediate, cards 5–10 business days
+- Payments: Visa, Mastercard, American Express, PayPal; charged when the order is placed
+- Governing law in Terms: England & Wales (+ consumer's local mandatory protections)
 
 ## 3. Pages & Routing (existing theme routes — do not add new ones)
 
 | URL | Template | Notes |
 |---|---|---|
-| `/` | `front-page.php` → `template-parts/page-home.php` | Homepage, this brief's main focus |
-| `/shop/` | WooCommerce shop (not modified this pass) | |
-| `/about-us/` | `template-parts/page-about.php` (virtual page) | |
-| `/contact-us/` | `template-parts/page-contact.php` (virtual page) | Form posts to `admin-post.php?action=lbq_contact_form`, see `inc/contact-form.php` (not edited) |
-| `/faq/` | `template-parts/page-faq.php` (virtual page) | |
-| `/privacy-policy/` | `template-parts/page-privacy.php` (virtual page) | |
-| `/shipping-returns/` | `template-parts/page-shipping-returns.php` (virtual page) | |
-| `/terms-conditions/` | `template-parts/page-terms-conditions.php` (virtual page) | |
-| `/track-order/` | `template-parts/page-track-order.php` (virtual page) | Uses pure CSS `assets/css/track-order.css`, not Tailwind |
+| `/` | `template-parts/page-home.php` | Hero, fandom ticker, shop by product (8 tiles), shop by fandom, live best sellers, why us, order steps, search + reviews CTA |
+| `/about-us/` | `template-parts/page-about.php` | |
+| `/contact-us/` | `template-parts/page-contact.php` | Form posts to `admin-post.php?action=lbq_contact_form` (`inc/contact-form.php`, mails support@slicktee.com) |
+| `/faq/` | `template-parts/page-faq.php` | Includes `#size-guide` (live site's /size-guide/ equivalent) |
+| `/shipping-returns/` | `template-parts/page-shipping-returns.php` | `#shipping`, `#delivery-issues`, `#cancel`, `#returns` |
+| `/privacy-policy/` | `template-parts/page-privacy.php` | |
+| `/terms-conditions/` | `template-parts/page-terms-conditions.php` | `#payment` (payment methods), `#ip` (DMCA) |
+| `/track-order/` | `template-parts/page-track-order.php` | Pure CSS `assets/css/track-order.css` |
 | `404.php` | Not-found page | |
 
-Nav/footer category links (Men / Women / Kids / Personalized Gifts) point to `/shop/` —
-the store's WooCommerce product categories still belong to the previous "beauty accessories"
-catalog in the database; creating real apparel categories is a site-config/DB change and is
-**out of scope** for this pass (per explicit instruction not to touch site config or DB).
+## 4. Product categories (live slicktee.com slugs, linked via `dawp_product_category_url()`)
 
-## 4. Header Navigation
+- Product types: `vintage-shirts`, `vintage-shirt-for-kids`, `vintage-tank-top`,
+  `vintage-sweatshirt`, `vintage-hoodie`, `vintage-shorts`, `vintage-caps`,
+  `vintage-leg-pants`, `classic-tee`
+- Fandoms: `anime` (child `pokemon`), `cartoon-animated`, `game-art`, `horror`,
+  `marvel-comics`, `movies`
+- Collections: `new-arrivals`, `best-seller`
 
-Home, Men, Women, Kids, Personalized Gifts, How It Works (anchor to homepage section),
-Track Order. Icons: search, account, cart (side-cart drawer via `.xoo-wsc-cart-trigger`,
-already wired in `inc/side-cart.php` + `assets/js/main.js`).
+These slugs do not exist in the local dev DB (links fall back to `/product-category/<slug>/`).
 
-## 5. Footer Columns
+## 5. Header Navigation
 
-1. Brand — wordmark, short blurb, company address (GMC business-identity signal). No social links.
-2. Shop — Shop All, Men, Women, Kids, Personalized Gifts (→ `/shop/`)
-3. Support — About Us, How It Works, FAQ, Track Order, Contact Us, My Account
-4. Policy — Privacy Policy, Terms & Conditions, Shipping Policy, Return & Refund Policy
-   (`/shipping-returns/#returns`) — added for Google Merchant Center policy discoverability
-5. Customer Care — support email, business hours, reply time, accepted payment icons. No newsletter form.
+Products (dropdown of product types) · Fandoms (dropdown) · New Arrivals · Best Sellers ·
+Track Order · FAQs. Icons: search, account, cart (side-cart drawer via `.xoo-wsc-cart-trigger`).
+Top marquee: worldwide shipping, printed to order, free replacement for misprints, secure checkout.
 
-## 6. Out of scope this pass (explicitly not touched)
+## 6. Footer
 
-- WooCommerce product/shop/cart/checkout templates and their CSS
-  (`archive-product.php`, `content-product.php`, `shop.css`, `cart.css`, `checkout.css`)
-- Any `inc/*.php` file (menu helpers, product categories, contact form backend, POD variants)
-- WordPress site config (site title/tagline, permalinks, WooCommerce settings) and database
-  content (products, categories, pages, options)
+Yellow promise strip (Worldwide Shipping, Secure Payments, Easy Fixes, Premium Cotton) →
+ink footer: brand + UK/US addresses + company number · Shop · Help · Policies (Shipping,
+Refund & Return, Cancel/Change, Payment Methods, Privacy, Terms, DMCA) + Customer Care
+(email, phones, hours) · fan-art disclaimer + payment icons (Visa, Mastercard, Amex, PayPal).

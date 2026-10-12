@@ -1,6 +1,6 @@
 <?php
 /**
- * Homepage content — Eliteshop Express.
+ * Homepage content — SlickTee.
  *
  * @package dawp
  */
@@ -14,268 +14,155 @@ if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
+$cat_url = static function ($slug) use ($shop_url) {
+    return function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : $shop_url;
+};
+
 $home_img = static function ($name) {
     return get_template_directory_uri() . '/assets/images/home/' . $name . '.webp';
 };
+
+$fandoms = [
+    ['title' => __('Anime', 'dawp'), 'slug' => 'anime', 'note' => __('Shōnen heroes, magical girls & cult classics', 'dawp'), 'bg' => 'bg-[#D7351E]', 'text' => 'text-[#FBF7EF]', 'mark' => '◆'],
+    ['title' => __('Pokemon', 'dawp'), 'slug' => 'pokemon', 'note' => __('Pocket monsters, retro trainer vibes', 'dawp'), 'bg' => 'bg-[#F2B33D]', 'text' => 'text-[#17140F]', 'mark' => '★'],
+    ['title' => __('Cartoon & Animated', 'dawp'), 'slug' => 'cartoon-animated', 'note' => __('Saturday-morning nostalgia', 'dawp'), 'bg' => 'bg-[#1F3A68]', 'text' => 'text-[#FBF7EF]', 'mark' => '✿'],
+    ['title' => __('Game Art', 'dawp'), 'slug' => 'game-art', 'note' => __('Pixel legends & boss fights', 'dawp'), 'bg' => 'bg-[#17140F]', 'text' => 'text-[#FBF7EF]', 'mark' => '▲'],
+    ['title' => __('Horror', 'dawp'), 'slug' => 'horror', 'note' => __('Slasher posters & midnight movies', 'dawp'), 'bg' => 'bg-[#17140F]', 'text' => 'text-[#FBF7EF]', 'mark' => '✝'],
+    ['title' => __('Marvel Comics', 'dawp'), 'slug' => 'marvel-comics', 'note' => __('Comic-panel heroes & villains', 'dawp'), 'bg' => 'bg-[#D7351E]', 'text' => 'text-[#FBF7EF]', 'mark' => '✸'],
+    ['title' => __('Movies', 'dawp'), 'slug' => 'movies', 'note' => __('Box-office icons, VHS-era cool', 'dawp'), 'bg' => 'bg-[#F2B33D]', 'text' => 'text-[#17140F]', 'mark' => '●'],
+    ['title' => __('Best Sellers', 'dawp'), 'slug' => 'best-seller', 'note' => __('What the community is wearing', 'dawp'), 'bg' => 'bg-[#FBF7EF]', 'text' => 'text-[#17140F]', 'mark' => '♥'],
+];
+
+$product_types = [
+    ['title' => __('Vintage Shirts', 'dawp'), 'slug' => 'vintage-shirts', 'img' => 'cat-shirts', 'desc' => __('Washed, oversized, bootleg-style', 'dawp')],
+    ['title' => __('Vintage Hoodie', 'dawp'), 'slug' => 'vintage-hoodie', 'img' => 'cat-hoodie', 'desc' => __('Heavyweight & stonewashed', 'dawp')],
+    ['title' => __('Vintage Sweatshirt', 'dawp'), 'slug' => 'vintage-sweatshirt', 'img' => 'cat-sweatshirt', 'desc' => __('Cozy crewnecks, faded prints', 'dawp')],
+    ['title' => __('Vintage Tank Tops', 'dawp'), 'slug' => 'vintage-tank-top', 'img' => 'cat-tank', 'desc' => __('Gym-ready, poster-loud', 'dawp')],
+    ['title' => __('Vintage Shorts', 'dawp'), 'slug' => 'vintage-shorts', 'img' => 'cat-shorts', 'desc' => __('All-over print mesh shorts', 'dawp')],
+    ['title' => __('Vintage Caps', 'dawp'), 'slug' => 'vintage-caps', 'img' => 'cat-caps', 'desc' => __('Washed 6-panel caps', 'dawp')],
+    ['title' => __('Shirts For Kids', 'dawp'), 'slug' => 'vintage-shirt-for-kids', 'img' => 'cat-kids', 'desc' => __('Mini sizes, same big fandom', 'dawp')],
+    ['title' => __('Classic Tee', 'dawp'), 'slug' => 'classic-tee', 'img' => 'cat-classic', 'desc' => __('Clean cotton, bold artwork', 'dawp')],
+];
+
+// Live best sellers: products in the "best-seller" category, else most-sold.
+$best_sellers = [];
+if (function_exists('wc_get_products')) {
+    $query_args = ['limit' => 8, 'status' => 'publish', 'visibility' => 'catalog'];
+    $best_term  = get_term_by('slug', 'best-seller', 'product_cat');
+    if ($best_term && !is_wp_error($best_term)) {
+        $query_args['category'] = ['best-seller'];
+        $query_args['orderby']  = 'date';
+    } else {
+        $query_args['orderby'] = 'popularity';
+    }
+    $best_sellers = wc_get_products($query_args);
+}
 ?>
 
 <!-- ============================================================
      HERO
      ============================================================ -->
-<section class="relative overflow-hidden bg-white">
-    <div class="pointer-events-none absolute inset-x-0 top-0 h-full bg-[radial-gradient(circle_at_80%_0%,rgba(255,90,95,0.10),transparent_55%)]" aria-hidden="true"></div>
+<section class="relative overflow-hidden border-b-2 border-[#17140F] bg-[#FBF7EF]">
+    <div class="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:radial-gradient(#E3D7C2_1px,transparent_1px)] [background-size:14px_14px]" aria-hidden="true"></div>
 
-    <div class="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-8 lg:py-24">
+    <div class="relative mx-auto grid max-w-7xl gap-12 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-10 lg:px-8 lg:pb-24 lg:pt-16">
         <div>
-            <span class="inline-flex items-center gap-2 rounded-[var(--radius-pill)] bg-[#FFF1F0] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.14em] text-[#FF5A5F]">
-                <?php esc_html_e('Personalized apparel, printed to order', 'dawp'); ?>
+            <span class="inline-flex -rotate-2 items-center gap-2 rounded-[4px] border-2 border-[#17140F] bg-[#F2B33D] px-3 py-1 text-xs font-extrabold uppercase tracking-[0.18em] text-[#17140F]">
+                <?php esc_html_e('Fan art merch · Printed to order', 'dawp'); ?>
             </span>
 
-            <h1 class="font-heading mt-5 text-4xl font-extrabold leading-[1.05] text-[#111827] sm:text-5xl lg:text-6xl">
-                <?php esc_html_e('Wear Your Vibe.', 'dawp'); ?><br>
-                <span class="text-[#FF5A5F]"><?php esc_html_e('100% You.', 'dawp'); ?></span>
+            <h1 class="font-display mt-6 text-[3.4rem] uppercase leading-[0.92] text-[#17140F] sm:text-7xl lg:text-[6.5rem]">
+                <?php esc_html_e('Wear the', 'dawp'); ?><br>
+                <span class="relative inline-block text-[#D7351E]">
+                    <?php esc_html_e('fandom.', 'dawp'); ?>
+                    <svg class="absolute -bottom-2 left-0 h-3 w-full text-[#F2B33D] sm:-bottom-3 sm:h-4" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 11C60 3 120 3 180 8s90 4 116-2" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path></svg>
+                </span>
             </h1>
 
-            <p class="mt-5 max-w-lg text-lg leading-relaxed text-[#4B5563]">
-                <?php esc_html_e('Design a T-shirt, hoodie or tank top that\'s truly one of a kind — in just a few clicks. Add your name, your vibe, anything you love.', 'dawp'); ?>
+            <p class="mt-7 max-w-lg text-lg leading-relaxed text-[#4A4339]">
+                <?php esc_html_e('Vintage-washed tees, hoodies, shorts and caps covered in the anime, games, cartoons and horror classics you grew up on. Every piece is printed to order — just for you.', 'dawp'); ?>
             </p>
 
             <div class="mt-8 flex flex-wrap items-center gap-4">
-                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-pill)] bg-[#FF5A5F] px-8 py-3.5 text-sm font-bold text-white shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:bg-[#E14247]">
-                    <?php esc_html_e('Start Customizing', 'dawp'); ?>
+                <a href="<?php echo esc_url($cat_url('vintage-shirts')); ?>" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-[8px] border-2 border-[#17140F] bg-[#D7351E] px-7 py-3 text-sm font-extrabold uppercase tracking-wide text-[#FFFFFF] shadow-[4px_4px_0_#17140F] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[#B32813] hover:shadow-[2px_2px_0_#17140F]">
+                    <?php esc_html_e('Shop Vintage Tees', 'dawp'); ?>
+                    <span aria-hidden="true">→</span>
                 </a>
-                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-pill)] border-2 border-[#111827] px-8 py-3.5 text-sm font-bold text-[#111827] transition hover:bg-[#111827] hover:text-white">
-                    <?php esc_html_e('Shop Bestsellers', 'dawp'); ?>
+                <a href="<?php echo esc_url($cat_url('new-arrivals')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-[8px] border-2 border-[#17140F] bg-[#FBF7EF] px-7 py-3 text-sm font-extrabold uppercase tracking-wide text-[#17140F] transition hover:bg-[#17140F] hover:text-[#FBF7EF]">
+                    <?php esc_html_e('New Arrivals', 'dawp'); ?>
                 </a>
             </div>
 
-            <dl class="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-[#E5E7EB] pt-6">
-                <div>
-                    <dt class="font-heading text-2xl font-extrabold text-[#111827]">10K+</dt>
-                    <dd class="text-xs font-semibold uppercase tracking-wide text-[#6B7280]"><?php esc_html_e('Happy customers', 'dawp'); ?></dd>
-                </div>
-                <div>
-                    <dt class="font-heading text-2xl font-extrabold text-[#111827]">4.8/5</dt>
-                    <dd class="text-xs font-semibold uppercase tracking-wide text-[#6B7280]"><?php esc_html_e('Average rating', 'dawp'); ?></dd>
-                </div>
-                <div>
-                    <dt class="font-heading text-2xl font-extrabold text-[#111827]"><?php esc_html_e('100%', 'dawp'); ?></dt>
-                    <dd class="text-xs font-semibold uppercase tracking-wide text-[#6B7280]"><?php esc_html_e('Printed to order', 'dawp'); ?></dd>
-                </div>
-            </dl>
+            <div class="mt-9">
+                <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#6F665A]"><?php esc_html_e('Popular right now', 'dawp'); ?></p>
+                <ul class="mt-3 flex flex-wrap gap-2">
+                    <?php foreach (array_slice($fandoms, 0, 6) as $fandom) : ?>
+                        <li>
+                            <a href="<?php echo esc_url($cat_url($fandom['slug'])); ?>" class="inline-flex min-h-9 items-center rounded-[999px] border border-[#17140F] bg-[#FFFFFF] px-3.5 text-xs font-bold text-[#17140F] transition hover:bg-[#F2B33D]">
+                                #<?php echo esc_html($fandom['title']); ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         </div>
 
-        <div class="relative mx-auto w-full max-w-sm">
-            <div class="absolute -inset-6 -z-10 rounded-[40px] bg-[#FFF1F0]" aria-hidden="true"></div>
-            <div class="relative aspect-square w-full overflow-hidden rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white shadow-[var(--shadow-card-hover)]">
-                <img src="<?php echo esc_url($home_img('hero')); ?>" alt="<?php esc_attr_e('Personalized "If Alex can\'t fix it" hoodie and Mombie tee', 'dawp'); ?>" width="800" height="800" fetchpriority="high" class="h-full w-full object-cover">
+        <div class="relative mx-auto w-full max-w-xl">
+            <div class="relative overflow-hidden rounded-[14px] border-2 border-[#17140F] bg-[#F4EDE0] shadow-[8px_8px_0_#17140F]">
+                <img src="<?php echo esc_url($home_img('hero')); ?>" alt="<?php esc_attr_e('Vintage-washed graphic tees, shorts and a cap with retro anime and horror artwork', 'dawp'); ?>" width="1200" height="900" fetchpriority="high" class="block aspect-[4/3] h-auto w-full object-cover">
             </div>
-            <div class="absolute -bottom-5 -left-5 flex items-center gap-2 rounded-[var(--radius-md)] border border-[#E5E7EB] bg-white px-4 py-3 shadow-[var(--shadow-card)]">
-                <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0056D2]/10 text-[#0056D2]">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+            <span class="absolute -right-3 -top-5 inline-flex h-24 w-24 rotate-12 flex-col items-center justify-center rounded-full border-2 border-[#17140F] bg-[#F2B33D] text-center text-[#17140F] shadow-[3px_3px_0_#17140F] sm:-right-6 sm:h-28 sm:w-28" aria-hidden="true">
+                <span class="font-display text-2xl leading-none sm:text-3xl">1-of-1</span>
+                <span class="mt-1 text-[0.6rem] font-extrabold uppercase tracking-[0.14em]"><?php esc_html_e('Made for you', 'dawp'); ?></span>
+            </span>
+            <div class="absolute -bottom-5 left-4 flex items-center gap-3 rounded-[8px] border-2 border-[#17140F] bg-[#FBF7EF] px-4 py-2.5 shadow-[3px_3px_0_#17140F] sm:left-6">
+                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#1F3A68] text-[#FBF7EF]" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"></path></svg>
                 </span>
-                <span class="text-xs font-bold text-[#111827]"><?php esc_html_e('Design added to cart', 'dawp'); ?></span>
+                <span class="text-xs font-bold leading-tight text-[#17140F]"><?php esc_html_e('Ships worldwide', 'dawp'); ?><br><span class="font-medium text-[#6F665A]"><?php esc_html_e('Tracking on every order', 'dawp'); ?></span></span>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ============================================================
-     TRUST BADGES
+     FANDOM TICKER
      ============================================================ -->
-<section class="border-y border-[#E5E7EB] bg-[#F9FAFB]">
-    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-8 sm:px-6 lg:grid-cols-4 lg:px-8">
-        <?php
-        $trust_badges = [
-            [
-                'title' => __('Free US Shipping Over $50', 'dawp'),
-                'icon'  => '<path d="M10 17h4V5H3v12h2"></path><path d="M14 8h4l3 3v6h-3"></path><circle cx="7" cy="17" r="2"></circle><circle cx="16" cy="17" r="2"></circle>',
-            ],
-            [
-                'title' => __('Premium Quality Material', 'dawp'),
-                'icon'  => '<path d="m12 2 2.6 6.3L21 9l-4.9 4.3L17.4 20 12 16.7 6.6 20l1.3-6.7L3 9l6.4-.7Z"></path>',
-            ],
-            [
-                'title' => __('Secure Checkout', 'dawp'),
-                'icon'  => '<rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path>',
-            ],
-            [
-                'title' => __('Easy Returns', 'dawp'),
-                'icon'  => '<path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path>',
-            ],
-        ];
-        foreach ($trust_badges as $badge) :
-            ?>
-            <div class="flex items-center gap-3">
-                <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-white text-[#FF5A5F] shadow-[var(--shadow-card)]" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo $badge['icon']; ?></svg>
-                </span>
-                <span class="text-sm font-bold leading-tight text-[#111827]"><?php echo esc_html($badge['title']); ?></span>
-            </div>
-        <?php endforeach; ?>
-    </div>
-</section>
-
-<!-- ============================================================
-     HOW IT WORKS
-     ============================================================ -->
-<section id="how-it-works" class="bg-white py-16 lg:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl text-center">
-            <span class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#FF5A5F]"><?php esc_html_e('How It Works', 'dawp'); ?></span>
-            <h2 class="font-heading mt-3 text-3xl font-bold text-[#111827] sm:text-4xl"><?php esc_html_e('Personalize it in 3 easy steps', 'dawp'); ?></h2>
-        </div>
-
-        <div class="mt-12 grid gap-8 sm:grid-cols-3">
-            <?php
-            $steps = [
-                [
-                    'title' => __('Choose Your Canvas', 'dawp'),
-                    'desc'  => __('Pick a T-shirt, hoodie, long sleeve or tank top in the fit and color you love.', 'dawp'),
-                    'icon'  => '<path d="M4 8 9 4l3 3 3-3 5 4-3 4-2-1v9H6v-9l-2 1Z"></path>',
-                ],
-                [
-                    'title' => __('Make It Yours', 'dawp'),
-                    'desc'  => __('Add your name, a favorite phrase or your style — change fonts and colors until it feels right.', 'dawp'),
-                    'icon'  => '<path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path>',
-                ],
-                [
-                    'title' => __('We Bring It To Life', 'dawp'),
-                    'desc'  => __('We print it to order and ship it straight to your door — no minimums, one at a time.', 'dawp'),
-                    'icon'  => '<rect x="3" y="10" width="13" height="8" rx="1"></rect><path d="M16 13h3.5L21 16v2h-5"></path><circle cx="7" cy="19" r="1.6"></circle><circle cx="18" cy="19" r="1.6"></circle>',
-                ],
-            ];
-            foreach ($steps as $i => $step) :
-                ?>
-                <div class="relative rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white p-7">
-                    <span class="font-heading absolute -top-4 left-7 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#0056D2] text-sm font-extrabold text-white"><?php echo esc_html($i + 1); ?></span>
-                    <span class="mt-2 inline-flex h-14 w-14 items-center justify-center rounded-[var(--radius-md)] bg-[#FFF1F0] text-[#FF5A5F]" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><?php echo $step['icon']; ?></svg>
-                    </span>
-                    <h3 class="font-heading mt-5 text-lg font-bold text-[#111827]"><?php echo esc_html($step['title']); ?></h3>
-                    <p class="mt-2 text-sm leading-relaxed text-[#4B5563]"><?php echo esc_html($step['desc']); ?></p>
-                </div>
+<div class="fandom-ticker" aria-hidden="true">
+    <div class="fandom-ticker__track">
+        <?php for ($i = 0; $i < 2; $i++) : ?>
+            <?php foreach (['Anime', 'Game Art', 'Horror', 'Cartoons', 'Comics', 'Movies', 'Pokemon', 'Vintage Wash'] as $word) : ?>
+                <span class="fandom-ticker__item font-display"><?php echo esc_html($word); ?><span class="fandom-ticker__star">✦</span></span>
             <?php endforeach; ?>
-        </div>
+        <?php endfor; ?>
     </div>
-</section>
+</div>
 
 <!-- ============================================================
-     SHOP BY CATEGORY
+     SHOP BY PRODUCT
      ============================================================ -->
-<section class="bg-[#F9FAFB] py-16 lg:py-24">
+<section class="bg-[#FBF7EF] py-16 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex flex-wrap items-end justify-between gap-4">
             <div>
-                <span class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#FF5A5F]"><?php esc_html_e('Shop By Category', 'dawp'); ?></span>
-                <h2 class="font-heading mt-3 text-3xl font-bold text-[#111827] sm:text-4xl"><?php esc_html_e('Find your fit', 'dawp'); ?></h2>
+                <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#D7351E]"><?php esc_html_e('Shop by product', 'dawp'); ?></span>
+                <h2 class="font-display mt-2 text-4xl uppercase leading-none text-[#17140F] sm:text-5xl"><?php esc_html_e('Pick your canvas', 'dawp'); ?></h2>
             </div>
-            <a href="<?php echo esc_url($shop_url); ?>" class="hidden text-sm font-bold text-[#0056D2] hover:text-[#003F9E] sm:inline-flex"><?php esc_html_e('View all products →', 'dawp'); ?></a>
-        </div>
-
-        <div class="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
-            <?php
-            $categories = [
-                ['title' => __("Men's Apparel", 'dawp'), 'desc' => __('Tees, hoodies, crewnecks & tanks', 'dawp'), 'img' => 'cat-men'],
-                ['title' => __("Women's Apparel", 'dawp'), 'desc' => __('Tees, hoodies, long sleeves & tanks', 'dawp'), 'img' => 'cat-women'],
-                ['title' => __("Kids' Zone", 'dawp'), 'desc' => __('Playful, personalized tees for kids', 'dawp'), 'img' => 'cat-kids'],
-            ];
-            foreach ($categories as $cat) :
-                ?>
-                <a href="<?php echo esc_url($shop_url); ?>" class="group col-span-2 flex items-center gap-5 rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white p-5 shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-card-hover)] sm:col-span-1 sm:flex-col sm:items-start sm:gap-4 sm:p-6">
-                    <span class="h-16 w-16 shrink-0 overflow-hidden rounded-[var(--radius-md)] bg-[#F9FAFB] sm:aspect-square sm:h-auto sm:w-full">
-                        <img src="<?php echo esc_url($home_img($cat['img'])); ?>" alt="<?php echo esc_attr($cat['title']); ?>" width="600" height="600" loading="lazy" class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
-                    </span>
-                    <span>
-                        <span class="font-heading block text-base font-bold text-[#111827] sm:text-lg"><?php echo esc_html($cat['title']); ?></span>
-                        <span class="mt-1 block text-sm text-[#4B5563]"><?php echo esc_html($cat['desc']); ?></span>
-                        <span class="mt-2 hidden text-sm font-bold text-[#FF5A5F] sm:inline-block">
-                            <?php esc_html_e('Shop now', 'dawp'); ?>
-                            <span class="inline-block transition group-hover:translate-x-1">→</span>
-                        </span>
-                    </span>
-                </a>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================
-     CUSTOMIZATION ENGINE DEMO
-     ============================================================ -->
-<section class="bg-white py-16 lg:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid gap-10 rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-[#F9FAFB] p-6 sm:p-10 lg:grid-cols-2 lg:items-center lg:gap-14 lg:p-14">
-            <div>
-                <span class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#0056D2]"><?php esc_html_e('Try Our Customization Engine', 'dawp'); ?></span>
-                <h2 class="font-heading mt-3 text-3xl font-bold text-[#111827] sm:text-4xl"><?php esc_html_e('Watch it change in real time', 'dawp'); ?></h2>
-                <p class="mt-4 max-w-md text-base leading-relaxed text-[#4B5563]"><?php esc_html_e('Type anything — a name, a nickname, a vibe — and see it printed on the mockup instantly. This is exactly how easy it is on every product page.', 'dawp'); ?></p>
-
-                <label class="mt-8 block text-sm font-bold text-[#111827]" for="demo-name-input"><?php esc_html_e('Your text', 'dawp'); ?></label>
-                <input id="demo-name-input" type="text" maxlength="14" value="ALEX" class="mt-2 w-full max-w-xs rounded-[var(--radius-md)] border border-[#E5E7EB] bg-white px-4 py-3 text-base font-semibold text-[#111827] outline-none focus:border-[#FF5A5F]" placeholder="<?php esc_attr_e('Type your name...', 'dawp'); ?>">
-
-                <div class="mt-4 flex flex-wrap gap-2">
-                    <button type="button" data-demo-preset="DOG MOM" data-demo-color="#FF5A5F" class="demo-preset-btn is-active inline-flex items-center rounded-[var(--radius-pill)] border-2 border-[#111827] px-4 py-2 text-xs font-bold text-[#111827] transition"><?php esc_html_e('Dog Mom', 'dawp'); ?></button>
-                    <button type="button" data-demo-preset="CAT MOM" data-demo-color="#0056D2" class="demo-preset-btn inline-flex items-center rounded-[var(--radius-pill)] border-2 border-[#111827] px-4 py-2 text-xs font-bold text-[#111827] transition"><?php esc_html_e('Cat Mom', 'dawp'); ?></button>
-                    <button type="button" data-demo-preset="EST. 1998" data-demo-color="#111827" class="demo-preset-btn inline-flex items-center rounded-[var(--radius-pill)] border-2 border-[#111827] px-4 py-2 text-xs font-bold text-[#111827] transition"><?php esc_html_e('Birth Year', 'dawp'); ?></button>
-                </div>
-
-                <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-[var(--radius-pill)] bg-[#0056D2] px-8 py-3.5 text-sm font-bold text-white transition hover:bg-[#003F9E]">
-                    <?php esc_html_e('Try It Yourself', 'dawp'); ?>
-                </a>
-            </div>
-
-            <div class="relative mx-auto w-full max-w-xs">
-                <div class="aspect-square w-full rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white p-10 shadow-[var(--shadow-card-hover)]">
-                    <svg viewBox="0 0 200 200" class="h-full w-full" role="img" aria-label="<?php esc_attr_e('Live customization preview', 'dawp'); ?>">
-                        <path id="demo-tee-fill" d="M62,18 L84,8 C90,24 110,24 116,8 L138,18 L172,48 L150,72 L138,60 L138,188 L62,188 L62,60 L50,72 L28,48 Z" fill="#FF5A5F"></path>
-                        <text x="100" y="118" text-anchor="middle" font-family="Poppins, Montserrat, sans-serif" font-weight="800" font-size="20" fill="#FFFFFF"><tspan id="demo-print-text">ALEX</tspan></text>
-                    </svg>
-                </div>
-                <span class="absolute -right-4 -top-4 inline-flex items-center gap-1 rounded-[var(--radius-pill)] bg-white px-3 py-1.5 text-xs font-bold text-[#111827] shadow-[var(--shadow-card)]">
-                    <span class="h-2 w-2 rounded-full bg-[#16A34A]"></span>
-                    <?php esc_html_e('Live preview', 'dawp'); ?>
-                </span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================
-     TRENDING PERSONALIZED DESIGNS
-     ============================================================ -->
-<section class="bg-[#F9FAFB] py-16 lg:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap items-end justify-between gap-4">
-            <div>
-                <span class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#FF5A5F]"><?php esc_html_e('Trending Personalized Designs', 'dawp'); ?></span>
-                <h2 class="font-heading mt-3 text-3xl font-bold text-[#111827] sm:text-4xl"><?php esc_html_e('Customer favorites this week', 'dawp'); ?></h2>
-            </div>
-            <a href="<?php echo esc_url($shop_url); ?>" class="hidden text-sm font-bold text-[#0056D2] hover:text-[#003F9E] sm:inline-flex"><?php esc_html_e('Shop all designs →', 'dawp'); ?></a>
+            <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-11 items-center text-sm font-extrabold uppercase tracking-wide text-[#17140F] underline decoration-[#D7351E] decoration-2 underline-offset-4 hover:text-[#D7351E]"><?php esc_html_e('Shop everything →', 'dawp'); ?></a>
         </div>
 
         <div class="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
-            <?php
-            $trending = [
-                ['title' => __('The Ultimate Gamer Hoodie', 'dawp'), 'price' => '44.99', 'img' => 'trend-gamer-hoodie', 'tags' => ['Best Seller']],
-                ['title' => __('Vintage Birth Year Tee', 'dawp'), 'price' => '26.99', 'img' => 'trend-birth-year-tee', 'tags' => ['Customizable']],
-                ['title' => __('Custom Pet Portrait Crewneck', 'dawp'), 'price' => '38.99', 'img' => 'trend-pet-portrait-crewneck', 'tags' => ['Best Seller', 'Customizable']],
-                ['title' => __('Best Friends Matching Tee', 'dawp'), 'price' => '24.99', 'img' => 'trend-best-friends-tee', 'tags' => ['Customizable']],
-            ];
-            foreach ($trending as $item) :
-                ?>
-                <a href="<?php echo esc_url($shop_url); ?>" class="group overflow-hidden rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-white shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-card-hover)]">
-                    <span class="relative block aspect-square overflow-hidden bg-[#F9FAFB]">
-                        <span class="absolute left-2 top-2 z-10 flex flex-wrap gap-1">
-                            <?php foreach ($item['tags'] as $tag) : ?>
-                                <span class="rounded-[var(--radius-sm)] bg-[#111827] px-2 py-1 text-[0.625rem] font-extrabold uppercase tracking-wide text-white"><?php echo esc_html($tag); ?></span>
-                            <?php endforeach; ?>
-                        </span>
-                        <img src="<?php echo esc_url($home_img($item['img'])); ?>" alt="<?php echo esc_attr($item['title']); ?>" width="600" height="600" loading="lazy" class="block h-full w-full object-cover transition duration-300 group-hover:scale-105">
+            <?php foreach ($product_types as $i => $type) : ?>
+                <a href="<?php echo esc_url($cat_url($type['slug'])); ?>" class="group block overflow-hidden rounded-[14px] border-2 border-[#17140F] bg-[#FFFFFF] transition hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[6px_6px_0_#17140F]">
+                    <span class="block aspect-square overflow-hidden border-b-2 border-[#17140F] bg-[#F4EDE0]">
+                        <img src="<?php echo esc_url($home_img($type['img'])); ?>" alt="<?php echo esc_attr($type['title']); ?>" width="700" height="700" loading="lazy" class="block h-full w-full object-cover transition duration-300 group-hover:scale-105">
                     </span>
-                    <span class="block p-4">
-                        <span class="font-heading block text-sm font-bold leading-snug text-[#111827]"><?php echo esc_html($item['title']); ?></span>
-                        <span class="mt-2 block text-base font-extrabold text-[#FF5A5F]">$<?php echo esc_html($item['price']); ?></span>
+                    <span class="flex items-center justify-between gap-2 p-3 sm:p-4">
+                        <span class="min-w-0">
+                            <span class="font-heading block text-[0.8rem] font-extrabold uppercase leading-tight text-[#17140F] sm:truncate sm:text-base"><?php echo esc_html($type['title']); ?></span>
+                            <span class="mt-0.5 hidden truncate text-xs text-[#6F665A] sm:block"><?php echo esc_html($type['desc']); ?></span>
+                        </span>
+                        <span class="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-[#17140F] text-[#17140F] transition group-hover:bg-[#D7351E] group-hover:text-[#FFFFFF] sm:inline-flex" aria-hidden="true">→</span>
                     </span>
                 </a>
             <?php endforeach; ?>
@@ -284,57 +171,179 @@ $home_img = static function ($name) {
 </section>
 
 <!-- ============================================================
-     SOCIAL PROOF
+     SHOP BY FANDOM
      ============================================================ -->
-<section class="bg-white py-16 lg:py-24">
+<section class="border-y-2 border-[#17140F] bg-[#F4EDE0] py-16 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl text-center">
-            <span class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#FF5A5F]"><?php esc_html_e('Social Proof', 'dawp'); ?></span>
-            <h2 class="font-heading mt-3 text-3xl font-bold text-[#111827] sm:text-4xl"><?php esc_html_e('Loved by 10,000+ Americans', 'dawp'); ?></h2>
+        <div class="max-w-2xl">
+            <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#D7351E]"><?php esc_html_e('Shop by fandom', 'dawp'); ?></span>
+            <h2 class="font-display mt-2 text-4xl uppercase leading-none text-[#17140F] sm:text-5xl"><?php esc_html_e('Find your people', 'dawp'); ?></h2>
+            <p class="mt-4 text-base leading-relaxed text-[#4A4339]"><?php esc_html_e('Thousands of designs across the worlds you love. Pick a universe and start digging.', 'dawp'); ?></p>
         </div>
 
-        <?php
-        $testimonials = [
-            ['name' => 'John D.', 'state' => 'Texas', 'quote' => __('The fabric is super soft and the name print is crisp and sharp. Ordering another one!', 'dawp')],
-            ['name' => 'Maria S.', 'state' => 'California', 'quote' => __('Got the pet portrait crewneck for my mom and she cried happy tears. Shipping was fast too.', 'dawp')],
-            ['name' => 'Kevin O.', 'state' => 'Ohio', 'quote' => __('So easy to personalize — I typed my son\'s name and saw it on the shirt before I even paid.', 'dawp')],
-            ['name' => 'Priya R.', 'state' => 'New Jersey', 'quote' => __('Quality feels premium, not like a cheap print. Worth every penny for a gift that actually feels personal.', 'dawp')],
-        ];
-        ?>
+        <div class="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+            <?php foreach ($fandoms as $fandom) : ?>
+                <a href="<?php echo esc_url($cat_url($fandom['slug'])); ?>" class="group relative flex min-h-36 flex-col justify-between overflow-hidden rounded-[14px] border-2 border-[#17140F] p-4 transition hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[6px_6px_0_#17140F] sm:min-h-44 sm:p-6 <?php echo esc_attr($fandom['bg'] . ' ' . $fandom['text']); ?>">
+                    <span class="pointer-events-none absolute -bottom-6 -right-2 text-[7rem] leading-none opacity-15 transition group-hover:rotate-12 sm:text-[9rem]" aria-hidden="true"><?php echo esc_html($fandom['mark']); ?></span>
+                    <span class="font-display relative text-2xl uppercase leading-none sm:text-4xl"><?php echo esc_html($fandom['title']); ?></span>
+                    <span class="relative mt-4 flex items-end justify-between gap-2">
+                        <span class="hidden text-xs font-medium leading-snug opacity-85 sm:block"><?php echo esc_html($fandom['note']); ?></span>
+                        <span class="text-xs font-extrabold uppercase tracking-wide sm:hidden"><?php esc_html_e('Shop', 'dawp'); ?></span>
+                        <span class="text-lg font-bold transition group-hover:translate-x-1" aria-hidden="true">→</span>
+                    </span>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
 
-        <div class="relative mt-10" data-carousel>
-            <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 sm:gap-6" data-carousel-track>
-                <?php foreach ($testimonials as $i => $t) :
-                    $avatar_colors = ['#FF5A5F', '#0056D2', '#111827', '#16A34A'];
-                    $avatar_color  = $avatar_colors[$i % count($avatar_colors)];
-                    $initials      = mb_substr($t['name'], 0, 1) . mb_substr(strrchr($t['name'], ' ') ?: '', 1, 1);
+<?php if (!empty($best_sellers)) : ?>
+<!-- ============================================================
+     BEST SELLERS (live WooCommerce products)
+     ============================================================ -->
+<section class="bg-[#FBF7EF] py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+            <div>
+                <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#D7351E]"><?php esc_html_e('Trending', 'dawp'); ?></span>
+                <h2 class="font-display mt-2 text-4xl uppercase leading-none text-[#17140F] sm:text-5xl"><?php esc_html_e('Best sellers this week', 'dawp'); ?></h2>
+            </div>
+            <a href="<?php echo esc_url($cat_url('best-seller')); ?>" class="inline-flex min-h-11 items-center text-sm font-extrabold uppercase tracking-wide text-[#17140F] underline decoration-[#D7351E] decoration-2 underline-offset-4 hover:text-[#D7351E]"><?php esc_html_e('View all trending →', 'dawp'); ?></a>
+        </div>
+
+        <ul class="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+            <?php foreach ($best_sellers as $product) : ?>
+                <li>
+                    <a href="<?php echo esc_url($product->get_permalink()); ?>" class="group block h-full overflow-hidden rounded-[14px] border-2 border-[#17140F] bg-[#FFFFFF] transition hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[6px_6px_0_#17140F]">
+                        <span class="relative block aspect-square overflow-hidden border-b-2 border-[#17140F] bg-[#F4EDE0] [&_img]:h-full [&_img]:w-full [&_img]:object-cover [&_img]:transition [&_img]:duration-300 group-hover:[&_img]:scale-105">
+                            <?php echo $product->get_image('woocommerce_thumbnail', ['loading' => 'lazy']); ?>
+                            <?php if ($product->is_on_sale()) : ?>
+                                <span class="absolute left-2 top-2 rounded-[4px] border-2 border-[#17140F] bg-[#F2B33D] px-2 py-0.5 text-[0.65rem] font-extrabold uppercase tracking-wide text-[#17140F]"><?php esc_html_e('Sale', 'dawp'); ?></span>
+                            <?php endif; ?>
+                        </span>
+                        <span class="block p-3 sm:p-4">
+                            <span class="line-clamp-2 block text-sm font-bold leading-snug text-[#17140F]"><?php echo esc_html($product->get_name()); ?></span>
+                            <span class="mt-2 block text-base font-extrabold text-[#D7351E] [&_del]:mr-1 [&_del]:text-sm [&_del]:font-medium [&_del]:text-[#6F665A] [&_ins]:no-underline"><?php echo wp_kses_post($product->get_price_html()); ?></span>
+                        </span>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</section>
+<?php endif; ?>
+
+<!-- ============================================================
+     WHY SLICKTEE
+     ============================================================ -->
+<section class="bg-[#17140F] py-16 text-[#FBF7EF] lg:py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
+        <div class="relative order-2 lg:order-1">
+            <img src="<?php echo esc_url($home_img('about-studio')); ?>" alt="<?php esc_attr_e('A direct-to-garment printer printing anime artwork onto a black tee in the SlickTee print studio', 'dawp'); ?>" width="1200" height="900" loading="lazy" class="block aspect-[4/3] w-full rounded-[14px] border-2 border-[#FBF7EF] object-cover">
+            <span class="absolute -bottom-4 right-4 rounded-[4px] border-2 border-[#17140F] bg-[#F2B33D] px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide text-[#17140F]"><?php esc_html_e('Eco-certified DTG inks', 'dawp'); ?></span>
+        </div>
+
+        <div class="order-1 lg:order-2">
+            <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#F2B33D]"><?php esc_html_e('Why you’ll love us', 'dawp'); ?></span>
+            <h2 class="font-display mt-2 text-4xl uppercase leading-none sm:text-5xl"><?php esc_html_e('Made by fans, printed with care', 'dawp'); ?></h2>
+            <p class="mt-5 max-w-xl text-base leading-relaxed text-[#FBF7EF]/75"><?php esc_html_e('We sweat the details: premium cotton blanks, a lived-in vintage wash and direct-to-garment prints with non-hazardous, OEKO-TEX® ECO PASSPORT certified inks. Nothing sits in a warehouse — your piece is made after you order it.', 'dawp'); ?></p>
+
+            <ul class="mt-9 grid gap-6 sm:grid-cols-2">
+                <?php
+                $reasons = [
+                    ['title' => __('Worldwide Shipping', 'dawp'), 'copy' => __('US delivery in 7–10 days, international in 7–15 days, with tracking.', 'dawp'), 'icon' => '<circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"></path>'],
+                    ['title' => __('Secure Payments', 'dawp'), 'copy' => __('256-bit SSL checkout. Visa, Mastercard, Amex and PayPal.', 'dawp'), 'icon' => '<rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path>'],
+                    ['title' => __('Super-easy Fixes', 'dawp'), 'copy' => __('Wrong, damaged or misprinted? Tell us within 14 days for a free replacement or refund.', 'dawp'), 'icon' => '<path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path>'],
+                    ['title' => __('Premium Quality', 'dawp'), 'copy' => __('Soft premium cotton, finely tailored, with prints that stay bold wash after wash.', 'dawp'), 'icon' => '<path d="m12 2 2.6 6.3L21 9l-4.9 4.3L17.4 20 12 16.7 6.6 20l1.3-6.7L3 9l6.4-.7Z"></path>'],
+                ];
+                foreach ($reasons as $reason) :
                     ?>
-                    <figure class="w-[85%] shrink-0 snap-start rounded-[var(--radius-lg)] border border-[#E5E7EB] bg-[#F9FAFB] p-6 sm:w-[45%] lg:w-[23%]">
-                        <div class="flex text-[#FF5A5F]" aria-hidden="true">
-                            <?php for ($s = 0; $s < 5; $s++) : ?>
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="m12 2 2.6 6.3L21 9l-4.9 4.3L17.4 20 12 16.7 6.6 20l1.3-6.7L3 9l6.4-.7Z"></path></svg>
-                            <?php endfor; ?>
-                        </div>
-                        <blockquote class="mt-4 text-sm leading-relaxed text-[#374151]">"<?php echo esc_html($t['quote']); ?>"</blockquote>
-                        <figcaption class="mt-5 flex items-center gap-3">
-                            <span class="font-heading flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-extrabold text-white" style="background-color: <?php echo esc_attr($avatar_color); ?>"><?php echo esc_html(strtoupper($initials)); ?></span>
-                            <span class="text-sm">
-                                <span class="block font-bold text-[#111827]"><?php echo esc_html($t['name']); ?></span>
-                                <span class="block text-[#6B7280]"><?php echo esc_html($t['state']); ?></span>
-                            </span>
-                        </figcaption>
-                    </figure>
+                    <li class="flex gap-4">
+                        <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[8px] bg-[#D7351E] text-[#FFFFFF]" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo $reason['icon']; ?></svg>
+                        </span>
+                        <span>
+                            <span class="font-heading block text-base font-extrabold uppercase tracking-wide"><?php echo esc_html($reason['title']); ?></span>
+                            <span class="mt-1 block text-sm leading-relaxed text-[#FBF7EF]/70"><?php echo esc_html($reason['copy']); ?></span>
+                        </span>
+                    </li>
                 <?php endforeach; ?>
-            </div>
+            </ul>
+        </div>
+    </div>
+</section>
 
-            <div class="mt-4 flex justify-center gap-3">
-                <button type="button" data-carousel-prev class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#E5E7EB] text-[#111827] transition hover:bg-[#F9FAFB]" aria-label="<?php esc_attr_e('Previous reviews', 'dawp'); ?>">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
-                </button>
-                <button type="button" data-carousel-next class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#E5E7EB] text-[#111827] transition hover:bg-[#F9FAFB]" aria-label="<?php esc_attr_e('Next reviews', 'dawp'); ?>">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
-                </button>
-            </div>
+<!-- ============================================================
+     HOW AN ORDER WORKS
+     ============================================================ -->
+<section id="how-it-works" class="bg-[#FBF7EF] py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+            <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#D7351E]"><?php esc_html_e('From click to closet', 'dawp'); ?></span>
+            <h2 class="font-display mt-2 text-4xl uppercase leading-none text-[#17140F] sm:text-5xl"><?php esc_html_e('How your order works', 'dawp'); ?></h2>
+        </div>
+
+        <ol class="mt-12 grid gap-6 md:grid-cols-4">
+            <?php
+            $steps = [
+                ['title' => __('Pick your design', 'dawp'), 'copy' => __('Choose a design, then your style, color and size. Check the size guide first.', 'dawp')],
+                ['title' => __('24h to change it', 'dawp'), 'copy' => __('Need a different size or address? Email us within 24 hours of ordering.', 'dawp')],
+                ['title' => __('We print it', 'dawp'), 'copy' => __('Your piece is printed, cut and finished in 5–7 business days.', 'dawp')],
+                ['title' => __('It ships to you', 'dawp'), 'copy' => __('US 7–10 days, international 7–15 days, with a tracking link by email.', 'dawp')],
+            ];
+            foreach ($steps as $i => $step) :
+                ?>
+                <li class="relative rounded-[14px] border-2 border-[#17140F] bg-[#FFFFFF] p-6">
+                    <span class="font-display absolute -top-5 left-6 inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#17140F] bg-[#F2B33D] text-xl text-[#17140F]"><?php echo esc_html($i + 1); ?></span>
+                    <h3 class="font-heading mt-4 text-lg font-extrabold uppercase text-[#17140F]"><?php echo esc_html($step['title']); ?></h3>
+                    <p class="mt-2 text-sm leading-relaxed text-[#4A4339]"><?php echo esc_html($step['copy']); ?></p>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+
+        <p class="mt-8 text-center text-sm text-[#6F665A]">
+            <?php esc_html_e('Shipping is $5.99 for the first item + $1.99 for each additional item.', 'dawp'); ?>
+            <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="font-bold text-[#17140F] underline decoration-[#D7351E] decoration-2 underline-offset-4"><?php esc_html_e('Shipping details', 'dawp'); ?></a>
+        </p>
+    </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS (independent platforms) + SEARCH CTA
+     ============================================================ -->
+<section class="border-t-2 border-[#17140F] bg-[#D7351E] py-16 text-[#FFFFFF] lg:py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+        <div>
+            <h2 class="font-display text-4xl uppercase leading-none sm:text-5xl"><?php esc_html_e('Can’t find your character?', 'dawp'); ?></h2>
+            <p class="mt-4 max-w-lg text-base leading-relaxed text-[#FFFFFF]/85"><?php esc_html_e('Search thousands of designs by character, show, game or movie.', 'dawp'); ?></p>
+            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mt-6 flex max-w-lg overflow-hidden rounded-[8px] border-2 border-[#17140F] bg-[#FFFFFF] shadow-[4px_4px_0_#17140F]">
+                <label class="sr-only" for="home-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
+                <input id="home-product-search" type="search" name="s" placeholder="<?php esc_attr_e('e.g. samurai, pixel, horror…', 'dawp'); ?>" class="min-h-12 w-full bg-transparent px-4 text-base text-[#17140F] outline-none placeholder:text-[#6F665A]">
+                <input type="hidden" name="post_type" value="product">
+                <button type="submit" class="shrink-0 border-l-2 border-[#17140F] bg-[#F2B33D] px-5 text-sm font-extrabold uppercase tracking-wide text-[#17140F] transition hover:bg-[#17140F] hover:text-[#FBF7EF]"><?php esc_html_e('Search', 'dawp'); ?></button>
+            </form>
+        </div>
+
+        <div class="rounded-[14px] border-2 border-[#17140F] bg-[#FBF7EF] p-6 text-[#17140F] shadow-[6px_6px_0_#17140F] sm:p-8">
+            <h3 class="font-display text-2xl uppercase sm:text-3xl"><?php esc_html_e('Read real customer reviews', 'dawp'); ?></h3>
+            <p class="mt-3 text-sm leading-relaxed text-[#4A4339]"><?php esc_html_e('We don’t cherry-pick. See what customers say about SlickTee on independent review platforms.', 'dawp'); ?></p>
+            <ul class="mt-6 grid gap-3 sm:grid-cols-3">
+                <?php
+                $review_sites = [
+                    ['name' => 'Trustpilot', 'url' => 'https://www.trustpilot.com/review/slicktee.com'],
+                    ['name' => 'Sitejabber', 'url' => 'https://www.sitejabber.com/reviews/slicktee.com'],
+                    ['name' => 'Webwiki', 'url' => 'https://www.webwiki.com/slicktee.com'],
+                ];
+                foreach ($review_sites as $site) :
+                    ?>
+                    <li>
+                        <a href="<?php echo esc_url($site['url']); ?>" target="_blank" rel="noopener nofollow" class="flex min-h-12 items-center justify-between rounded-[8px] border-2 border-[#17140F] px-4 text-sm font-extrabold transition hover:bg-[#F2B33D]">
+                            <?php echo esc_html($site['name']); ?>
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
         </div>
     </div>
 </section>

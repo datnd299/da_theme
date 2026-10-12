@@ -1,100 +1,58 @@
-# Design System — Eliteshop Express
+# Design System — SlickTee ("retro print shop")
 
-Expanded from the CRO/design brief. Tokens live in `assets/css/tailwind-input.css` (`@theme`,
-drives Tailwind utilities in `tw-*.css`) and `assets/css/main.css` (`:root`, drives pure-CSS
-WooCommerce chrome). Both must stay in sync — see "Rules when editing tailwind-input.css" in
-the `woocommerce-theme-development` skill.
+Tokens live in `assets/css/tailwind-input.css` (`@theme`) and `assets/css/main.css` (`:root`,
+drives the pure-CSS WooCommerce pages). Both must stay in sync.
 
 ## 1. Color
 
 | Token | Value | Use |
 |---|---|---|
-| `--color-background` | `#FFFFFF` | Page background |
-| `--color-surface` | `#F9FAFB` | Alternating section background |
-| `--color-surface-alt` | `#F3F4F6` | Cards, inputs, hover fills |
-| `--color-foreground` | `#111827` | Headings, primary text |
-| `--color-foreground-muted` | `#4B5563` | Body copy, descriptions |
-| `--color-muted` | `#6B7280` | Captions, meta, placeholders |
-| `--color-accent` | `#FF5A5F` | Primary CTA (vibrant orange) — "Start Customizing", "Add to Cart" |
-| `--color-accent-hover` | `#E14247` | Primary CTA hover/active |
-| `--color-accent-soft` | `#FFF1F0` | CTA tint backgrounds, badges |
-| `--color-accent-2` | `#0056D2` | Electric blue — secondary CTA, links, icons/step numbers |
-| `--color-accent-2-hover` | `#003F9E` | Secondary accent hover |
-| `--color-border` | `#E5E7EB` | Dividers, card borders, inputs |
-| `--color-alert` | `#DC2626` | Error states (form validation) |
-| `--color-success` | `#16A34A` | Trust badges, in-stock, confirmations |
-
-Rationale: white/light-gray backgrounds keep colorful apparel mockups the visual focus; orange
-is the loudest color on the page reserved for one job (drive the click); blue is a secondary
-accent so the orange CTA never has to compete with another equally loud color.
+| `--color-background` | `#FBF7EF` | Cream "print paper" page background |
+| `--color-surface` | `#F4EDE0` | Alternate sections, panels |
+| `--color-surface-alt` | `#EBE1CF` | Hover fills, inputs |
+| `--color-foreground` | `#17140F` | Ink — text, 2px borders, hard shadows, dark bands |
+| `--color-foreground-muted` | `#4A4339` | Body copy |
+| `--color-muted` | `#6F665A` | Captions, meta |
+| `--color-accent` | `#D7351E` | Vermilion — primary CTA, prices (white text OK, 4.7:1) |
+| `--color-accent-hover` | `#B32813` | CTA hover |
+| `--color-accent-soft` | `#FBE3DC` | Tints, focus rings |
+| `--color-accent-2` | `#1F3A68` | Prussian blue — secondary buttons/links in WC (white text OK) |
+| `--color-highlight` | `#F2B33D` | Mustard — stickers, badges, ticker, hover fills. **Ink text only** |
+| `--color-border` | `#E3D7C2` | Soft dividers |
 
 ## 2. Typography
 
-- Headings: `'Poppins', 'Montserrat', system-ui, sans-serif` (`--font-heading`) — bold weights
-  (600–800), used for H1–H3, hero headline, section titles.
-- Body: `'Inter', system-ui, sans-serif` (`--font-sans`) — 400/500/600, body copy, nav, buttons.
-- Load via Google Fonts `<link>` in `header.php` (same pattern as before): Poppins
-  600/700/800 + Inter 400/500/600/700.
-- Scale (Tailwind classes, mobile-first): H1 `text-4xl md:text-6xl font-extrabold`, H2
-  `text-3xl md:text-4xl font-bold`, H3 `text-xl md:text-2xl font-bold`, body `text-base
-  leading-relaxed`, caption `text-sm text-[color:var(--color-muted)]`.
+- Display: `Anton` (`--font-display`, `.font-display`) — uppercase hero/section titles only.
+- Headings: `Archivo` 600–900 (`--font-heading`) — card titles, WooCommerce headings.
+- Body: `DM Sans` 400/500/700 (`--font-sans`).
+- Loaded via one Google Fonts `<link>` in `header.php`.
 
 ## 3. Shape & Elevation
 
-- Radius: `--radius-sm: 8px` (chips/badges), `--radius-md: 12px` (buttons/inputs),
-  `--radius-lg: 20px` (cards/panels), `--radius-pill: 999px` (pill buttons, tags).
-- Shadow: `--shadow-card: 0 1px 3px rgba(17,24,39,.06)`, `--shadow-card-hover: 0 12px 28px
-  rgba(17,24,39,.12)` — soft, never harsh; used on product/category cards on hover only.
-- Flat design: no gradients on content surfaces, no skeuomorphism. The only gradient allowed is
-  a subtle two-stop brand wash (orange → transparent) behind the hero, used sparingly.
+- Radius: sm 4px (stickers/badges), md 8px (buttons/inputs), lg 14px (cards), pill for chips.
+- Borders: 2px ink on cards, buttons, inputs.
+- Shadows: hard offset, no blur — `--shadow-ink: 4px 4px 0 ink`, `--shadow-card-hover: 6px 6px 0 ink`.
+  Hover = translate(-3px,-3px) + hard shadow ("sticker lift"); primary buttons press in on hover.
+- Texture: subtle 14px dot grid on hero / shop header only.
 
-## 4. Imagery Policy (no photo assets available this pass)
+## 4. Imagery
 
-No real lifestyle/product photography exists for this brand in the repo, and none is fabricated
-here (no fake "real customer" photos, no stock images pretending to be verified UGC). Visuals
-are built with inline SVG + CSS instead:
+- AI-generated (kie GPT Image 2.5, 1K) product-category flat-lays on cream paper and a print-studio
+  photo, saved as WebP in `assets/images/home/` (hero 1200×900, cat-* 700×700, about-studio 1200×900).
+- All artwork is original — no recognisable copyrighted characters (two early drafts that
+  resembled Casper / Gundam were discarded).
+- No fabricated customer photos, testimonials or rating counts.
 
-- Hero / product mockups: flat SVG apparel silhouettes (T-shirt, hoodie) with a placeholder
-  print area, rendered in brand colors.
-- Trust badges, step icons: inline SVG line icons (stroke, 2px, rounded caps) — consistent with
-  existing header/footer icon style already used in this theme.
-- Testimonials: initials avatar (colored circle + 2-letter initials) instead of a photo — avoids
-  presenting a fabricated person's photo as a real customer.
-- When real photography is available, swap the SVG placeholders in `page-home.php` for `<img>`
-  using the `dawp_i0_img_attrs()` responsive-image helper (see `inc/responsive-images.php`),
-  same pattern as `header.php`/`footer.php` logo usage in earlier branches.
+## 5. Components (Tailwind, inline per page)
 
-## 5. Core Components (Tailwind utility patterns, defined inline per page — no new component
-CSS files needed for the homepage)
+- **Primary button:** `rounded-[8px] border-2 border-[#17140F] bg-[#D7351E] text-white font-extrabold uppercase shadow-[4px_4px_0_#17140F] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#17140F]`
+- **Secondary button:** same shape, cream bg, ink text, `hover:bg-[#17140F] hover:text-[#FBF7EF]`
+- **Card:** `rounded-[14px] border-2 border-[#17140F] bg-white hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[6px_6px_0_#17140F]`
+- **Sticker eyebrow:** `-rotate-2 rounded-[4px] border-2 border-[#17140F] bg-[#F2B33D] text-xs font-extrabold uppercase`
+- **Section title:** `font-display text-4xl sm:text-5xl uppercase` + small vermilion eyebrow above.
 
-- **Primary button:** `inline-flex items-center justify-center rounded-[var(--radius-pill)]
-  bg-[#FF5A5F] px-7 py-3.5 text-sm font-bold text-white shadow-[var(--shadow-card)] transition
-  hover:bg-[#E14247] hover:-translate-y-0.5`
-- **Secondary button:** same shape, `border-2 border-[#111827] bg-transparent text-[#111827]
-  hover:bg-[#111827] hover:text-white`
-- **Section container:** `mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`
-- **Card:** `rounded-[20px] border border-[#E5E7EB] bg-white shadow-[var(--shadow-card)]
-  transition hover:shadow-[var(--shadow-card-hover)]`
-- **Eyebrow label:** `text-xs font-extrabold uppercase tracking-[0.16em] text-[#FF5A5F]`
+## 6. Layout
 
-## 6. Layout Conventions
-
-- Mobile-first; product/category grids are always **2 columns minimum on mobile** (never 1),
-  per the skill checklist.
-- Touch targets ≥ 44px (buttons, nav links, icon buttons).
-- Sticky header, no layout-shifting animations blocking first paint; only `transform`/`opacity`
-  used for hover/scroll motion.
-- Section rhythm: alternate `bg-white` / `bg-[#F9FAFB]` between sections for visual separation
-  without borders.
-
-## 7. Homepage Section Map (content brief → implementation)
-
-1. Announcement bar (marquee) + main header — `header.php`
-2. Hero — SVG apparel mockup, headline, dual CTA
-3. Trust badge strip
-4. How It Works — 3 steps
-5. Shop by Category — Men/Women/Kids grid (→ `/shop/`, see `.plans/site.md` §3)
-6. Customization engine live demo — text input swaps preview text/label on an SVG mockup (JS)
-7. Trending Personalized Designs — card grid with hover image swap affordance + tags
-8. Social proof — initials-avatar testimonial carousel
-9. Footer — `footer.php`
+- Mobile-first; product/category grids always ≥ 2 columns on mobile.
+- Touch targets ≥ 44px. Header is not sticky.
+- Section rhythm: cream → surface (with ink top/bottom borders) → ink band → vermilion CTA band.

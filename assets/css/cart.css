@@ -1,6 +1,6 @@
 /* ===================================================
    Cart page - WooCommerce Block Cart
-   Eliteshop Express brand tokens
+   SlickTee brand tokens
    =================================================== */
 
 body.woocommerce-cart,
@@ -774,4 +774,232 @@ body.woocommerce-cart #content {
 
 .wc-block-grid__product-add-to-cart .wp-block-button__link:hover {
   background: var(--color-accent-hover);
+}
+
+/* ===================================================
+   SLICKTEE "RETRO PRINT SHOP" LAYER
+   Ink borders, hard offset shadows, Anton titles.
+   Keep at the end of the file — overrides the rules above.
+   =================================================== */
+
+/* Page title strip rendered by the theme wrapper */
+body.woocommerce-cart .woo-page > .container {
+  padding-top: 0 !important; /* overrides inline padding set in woocommerce.php */
+}
+
+body.woocommerce-cart .wp-block-woocommerce-cart::before {
+  content: "Your cart";
+  display: block;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 16px 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-foreground);
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  body.woocommerce-cart .wp-block-woocommerce-cart::before {
+    padding: 40px 32px 0;
+  }
+}
+
+/* Shipping info banner */
+.free-shipping-banner {
+  width: calc(100% - 32px);
+  margin: 20px auto 0;
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
+  background: var(--color-highlight);
+  box-shadow: 4px 4px 0 var(--color-foreground);
+}
+
+.free-shipping-banner__icon {
+  color: var(--color-foreground);
+}
+
+.free-shipping-banner__message {
+  font-weight: 800;
+  color: var(--color-foreground);
+}
+
+@media (min-width: 768px) {
+  .free-shipping-banner {
+    width: calc(100% - 64px);
+  }
+}
+
+/* Items list as an ink-bordered card */
+.wc-block-cart .wc-block-cart-items {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+
+.wc-block-cart .wc-block-cart-items__header {
+  background: var(--color-foreground);
+}
+
+.wc-block-cart .wc-block-cart-items__header th {
+  padding: 14px 16px;
+  border: 0;
+  color: var(--color-background);
+}
+
+.wc-block-cart .wc-block-cart-items__row td {
+  border-top: 2px dashed var(--color-border);
+}
+
+.wc-block-cart .wc-block-cart-items__row:first-child td {
+  border-top: 0;
+}
+
+.wc-block-cart .wc-block-cart-items__row > td:first-child {
+  padding-left: 16px;
+}
+
+.wc-block-cart .wc-block-cart-items__row > td:last-child {
+  padding-right: 16px;
+}
+
+.wc-block-cart .wc-block-cart-item__image img {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.wc-block-cart .wc-block-components-product-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--color-foreground);
+}
+
+.wc-block-cart .wc-block-components-product-name:hover {
+  color: var(--color-accent);
+}
+
+.wc-block-cart .wc-block-components-product-details__name {
+  font-weight: 800;
+  color: var(--color-foreground);
+}
+
+.wc-block-cart .wc-block-cart-item__total .wc-block-formatted-money-amount {
+  color: var(--color-accent);
+  font-weight: 900;
+}
+
+.wc-block-cart .wc-block-components-quantity-selector {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+}
+
+.wc-block-cart .wc-block-components-quantity-selector__button:hover {
+  background: var(--color-highlight);
+  color: var(--color-foreground);
+}
+
+.wc-block-cart .wc-block-cart-item__remove-link:hover {
+  color: var(--color-accent);
+}
+
+/* Order summary sidebar */
+.wc-block-cart .wc-block-cart__sidebar {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 6px 6px 0 var(--color-foreground);
+}
+
+.wc-block-cart .wc-block-cart__totals-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--color-foreground);
+}
+
+.wc-block-cart .wc-block-components-totals-wrapper {
+  border-color: var(--color-border);
+}
+
+.wc-block-cart .wc-block-components-totals-footer-item .wc-block-formatted-money-amount {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+}
+
+.wc-block-cart .wc-block-components-text-input input {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+}
+
+.wc-block-cart .wc-block-components-text-input input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.wc-block-cart .wc-block-components-totals-coupon__button {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
+.wc-block-cart .wc-block-cart__submit-container .wc-block-components-button {
+  min-height: 56px;
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  box-shadow: 4px 4px 0 var(--color-foreground);
+  transition: transform var(--duration-fast) var(--ease-fluid), box-shadow var(--duration-fast) var(--ease-fluid), background var(--duration-fast) var(--ease-fluid);
+}
+
+.wc-block-cart .wc-block-cart__submit-container .wc-block-components-button:hover {
+  background: var(--color-accent-hover);
+  color: #FFFFFF;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--color-foreground);
+}
+
+.wc-block-cart .wc-block-cart__submit-container::after {
+  content: "Secure checkout · Visa, Mastercard, Amex, PayPal";
+  display: block;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+/* Empty cart */
+.wp-block-woocommerce-empty-cart-block .wc-block-cart__empty-cart__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.wp-block-woocommerce-empty-cart-block .wp-block-button__link {
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: #FFFFFF;
+  box-shadow: 4px 4px 0 var(--color-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wc-block-cart .wc-block-cart__submit-container .wc-block-components-button {
+    transition: none;
+  }
 }

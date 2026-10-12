@@ -20,6 +20,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Mobile search panel toggle (FiboSearch lives inside #mobile-search-panel)
+    const searchToggle = document.querySelector('.search-toggle');
+    const searchPanel  = document.getElementById('mobile-search-panel');
+    if (searchToggle && searchPanel) {
+        const setSearch = (open) => {
+            searchToggle.setAttribute('aria-expanded', String(open));
+            searchPanel.classList.toggle('is-open', open);
+            if (open) {
+                if (toggle && nav) { toggle.setAttribute('aria-expanded', 'false'); nav.classList.remove('is-open'); }
+                const input = searchPanel.querySelector('input[type="search"]');
+                if (input) setTimeout(() => input.focus(), 50);
+            }
+        };
+        searchToggle.addEventListener('click', () => setSearch(searchToggle.getAttribute('aria-expanded') !== 'true'));
+        if (toggle) toggle.addEventListener('click', () => setSearch(false));
+        document.addEventListener('click', (e) => {
+            // FiboSearch mounts its suggestions dropdown on <body>, outside the header
+            if (!header.contains(e.target) && !e.target.closest('.dgwt-wcas-suggestions-wrapp, .dgwt-wcas-details-wrapp')) setSearch(false);
+        });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setSearch(false); });
+    }
+
     // Product Gallery Thumbnails Scroll
     const initGalleryThumbsScroll = () => {
         const thumbsList = document.querySelector('.flex-control-thumbs');
@@ -299,35 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Homepage "Try Our Customization Engine" live demo: types into the
-    // input or picks a preset, both update the SVG mockup's printed text.
-    const demoInput   = document.getElementById('demo-name-input');
-    const demoText    = document.getElementById('demo-print-text');
-    const demoTeeFill = document.getElementById('demo-tee-fill');
-    const demoPresets = document.querySelectorAll('[data-demo-preset]');
-
-    if (demoInput && demoText) {
-        demoInput.addEventListener('input', () => {
-            demoText.textContent = (demoInput.value || 'YOUR TEXT').toUpperCase().slice(0, 14);
-            demoPresets.forEach((btn) => btn.classList.remove('is-active'));
-        });
-    }
-
-    demoPresets.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            const text  = btn.dataset.demoPreset;
-            const color = btn.dataset.demoColor;
-
-            if (demoText) demoText.textContent = text;
-            if (demoInput) demoInput.value = text;
-            if (demoTeeFill && color) demoTeeFill.setAttribute('fill', color);
-
-            demoPresets.forEach((b) => b.classList.toggle('is-active', b === btn));
-        });
-    });
-
-    // Generic horizontal scroll-snap carousel (used by the homepage
-    // testimonials section) driven by [data-carousel] / [data-carousel-track]
+    // Generic horizontal scroll-snap carousel driven by [data-carousel] / [data-carousel-track]
     // / [data-carousel-prev] / [data-carousel-next] markup.
     document.querySelectorAll('[data-carousel]').forEach((carousel) => {
         const track = carousel.querySelector('[data-carousel-track]');

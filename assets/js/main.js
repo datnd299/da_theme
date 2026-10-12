@@ -382,6 +382,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initCartDrawer();
 
+    // Product gallery: hover zoom following the cursor (desktop mouse only)
+    const gallery = document.querySelector('.single-product div.product .images');
+    const zoomMq = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)');
+    if (gallery) {
+        const slideSel = '.cg-main-swiper .swiper-slide, .woocommerce-product-gallery__image';
+        let active = null;
+        const reset = () => {
+            if (!active) return;
+            active.classList.remove('is-zoomed');
+            active.querySelectorAll('img').forEach((img) => { img.style.transformOrigin = ''; });
+            active = null;
+        };
+        gallery.addEventListener('mousemove', (e) => {
+            const slide = zoomMq.matches && e.target.closest('img') && e.target.closest(slideSel);
+            if (slide !== active) reset();
+            if (!slide) return;
+            const img = e.target.closest('img');
+            const rect = slide.getBoundingClientRect();
+            img.style.transformOrigin = `${((e.clientX - rect.left) / rect.width) * 100}% ${((e.clientY - rect.top) / rect.height) * 100}%`;
+            slide.classList.add('is-zoomed');
+            active = slide;
+        });
+        gallery.addEventListener('mouseleave', reset);
+    }
+
     // Product details: collapse long descriptions behind Show More
     const pdpContent = document.querySelector('[data-pdp-collapse]');
     const pdpToggle = document.querySelector('[data-pdp-toggle]');

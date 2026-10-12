@@ -200,6 +200,25 @@ body.single-product .woo-page__container {
   opacity: 1;
 }
 
+/* Hover zoom — desktop mouse only (origin set by main.js) */
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .single-product .cg-main-swiper .swiper-slide,
+  .single-product .woocommerce-product-gallery__image {
+    overflow: hidden;
+  }
+
+  .single-product .cg-main-swiper .swiper-slide img,
+  .single-product .woocommerce-product-gallery__image img {
+    transition: transform var(--duration-fast) var(--ease-fluid);
+    cursor: zoom-in;
+  }
+
+  .single-product .cg-main-swiper .swiper-slide.is-zoomed img,
+  .single-product .woocommerce-product-gallery__image.is-zoomed img {
+    transform: scale(2);
+  }
+}
+
 @media (max-width: 1023px) {
   .single-product div.product .images {
     width: auto;

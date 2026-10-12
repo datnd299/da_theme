@@ -250,3 +250,25 @@ trong wp-admin. Gợi ý vận hành:
 - Endpoint `/variants` xử lý tối đa 500 item/request — nếu 1 sản phẩm có ít
   hơn 500 tổ hợp Style×Color (thực tế hiếm khi vượt vài chục), mỗi sản phẩm
   chỉ cần 1 request là đủ.
+
+---
+
+## 7. Bulk import endpoints (`/import/setup` + `/import/products`) — 2026-10-12
+
+For full-catalog imports, `inc/pod-variants/bulk-import.php` adds two endpoints
+(same `wc-pod/v1` namespace and Consumer Key/Secret auth as above) that replace
+steps 1–3:
+
+- `POST wc-pod/v1/import/setup` (`manage_woocommerce`): upserts Sizes, Colors
+  (with hex), Types **with their size-surcharge matrix** (a type's `sizes` map
+  replaces its whole set) and product categories (by slug, parents first).
+  Safe to re-run.
+- `POST wc-pod/v1/import/products` (`edit_products`): up to 100 products per
+  request. Each product is matched by `_pod_source_id` meta (re-runs update
+  instead of duplicating). The main image is stored as a da-sync virtual image
+  (hidden `images` attribute; nothing is downloaded to the Media Library). The
+  variant set in the payload replaces the product's variants.
+
+Client: `scripts/pod-import.mjs` (transforms `artsholic_all.json`, dry run,
+batches, retries, resume file `pod-import-state.json`). See the header comment
+of that file for usage.

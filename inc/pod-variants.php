@@ -29,6 +29,7 @@ require_once $pod_variants_dir . 'image-proxy.php';
 require_once $pod_variants_dir . 'lookup-cache.php';
 require_once $pod_variants_dir . 'variant-data.php';
 require_once $pod_variants_dir . 'rest-api.php';
+require_once $pod_variants_dir . 'bulk-import.php';
 require_once $pod_variants_dir . 'cart.php';
 require_once $pod_variants_dir . 'admin-settings.php';
 require_once $pod_variants_dir . 'product-metabox.php';

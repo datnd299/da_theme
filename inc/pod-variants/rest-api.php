@@ -82,6 +82,20 @@ function pod_rest_upsert_variants(WP_REST_Request $request) {
         return new WP_Error('too_many_variants', __('Max 500 variants per request.', 'dawp'), ['status' => 400]);
     }
 
+    return new WP_REST_Response([
+        'product_id' => $product_id,
+        'results'    => pod_upsert_variants($product_id, $variants),
+        'synced'     => pod_sync_product_price($product_id),
+    ], 200);
+}
+
+/**
+ * Upsert Style/Color variant rows for one product — shared by the
+ * `/variants` endpoint above and the bulk `/import/products` endpoint
+ * (bulk-import.php). Returns one `results[]` entry per input item; does
+ * NOT sync the WC product price, callers do that once after.
+ */
+function pod_upsert_variants($product_id, array $variants) {
     // Name (lowercased) => id, seeded from the existing lookups and grown
     // in-place as new Type/Color names are auto-created below, so the same
     // new name appearing twice in one batch is only inserted once.
@@ -218,9 +232,5 @@ function pod_rest_upsert_variants(WP_REST_Request $request) {
         ];
     }
 
-    return new WP_REST_Response([
-        'product_id' => $product_id,
-        'results'    => $results,
-        'synced'     => pod_sync_product_price($product_id),
-    ], 200);
+    return $results;
 }

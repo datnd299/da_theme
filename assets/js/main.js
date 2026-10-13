@@ -42,6 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setSearch(false); });
     }
 
+    // Homepage FiboSearch shares the header's dropdown — flag it so main.css skips the header-only width/offset
+    const homeSearch = document.querySelector('.home-search');
+    if (homeSearch) {
+        document.addEventListener('focusin', (e) => {
+            if (e.target.matches('.dgwt-wcas-search-input')) document.body.classList.toggle('wcas-home', homeSearch.contains(e.target));
+        });
+    }
+
     // Product Gallery Thumbnails Scroll
     const initGalleryThumbsScroll = () => {
         const thumbsList = document.querySelector('.flex-control-thumbs');

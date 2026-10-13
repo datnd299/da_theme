@@ -121,7 +121,10 @@ function pod_render_gallery() {
     if (!$images) {
         $images = [wc_placeholder_img_src()];
     }
+    // .pod-gallery-col fills grid row 1 so the sticky gallery inside it stops
+    // at the end of the summary instead of sliding over the tabs below.
     ?>
+    <div class="pod-gallery-col">
     <div class="woocommerce-product-gallery pod-gallery">
         <div class="woocommerce-product-gallery__image">
             <img src="<?php echo esc_url($images[0]); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" id="pod-main-image" loading="eager">
@@ -133,6 +136,7 @@ function pod_render_gallery() {
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
+    </div>
     </div>
     <?php
 }

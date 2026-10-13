@@ -233,13 +233,65 @@
 .dgwt-wcas-st strong,
 .dgwt-wcas-sp strong { color: #D7351E; }
 .dgwt-wcas-suggestion-more .dgwt-wcas-st-more { color: #1F3A68; font-weight: 700; }
-/* Desktop header search is narrow (lg:w-56 / xl:w-40) — widen the dropdown, right-aligned to the input */
+/* Desktop header search is narrow (lg:w-56 / xl:w-40) — widen the dropdown, right-aligned to the input.
+   The dropdown is shared by every FiboSearch form; main.js sets body.wcas-home while the homepage field is in use */
 @media (min-width: 1024px) {
-  .dgwt-wcas-suggestions-wrapp { width: 380px !important; margin-left: -156px; }
+  body:not(.wcas-home) .dgwt-wcas-suggestions-wrapp { width: 380px !important; margin-left: -156px; }
 }
 @media (min-width: 1280px) {
-  .dgwt-wcas-suggestions-wrapp { margin-left: -220px; }
+  body:not(.wcas-home) .dgwt-wcas-suggestions-wrapp { margin-left: -220px; }
 }
+
+/* FiboSearch in homepage "Can't find your character?" (.home-search) — big field + text submit, offset shadow */
+.home-search .dgwt-wcas-search-wrapp { min-width: 0; max-width: none; margin: 0; }
+.home-search .dgwt-wcas-search-wrapp .dgwt-wcas-sf-wrapp { padding: 0; background: transparent; border-radius: 8px; box-shadow: 4px 4px 0 #17140F; }
+.home-search .dgwt-wcas-search-wrapp .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input,
+.home-search .dgwt-wcas-search-wrapp.dgwt-wcas-search-focused .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input,
+.home-search .dgwt-wcas-open .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+  height: 52px;
+  padding: 0 120px 0 16px;
+  border: 2px solid #17140F;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #17140F;
+  font-size: 16px;
+  box-shadow: none;
+}
+.home-search .dgwt-wcas-search-wrapp .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input::placeholder { color: #6F665A; opacity: 1; font-style: normal; }
+.home-search .dgwt-wcas-search-wrapp .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input:focus { outline: none; }
+.home-search .dgwt-wcas-search-wrapp .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit,
+.home-search .dgwt-wcas-open .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  width: auto;
+  height: 52px !important;
+  min-height: 0;
+  line-height: 1;
+  margin: 0;
+  padding: 0 20px;
+  border: 2px solid #17140F;
+  border-radius: 0 8px 8px 0;
+  background: #F2B33D;
+  color: #17140F;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-shadow: none;
+  opacity: 1;
+  transform: none;
+}
+.home-search .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit::before { display: none; }
+.home-search .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit:hover { background: #17140F; color: #FBF7EF; }
+.home-search .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit svg { display: none; }
+.home-search .dgwt-wcas-preloader,
+.home-search .dgwt-wcas-close { right: 116px; }
 
 .woocommerce-product-gallery {
   aspect-ratio: 1 / 1.2;

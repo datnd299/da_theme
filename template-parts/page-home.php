@@ -316,12 +316,26 @@ if (function_exists('wc_get_products')) {
         <div>
             <h2 class="font-display text-4xl uppercase leading-none sm:text-5xl"><?php esc_html_e('Can’t find your character?', 'dawp'); ?></h2>
             <p class="mt-4 max-w-lg text-base leading-relaxed text-[#FFFFFF]/85"><?php esc_html_e('Search thousands of designs by character, show, game or movie.', 'dawp'); ?></p>
-            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mt-6 flex max-w-lg overflow-hidden rounded-[8px] border-2 border-[#17140F] bg-[#FFFFFF] shadow-[4px_4px_0_#17140F]">
-                <label class="sr-only" for="home-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
-                <input id="home-product-search" type="search" name="s" placeholder="<?php esc_attr_e('e.g. samurai, pixel, horror…', 'dawp'); ?>" class="min-h-12 w-full bg-transparent px-4 text-base text-[#17140F] outline-none placeholder:text-[#6F665A]">
-                <input type="hidden" name="post_type" value="product">
-                <button type="submit" class="shrink-0 border-l-2 border-[#17140F] bg-[#F2B33D] px-5 text-sm font-extrabold uppercase tracking-wide text-[#17140F] transition hover:bg-[#17140F] hover:text-[#FBF7EF]"><?php esc_html_e('Search', 'dawp'); ?></button>
-            </form>
+            <?php if (shortcode_exists('fibosearch')) :
+                // FiboSearch (same as header) — own placeholder for this field only
+                $home_search_label = static function ($labels) {
+                    $labels['search_placeholder'] = __('e.g. samurai, pixel, horror…', 'dawp');
+                    return $labels;
+                };
+                add_filter('dgwt/wcas/labels', $home_search_label, 20);
+                ?>
+                <div class="home-search mt-6 max-w-lg">
+                    <?php echo do_shortcode('[fibosearch layout="classic" style="solaris" submit_btn="1" submit_text="' . esc_attr__('Search', 'dawp') . '" mobile_overlay="0" darken_bg="0"]'); ?>
+                </div>
+                <?php remove_filter('dgwt/wcas/labels', $home_search_label, 20); ?>
+            <?php else : ?>
+                <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mt-6 flex max-w-lg overflow-hidden rounded-[8px] border-2 border-[#17140F] bg-[#FFFFFF] shadow-[4px_4px_0_#17140F]">
+                    <label class="sr-only" for="home-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
+                    <input id="home-product-search" type="search" name="s" placeholder="<?php esc_attr_e('e.g. samurai, pixel, horror…', 'dawp'); ?>" class="min-h-12 w-full bg-transparent px-4 text-base text-[#17140F] outline-none placeholder:text-[#6F665A]">
+                    <input type="hidden" name="post_type" value="product">
+                    <button type="submit" class="shrink-0 border-l-2 border-[#17140F] bg-[#F2B33D] px-5 text-sm font-extrabold uppercase tracking-wide text-[#17140F] transition hover:bg-[#17140F] hover:text-[#FBF7EF]"><?php esc_html_e('Search', 'dawp'); ?></button>
+                </form>
+            <?php endif; ?>
         </div>
 
         <div class="rounded-[14px] border-2 border-[#17140F] bg-[#FBF7EF] p-6 text-[#17140F] shadow-[6px_6px_0_#17140F] sm:p-8">

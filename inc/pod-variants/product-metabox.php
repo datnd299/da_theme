@@ -218,16 +218,24 @@ function pod_render_variant_metabox($post) {
     </table>
 
     <h4><?php echo $edit_row ? esc_html__('Edit variant', 'dawp') : esc_html__('Add new variant', 'dawp'); ?></h4>
-    <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
-        <?php wp_nonce_field('pod_save_variant'); ?>
-        <input type="hidden" name="action" value="pod_save_variant">
-        <input type="hidden" name="product_id" value="<?php echo esc_attr($product_id); ?>">
-        <input type="hidden" name="id" value="<?php echo esc_attr($edit_row->id ?? 0); ?>">
+    <?php
+    // Not a <form>: this metabox already sits inside the product edit
+    // screen's own <form id="post">, and nested forms are invalid HTML —
+    // the browser drops the inner tag, so these fields (required ones,
+    // plus `action`/`_wpnonce`) would hijack the product's own Update.
+    // Fields carry data-name instead of name, so the product form never
+    // submits them; the button below posts them via a detached form.
+    ?>
+    <div id="pod-variant-form" data-url="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+        <input type="hidden" data-name="_wpnonce" value="<?php echo esc_attr(wp_create_nonce('pod_save_variant')); ?>">
+        <input type="hidden" data-name="action" value="pod_save_variant">
+        <input type="hidden" data-name="product_id" value="<?php echo esc_attr($product_id); ?>">
+        <input type="hidden" data-name="id" value="<?php echo esc_attr($edit_row->id ?? 0); ?>">
         <table class="form-table">
             <tr>
                 <th><label for="pod-variant-type"><?php esc_html_e('Type', 'dawp'); ?></label></th>
                 <td>
-                    <select id="pod-variant-type" name="type_id" required>
+                    <select id="pod-variant-type" data-name="type_id" data-required>
                         <option value=""><?php esc_html_e('— Select —', 'dawp'); ?></option>
                         <?php foreach ($types as $id => $type) : ?>
                             <option value="<?php echo esc_attr($id); ?>" <?php selected($edit_row->type_id ?? '', $id); ?>><?php echo esc_html($type->name); ?></option>
@@ -238,7 +246,7 @@ function pod_render_variant_metabox($post) {
             <tr>
                 <th><label for="pod-variant-color"><?php esc_html_e('Color', 'dawp'); ?></label></th>
                 <td>
-                    <select id="pod-variant-color" name="color_id" required>
+                    <select id="pod-variant-color" data-name="color_id" data-required>
                         <option value=""><?php esc_html_e('— Select —', 'dawp'); ?></option>
                         <?php foreach ($colors as $id => $color) : ?>
                             <option value="<?php echo esc_attr($id); ?>" <?php selected($edit_row->color_id ?? '', $id); ?>><?php echo esc_html($color->name); ?></option>
@@ -248,26 +256,26 @@ function pod_render_variant_metabox($post) {
             </tr>
             <tr>
                 <th><label for="pod-variant-price"><?php esc_html_e('Price', 'dawp'); ?></label></th>
-                <td><input type="number" step="0.01" min="0" id="pod-variant-price" name="price" class="regular-text" required value="<?php echo esc_attr($edit_row->price ?? ''); ?>"></td>
+                <td><input type="number" step="0.01" min="0" id="pod-variant-price" data-name="price" class="regular-text" data-required value="<?php echo esc_attr($edit_row->price ?? ''); ?>"></td>
             </tr>
             <tr>
                 <th><label for="pod-variant-sale-price"><?php esc_html_e('Sale price', 'dawp'); ?></label></th>
                 <td>
-                    <input type="number" step="0.01" min="0" id="pod-variant-sale-price" name="sale_price" class="regular-text" value="<?php echo esc_attr($edit_row->sale_price ?? ''); ?>">
+                    <input type="number" step="0.01" min="0" id="pod-variant-sale-price" data-name="sale_price" class="regular-text" value="<?php echo esc_attr($edit_row->sale_price ?? ''); ?>">
                     <p class="description"><?php esc_html_e('Leave blank for no sale.', 'dawp'); ?></p>
                 </td>
             </tr>
             <tr>
                 <th><label for="pod-variant-sku"><?php esc_html_e('SKU', 'dawp'); ?></label></th>
                 <td>
-                    <input type="text" id="pod-variant-sku" name="sku" class="regular-text" value="<?php echo esc_attr($edit_row->sku ?? ''); ?>">
+                    <input type="text" id="pod-variant-sku" data-name="sku" class="regular-text" value="<?php echo esc_attr($edit_row->sku ?? ''); ?>">
                     <p class="description"><?php esc_html_e('Leave blank to auto-generate.', 'dawp'); ?></p>
                 </td>
             </tr>
             <tr>
                 <th><label for="pod-variant-images"><?php esc_html_e('Image URLs', 'dawp'); ?></label></th>
                 <td>
-                    <textarea id="pod-variant-images" name="image_urls" rows="4" class="large-text" placeholder="https://...&#10;https://..."><?php
+                    <textarea id="pod-variant-images" data-name="image_urls" rows="4" class="large-text" placeholder="https://...&#10;https://..."><?php
                         echo esc_textarea($edit_row ? implode("\n", json_decode($edit_row->image_urls, true) ?: []) : '');
                     ?></textarea>
                     <p class="description"><?php esc_html_e('One external image URL per line. First line = main image.', 'dawp'); ?></p>
@@ -275,13 +283,45 @@ function pod_render_variant_metabox($post) {
             </tr>
             <tr>
                 <th><label for="pod-variant-active"><?php esc_html_e('Active', 'dawp'); ?></label></th>
-                <td><input type="checkbox" id="pod-variant-active" name="is_active" value="1" <?php checked($edit_row ? (bool) $edit_row->is_active : true); ?>></td>
+                <td><input type="checkbox" id="pod-variant-active" data-name="is_active" value="1" <?php checked($edit_row ? (bool) $edit_row->is_active : true); ?>></td>
             </tr>
         </table>
-        <?php submit_button($edit_row ? __('Update variant', 'dawp') : __('Add variant', 'dawp')); ?>
-        <?php if ($edit_row) : ?>
-            <a href="<?php echo esc_url(add_query_arg(['post' => $product_id, 'action' => 'edit'], admin_url('post.php'))); ?>"><?php esc_html_e('Cancel', 'dawp'); ?></a>
-        <?php endif; ?>
-    </form>
+        <p class="submit">
+            <button type="button" class="button button-primary" id="pod-variant-submit"><?php echo $edit_row ? esc_html__('Update variant', 'dawp') : esc_html__('Add variant', 'dawp'); ?></button>
+            <?php if ($edit_row) : ?>
+                <a href="<?php echo esc_url(add_query_arg(['post' => $product_id, 'action' => 'edit'], admin_url('post.php'))); ?>"><?php esc_html_e('Cancel', 'dawp'); ?></a>
+            <?php endif; ?>
+        </p>
+    </div>
+    <script>
+    (function () {
+        var box = document.getElementById('pod-variant-form');
+        document.getElementById('pod-variant-submit').addEventListener('click', function () {
+            var fields = box.querySelectorAll('[data-name]');
+            for (var i = 0; i < fields.length; i++) {
+                if (fields[i].hasAttribute('data-required') && !fields[i].value) {
+                    alert(<?php echo wp_json_encode(pod_variant_error_message('invalid_fields')); ?>);
+                    fields[i].focus();
+                    return;
+                }
+            }
+            var form = document.createElement('form');
+            form.method = 'post';
+            form.action = box.getAttribute('data-url');
+            fields.forEach(function (field) {
+                if (field.type === 'checkbox' && !field.checked) {
+                    return;
+                }
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = field.getAttribute('data-name');
+                input.value = field.value;
+                form.appendChild(input);
+            });
+            document.body.appendChild(form);
+            form.submit();
+        });
+    })();
+    </script>
     <?php
 }

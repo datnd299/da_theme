@@ -7,8 +7,8 @@
  * Usage:
  *   node scripts/pod-import.mjs --dry-run                 # transform + stats only
  *   node scripts/pod-import.mjs --dump payload.json       # write transformed payload
- *   WC_KEY=ck_... WC_SECRET=cs_... node scripts/pod-import.mjs --site https://slicktee.com --setup
- *   WC_KEY=ck_... WC_SECRET=cs_... node scripts/pod-import.mjs --site https://slicktee.com
+ *   node scripts/pod-import.mjs --setup
+ *   node scripts/pod-import.mjs
  *
  * Options:
  *   --file <path>        source JSON (default artsholic_all.json)
@@ -35,8 +35,13 @@ const opt = (name, def) => {
   return i >= 0 && args[i + 1] !== undefined ? args[i + 1] : def;
 };
 
+// WooCommerce REST API key (Read/Write). Env vars WC_KEY / WC_SECRET override these.
+const WC_KEY = process.env.WC_KEY || 'ck_aa90a5fbbec6cab3b1ad3865e8dbda72081ade16';
+const WC_SECRET = process.env.WC_SECRET || 'cs_cb2684749f7d5ade7ed4096e9dd48c78d53091fe';
+const SITE_URL = 'https://slicktee.com';
+
 const FILE = opt('file', 'artsholic_all.json');
-const SITE = (opt('site', '') || '').replace(/\/+$/, '');
+const SITE = (opt('site', SITE_URL) || '').replace(/\/+$/, '');
 const BATCH = Math.min(100, parseInt(opt('batch', '25'), 10));
 const CONCURRENCY = parseInt(opt('concurrency', '2'), 10);
 const LIMIT = parseInt(opt('limit', '0'), 10);
@@ -61,21 +66,23 @@ const SHORT = ['s', 'm', 'l', 'xl', '2xl'];
 // Style (POD Type) per garment category. Size surcharges follow the source
 // store's per-size pricing for the most common base price of each style.
 const TYPES = {
-  'vintage-shirts':         { name: 'Vintage T-Shirt',    code: 'TEE',  sizes: ladder(FULL, [0, 1, 2, 3, 4, 5, 6, 7]) },
-  'classic-tee':            { name: 'Classic Tee',        code: 'CTEE', sizes: ladder(['xs', ...FULL.slice(0, 7)], [0, 0, 1, 1, 2, 2, 3, 3]) },
-  'vintage-tank-top':       { name: 'Vintage Tank Top',   code: 'TANK', sizes: ladder(SHORT, [0, 0, 1, 1, 2]) },
-  'vintage-sweatshirt':     { name: 'Vintage Sweatshirt', code: 'SWT',  sizes: ladder(FULL, [0, 0, 2, 2, 4, 4, 6, 6]) },
-  'vintage-hoodie':         { name: 'Vintage Hoodie',     code: 'HOOD', sizes: ladder(FULL, [0, 0, 2, 2, 4, 4, 6, 6]) },
-  'vintage-shirt-for-kids': { name: 'Kids Vintage Tee',   code: 'KID',  sizes: ladder(SHORT, [0, 0, 1, 1, 2]) },
-  'vintage-shorts':         { name: 'Vintage Shorts',     code: 'SHRT', sizes: ladder(FULL, [0, 1, 2, 3, 4, 5, 6, 7]) },
-  'vintage-caps':           { name: 'Vintage Cap',        code: 'CAP',  sizes: { 'one-size': 0 } },
+  'vintage-shirts': { name: 'Vintage T-Shirt', code: 'TEE', sizes: ladder(FULL, [0, 1, 2, 3, 4, 5, 6, 7]) },
+  'classic-tee': { name: 'Classic Tee', code: 'CTEE', sizes: ladder(['xs', ...FULL.slice(0, 7)], [0, 0, 1, 1, 2, 2, 3, 3]) },
+  'vintage-tank-top': { name: 'Vintage Tank Top', code: 'TANK', sizes: ladder(SHORT, [0, 0, 1, 1, 2]) },
+  'vintage-sweatshirt': { name: 'Vintage Sweatshirt', code: 'SWT', sizes: ladder(FULL, [0, 0, 2, 2, 4, 4, 6, 6]) },
+  'vintage-hoodie': { name: 'Vintage Hoodie', code: 'HOOD', sizes: ladder(FULL, [0, 0, 2, 2, 4, 4, 6, 6]) },
+  'vintage-shirt-for-kids': { name: 'Kids Vintage Tee', code: 'KID', sizes: ladder(SHORT, [0, 0, 1, 1, 2]) },
+  'vintage-shorts': { name: 'Vintage Shorts', code: 'SHRT', sizes: ladder(FULL, [0, 1, 2, 3, 4, 5, 6, 7]) },
+  'vintage-caps': { name: 'Vintage Cap', code: 'CAP', sizes: { 'one-size': 0 } },
 };
 // Order matters: the first matching category decides the style.
 const TYPE_PRIORITY = ['vintage-shirt-for-kids', 'vintage-caps', 'vintage-shorts', 'vintage-hoodie',
   'vintage-sweatshirt', 'vintage-tank-top', 'classic-tee', 'vintage-shirts'];
 // Fallback when a product has no garment category: SKU code in the image filename.
-const IMAGE_CODE_TYPES = { TX: 'vintage-shirts', '2TX': 'vintage-shirts', TANK: 'vintage-tank-top',
-  SWEAT: 'vintage-sweatshirt', HD: 'vintage-hoodie', '2HD': 'vintage-hoodie', GT: 'classic-tee', KID: 'vintage-shirt-for-kids' };
+const IMAGE_CODE_TYPES = {
+  TX: 'vintage-shirts', '2TX': 'vintage-shirts', TANK: 'vintage-tank-top',
+  SWEAT: 'vintage-sweatshirt', HD: 'vintage-hoodie', '2HD': 'vintage-hoodie', GT: 'classic-tee', KID: 'vintage-shirt-for-kids'
+};
 
 const COLOR_ALIASES = {
   ArmyGreen: 'Army Green', DarkBlue: 'Dark Blue', DeminBlue: 'Denim Blue', 'Demin Blue': 'Denim Blue',
@@ -97,16 +104,76 @@ const COLOR_HEX = {
 const CATEGORY_SLUGS = { 'Vintage Tank Tops': 'vintage-tank-top' };
 const SKIP_CATEGORIES = new Set(['#REF!']);
 
-const DESCRIPTIONS = {
-  'vintage-shirts': ['Oversized unisex fit with dropped shoulders', 'Vintage wash gives every tee a soft, lived-in look and feel'],
-  'classic-tee': ['Classic unisex fit for everyday wear', 'Soft premium cotton that holds its shape'],
-  'vintage-tank-top': ['Relaxed sleeveless cut for warm days and layering', 'Vintage-washed for a soft, broken-in feel'],
-  'vintage-sweatshirt': ['Crewneck with ribbed cuffs and hem', 'Vintage wash for a faded, broken-in look'],
-  'vintage-hoodie': ['Drawstring hood and front kangaroo pocket', 'Vintage wash for a faded, broken-in look'],
-  'vintage-shirt-for-kids': ['Kids sizing with the same vintage-wash look as our adult tees', 'Soft cotton that is comfortable for all-day play'],
-  'vintage-shorts': ['Elastic waistband for an easy, relaxed fit', 'Vintage-washed fabric with a soft hand feel'],
-  'vintage-caps': ['Adjustable strap fits most head sizes', 'Washed cotton crown with a pre-curved brim'],
+// Source mockups carry an ARTSHOLIC hang tag; imagor overlays a pre-rotated
+// SlickTee tag on it. Geometry per mockup set was measured by template-matching
+// the old tag on samples of every folder × code × colour, on the image
+// normalised to 1000×1000 (older sweatshirt shots are 600×600).
+const IMAGOR = 'https://imagor.polpod.cc/unsafe';
+// Pre-rotated, pre-scaled tag images (imagor's watermark ignores fractional
+// size ratios, so each scale is its own file); cx/cy = card centre in the image.
+// Scale 1 = the old tag at ≈ 162×48 px. r* = clockwise tilt, l22 = 22.25° counter-clockwise.
+const TAG_IMAGES = {
+  r14: { src: 'image-mcp.polpod.cc/files/in-00eb974fe00f47b35957.png', cx: 95, cy: 51.2 },
+  'r10-081': { src: 'image-mcp.polpod.cc/files/in-5275aa013c6468942fb7.webp', cx: 78.6, cy: 38.9 },
+  'r10-093': { src: 'image-mcp.polpod.cc/files/in-af82bd2210674b3de54e.webp', cx: 89.8, cy: 44.4 },
+  'r10-106': { src: 'image-mcp.polpod.cc/files/in-4e56f5d2aa635f52ee73.webp', cx: 102.6, cy: 51 },
+  'r10-110': { src: 'image-mcp.polpod.cc/files/in-29fbc64a03d55afbe3df.webp', cx: 106.8, cy: 53 },
+  'r10-117': { src: 'image-mcp.polpod.cc/files/in-4dc7a0ab7d30342638a2.webp', cx: 113.4, cy: 56 },
+  'r10-121': { src: 'image-mcp.polpod.cc/files/in-54934056e2beae7211bc.webp', cx: 117.6, cy: 58.1 },
+  'l22-111': { src: 'image-mcp.polpod.cc/files/in-3846401663185e479b7e.webp', cx: 108.4, cy: 70 },
+  'l22-122': { src: 'image-mcp.polpod.cc/files/in-4623634fffda8a091234.webp', cx: 119.1, cy: 77 },
 };
+// [tag image, old tag centre x, centre y] on the 1000×1000 mockup
+const TAGS = {
+  classic: ['r14', 684.5, 144],
+  front: ['r10-121', 723.9, 116], // Vintage Shirts (TX-230)
+  front2406: ['r10-106', 683.2, 110.2],
+  front2409: ['r10-093', 693, 99.5],
+  back: ['r10-093', 767.4, 81.6], // 2-sided back shot (2TX, 2-Sided)
+  back2504: ['r10-081', 755.5, 69.3],
+  back2406: ['r10-093', 743.2, 81.7],
+  kids: ['r10-110', 757, 95.2],
+  tank: ['r10-093', 699, 98.5],
+  sweat: ['r10-117', 715.4, 104.2],
+  sweatGreen: ['r10-117', 726.8, 104.6],
+  hoodWarm: ['l22-111', 205.6, 926.8], // Apricot / Coffee / Rose Red
+  hoodDark: ['l22-111', 215.7, 927.2], // Black / Dark Gray / Military Green
+  hood2409: ['l22-122', 212.2, 925.1], // 2024/09 colours (not Black) + 2025/08 Black
+  hoodBack: ['l22-111', 236, 927], // 2-sided hoodie (2HD)
+};
+
+// Which TAGS entry fits a source image, or null to leave it untouched.
+function tagFor(typeKey, twoSided, url) {
+  const file = url.split('/').pop();
+  const dir = url.split('/').slice(-3, -1).join('/');
+  const color = file.replace(/(-\d)?\.\w+$/, '').split('-').pop().toLowerCase();
+  switch (typeKey) {
+    case 'classic-tee': return 'classic';
+    case 'vintage-shirt-for-kids': return 'kids';
+    case 'vintage-tank-top': return 'tank';
+    case 'vintage-sweatshirt': return color === 'militarygreen' ? 'sweatGreen' : 'sweat';
+    case 'vintage-shirts':
+      if (twoSided) return dir === '2024/06' && /-2TX-(?!230)/i.test(file) ? 'back2406' : 'back';
+      if (/-2TX-230-/i.test(file)) return 'back';
+      if (/-2TX-/i.test(file)) return 'back2504';
+      if (/-TX-(?!230)/i.test(file)) return dir === '2024/06' ? 'front2406' : 'front2409';
+      return 'front';
+    case 'vintage-hoodie':
+      if (!/-HD[-.]/i.test(file)) return 'hoodBack'; // 2HD + uncoded ANI-1713.jpg-style files
+      if (dir === '2024/09') return color === 'black' ? 'hoodDark' : 'hood2409';
+      if (dir === '2025/08' && color === 'black') return 'hood2409';
+      return ['apricot', 'coffee', 'rosered'].includes(color) ? 'hoodWarm' : 'hoodDark';
+    default: return null;
+  }
+}
+
+function retagImage(url, key) {
+  const [img, cx, cy] = TAGS[key];
+  const tag = TAG_IMAGES[img];
+  const x = Math.round(cx - tag.cx);
+  const y = Math.round(cy - tag.cy);
+  return `${IMAGOR}/1000x1000/filters:watermark(${tag.src},${x},${y},0)/${url}`;
+}
 
 /* ---------------------------------------------------------------------
  * Transform
@@ -120,8 +187,6 @@ const slugify = (s) => decode(s).toLowerCase().replace(/['’]/g, '').replace(/&
   .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
 const categorySlug = (name) => CATEGORY_SLUGS[decode(name)] || slugify(name);
-
-const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 function imageCode(url) {
   const parts = url.split('/').pop().split('-');
@@ -160,6 +225,7 @@ function transform(source) {
     if (!catSlugs.includes(typeKey)) catSlugs.push(typeKey);
     if (newest.has(p.id)) catSlugs.push('new-arrivals');
 
+    const twoSided = catSlugs.includes('2-sided');
     const seen = new Set();
     const variants = [];
     for (const c of p.colors) {
@@ -167,21 +233,19 @@ function transform(source) {
       if (!c.image || seen.has(color)) continue;
       seen.add(color);
       colors.set(color, slugify(color));
+      const tag = tagFor(typeKey, twoSided, c.image);
       variants.push({
         type: type.name,
         color,
         price: p.price,
         sku: `ST-${p.id}-${type.code}-${slugify(color).toUpperCase()}`,
-        image_urls: [c.image],
+        image_urls: [tag ? retagImage(c.image, tag) : c.image],
       });
     }
     if (!variants.length) { skipped.push([p.id, 'no usable colors']); continue; }
 
     const main = variants.find((v) => v.color === 'Black') || variants[0];
     const name = decode(p.name);
-    const bullets = [...DESCRIPTIONS[typeKey],
-      'Printed to order with DTG printing and OEKO-TEX® ECO PASSPORT certified inks',
-      'Made to order: production takes 5–7 business days before dispatch'];
 
     products.push({
       source_id: String(p.id),
@@ -189,9 +253,11 @@ function transform(source) {
       sku: `ST-${p.id}`,
       categories: [...new Set(catSlugs)],
       image: main.image_urls[0],
-      short_description: `${type.name} with fan-made artwork, available in ${variants.length} color${variants.length > 1 ? 's' : ''}.`,
-      description: `<h2>${esc(name)}</h2>\n<ul>\n${bullets.map((b) => `<li>${esc(b)}</li>`).join('\n')}\n</ul>\n` +
-        '<p>Fan-made design. Not affiliated with or endorsed by any rights holder.</p>',
+      // Descriptions come from the category-level shared text
+      // (inc/category-descriptions.php); empty strings clear the per-product
+      // ones left by older imports.
+      description: '',
+      short_description: '',
       variants,
     });
   }
@@ -222,10 +288,10 @@ function transform(source) {
  * ------------------------------------------------------------------ */
 
 async function post(path, body, attempt = 1) {
-  const key = process.env.WC_KEY;
-  const secret = process.env.WC_SECRET;
+  const key = WC_KEY;
+  const secret = WC_SECRET;
   if (!SITE || !key || !secret) {
-    throw new Error('Set --site plus WC_KEY / WC_SECRET env vars (WooCommerce REST API key, Read/Write).');
+    throw new Error('Fill in WC_KEY / WC_SECRET at the top of scripts/pod-import.mjs (WooCommerce REST API key, Read/Write).');
   }
   let url = `${SITE}/wp-json/wc-pod/v1${path}`;
   const headers = { 'Content-Type': 'application/json' };

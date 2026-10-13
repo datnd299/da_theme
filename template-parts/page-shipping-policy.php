@@ -18,14 +18,15 @@ $sections = [
     [
         'title' => __('Where we ship', 'dawp'),
         'body'  => [
-            __('RoyalStyled ships to addresses within the United States only, including APO/FPO addresses where the carrier allows it. We do not currently ship internationally.', 'dawp'),
+            __('RoyalStyled delivers to addresses within the United States only, including APO/FPO addresses where the carrier allows it. We do not currently deliver to other countries.', 'dawp'),
+            __('Orders ship from our fulfillment partner in Hong Kong, where each watch is assembled and tested before dispatch.', 'dawp'),
             __('If an address cannot be served by our carriers, you will be notified before payment is taken or, if discovered afterward, contacted for an updated address or a full refund.', 'dawp'),
         ],
     ],
     [
         'title' => __('Shipping cost', 'dawp'),
         'body'  => [
-            __('Standard US shipping is free on every order. There is no minimum order value and no separate handling fee. The price you see at checkout is the price you pay.', 'dawp'),
+            __('Standard shipping is free on every order, with tracking. There is no minimum order value and no separate handling fee. The price you see at checkout is the price you pay.', 'dawp'),
         ],
     ],
     [
@@ -37,15 +38,16 @@ $sections = [
     [
         'title' => __('Order processing time', 'dawp'),
         'body'  => [
-            __('Orders are processed and packed within 1-3 business days of purchase. Our order cutoff is 12:00 PM (Noon) Eastern Time; orders placed after the cutoff, on weekends, or on US public holidays begin processing on the next business day.', 'dawp'),
-            __('Each watch is wound, checked for timekeeping and function, and inspected for cosmetic condition before it is packed in a protective box with padding.', 'dawp'),
+            __('Allow 3-5 business days after purchase for assembly and testing before your order ships. Our order cutoff is 12:00 PM (Noon) Eastern Time; orders placed after the cutoff, on weekends, or on US public holidays begin processing on the next business day.', 'dawp'),
+            __('Each watch is assembled by hand after you order, then checked for timekeeping, function, and finish before it is packed in a protective box with padding.', 'dawp'),
             __('If an item unexpectedly goes out of stock after you order, we will email you within 2 business days with the option to wait for restock, swap to another model, or receive a full refund.', 'dawp'),
         ],
     ],
     [
         'title' => __('Delivery time', 'dawp'),
         'body'  => [
-            __('After dispatch, standard transit typically takes 3-7 business days. Total estimated delivery is about 4-10 business days from the order date. These are estimates, not guarantees; carrier delays, weather, customs or hub congestion, and peak periods can extend them.', 'dawp'),
+            __('After dispatch from Hong Kong, transit typically takes 10-15 business days, including US customs clearance. Total estimated delivery is about 13-20 business days from the order date. These are estimates, not guarantees; carrier delays, weather, customs or hub congestion, and peak periods can extend them.', 'dawp'),
+            __('Customs checks on international parcels are now stricter, so clearance can take longer than it used to. Tracking may pause for a few days while a parcel is in customs. That is normal, and your parcel is still on its way.', 'dawp'),
             __('Delivery estimates shown at checkout or in tracking emails are provided by the carrier and may change after the label is created.', 'dawp'),
         ],
     ],
@@ -59,7 +61,7 @@ $sections = [
     [
         'title' => __('Carriers and tracking', 'dawp'),
         'body'  => [
-            __('We ship with USPS, UPS, and FedEx and select the carrier based on the destination and the value of the order. We cannot guarantee a specific carrier for a given order.', 'dawp'),
+            __('Orders travel by international courier from Hong Kong and are delivered in the US by USPS, UPS, FedEx, or DHL, depending on the destination and the value of the order. We cannot guarantee a specific carrier for a given order.', 'dawp'),
             __('Every order ships with tracking. You can follow status on the carrier site using the number in your shipping email, or on our Track Order page using your order details.', 'dawp'),
             __('An order with more than one item may arrive in separate parcels, each with its own tracking number and possibly on different days.', 'dawp'),
         ],
@@ -109,9 +111,10 @@ $sections = [
         ],
     ],
     [
-        'title' => __('Sales tax', 'dawp'),
+        'title' => __('Sales tax, duties, and customs fees', 'dawp'),
         'body'  => [
-            __('Applicable US state and local sales tax is calculated on the shipping address and shown on the final checkout screen. Because we ship within the United States only, there are no import duties or customs fees on your order.', 'dawp'),
+            __('Applicable US state and local sales tax is calculated on the shipping address and shown on the final checkout screen.', 'dawp'),
+            __('Any US import duties or customs fees on your order are paid by RoyalStyled. You will not be asked to pay anything extra on delivery.', 'dawp'),
         ],
     ],
 ];
@@ -122,7 +125,7 @@ $sections = [
         <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
             <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-blush"><?php esc_html_e('Policies', 'dawp'); ?></p>
             <h1 class="mt-4 font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
-            <p class="mt-5 text-base leading-7 text-foreground-muted"><?php esc_html_e('Free US shipping on every order, dispatched within 1-3 business days with tracking.', 'dawp'); ?></p>
+            <p class="mt-5 text-base leading-7 text-foreground-muted"><?php esc_html_e('Free tracked shipping on every order. Assembled and tested in 3-5 business days, then shipped from Hong Kong.', 'dawp'); ?></p>
             <p class="mt-3 text-sm text-muted"><?php printf(esc_html__('Last updated: %s', 'dawp'), esc_html($updated)); ?></p>
         </div>
     </section>
@@ -149,8 +152,9 @@ $sections = [
                     );
                     ?>
                 </p>
+                <p class="mt-2 text-sm leading-6 text-foreground-muted"><?php esc_html_e('Ships from: Hong Kong', 'dawp'); ?></p>
                 <?php if ($store_address) : ?>
-                    <p class="mt-2 text-sm leading-6 text-foreground-muted"><?php printf(esc_html__('Ships from: %s', 'dawp'), esc_html($store_address)); ?></p>
+                    <p class="mt-2 text-sm leading-6 text-foreground-muted"><?php printf(esc_html__('Business address: %s', 'dawp'), esc_html($store_address)); ?></p>
                 <?php endif; ?>
             </div>
         </div>

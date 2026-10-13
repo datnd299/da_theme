@@ -47,7 +47,7 @@ $sections = [
         'title' => __('5. When you are charged', 'dawp'),
         'body'  => [
             __('When you submit an order, an authorization hold is placed on your payment method for the full order total to confirm the funds are available and the details are valid.', 'dawp'),
-            __('Your payment method is captured — that is, actually charged — when we accept the order and prepare it for dispatch, normally within 1-3 business days. In some cases capture happens at the time you place the order; either way you are charged only once per order.', 'dawp'),
+            __('Your payment method is captured — that is, actually charged — when we accept the order and prepare it for dispatch, normally within 3-5 business days. In some cases capture happens at the time you place the order; either way you are charged only once per order.', 'dawp'),
             __('If we cannot accept your order, the authorization is released. The time it takes for a released authorization to disappear from your account is set by your bank and is usually 3-7 business days.', 'dawp'),
         ],
     ],

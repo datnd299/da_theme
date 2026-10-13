@@ -14,9 +14,9 @@ $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM EST', 'dawp');
 
 $steps = [
     ['title' => __('Order placed', 'dawp'),   'copy' => __('You receive a confirmation email with your order number as soon as checkout completes.', 'dawp')],
-    ['title' => __('Processing', 'dawp'),      'copy' => __('We inspect and pack your watch within 1-3 business days of purchase.', 'dawp')],
-    ['title' => __('Shipped', 'dawp'),         'copy' => __('A shipping email with a tracking link is sent when your parcel leaves our facility.', 'dawp')],
-    ['title' => __('Out for delivery', 'dawp'),'copy' => __('Standard transit is typically 3-7 business days after dispatch, tracked to your door.', 'dawp')],
+    ['title' => __('Processing', 'dawp'),      'copy' => __('Your watch is assembled and tested within 3-5 business days of purchase.', 'dawp')],
+    ['title' => __('Shipped', 'dawp'),         'copy' => __('A shipping email with a tracking link is sent when your parcel leaves Hong Kong.', 'dawp')],
+    ['title' => __('Out for delivery', 'dawp'),'copy' => __('Transit is typically 10-15 business days after dispatch, including customs, tracked to your door.', 'dawp')],
 ];
 ?>
 
@@ -51,7 +51,7 @@ $steps = [
                     </div>
                     <div class="mt-6 rounded-sm border-l-2 border-accent bg-surface-alt p-4 text-sm leading-6 text-foreground-muted">
                         <strong class="font-semibold text-foreground"><?php esc_html_e('No tracking yet?', 'dawp'); ?></strong>
-                        <?php esc_html_e('Tracking updates can take 1-2 business days to appear after an order ships while the carrier scans the parcel.', 'dawp'); ?>
+                        <?php esc_html_e('Tracking updates can take 1-2 business days to appear after an order ships, and may pause for a few days while the parcel clears US customs.', 'dawp'); ?>
                     </div>
                 </div>
             </div>

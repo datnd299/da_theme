@@ -16,8 +16,9 @@ get_header();
 $is_account_page = function_exists('is_account_page') && is_account_page();
 $is_product_page = function_exists('is_product') && is_product();
 $is_cart_page = function_exists('is_cart') && is_cart();
+// Product page spacing lives in product.css (.woo-page__container).
 $container_style = $is_product_page
-    ? ' style="padding-top:1.5rem; padding-bottom:4rem; min-height:60vh;"'
+    ? ''
     : ' style="padding-top:6rem; padding-bottom:6rem; min-height:60vh;"';
 $main_class = $is_account_page ? 'account-page' : 'woo-page';
 
@@ -58,7 +59,7 @@ if ($is_cart_page) {
             </div>
         </section>
     <?php endif; ?>
-    <div class="<?php echo $is_account_page ? 'account-page__container' : 'container'; ?>"<?php echo $is_account_page ? '' : $container_style; ?>>
+    <div class="<?php echo $is_account_page ? 'account-page__container' : ($is_product_page ? 'container woo-page__container' : 'container'); ?>"<?php echo $is_account_page ? '' : $container_style; ?>>
         <?php woocommerce_content(); ?>
     </div>
 </main>

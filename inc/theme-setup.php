@@ -9,7 +9,7 @@ function dawp_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('woocommerce');
-    add_theme_support('wc-product-gallery-zoom');
+    // No 'wc-product-gallery-zoom': main.js handles hover zoom; WC's overlay + trigger clash with it
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 }
@@ -65,7 +65,7 @@ function dawp_scripts() {
             wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', ['dawp-main'], '1.0.8');
             dawp_remove_styles();
         } elseif ( is_product() ) {
-            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.9');
+            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], filemtime(get_theme_file_path('/assets/css/product.css')));
             dawp_remove_styles();
         } elseif ( is_cart() ) {
             wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', ['dawp-main'], '1.0.9');

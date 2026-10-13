@@ -19,6 +19,10 @@ function dawp_cdn_image_url($url, $width = 0, $height = 0, $mode = 'resize') {
     $host = $parts['host'];
     $path = $parts['path'];
 
+    if (in_array($host, ['localhost', '127.0.0.1', '::1'], true) || preg_match('/\.(local|test)$/i', $host)) {
+        return $url;
+    }
+
     if ($host === 'i0.wp.com') {
         $path_parts = explode('/', ltrim($path, '/'), 2);
         if (count($path_parts) === 2) {

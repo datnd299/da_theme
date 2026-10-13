@@ -27,9 +27,9 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     return [
-        'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'tw-about.css'],
+        'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'about.css'],
         'faq'              => ['slug' => 'faq',              'title' => 'FAQ', 'css' => 'tw-faq.css'],
-        'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'tw-contact.css'],
+        'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'contact-rack.css'],
         'shipping-policy'  => ['slug' => 'shipping',         'title' => 'Shipping Policy',   'css' => 'tw-ship.css'],
         'returns-policy'   => ['slug' => 'returns',          'title' => 'Return & Refund Policy', 'css' => 'tw-ship.css'],
         'terms-conditions' => ['slug' => 'terms-conditions', 'title' => 'Terms & Conditions', 'css' => 'tw-terms.css'],
@@ -74,10 +74,20 @@ function dawp_virtual_page_assets() {
         $css_file_url = get_template_directory_uri() . '/assets/css/' . $css_file_name;
     }
 
+    if ('contact' === $pages[$request_uri]['slug']) {
+        $home_rack_path = get_template_directory() . '/assets/css/home-rack.css';
+        wp_enqueue_style(
+            'dawp-home-rack-contact',
+            get_template_directory_uri() . '/assets/css/home-rack.css',
+            [],
+            file_exists($home_rack_path) ? filemtime($home_rack_path) : '1.0.6'
+        );
+    }
+
     wp_enqueue_style(
         'dawp-virtual-page-' . sanitize_title($pages[$request_uri]['slug']),
         $css_file_url,
-        [],
+        'contact' === $pages[$request_uri]['slug'] ? ['dawp-home-rack-contact'] : [],
         file_exists($css_file_path) ? filemtime($css_file_path) : '1.0.0'
     );
 }

@@ -42,8 +42,8 @@
   --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
 
   /* === TYPOGRAPHY === */
-  --font-sans:    'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Lato', 'Georgia', serif;
+  --font-sans:    'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-heading: 'Manrope', 'Plus Jakarta Sans', system-ui, sans-serif;
 
   /* === TRANSITIONS === */
   --ease-fluid:      cubic-bezier(0.4, 0, 0.2, 1);

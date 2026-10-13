@@ -1,0 +1,431 @@
+.mytire-about {
+    --about-ink: #111827;
+    --about-muted: #5f6673;
+    --about-soft: #f7f7f7;
+    --about-line: #e5e5e5;
+    --about-red: #ffcc00;
+    --about-gold: #ffcc00;
+    --about-blue: #171717;
+    background: #ffffff;
+    color: var(--about-ink);
+    font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+    overflow: hidden;
+}
+
+.mytire-about *,
+.mytire-about *::before,
+.mytire-about *::after {
+    box-sizing: border-box;
+}
+
+.mytire-about img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.mytire-about__feedback {
+    position: fixed;
+    top: 45%;
+    right: 0;
+    z-index: 30;
+    writing-mode: vertical-rl;
+    transform: translateY(-50%);
+    padding: 14px 9px;
+    background: var(--about-red);
+    color: #171717;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.mytire-about-hero {
+    position: relative;
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    padding: 118px 20px 132px;
+    background:
+        linear-gradient(90deg, rgba(9, 10, 12, 0.94) 0%, rgba(9, 10, 12, 0.84) 38%, rgba(9, 10, 12, 0.48) 70%, rgba(9, 10, 12, 0.24) 100%),
+        linear-gradient(180deg, rgba(9, 10, 12, 0.2) 0%, rgba(9, 10, 12, 0.52) 100%),
+        url("../img/gallery/Mytire/Home/the_right_tire_faster.jpg") center / cover no-repeat;
+    color: #ffffff;
+}
+
+.mytire-about-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 38%;
+    background: linear-gradient(180deg, rgba(9, 10, 12, 0), rgba(9, 10, 12, 0.74));
+    pointer-events: none;
+}
+
+.mytire-about-hero__inner,
+.mytire-about-proof,
+.mytire-about-story,
+.mytire-about-values,
+.mytire-about-guide,
+.mytire-about-cta {
+    width: min(1180px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.mytire-about-hero__inner {
+    position: relative;
+    z-index: 1;
+    margin-inline: auto;
+}
+
+.mytire-about__kicker {
+    margin: 0 0 14px;
+    color: var(--about-gold);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.mytire-about__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    margin: 0 0 18px;
+    padding: 0 12px;
+    border: 1px solid rgba(255, 204, 0, 0.35);
+    border-radius: 999px;
+    background: rgba(255, 204, 0, 0.12);
+    color: #ffd84d;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.mytire-about h1,
+.mytire-about h2,
+.mytire-about h3 {
+    margin: 0;
+    color: inherit;
+    font-family: "Manrope", "Plus Jakarta Sans", system-ui, sans-serif;
+    letter-spacing: 0;
+}
+
+.mytire-about h1 {
+    max-width: 680px;
+    font-size: clamp(42px, 4.4vw, 68px);
+    line-height: 0.98;
+    font-weight: 900;
+}
+
+.mytire-about h2 {
+    max-width: 760px;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.12;
+    font-weight: 900;
+}
+
+.mytire-about h3 {
+    font-size: 20px;
+    line-height: 1.25;
+    font-weight: 900;
+}
+
+.mytire-about p {
+    margin: 0;
+    color: var(--about-muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.mytire-about-hero p:not(.mytire-about__eyebrow) {
+    max-width: 650px;
+    margin-top: 24px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 19px;
+    line-height: 1.65;
+    text-shadow: 0 1px 18px rgba(0, 0, 0, 0.36);
+}
+
+.mytire-about__button,
+.mytire-about__outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    margin-top: 34px;
+    padding: 0 28px;
+    border: 1px solid #ffd21f;
+    border-radius: 6px;
+    background: #ffcc00;
+    color: #101010;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 14px 34px rgba(255, 204, 0, 0.22);
+    transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.mytire-about__button:hover,
+.mytire-about__outline:hover {
+    border-color: #e6b800;
+    background: #e6b800;
+    color: #171717;
+    box-shadow: 0 16px 38px rgba(255, 204, 0, 0.28);
+    transform: translateY(-1px);
+}
+
+.mytire-about__outline {
+    background: transparent;
+    border-color: #171717;
+    color: #171717;
+    box-shadow: none;
+}
+
+.mytire-about-proof {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border: 1px solid var(--about-line);
+    border-top: 0;
+    background: #ffffff;
+}
+
+.mytire-about-proof article {
+    min-height: 132px;
+    padding: 30px;
+    border-right: 1px solid var(--about-line);
+}
+
+.mytire-about-proof article:last-child {
+    border-right: 0;
+}
+
+.mytire-about-proof strong,
+.mytire-about-proof span {
+    display: block;
+}
+
+.mytire-about-proof strong {
+    margin-bottom: 8px;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.mytire-about-proof span {
+    color: var(--about-muted);
+    line-height: 1.6;
+}
+
+.mytire-about-story,
+.mytire-about-guide {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 56px;
+    align-items: center;
+    padding-block: 86px;
+}
+
+.mytire-about-story__image,
+.mytire-about-guide__image,
+.mytire-about-values article {
+    overflow: hidden;
+    border: 1px solid var(--about-line);
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.mytire-about-story__image img,
+.mytire-about-guide__image img {
+    aspect-ratio: 7 / 4.5;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mytire-about-story__copy p:not(.mytire-about__kicker),
+.mytire-about-guide__copy p:not(.mytire-about__kicker) {
+    margin-top: 20px;
+}
+
+.mytire-about-values {
+    padding: 78px 0;
+}
+
+.mytire-about-values__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 34px;
+}
+
+.mytire-about-values article {
+    box-shadow: none;
+}
+
+.mytire-about-values article img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.mytire-about-values article h3,
+.mytire-about-values article p {
+    margin-inline: 22px;
+}
+
+.mytire-about-values article h3 {
+    margin-top: 22px;
+}
+
+.mytire-about-values article p {
+    margin-top: 10px;
+    margin-bottom: 24px;
+}
+
+.mytire-about-guide {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    border-top: 1px solid var(--about-line);
+}
+
+.mytire-about-guide ol {
+    display: grid;
+    gap: 14px;
+    margin: 24px 0 0;
+    padding: 0;
+    counter-reset: about-steps;
+    list-style: none;
+}
+
+.mytire-about-guide li {
+    position: relative;
+    min-height: 52px;
+    padding: 14px 16px 14px 58px;
+    border: 1px solid var(--about-line);
+    border-radius: 8px;
+    color: var(--about-muted);
+    line-height: 1.55;
+}
+
+.mytire-about-guide li::before {
+    counter-increment: about-steps;
+    content: counter(about-steps);
+    position: absolute;
+    top: 13px;
+    left: 14px;
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--about-gold);
+    color: var(--about-blue);
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.mytire-about-cta {
+    margin-bottom: 86px;
+    padding: 54px;
+    border-radius: 8px;
+    border: 1px solid #171717;
+    background: #171717;
+    color: #ffffff;
+    text-align: center;
+}
+
+.mytire-about-cta h2,
+.mytire-about-cta p {
+    margin-inline: auto;
+}
+
+.mytire-about-cta p:not(.mytire-about__kicker) {
+    max-width: 680px;
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 900px) {
+    .mytire-about-proof,
+    .mytire-about-values__grid,
+    .mytire-about-story,
+    .mytire-about-guide {
+        grid-template-columns: 1fr;
+    }
+
+    .mytire-about-proof article {
+        border-right: 0;
+        border-bottom: 1px solid var(--about-line);
+    }
+
+    .mytire-about-proof article:last-child {
+        border-bottom: 0;
+    }
+
+    .mytire-about-story,
+    .mytire-about-guide {
+        gap: 32px;
+        padding-block: 60px;
+    }
+}
+
+@media (max-width: 640px) {
+    .mytire-about__feedback {
+        display: none;
+    }
+
+    .mytire-about-hero {
+        min-height: 560px;
+        padding: 76px 0 92px;
+        background:
+            linear-gradient(90deg, rgba(9, 10, 12, 0.94) 0%, rgba(9, 10, 12, 0.84) 54%, rgba(9, 10, 12, 0.54) 100%),
+            linear-gradient(180deg, rgba(9, 10, 12, 0.18) 0%, rgba(9, 10, 12, 0.62) 100%),
+            url("../img/gallery/Mytire/Home/the_right_tire_faster.jpg") center / cover no-repeat;
+    }
+
+    .mytire-about-hero__inner,
+    .mytire-about-proof,
+    .mytire-about-story,
+    .mytire-about-values,
+    .mytire-about-guide,
+    .mytire-about-cta {
+        width: min(100% - 28px, 1180px);
+    }
+
+    .mytire-about h1 {
+        max-width: 11ch;
+        font-size: clamp(38px, 11vw, 46px);
+        line-height: 1;
+    }
+
+    .mytire-about h2 {
+        font-size: 31px;
+    }
+
+    .mytire-about-hero p:not(.mytire-about__eyebrow) {
+        max-width: 34rem;
+        font-size: 17px;
+        line-height: 1.62;
+    }
+
+    .mytire-about__button,
+    .mytire-about__outline {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .mytire-about-proof article {
+        min-height: auto;
+        padding: 24px;
+    }
+
+    .mytire-about-values {
+        padding-block: 56px;
+    }
+
+    .mytire-about-cta {
+        margin-bottom: 58px;
+        padding: 36px 20px;
+    }
+}

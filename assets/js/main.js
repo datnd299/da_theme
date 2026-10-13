@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('site-header');
+    const header = document.getElementById('site-header') || document.getElementById('masthead');
     const toggle = document.querySelector('.menu-toggle');
     const nav    = document.querySelector('.main-navigation');
 
@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Đóng menu khi click bên ngoài
         document.addEventListener('click', (e) => {
+            if (!header) return;
+
             if (!header.contains(e.target) && !toggle.contains(e.target)) {
                 toggle.setAttribute('aria-expanded', 'false');
                 nav.classList.remove('is-open');
@@ -28,16 +30,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const masthead = document.getElementById('masthead');
-    const mobileMenuToggle = document.getElementById('tizezap-mobile-menu-toggle');
-    const mobileMenu = document.getElementById('tizezap-mobile-menu');
-    const mobileSearchToggle = document.getElementById('tizezap-mobile-search-toggle');
-    const mobileSearch = document.getElementById('tizezap-mobile-search');
+    const megaMenus = document.querySelectorAll('.dawp-mega');
+    const mobileMenuToggle = document.getElementById('Mytire-mobile-menu-toggle');
+    const mobileMenu = document.getElementById('Mytire-mobile-menu');
+    const mobileSearchToggle = document.getElementById('Mytire-mobile-search-toggle');
+    const mobileSearch = document.getElementById('Mytire-mobile-search');
 
-    const setMobilePanelTop = () => {
+    const setHeaderPanelTops = () => {
         if (!masthead) return;
+        const headerBottom = Math.max(0, masthead.getBoundingClientRect().bottom);
         document.documentElement.style.setProperty(
-            '--tizezap-mobile-panel-top',
-            `${Math.max(0, masthead.getBoundingClientRect().bottom)}px`
+            '--Mytire-mobile-panel-top',
+            `${headerBottom}px`
+        );
+        document.documentElement.style.setProperty(
+            '--Mytire-mega-panel-top',
+            `${headerBottom}px`
         );
     };
 
@@ -54,6 +62,51 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileSearchToggle.setAttribute('aria-expanded', 'false');
     };
 
+    const closeMobilePanels = () => {
+        closeMobileMenu();
+        closeMobileSearch();
+    };
+
+    megaMenus.forEach((megaMenu) => {
+        let closeTimer;
+        const panel = megaMenu.querySelector('.dawp-mega__panel');
+
+        const openMegaMenu = () => {
+            window.clearTimeout(closeTimer);
+            setHeaderPanelTops();
+            megaMenu.classList.add('is-open');
+        };
+
+        const scheduleCloseMegaMenu = () => {
+            window.clearTimeout(closeTimer);
+            closeTimer = window.setTimeout(() => {
+                megaMenu.classList.remove('is-open');
+            }, 20);
+        };
+
+        const pointerIsInsideMegaMenu = (target) => (
+            megaMenu.contains(target) || (panel && panel.contains(target))
+        );
+
+        const closeMegaMenuIfOutside = (event) => {
+            if (!pointerIsInsideMegaMenu(event.target)) {
+                scheduleCloseMegaMenu();
+            }
+        };
+
+        megaMenu.addEventListener('mouseenter', openMegaMenu);
+        megaMenu.addEventListener('focusin', openMegaMenu);
+        megaMenu.addEventListener('mouseleave', scheduleCloseMegaMenu);
+        megaMenu.addEventListener('focusout', scheduleCloseMegaMenu);
+
+        if (panel) {
+            panel.addEventListener('mouseenter', openMegaMenu);
+            panel.addEventListener('mouseleave', scheduleCloseMegaMenu);
+        }
+
+        document.addEventListener('pointermove', closeMegaMenuIfOutside, { passive: true });
+    });
+
     if (mobileMenuToggle && mobileMenu) {
         mobileMenuToggle.addEventListener('click', () => {
             const isOpen = !mobileMenu.classList.contains('hidden');
@@ -64,24 +117,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             closeMobileSearch();
-            setMobilePanelTop();
+            setHeaderPanelTops();
             mobileMenu.classList.remove('hidden');
             mobileMenuToggle.setAttribute('aria-expanded', 'true');
             document.body.classList.add('dawp-mobile-menu-open');
         });
 
-        window.addEventListener('resize', setMobilePanelTop, { passive: true });
-        window.addEventListener('orientationchange', setMobilePanelTop, { passive: true });
+        window.addEventListener('resize', setHeaderPanelTops, { passive: true });
+        window.addEventListener('orientationchange', setHeaderPanelTops, { passive: true });
         window.addEventListener('scroll', () => {
             if (!mobileMenu.classList.contains('hidden')) {
-                setMobilePanelTop();
+                setHeaderPanelTops();
             }
         }, { passive: true });
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                closeMobileMenu();
+                closeMobilePanels();
             }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!masthead || masthead.contains(e.target)) return;
+
+            closeMobilePanels();
         });
     }
 
@@ -94,6 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileSearchToggle.setAttribute('aria-expanded', String(!isOpen));
         });
     }
+
+    setHeaderPanelTops();
 
     // Product Gallery Thumbnails Scroll
     const initGalleryThumbsScroll = () => {

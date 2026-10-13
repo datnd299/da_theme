@@ -1,322 +1,109 @@
-# Tizezap — Design System
 
-## Design Goal
+# MyTire.co — Design System
 
-Build a clean, professional tire ecommerce website for cars, SUVs, trucks, trailers, winter tires, and performance tires.
+## Design Style
+- Reference: PriorityTire.com
+- Modern, minimal, clean American tire e-commerce.
+- Product-focused layout, not a marketing landing page.
+- Mostly white backgrounds, black text, yellow accents.
+- Professional, trustworthy, practical, and easy to shop.
+- Avoid gradients, glassmorphism, oversized hero sections, and excessive animations.
 
-The site should feel:
+## Colors
+- Primary Yellow: #FFCC00
+- Primary Black: #171717
+- White: #FFFFFF
+- Light Background: #F7F7F7
+- Border: #E5E5E5
+- Secondary Text: #666666
+- Sale Red: #D92D20
 
-* Automotive
-* Reliable
-* Technical
-* Clean
-* Road-ready
-* Trustworthy
-* Easy to shop
-* GMC-safe
-
-Avoid making the site feel like a racing-only store, random auto parts shop, fake discount tire site, or unsafe used tire marketplace.
-
----
-
-## Color Palette
-
-### Deep Navy
-
-```txt
-#0B1F33
-```
-
-Use for headings, footer, strong sections, trust blocks.
-
-### Charcoal Black
-
-```txt
-#111827
-```
-
-Use for main text, product titles, dark UI areas.
-
-### Steel Gray
-
-```txt
-#E5E7EB
-```
-
-Use for borders, dividers, product card outlines.
-
-### Cool Gray
-
-```txt
-#F4F6F8
-```
-
-Use for section backgrounds and product grid areas.
-
-### Electric Blue
-
-```txt
-#2563EB
-```
-
-Use for primary buttons, links, active states, technical highlights.
-
-### Safety Orange
-
-```txt
-#F97316
-```
-
-Use lightly for fitment reminders, important notes, small badges.
-
-### Clean White
-
-```txt
-#FFFFFF
-```
-
-Use for main background, cards, forms, product pages.
-
----
+Use yellow for primary buttons, active states, deals, and small highlights. Never overuse yellow backgrounds.
 
 ## Typography
+- Font: Inter, Arial, sans-serif.
+- Headings: Bold, clean, compact.
+- Body: 14–16px.
+- H1: 32–40px.
+- H2: 24–28px.
+- H3: 18–20px.
+- Buttons: 14–16px, semibold.
+- Text must be readable and not overly large.
 
-Use clean modern sans-serif fonts:
+## Layout
+- Max content width: 1280px.
+- Desktop: 12-column grid.
+- Product grid: 4 columns desktop, 2 tablet, 2 mobile when space allows.
+- Section spacing: 48–64px desktop, 32–40px mobile.
+- Card radius: 6–8px.
+- Button radius: 6px.
+- Use subtle borders instead of heavy shadows.
+- Consistent alignment and compact spacing.
 
-```txt
-Inter
-Manrope
-Plus Jakarta Sans
-Source Sans 3
-```
+## Header
+- Slim top announcement bar.
+- White main header with MyTire logo, search, account, and cart.
+- Simple navigation for Shop Tires, Brands, Deals, and Support.
+- Thin borders, compact height, sticky on scroll.
+- Mobile: logo, search, menu, and cart.
 
-Rules:
-
-* Headings: bold, clear, technical
-* Body: readable and direct
-* Product titles: concise and specification-friendly
-* Avoid decorative, luxury, or playful fonts
-
----
-
-## Layout Style
-
-Use a practical automotive ecommerce layout:
-
-* Large hero section
-* Clear category cards
-* Product grids with specs
-* Strong filter/search area
-* Trust and fitment reminders
-* Short copy blocks
-* Mobile-first spacing
-
-Recommended width:
-
-```txt
-max-w-7xl
-```
-
-Recommended spacing:
-
-```txt
-Desktop: py-20
-Mobile: py-14
-```
-
----
-
-## Homepage Sections
-
-Use 5 sections:
-
-1. Hero — Reliable Tires For Everyday Driving
-2. Shop By Tire Category
-3. All-Season & Daily Driving Tires
-4. SUV, Truck & Trailer Tires
-5. Customer Care / Fitment & Trust
-
-Keep homepage focused on tires, not general auto parts.
-
----
-
-## Product Categories
-
-Main categories:
-
-```txt
-All-Season Tires
-SUV & Crossover Tires
-Light Truck Tires
-Performance Tires
-Trailer Tires
-Winter Tires
-```
-
-Useful filters:
-
-```txt
-Shop By Tire Size
-Shop By Rim Size
-Shop By Vehicle Type
-Shop By Brand
-```
-
----
-
-## Image Direction
-
-Use clean automotive photography:
-
-* Tire close-ups
-* Tread detail shots
-* Car on road
-* SUV / truck lifestyle
-* Garage or tire shop scene
-* Product tire images on clean background
-
-Image rules:
-
-* No fake brand logos
-* No dirty/unsafe tire visuals
-* No text-heavy supplier images
-* No aggressive racing visuals unless for performance category
-* Product tread and tire sidewall should be clear when possible
-
----
-
-## Product Card Style
-
-Product cards should show key tire info clearly:
-
-* Tire image
-* Product name
-* Tire size
-* Tire type
-* Price
-* Short CTA
-
-Optional specs:
-
-* Load index
-* Speed rating
-* Season
-* Vehicle type
-
-Style:
-
-* White background
-* Light border
-* Rounded corners
-* Clean shadow on hover
-* No excessive sale badges
-
----
+## Tire Finder
+- Prominent search module near the top of the homepage.
+- Tabs: By Vehicle / By Tire Size / By Brand.
+- White background, subtle border, clean form fields.
+- Large yellow Search Tires button.
+- Simple dropdowns with clear labels.
+- Prioritize speed and usability over decorative styling.
 
 ## Buttons
+- Primary: Yellow background, black text, semibold.
+- Secondary: White background, black border and text.
+- Hover: Slightly darker background.
+- Consistent height: 44–48px.
+- Clear disabled, loading, and focus states.
 
-### Primary Button
+## Product Cards
+- White background with thin gray border.
+- Clean tire image on white background.
+- Brand name, tire model, size, and key specifications.
+- Large bold price per tire.
+- Optional set-of-4 price and genuine discount badge.
+- Yellow Add to Cart button.
+- Minimal styling, no heavy shadows or animations.
 
-```txt
-Background: #2563EB
-Text: #FFFFFF
-Hover: #0B1F33
-```
+## Product Listing
+- Left sidebar filters on desktop.
+- Mobile filter drawer.
+- Sorting, product count, and active filter chips.
+- Clear pricing and stock information.
+- Clean, consistent product grid.
 
-### Secondary Button
+## Product Detail
+- Large product image gallery.
+- Product title, tire size, specifications, and availability.
+- Prominent price per tire.
+- Quantity selector and total price.
+- Yellow Add to Cart button.
+- Shipping and return information when verified.
+- Clear product specifications below.
 
-```txt
-Background: transparent / white
-Border: #2563EB
-Text: #2563EB
-Hover background: #F4F6F8
-```
+## Responsive
+- Desktop: 1280px centered layout.
+- Tablet: simplified navigation and 2-column products.
+- Mobile: compact header, stacked tire finder, touch-friendly controls.
+- Avoid horizontal scrolling.
+- Maintain readable text and clear purchase actions.
 
-### Warning / Fitment Button or Badge
+## UX Rules
+- Customers should find tires within a few interactions.
+- Prioritize search, products, pricing, and checkout.
+- Use real tire imagery and realistic product content.
+- Never invent reviews, discounts, shipping guarantees, or inventory claims.
+- Keep navigation and purchasing flows consistent.
+- Maintain accessible contrast and visible keyboard focus.
 
-```txt
-Background: #F97316
-Text: #FFFFFF
-```
-
-Use Safety Orange only for important reminders, not decoration overload.
-
----
-
-## Trust Elements
-
-Always include:
-
-* Secure checkout
-* Tracking included
-* 30-day returns
-* Support email
-* Shipping timeline
-* Tire fitment reminder
-* Clear product specifications
-
-Important fitment note:
-
-```txt
-Please confirm your tire size, rim size, and vehicle compatibility before placing an order.
-```
-
----
-
-## Product Page Requirements
-
-Every tire product page should include:
-
-```txt
-Tire size
-Rim size
-Load index
-Speed rating
-Tire type
-Season / driving condition
-Vehicle compatibility guidance
-Quantity included
-Shipping note
-Return eligibility
-```
-
-Avoid vague product pages with only image + price.
-
----
-
-## GMC-Safe Rules
-
-Do not use:
-
-* Accident-proof claims
-* Safest tire guaranteed
-* Fits every vehicle
-* Lifetime warranty unless verified
-* Fake brand logos
-* Counterfeit tire branding
-* Fake reviews
-* Countdown timers
-* Misleading compatibility claims
-
-Safe wording:
-
-```txt
-reliable
-everyday driving
-road-ready
-all-season
-vehicle compatibility
-clear tire specs
-fitment reminder
-practical tire shopping
-```
-
----
-
-## Final Design Feeling
-
-Tizezap should look like:
-
-> A clean, trustworthy online tire store helping drivers find tires for cars, SUVs, trucks, trailers, and seasonal driving needs.
-
-The site must feel tire-focused, professional, technical enough to trust, and easy for customers to confirm fitment before purchase.
+## Implementation
+Follow site.md and this design system consistently.
+Use reusable components and responsive layouts.
+Do not add unnecessary sections or visual effects.
+Build a polished tire shopping experience inspired by Priority Tire without copying its branding or proprietary assets.

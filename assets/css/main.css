@@ -40,8 +40,8 @@
   /* Success — muted green, fits boutique palette */
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Lato', 'Georgia', serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-heading: 'Manrope', 'Plus Jakarta Sans', system-ui, sans-serif;
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -104,9 +104,9 @@ body.dawp-mobile-menu-open {
   overflow: hidden;
 }
 
-#tizezap-mobile-menu {
+#Mytire-mobile-menu {
   position: fixed;
-  top: var(--tizezap-mobile-panel-top, 0);
+  top: var(--Mytire-mobile-panel-top, 0);
   right: 0;
   bottom: 0;
   left: 0;
@@ -116,8 +116,191 @@ body.dawp-mobile-menu-open {
   -webkit-overflow-scrolling: touch;
 }
 
-#tizezap-mobile-menu nav {
+#Mytire-mobile-menu nav {
   padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+
+.dawp-mega {
+  position: static;
+}
+
+.dawp-mega__trigger {
+  position: relative;
+}
+
+.dawp-mega__trigger::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 14px;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: #c40000;
+  opacity: 0;
+  transform: scaleX(0.58);
+  transition: opacity var(--duration-fast) var(--ease-fluid), transform var(--duration-fast) var(--ease-fluid);
+}
+
+.dawp-mega:hover .dawp-mega__trigger::after,
+.dawp-mega:focus-within .dawp-mega__trigger::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.dawp-mega__panel {
+  position: fixed;
+  left: max(16px, calc((100vw - 1080px) / 2));
+  top: calc(var(--Mytire-mega-panel-top, 76px) - 1px);
+  width: min(1080px, calc(100vw - 32px));
+  z-index: 60;
+  padding-top: 12px;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.992);
+  transform-origin: top center;
+}
+
+.dawp-mega__panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 14px;
+}
+
+.dawp-mega:hover .dawp-mega__panel,
+.dawp-mega:focus-within .dawp-mega__panel,
+.dawp-mega.is-open .dawp-mega__panel,
+.dawp-mega__panel:hover {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.dawp-mega__surface {
+  position: relative;
+  border-color: rgba(148, 163, 184, 0.42);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(248, 250, 252, 0.96) 58%, rgba(255, 247, 237, 0.88) 100%),
+    radial-gradient(circle at 12% 12%, rgba(249, 115, 22, 0.1), transparent 30%),
+    linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: auto, auto, 26px 26px, 26px 26px;
+  box-shadow: 0 28px 80px rgba(2, 6, 23, 0.2), 0 8px 24px rgba(15, 23, 42, 0.1);
+  backdrop-filter: blur(14px);
+}
+
+.dawp-mega__surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, #f97316 0%, #ffcc00 38%, rgba(15, 23, 42, 0.72) 100%);
+  height: 2px;
+}
+
+.dawp-mega__head {
+  border-color: rgba(148, 163, 184, 0.26);
+}
+
+.dawp-mega__eyebrow {
+  color: #d94710;
+}
+
+.dawp-mega__all {
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  box-shadow: 0 12px 24px rgba(249, 115, 22, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.46);
+}
+
+.dawp-mega__all:hover {
+  transform: translateY(-1px);
+}
+
+.dawp-mega__category {
+  position: relative;
+  min-height: 112px;
+  overflow: hidden;
+  border-color: rgba(148, 163, 184, 0.3);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.78));
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.74);
+}
+
+.dawp-mega__category::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(180deg, #f97316, #ffcc00);
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-fluid);
+}
+
+.dawp-mega__category:hover {
+  border-color: rgba(249, 115, 22, 0.7);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(249, 115, 22, 0.08);
+  transform: translateY(-2px);
+}
+
+.dawp-mega__category:hover::before {
+  opacity: 1;
+}
+
+.dawp-mega__arrow {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(249, 115, 22, 0.08);
+  color: #c2410c;
+  line-height: 1;
+  transition: background var(--duration-fast) var(--ease-fluid), color var(--duration-fast) var(--ease-fluid), transform var(--duration-fast) var(--ease-fluid);
+}
+
+.dawp-mega__category:hover .dawp-mega__arrow {
+  background: #f97316;
+  color: #fff;
+  transform: translateX(2px);
+}
+
+.dawp-mega__aside {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(160deg, #081827 0%, #111827 58%, #1f2937 100%);
+}
+
+.dawp-mega__aside::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 88% 12%, rgba(255, 204, 0, 0.18), transparent 34%);
+  background-size: 28px 28px, 28px 28px, auto;
+}
+
+.dawp-mega__aside > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dawp-mega__quick {
+  background: rgba(255, 255, 255, 0.065);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dawp-mega__quick:hover {
+  background: rgba(255, 204, 0, 0.12);
+  transform: translateX(2px);
 }
 
 @media (min-width: 1024px) {
@@ -125,7 +308,7 @@ body.dawp-mobile-menu-open {
     overflow: auto;
   }
 
-  #tizezap-mobile-menu {
+  #Mytire-mobile-menu {
     position: static;
   }
 }
@@ -157,6 +340,254 @@ body.dawp-mobile-menu-open {
   width: 20px;
   height: 20px;
   flex: 0 0 auto;
+}
+
+.dawp-site-footer {
+  background: #3f342d;
+  color: #fff;
+  font-family: var(--font-sans);
+}
+
+.dawp-site-footer__main {
+  background: #3f342d;
+  color: #fff;
+}
+
+.dawp-site-footer__bottom {
+  background: #342b25;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.dawp-site-footer__bottom > div {
+  max-width: 1216px;
+}
+
+.dawp-site-footer a,
+.dawp-site-footer h2,
+.dawp-site-footer h3,
+.dawp-site-footer p,
+.dawp-site-footer li {
+  color: inherit;
+}
+
+.woocommerce .dawp-site-footer,
+.woocommerce-page .dawp-site-footer,
+.woocommerce .dawp-site-footer a,
+.woocommerce .dawp-site-footer h2,
+.woocommerce .dawp-site-footer h3,
+.woocommerce .dawp-site-footer p,
+.woocommerce .dawp-site-footer li,
+.woocommerce-page .dawp-site-footer a,
+.woocommerce-page .dawp-site-footer h2,
+.woocommerce-page .dawp-site-footer h3,
+.woocommerce-page .dawp-site-footer p,
+.woocommerce-page .dawp-site-footer li {
+  color: #fff;
+}
+
+.dawp-site-footer input {
+  color: #111;
+  background: #fff;
+}
+
+.dawp-site-footer button {
+  background: #e00000;
+  color: #fff;
+}
+
+.dawp-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 38px 32px;
+  max-width: 1216px;
+  padding-top: clamp(52px, 4.5vw, 68px);
+  padding-bottom: clamp(52px, 4.5vw, 68px);
+}
+
+.dawp-footer-grid nav,
+.dawp-footer-support {
+  min-width: 0;
+}
+
+.dawp-footer-grid nav h3,
+.dawp-footer-newsletter h2,
+.dawp-footer-info h3 {
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: left;
+  letter-spacing: 0;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.dawp-footer-newsletter h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.dawp-footer-grid ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dawp-footer-grid a {
+  text-underline-offset: 4px;
+}
+
+.dawp-footer-grid nav a {
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+  white-space: nowrap;
+}
+
+.dawp-footer-grid nav a:hover,
+.dawp-footer-newsletter a:hover {
+  color: #ffcc00;
+}
+
+.dawp-footer-newsletter {
+  max-width: 100%;
+}
+
+.dawp-footer-support {
+  align-content: start;
+}
+
+.dawp-footer-copy {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.dawp-footer-signup {
+  width: 100%;
+  margin-top: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  background: #fff;
+}
+
+.dawp-footer-signup input {
+  min-width: 0;
+  height: 46px;
+}
+
+.dawp-footer-signup button {
+  height: 46px;
+  min-width: 94px;
+  white-space: nowrap;
+}
+
+.dawp-footer-social {
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.dawp-footer-social a {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dawp-footer-social svg {
+  width: 18px;
+  height: 18px;
+}
+
+.dawp-footer-info {
+  gap: 9px;
+}
+
+.dawp-footer-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dawp-footer-contact-item svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  fill: currentColor;
+  opacity: 0.86;
+}
+
+.dawp-footer-payments img {
+  display: block;
+  height: 26px;
+  width: auto;
+  max-width: 72px;
+  object-fit: contain;
+  padding: 3px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+}
+
+.dawp-site-footer > div:last-child > div {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+@media (min-width: 640px) {
+  .dawp-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dawp-footer-newsletter {
+    max-width: 520px;
+  }
+}
+
+@media (min-width: 900px) {
+  .dawp-footer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .dawp-footer-grid {
+    grid-template-columns: minmax(290px, 1.18fr) minmax(260px, 1.02fr) repeat(3, minmax(145px, 0.68fr));
+    align-items: start;
+    justify-content: center;
+    column-gap: clamp(34px, 3vw, 52px);
+    row-gap: 44px;
+  }
+
+  .dawp-footer-newsletter {
+    grid-column: auto;
+    max-width: 340px;
+  }
+
+  .dawp-footer-grid nav {
+    padding-top: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .dawp-footer-grid {
+    grid-template-columns: 310px 284px 150px 160px 180px;
+    column-gap: 48px;
+  }
+}
+
+@media (max-width: 420px) {
+  .dawp-footer-signup {
+    flex-direction: column;
+  }
+
+  .dawp-footer-signup input,
+  .dawp-footer-signup button {
+    width: 100%;
+  }
 }
 
 .page-shell__inner {
@@ -606,7 +1037,7 @@ body.dawp-mobile-menu-open {
 }
 
 /* Page heading */
-.woocommerce h2 {
+#content .woocommerce h2 {
   font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 700;
@@ -686,5 +1117,256 @@ body.dawp-mobile-menu-open {
 
   .woocommerce-form-login__submit {
     width: 100%;
+  }
+}
+
+/* Keep the global footer isolated from WooCommerce body/page classes. */
+body.woocommerce .dawp-site-footer,
+body.woocommerce-page .dawp-site-footer {
+  background: #3f342d !important;
+  color: #fff !important;
+  font-family: var(--font-sans) !important;
+}
+
+body.woocommerce .dawp-site-footer h2,
+body.woocommerce .dawp-site-footer h3,
+body.woocommerce-page .dawp-site-footer h2,
+body.woocommerce-page .dawp-site-footer h3 {
+  color: #fff !important;
+  font-family: var(--font-sans) !important;
+  text-align: left !important;
+  letter-spacing: 0 !important;
+  margin-top: 0 !important;
+}
+
+body.woocommerce .dawp-footer-newsletter h2,
+body.woocommerce-page .dawp-footer-newsletter h2 {
+  font-size: 1.75rem !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 20px !important;
+}
+
+body.woocommerce .dawp-footer-grid nav h3,
+body.woocommerce .dawp-footer-info h3,
+body.woocommerce-page .dawp-footer-grid nav h3,
+body.woocommerce-page .dawp-footer-info h3 {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  margin-bottom: 20px !important;
+}
+
+body.woocommerce .dawp-site-footer a,
+body.woocommerce .dawp-site-footer p,
+body.woocommerce .dawp-site-footer li,
+body.woocommerce-page .dawp-site-footer a,
+body.woocommerce-page .dawp-site-footer p,
+body.woocommerce-page .dawp-site-footer li {
+  color: inherit !important;
+}
+
+body.woocommerce .dawp-footer-grid nav a,
+body.woocommerce-page .dawp-footer-grid nav a {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+body.woocommerce .dawp-footer-copy,
+body.woocommerce-page .dawp-footer-copy {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+body.woocommerce .dawp-site-footer input,
+body.woocommerce-page .dawp-site-footer input {
+  color: #111 !important;
+  background: #fff !important;
+}
+
+body.woocommerce .dawp-site-footer button,
+body.woocommerce-page .dawp-site-footer button {
+  color: #fff !important;
+  background: #e00000 !important;
+}
+
+/* Mytire policy pages */
+.mytire-policy-page {
+  background: #f7f3ef !important;
+  color: #201815;
+}
+
+.mytire-policy-page > section:first-child {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 204, 0, 0.18), transparent 28%),
+    linear-gradient(135deg, #3f342d 0%, #201815 100%) !important;
+}
+
+.mytire-policy-page > section:first-child::after {
+  content: "";
+  position: absolute;
+  inset: auto -8% -42% 58%;
+  height: 260px;
+  border-radius: 999px;
+  background: rgba(197, 31, 26, 0.24);
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+.mytire-policy-page > section:first-child > div {
+  position: relative;
+  z-index: 1;
+}
+
+.mytire-policy-page > section:first-child p:first-child {
+  color: #ffcc00 !important;
+}
+
+.mytire-policy-page h1,
+.mytire-policy-page h2,
+.mytire-policy-page h3,
+.mytire-policy-page strong {
+  color: #201815 !important;
+}
+
+.mytire-policy-page article,
+.mytire-policy-page aside,
+.mytire-policy-page .grid > div {
+  border-color: #e7ded6 !important;
+  box-shadow: 0 18px 42px rgba(63, 52, 45, 0.08) !important;
+}
+
+.mytire-policy-page aside {
+  background: #fffaf6 !important;
+}
+
+.mytire-policy-page aside nav a {
+  color: #201815 !important;
+}
+
+.mytire-policy-page aside nav a:hover {
+  border-color: #c51f1a !important;
+  background: #fff4f2 !important;
+  color: #c51f1a !important;
+}
+
+.mytire-policy-page article h3,
+.mytire-policy-page article p[id$="-overview"],
+.mytire-policy-page article p.rounded-lg {
+  border-color: #c51f1a !important;
+  background: #fff4f2 !important;
+}
+
+.mytire-policy-page article a {
+  color: #c51f1a !important;
+  text-decoration-color: #f4b3ad !important;
+}
+
+.mytire-policy-page table thead {
+  background: #fff4f2 !important;
+}
+
+.mytire-policy-page article > div > div:first-child,
+.mytire-policy-page article .inline-flex.rounded-full {
+  background: #c51f1a !important;
+}
+
+.mytire-policy-minimal,
+.mytire-shipping-minimal {
+  background: #ffffff !important;
+  color: #111111 !important;
+}
+
+.mytire-policy-minimal > section:first-child,
+.mytire-shipping-minimal > section:first-child {
+  background:
+    linear-gradient(90deg, rgba(11, 11, 5, 0.94) 0%, rgba(11, 11, 5, 0.78) 42%, rgba(11, 11, 5, 0.36) 72%, rgba(11, 11, 5, 0.16) 100%),
+    url("../img/gallery/Mytire/Home/Smart_Tire_Matching.jpg") center / cover no-repeat !important;
+  border-bottom-color: #111111 !important;
+}
+
+.mytire-policy-minimal > section:first-child::after,
+.mytire-shipping-minimal > section:first-child::after {
+  display: none !important;
+}
+
+.mytire-policy-minimal h1,
+.mytire-policy-minimal h2,
+.mytire-policy-minimal h3,
+.mytire-policy-minimal strong,
+.mytire-shipping-minimal h1,
+.mytire-shipping-minimal h2,
+.mytire-shipping-minimal h3,
+.mytire-shipping-minimal strong {
+  color: #111111 !important;
+}
+
+.mytire-policy-minimal .mytire-policy-cover p:first-child,
+.mytire-shipping-minimal .mytire-policy-cover p:first-child {
+  color: #ffcc00 !important;
+}
+
+.mytire-policy-minimal .mytire-policy-cover h1,
+.mytire-policy-minimal .mytire-policy-cover p,
+.mytire-shipping-minimal .mytire-policy-cover h1,
+.mytire-shipping-minimal .mytire-policy-cover p {
+  color: #ffffff !important;
+}
+
+.mytire-policy-minimal .mytire-policy-cover p:last-child,
+.mytire-shipping-minimal .mytire-policy-cover p:last-child {
+  border-color: #ffcc00 !important;
+  background: #ffcc00 !important;
+  color: #111111 !important;
+}
+
+.mytire-policy-cover > div {
+  padding-top: clamp(2.75rem, 5vw, 3.5rem) !important;
+  padding-bottom: clamp(2.75rem, 5vw, 3.5rem) !important;
+}
+
+.mytire-policy-cover h1 {
+  max-width: 48rem !important;
+  font-size: clamp(2.25rem, 4.2vw, 3.75rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.mytire-policy-minimal article,
+.mytire-policy-minimal .grid > div,
+.mytire-shipping-minimal article,
+.mytire-shipping-minimal .grid > div {
+  border-color: #111111 !important;
+  box-shadow: none !important;
+}
+
+.mytire-policy-minimal article h2,
+.mytire-policy-minimal article h3,
+.mytire-shipping-minimal article h3 {
+  border-color: #111111 !important;
+  background: transparent !important;
+}
+
+.mytire-policy-minimal article a,
+.mytire-shipping-minimal article a {
+  color: #111111 !important;
+  text-decoration-color: #111111 !important;
+}
+
+.mytire-policy-minimal table thead,
+.mytire-shipping-minimal table thead {
+  background: #111111 !important;
+}
+
+@media (max-width: 640px) {
+  .mytire-policy-cover h1 {
+    font-size: 2.25rem !important;
+    line-height: 1.14 !important;
+  }
+
+  .mytire-policy-page article,
+  .mytire-policy-page aside {
+    border-radius: 8px !important;
   }
 }

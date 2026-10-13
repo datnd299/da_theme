@@ -1,363 +1,181 @@
 <?php
 /**
- * Template Part: page-home
+ * Homepage template part.
+ *
+ * @package dawp
  */
 
-$tizezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tizezap/');
+defined('ABSPATH') || exit;
 
-$images = [
-    'hero'        => $tizezap_gallery_uri . 'tire-hero-road.png',
-    'all_season'  => $tizezap_gallery_uri . 'category-all-season-tires.png',
-    'suv'         => $tizezap_gallery_uri . 'category-suv-crossover-tires.png',
-    'light_truck' => $tizezap_gallery_uri . 'category-light-truck-tires.png',
-    'performance' => $tizezap_gallery_uri . 'category-performance-tires.png',
-    'trailer'     => $tizezap_gallery_uri . 'category-trailer-tires.png',
-    'winter'      => $tizezap_gallery_uri . 'category-winter-tires.png',
-    'suv_trailer' => $tizezap_gallery_uri . 'suv-trailer-tires.png',
-];
-
-$shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
+$theme_uri   = get_template_directory_uri();
+$gallery_uri = $theme_uri . '/assets/img/gallery/Mytire/';
+$home_uri    = $gallery_uri . 'Home/';
+$shop_url    = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
     ? get_permalink(wc_get_page_id('shop'))
     : home_url('/shop/');
 
-$term_url = static function ($slug) {
-    return function_exists('dawp_product_category_url')
-        ? dawp_product_category_url($slug)
-        : home_url('/product-category/' . sanitize_title($slug) . '/');
+$asset = static function ($file) use ($gallery_uri) {
+    return $gallery_uri . $file;
 };
 
-$categories = [
-    [
-        'title' => __('All-Season Tires', 'dawp'),
-        'copy'  => __('Practical tire options for year-round everyday driving.', 'dawp'),
-        'url'   => $term_url('all-season-tires'),
-        'image' => $images['all_season'],
-    ],
-    [
-        'title' => __('SUV & Crossover Tires', 'dawp'),
-        'copy'  => __('Tires for SUVs, crossovers, family vehicles, and daily road use.', 'dawp'),
-        'url'   => $term_url('suv-crossover-tires'),
-        'image' => $images['suv'],
-    ],
-    [
-        'title' => __('Light Truck Tires', 'dawp'),
-        'copy'  => __('Tire options for pickup trucks, utility driving, and hauling needs.', 'dawp'),
-        'url'   => $term_url('light-truck-tires'),
-        'image' => $images['light_truck'],
-    ],
-    [
-        'title' => __('Performance Tires', 'dawp'),
-        'copy'  => __('Tires designed for responsive handling and performance-inspired driving.', 'dawp'),
-        'url'   => $term_url('performance-tires'),
-        'image' => $images['performance'],
-    ],
-    [
-        'title' => __('Trailer Tires', 'dawp'),
-        'copy'  => __('Road-ready tire options for trailers and towing support.', 'dawp'),
-        'url'   => $term_url('trailer-tires'),
-        'image' => $images['trailer'],
-    ],
-    [
-        'title' => __('Winter Tires', 'dawp'),
-        'copy'  => __('Tires designed for colder temperatures and winter road conditions.', 'dawp'),
-        'url'   => $term_url('winter-tires'),
-        'image' => $images['winter'],
-    ],
+$home_asset = static function ($file) use ($home_uri) {
+    return $home_uri . $file;
+};
+
+$blog_images = [
+    'how-to-read-tire-size-before-ordering-online'              => $asset('Blog/How_to_Read_Tire Size.jpg'),
+    'all-season-vs-performance-tires-which-one-fits-your-drive' => $asset('Blog/Which_One_Fits_Your_Drive.jpg'),
+    'when-should-you-replace-your-tires'                        => $asset('Blog/When_Should_You_Replace_Your_Tires.jpg'),
+    'how-to-compare-budget-mid-range-and-premium-tires'         => $asset('Blog/How_to_Compare_Budged.jpg'),
+    'shopping-tire-deals-without-choosing-the-wrong-fit'        => $asset('Blog/Shopping Tire_Deals_Without_Choosing_the_Wrong_Fit.jpg'),
 ];
 
-$daily_highlights = [
-    __('Everyday driving', 'dawp'),
-    __('Year-round use', 'dawp'),
-    __('Road comfort', 'dawp'),
-    __('Clear tire specs', 'dawp'),
-];
-
-$vehicle_cards = [
-    [
-        'title' => __('SUV & Crossover Tires', 'dawp'),
-        'copy'  => __('For family vehicles, road trips, and daily SUV driving.', 'dawp'),
-        'url'   => $term_url('suv-crossover-tires'),
-    ],
-    [
-        'title' => __('Light Truck Tires', 'dawp'),
-        'copy'  => __('For pickup trucks, hauling needs, and everyday utility use.', 'dawp'),
-        'url'   => $term_url('light-truck-tires'),
-    ],
-    [
-        'title' => __('Trailer Tires', 'dawp'),
-        'copy'  => __('For trailers, towing support, and road-ready utility needs.', 'dawp'),
-        'url'   => $term_url('trailer-tires'),
-    ],
-];
-
-$trust_cards = [
-    __('Secure Checkout', 'dawp'),
-    __('Tracking Included', 'dawp'),
-    __('30-Day Eligible Returns', 'dawp'),
-    __('Clear Tire Specifications', 'dawp'),
-];
+$blog_query = new WP_Query([
+    'post_type'           => 'post',
+    'post_status'         => 'publish',
+    'posts_per_page'      => 3,
+    'category_name'       => 'blog',
+    'ignore_sticky_posts' => true,
+    'orderby'             => 'date',
+    'order'               => 'ASC',
+]);
 ?>
 
-<div id="primary" class="bg-white font-body text-[#111827]">
+<div class="mytire-rack-home">
+    <a class="mytire-feedback" href="<?php echo esc_url(home_url('/contact/')); ?>"><?php esc_html_e('Feedback', 'dawp'); ?></a>
 
-    <!-- Hero -->
-    <section class="relative min-h-[680px] overflow-hidden bg-[#0B1F33] text-white sm:min-h-[720px]">
-        <img <?php echo dawp_responsive_image_attrs($images['hero'], 1600, 900, '100vw', [768, 1200, 1600]); ?>
-             alt="<?php esc_attr_e('SUV tire on an open road for everyday driving', 'dawp'); ?>"
-             class="absolute inset-0 h-full w-full object-cover"
-             loading="eager"
-             fetchpriority="high">
-        <div class="absolute inset-0 bg-[#0B1F33]/72 lg:bg-[linear-gradient(90deg,rgba(11,31,51,0.94)_0%,rgba(11,31,51,0.78)_42%,rgba(11,31,51,0.24)_100%)]"></div>
-
-        <div class="relative mx-auto flex min-h-[680px] max-w-7xl items-center px-4 py-16 sm:min-h-[720px] sm:px-6 lg:px-8">
-            <div class="max-w-3xl">
-                <p class="mb-5 inline-flex rounded-md border border-[#FDBA74]/50 bg-[#F97316]/18 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#FDBA74]">
-                    <?php esc_html_e('Tire & Auto Essentials', 'dawp'); ?>
-                </p>
-
-                <h1 class="font-heading text-5xl font-black leading-[0.98] text-white sm:text-6xl lg:text-7xl">
-                    <?php esc_html_e('Reliable Tires For Everyday Driving', 'dawp'); ?>
-                </h1>
-
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-[#E5E7EB]">
-                    <?php esc_html_e('Find all-season, SUV, truck, trailer, winter, and performance tires with clear product details to help you choose the right fit for your vehicle.', 'dawp'); ?>
-                </p>
-
-                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url($shop_url); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#F97316] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B1F33]">
-                        <?php esc_html_e('Shop Tires', 'dawp'); ?>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/shop-by-rim-size/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#FDBA74]/70 bg-white/10 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#F97316] hover:text-white">
-                        <?php esc_html_e('Find Your Tire Size', 'dawp'); ?>
-                    </a>
-                </div>
-
-                <div class="mt-6 flex flex-wrap gap-3 text-xs font-black uppercase tracking-[0.16em] text-[#FDBA74]">
-                    <span class="inline-flex items-center gap-2">
-                        <span class="h-2 w-2 rounded-full bg-[#F97316]"></span>
-                        <?php esc_html_e('Fast Category Browsing', 'dawp'); ?>
-                    </span>
-                    <span class="inline-flex items-center gap-2">
-                        <span class="h-2 w-2 rounded-full bg-[#F97316]"></span>
-                        <?php esc_html_e('Fitment-Focused Details', 'dawp'); ?>
-                    </span>
-                </div>
-
-                <p class="mt-7 max-w-2xl border-l-4 border-[#F97316] bg-[#111827]/60 p-4 text-sm font-semibold leading-6 text-white">
-                    <?php esc_html_e('Please confirm your tire size, rim size, and vehicle compatibility before placing an order.', 'dawp'); ?>
-                </p>
-            </div>
+    <section class="mytire-rack-hero" aria-labelledby="mytire-home-title">
+        <div class="mytire-rack-hero__inner">
+            <p class="mytire-eyebrow"><?php esc_html_e('Online tires, sharper prices, smarter matching.', 'dawp'); ?></p>
+            <h1 id="mytire-home-title"><?php esc_html_e('Mytire helps you find the right tire faster.', 'dawp'); ?></h1>
+            <p><?php esc_html_e('Shop competitive tire prices across trusted brands, filter by exact size, and catch timely offers on the tire lines that fit your vehicle.', 'dawp'); ?></p>
+            <a class="mytire-red-button" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Find My Tire Size', 'dawp'); ?></a>
         </div>
     </section>
 
-    <!-- Shop By Tire Category -->
-    <section class="bg-[#F4F6F8] py-14 lg:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-                <div>
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#F97316]">
-                        <?php esc_html_e('Shop By Tire Category', 'dawp'); ?>
-                    </p>
-                    <h2 class="max-w-2xl font-heading text-4xl font-black leading-tight text-[#0B1F33] lg:text-5xl">
-                        <?php esc_html_e('Choose tires by vehicle need and road condition.', 'dawp'); ?>
-                    </h2>
+    <section class="mytire-how" aria-labelledby="mytire-how-title">
+        <h2 id="mytire-how-title"><?php esc_html_e('How It Works', 'dawp'); ?></h2>
+        <p class="mytire-how__intro"><?php esc_html_e('Start with the tire size your vehicle needs, then compare the right options without getting lost in products that do not fit.', 'dawp'); ?></p>
+        <div class="mytire-how__grid">
+            <article>
+                <div class="mytire-how__icon" aria-hidden="true">
+                    <span>1</span>
+                    <img src="<?php echo esc_url($home_asset('Filter_by_Exact_Size.jpg')); ?>" width="360" height="300" alt="" loading="lazy" decoding="async">
                 </div>
-                <a href="<?php echo esc_url($shop_url); ?>"
-                   class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#F97316] bg-white px-6 text-sm font-black uppercase tracking-wide text-[#C2410C] transition hover:bg-[#FFF7ED]">
-                    <?php esc_html_e('View All Tires', 'dawp'); ?>
-                </a>
-            </div>
-
-            <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                <?php foreach ($categories as $category) : ?>
-                    <a href="<?php echo esc_url($category['url']); ?>"
-                       class="group overflow-hidden rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#F97316] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#F97316] hover:shadow-md">
-                        <img <?php echo dawp_responsive_image_attrs($category['image'], 640, 400, '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw', [360, 520, 640]); ?>
-                             alt="<?php echo esc_attr($category['title']); ?>"
-                             class="aspect-[16/10] w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-                             loading="lazy">
-                        <div class="p-5">
-                            <h3 class="font-heading text-xl font-black text-[#0B1F33]">
-                                <?php echo esc_html($category['title']); ?>
-                            </h3>
-                            <p class="mt-2 text-sm leading-6 text-[#4B5563]">
-                                <?php echo esc_html($category['copy']); ?>
-                            </p>
-                            <span class="mt-4 inline-flex text-sm font-black uppercase tracking-wide text-[#C2410C]">
-                                <?php esc_html_e('Shop Category', 'dawp'); ?>
-                            </span>
-                        </div>
-                    </a>
-                <?php endforeach; ?>
-            </div>
+                <h3><?php esc_html_e('Filter by Exact Size', 'dawp'); ?></h3>
+                <p><?php esc_html_e('Use our smart tire filter to narrow results by width, profile, rim size, vehicle type, and the driving need for your route.', 'dawp'); ?></p>
+            </article>
+            <article>
+                <div class="mytire-how__icon" aria-hidden="true">
+                    <span>2</span>
+                    <img src="<?php echo esc_url($home_asset('Compare_Brands_and_Prices.jpg')); ?>" width="360" height="300" alt="" loading="lazy" decoding="async">
+                </div>
+                <h3><?php esc_html_e('Compare Brands and Prices', 'dawp'); ?></h3>
+                <p><?php esc_html_e('Browse budget, mid-range, and premium brands side by side so you can pick the best value for your route.', 'dawp'); ?></p>
+            </article>
+            <article>
+                <div class="mytire-how__icon" aria-hidden="true">
+                    <span>3</span>
+                    <img src="<?php echo esc_url($home_asset('Order_Online_With_Support.jpg')); ?>" width="360" height="300" alt="" loading="lazy" decoding="async">
+                </div>
+                <h3><?php esc_html_e('Order Online With Support', 'dawp'); ?></h3>
+                <p><?php esc_html_e('Our team helps before and after checkout, from size checks to delivery updates and after-sales questions.', 'dawp'); ?></p>
+            </article>
         </div>
     </section>
 
-    <!-- All-Season & Daily Driving Tires -->
-    <section class="bg-white py-14 lg:py-20">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-            <div>
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#F97316]">
-                    <?php esc_html_e('All-Season Tires', 'dawp'); ?>
-                </p>
-
-                <h2 class="font-heading text-4xl font-black leading-tight text-[#0B1F33] lg:text-5xl">
-                    <?php esc_html_e('Built for practical everyday road use.', 'dawp'); ?>
-                </h2>
-
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#4B5563]">
-                    <?php esc_html_e('Explore tire options made for daily driving, road comfort, and year-round use. Review tire size, rim size, load index, and speed rating before choosing the right fit.', 'dawp'); ?>
-                </p>
-
-                <div class="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                    <?php foreach ($daily_highlights as $highlight) : ?>
-                        <div class="flex min-h-12 items-center gap-3 rounded-lg border border-[#FED7AA] bg-[#FFF7ED] px-4">
-                            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#F97316] text-white">
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                            </span>
-                            <span class="text-sm font-bold text-[#111827]"><?php echo esc_html($highlight); ?></span>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
-                <div class="mt-8">
-                    <a href="<?php echo esc_url($term_url('all-season-tires')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#F97316] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0B1F33]">
-                        <?php esc_html_e('Shop All-Season Tires', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
-
-            <div class="overflow-hidden rounded-lg border border-[#FED7AA] bg-white shadow-sm">
-                <img <?php echo dawp_responsive_image_attrs($images['all_season'], 720, 540, '(max-width: 1023px) 100vw, 50vw', [400, 640, 720]); ?>
-                     alt="<?php esc_attr_e('Close-up of all-season tire tread in a clean service bay', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full object-cover"
-                     loading="lazy">
-            </div>
+    <section class="mytire-guide" aria-labelledby="mytire-guide-title">
+        <div class="mytire-guide__image">
+            <img src="<?php echo esc_url($home_asset('Smart_Tire_Matching.jpg')); ?>" width="1400" height="800" alt="<?php esc_attr_e('Smart tire matching preview', 'dawp'); ?>" loading="lazy" decoding="async">
+        </div>
+        <div class="mytire-guide__copy">
+            <p class="mytire-guide__kicker"><?php esc_html_e('Not sure which size to buy?', 'dawp'); ?></p>
+            <h2 id="mytire-guide-title"><?php esc_html_e('Smart Tire Matching', 'dawp'); ?></h2>
+            <p><?php esc_html_e('Mytire turns tire shopping into a clear shortlist. Enter the size you need, compare available brands, and spot the best-priced options without scrolling through mismatched products.', 'dawp'); ?></p>
+            <a class="mytire-red-button" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Start With Tire Size', 'dawp'); ?></a>
         </div>
     </section>
 
-    <!-- SUV, Truck & Trailer Tires -->
-    <section class="bg-[#F4F6F8] py-14 lg:py-20">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-            <div class="overflow-hidden rounded-lg border border-[#E5E7EB] bg-white shadow-sm lg:order-1">
-                <img <?php echo dawp_responsive_image_attrs($images['suv_trailer'], 720, 540, '(max-width: 1023px) 100vw, 50vw', [400, 640, 720]); ?>
-                     alt="<?php esc_attr_e('SUV towing a utility trailer with visible tire detail', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full object-cover"
-                     loading="lazy">
-            </div>
-
-            <div class="lg:order-2">
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#F97316]">
-                    <?php esc_html_e('SUV, Truck & Trailer Tires', 'dawp'); ?>
-                </p>
-
-                <h2 class="font-heading text-4xl font-black leading-tight text-[#0B1F33] lg:text-5xl">
-                    <?php esc_html_e('Tire options for utility, towing, and larger vehicles.', 'dawp'); ?>
-                </h2>
-
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#4B5563]">
-                    <?php esc_html_e('Find tire categories for SUVs, crossovers, light trucks, and trailers with product details that help support better fitment decisions.', 'dawp'); ?>
-                </p>
-
-                <div class="mt-8 grid grid-cols-1 gap-4">
-                    <?php foreach ($vehicle_cards as $card) : ?>
-                        <a href="<?php echo esc_url($card['url']); ?>"
-                           class="rounded-lg border border-[#E5E7EB] border-l-4 border-l-[#F97316] bg-white p-5 transition hover:border-[#F97316] hover:shadow-sm">
-                            <h3 class="text-lg font-black text-[#0B1F33]"><?php echo esc_html($card['title']); ?></h3>
-                            <p class="mt-2 text-sm leading-6 text-[#4B5563]"><?php echo esc_html($card['copy']); ?></p>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
-
-                <div class="mt-8">
-                    <a href="<?php echo esc_url(home_url('/shop-by-vehicle-type/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#0B1F33] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#F97316]">
-                        <?php esc_html_e('Explore Vehicle-Specific Tires', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
+    <section class="mytire-deals" aria-labelledby="mytire-deals-title">
+        <h2 id="mytire-deals-title"><?php esc_html_e('Mytire Deals', 'dawp'); ?></h2>
+        <div class="mytire-deal-row">
+            <a class="mytire-deal-card" href="<?php echo esc_url($shop_url); ?>">
+                <img src="<?php echo esc_url($home_asset('Mytire_deal.jpg')); ?>" width="640" height="960" alt="<?php esc_attr_e('Mytire deal promotion', 'dawp'); ?>" loading="lazy" decoding="async">
+            </a>
+            <a class="mytire-deal-card" href="<?php echo esc_url(home_url('/shop-by-brand/')); ?>">
+                <img src="<?php echo esc_url($home_asset('Brand_Picks.jpg')); ?>" width="640" height="960" alt="<?php esc_attr_e('Brand picks promotion', 'dawp'); ?>" loading="lazy" decoding="async">
+            </a>
+            <a class="mytire-deal-card" href="<?php echo esc_url(home_url('/shop-by-rim-size/')); ?>">
+                <img src="<?php echo esc_url($home_asset('Size_match.jpg')); ?>" width="640" height="960" alt="<?php esc_attr_e('Size match promotion', 'dawp'); ?>" loading="lazy" decoding="async">
+            </a>
         </div>
     </section>
 
-    <!-- Customer Care / Fitment & Trust -->
-    <section id="fitment-check" class="scroll-mt-24 bg-[#0B1F33] py-14 text-white lg:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
-                <div>
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#FDBA74]">
-                        <?php esc_html_e('Customer Care', 'dawp'); ?>
-                    </p>
+    <section class="mytire-tests" aria-labelledby="mytire-tests-title">
+        <p class="mytire-tests__kicker"><?php esc_html_e('Helpful shopping notes from Mytire', 'dawp'); ?></p>
+        <h2 id="mytire-tests-title"><?php esc_html_e('Buy Smarter Online', 'dawp'); ?></h2>
+        <p><?php esc_html_e('Clear guides help you understand sizing, brand tiers, and promotion timing before you choose your next set.', 'dawp'); ?></p>
+        <a class="mytire-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Eligible Tires', 'dawp'); ?> <span>&gt;</span></a>
+        <?php if ($blog_query->have_posts()) : ?>
+            <div class="mytire-test-grid">
+                <?php while ($blog_query->have_posts()) : $blog_query->the_post(); ?>
+                    <?php
+                    $blog_slug  = get_post_field('post_name', get_the_ID());
+                    $blog_image = $blog_images[$blog_slug] ?? get_the_post_thumbnail_url(get_the_ID(), 'large');
 
-                    <h2 class="font-heading text-4xl font-black leading-tight text-white lg:text-5xl">
-                        <?php esc_html_e('Clear support from tire selection to delivery.', 'dawp'); ?>
-                    </h2>
+                    if (!$blog_image) {
+                        $blog_image = get_post_meta(get_the_ID(), '_dawp_blog_image', true);
+                    }
 
-                    <p class="mt-5 max-w-2xl text-base leading-8 text-[#D1D5DB]">
-                        <?php esc_html_e('Tizezap provides clear product details, tire fitment reminders, order tracking, and customer support to help you shop with confidence.', 'dawp'); ?>
-                    </p>
-
-                    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                        <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"
-                           class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#F97316] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B1F33]">
-                            <?php esc_html_e('View Shipping Policy', 'dawp'); ?>
-                        </a>
-                        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
-                           class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/40 bg-transparent px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B1F33]">
-                            <?php esc_html_e('Contact Support', 'dawp'); ?>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="space-y-5">
-                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        <?php foreach ($trust_cards as $trust) : ?>
-                            <div class="rounded-lg border border-white/10 bg-white/10 p-5">
-                                <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-md bg-[#F97316] text-white">
-                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <h3 class="text-base font-black text-white"><?php echo esc_html($trust); ?></h3>
+                    if (!$blog_image) {
+                        $blog_image = $home_asset('the_right_tire_faster.jpg');
+                    }
+                    ?>
+                    <article class="mytire-test-card">
+                        <a href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr(get_the_title()); ?>">
+                            <img src="<?php echo esc_url($blog_image); ?>" width="520" height="250" alt="" loading="lazy" decoding="async">
+                            <div>
+                                <h3><?php the_title(); ?></h3>
+                                <p class="mytire-test-card__date"><?php echo esc_html(get_the_date()); ?></p>
+                                <p><?php echo esc_html(wp_trim_words(get_the_excerpt(), 18)); ?></p>
+                                <span class="mytire-pill-button"><?php esc_html_e('Read Blog', 'dawp'); ?> &gt;</span>
                             </div>
-                        <?php endforeach; ?>
-                    </div>
-
-                    <div class="rounded-lg border border-[#F97316]/50 bg-[#F97316]/12 p-5">
-                        <p class="text-sm font-black uppercase tracking-[0.16em] text-[#FDBA74]">
-                            <?php esc_html_e('Fitment Reminder', 'dawp'); ?>
-                        </p>
-                        <p class="mt-3 text-sm font-semibold leading-7 text-white">
-                            <?php esc_html_e('Please confirm your tire size, rim size, load index, speed rating, and vehicle compatibility before placing an order.', 'dawp'); ?>
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-                        <div class="rounded-lg border border-white/10 bg-white p-5 text-[#111827]">
-                            <h3 class="text-base font-black text-[#0B1F33]"><?php esc_html_e('Shipping Timeline', 'dawp'); ?></h3>
-                            <p class="mt-2 text-sm leading-7 text-[#4B5563]">
-                                <?php esc_html_e('Orders are processed within 1-2 business days. Standard delivery within the United States takes 3-5 business days after dispatch, and eligible tire orders ship free within our standard delivery zones.', 'dawp'); ?>
-                            </p>
-                        </div>
-
-                        <div class="rounded-lg border border-white/10 bg-white p-5 text-[#111827]">
-                            <h3 class="text-base font-black text-[#0B1F33]"><?php esc_html_e('Return Eligibility', 'dawp'); ?></h3>
-                            <p class="mt-2 text-sm leading-7 text-[#4B5563]">
-                                <?php esc_html_e('Eligible unused, unmounted, undriven, and undamaged tires may be returned within 30 days of delivery in original condition with original labels, tags, and packaging intact.', 'dawp'); ?>
-                            </p>
-                        </div>
-                    </div>
-
-                    <p class="text-sm leading-7 text-[#D1D5DB]">
-                        <?php esc_html_e('Support: support@tizezap.com. Business hours: Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York).', 'dawp'); ?>
-                    </p>
-                </div>
+                        </a>
+                    </article>
+                <?php endwhile; ?>
             </div>
+            <?php wp_reset_postdata(); ?>
+        <?php endif; ?>
+    </section>
+
+    <section class="mytire-guide mytire-guide--brands" aria-labelledby="mytire-brand-guide-title">
+        <div class="mytire-guide__image">
+            <img <?php echo dawp_responsive_image_attrs($home_asset('Find_the_Right_Brand_Range.jpg'), 700, 420, '(max-width: 900px) 100vw, 50vw', [420, 700, 980]); ?> alt="<?php esc_attr_e('Find the right tire brand range preview', 'dawp'); ?>" loading="lazy" decoding="async">
+        </div>
+        <div class="mytire-guide__copy">
+            <p class="mytire-guide__kicker"><?php esc_html_e('Shop by the name you trust', 'dawp'); ?></p>
+            <h2 id="mytire-brand-guide-title"><?php esc_html_e('Find the Right Brand Range', 'dawp'); ?></h2>
+            <p><?php esc_html_e('Browse familiar tire makers side by side, from premium touring picks to dependable everyday options. Start with a brand you know, then compare available sizes, prices, and offers in one focused place.', 'dawp'); ?></p>
+            <a class="mytire-red-button" href="<?php echo esc_url(home_url('/shop-by-brand/')); ?>"><?php esc_html_e('Shop by Brand', 'dawp'); ?></a>
         </div>
     </section>
 
+    <section class="mytire-brand-cta" aria-labelledby="mytire-brand-cta-title">
+        <p class="mytire-brand-cta__kicker"><?php esc_html_e('Ready to compare your options?', 'dawp'); ?></p>
+        <h2 id="mytire-brand-cta-title"><?php esc_html_e('Pick the Brand. Match the Size. Order With Confidence.', 'dawp'); ?></h2>
+        <p><?php esc_html_e('Explore tire ranges from trusted names, check fitment by size, and move from browsing to checkout with clear pricing and support from Mytire.', 'dawp'); ?></p>
+        <small><?php esc_html_e('*Availability and offers may vary by product and service area.', 'dawp'); ?></small>
+        <a class="mytire-pill-button" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Start Shopping', 'dawp'); ?></a>
+    </section>
+
+    <section class="mytire-service" aria-labelledby="mytire-service-title">
+        <div class="mytire-service__image">
+            <img src="<?php echo esc_url($home_asset('Customer_Support.jpg')); ?>" width="780" height="430" alt="<?php esc_attr_e('Customer support representative helping with tire after-sales care', 'dawp'); ?>" loading="lazy" decoding="async">
+        </div>
+        <div class="mytire-service__copy">
+            <h2 id="mytire-service-title"><?php esc_html_e('Quick Support, Clear After-Sales Care', 'dawp'); ?></h2>
+            <p><?php esc_html_e('Questions about fitment, brands, delivery, or an order you already placed? Reach Mytire for quick help before purchase and dependable follow-up after checkout.', 'dawp'); ?></p>
+            <a class="mytire-outline-button" href="<?php echo esc_url(home_url('/contact/')); ?>"><?php esc_html_e('Contact Mytire Support', 'dawp'); ?></a>
+        </div>
+    </section>
 </div>

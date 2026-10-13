@@ -1,0 +1,247 @@
+.mytire-contact-page {
+  --mytire-red: #ffcc00;
+  --mytire-red-hover: #e6b800;
+  --mytire-red-contrast: #171717;
+  --mytire-blue: #171717;
+  --mytire-ink: #171717;
+}
+
+.mytire-contact-hero {
+  box-sizing: border-box;
+  padding: 72px 0;
+  background: linear-gradient(90deg, rgba(17, 17, 17, .92) 0%, rgba(17, 17, 17, .72) 44%, rgba(17, 17, 17, .18) 100%), url("../img/gallery/Mytire/Home/Customer_Support.jpg") center / cover;
+}
+
+.mytire-contact-actions,
+.mytire-contact-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.mytire-contact-actions .mytire-red-button,
+.mytire-contact-actions .mytire-outline-button,
+.mytire-contact-cta-actions .mytire-pill-button,
+.mytire-contact-cta-actions .mytire-outline-button {
+  margin-top: 0;
+}
+
+.mytire-contact-hero .mytire-outline-button {
+  min-height: 50px;
+  min-width: 210px;
+  border-color: #fff;
+  color: #fff;
+}
+
+.mytire-contact-hero .mytire-outline-button:hover {
+  border-color: var(--mytire-red);
+  background: var(--mytire-red);
+  color: var(--mytire-red-contrast);
+}
+
+.mytire-contact-channels .mytire-how__grid {
+  margin-top: 68px;
+}
+
+.mytire-contact-form-section {
+  grid-template-columns: 44% 56%;
+  align-items: stretch;
+  background: #f7f7f7;
+}
+
+.mytire-contact-details {
+  align-self: center;
+}
+
+.mytire-contact-info-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.mytire-contact-info {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #fff;
+  padding: 18px 20px;
+}
+
+.mytire-contact-info p {
+  margin: 0 0 6px;
+  color: #666;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.mytire-contact-info a,
+.mytire-contact-info strong {
+  display: block;
+  color: #171717;
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.mytire-contact-info a:hover {
+  color: #8a6d00;
+}
+
+.mytire-contact-info span {
+  display: block;
+  margin-top: 4px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.mytire-contact-form-wrap {
+  align-self: stretch;
+  padding: 70px 8vw 70px 34px;
+  background: #fff;
+}
+
+.mytire-contact-form {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #fff;
+  padding: 34px;
+  box-shadow: none;
+}
+
+.mytire-contact-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.mytire-contact-form p + p,
+.mytire-contact-fields + p {
+  margin-top: 18px;
+}
+
+.mytire-contact-form label {
+  display: block;
+  color: #171717;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.mytire-contact-form input,
+.mytire-contact-form textarea {
+  width: 100%;
+  margin-top: 8px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  background: #fff;
+  color: #171717;
+  font-size: 16px;
+  line-height: 1.45;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.mytire-contact-form input {
+  min-height: 50px;
+  padding: 0 14px;
+}
+
+.mytire-contact-form textarea {
+  min-height: 280px;
+  padding: 13px 14px;
+  resize: vertical;
+}
+
+.mytire-contact-form input:focus,
+.mytire-contact-form textarea:focus {
+  border-color: #8a6d00;
+  box-shadow: 0 0 0 3px rgba(255, 204, 0, .28);
+}
+
+.mytire-contact-form .mytire-red-button {
+  border: 0;
+  cursor: pointer;
+}
+
+.mytire-contact-hp {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.mytire-contact-status {
+  margin-bottom: 18px;
+  border: 1px solid #d4dae2;
+  background: #fff;
+  padding: 14px 16px;
+  color: #171717;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+.mytire-contact-status--failed,
+.mytire-contact-status--invalid {
+  border-color: #f2c08a;
+  background: #fff7ed;
+}
+
+.mytire-contact-cta-actions {
+  justify-content: center;
+}
+
+.mytire-contact-cta-actions .mytire-outline-button {
+  min-width: 178px;
+}
+
+@media (max-width: 980px) {
+  .mytire-contact-hero {
+    min-height: 520px;
+    padding: 52px 0 62px;
+  }
+
+  .mytire-contact-form-section {
+    grid-template-columns: 1fr;
+  }
+
+  .mytire-contact-form-wrap,
+  .mytire-contact-details {
+    padding: 34px 20px 46px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mytire-contact-hero {
+    min-height: 520px;
+    padding: 38px 0 56px;
+  }
+
+  .mytire-contact-actions,
+  .mytire-contact-cta-actions {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .mytire-contact-actions .mytire-red-button,
+  .mytire-contact-actions .mytire-outline-button,
+  .mytire-contact-cta-actions .mytire-pill-button,
+  .mytire-contact-cta-actions .mytire-outline-button {
+    width: 100%;
+  }
+
+  .mytire-contact-form {
+    padding: 22px;
+  }
+
+  .mytire-contact-fields {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .mytire-contact-form textarea {
+    min-height: 220px;
+  }
+}

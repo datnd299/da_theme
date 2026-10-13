@@ -4,6 +4,356 @@
     font-family: Inter, Manrope, system-ui, sans-serif;
 }
 
+.rim-size-page--home-aligned {
+    --rim-yellow: #ffcc00;
+    --rim-yellow-hover: #e6b800;
+    --rim-ink: #1f2933;
+    --rim-blue: #0b5f79;
+    --rim-border: #cfd4da;
+    --rim-soft: #f3f3f3;
+    --rim-panel: #fff;
+    background: #fff;
+    color: var(--rim-ink);
+    font-family: var(--font-sans, 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif);
+    letter-spacing: 0;
+}
+
+.rim-size-page--home-aligned * {
+    letter-spacing: 0;
+}
+
+.rim-size-page--home-aligned .rim-hero {
+    min-height: 540px;
+    background: #111;
+}
+
+.rim-size-page--home-aligned .rim-hero__overlay {
+    background: linear-gradient(90deg, rgba(11, 11, 5, .95) 0%, rgba(11, 11, 5, .82) 33%, rgba(11, 11, 5, .34) 66%, rgba(11, 11, 5, .18) 100%);
+}
+
+.rim-size-page--home-aligned .rim-hero__inner {
+    grid-template-columns: minmax(0, 1fr) 230px;
+    align-items: center;
+    min-height: 540px;
+    width: min(1270px, calc(100% - 40px));
+    max-width: none;
+    padding: 88px 0 74px 26px;
+}
+
+.rim-size-page--home-aligned .rim-eyebrow {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.rim-size-page--home-aligned .rim-eyebrow--blue {
+    color: var(--rim-blue);
+}
+
+.rim-size-page--home-aligned .rim-hero h1,
+.rim-size-page--home-aligned .rim-intro h2,
+.rim-size-page--home-aligned .rim-tool h2,
+.rim-size-page--home-aligned .rim-support h2 {
+    font-family: var(--font-sans, 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif);
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.rim-size-page--home-aligned .rim-hero h1 {
+    max-width: 760px;
+    margin-top: 4px;
+    font-size: clamp(40px, 4vw, 64px);
+}
+
+.rim-size-page--home-aligned .rim-hero p:not(.rim-eyebrow) {
+    max-width: 640px;
+    margin-top: 28px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.rim-size-page--home-aligned .rim-hero__actions {
+    gap: 14px;
+    margin-top: 48px;
+}
+
+.rim-size-page--home-aligned .rim-button {
+    min-height: 50px;
+    border-radius: 2px;
+    padding: 0 42px;
+    font-size: 14px;
+    color: #171717;
+    background: var(--rim-yellow);
+}
+
+.rim-size-page--home-aligned .rim-button:hover,
+.rim-size-page--home-aligned .rim-button--primary:hover,
+.rim-size-page--home-aligned .rim-button--dark:hover {
+    background: var(--rim-yellow-hover);
+    color: #171717;
+}
+
+.rim-size-page--home-aligned .rim-button--ghost {
+    border: 2px solid var(--rim-yellow);
+    background: transparent;
+    color: var(--rim-yellow);
+}
+
+.rim-size-page--home-aligned .rim-button--ghost:hover {
+    background: var(--rim-yellow);
+    color: #171717;
+}
+
+.rim-size-page--home-aligned .rim-button--dark {
+    background: var(--rim-ink);
+    color: #fff;
+}
+
+.rim-size-page--home-aligned .rim-hero__panel {
+    gap: 12px;
+    border-color: rgba(255, 255, 255, .28);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, .1);
+    padding: 24px;
+}
+
+.rim-size-page--home-aligned .rim-hero__panel span {
+    color: var(--rim-yellow);
+}
+
+.rim-size-page--home-aligned .rim-intro,
+.rim-size-page--home-aligned .rim-tool,
+.rim-size-page--home-aligned .rim-support {
+    width: min(1260px, calc(100% - 40px));
+    max-width: none;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.rim-size-page--home-aligned .rim-intro {
+    padding-top: 88px;
+}
+
+.rim-size-page--home-aligned .rim-intro__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 42%);
+    border-bottom-color: var(--rim-border);
+}
+
+.rim-size-page--home-aligned .rim-intro h2,
+.rim-size-page--home-aligned .rim-tool h2,
+.rim-size-page--home-aligned .rim-support h2 {
+    color: var(--rim-ink);
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.12;
+}
+
+.rim-size-page--home-aligned .rim-intro p:not(.rim-eyebrow),
+.rim-size-page--home-aligned .tz-panel__top p,
+.rim-size-page--home-aligned .rim-support p {
+    color: #344054;
+    line-height: 1.55;
+}
+
+.rim-size-page--home-aligned .rim-intro img {
+    border-radius: 4px;
+    box-shadow: 0 18px 36px rgba(17, 24, 39, .14);
+}
+
+.rim-size-page--home-aligned .rim-tool {
+    padding-top: 58px;
+}
+
+.rim-size-page--home-aligned .rim-tool__header {
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.rim-size-page--home-aligned .rim-search input {
+    border-color: var(--rim-border);
+    border-radius: 3px;
+    font-family: inherit;
+}
+
+.rim-size-page--home-aligned .rim-search input:focus {
+    border-color: var(--rim-yellow);
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, .28);
+}
+
+.rim-size-page--home-aligned .tz-tabs-nav {
+    gap: 8px;
+    border-radius: 0;
+    background: transparent;
+    padding-bottom: 12px;
+}
+
+.rim-size-page--home-aligned .tz-tab-link {
+    min-width: 96px;
+    border: 1px solid var(--rim-blue);
+    border-radius: 3px;
+    background: #fff;
+    color: var(--rim-blue);
+    padding: 13px 16px;
+}
+
+.rim-size-page--home-aligned .tz-tab-link small {
+    color: #5f6b78;
+}
+
+.rim-size-page--home-aligned .tz-tab-link.active {
+    border-color: var(--rim-yellow);
+    background: var(--rim-yellow);
+    color: #171717;
+}
+
+.rim-size-page--home-aligned .tz-tab-link.active small {
+    color: #3b3b3b;
+}
+
+.rim-size-page--home-aligned .tz-content {
+    border: 1px solid #e7ebef;
+    border-radius: 8px;
+    box-shadow: 0 14px 34px rgba(15, 23, 42, .1);
+}
+
+.rim-size-page--home-aligned .tz-panel {
+    padding: clamp(24px, 4vw, 40px);
+}
+
+.rim-size-page--home-aligned .tz-panel__top h3 {
+    color: var(--rim-ink);
+    font-size: 24px;
+}
+
+.rim-size-page--home-aligned .tz-panel__top span {
+    border-radius: 999px;
+    background: #f4f4f4;
+    color: var(--rim-blue);
+}
+
+.rim-size-page--home-aligned .tz-grid {
+    gap: 10px;
+}
+
+.rim-size-page--home-aligned .tz-item {
+    min-height: 52px;
+    border-color: #d9dee5;
+    border-radius: 4px;
+    background: #fff;
+    color: var(--rim-ink);
+}
+
+.rim-size-page--home-aligned .tz-item:hover {
+    border-color: var(--rim-yellow);
+    background: #fffdf2;
+    color: #8a6d00;
+    box-shadow: 0 12px 24px rgba(17, 24, 39, .12);
+}
+
+.rim-size-page--home-aligned .rim-no-results {
+    border-color: #f0d46f;
+    border-radius: 4px;
+    background: #fffbe8;
+    color: #7a6200;
+}
+
+.rim-size-page--home-aligned .rim-support {
+    width: min(1180px, calc(100% - 40px));
+    padding-top: 66px;
+    padding-bottom: 78px;
+    text-align: left;
+}
+
+.rim-size-page--home-aligned.brand-page .brand-grid {
+    gap: 18px;
+}
+
+.rim-size-page--home-aligned.brand-page .brand-card {
+    min-height: 190px;
+    border-color: #e7ebef;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--rim-ink);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, .08);
+}
+
+.rim-size-page--home-aligned.brand-page .brand-card:hover {
+    border-color: var(--rim-yellow);
+    background: #fffdf2;
+    box-shadow: 0 18px 36px rgba(17, 24, 39, .14);
+}
+
+.rim-size-page--home-aligned.brand-page .brand-card__top strong {
+    color: var(--rim-ink);
+    font-size: 25px;
+}
+
+.rim-size-page--home-aligned.brand-page .brand-card__top em {
+    border-radius: 999px;
+    background: var(--rim-yellow);
+    color: #171717;
+}
+
+.rim-size-page--home-aligned.brand-page .brand-card__copy {
+    color: #344054;
+}
+
+.rim-size-page--home-aligned.brand-page .brand-card__tags small {
+    border-color: #d9dee5;
+    background: #f4f4f4;
+    color: var(--rim-blue);
+}
+
+.rim-size-page--home-aligned.vehicle-type-page .vehicle-panel__layout {
+    grid-template-columns: minmax(280px, .42fr) minmax(0, 1fr);
+    gap: 34px;
+}
+
+.rim-size-page--home-aligned.vehicle-type-page .vehicle-panel__layout > img {
+    border-radius: 4px;
+    box-shadow: 0 16px 32px rgba(17, 24, 39, .14);
+}
+
+.rim-size-page--home-aligned.vehicle-type-page .vehicle-tags {
+    gap: 8px;
+}
+
+.rim-size-page--home-aligned.vehicle-type-page .vehicle-tags span {
+    border-color: #d9dee5;
+    background: #f4f4f4;
+    color: var(--rim-blue);
+}
+
+.rim-size-page--home-aligned.vehicle-type-page .vehicle-primary-card {
+    min-height: 128px;
+    border-color: #e7ebef;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 10px 26px rgba(15, 23, 42, .08);
+}
+
+.rim-size-page--home-aligned.vehicle-type-page .vehicle-primary-card:hover {
+    border-color: var(--rim-yellow);
+    background: #fffdf2;
+    box-shadow: 0 18px 36px rgba(17, 24, 39, .14);
+}
+
+.rim-size-page--home-aligned.vehicle-type-page .vehicle-primary-card strong {
+    color: var(--rim-ink);
+}
+
+.rim-size-page--home-aligned.vehicle-type-page .vehicle-primary-card span {
+    color: #344054;
+}
+
 .rim-hero {
     position: relative;
     min-height: 620px;
@@ -676,5 +1026,98 @@
 
     .tz-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+    .rim-size-page--home-aligned .rim-hero__inner,
+    .rim-size-page--home-aligned .rim-intro__inner,
+    .rim-size-page--home-aligned.vehicle-type-page .vehicle-panel__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .rim-size-page--home-aligned .rim-hero__panel {
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 768px) {
+    .rim-size-page--home-aligned .rim-hero,
+    .rim-size-page--home-aligned .rim-hero__inner {
+        min-height: 470px;
+    }
+
+    .rim-size-page--home-aligned .rim-hero__inner {
+        width: min(100% - 40px, 1270px);
+        padding: 72px 0 46px;
+    }
+
+    .rim-size-page--home-aligned .rim-intro,
+    .rim-size-page--home-aligned .rim-tool,
+    .rim-size-page--home-aligned .rim-support {
+        width: min(100% - 40px, 1260px);
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .rim-size-page--home-aligned .rim-intro {
+        padding-top: 56px;
+    }
+
+    .rim-size-page--home-aligned .rim-tool {
+        padding-top: 46px;
+    }
+
+    .rim-size-page--home-aligned .rim-tool__header,
+    .rim-size-page--home-aligned .rim-support {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .rim-size-page--home-aligned .rim-search {
+        width: 100%;
+    }
+
+    .rim-size-page--home-aligned.brand-page .brand-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rim-size-page--home-aligned.vehicle-type-page .vehicle-panel__layout > img {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .rim-size-page--home-aligned .rim-hero,
+    .rim-size-page--home-aligned .rim-hero__inner {
+        min-height: 430px;
+    }
+
+    .rim-size-page--home-aligned .rim-hero h1 {
+        font-size: 40px;
+    }
+
+    .rim-size-page--home-aligned .rim-hero__actions {
+        margin-top: 30px;
+    }
+
+    .rim-size-page--home-aligned .rim-button {
+        width: 100%;
+        padding: 0 24px;
+    }
+
+    .rim-size-page--home-aligned .rim-intro,
+    .rim-size-page--home-aligned .rim-tool,
+    .rim-size-page--home-aligned .rim-support {
+        width: min(100% - 24px, 1260px);
+    }
+
+    .rim-size-page--home-aligned .tz-tabs-nav {
+        gap: 6px;
+    }
+
+    .rim-size-page--home-aligned .tz-tab-link {
+        min-width: 82px;
+        padding: 12px 10px;
     }
 }

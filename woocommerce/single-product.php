@@ -1,7 +1,7 @@
 <?php
 /**
- * Single Product Template — TireZap
- * @package tirezap
+ * Single Product Template — Mytire
+ * @package Mytire
  */
 
 defined('ABSPATH') || exit;
@@ -14,12 +14,12 @@ get_header();
 do_action('woocommerce_before_main_content');
 ?>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-0">
+<main class="product-page-shell" id="main-content">
     <?php while (have_posts()) : ?>
         <?php the_post(); ?>
         <?php wc_get_template_part('content', 'single-product'); ?>
     <?php endwhile; ?>
-</div>
+</main>
 
 <?php
 /**

@@ -1,49 +1,41 @@
 /* =============================================================
-   TRACK ORDER PAGE - Tizezap
+   TRACK ORDER PAGE - Mytire
    ============================================================= */
 
 .track-order-page {
-  --track-navy: #0B1F33;
-  --track-blue: #2563EB;
-  --track-blue-soft: #EFF6FF;
-  --track-orange: #F97316;
-  --track-orange-soft: #FFF7ED;
-  --track-ink: #111827;
-  --track-heading: #0B1F33;
-  --track-muted: #4B5563;
-  --track-soft-muted: #5B6472;
-  --track-border: #E5E7EB;
-  --track-panel: #F4F6F8;
+  --track-black: #111111;
+  --track-charcoal: #171717;
+  --track-yellow: #FFCC00;
+  --track-yellow-deep: #B38600;
+  --track-yellow-soft: #FFF6CC;
+  --track-red: #C40000;
+  --track-ink: #222222;
+  --track-heading: #111111;
+  --track-muted: #555555;
+  --track-soft-muted: #777777;
+  --track-border: #D9D9D9;
+  --track-panel: #F7F7F7;
   --track-white: #FFFFFF;
   --track-danger: #C0392B;
   --track-success: #5C8A6A;
-  --track-shadow: 0 16px 40px rgba(11, 31, 51, 0.08);
+  --track-shadow: none;
 
   background: var(--track-white);
   color: var(--track-ink);
-  font-family: var(--font-sans, 'Lato', 'Inter', system-ui, sans-serif);
+  font-family: var(--font-sans, 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif);
 }
 
 .track-hero {
   position: relative;
   overflow: hidden;
-  padding: 4rem 1rem;
-  color: var(--track-white);
-  background:
-    linear-gradient(135deg, rgba(37, 99, 235, 0.36) 0%, rgba(11, 31, 51, 0.98) 48%, rgba(249, 115, 22, 0.28) 100%),
-    var(--track-navy);
+  padding: 3rem 1rem;
+  color: var(--track-black);
+  background: var(--track-white);
+  border-bottom: 1px solid var(--track-border);
 }
 
 .track-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 64px 64px;
-  opacity: 0.28;
-  pointer-events: none;
+  content: none;
 }
 
 .track-hero__inner {
@@ -67,10 +59,10 @@
   width: fit-content;
   min-height: 2.125rem;
   padding: 0.45rem 0.85rem;
-  border-radius: 8px;
-  color: #FDBA74;
-  background: rgba(249, 115, 22, 0.14);
-  border: 1px solid rgba(249, 115, 22, 0.34);
+  border-radius: 4px;
+  color: var(--track-black);
+  background: var(--track-yellow);
+  border: 1px solid var(--track-yellow);
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -91,7 +83,7 @@
 .track-hero__desc {
   max-width: 38rem;
   margin: 0;
-  color: #D7DEE8;
+  color: var(--track-muted);
   font-size: 1.0625rem;
   line-height: 1.75;
 }
@@ -125,12 +117,14 @@
 }
 
 .track-hero__button--primary {
-  background: var(--track-blue);
-  color: var(--track-white);
+  background: var(--track-yellow);
+  color: var(--track-black);
+  box-shadow: 0 14px 28px rgba(255, 204, 0, 0.22);
 }
 
 .track-hero__button--primary:hover {
-  background: var(--track-orange);
+  background: var(--track-white);
+  color: var(--track-black);
 }
 
 .track-hero__button--ghost {
@@ -153,7 +147,8 @@
 }
 
 .track-form-card--hero {
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  border-color: rgba(255, 204, 0, 0.72);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
 }
 
 .track-form-card__header {
@@ -163,7 +158,7 @@
 }
 
 .track-form-card__header span {
-  color: var(--track-orange);
+  color: var(--track-yellow-deep);
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -177,7 +172,7 @@
   font-size: 1.6rem;
   line-height: 1.15;
   font-weight: 900;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .track-form-card__body {
@@ -196,7 +191,8 @@
 
 .track-form-section {
   padding: 3.5rem 1rem 4rem;
-  background: var(--track-panel);
+  background:
+    linear-gradient(180deg, #FFFFFF 0%, var(--track-panel) 100%);
 }
 
 .track-form-section__inner {
@@ -216,7 +212,7 @@
 
 .track-status-card__eyebrow {
   display: block;
-  color: var(--track-orange);
+  color: var(--track-yellow-deep);
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -240,7 +236,7 @@
   padding: 1rem;
   border: 1px solid var(--track-border);
   border-radius: 8px;
-  background: var(--track-panel);
+  background: var(--track-white);
 }
 
 .track-status-list span {
@@ -248,8 +244,9 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 8px;
-  background: var(--track-blue);
-  color: var(--track-white);
+  background: var(--track-black);
+  color: var(--track-yellow);
+  box-shadow: inset 0 0 0 2px var(--track-yellow);
 }
 
 .track-status-list span::after {
@@ -258,7 +255,7 @@
   height: 0.75rem;
   margin: auto;
   border-radius: 999px;
-  background: var(--track-white);
+  background: var(--track-yellow);
 }
 
 .track-status-list strong {
@@ -300,8 +297,8 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1.25rem 1.5rem;
-  background: var(--track-blue-soft);
-  border: 1px solid #BFDBFE;
+  background: var(--track-yellow-soft);
+  border: 1px solid rgba(255, 204, 0, 0.7);
   border-radius: 8px;
 }
 
@@ -310,8 +307,8 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 8px;
-  background: var(--track-blue);
-  color: var(--track-white);
+  background: var(--track-black);
+  color: var(--track-yellow);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -333,9 +330,9 @@
 }
 
 .track-help-box__text a {
-  color: var(--track-blue);
+  color: var(--track-red);
   font-weight: 900;
-  text-decoration-color: #BFDBFE;
+  text-decoration-color: rgba(196, 0, 0, 0.28);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
 }
@@ -362,7 +359,7 @@
 }
 
 .track-badge svg {
-  color: var(--track-orange);
+  color: var(--track-red);
   flex-shrink: 0;
 }
 
@@ -385,8 +382,9 @@
 }
 
 .track-more-section__label {
-  color: #C2410C;
-  background: var(--track-orange-soft);
+  color: var(--track-black);
+  background: var(--track-yellow-soft);
+  border-color: rgba(255, 204, 0, 0.7);
   margin-bottom: 0.5rem;
 }
 
@@ -417,7 +415,7 @@
   min-height: 10.5rem;
   padding: 1.5rem;
   border: 1px solid var(--track-border);
-  border-top: 4px solid var(--track-blue);
+  border-top: 4px solid var(--track-yellow);
   border-radius: 8px;
   background: var(--track-panel);
   text-decoration: none;
@@ -425,17 +423,17 @@
 }
 
 .track-more-card:nth-child(2) {
-  border-top-color: var(--track-orange);
+  border-top-color: var(--track-red);
 }
 
 .track-more-card:nth-child(3) {
-  border-top-color: var(--track-ink);
+  border-top-color: var(--track-black);
 }
 
 .track-more-card:hover {
   background: var(--track-white);
-  border-color: var(--track-blue);
-  box-shadow: 0 12px 28px rgba(11, 31, 51, 0.1);
+  border-color: var(--track-yellow);
+  box-shadow: 0 12px 28px rgba(17, 17, 17, 0.1);
 }
 
 .track-more-card__title {
@@ -482,25 +480,25 @@
 
 .track-category-link::after {
   content: ">";
-  color: var(--track-orange);
+  color: var(--track-red);
   font-weight: 900;
 }
 
 .track-category-link--all {
-  background: var(--track-navy);
-  border-color: var(--track-navy);
-  color: var(--track-white);
+  background: var(--track-black);
+  border-color: var(--track-black);
+  color: var(--track-black);
 }
 
 .track-category-link:hover {
-  border-color: var(--track-blue);
-  background: var(--track-blue-soft);
-  color: var(--track-blue);
+  border-color: var(--track-yellow);
+  background: var(--track-yellow-soft);
+  color: var(--track-black);
 }
 
 .track-category-link--all:hover {
-  background: var(--track-blue);
-  color: var(--track-white);
+  background: var(--track-yellow);
+  color: var(--track-black);
 }
 
 @media (min-width: 768px) {
@@ -582,16 +580,16 @@
 
 .form-row input.input-text:focus,
 .woocommerce-form-row input.input-text:focus {
-  border-color: var(--track-blue) !important;
+  border-color: var(--track-yellow-deep) !important;
   background: var(--track-white) !important;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18) !important;
+  box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.24) !important;
 }
 
 .form-row button.button,
 .woocommerce-form-row button.button {
   width: 100% !important;
   min-height: 3.5rem !important;
-  background: var(--track-blue) !important;
+  background: var(--track-black) !important;
   color: var(--track-white) !important;
   padding: 1rem 2rem !important;
   border-radius: 8px !important;
@@ -602,17 +600,17 @@
   text-transform: uppercase !important;
   cursor: pointer !important;
   border: none !important;
-  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.2) !important;
+  box-shadow: 0 12px 26px rgba(17, 17, 17, 0.18) !important;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
   margin-top: 0.5rem !important;
 }
 
 .form-row button.button:hover,
 .woocommerce-form-row button.button:hover {
-  background: var(--track-navy) !important;
-  color: var(--track-white) !important;
+  background: var(--track-yellow) !important;
+  color: var(--track-black) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 16px 32px rgba(11, 31, 51, 0.2) !important;
+  box-shadow: 0 16px 32px rgba(255, 204, 0, 0.22) !important;
 }
 
 .form-row button.button:active,
@@ -645,8 +643,8 @@
 .order-info {
   color: var(--track-muted);
   line-height: 1.7;
-  background: var(--track-blue-soft);
-  border: 1px solid #BFDBFE;
+  background: var(--track-yellow-soft);
+  border: 1px solid rgba(255, 204, 0, 0.7);
 }
 
 .order-info mark {
@@ -660,8 +658,8 @@
 }
 
 .order-info mark.order-status {
-  color: var(--track-white);
-  background: var(--track-blue);
+  color: var(--track-black);
+  background: var(--track-yellow);
   padding: 0.125rem 0.625rem;
   border-radius: 999px;
   font-size: 0.8125rem;
@@ -692,8 +690,8 @@
 }
 
 .track-back-button:hover {
-  border-color: var(--track-blue);
-  background: var(--track-blue-soft);
+  border-color: var(--track-yellow);
+  background: var(--track-yellow-soft);
   color: var(--track-heading);
   transform: translateY(-2px);
 }
@@ -709,7 +707,7 @@
   color: var(--track-heading);
   margin: 0 0 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 3px solid var(--track-orange);
+  border-bottom: 3px solid var(--track-yellow);
   display: inline-block;
   text-transform: uppercase;
 }
@@ -762,7 +760,7 @@
 }
 
 .woocommerce-table__product-name a:hover {
-  color: var(--track-blue);
+  color: var(--track-red);
 }
 
 .product-quantity,
@@ -796,4 +794,209 @@
     gap: 0.5rem;
     text-align: center;
   }
+}
+
+/* Simple refresh */
+.track-order-page {
+  --track-shadow: none;
+}
+
+.track-hero {
+  padding: 3rem 1rem;
+  color: var(--track-black);
+  background: var(--track-white);
+  border-bottom: 1px solid var(--track-border);
+}
+
+.track-hero::after {
+  content: none;
+}
+
+.track-hero__label,
+.track-more-section__label {
+  border-radius: 4px;
+  color: var(--track-black);
+  background: var(--track-yellow);
+  border-color: var(--track-yellow);
+}
+
+.track-hero__title {
+  color: var(--track-black);
+}
+
+.track-hero__desc {
+  color: var(--track-muted);
+}
+
+.track-hero__button,
+.track-form-card,
+.track-status-card,
+.track-status-list li,
+.track-help-box,
+.track-help-box__icon,
+.track-badge,
+.track-more-card,
+.track-category-link {
+  border-radius: 4px;
+}
+
+.track-hero__button:hover,
+.track-more-card:hover,
+.track-category-link:hover,
+.form-row button.button:hover,
+.woocommerce-form-row button.button:hover,
+.track-back-button:hover {
+  transform: none !important;
+}
+
+.track-hero__button--primary {
+  border: 1px solid var(--track-yellow);
+  background: var(--track-yellow);
+  color: var(--track-black);
+  box-shadow: none;
+}
+
+.track-hero__button--primary:hover {
+  border-color: var(--track-black);
+  background: var(--track-black);
+  color: var(--track-white);
+}
+
+.track-hero__button--ghost {
+  border: 1px solid var(--track-black);
+  background: var(--track-white);
+  color: var(--track-black);
+}
+
+.track-hero__button--ghost:hover {
+  background: var(--track-black);
+  color: var(--track-white);
+}
+
+.track-form-card--hero {
+  border-color: var(--track-black);
+  box-shadow: none;
+}
+
+@media (min-width: 900px) {
+  .track-hero {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.track-form-section {
+  background: var(--track-panel);
+}
+
+.track-status-list span {
+  background: var(--track-yellow);
+  color: var(--track-black);
+  box-shadow: none;
+}
+
+.track-status-list span::after {
+  background: var(--track-black);
+}
+
+.track-help-box {
+  background: var(--track-white);
+  border-color: var(--track-border);
+}
+
+.track-help-box__icon {
+  background: var(--track-yellow);
+  color: var(--track-black);
+}
+
+.track-help-box__text a,
+.track-badge svg,
+.track-category-link::after {
+  color: var(--track-black);
+}
+
+.track-more-section__label {
+  margin-bottom: 0.5rem;
+}
+
+.track-more-card {
+  border-top-width: 1px;
+  background: var(--track-white);
+}
+
+.track-more-card:nth-child(2),
+.track-more-card:nth-child(3) {
+  border-top-color: var(--track-border);
+}
+
+.track-more-card:hover,
+.track-category-link:hover,
+.track-back-button:hover {
+  border-color: var(--track-black);
+  background: var(--track-yellow-soft);
+  box-shadow: none;
+}
+
+.track-category-link--all {
+  background: var(--track-black);
+  border-color: var(--track-black);
+  color: var(--track-white);
+}
+
+.track-category-link--all:hover {
+  background: var(--track-yellow);
+  color: var(--track-black);
+}
+
+.form-row button.button,
+.woocommerce-form-row button.button {
+  box-shadow: none !important;
+}
+
+.track-support-section {
+  padding: 1.5rem 1rem 4rem;
+  background: var(--track-panel);
+  text-align: center;
+}
+
+.track-support-section p {
+  max-width: 42rem;
+  margin: 0 auto;
+  color: var(--track-muted);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.track-support-section a {
+  color: var(--track-black);
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* Add a little weight back after simplifying the page */
+.track-order-page {
+  background: var(--track-panel);
+}
+
+.track-hero {
+  background: var(--track-panel);
+}
+
+.track-hero__inner {
+  max-width: 68rem;
+}
+
+.track-hero__copy {
+  max-width: 34rem;
+}
+
+.track-form-card--hero {
+  background: var(--track-white);
+  border: 1px solid var(--track-black);
+  box-shadow: 8px 8px 0 var(--track-yellow);
+}
+
+.track-support-section {
+  padding-top: 0;
 }

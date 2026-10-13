@@ -9,8 +9,8 @@ get_header();
 
 $archive_title = is_shop() ? __('All Products', 'dawp') : woocommerce_page_title(false);
 $archive_summary = __('Browse tire options with clear product details, pricing, and fitment reminders.', 'dawp');
-$archive_eyebrow = __('Tizezap Tire Shop', 'dawp');
-$archive_cover = get_theme_file_uri('/assets/img/gallery/Tizezap/tire-hero-road.png');
+$archive_eyebrow = __('Mytire Tire Shop', 'dawp');
+$archive_cover = get_theme_file_uri('/assets/img/gallery/Mytire/Home/the_right_tire_faster.jpg');
 $archive_tags = [
     __('Tire size', 'dawp'),
     __('Rim size', 'dawp'),
@@ -46,7 +46,7 @@ if ( is_product_category() ) {
     <?php
     // Breadcrumb
     ?>
-    <nav class="shop-breadcrumb" aria-label="Breadcrumbbb">
+    <nav class="shop-breadcrumb" aria-label="Breadcrumb">
         <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
         <span aria-hidden="true">&rsaquo;</span>
         <?php if ( is_product_category() ) :

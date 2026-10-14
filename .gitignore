@@ -1,2 +1,11 @@
 node_modules/
 dist/
+# Local agent/tooling files (not part of the theme)
+CLAUDE.md
+skills-lock.json
+.claude/
+.agent/
+.plans/
+temp_head_header.php
+temp_header.php
+*.log

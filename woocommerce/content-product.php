@@ -1,59 +1,18 @@
 <?php
 /**
- * Content-product: single product card in the shop loop.
+ * Product card (hm-card): factual flag, one feature line, single price, free-shipping note.
+ * @version 9.4.0
  */
 defined('ABSPATH') || exit;
-
 global $product;
-if (empty($product) || !$product->is_visible()) return;
-
-$cats     = get_the_terms($product->get_id(), 'product_cat');
-$cat_name = '';
-
-if (!is_wp_error($cats) && !empty($cats)) {
-    foreach ($cats as $cat) {
-        if (function_exists('dawp_is_lbq_product_category_slug') && !dawp_is_lbq_product_category_slug($cat->slug)) {
-            continue;
-        }
-
-        $cat_name = $cat->name;
-        break;
-    }
-}
+if (!is_a($product, WC_Product::class) || !$product->is_visible()) return;
+$flag = hm_flag($product); $feat = hm_feature_line($product);
 ?>
-<li <?php wc_product_class('product-card', $product); ?>>
-    <a href="<?php the_permalink(); ?>" class="product-card__link" aria-label="<?php the_title_attribute(); ?>">
-
-        <div class="product-card__shell">
-            <div class="product-card__inner">
-                <div class="product-card__img-wrap">
-                    <?php
-                    echo function_exists('dawp_get_product_responsive_image')
-                        ? dawp_get_product_responsive_image($product, 'product-card__img', 420, 420, '(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw')
-                        : $product->get_image('woocommerce_single', ['class' => 'product-card__img', 'loading' => 'lazy']);
-                    ?>
-                </div>
-
-                <?php if ($product->is_on_sale()) : ?>
-                    <span class="product-card__badge">Sale</span>
-                <?php endif; ?>
-
-                <div class="product-card__cta" aria-hidden="true">
-                    <span>View</span>
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                </div>
-            </div>
-        </div>
-
-        <div class="product-card__meta">
-            <div class="product-card__info">
-                <h3 class="product-card__title"><?php the_title(); ?></h3>
-                <?php if ($cat_name) : ?>
-                    <span class="product-card__cat"><?php echo esc_html($cat_name); ?></span>
-                <?php endif; ?>
-            </div>
-            <div class="product-card__price"><?php echo $product->get_price_html(); ?></div>
-        </div>
-
-    </a>
-</li>
+<article <?php wc_product_class('hm-card', $product); ?>>
+<?php if ($flag) : ?><span class="hm-card__flag"><?php echo esc_html($flag); ?></span><?php endif; ?>
+<a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true"><?php echo $product->get_image('woocommerce_thumbnail', ['class' => 'hm-card__img', 'loading' => 'lazy']); ?></a>
+<a class="hm-card__title" href="<?php the_permalink(); ?>"><?php echo esc_html($product->get_name()); ?></a>
+<?php if ($feat) : ?><p class="hm-card__feat"><?php echo esc_html($feat); ?></p><?php endif; ?>
+<div class="hm-price"><?php echo $product->get_price_html(); ?></div><small>Free shipping</small>
+<?php woocommerce_template_loop_add_to_cart(['class' => implode(' ', array_filter(['hm-btn', 'button', 'product_type_' . $product->get_type(), $product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '', $product->supports('ajax_add_to_cart') && $product->is_purchasable() && $product->is_in_stock() ? 'ajax_add_to_cart' : '']))]); ?>
+</article>

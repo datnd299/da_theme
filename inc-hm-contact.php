@@ -59,7 +59,7 @@ function hm_contact_form() {
 <form class="hm-panel hm-contact" id="hm-contact" method="post" action="<?php echo esc_url(get_permalink()); ?>#hm-contact" novalidate>
 <h2>Send us a message</h2>
 <?php if (isset($_GET['hm_contact']) && $_GET['hm_contact'] === 'sent' && $s['status'] !== 'error') : ?>
-<div class="hm-alert hm-alert--ok" role="status"><strong>Thanks, your message is on its way.</strong> We reply by email within 1 business day (Monday - Friday, 10:00 AM - 5:00 PM).</div>
+<div class="hm-alert hm-alert--ok" role="status"><strong>Thanks, your message is on its way.</strong> We reply by email within 1 business day (Monday–Friday, 10:00 AM - 5:00 PM).</div>
 <?php endif; if ($s['status'] === 'error') : ?>
 <div class="hm-alert hm-alert--err" role="alert"><strong>Please check the form:</strong><ul><?php foreach ($s['errors'] as $e) echo '<li>' . esc_html($e) . '</li>'; ?></ul></div>
 <?php endif; ?>

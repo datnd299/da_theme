@@ -2,11 +2,11 @@
 /**
  * Hartwell Mart theme functions.
  * Store rules (general-merchandise-store-guidelines): delivery only, free shipping,
- * free 30-day returns, handling 1-2 / transit 3-5 / delivery 4-7 business days (Mon-Fri),
+ * free 30-day returns, handling 1-2 / transit 3-5 / delivery 4-7 business days (Monday–Friday),
  * no promotional content, no fabricated social proof, one price everywhere.
  */
 defined('ABSPATH') || exit;
-define('HM_VER', '1.1.0');
+define('HM_VER', '1.2.0');
 require_once __DIR__ . '/inc-hm-contact.php';
 
 add_action('after_setup_theme', function () {
@@ -321,7 +321,7 @@ function hm_meta_description() {
     }
     if (is_page()) {
         $map = [
-            'shipping-policy' => 'Hartwell Mart shipping policy: free shipping on every order, handling in 1-2 business days, transit in 3-5, and delivery in 4-7 business days (Mon-Fri).',
+            'shipping-policy' => 'Hartwell Mart shipping policy: free shipping on every order, handling in 1-2 business days, transit in 3-5, and delivery in 4-7 business days (Monday–Friday).',
             'returns-refunds' => 'Hartwell Mart returns & refunds: free returns within 30 days of delivery with a prepaid label, no return shipping cost and no restocking fee.',
             'privacy-policy' => 'How Hartwell Mart collects, uses and protects your personal information, how cookies are used, and how to request access, correction or deletion.',
             'terms-of-service' => 'Terms of service for shopping at Hartwell Mart: orders, pricing, payment, free shipping, delivery times, free 30-day returns and liability.',
@@ -331,14 +331,22 @@ function hm_meta_description() {
             'checkout' => 'Secure checkout at Hartwell Mart. Free shipping, delivery in 4-7 business days and free 30-day returns.',
             'faq' => 'Hartwell Mart FAQ: free shipping, US-only delivery in 4-7 business days, payment methods, free 30-day returns, damaged items and how to contact us.',
             'billing-terms' => 'Hartwell Mart billing terms: Visa, Mastercard, American Express and PayPal, prices in USD, when you are charged, sales tax and refunds.',
+            'shop' => 'Shop Hartwell Mart departments: home, furniture, electronics, smart home and patio & garden, with free US shipping and free 30-day returns.',
             'my-account' => 'Sign in to your Hartwell Mart account to see orders, track deliveries and manage addresses.',
         ];
         $slug = get_post_field('post_name', get_queried_object_id());
         if (isset($map[$slug])) return $map[$slug];
         return $clip(get_the_excerpt(get_queried_object_id()));
     }
+    if (is_search()) return 'Search results at Hartwell Mart. Find home, furniture, electronics, smart home and patio & garden goods with free US shipping.';
+    if (is_404()) return 'Page not found at Hartwell Mart. Browse our departments, read our buying guides or contact us for help.';
     return get_bloginfo('description');
 }
+/* GMC F2/F8: no author archives, no users sitemap. */
+add_filter('wp_sitemaps_add_provider', function ($provider, $name) { return $name === 'users' ? false : $provider; }, 10, 2);
+add_action('template_redirect', function () { if (is_author()) { wp_safe_redirect(home_url('/'), 301); exit; } });
+/* GMC F7: never print block-editor comments. */
+add_filter('the_content', function ($c) { return preg_replace('/<!--\s*\/?wp:[^>]*-->\s*/', '', $c); }, 1);
 add_action('wp_head', function () { $d = hm_meta_description(); if ($d) echo '<meta name="description" content="' . esc_attr($d) . '">' . "\n"; }, 1);
 
 /* Accepted payment methods (display only; gateway settings unchanged). */

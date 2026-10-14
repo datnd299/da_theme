@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><?php wp_head(); ?></head>
 <body <?php body_class('hm-body'); ?>><?php wp_body_open(); ?>
 <a class="hm-skip" href="#main">Skip to content</a>
-<div class="hm-strip"><div class="hm-wrap"><span><?php echo wp_kses_post(hm_part('strip.html')); ?></span><span><a href="<?php echo esc_url(home_url('/contact/')); ?>">Help &amp; Contact</a><a href="<?php echo esc_url(wc_get_account_endpoint_url('orders')); ?>">Track order</a></span></div></div>
+<div class="hm-strip"><div class="hm-wrap"><span><?php echo wp_kses_post(hm_part('strip.html')); ?></span><span><a href="<?php echo esc_url(home_url('/about/')); ?>">About</a><a href="<?php echo esc_url(home_url('/contact/')); ?>">Help &amp; Contact</a><a href="<?php echo esc_url(wc_get_account_endpoint_url('orders')); ?>">Track order</a></span></div></div>
 <?php
 $ic = function ($d) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' . $d . '</svg>'; };
 $depts = hm_departments();

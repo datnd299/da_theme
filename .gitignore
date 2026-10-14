@@ -9,3 +9,5 @@ skills-lock.json
 temp_head_header.php
 temp_header.php
 *.log
+Claude outputs/
+package.json

@@ -1,0 +1,19 @@
+# Hartwell Mart theme: block non-public files (GMC F1). Theme assets (css/js/img/fonts) stay public.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# dotfiles and dot-directories (.git, .claude, .agent, .plans, .gitignore, .htaccess ...)
+RewriteRule (^|/)\. - [F,L]
+# build/dev folders
+RewriteRule ^(dist|node_modules|Claude\ outputs|Claude%20outputs|scripts)(/|$) - [F,L,NC]
+# legacy/partial PHP must never be requested directly (WordPress loads theme PHP internally)
+RewriteRule \.php$ - [F,L,NC]
+RewriteRule ^(template-parts|inc|parts)(/|$) - [F,L,NC]
+# dev/tooling files
+RewriteRule (^|/)(CLAUDE\.md|skills-lock\.json|package(-lock)?\.json|yarn\.lock|temp_[^/]*\.php|[^/]*\.(md|log|lock|sql|zip|bak))$ - [F,L,NC]
+</IfModule>
+<IfModule !mod_rewrite.c>
+<FilesMatch "^(\.|CLAUDE\.md$|skills-lock\.json$|package(-lock)?\.json$|yarn\.lock$|temp_.*\.php$|.*\.(md|log|lock|sql|zip|bak)$)">
+Require all denied
+</FilesMatch>
+</IfModule>
+Options -Indexes

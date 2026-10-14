@@ -261,17 +261,13 @@ $mega_sections = dawp_megamenu_sections();
 
             <!-- Cart -->
             <a href="<?php echo esc_url($cart_url); ?>"
+               id="dawp-cart-toggle"
                class="relative flex items-center justify-center w-10 h-10 rounded-md text-white hover:bg-white/10 transition-colors"
-               aria-label="<?php printf(esc_attr__('Cart (%d items)', 'dawp'), $cart_count); ?>">
+               aria-label="<?php esc_attr_e('View cart', 'dawp'); ?>">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
                 </svg>
-                <?php if ($cart_count > 0) : ?>
-                <span class="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-white text-[#A64B55] text-[10px] font-bold leading-none px-1 shadow-sm"
-                      aria-hidden="true">
-                    <?php echo esc_html($cart_count); ?>
-                </span>
-                <?php endif; ?>
+                <?php echo function_exists('dawp_cart_count_badge_html') ? dawp_cart_count_badge_html($cart_count) : ''; ?>
             </a>
 
         </div>

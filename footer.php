@@ -254,6 +254,7 @@ $footer_store_address = dawp_get_woocommerce_store_address();
 
 </footer>
 
+<?php if (function_exists('dawp_cart_drawer_markup')) : dawp_cart_drawer_markup(); endif; ?>
 <?php wp_footer(); ?>
 </body>
 </html>

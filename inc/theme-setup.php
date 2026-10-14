@@ -36,7 +36,7 @@ function theme_search_template($template) {
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.7');
+    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.8');
 
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
 
@@ -63,7 +63,7 @@ function dawp_scripts() {
         }
     }
 
-    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.3', true);
+    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.4', true);
     wp_localize_script('dawp-main', 'dawpAjax', [
         'url'          => admin_url('admin-ajax.php'),
         'nonce'        => wp_create_nonce('dawp_newsletter_nonce'),

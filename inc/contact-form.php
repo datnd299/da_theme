@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact form handling for LBQ Shop.
+ * Contact form handling for ProudlyWear.
  *
  * @package dawp
  */
@@ -84,7 +84,7 @@ function dawp_handle_contact_form() {
 
     $topics = [
         'order'   => 'Order or tracking question',
-        'return'  => 'Return or refund request',
+        'return'  => 'Return, exchange or damaged item',
         'product' => 'Product question',
         'privacy' => 'Privacy request',
         'other'   => 'General support',
@@ -122,8 +122,8 @@ function dawp_handle_contact_form() {
         update_post_meta($post_id, '_contact_ip', sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')));
     }
 
-    $support_email = 'support@slicktee.com';
-    $subject       = sprintf('[SlickTee] %s', $topic_label);
+    $support_email = 'support@proudlywear.com';
+    $subject       = sprintf('[ProudlyWear] %s', $topic_label);
     $body          = sprintf(
         "New contact form submission.\n\nName: %s\nEmail: %s\nTopic: %s\nOrder number: %s\n\nMessage:\n%s",
         $name,

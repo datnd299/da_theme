@@ -107,6 +107,39 @@ function dawp_side_cart_render_items() {
 }
 
 /**
+ * Free-shipping progress bar ($49 threshold, subtotal after discounts — same
+ * rule as the shipping policy). Re-rendered as a fragment on every cart change.
+ */
+const DAWP_FREE_SHIPPING_MIN = 49;
+
+function dawp_side_cart_shipping_progress_html() {
+    $cart = (function_exists('WC') && WC()->cart) ? WC()->cart : null;
+    if (!$cart || $cart->is_empty()) {
+        return '<div class="side-cart__shipping" hidden></div>';
+    }
+
+    $spent     = max(0, (float) $cart->get_displayed_subtotal() - (float) $cart->get_discount_total());
+    $remaining = max(0, DAWP_FREE_SHIPPING_MIN - $spent);
+    $percent   = (int) min(100, round($spent / DAWP_FREE_SHIPPING_MIN * 100));
+
+    $message = $remaining > 0
+        ? sprintf(
+            /* translators: %s: amount left to reach free shipping */
+            __('You’re %s away from <strong>free US shipping</strong>', 'dawp'),
+            '<strong>' . wc_price($remaining) . '</strong>'
+        )
+        : __('★ You’ve unlocked <strong>free US shipping</strong>', 'dawp');
+
+    return sprintf(
+        '<div class="side-cart__shipping%1$s"><p class="side-cart__shipping-text">%2$s</p><div class="side-cart__shipping-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="%3$d" aria-label="%4$s"><span style="width:%3$d%%"></span></div></div>',
+        $remaining > 0 ? '' : ' is-complete',
+        wp_kses($message, ['strong' => [], 'span' => ['class' => []], 'bdi' => []]),
+        $percent,
+        esc_attr__('Progress toward free shipping', 'dawp')
+    );
+}
+
+/**
  * Drawer shell, printed once in wp_footer. The item list, subtotal and badge
  * inside it are re-rendered piecemeal afterwards via fragments.
  */
@@ -138,6 +171,8 @@ function dawp_side_cart_markup() {
                 </button>
             </div>
 
+            <?php echo dawp_side_cart_shipping_progress_html(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside ?>
+
             <div class="side-cart__body">
                 <?php dawp_side_cart_render_items(); ?>
             </div>
@@ -149,6 +184,7 @@ function dawp_side_cart_markup() {
                 </div>
                 <a href="<?php echo esc_url(wc_get_checkout_url()); ?>" class="side-cart__checkout-btn"><?php esc_html_e('Checkout', 'dawp'); ?></a>
                 <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="side-cart__view-cart-link"><?php esc_html_e('View Cart', 'dawp'); ?></a>
+                <p class="side-cart__assurance"><?php esc_html_e('Secure checkout · 30-day returns · Printed to order', 'dawp'); ?></p>
             </div>
         </div>
     </div>
@@ -173,6 +209,7 @@ function dawp_side_cart_fragments($fragments) {
     $fragments['.side-cart__subtotal-value'] = '<span class="side-cart__subtotal-value">' . WC()->cart->get_cart_subtotal() . '</span>';
     $fragments['.side-cart__count']          = '<span class="side-cart__count">(' . (int) WC()->cart->get_cart_contents_count() . ')</span>';
     $fragments['.cart-count-badge']          = dawp_cart_count_badge_html(WC()->cart->get_cart_contents_count());
+    $fragments['.side-cart__shipping']       = dawp_side_cart_shipping_progress_html();
 
     return $fragments;
 }

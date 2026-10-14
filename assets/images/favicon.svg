@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <path d="M16 5 7 9.5 2 19l8 4.5 2.5-3.5V43h23V20l2.5 3.5 8-4.5-5-9.5L32 5c-1.6 3.4-4.5 5.2-8 5.2S17.6 8.4 16 5Z" fill="#D7351E" stroke="#17140F" stroke-width="2.5" stroke-linejoin="round"/>
-  <text x="24" y="38" text-anchor="middle" font-family="Anton, Impact, 'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#FBF7EF">S</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 48">
+  <defs><clipPath id="s"><path d="M22 2 41 8v14c0 11.5-7.8 20.6-19 24C10.8 42.6 3 33.5 3 22V8Z"/></clipPath></defs>
+  <g clip-path="url(#s)">
+    <rect width="44" height="48" fill="#0F1E33"/>
+    <rect y="27" width="44" height="4" fill="#B31942"/><rect y="35" width="44" height="4" fill="#B31942"/><rect y="43" width="44" height="5" fill="#B31942"/>
+    <rect y="31" width="44" height="4" fill="#F7F4EE"/><rect y="39" width="44" height="4" fill="#F7F4EE"/>
+  </g>
+  <path d="M22 2 41 8v14c0 11.5-7.8 20.6-19 24C10.8 42.6 3 33.5 3 22V8Z" fill="none" stroke="#C8A24A" stroke-width="2"/>
+  <path d="m22 8.5 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8Z" fill="#F7F4EE"/>
 </svg>

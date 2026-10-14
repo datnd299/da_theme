@@ -149,13 +149,21 @@ function pod_render_variant_selector() {
     }
 
     $chart_types = pod_get_size_chart_types_for_product($product->get_id());
+    // Only the placeholder colour → nothing to choose; JS still auto-selects it.
+    $hide_color = true;
+    foreach (pod_get_variants_for_product($product->get_id()) as $variant) {
+        if (!pod_is_placeholder_color((int) $variant->color_id)) {
+            $hide_color = false;
+            break;
+        }
+    }
     ?>
     <div class="pod-variant-selector" id="pod-variant-selector" data-product-id="<?php echo esc_attr($product->get_id()); ?>">
         <div class="pod-variant-group" data-group="type">
             <span class="pod-variant-label"><?php esc_html_e('Style', 'dawp'); ?><span class="pod-variant-selected" id="pod-type-selected"></span></span>
             <div class="pod-variant-options" id="pod-type-options"></div>
         </div>
-        <div class="pod-variant-group" data-group="color">
+        <div class="pod-variant-group" data-group="color"<?php echo $hide_color ? ' hidden' : ''; ?>>
             <span class="pod-variant-label"><?php esc_html_e('Color', 'dawp'); ?><span class="pod-variant-selected" id="pod-color-selected"></span></span>
             <div class="pod-variant-options" id="pod-color-options"></div>
         </div>

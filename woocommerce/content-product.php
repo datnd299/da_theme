@@ -25,15 +25,15 @@ $card_sizes = $is_related_loop
     ? '(min-width: 768px) calc((min(100vw, 1280px) - 108px) / 4), calc((100vw - 48px) / 2)'
     : '(min-width: 1180px) calc((min(100vw, 1280px) - 114px) / 4), (min-width: 1024px) calc((100vw - 88px) / 3), (min-width: 700px) calc((100vw - 72px) / 3), calc((100vw - 48px) / 2)';
 
-// Perf: `.product-card__shell` is a fixed-aspect-ratio box (3:4 for
-// "related products" in product.css, 4:5 for the shop/category grid in
-// shop.css) filled via object-fit:cover, so request crops from the
+// Perf: `.product-card__shell` is a fixed square (1:1) box for both
+// "related products" (product.css) and the shop/category grid
+// (shop.css) -- all product photos are square -- filled via object-fit:cover, so request crops from the
 // i0.wp.com CDN pipeline (inc/responsive-images.php) at that same ratio
 // instead of WooCommerce's uncropped 'woocommerce_single' size. That size's
 // auto-generated srcset only steps 300w -> 600w, which forces every 2x-DPR
 // mobile card (~140-190px wide, 2-per-row) to download the 600w candidate --
 // ~4x the pixels the card actually renders.
-$card_ratio = $is_related_loop ? 4 / 3 : 5 / 4;
+$card_ratio = 1;
 $card_widths = [160, 240, 320, 440, 600, 800];
 $card_srcset_steps = array_map(
     fn($w) => [$w, (int) round($w * $card_ratio)],

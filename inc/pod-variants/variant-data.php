@@ -68,6 +68,16 @@ function pod_get_size_chart_types_for_product($product_id) {
     return $chart_types;
 }
 
+/**
+ * Placeholder Color for catalogs without a colour option (variant rows still
+ * need a color_id). It is never shown: no Color selector, cart line or order
+ * meta.
+ */
+function pod_is_placeholder_color($color_id) {
+    $colors = pod_get_colors();
+    return isset($colors[$color_id]) && $colors[$color_id]->slug === 'none';
+}
+
 function pod_product_has_variants($product_id) {
     static $cache = [];
     $product_id = (int) $product_id;

@@ -136,8 +136,8 @@ function pod_get_item_data($item_data, $cart_item) {
     if (isset($types[$variant->type_id])) {
         $item_data[] = ['name' => __('Style', 'dawp'), 'value' => $types[$variant->type_id]->name];
     }
-    if (isset($colors[$variant->color_id])) {
-        $item_data[] = ['name' => __('Color', 'dawp'), 'value' => $colors[$variant->color_id]->name];
+    if (isset($colors[$variant->color_id]) && !pod_is_placeholder_color($variant->color_id)) {
+        $item_data[] =['name' => __('Color', 'dawp'), 'value' => $colors[$variant->color_id]->name];
     }
     if (isset($sizes[(int) $cart_item['pod_size_id']])) {
         $item_data[] = ['name' => __('Size', 'dawp'), 'value' => $sizes[(int) $cart_item['pod_size_id']]->name];
@@ -164,7 +164,7 @@ function pod_checkout_create_order_line_item($item, $cart_item_key, $values, $or
     if (isset($types[$variant->type_id])) {
         $item->add_meta_data(__('Style', 'dawp'), $types[$variant->type_id]->name);
     }
-    if (isset($colors[$variant->color_id])) {
+    if (isset($colors[$variant->color_id]) && !pod_is_placeholder_color($variant->color_id)) {
         $item->add_meta_data(__('Color', 'dawp'), $colors[$variant->color_id]->name);
     }
     if (isset($sizes[(int) $values['pod_size_id']])) {

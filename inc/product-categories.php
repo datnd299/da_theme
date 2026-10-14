@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for LBQ Shop.
+ * Product category defaults for ProudlyWear.
  *
  * @package dawp
  */
@@ -11,30 +11,45 @@ if (!defined('ABSPATH')) {
 
 function dawp_lbq_product_categories() {
     return [
-        'beauty-accessories' => [
-            'name'        => __('Beauty Accessories', 'dawp'),
-            'description' => __('Useful beauty tools and small accessories designed to support simple everyday routines.', 'dawp'),
-            'short'       => __('Beauty tools and small helpers for everyday routines.', 'dawp'),
+        't-shirts' => [
+            'name'        => __('T-Shirts', 'dawp'),
+            'description' => __('Veteran and military family t-shirts in soft cotton, printed to order with original patriotic designs.', 'dawp'),
+            'short'       => __('Soft cotton tees with bold patriotic prints.', 'dawp'),
         ],
-        'makeup-bags-organizers' => [
-            'name'        => __('Makeup Bags & Organizers', 'dawp'),
-            'description' => __('Travel-friendly cosmetic bags, storage pieces, and organizers that help keep beauty items neat and easy to find.', 'dawp'),
-            'short'       => __('Cosmetic bags, cases, and organizers for home or travel.', 'dawp'),
+        'hoodies' => [
+            'name'        => __('Hoodies & Zip-Ups', 'dawp'),
+            'description' => __('Pullover and zip-up hoodies for veterans and their families — warm, comfortable and printed to order.', 'dawp'),
+            'short'       => __('Warm pullover and zip-up hoodies.', 'dawp'),
         ],
-        'fashion-accessories' => [
-            'name'        => __('Fashion Accessories', 'dawp'),
-            'description' => __('Simple style accents for everyday outfits, from hair accessories to small carry pieces.', 'dawp'),
-            'short'       => __('Small accents for polished everyday styling.', 'dawp'),
+        'sweatshirts' => [
+            'name'        => __('Sweatshirts', 'dawp'),
+            'description' => __('Classic crewneck sweatshirts with veteran and patriotic designs, printed to order.', 'dawp'),
+            'short'       => __('Classic crewnecks with a vintage feel.', 'dawp'),
         ],
-        'everyday-style-essentials' => [
-            'name'        => __('Everyday Style Essentials', 'dawp'),
-            'description' => __('Practical accessories for daily beauty, travel, organization, and personal style.', 'dawp'),
-            'short'       => __('Practical daily pieces for beauty, travel, and style.', 'dawp'),
+        'polo-shirts' => [
+            'name'        => __('Polo Shirts', 'dawp'),
+            'description' => __('Veteran polo shirts that look sharp at reunions, ceremonies and everyday outings.', 'dawp'),
+            'short'       => __('Sharp polos for reunions and everyday wear.', 'dawp'),
         ],
-        'giftable-finds' => [
-            'name'        => __('Giftable Finds', 'dawp'),
-            'description' => __('Pretty, practical accessories made for thoughtful everyday gifting.', 'dawp'),
-            'short'       => __('Small beauty and style finds that are easy to gift.', 'dawp'),
+        'bomber-jackets' => [
+            'name'        => __('Bomber Jackets', 'dawp'),
+            'description' => __('Flight-jacket style bomber jackets with veteran designs, made to order.', 'dawp'),
+            'short'       => __('Flight-jacket style, made to order.', 'dawp'),
+        ],
+        'caps' => [
+            'name'        => __('Hats & Caps', 'dawp'),
+            'description' => __('Veteran caps and hats with embroidered or printed designs for every branch and era.', 'dawp'),
+            'short'       => __('Embroidered and printed veteran caps.', 'dawp'),
+        ],
+        'flags' => [
+            'name'        => __('Flags', 'dawp'),
+            'description' => __('Garden and house flags with patriotic and veteran designs for the porch, yard or den.', 'dawp'),
+            'short'       => __('Garden and house flags for the porch.', 'dawp'),
+        ],
+        'metal-signs' => [
+            'name'        => __('Metal Signs', 'dawp'),
+            'description' => __('Printed metal signs with veteran and patriotic designs for the den, garage or man cave.', 'dawp'),
+            'short'       => __('Tin signs for the den or garage.', 'dawp'),
         ],
     ];
 }

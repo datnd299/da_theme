@@ -1,6 +1,6 @@
 <?php
 /**
- * Privacy Policy — SlickTee.
+ * Privacy Policy — ProudlyWear.
  *
  * @package dawp
  */
@@ -9,13 +9,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$email_link = '<a href="mailto:support@slicktee.com">support@slicktee.com</a>';
+$email_link = '<a href="mailto:support@proudlywear.com">support@proudlywear.com</a>';
 
 $sections = [
     [
         'id'    => 'scope',
         'title' => __('1. What this policy covers', 'dawp'),
-        'body'  => '<p>' . esc_html__('This Privacy Policy explains how SlickTee (“SlickTee”, “we”, “us”) collects, uses and protects personal information when you visit slicktee.com, create an account, place an order or contact us. “Personal information” means information that identifies, relates to, or can reasonably be linked to you. We have no control over the privacy practices of third-party websites linked from our site.', 'dawp') . '</p>',
+        'body'  => '<p>' . esc_html__('This Privacy Policy explains how ProudlyWear (“ProudlyWear”, “we”, “us”) collects, uses and protects personal information when you visit proudlywear.com, create an account, place an order or contact us. “Personal information” means information that identifies, relates to, or can reasonably be linked to you. We have no control over the privacy practices of third-party websites linked from our site.', 'dawp') . '</p>',
     ],
     [
         'id'    => 'collect',
@@ -62,7 +62,7 @@ $sections = [
     [
         'id'    => 'rights',
         'title' => __('9. Your rights', 'dawp'),
-        'body'  => '<p>' . sprintf(esc_html__('Depending on where you live (for example under the UK GDPR, EU GDPR or US state privacy laws such as the CCPA), you may have the right to access, correct, export or delete your personal information, to object to or restrict certain processing, and to opt out of marketing. To make a request, email %s. We may need to verify your identity, and we may keep information we are legally required to retain.', 'dawp'), $email_link) . '</p>',
+        'body'  => '<p>' . sprintf(esc_html__('Depending on where you live (for example under US state privacy laws such as the California Consumer Privacy Act), you may have the right to access, correct, export or delete your personal information, to object to or restrict certain processing, and to opt out of marketing. To make a request, email %s. We may need to verify your identity, and we may keep information we are legally required to retain.', 'dawp'), $email_link) . '</p>',
     ],
     [
         'id'    => 'children',
@@ -79,44 +79,43 @@ $sections = [
 $allowed = ['p' => [], 'ul' => [], 'li' => [], 'strong' => [], 'a' => ['href' => [], 'rel' => [], 'target' => []]];
 ?>
 
-<div class="bg-[#FBF7EF] text-[#17140F]">
-    <section class="border-b-2 border-[#17140F] py-14 sm:py-20" aria-labelledby="privacy-title">
+<div class="bg-background text-foreground">
+    <section class="border-b border-border-strong py-14 sm:py-20" aria-labelledby="privacy-title">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <span class="inline-flex -rotate-2 rounded-[4px] border-2 border-[#17140F] bg-[#F2B33D] px-3 py-1 text-xs font-extrabold uppercase tracking-[0.18em]"><?php esc_html_e('Policies', 'dawp'); ?></span>
+            <span class="font-stencil inline-flex items-center gap-2 border-y-2 border-foreground py-1 text-sm uppercase tracking-[0.2em]"><span class="text-accent" aria-hidden="true">★</span><?php esc_html_e('Policies', 'dawp'); ?></span>
             <h1 id="privacy-title" class="font-display mt-5 text-5xl uppercase leading-[0.95] sm:text-7xl"><?php esc_html_e('Privacy policy', 'dawp'); ?></h1>
-            <p class="mt-5 max-w-2xl text-lg leading-relaxed text-[#4A4339]"><?php esc_html_e('What we collect, why we collect it, and the choices you have. In short: we use your data to make and ship your order — and we never sell it.', 'dawp'); ?></p>
-            <p class="mt-4 text-sm font-bold text-[#6F665A]"><?php esc_html_e('Last updated: October 2026', 'dawp'); ?></p>
+            <p class="mt-5 max-w-2xl text-lg leading-relaxed text-foreground-muted"><?php esc_html_e('What we collect, why we collect it, and the choices you have. In short: we use your data to make and ship your order — and we never sell it.', 'dawp'); ?></p>
+            <p class="mt-4 text-sm font-bold text-muted"><?php esc_html_e('Last updated: October 14, 2026', 'dawp'); ?></p>
         </div>
     </section>
 
     <section class="py-14 sm:py-20">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[260px_1fr] lg:px-8">
             <nav class="lg:sticky lg:top-6 lg:self-start" aria-label="<?php esc_attr_e('On this page', 'dawp'); ?>">
-                <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#6F665A]"><?php esc_html_e('On this page', 'dawp'); ?></p>
-                <ul class="mt-3 grid border-l-2 border-[#17140F]">
+                <p class="text-xs font-bold uppercase tracking-[0.16em] text-muted"><?php esc_html_e('On this page', 'dawp'); ?></p>
+                <ul class="mt-3 grid border-l-2 border-border-strong">
                     <?php foreach ($sections as $section) : ?>
-                        <li><a href="#<?php echo esc_attr($section['id']); ?>" class="block py-1.5 pl-4 text-sm font-bold transition hover:bg-[#F4EDE0] hover:text-[#D7351E]"><?php echo esc_html($section['title']); ?></a></li>
+                        <li><a href="#<?php echo esc_attr($section['id']); ?>" class="block py-1.5 pl-4 text-sm font-bold transition hover:bg-surface hover:text-accent"><?php echo esc_html($section['title']); ?></a></li>
                     <?php endforeach; ?>
                 </ul>
             </nav>
 
-            <div class="rounded-[14px] border-2 border-[#17140F] bg-[#FFFFFF] p-6 sm:p-10">
+            <div class="rounded-lg border border-border-strong bg-[#FFFFFF] p-6 sm:p-10">
                 <div class="grid gap-10">
                     <?php foreach ($sections as $section) : ?>
                         <article id="<?php echo esc_attr($section['id']); ?>" class="scroll-mt-6">
-                            <h2 class="font-heading text-xl font-extrabold uppercase sm:text-2xl"><?php echo esc_html($section['title']); ?></h2>
-                            <div class="mt-3 grid gap-3 text-[0.95rem] leading-7 text-[#4A4339] [&_a]:font-bold [&_a]:text-[#17140F] [&_a]:underline [&_a]:decoration-[#D7351E] [&_a]:decoration-2 [&_a]:underline-offset-4 [&_strong]:text-[#17140F] [&_ul]:grid [&_ul]:list-disc [&_ul]:gap-2 [&_ul]:pl-5">
+                            <h2 class="font-heading text-xl font-bold uppercase sm:text-2xl"><?php echo esc_html($section['title']); ?></h2>
+                            <div class="mt-3 grid gap-3 text-[0.95rem] leading-7 text-foreground-muted [&_a]:font-bold [&_a]:text-foreground [&_a]:underline [&_a]:decoration-accent [&_a]:decoration-2 [&_a]:underline-offset-4 [&_strong]:text-foreground [&_ul]:grid [&_ul]:list-disc [&_ul]:gap-2 [&_ul]:pl-5">
                                 <?php echo wp_kses($section['body'], $allowed); ?>
                             </div>
                         </article>
                     <?php endforeach; ?>
 
-                    <article class="rounded-[8px] border-2 border-dashed border-[#17140F] bg-[#F4EDE0] p-5 text-sm leading-7 text-[#4A4339]">
-                        <h2 class="font-heading text-lg font-extrabold uppercase text-[#17140F]"><?php esc_html_e('Contact us about privacy', 'dawp'); ?></h2>
+                    <article class="rounded-md border border-dashed border-border-strong bg-surface p-5 text-sm leading-7 text-foreground-muted">
+                        <h2 class="font-heading text-lg font-bold uppercase text-foreground"><?php esc_html_e('Contact us about privacy', 'dawp'); ?></h2>
                         <p class="mt-2">
-                            SlickTee · slicktee.com<br>
-                            <?php esc_html_e('304 S. Jones Blvd #3456, Las Vegas, NV 89107, United States', 'dawp'); ?><br>
-                            <a class="font-bold text-[#17140F] underline" href="mailto:support@slicktee.com">support@slicktee.com</a> · <?php esc_html_e('US +1 909-366-3939', 'dawp'); ?>
+                            ProudlyWear · proudlywear.com<br>
+                            <a class="font-bold text-foreground underline" href="mailto:support@proudlywear.com">support@proudlywear.com</a> · <?php esc_html_e('Monday–Friday, 9am–5pm ET', 'dawp'); ?>
                         </p>
                     </article>
                 </div>

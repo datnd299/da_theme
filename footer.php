@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme footer — SlickTee.
+ * Theme footer — ProudlyWear.
  *
  * @package dawp
  */
@@ -9,9 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'support@slicktee.com';
-$us_phone      = '+1 909-366-3939';
-$us_address    = '304 S. Jones Blvd #3456, Las Vegas, NV 89107, United States';
+$support_email = 'support@proudlywear.com';
 $shop_url      = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $account_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 
@@ -34,18 +32,19 @@ $footer_columns = [
             ['title' => __('Shop All', 'dawp'), 'url' => $shop_url],
             ['title' => __('New Arrivals', 'dawp'), 'url' => $cat_url('new-arrivals')],
             ['title' => __('Best Sellers', 'dawp'), 'url' => $cat_url('best-seller')],
-            ['title' => __('Vintage Shirts', 'dawp'), 'url' => $cat_url('vintage-shirts')],
-            ['title' => __('Vintage Hoodie', 'dawp'), 'url' => $cat_url('vintage-hoodie')],
-            ['title' => __('Vintage Shorts', 'dawp'), 'url' => $cat_url('vintage-shorts')],
+            ['title' => __('T-Shirts', 'dawp'), 'url' => $cat_url('t-shirts')],
+            ['title' => __('Hoodies & Zip-Ups', 'dawp'), 'url' => $cat_url('hoodies')],
+            ['title' => __('Hats & Caps', 'dawp'), 'url' => $cat_url('caps')],
+            ['title' => __('Flags & Metal Signs', 'dawp'), 'url' => $cat_url('flags')],
         ],
     ],
     [
-        'title' => __('Help', 'dawp'),
+        'title' => __('Customer Care', 'dawp'),
         'links' => [
             ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
             ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
             ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
-            ['title' => __('Track Your Order', 'dawp'), 'url' => home_url('/track-order/')],
+            ['title' => __('Order Tracking', 'dawp'), 'url' => home_url('/track-order/')],
             ['title' => __('Size Guide', 'dawp'), 'url' => home_url('/faq/#size-guide')],
             ['title' => __('My Account', 'dawp'), 'url' => $account_url],
         ],
@@ -53,8 +52,8 @@ $footer_columns = [
     [
         'title' => __('Policies', 'dawp'),
         'links' => [
-            ['title' => __('Shipping Information', 'dawp'), 'url' => home_url('/shipping-returns/')],
-            ['title' => __('Refund & Return Policy', 'dawp'), 'url' => home_url('/shipping-returns/#returns')],
+            ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-returns/')],
+            ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/shipping-returns/#returns')],
             ['title' => __('Cancel / Change Order', 'dawp'), 'url' => home_url('/shipping-returns/#cancel')],
             ['title' => __('Payment Methods', 'dawp'), 'url' => home_url('/terms-conditions/#payment')],
             ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
@@ -63,74 +62,84 @@ $footer_columns = [
         ],
     ],
 ];
+
+$promises = [
+    ['title' => __('Free US Shipping $49+', 'dawp'), 'copy' => __('Tracked delivery to all 50 states', 'dawp'), 'icon' => '<path d="M10 17h4V5H3v12h2"></path><path d="M14 8h4l3 3v6h-3"></path><circle cx="7" cy="17" r="2"></circle><circle cx="16" cy="17" r="2"></circle>'],
+    ['title' => __('Secure Checkout', 'dawp'), 'copy' => __('256-bit SSL encrypted payments', 'dawp'), 'icon' => '<rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path>'],
+    ['title' => __('30-Day Returns', 'dawp'), 'copy' => __('On eligible, unworn items', 'dawp'), 'icon' => '<path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path>'],
+    ['title' => __('Made to Order', 'dawp'), 'copy' => __('Printed just for you, checked before it ships', 'dawp'), 'icon' => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path>'],
+];
 ?>
 
 </div><!-- #content -->
 
-<section class="border-t-2 border-[#17140F] bg-[#F2B33D]" aria-label="<?php esc_attr_e('Store promises', 'dawp'); ?>">
-    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-5 px-4 py-7 sm:px-6 lg:grid-cols-4 lg:px-8">
-        <?php
-        $promises = [
-            ['title' => __('Worldwide Shipping', 'dawp'), 'copy' => __('Tracked delivery to the US & beyond', 'dawp'), 'icon' => '<circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"></path>'],
-            ['title' => __('Secure Payments', 'dawp'), 'copy' => __('256-bit SSL encrypted checkout', 'dawp'), 'icon' => '<rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path>'],
-            ['title' => __('Easy Fixes', 'dawp'), 'copy' => __('Misprint or damage? Free replacement', 'dawp'), 'icon' => '<path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path>'],
-            ['title' => __('Premium Cotton', 'dawp'), 'copy' => __('Soft, durable, eco-certified inks', 'dawp'), 'icon' => '<path d="M4 8 9 4l3 3 3-3 5 4-3 4-2-1v9H6v-9l-2 1Z"></path>'],
-        ];
-        foreach ($promises as $promise) :
-            ?>
+<section class="border-t border-border-strong bg-surface" aria-label="<?php esc_attr_e('Store promises', 'dawp'); ?>">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-6 px-4 py-8 sm:px-6 lg:grid-cols-4 lg:px-8">
+        <?php foreach ($promises as $promise) : ?>
             <div class="flex items-start gap-3">
-                <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] border-2 border-[#17140F] bg-[#FBF7EF] text-[#17140F]" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo $promise['icon']; ?></svg>
+                <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-highlight bg-foreground text-background" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><?php echo $promise['icon']; ?></svg>
                 </span>
                 <span>
-                    <span class="block text-sm font-extrabold uppercase tracking-wide text-[#17140F]"><?php echo esc_html($promise['title']); ?></span>
-                    <span class="block text-xs leading-5 text-[#17140F]/80"><?php echo esc_html($promise['copy']); ?></span>
+                    <span class="block font-heading text-[0.95rem] font-bold uppercase tracking-wide text-foreground"><?php echo esc_html($promise['title']); ?></span>
+                    <span class="block text-xs leading-5 text-foreground-muted"><?php echo esc_html($promise['copy']); ?></span>
                 </span>
             </div>
         <?php endforeach; ?>
     </div>
 </section>
 
-<footer class="bg-[#17140F] text-[#FBF7EF]" role="contentinfo">
+<footer class="bg-foreground text-background" role="contentinfo">
+    <div class="flag-stripe" aria-hidden="true"></div>
     <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div class="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-[1.6fr_1fr_1fr_1fr] lg:gap-x-10">
             <div class="col-span-2 sm:col-span-3 lg:col-span-1">
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center gap-2.5" aria-label="<?php esc_attr_e('SlickTee home', 'dawp'); ?>">
-                    <svg class="h-11 w-11 shrink-0 -rotate-6" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-                        <path d="M16 5 7 9.5 2 19l8 4.5 2.5-3.5V43h23V20l2.5 3.5 8-4.5-5-9.5L32 5c-1.6 3.4-4.5 5.2-8 5.2S17.6 8.4 16 5Z" fill="#D7351E" stroke="#FBF7EF" stroke-width="2.5" stroke-linejoin="round"/>
-                        <text x="24" y="38" text-anchor="middle" class="font-display" font-size="22" fill="#FBF7EF">S</text>
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center gap-2.5" aria-label="<?php esc_attr_e('ProudlyWear home', 'dawp'); ?>">
+                    <svg class="h-11 w-10 shrink-0" viewBox="0 0 44 48" aria-hidden="true" focusable="false">
+                        <defs><clipPath id="pw-shield-f"><path d="M22 2 41 8v14c0 11.5-7.8 20.6-19 24C10.8 42.6 3 33.5 3 22V8Z"/></clipPath></defs>
+                        <g clip-path="url(#pw-shield-f)">
+                            <rect width="44" height="48" fill="#0A3161"/>
+                            <rect y="27" width="44" height="4" fill="#B31942"/><rect y="35" width="44" height="4" fill="#B31942"/><rect y="43" width="44" height="5" fill="#B31942"/>
+                            <rect y="31" width="44" height="4" fill="#F7F4EE"/><rect y="39" width="44" height="4" fill="#F7F4EE"/>
+                        </g>
+                        <path d="M22 2 41 8v14c0 11.5-7.8 20.6-19 24C10.8 42.6 3 33.5 3 22V8Z" fill="none" stroke="#C8A24A" stroke-width="2"/>
+                        <path d="m22 8.5 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8Z" fill="#F7F4EE"/>
                     </svg>
-                    <span class="font-display text-3xl uppercase leading-none tracking-wide">Slick<span class="text-[#F2B33D]">Tee</span></span>
+                    <span class="font-display text-[1.8rem] uppercase leading-none tracking-wide">Proudly<span class="text-highlight">Wear</span></span>
                 </a>
-                <p class="mt-4 max-w-sm text-sm leading-6 text-[#FBF7EF]/70">
-                    <?php esc_html_e('Fan art merch for people who never really grew out of Saturday-morning cartoons. Vintage-washed tees, hoodies, shorts and caps — printed to order, one at a time.', 'dawp'); ?>
+                <p class="mt-4 max-w-sm text-sm leading-6 text-background/70">
+                    <?php esc_html_e('Apparel and keepsakes for the men and women who served — and the families who stood beside them. Tees, hoodies, polos, caps, flags and signs, printed to order and worn with pride.', 'dawp'); ?>
                 </p>
 
-                <address class="mt-6 grid max-w-sm gap-2.5 border-l-2 border-[#D7351E] pl-4 text-sm not-italic leading-6 text-[#FBF7EF]/75">
-                    <a class="font-semibold text-[#FBF7EF] transition hover:text-[#F2B33D]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
-                    <span><a class="transition hover:text-[#F2B33D]" href="tel:+19093663939"><?php echo esc_html($us_phone); ?></a> · <?php esc_html_e('Mon–Fri 10am–6pm · Sat 8am–6pm', 'dawp'); ?></span>
-                    <span><?php echo esc_html($us_address); ?></span>
+                <address class="mt-6 grid max-w-sm gap-2 border-l-2 border-accent pl-4 text-sm not-italic leading-6 text-background/75">
+                    <a class="font-semibold text-background transition hover:text-highlight" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
+                    <span><?php esc_html_e('Support: Monday–Friday, 9am–5pm ET · replies within 24 hours', 'dawp'); ?></span>
+                    <a class="font-semibold text-background transition hover:text-highlight" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Send us a message →', 'dawp'); ?></a>
                 </address>
             </div>
 
             <?php foreach ($footer_columns as $column) : ?>
                 <nav aria-label="<?php echo esc_attr($column['title']); ?>">
-                    <h2 class="font-display text-lg uppercase tracking-wide text-[#FBF7EF]"><?php echo esc_html($column['title']); ?></h2>
-                    <ul class="mt-4 grid gap-2 text-sm leading-6 text-[#FBF7EF]/75">
+                    <h2 class="font-display text-base uppercase tracking-[0.12em] text-highlight"><?php echo esc_html($column['title']); ?></h2>
+                    <ul class="mt-4 grid gap-2 text-sm leading-6 text-background/75">
                         <?php foreach ($column['links'] as $link) : ?>
-                            <li><a class="transition hover:text-[#F2B33D]" href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
+                            <li><a class="transition hover:text-background hover:underline hover:decoration-accent hover:decoration-2 hover:underline-offset-4" href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </nav>
             <?php endforeach; ?>
         </div>
 
-        <div class="mt-12 flex flex-col gap-4 border-t border-[#FBF7EF]/15 pt-6 sm:flex-row sm:items-center sm:justify-between">
-            <p class="text-xs leading-5 text-[#FBF7EF]/55">&copy; <?php echo esc_html(gmdate('Y')); ?> SlickTee. <?php esc_html_e('All rights reserved. Designs are fan-made artwork; all characters and trademarks belong to their respective owners.', 'dawp'); ?></p>
+        <p class="mt-12 max-w-4xl text-xs leading-5 text-background/50">
+            <?php esc_html_e('ProudlyWear is an independent apparel brand. We are not affiliated with, sponsored by or endorsed by the U.S. Department of Defense, the U.S. Department of Veterans Affairs or any branch of the U.S. Armed Forces. All designs are our own original artwork.', 'dawp'); ?>
+        </p>
+
+        <div class="mt-6 flex flex-col gap-4 border-t border-background/15 pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <p class="text-xs leading-5 text-background/55">&copy; <?php echo esc_html(gmdate('Y')); ?> ProudlyWear · proudlywear.com. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
 
             <ul class="flex flex-wrap items-center gap-2" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
                 <li>
-                    <span class="inline-flex h-8 w-12 items-center justify-center rounded-[4px] bg-[#FFFFFF]" title="<?php esc_attr_e('Visa', 'dawp'); ?>">
+                    <span class="inline-flex h-8 w-12 items-center justify-center rounded-sm bg-[#FFFFFF]" title="<?php esc_attr_e('Visa', 'dawp'); ?>">
                         <span class="sr-only"><?php esc_html_e('Visa', 'dawp'); ?></span>
                         <svg viewBox="0 0 64 40" width="40" height="24" aria-hidden="true" focusable="false">
                             <rect width="64" height="40" rx="5" fill="#fff"></rect>
@@ -139,7 +148,7 @@ $footer_columns = [
                     </span>
                 </li>
                 <li>
-                    <span class="inline-flex h-8 w-12 items-center justify-center rounded-[4px] bg-[#FFFFFF]" title="<?php esc_attr_e('Mastercard', 'dawp'); ?>">
+                    <span class="inline-flex h-8 w-12 items-center justify-center rounded-sm bg-[#FFFFFF]" title="<?php esc_attr_e('Mastercard', 'dawp'); ?>">
                         <span class="sr-only"><?php esc_html_e('Mastercard', 'dawp'); ?></span>
                         <svg viewBox="0 0 64 40" width="40" height="24" aria-hidden="true" focusable="false">
                             <rect width="64" height="40" rx="5" fill="#fff"></rect>
@@ -150,7 +159,7 @@ $footer_columns = [
                     </span>
                 </li>
                 <li>
-                    <span class="inline-flex h-8 w-12 items-center justify-center rounded-[4px] bg-[#2E77BC]" title="<?php esc_attr_e('American Express', 'dawp'); ?>">
+                    <span class="inline-flex h-8 w-12 items-center justify-center rounded-sm bg-[#2E77BC]" title="<?php esc_attr_e('American Express', 'dawp'); ?>">
                         <span class="sr-only"><?php esc_html_e('American Express', 'dawp'); ?></span>
                         <svg viewBox="0 0 64 40" width="40" height="24" aria-hidden="true" focusable="false">
                             <rect width="64" height="40" rx="5" fill="#2E77BC"></rect>
@@ -159,7 +168,7 @@ $footer_columns = [
                     </span>
                 </li>
                 <li>
-                    <span class="inline-flex h-8 w-12 items-center justify-center rounded-[4px] bg-[#FFFFFF]" title="<?php esc_attr_e('PayPal', 'dawp'); ?>">
+                    <span class="inline-flex h-8 w-12 items-center justify-center rounded-sm bg-[#FFFFFF]" title="<?php esc_attr_e('PayPal', 'dawp'); ?>">
                         <span class="sr-only"><?php esc_html_e('PayPal', 'dawp'); ?></span>
                         <svg viewBox="0 0 64 40" width="40" height="24" aria-hidden="true" focusable="false">
                             <rect width="64" height="40" rx="5" fill="#fff"></rect>

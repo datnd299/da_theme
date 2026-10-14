@@ -1,6 +1,6 @@
 <?php
 /**
- * Track order page — SlickTee.
+ * Track order page — ProudlyWear.
  *
  * @package dawp
  */
@@ -9,8 +9,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@slicktee.com';
-$business_hours = __('Mon–Fri 10am–6pm, Sat 8am–6pm', 'dawp');
+$support_email  = 'support@proudlywear.com';
+$business_hours = __('Monday–Friday, 9am–5pm ET', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $faq_url        = home_url('/faq/');
 $shipping_url   = home_url('/shipping-returns/');
@@ -33,23 +33,23 @@ $cat_url = static function ($slug) use ($shop_url) {
 
 $category_links = [
     [
-        'name' => __('Vintage Shirts', 'dawp'),
-        'copy' => __('Washed, oversized tees with bootleg-style artwork.', 'dawp'),
-        'url'  => $cat_url('vintage-shirts'),
+        'name' => __('T-Shirts', 'dawp'),
+        'copy' => __('Soft cotton veteran tees with bold patriotic prints.', 'dawp'),
+        'url'  => $cat_url('t-shirts'),
     ],
     [
-        'name' => __('Vintage Hoodie', 'dawp'),
-        'copy' => __('Heavyweight, stonewashed hoodies with big back & front prints.', 'dawp'),
-        'url'  => $cat_url('vintage-hoodie'),
+        'name' => __('Hoodies & Zip-Ups', 'dawp'),
+        'copy' => __('Warm pullover and zip-up hoodies for every branch.', 'dawp'),
+        'url'  => $cat_url('hoodies'),
     ],
     [
-        'name' => __('Vintage Shorts', 'dawp'),
-        'copy' => __('All-over print mesh shorts for every fandom.', 'dawp'),
-        'url'  => $cat_url('vintage-shorts'),
+        'name' => __('Hats & Caps', 'dawp'),
+        'copy' => __('Embroidered and printed veteran caps.', 'dawp'),
+        'url'  => $cat_url('caps'),
     ],
     [
         'name' => __('New Arrivals', 'dawp'),
-        'copy' => __('The latest drops across anime, games, horror and more.', 'dawp'),
+        'copy' => __('The latest designs for veterans and military families.', 'dawp'),
         'url'  => $cat_url('new-arrivals'),
     ],
 ];
@@ -100,21 +100,21 @@ $policy_links = [
                         <span class="track-timeline__icon" aria-hidden="true">1</span>
                         <div>
                             <h2><?php esc_html_e('Order placed', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('We confirm your order by email. You have 24 hours to request changes.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('We confirm your order by email. You have 6 hours to request changes.', 'dawp'); ?></p>
                         </div>
                     </div>
                     <div class="track-timeline__item">
                         <span class="track-timeline__icon" aria-hidden="true">2</span>
                         <div>
                             <h2><?php esc_html_e('Printed to order', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Your piece is printed, cut and finished in 5–7 business days.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Your item is printed to order and quality-checked in 3–5 business days.', 'dawp'); ?></p>
                         </div>
                     </div>
                     <div class="track-timeline__item">
                         <span class="track-timeline__icon" aria-hidden="true">3</span>
                         <div>
                             <h2><?php esc_html_e('On the way', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('US delivery takes 7–10 days, international 7–15 days, with a tracking link by email.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('US delivery takes 4–8 business days after dispatch, with a tracking link by email.', 'dawp'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@ $policy_links = [
                 </div>
                 <div class="track-badge">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
-                    <?php esc_html_e('5–7 Day Production', 'dawp'); ?>
+                    <?php esc_html_e('3–5 Day Production', 'dawp'); ?>
                 </div>
             </div>
         </div>
@@ -212,7 +212,7 @@ $policy_links = [
             <div class="track-category-section__header">
                 <p class="track-eyebrow"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
                 <h2 id="track-category-title"><?php esc_html_e('Keep browsing while you wait.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Vintage-washed fan art merch, printed to order.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Veteran and military family apparel, printed to order.', 'dawp'); ?></p>
             </div>
 
             <div class="track-category-grid">

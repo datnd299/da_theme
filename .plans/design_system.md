@@ -1,58 +1,61 @@
-# Design System — SlickTee ("retro print shop")
+# Design System — ProudlyWear ("Heritage Patriotic")
 
 Tokens live in `assets/css/tailwind-input.css` (`@theme`) and `assets/css/main.css` (`:root`,
-drives the pure-CSS WooCommerce pages). Both must stay in sync.
+drives the pure-CSS WooCommerce pages). Both must stay in sync. Templates use the token utilities
+(`bg-background`, `text-foreground`, `bg-accent`, `border-border-strong`, `shadow-ink`…), not raw hex.
 
 ## 1. Color
 
 | Token | Value | Use |
 |---|---|---|
-| `--color-background` | `#FBF7EF` | Cream "print paper" page background |
-| `--color-surface` | `#F4EDE0` | Alternate sections, panels |
-| `--color-surface-alt` | `#EBE1CF` | Hover fills, inputs |
-| `--color-foreground` | `#17140F` | Ink — text, 2px borders, hard shadows, dark bands |
-| `--color-foreground-muted` | `#4A4339` | Body copy |
-| `--color-muted` | `#6F665A` | Captions, meta |
-| `--color-accent` | `#D7351E` | Vermilion — primary CTA, prices (white text OK, 4.7:1) |
-| `--color-accent-hover` | `#B32813` | CTA hover |
-| `--color-accent-soft` | `#FBE3DC` | Tints, focus rings |
-| `--color-accent-2` | `#1F3A68` | Prussian blue — secondary buttons/links in WC (white text OK) |
-| `--color-highlight` | `#F2B33D` | Mustard — stickers, badges, ticker, hover fills. **Ink text only** |
-| `--color-border` | `#E3D7C2` | Soft dividers |
+| `--color-background` | `#F7F4EE` | Warm canvas page background |
+| `--color-surface` | `#EFEAE0` | Alternate sections, panels |
+| `--color-surface-alt` | `#E4DDCF` | Khaki hover fills, image wells |
+| `--color-foreground` | `#0F1E33` | Navy ink — text, dark bands, footer |
+| `--color-foreground-muted` | `#3B4859` | Body copy |
+| `--color-muted` | `#66707E` | Captions, meta |
+| `--color-accent` | `#B31942` | Old Glory red — primary CTA, prices, eyebrows (white text OK) |
+| `--color-accent-hover` | `#8F1435` | CTA hover |
+| `--color-accent-soft` | `#F7DDE3` | Tints, error backgrounds |
+| `--color-accent-2` | `#0A3161` | Old Glory blue — branch tiles, search band, secondary (white text OK) |
+| `--color-highlight` | `#C8A24A` | Brass — medals, stars, rules on navy. **Navy text only** on brass |
+| `--color-highlight-soft` | `#F3E8CC` | Focus rings |
+| `--color-olive` | `#4A5233` | Reserved accent |
+| `--color-border` / `--color-border-strong` | `#DCD4C4` / `#B3AA98` | Soft dividers / input & card outlines |
 
 ## 2. Typography
 
-- Display: `Anton` (`--font-display`, `.font-display`) — uppercase hero/section titles only.
-- Headings: `Archivo` 600–900 (`--font-heading`) — card titles, WooCommerce headings.
-- Body: `DM Sans` 400/500/700 (`--font-sans`).
-- Loaded via one Google Fonts `<link>` in `header.php`.
+- Display: `Oswald` 600 (`--font-display`, `.font-display`) — uppercase titles, card names.
+- Stencil: `Saira Stencil One` (`--font-stencil`, `.font-stencil`) — eyebrow labels, step numbers, 404 only.
+- Headings/UI: `Barlow Semi Condensed` 500–700 (`--font-heading`) — nav, buttons, labels (uppercase, wide tracking).
+- Body: `Barlow` 400–700 (`--font-sans`).
+- One Google Fonts `<link>` in `header.php`.
 
 ## 3. Shape & Elevation
 
-- Radius: sm 4px (stickers/badges), md 8px (buttons/inputs), lg 14px (cards), pill for chips.
-- Borders: 2px ink on cards, buttons, inputs.
-- Shadows: hard offset, no blur — `--shadow-ink: 4px 4px 0 ink`, `--shadow-card-hover: 6px 6px 0 ink`.
-  Hover = translate(-3px,-3px) + hard shadow ("sticker lift"); primary buttons press in on hover.
-- Texture: subtle 14px dot grid on hero / shop header only.
+- Radius: sm 2px, md 4px (buttons/inputs), lg 6px (cards), pill for counters only.
+- Borders: 1px `border`/`border-strong`; 3–4px red or brass top rules mark featured cards/panels.
+- Shadows: `--shadow-ink: 0 3px 0 navy` (solid buttons press down on hover), `--shadow-card-hover`
+  soft lift for cards/dropdowns. Card hover = translateY(-4px) + soft shadow.
+- Motifs: ★ stars, red/white/blue `.flag-stripe`, stencil eyebrow between two navy rules, brass "Proudly Served" medal.
 
 ## 4. Imagery
 
-- AI-generated (kie GPT Image 2.5, 1K) product-category flat-lays on cream paper and a print-studio
-  photo, saved as WebP in `assets/images/home/` (hero 1200×900, cat-* 700×700, about-studio 1200×900).
-- All artwork is original — no recognisable copyrighted characters (two early drafts that
-  resembled Casper / Gundam were discarded).
-- No fabricated customer photos, testimonials or rating counts.
+- AI-generated (snapgen GPT Image 2, 1K) WebP in `assets/images/home/`: `hero` (veteran on porch, 1200×900),
+  `about-shop` (print table, 1200×900), `cat-tees|hoodies|sweatshirts|polos|bombers|caps|flags|signs` (700×700,
+  flat-lays on canvas).
+- Never show official military seals, emblems, insignia or recognisable real people; no fake customer
+  photos, testimonials or rating counts.
 
 ## 5. Components (Tailwind, inline per page)
 
-- **Primary button:** `rounded-[8px] border-2 border-[#17140F] bg-[#D7351E] text-white font-extrabold uppercase shadow-[4px_4px_0_#17140F] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#17140F]`
-- **Secondary button:** same shape, cream bg, ink text, `hover:bg-[#17140F] hover:text-[#FBF7EF]`
-- **Card:** `rounded-[14px] border-2 border-[#17140F] bg-white hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[6px_6px_0_#17140F]`
-- **Sticker eyebrow:** `-rotate-2 rounded-[4px] border-2 border-[#17140F] bg-[#F2B33D] text-xs font-extrabold uppercase`
-- **Section title:** `font-display text-4xl sm:text-5xl uppercase` + small vermilion eyebrow above.
+- **Primary button:** `rounded-md bg-accent font-heading font-bold uppercase tracking-wider text-background shadow-ink hover:translate-y-[2px] hover:bg-accent-hover hover:shadow-none`
+- **Secondary button:** `rounded-md border-2 border-foreground … hover:bg-foreground hover:text-background`
+- **Card:** `rounded-lg border border-border bg-[#FFFFFF] hover:-translate-y-1 hover:shadow-card-hover`
+- **Stencil eyebrow:** `font-stencil border-y-2 border-foreground uppercase tracking-[0.2em]` with red ★ either side
+- **Section eyebrow:** red `font-heading` uppercase + ★; **Section title:** `font-display text-4xl sm:text-5xl uppercase`
 
 ## 6. Layout
 
-- Mobile-first; product/category grids always ≥ 2 columns on mobile.
-- Touch targets ≥ 44px. Header is not sticky.
-- Section rhythm: cream → surface (with ink top/bottom borders) → ink band → vermilion CTA band.
+- Mobile-first; product/category grids always ≥ 2 columns on mobile. Touch targets ≥ 44px. Header not sticky.
+- Section rhythm: canvas → khaki surface (border-y) → navy band → canvas → blue CTA band → khaki promise strip → navy footer.

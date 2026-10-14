@@ -1,7 +1,7 @@
 <?php
 /**
- * Elite Shop Express — Shop / Archive Product Template
- * Design System: Trusted Hardware, conversion-first
+ * ProudlyWear — Shop / Archive Product Template
+ * Design System: Heritage Patriotic, conversion-first
  * Section 10: Category / Shop Page rules
  */
 defined('ABSPATH') || exit;
@@ -12,8 +12,8 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Products', 'dawp');
-$archive_description = __('Vintage-washed tees, hoodies, sweatshirts, tank tops, shorts and caps with fan art from the anime, games, cartoons and movies you love — every piece printed to order.', 'dawp');
-$archive_eyebrow = __('SlickTee Collection', 'dawp');
+$archive_description = __('Veteran and military family apparel — tees, hoodies, polos, caps, flags and metal signs with original patriotic designs, every piece printed to order.', 'dawp');
+$archive_eyebrow = __('ProudlyWear Collection', 'dawp');
 
 if ($archive_term && !is_wp_error($archive_term)) {
     $archive_title = $archive_term->name;
@@ -30,7 +30,7 @@ if (function_exists('dawp_lbq_product_categories')) {
     foreach (dawp_lbq_product_categories() as $slug => $category) {
         $term = get_term_by('slug', $slug, 'product_cat');
 
-        if (!$term || is_wp_error($term)) {
+        if (!$term || is_wp_error($term) || (int) $term->count === 0) {
             continue;
         }
 

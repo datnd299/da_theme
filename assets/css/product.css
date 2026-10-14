@@ -1,5 +1,5 @@
 /* ============================================================
-   Product Page - SlickTee
+   Product Page - ProudlyWear
    Personalized POD apparel: clean, bright, conversion-focused.
    Brand tokens (--color-*, --font-*, --radius-*, --shadow-*) come from
    main.css :root — only page-local aliases are declared here.
@@ -456,6 +456,10 @@ body.pod-sizechart-open {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.pod-variant-group[hidden] {
+  display: none;
 }
 
 .pod-variant-label {
@@ -1480,7 +1484,7 @@ form.cart:not(.variations_form) {
   position: relative;
   overflow: hidden;
   background-color: var(--color-bg-subtle);
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
 }
 
 .related.products .product-card__inner,
@@ -1602,7 +1606,7 @@ form.cart:not(.variations_form) {
 
 /* Related products: skeleton shown while the AJAX fetch is in flight */
 .related.products .product-card--skeleton .product-card__shell {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   background-color: var(--color-bg-subtle);
   animation: dawp-related-skeleton-pulse 1.4s ease-in-out infinite;
 }
@@ -2147,8 +2151,8 @@ form.cart:not(.variations_form) {
   font-style: italic;
 }
 /* ============================================================
-   SLICKTEE "RETRO PRINT SHOP" LAYER
-   Ink borders, hard offset shadows, Anton titles, sticker badges.
+   PROUDLYWEAR "HERITAGE" LAYER
+   Navy ink, khaki rules, crisp edges, Oswald titles, brass badges.
    Overrides the generic rules above; keep it at the end of the file.
    ============================================================ */
 
@@ -2195,15 +2199,15 @@ body.single-product,
 /* --- Gallery --- */
 .single-product .woocommerce-product-gallery {
   aspect-ratio: auto;
-  border: 2px solid var(--color-foreground);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
-  box-shadow: 8px 8px 0 var(--color-foreground);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .single-product .woocommerce-product-gallery__image {
   background: var(--color-background);
-  border-bottom: 2px solid var(--color-foreground);
+  border-bottom: 1px solid var(--color-border-strong);
 }
 
 .single-product .woocommerce-product-gallery__image:last-child {
@@ -2227,15 +2231,15 @@ body.single-product,
 .single-product .flex-control-thumbs img.flex-active,
 .single-product .flex-control-thumbs img:hover {
   border-color: var(--color-foreground);
-  box-shadow: 3px 3px 0 var(--color-accent);
+  box-shadow: 0 3px 0 var(--color-accent);
 }
 
 .single-product span.onsale {
-  border: 2px solid var(--color-foreground);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
   background: var(--color-highlight);
   color: var(--color-foreground);
-  transform: rotate(-4deg);
+  transform: none;
 }
 
 /* --- Summary --- */
@@ -2256,10 +2260,11 @@ body.single-product,
   align-items: center;
   min-height: 28px;
   padding: 2px 10px;
-  border: 2px solid var(--color-foreground);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
-  font-size: 0.7rem;
-  font-weight: 800;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
@@ -2267,24 +2272,31 @@ body.single-product,
 }
 
 .product-eyebrow__cat {
-  background: var(--color-highlight);
-  transform: rotate(-2deg);
-}
-
-.product-eyebrow__cat:hover {
+  border-color: var(--color-foreground);
   background: var(--color-foreground);
   color: var(--color-background);
 }
 
+.product-eyebrow__cat:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
 .product-eyebrow__tag {
-  border-style: dashed;
-  background: transparent;
+  gap: 6px;
+  border-color: var(--color-highlight);
+  background: var(--color-highlight-soft);
+}
+
+.product-eyebrow__tag::before {
+  content: "★";
+  color: var(--color-accent);
 }
 
 .single-product .product_title.entry-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4.2vw, 3.1rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 0.98;
   letter-spacing: 0.005em;
 }
@@ -2294,10 +2306,10 @@ body.single-product,
   align-items: baseline;
   gap: 10px;
   padding-bottom: 18px;
-  border-bottom: 2px dashed var(--color-border);
-  font-family: var(--font-heading);
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-display);
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 600;
   color: var(--color-accent);
 }
 
@@ -2312,8 +2324,8 @@ body.single-product,
 
 .single-product .pod-variant-label {
   font-family: var(--font-heading);
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.85rem;
+  font-weight: 700;
   letter-spacing: 0.14em;
 }
 
@@ -2326,7 +2338,7 @@ body.single-product,
 .single-product .pod-option {
   min-height: 44px;
   min-width: 44px;
-  border: 2px solid var(--color-foreground);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md);
   background: var(--color-background);
   color: var(--color-foreground);
@@ -2335,16 +2347,20 @@ body.single-product,
 
 .single-product .pod-option:hover {
   border-color: var(--color-foreground);
-  transform: translate(-2px, -2px);
-  box-shadow: 2px 2px 0 var(--color-foreground);
+  background: var(--color-surface);
 }
 
 .single-product .pod-option.is-selected {
   border-color: var(--color-foreground);
-  background: var(--color-highlight);
-  color: var(--color-foreground);
-  box-shadow: 3px 3px 0 var(--color-foreground);
-  transform: translate(-2px, -2px);
+  background: var(--color-foreground);
+  color: var(--color-background);
+  box-shadow: inset 0 -3px 0 var(--color-accent);
+  transform: none;
+}
+
+.single-product .pod-option--type.is-selected {
+  background: var(--color-background);
+  box-shadow: 0 0 0 2px var(--color-foreground), inset 0 -3px 0 var(--color-accent);
 }
 
 .single-product .pod-option--type {
@@ -2372,7 +2388,7 @@ body.single-product,
 .single-product .pod-option-swatch {
   width: 34px;
   height: 34px;
-  border: 2px solid var(--color-foreground);
+  border: 1px solid var(--color-border-strong);
 }
 
 .single-product .pod-option--color.is-selected .pod-option-swatch {
@@ -2401,7 +2417,7 @@ body.single-product,
 
 .single-product div.product form.cart .quantity .qty {
   height: 54px;
-  border: 2px solid var(--color-foreground);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md);
   background: var(--color-background);
 }
@@ -2413,27 +2429,28 @@ body.single-product,
 
 .single-product div.product form.cart .single_add_to_cart_button.button {
   min-height: 54px;
-  border: 2px solid var(--color-foreground);
+  border: 0;
   border-radius: var(--radius-md);
   background: var(--color-accent);
   color: #FFFFFF;
   font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  box-shadow: 4px 4px 0 var(--color-foreground);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-ink);
   transition: transform var(--duration-fast) var(--ease-fluid), box-shadow var(--duration-fast) var(--ease-fluid), background var(--duration-fast) var(--ease-fluid);
 }
 
 .single-product div.product form.cart .single_add_to_cart_button.button:hover {
   background: var(--color-accent-hover);
   color: #FFFFFF;
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--color-foreground);
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--color-foreground);
 }
 
 .single-product div.product form.cart .single_add_to_cart_button.button:active {
-  transform: translate(4px, 4px);
+  transform: translateY(3px);
   box-shadow: none;
 }
 
@@ -2444,7 +2461,7 @@ body.single-product,
   gap: 0;
   margin-top: 4px;
   padding: 0;
-  border: 2px solid var(--color-foreground);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   overflow: hidden;
@@ -2453,8 +2470,8 @@ body.single-product,
 .single-product .trust-badge {
   gap: 12px;
   padding: 12px 14px;
-  border-bottom: 2px dashed var(--color-border);
-  font-size: 0.78rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.8rem;
   font-weight: 500;
   line-height: 1.35;
   color: var(--color-foreground-muted);
@@ -2466,34 +2483,38 @@ body.single-product,
 
 .single-product .trust-badge strong {
   display: block;
-  font-size: 0.8rem;
-  font-weight: 800;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--color-foreground);
 }
 
 .single-product .trust-badge__icon {
-  width: 34px;
-  height: 34px;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
   padding: 7px;
-  border: 2px solid var(--color-foreground);
-  border-radius: var(--radius-md);
-  background: var(--color-highlight);
-  color: var(--color-foreground);
+  border: 2px solid var(--color-highlight);
+  border-radius: var(--radius-pill);
+  background: var(--color-foreground);
+  color: var(--color-background);
 }
 
 @media (min-width: 640px) {
   .single-product .trust-badges-banner {
     grid-template-columns: repeat(3, 1fr);
     flex-direction: initial;
+    align-items: stretch;
   }
 
   .single-product .trust-badge {
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
     border-bottom: 0;
-    border-right: 2px dashed var(--color-border);
+    border-right: 1px solid var(--color-border);
   }
 
   .single-product .trust-badge:last-child {
@@ -2508,13 +2529,13 @@ body.single-product,
 }
 
 .product-info-accordion details {
-  border: 2px solid var(--color-foreground);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-lg);
   background: var(--color-background);
 }
 
 .product-info-accordion details[open] {
-  box-shadow: 4px 4px 0 var(--color-foreground);
+  border-top: 3px solid var(--color-accent);
 }
 
 .product-info-accordion summary {
@@ -2526,9 +2547,9 @@ body.single-product,
   cursor: pointer;
   list-style: none;
   font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-foreground);
 }
@@ -2544,7 +2565,7 @@ body.single-product,
   justify-content: center;
   width: 26px;
   height: 26px;
-  border: 2px solid var(--color-foreground);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-pill);
   font-size: 1rem;
   line-height: 1;
@@ -2562,7 +2583,7 @@ body.single-product,
   gap: 6px;
   margin: 0;
   padding: 12px 16px 4px 34px;
-  border-top: 2px dashed var(--color-border);
+  border-top: 1px solid var(--color-border);
   font-size: 0.875rem;
   line-height: 1.55;
   color: var(--color-foreground-muted);
@@ -2593,7 +2614,7 @@ body.single-product,
 
 /* --- Tabs (description / reviews) --- */
 .single-product .woocommerce-tabs {
-  border: 2px solid var(--color-foreground);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-lg);
   background: var(--color-background);
 }
@@ -2601,27 +2622,27 @@ body.single-product,
 .single-product .woocommerce-tabs .tabs.wc-tabs {
   gap: 8px;
   padding: 14px 16px 0;
-  border-bottom: 2px solid var(--color-foreground);
+  border-bottom: 1px solid var(--color-border-strong);
   background: var(--color-surface);
 }
 
 .single-product .woocommerce-tabs .tabs li a {
   padding: 10px 16px;
-  margin-bottom: -2px;
-  border: 2px solid transparent;
-  border-bottom: 0;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin-bottom: -1px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
   font-family: var(--font-display);
   font-size: 1.15rem;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--color-muted);
 }
 
 .single-product .woocommerce-tabs .tabs li.active a,
 .single-product .woocommerce-tabs .tabs li a:hover {
-  border-color: var(--color-foreground);
-  background: var(--color-background);
+  border-bottom-color: var(--color-accent);
+  background: transparent;
   color: var(--color-foreground);
 }
 
@@ -2633,14 +2654,14 @@ body.single-product,
 .single-product .comment-reply-title {
   font-family: var(--font-display);
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.01em;
 }
 
 .single-product .comment-form input[type="text"],
 .single-product .comment-form input[type="email"],
 .single-product .comment-form textarea {
-  border: 2px solid var(--color-foreground);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md);
   background: #FFFFFF;
 }
@@ -2659,23 +2680,32 @@ body.single-product,
 .single-product .comment-form .form-submit input.submit {
   min-height: 48px;
   padding: 0 28px;
-  border: 2px solid var(--color-foreground);
+  border: 0;
   border-radius: var(--radius-md);
   background: var(--color-accent);
   color: #FFFFFF;
-  font-weight: 800;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  box-shadow: 3px 3px 0 var(--color-foreground);
+  letter-spacing: 0.08em;
+  box-shadow: var(--shadow-ink);
   cursor: pointer;
+}
+
+.single-product .comment-form .form-submit input.submit:hover {
+  background: var(--color-accent-hover);
 }
 
 /* --- Related products --- */
 .single-product .related.products > h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin: 0 0 20px;
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: 0.01em;
   text-transform: uppercase;
@@ -2683,7 +2713,7 @@ body.single-product,
 }
 
 .single-product .related.products .product-card {
-  border: 2px solid var(--color-foreground);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: #FFFFFF;
   box-shadow: none;
@@ -2692,7 +2722,7 @@ body.single-product,
 }
 
 .single-product .related.products .product-card:hover {
-  transform: translate(-3px, -3px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-card-hover);
 }
 
@@ -2715,4 +2745,10 @@ body.single-product,
   .single-product div.product form.cart .single_add_to_cart_button.button {
     transition: none;
   }
+}
+
+.single-product .related.products > h2::before {
+  content: "★";
+  font-size: 0.55em;
+  color: var(--color-accent);
 }

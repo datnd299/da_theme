@@ -23,7 +23,7 @@ if (!$account_url) {
 $support_email  = 'support@chronelshop.com';
 $support_phone  = '+1 304 585 0364';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM', 'dawp');
-$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : __('Business address available on request.', 'dawp');
+$store_address  = 'Loom Agency LLC, 30 N Gould St, STE R, Sheridan, Wyoming 82801, US';
 
 $footer_columns = [
     [

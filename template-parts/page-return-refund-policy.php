@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Chronel';
 $support_email  = 'support@chronelshop.com';
 $support_phone  = '304-585-0364';
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_address  = 'Loom Agency LLC, 30 N Gould St, STE R, Sheridan, Wyoming 82801, US';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $last_updated   = __('May 29, 2026', 'dawp');

@@ -15,7 +15,7 @@ $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink(
 $contact_url = home_url('/contact-us/');
 $returns_url = home_url('/return-refund-policy/');
 $shipping_url = home_url('/shipping-policy/');
-$store_address = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_address = 'Loom Agency LLC, 30 N Gould St, STE R, Sheridan, Wyoming 82801, US';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');

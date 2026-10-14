@@ -13,7 +13,7 @@ $store_name     = 'Chronel';
 $site_domain    = 'chronelshop.com';
 $support_email  = 'support@chronelshop.com';
 $support_phone  = '304-585-0364';
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_address  = 'Loom Agency LLC, 30 N Gould St, STE R, Sheridan, Wyoming 82801, US';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $last_updated   = __('May 29, 2026', 'dawp');
 $shipping_url   = home_url('/shipping-policy/');
@@ -23,7 +23,7 @@ $contact_url    = home_url('/contact-us/');
 
 $intro_paragraphs = [
     __('Welcome to Chronel! These Terms & Conditions ("Terms") govern your access to and use of our website chronelshop.com (the "Site"), including browsing our product catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'),
-    __('The Site is operated by Chronel. Throughout the Site, the terms "we", "us" and "our" refer to Chronel. By accessing our Site or placing an order, you agree to be bound by these Terms and all operational policies referenced herein. If you do not agree to these terms, please discontinue using the website or placing orders.', 'dawp'),
+    __('The Site is operated by Loom Agency LLC, doing business as Chronel. Throughout the Site, the terms "we", "us" and "our" refer to Chronel. By accessing our Site or placing an order, you agree to be bound by these Terms and all operational policies referenced herein. If you do not agree to these terms, please discontinue using the website or placing orders.', 'dawp'),
 ];
 
 $terms_highlights = [

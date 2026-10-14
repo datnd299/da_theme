@@ -7,10 +7,15 @@
  * Source → POD mapping:
  *   - garment (Zip Up Hoodie, Bomber Jacket, …) read from the title → the
  *     product-type category (inc/product-categories.php) + SKU code
- *   - first non-Size option (ShopBase "Service": Army, Navy, …) → POD Type
- *     (Style), each with the 3 mockups that follow its swatch image in `images`
- *   - no colour: every variant gets the hidden placeholder Color "none"
- *   - Size option → the Style's size set (surcharges from SIZE_SURCHARGE)
+ *   - Size option → POD Size (the Style's size set, surcharges from SIZE_SURCHARGE)
+ *   - Color option → POD Color (hex from COLOR_HEX, same palette as big_pod);
+ *     without one every variant gets the hidden placeholder Color "none"
+ *   - every other option (Service, Product Type, Style, Type, PACK, …) → POD
+ *     Type (Style); several such options combine into "Army / Polo Shirt".
+ *     None → the garment name. Each variant takes the mockups that follow its
+ *     swatch image in `images` (Color swatch first, then the Style ones)
+ *   - "Title" option (ShopBase "Default Title") is ignored
+ *   - custom_options[].name (Name, Rank, Years Of Service, …) → product tags
  *   - collections → branch categories (army, navy, … — the header menu slugs)
  *
  * Usage:
@@ -71,6 +76,7 @@ const SKU_PREFIX = 'PW';
 const SIZES = [
   ['XS', 'xs'], ['S', 's'], ['M', 'm'], ['L', 'l'], ['XL', 'xl'], ['2XL', '2xl'],
   ['3XL', '3xl'], ['4XL', '4xl'], ['5XL', '5xl'], ['6XL', '6xl'], ['One Size', 'one-size'],
+  ['Single', 'single'], ['Twin', 'twin'], ['Queen', 'queen'], ['King', 'king'], ['Super King', 'super-king'],
 ];
 // The source only exposes one price per product, so oversize surcharges are
 // ours: S–XL at the base price, +$2 for 2XL and +$1 per size above.
@@ -110,9 +116,27 @@ const VALUE_ALIASES = {
   Army2: 'Army II', Marine2: 'Marine II', 'Air Force2': 'Air Force II', Navy2: 'Navy II',
   'Coast Guard2': 'Coast Guard II', 'Space Force2': 'Space Force II',
 };
-// The source has no colour, but variant rows need one: the theme hides this
-// slug everywhere (pod_is_placeholder_color()).
+// Products without a Color option still need one per variant row: the theme
+// hides this slug everywhere (pod_is_placeholder_color()).
 const PLACEHOLDER_COLOR = { name: 'None', slug: 'none' };
+
+// Color palette shared with big_pod (scripts/pod-import.mjs) + the extra
+// names this source uses. Unlisted names (Color1, Marine 2, …) get no hex.
+const COLOR_ALIASES = { Pupple: 'Purple', Cayon: 'Cyan', Skyblue: 'Sky Blue' };
+const COLOR_HEX = {
+  Black: '#1B1B1B', White: '#F5F5F2', Apricot: '#F2C9A0', 'Rose Red': '#C2185B', Coffee: '#6F4E37',
+  Grey: '#8E8E8E', Gray: '#8A8A8A', 'Dark Gray': '#4A4A4A', 'Light Grey': '#C9C9C9', 'Light Gray': '#C9C9C9',
+  Pink: '#F4A7B9', 'Army Green': '#4B5320', 'Military Green': '#5B5F3A', 'Grass Green': '#4CAF50',
+  Green: '#2E7D32', 'Dark Green': '#1E4D2B', Purple: '#6A3D9A', 'Purple Haze': '#8E7CC3', Brown: '#7B4B2A',
+  'Light Brown': '#A9805B', Blue: '#2D5DA8', 'Light Blue': '#9CC3E6', 'Sky Blue': '#87CEEB', 'Dark Blue': '#1F2F5C',
+  'Denim Blue': '#4A6A8C', Navy: '#1C2541', Khaki: '#C3B091', Sand: '#D8C8A8', Carbon: '#3B3B3B',
+  'Wine Red': '#722F37', Watermelon: '#F0566A', 'Ancora Red': '#B3262D', Cherry: '#9B111E',
+  Yellow: '#F2C94C', Orange: '#F2994A', 'Pirate Gray': '#5E6064',
+  Red: '#C62828', Cyan: '#26C6DA', Violet: '#7E57C2', Silver: '#BDBDBD', Gold: '#C9A227', 'Old Green': '#556B2F',
+};
+
+// Custom-option names → one tag per field, whatever the wording/casing.
+const TAG_ALIASES = { name: 'Name', rank: 'Rank', 'years of service': 'Years Of Service' };
 
 /* ---------------------------------------------------------------------
  * Transform
@@ -126,8 +150,64 @@ const slugify = (s) => decode(s).toLowerCase().replace(/['’]/g, '').replace(/&
   .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
 const isSizeOption = (o) => /^size$/i.test(o.name.trim());
+const isColorOption = (o) => /^colou?r$/i.test(o.name.trim());
+const isTitleOption = (o) => /^(default\s+)?title$/i.test(o.name.trim())
+  || (o.values || []).every((v) => /^default title$/i.test(String(v.name).trim()));
 
 const cleanName = (title) => decode(title).replace(/\s+/g, ' ').trim().replace(/\.+$/, '');
+// Option values: drop control chars (a "\bRed" exists), nbsp → space.
+const cleanValue = (s) => decode(s).replace(/[\u0000-\u001f\u007f]/g, '').replace(/\s+/g, ' ').trim();
+
+// One spelling per size: ″ → ", "House Flag (29.5" x 39.5")" / "House Flag : …"
+// → "House Flag: …", "3ft x 5ft (36x60in)" → "(36in x 60in)", "TWIN" → "Twin".
+function cleanSize(raw) {
+  let s = cleanValue(raw).replace(/[″“”]/g, '"').replace(/\s*:\s*/, ': ');
+  s = s.replace(/^((?:House|Garden) Flag) \((.+)\)$/i, '$1: $2');
+  s = s.replace(/\((\d+)x(\d+)in\)$/i, '($1in x $2in)').replace(/\s*\(DHL Shipping\)$/i, '');
+  if (/^[A-Z ]{4,}$/.test(s)) s = s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
+  return s;
+}
+
+function cleanTag(raw) {
+  const s = cleanValue(raw).replace(/\(\s*(required|e\.g\b[^)]*)\s*\)/gi, '').replace(/\s+/g, ' ').trim();
+  return TAG_ALIASES[s.toLowerCase()] || s;
+}
+
+// Size families. ShopBase lists one flat Size option even when the Style
+// values need different sets (Product Type "Polo Shirt" + "Quilt Bedding Set"
+// with S…5XL + Twin…King), so a product's sizes are split per family and each
+// Style value takes only its own family's sizes.
+const APPAREL_SIZES = new Set(['xs', 's', 'm', 'l', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'normal', 'one-size']);
+const BED_SIZES = new Set(['single', 'twin', 'queen', 'king', 'super-king']);
+const sizeFamily = (slug) => (APPAREL_SIZES.has(slug) ? 'apparel' : BED_SIZES.has(slug) ? 'bed' : 'other');
+const valueFamily = (name) => (/bed|quilt|blanket/i.test(name) ? 'bed' : /flag|pillow|sign/i.test(name) ? 'other' : 'apparel');
+
+// Suffix that tells apart a Style name reused with another size set
+// ("Army" on hoodies vs "Army (Flag)" on flags); a size range when the
+// family label says nothing new ("Army (S–6XL)").
+function sizeSetLabel(slugs, names, garment, base) {
+  const has = (re) => slugs.some((s) => re.test(s));
+  const range = names.length > 1 ? `${names[0]}–${names.at(-1)}` : names[0];
+  let label = garment;
+  if (slugs.every((s) => BED_SIZES.has(s))) label = 'Bedding';
+  else if (has(/^\dft/) && has(/^(house|garden)-flag/)) label = 'Flag Set';
+  else if (has(/^\dft|^horizontal/)) label = 'Flag';
+  else if (has(/^(house|garden)-flag/)) label = 'House & Garden Flag';
+  else if (slugs.every((s) => APPAREL_SIZES.has(s)) && slugs.length > 1) label = range;
+  return label === base ? range : label;
+}
+
+// pod_variants.sku is VARCHAR(64): longer ones ("…-SET-3-PAY-FOR-2-BLUE-RED-GRAY-
+// FREESHIPPING") fail with db_error, so cut them and keep them distinct with a hash.
+function fitSku(sku) {
+  if (sku.length <= 64) return sku;
+  let h = 0;
+  for (const c of sku) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return `${sku.slice(0, 57).replace(/-+$/, '')}-${h.toString(36).toUpperCase().padStart(6, '0').slice(0, 6)}`;
+}
+
+// Cartesian product of value lists: [[a,b],[x]] → [[a,x],[b,x]].
+const combine = (lists) => lists.reduce((acc, list) => acc.flatMap((head) => list.map((v) => [...head, v])), [[]]);
 
 // Design code in the title, e.g. "… Zip Up Hoodie BTTN131021, …" → BTTN131021.
 const designCode = (title) => (title.match(/\b([A-Z]{3,5}\d{5,8})\b/) || [])[1] || '';
@@ -135,7 +215,13 @@ const designCode = (title) => (title.match(/\b([A-Z]{3,5}\d{5,8})\b/) || [])[1] 
 function transform(source) {
   const newest = new Set([...source].sort((a, b) => (b.id > a.id ? 1 : -1)).slice(0, NEW_ARRIVALS).map((p) => String(p.id)));
   const categories = new Map(); // slug → {name, slug, parent}
-  const styleSizes = new Map(); // Style name → Set(size slug), in first-seen order
+  // Size order = setup order (SIZES, then first seen), so the same set listed
+  // in another order ("Garden, House" / "House, Garden") is one set.
+  const knownOrder = SIZES.map(([, slug]) => slug);
+  const sizeRank = (slug) => (knownOrder.includes(slug) ? knownOrder.indexOf(slug) : knownOrder.length + [...sizeNames.keys()].indexOf(slug));
+  const styleSets = new Map(); // base Style name → Map(size-set key → {sizes, count, garment})
+  const sizeNames = new Map(); // size slug → display name
+  const colorNames = new Set();
   const unmappedCollections = new Map();
   const usedSkus = new Set();
   const products = [];
@@ -160,40 +246,95 @@ function transform(source) {
     }
     if (newest.has(id)) catSlugs.push('new-arrivals');
 
-    const sizeOpt = (p.options || []).find(isSizeOption);
-    const sizes = sizeOpt ? sizeOpt.values.map((v) => slugify(v.name)) : ['one-size'];
+    const options = (p.options || []).filter((o) => o.values?.length && !isTitleOption(o));
+    const sizeOpt = options.find(isSizeOption);
+    const colorOpt = options.find(isColorOption);
+    const styleOpts = options.filter((o) => !isSizeOption(o) && !isColorOption(o));
 
-    // Service option → POD Styles. Each swatch image starts its own block of
-    // mockups in `images`, running up to the next swatch's image.
+    const sizes = [];
+    for (const v of sizeOpt ? sizeOpt.values : [{ name: 'One Size' }]) {
+      const name = cleanSize(v.name);
+      const slug = slugify(name);
+      if (!slug || sizes.includes(slug)) continue;
+      if (!sizeNames.has(slug)) sizeNames.set(slug, name);
+      sizes.push(slug);
+    }
+
+    // Each swatch image (of any option) starts its own block of mockups in
+    // `images`, running up to the next swatch's image. An option with no
+    // swatches but one image per value maps them by position.
     const srcs = (p.images || []).map((i) => i.src).filter(Boolean);
-    const styleOpt = (p.options || []).find((o) => !isSizeOption(o));
-    const values = styleOpt?.values?.length ? styleOpt.values : [{ name: garment.name, image: srcs[0] || '' }];
-    const starts = values.map((v) => srcs.indexOf(v.image)).filter((i) => i >= 0).sort((a, b) => a - b);
+    if (!srcs.length) { skipped.push([id, 'no images']); continue; }
+    const starts = [...new Set(options.flatMap((o) => o.values.map((v) => srcs.indexOf(v.image))))]
+      .filter((i) => i >= 0).sort((a, b) => a - b);
+    const blockOf = (opt, idx) => {
+      const v = opt.values[idx];
+      const start = srcs.indexOf(v.image);
+      if (start >= 0) return srcs.slice(start, starts.find((i) => i > start) ?? srcs.length);
+      if (!opt.values.some((x) => x.image) && opt.values.length === srcs.length) return [srcs[idx]];
+      return null;
+    };
 
     const code = designCode(p.title || '');
     let sku = code ? `${SKU_PREFIX}-${code}` : `${SKU_PREFIX}-${id}`;
     if (usedSkus.has(sku)) sku = `${SKU_PREFIX}-${id}`;
     usedSkus.add(sku);
 
+    // [option, value index] pairs; Style combos × Colors = variant rows.
+    const styleCombos = styleOpts.length
+      ? combine(styleOpts.map((o) => o.values.map((_, i) => [o, i])))
+      : [[]];
+    const colorPicks = colorOpt ? colorOpt.values.map((_, i) => [colorOpt, i]) : [null];
+
+    const families = new Set(sizes.map(sizeFamily));
     const seen = new Set();
     const variants = [];
-    for (const v of values) {
-      const style = VALUE_ALIASES[v.name.trim()] || v.name.trim();
-      if (!style || seen.has(style)) continue;
-      const start = srcs.indexOf(v.image);
-      const end = starts.find((i) => i > start) ?? srcs.length;
-      const images = start >= 0 ? srcs.slice(start, end) : (v.image ? [v.image] : []);
-      if (!images.length) continue;
-      seen.add(style);
-      if (!styleSizes.has(style)) styleSizes.set(style, new Set());
-      for (const s of sizes) styleSizes.get(style).add(s);
-      variants.push({
-        type: style,
-        color: PLACEHOLDER_COLOR.name,
-        price: p.price,
-        sku: `${sku}-${garment.code}-${slugify(style).toUpperCase()}`,
-        image_urls: images,
-      });
+    for (const combo of styleCombos) {
+      const names = combo.map(([o, i]) => { const n = cleanValue(o.values[i].name); return VALUE_ALIASES[n] || n; });
+      const style = combo.length ? names.join(' / ') : garment.name;
+      if (!style) continue;
+
+      let comboSizes = sizes;
+      if (families.size > 1) {
+        const fam = valueFamily(`${names.join(' ')} ${families.has('apparel') && !names.length ? garment.name : ''}`);
+        const own = sizes.filter((s) => sizeFamily(s) === fam);
+        if (own.length) comboSizes = own;
+      }
+      comboSizes = [...comboSizes].sort((a, b) => sizeRank(a) - sizeRank(b));
+      const setKey = comboSizes.join(',');
+      if (!styleSets.has(style)) styleSets.set(style, new Map());
+      const sets = styleSets.get(style);
+      if (!sets.has(setKey)) sets.set(setKey, { sizes: comboSizes, count: 0, garment: garment.name });
+      sets.get(setKey).count++;
+
+      for (const pick of colorPicks) {
+        const rawColor = pick ? cleanValue(pick[0].values[pick[1]].name) : PLACEHOLDER_COLOR.name;
+        const color = COLOR_ALIASES[rawColor] || rawColor;
+        const key = `${style.toLowerCase()}|${color.toLowerCase()}`;
+        if (!color || seen.has(key)) continue;
+        seen.add(key);
+
+        let images = null;
+        for (const [o, i] of pick ? [pick, ...combo] : combo) if (!images) images = blockOf(o, i);
+
+        if (pick) colorNames.add(color);
+        // type + sku are finalised below, once every product's size sets are known.
+        variants.push({
+          type: style,
+          color,
+          price: p.price,
+          sku: `${sku}-${garment.code}`,
+          image_urls: images || srcs,
+          _setKey: setKey,
+          _colorSku: pick ? `-${slugify(color).toUpperCase()}` : '',
+        });
+      }
+    }
+
+    const tags = [];
+    for (const c of p.custom_options || []) {
+      const tag = cleanTag(c.name || '');
+      if (tag && !tags.some((t) => t.toLowerCase() === tag.toLowerCase())) tags.push(tag);
     }
     if (!variants.length) { skipped.push([id, 'no usable variants']); continue; }
 
@@ -202,6 +343,7 @@ function transform(source) {
       name: title,
       sku,
       categories: [...new Set(catSlugs)],
+      tags,
       // images[0] is the store's featured shot (all designs together).
       image: srcs[0] || variants[0].image_urls[0],
       // Descriptions come from the category-level shared text; empty strings
@@ -212,6 +354,30 @@ function transform(source) {
     });
   }
 
+  // A POD Style has one global size set, so a Style name used with several
+  // size sets is split: the most-used set keeps the plain name, the others
+  // get a suffix ("Army (Flag)", "Polo Shirt (Bedding)").
+  const styleName = new Map(); // `${base}|${setKey}` → final name
+  const styleSizes = new Map(); // final name → size slugs
+  for (const [base, sets] of styleSets) {
+    const ranked = [...sets].sort((a, b) => b[1].count - a[1].count);
+    for (const [n, [setKey, set]] of ranked.entries()) {
+      const label = sizeSetLabel(set.sizes, set.sizes.map((s) => sizeNames.get(s)), set.garment, base);
+      let name = n === 0 ? base : `${base} (${label})`;
+      for (let k = 2; styleSizes.has(name) && styleSizes.get(name).join(',') !== setKey; k++) name = `${base} (${label} ${k})`;
+      styleName.set(`${base}|${setKey}`, name);
+      styleSizes.set(name, set.sizes);
+    }
+  }
+  for (const p of products) {
+    for (const v of p.variants) {
+      v.type = styleName.get(`${v.type}|${v._setKey}`);
+      v.sku = fitSku(`${v.sku}-${slugify(v.type).toUpperCase()}${v._colorSku}`);
+      delete v._setKey;
+      delete v._colorSku;
+    }
+  }
+
   // Oldest first so the newest designs end up with the newest post dates.
   products.sort((a, b) => (BigInt(a.source_id) < BigInt(b.source_id) ? -1 : 1));
 
@@ -219,12 +385,15 @@ function transform(source) {
   categories.set('best-seller', { name: 'Best Sellers', slug: 'best-seller', parent: '' });
 
   const knownSizes = new Set(SIZES.map(([, slug]) => slug));
-  const extraSizes = [...new Set([...styleSizes.values()].flatMap((s) => [...s]))].filter((s) => !knownSizes.has(s));
+  const extraSizes = [...sizeNames].filter(([slug]) => !knownSizes.has(slug)).map(([slug, name]) => [name, slug]);
 
   const setup = {
-    sizes: [...SIZES, ...extraSizes.map((s) => [s.toUpperCase(), s])].map(([name, slug], i) => ({ name, slug, sort_order: i + 1 })),
-    colors: [{ ...PLACEHOLDER_COLOR, hex: null, sort_order: 0 }],
-    // A Style's size set is the union over every product that offers it.
+    sizes: [...SIZES, ...extraSizes].map(([name, slug], i) => ({ name, slug, sort_order: i + 1 })),
+    colors: [
+      { ...PLACEHOLDER_COLOR, hex: null, sort_order: 0 },
+      ...[...colorNames].map((name, i) => ({ name, slug: slugify(name), hex: COLOR_HEX[name] || null, sort_order: i + 1 })),
+    ],
+    // Each Style has exactly the size set of the products using it.
     types: [...styleSizes.entries()].map(([name, sizes], i) => ({
       name,
       slug: slugify(name),
@@ -296,6 +465,9 @@ for (const p of products) byType[p.categories[0]] = (byType[p.categories[0]] || 
 console.log(`Source: ${source.length} | importable: ${allProducts.length} | selected: ${products.length} | variants: ${variantCount} | skipped: ${skipped.length}`);
 console.log('By garment:', byType);
 console.log(`Setup: ${setup.sizes.length} sizes, ${setup.colors.length} colors, ${setup.types.length} styles, ${setup.categories.length} categories`);
+const tagCount = {};
+for (const p of products) for (const t of p.tags) tagCount[t] = (tagCount[t] || 0) + 1;
+console.log('Tags:', tagCount);
 if (skipped.length) console.log('Skipped:', skipped.map(([id, why]) => `${id} (${why})`).join(', '));
 if (unmappedCollections.size) console.log('Collections without a category:', Object.fromEntries(unmappedCollections));
 

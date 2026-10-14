@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('POD_VARIANTS_DB_VERSION', '1.1.0');
+define('POD_VARIANTS_DB_VERSION', '1.2.0');
 
 $pod_variants_dir = get_template_directory() . '/inc/pod-variants/';
 

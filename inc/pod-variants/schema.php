@@ -73,8 +73,8 @@ function pod_install_tables() {
     ) $charset_collate;
     CREATE TABLE " . pod_table_sizes() . " (
         id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(16) NOT NULL,
-        slug VARCHAR(16) NOT NULL,
+        name VARCHAR(64) NOT NULL,
+        slug VARCHAR(64) NOT NULL,
         sort_order SMALLINT UNSIGNED NOT NULL DEFAULT 0,
         UNIQUE KEY uq_slug (slug)
     ) $charset_collate;

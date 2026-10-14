@@ -184,6 +184,7 @@ function pod_import_upsert_category($cat) {
  *   "description": "<p>...</p>",
  *   "short_description": "...",
  *   "categories": ["anime", "vintage-shirts"],   // product_cat slugs
+ *   "tags": ["Name", "Rank"],            // product_tag names, created if missing
  *   "image": "https://...",              // main image (shop card), external
  *   "variants": [ { same item format as /products/{id}/variants } ]
  * }, ... ] }
@@ -266,6 +267,44 @@ function pod_import_category_ids(array $slugs) {
     return array_values(array_unique($ids));
 }
 
+/**
+ * product_tag ids by name, creating missing tags (matched case-insensitively
+ * on name so "Rank" and "rank" share one term).
+ */
+function pod_import_tag_ids(array $names) {
+    static $by_name = null;
+    if ($by_name === null) {
+        $by_name = [];
+        $terms   = get_terms(['taxonomy' => 'product_tag', 'hide_empty' => false]);
+        foreach (is_wp_error($terms) ? [] : $terms as $term) {
+            $by_name[strtolower($term->name)] = (int) $term->term_id;
+        }
+    }
+
+    $ids = [];
+    foreach ($names as $name) {
+        $name = sanitize_text_field(trim((string) $name));
+        $key  = strtolower($name);
+        if ($name === '') {
+            continue;
+        }
+        if (!isset($by_name[$key])) {
+            $created = wp_insert_term($name, 'product_tag');
+            if (is_wp_error($created)) {
+                $existing = $created->get_error_data('term_exists');
+                if (!$existing) {
+                    continue;
+                }
+                $by_name[$key] = (int) $existing;
+            } else {
+                $by_name[$key] = (int) $created['term_id'];
+            }
+        }
+        $ids[] = $by_name[$key];
+    }
+    return array_values(array_unique($ids));
+}
+
 function pod_import_one_product($item, array $existing) {
     if (!is_array($item)) {
         return ['status' => 'error', 'error' => 'invalid_item'];
@@ -305,6 +344,9 @@ function pod_import_one_product($item, array $existing) {
     }
     if (isset($item['categories']) && is_array($item['categories'])) {
         $product->set_category_ids(pod_import_category_ids($item['categories']));
+    }
+    if (isset($item['tags']) && is_array($item['tags'])) {
+        $product->set_tag_ids(pod_import_tag_ids($item['tags']));
     }
 
     // Main (shop card) image as a da-sync virtual image: a hidden custom

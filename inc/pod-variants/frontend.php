@@ -186,6 +186,7 @@ function pod_render_variant_selector() {
                 <span class="pod-variant-label"><?php esc_html_e('Size', 'dawp'); ?><span class="pod-variant-selected" id="pod-size-selected"></span></span>
                 <?php if ($chart_types) : ?>
                     <button type="button" class="pod-sizechart-trigger" data-pod-sizechart-open>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></svg>
                         <?php esc_html_e('Size chart', 'dawp'); ?>
                     </button>
                 <?php endif; ?>
@@ -212,7 +213,8 @@ function pod_render_size_chart_modal($chart_types) {
             <div class="pod-sizechart-modal__body">
                 <?php foreach ($chart_types as $i => $type) : ?>
                     <div class="pod-sizechart-panel" data-type-id="<?php echo esc_attr($type->id); ?>" <?php echo $i === 0 ? '' : 'hidden'; ?>>
-                        <?php echo wp_kses_post($type->size_chart_html); ?>
+                        <?php // {theme_uri} lets stored chart HTML reference theme images on any host. ?>
+                        <?php echo wp_kses_post(str_replace('{theme_uri}', get_template_directory_uri(), $type->size_chart_html)); ?>
                     </div>
                 <?php endforeach; ?>
             </div>

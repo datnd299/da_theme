@@ -1,20 +1,5 @@
 <?php
-function dawp_product_category_slug($slug) {
-    $map = [
-        'beauty'     => 'beauty-accessories',
-        'organizers' => 'makeup-bags-organizers',
-        'makeup'     => 'makeup-bags-organizers',
-        'fashion'    => 'fashion-accessories',
-        'essentials' => 'everyday-style-essentials',
-        'gifts'      => 'giftable-finds',
-    ];
-
-    return $map[$slug] ?? $slug;
-}
-
 function dawp_product_category_url($slug) {
-    $slug = dawp_product_category_slug($slug);
-
     if (function_exists('get_term_by')) {
         $term = get_term_by('slug', $slug, 'product_cat');
         if ($term && !is_wp_error($term)) {
@@ -29,20 +14,12 @@ function dawp_product_category_url($slug) {
 }
 
 function dawp_shop_category_items() {
-    $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'beauty-accessories'          => ['name' => __('Beauty Accessories', 'dawp')],
-        'makeup-bags-organizers'      => ['name' => __('Makeup Bags & Organizers', 'dawp')],
-        'fashion-accessories'         => ['name' => __('Fashion Accessories', 'dawp')],
-        'everyday-style-essentials'   => ['name' => __('Everyday Style Essentials', 'dawp')],
-        'giftable-finds'              => ['name' => __('Giftable Finds', 'dawp')],
-    ];
-
     $items = [];
 
-    foreach ($categories as $slug => $category) {
+    foreach (dawp_shop_product_categories() as $term) {
         $items[] = [
-            'title' => $category['name'],
-            'url'   => dawp_product_category_url($slug),
+            'title' => $term->name,
+            'url'   => dawp_product_category_url($term->slug),
         ];
     }
 

@@ -6,6 +6,7 @@ require_once get_template_directory() . '/inc/category-descriptions.php';
 require_once get_template_directory() . '/inc/menu.php';
 require_once get_template_directory() . '/inc/virtual-pages.php';
 require_once get_template_directory() . '/inc/woo-tweaks.php';
+require_once get_template_directory() . '/inc/showcase-reviews.php';
 require_once get_template_directory() . '/inc/contact-form.php';
 require_once get_template_directory() . '/inc/side-cart.php';
 require_once get_template_directory() . '/inc/pod-variants.php';

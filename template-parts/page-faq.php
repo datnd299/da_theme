@@ -42,8 +42,8 @@ $groups = [
         'id'    => 'shipping',
         'title' => __('Shipping & tracking', 'dawp'),
         'items' => [
-            [__('How much is shipping?', 'dawp'), sprintf(__('Shipping costs depend on the destination and number of items. Most items are $5.99 for the first item + $1.99 for each additional item. See %s for details.', 'dawp'), $shipping)],
-            [__('How long will my order take?', 'dawp'), __('Production takes 5–7 business days. After dispatch, US orders typically arrive in 7–10 days and international orders in 7–15 days. Holidays and severe weather can occasionally cause delays.', 'dawp')],
+            [__('How much is shipping?', 'dawp'), sprintf(__('Shipping is free on orders over $49. For smaller orders, the shipping cost is shown at checkout before you pay. See %s for details.', 'dawp'), $shipping)],
+            [__('How long will my order take?', 'dawp'), __('Processing takes 2–3 business days. After dispatch, orders typically arrive in 5–10 business days. Holidays and severe weather can occasionally cause delays.', 'dawp')],
             [__('Do you ship worldwide?', 'dawp'), __('Yes, we ship to most countries. We’re unable to ship to APO/FPO addresses or PO boxes.', 'dawp')],
             [__('Where is my order?', 'dawp'), sprintf(__('As soon as your order ships we email you a tracking number and link. You can also check its status any time on our %s page.', 'dawp'), $track)],
             [__('Why isn’t my tracking working?', 'dawp'), sprintf(__('Tracking updates once the carrier picks up and scans your package, which can take a few days after dispatch. If you ordered more than 21 days ago and still see no tracking, please %s with your order number and checkout email.', 'dawp'), $contact)],

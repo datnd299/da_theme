@@ -107,6 +107,49 @@ function dawp_side_cart_render_items() {
 }
 
 /**
+ * Subtotal + perk badges (free-shipping progress, Spend & Save tier). Swapped
+ * as one fragment, so the outer .side-cart__subtotal-row must be included.
+ */
+function dawp_side_cart_render_summary() {
+    $cart     = function_exists('WC') ? WC()->cart : null;
+    $subtotal = $cart ? (float) $cart->get_subtotal() : 0;
+    $badges   = [];
+
+    if ($cart && !$cart->is_empty()) {
+        $ship_min = da_theme_free_shipping_min();
+        $badges[] = $subtotal >= $ship_min
+            ? ['done', esc_html__('Free shipping', 'dawp')]
+            : ['todo', sprintf(esc_html__('%s to free shipping', 'dawp'), wc_price($ship_min - $subtotal))];
+
+        $percent = da_theme_spend_save_percent($subtotal);
+        if ($percent) {
+            $badges[] = ['done', sprintf(esc_html__('%d%% off', 'dawp'), $percent)];
+        }
+        foreach (da_theme_spend_save_tiers() as $threshold => $off) {
+            if ($subtotal < $threshold) {
+                $badges[] = ['todo', sprintf(esc_html__('%1$s to %2$d%% off', 'dawp'), wc_price($threshold - $subtotal), $off)];
+                break;
+            }
+        }
+    }
+    ?>
+    <div class="side-cart__subtotal-row">
+        <?php if ($badges) : ?>
+            <ul class="side-cart__perks">
+                <?php foreach ($badges as [$state, $label]) : ?>
+                    <li class="side-cart__perk side-cart__perk--<?php echo esc_attr($state); ?>"><?php echo wp_kses_post($label); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+        <div class="side-cart__subtotal">
+            <span class="side-cart__subtotal-label"><?php esc_html_e('Subtotal', 'dawp'); ?></span>
+            <span class="side-cart__subtotal-value"><?php echo $cart ? wp_kses_post($cart->get_cart_subtotal()) : ''; ?></span>
+        </div>
+    </div>
+    <?php
+}
+
+/**
  * Drawer shell, printed once in wp_footer. The item list, subtotal and badge
  * inside it are re-rendered piecemeal afterwards via fragments.
  */
@@ -143,10 +186,7 @@ function dawp_side_cart_markup() {
             </div>
 
             <div class="side-cart__footer">
-                <div class="side-cart__subtotal-row">
-                    <span><?php esc_html_e('Subtotal', 'dawp'); ?></span>
-                    <span class="side-cart__subtotal-value"><?php echo WC()->cart ? WC()->cart->get_cart_subtotal() : ''; ?></span>
-                </div>
+                <?php dawp_side_cart_render_summary(); ?>
                 <a href="<?php echo esc_url(wc_get_checkout_url()); ?>" class="side-cart__checkout-btn"><?php esc_html_e('Checkout', 'dawp'); ?></a>
                 <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="side-cart__view-cart-link"><?php esc_html_e('View Cart', 'dawp'); ?></a>
             </div>
@@ -170,7 +210,10 @@ function dawp_side_cart_fragments($fragments) {
     dawp_side_cart_render_items();
     $fragments['.side-cart__items'] = ob_get_clean();
 
-    $fragments['.side-cart__subtotal-value'] = '<span class="side-cart__subtotal-value">' . WC()->cart->get_cart_subtotal() . '</span>';
+    ob_start();
+    dawp_side_cart_render_summary();
+    $fragments['.side-cart__subtotal-row'] = ob_get_clean();
+
     $fragments['.side-cart__count']          = '<span class="side-cart__count">(' . (int) WC()->cart->get_cart_contents_count() . ')</span>';
     $fragments['.cart-count-badge']          = dawp_cart_count_badge_html(WC()->cart->get_cart_contents_count());
 

@@ -71,7 +71,7 @@ $footer_columns = [
     <div class="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-5 px-4 py-7 sm:px-6 lg:grid-cols-4 lg:px-8">
         <?php
         $promises = [
-            ['title' => __('Worldwide Shipping', 'dawp'), 'copy' => __('Tracked delivery to the US & beyond', 'dawp'), 'icon' => '<circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"></path>'],
+            ['title' => __('Free Shipping $49+', 'dawp'), 'copy' => __('Tracked delivery on orders over $49', 'dawp'), 'icon' => '<circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"></path>'],
             ['title' => __('Secure Payments', 'dawp'), 'copy' => __('256-bit SSL encrypted checkout', 'dawp'), 'icon' => '<rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path>'],
             ['title' => __('Easy Fixes', 'dawp'), 'copy' => __('Misprint or damage? Free replacement', 'dawp'), 'icon' => '<path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path>'],
             ['title' => __('Premium Cotton', 'dawp'), 'copy' => __('Soft, durable, eco-certified inks', 'dawp'), 'icon' => '<path d="M4 8 9 4l3 3 3-3 5 4-3 4-2-1v9H6v-9l-2 1Z"></path>'],

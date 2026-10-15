@@ -251,7 +251,7 @@ if (function_exists('wc_get_products')) {
             <ul class="mt-9 grid gap-6 sm:grid-cols-2">
                 <?php
                 $reasons = [
-                    ['title' => __('Worldwide Shipping', 'dawp'), 'copy' => __('US delivery in 7–10 days, international in 7–15 days, with tracking.', 'dawp'), 'icon' => '<circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"></path>'],
+                    ['title' => __('Worldwide Shipping', 'dawp'), 'copy' => __('Delivered in 5–10 business days after dispatch, with tracking.', 'dawp'), 'icon' => '<circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"></path>'],
                     ['title' => __('Secure Payments', 'dawp'), 'copy' => __('256-bit SSL checkout. Visa, Mastercard, Amex and PayPal.', 'dawp'), 'icon' => '<rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path>'],
                     ['title' => __('Super-easy Fixes', 'dawp'), 'copy' => __('Wrong, damaged or misprinted? Tell us within 14 days for a free replacement or refund.', 'dawp'), 'icon' => '<path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path>'],
                     ['title' => __('Premium Quality', 'dawp'), 'copy' => __('Soft premium cotton, finely tailored, with prints that stay bold wash after wash.', 'dawp'), 'icon' => '<path d="m12 2 2.6 6.3L21 9l-4.9 4.3L17.4 20 12 16.7 6.6 20l1.3-6.7L3 9l6.4-.7Z"></path>'],
@@ -288,8 +288,8 @@ if (function_exists('wc_get_products')) {
             $steps = [
                 ['title' => __('Pick your design', 'dawp'), 'copy' => __('Choose a design, then your style, color and size. Check the size guide first.', 'dawp')],
                 ['title' => __('24h to change it', 'dawp'), 'copy' => __('Need a different size or address? Email us within 24 hours of ordering.', 'dawp')],
-                ['title' => __('We print it', 'dawp'), 'copy' => __('Your piece is printed, cut and finished in 5–7 business days.', 'dawp')],
-                ['title' => __('It ships to you', 'dawp'), 'copy' => __('US 7–10 days, international 7–15 days, with a tracking link by email.', 'dawp')],
+                ['title' => __('We print it', 'dawp'), 'copy' => __('Your piece is printed, cut and finished in 2–3 business days.', 'dawp')],
+                ['title' => __('It ships to you', 'dawp'), 'copy' => __('Delivered in 5–10 business days, with a tracking link by email.', 'dawp')],
             ];
             foreach ($steps as $i => $step) :
                 ?>
@@ -302,14 +302,14 @@ if (function_exists('wc_get_products')) {
         </ol>
 
         <p class="mt-8 text-center text-sm text-[#6F665A]">
-            <?php esc_html_e('Shipping is $5.99 for the first item + $1.99 for each additional item.', 'dawp'); ?>
+            <?php esc_html_e('Free shipping on orders over $49.', 'dawp'); ?>
             <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="font-bold text-[#17140F] underline decoration-[#D7351E] decoration-2 underline-offset-4"><?php esc_html_e('Shipping details', 'dawp'); ?></a>
         </p>
     </div>
 </section>
 
 <!-- ============================================================
-     REVIEWS (independent platforms) + SEARCH CTA
+     SEARCH CTA + CUSTOMER REVIEWS
      ============================================================ -->
 <section class="border-t-2 border-[#17140F] bg-[#D7351E] py-16 text-[#FFFFFF] lg:py-20">
     <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
@@ -338,23 +338,41 @@ if (function_exists('wc_get_products')) {
             <?php endif; ?>
         </div>
 
-        <div class="rounded-[14px] border-2 border-[#17140F] bg-[#FBF7EF] p-6 text-[#17140F] shadow-[6px_6px_0_#17140F] sm:p-8">
-            <h3 class="font-display text-2xl uppercase sm:text-3xl"><?php esc_html_e('Read real customer reviews', 'dawp'); ?></h3>
-            <p class="mt-3 text-sm leading-relaxed text-[#4A4339]"><?php esc_html_e('We don’t cherry-pick. See what customers say about SlickTee on independent review platforms.', 'dawp'); ?></p>
-            <ul class="mt-6 grid gap-3 sm:grid-cols-3">
-                <?php
-                $review_sites = [
-                    ['name' => 'Trustpilot', 'url' => 'https://www.trustpilot.com/review/slicktee.com'],
-                    ['name' => 'Sitejabber', 'url' => 'https://www.sitejabber.com/reviews/slicktee.com'],
-                    ['name' => 'Webwiki', 'url' => 'https://www.webwiki.com/slicktee.com'],
-                ];
-                foreach ($review_sites as $site) :
+        <?php
+        // Customer photo reviews (all 5★, shared with the product Reviews tab — inc/showcase-reviews.php). Product link shows only when the product exists.
+        $reviews = dawp_showcase_reviews();
+        $star = '<svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor"><path d="M11.15 2.23a1.25 1.25 0 0 0-2.3 0L6.95 6.67H2.67a1.25 1.25 0 0 0-.88 2.13l3.12 3.12-1.32 5.26a1.25 1.25 0 0 0 1.84 1.39L10 15.96l4.57 2.61a1.25 1.25 0 0 0 1.84-1.39l-1.32-5.26 3.12-3.12a1.25 1.25 0 0 0-.88-2.13h-4.28Z"/></svg>';
+        ?>
+        <div data-carousel class="min-w-0 rounded-[14px] border-2 border-[#17140F] bg-[#FBF7EF] p-6 text-[#17140F] shadow-[6px_6px_0_#17140F] sm:p-8">
+            <div class="flex items-center justify-between gap-4">
+                <h3 class="font-display text-2xl uppercase sm:text-3xl"><?php esc_html_e('What customers say', 'dawp'); ?></h3>
+                <div class="flex shrink-0 gap-2">
+                    <button type="button" data-carousel-prev aria-label="<?php esc_attr_e('Previous review', 'dawp'); ?>" class="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#17140F] bg-[#FFFFFF] text-lg font-extrabold transition hover:bg-[#F2B33D]">←</button>
+                    <button type="button" data-carousel-next aria-label="<?php esc_attr_e('Next review', 'dawp'); ?>" class="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#17140F] bg-[#FFFFFF] text-lg font-extrabold transition hover:bg-[#F2B33D]">→</button>
+                </div>
+            </div>
+
+            <ul data-carousel-track class="mt-6 flex snap-x snap-mandatory gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <?php foreach ($reviews as $review) :
+                    $review_product = get_page_by_path($review['slug'], OBJECT, 'product');
                     ?>
-                    <li>
-                        <a href="<?php echo esc_url($site['url']); ?>" target="_blank" rel="noopener nofollow" class="flex min-h-12 items-center justify-between rounded-[8px] border-2 border-[#17140F] px-4 text-sm font-extrabold transition hover:bg-[#F2B33D]">
-                            <?php echo esc_html($site['name']); ?>
-                            <span aria-hidden="true">↗</span>
-                        </a>
+                    <li class="grid w-full shrink-0 snap-start content-start gap-5 sm:grid-cols-[2fr_3fr]">
+                        <img src="<?php echo esc_url($home_img('reviews/' . $review['img'])); ?>" alt="<?php echo esc_attr(sprintf(__('Customer photo of %s', 'dawp'), $review['product'])); ?>" width="480" height="<?php echo esc_attr($review['h']); ?>" loading="lazy" class="block aspect-square w-full rounded-[8px] border-2 border-[#17140F] object-cover sm:aspect-[4/5]">
+                        <figure class="flex min-w-0 flex-col">
+                            <span class="flex gap-0.5 text-[#D7351E]" role="img" aria-label="<?php esc_attr_e('5 out of 5 stars', 'dawp'); ?>"><?php echo str_repeat($star, 5); ?></span>
+                            <?php if (!empty($review['title'])) : ?>
+                                <p class="font-heading mt-3 text-base font-extrabold uppercase"><?php echo esc_html($review['title']); ?></p>
+                            <?php endif; ?>
+                            <blockquote class="mt-3 max-h-40 overflow-y-auto pr-1 sm:max-h-64 text-sm leading-relaxed text-[#4A4339]">“<?php echo esc_html($review['text']); ?>”</blockquote>
+                            <figcaption class="mt-auto pt-4">
+                                <span class="block text-sm font-extrabold">— <?php echo esc_html($review['author']); ?></span>
+                                <?php if ($review_product) : ?>
+                                    <a href="<?php echo esc_url(get_permalink($review_product)); ?>" class="mt-1 inline-block text-xs font-bold text-[#6F665A] underline decoration-[#D7351E] decoration-2 underline-offset-4 hover:text-[#17140F]"><?php echo esc_html($review['product']); ?></a>
+                                <?php else : ?>
+                                    <span class="mt-1 block text-xs font-bold text-[#6F665A]"><?php echo esc_html($review['product']); ?></span>
+                                <?php endif; ?>
+                            </figcaption>
+                        </figure>
                     </li>
                 <?php endforeach; ?>
             </ul>

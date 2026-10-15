@@ -305,6 +305,7 @@ function pod_render_settings_page() {
                                 <p class="description">
                                     <?php esc_html_e('Shown in the product page "Size Chart" modal when a shopper picks this Type. Leave blank to hide this Type from the modal.', 'dawp'); ?>
                                     <?php esc_html_e('Wrap the table in the existing .size-chart-wrap / .size-chart-table markup (assets/css/product.css) to inherit the mobile-responsive styling.', 'dawp'); ?>
+                                    <?php esc_html_e('Use {theme_uri} for theme image paths, e.g. {theme_uri}/assets/images/size-charts/sweatshirt.svg.', 'dawp'); ?>
                                 </p>
                             </td>
                         </tr>

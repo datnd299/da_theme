@@ -26,28 +26,22 @@ global $wp_query;
 $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
 $category_chips = [];
 
-if (function_exists('dawp_lbq_product_categories')) {
-    foreach (dawp_lbq_product_categories() as $slug => $category) {
-        $term = get_term_by('slug', $slug, 'product_cat');
+$shop_categories = function_exists('dawp_shop_product_categories') ? dawp_shop_product_categories() : [];
 
-        if (!$term || is_wp_error($term)) {
-            continue;
-        }
+foreach ($shop_categories as $term) {
+    $term_link = get_term_link($term);
 
-        $term_link = get_term_link($term);
-
-        if (is_wp_error($term_link)) {
-            continue;
-        }
-
-        $category_chips[] = [
-            'name'    => $term->name,
-            'slug'    => $term->slug,
-            'url'     => $term_link,
-            'count'   => (int) $term->count,
-            'current' => is_product_category($term->slug),
-        ];
+    if (is_wp_error($term_link)) {
+        continue;
     }
+
+    $category_chips[] = [
+        'name'    => $term->name,
+        'slug'    => $term->slug,
+        'url'     => $term_link,
+        'count'   => (int) $term->count,
+        'current' => is_product_category($term->slug),
+    ];
 }
 ?>
 
@@ -179,14 +173,8 @@ if (function_exists('dawp_lbq_product_categories')) {
 
             <?php
             // Categories widget
-            $uncategorized = get_term_by('slug', 'uncategorized', 'product_cat');
-            $categories = get_terms([
-                'taxonomy'   => 'product_cat',
-                'hide_empty' => false,
-                'parent'     => 0,
-                'exclude'    => $uncategorized && !is_wp_error($uncategorized) ? [(int) $uncategorized->term_id] : [],
-            ]);
-            if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
+            $categories = $shop_categories;
+            if ( ! empty( $categories ) ) : ?>
             <div class="shop-sidebar__widget">
                 <h3 class="shop-sidebar__title">Categories</h3>
                 <ul class="shop-sidebar__categories">

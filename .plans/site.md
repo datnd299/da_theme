@@ -21,14 +21,16 @@ refund, payment methods, privacy, terms, DMCA), captured 2026-10-12. Redesigned 
   fan-art / trademark-owner disclaimer and a DMCA notice process.
 - **Production claims allowed (from the live About page):** premium cotton, vintage wash,
   DTG printing with Brother machines and OEKO-TEX® ECO PASSPORT certified inks.
-- **Reviews:** only link to independent platforms (Trustpilot, Sitejabber, Webwiki). No
-  fabricated testimonials or rating numbers on the site.
+- **Reviews:** homepage shows a carousel of real customer photo reviews supplied by the owner
+  (texts verbatim except old "Artsholic" brand mentions removed; photos in `assets/images/home/reviews/`). No fabricated testimonials,
+  edited quotes or aggregate rating numbers on the site.
 
 ## 2. Fulfillment & Policy Facts (used in header, footer, FAQ, shipping, terms)
 
-- Production: 5–7 business days (made to order)
-- Delivery after dispatch: US 7–10 days, international 7–15 days; tracking on every order
-- Shipping fee: most items $5.99 first item + $1.99 each additional. **No free-shipping claims.**
+- Processing: 2–3 business days (made to order)
+- Shipping after dispatch: 5–10 business days; tracking on every order
+- Shipping fee: **free shipping on orders over $49**; under $49, shipping is calculated at checkout. Do not state any other per-item shipping rate.
+- Spend & Save (auto, no code): 5% off item subtotal $69+, 10% off $99+, 15% off $139+ (highest tier only; logic in inc/woo-tweaks.php)
 - No shipping to APO/FPO or PO boxes
 - Lost package: report within 4 days after estimated delivery → free reprint + reship
 - Changes/cancellation: within 24 hours of ordering; afterwards in production, no changes

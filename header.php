@@ -58,6 +58,7 @@ $nav_items = [
 ];
 
 $announcements = [
+    __('Free shipping on orders over $49', 'dawp'),
     __('Worldwide shipping — tracking on every order', 'dawp'),
     __('Printed to order just for you', 'dawp'),
     __('Free replacement for misprints & damage', 'dawp'),

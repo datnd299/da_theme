@@ -14,10 +14,10 @@ $track_link   = '<a href="' . esc_url(home_url('/track-order/')) . '">' . esc_ht
 $contact_link = '<a href="' . esc_url(home_url('/contact-us/')) . '">' . esc_html__('Contact Us', 'dawp') . '</a>';
 
 $summary = [
-    ['label' => __('Production', 'dawp'), 'value' => __('5–7 business days', 'dawp')],
-    ['label' => __('US delivery', 'dawp'), 'value' => __('7–10 days', 'dawp')],
-    ['label' => __('International', 'dawp'), 'value' => __('7–15 days', 'dawp')],
-    ['label' => __('Shipping fee', 'dawp'), 'value' => __('$5.99 + $1.99/extra item', 'dawp')],
+    ['label' => __('Processing', 'dawp'), 'value' => __('2–3 business days', 'dawp')],
+    ['label' => __('Shipping', 'dawp'), 'value' => __('5–10 business days', 'dawp')],
+    ['label' => __('Tracking', 'dawp'), 'value' => __('Every order', 'dawp')],
+    ['label' => __('Shipping fee', 'dawp'), 'value' => __('Free over $49', 'dawp')],
 ];
 
 $sections = [
@@ -26,12 +26,12 @@ $sections = [
         'title' => __('Shipping Information', 'dawp'),
         'body'  => [
             '<h3>' . esc_html__('1. Processing (production) time', 'dawp') . '</h3>',
-            '<p>' . esc_html__('Every SlickTee item is printed, cut and finished to order after you buy it. Production typically takes 5–7 business days, depending on the product type. A business day is Monday to Friday, excluding federal and bank holidays.', 'dawp') . '</p>',
+            '<p>' . esc_html__('Every SlickTee item is printed, cut and finished to order after you buy it. Processing takes 2–3 business days before your order is dispatched. A business day is Monday to Friday, excluding federal and bank holidays.', 'dawp') . '</p>',
             '<h3>' . esc_html__('2. Delivery time', 'dawp') . '</h3>',
-            '<ul><li>' . esc_html__('United States: 7–10 days after dispatch.', 'dawp') . '</li><li>' . esc_html__('Outside the United States: 7–15 days after dispatch.', 'dawp') . '</li></ul>',
+            '<p>' . esc_html__('Once dispatched, orders are delivered in 5–10 business days.', 'dawp') . '</p>',
             '<p>' . esc_html__('Delivery can occasionally be shorter or longer than these estimates. Delays may occur around holidays or because of events outside our control, such as severe weather.', 'dawp') . '</p>',
             '<h3>' . esc_html__('3. Shipping fees', 'dawp') . '</h3>',
-            '<p>' . esc_html__('Shipping costs vary with the destination and the number of items. Most items ship for $5.99 for the first item + $1.99 for each additional item. The exact shipping cost is always shown at checkout before you pay.', 'dawp') . '</p>',
+            '<p>' . esc_html__('Orders over $49 ship free. For orders under $49, the shipping cost is always shown at checkout before you pay.', 'dawp') . '</p>',
             '<h3>' . esc_html__('4. Where we ship', 'dawp') . '</h3>',
             '<p>' . esc_html__('We ship worldwide. We are unable to ship to APO/FPO addresses or PO boxes.', 'dawp') . '</p>',
             '<h3>' . esc_html__('5. Carriers & tracking', 'dawp') . '</h3>',

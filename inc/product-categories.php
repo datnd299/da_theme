@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for LBQ Shop.
+ * Product category helpers.
  *
  * @package dawp
  */
@@ -9,73 +9,42 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-function dawp_lbq_product_categories() {
-    return [
-        'beauty-accessories' => [
-            'name'        => __('Beauty Accessories', 'dawp'),
-            'description' => __('Useful beauty tools and small accessories designed to support simple everyday routines.', 'dawp'),
-            'short'       => __('Beauty tools and small helpers for everyday routines.', 'dawp'),
-        ],
-        'makeup-bags-organizers' => [
-            'name'        => __('Makeup Bags & Organizers', 'dawp'),
-            'description' => __('Travel-friendly cosmetic bags, storage pieces, and organizers that help keep beauty items neat and easy to find.', 'dawp'),
-            'short'       => __('Cosmetic bags, cases, and organizers for home or travel.', 'dawp'),
-        ],
-        'fashion-accessories' => [
-            'name'        => __('Fashion Accessories', 'dawp'),
-            'description' => __('Simple style accents for everyday outfits, from hair accessories to small carry pieces.', 'dawp'),
-            'short'       => __('Small accents for polished everyday styling.', 'dawp'),
-        ],
-        'everyday-style-essentials' => [
-            'name'        => __('Everyday Style Essentials', 'dawp'),
-            'description' => __('Practical accessories for daily beauty, travel, organization, and personal style.', 'dawp'),
-            'short'       => __('Practical daily pieces for beauty, travel, and style.', 'dawp'),
-        ],
-        'giftable-finds' => [
-            'name'        => __('Giftable Finds', 'dawp'),
-            'description' => __('Pretty, practical accessories made for thoughtful everyday gifting.', 'dawp'),
-            'short'       => __('Small beauty and style finds that are easy to gift.', 'dawp'),
-        ],
-    ];
+/**
+ * Top-level product categories that actually contain products (excludes Uncategorized).
+ */
+function dawp_shop_product_categories() {
+    if (!taxonomy_exists('product_cat')) {
+        return [];
+    }
+
+    $uncategorized = get_term_by('slug', 'uncategorized', 'product_cat');
+    $terms = get_terms([
+        'taxonomy'   => 'product_cat',
+        'hide_empty' => true,
+        'parent'     => 0,
+        'exclude'    => $uncategorized && !is_wp_error($uncategorized) ? [(int) $uncategorized->term_id] : [],
+    ]);
+
+    return is_wp_error($terms) ? [] : $terms;
 }
 
-add_action('init', 'dawp_ensure_lbq_product_categories', 30);
-function dawp_ensure_lbq_product_categories() {
-    if (!taxonomy_exists('product_cat')) {
+/**
+ * One-time cleanup: remove the empty placeholder categories an older theme version auto-created.
+ */
+add_action('init', 'dawp_remove_legacy_product_categories', 30);
+function dawp_remove_legacy_product_categories() {
+    if (get_option('dawp_legacy_cats_removed') || !taxonomy_exists('product_cat')) {
         return;
     }
 
-    foreach (dawp_lbq_product_categories() as $slug => $category) {
+    $legacy = ['beauty-accessories', 'makeup-bags-organizers', 'fashion-accessories', 'everyday-style-essentials', 'giftable-finds'];
+
+    foreach ($legacy as $slug) {
         $term = get_term_by('slug', $slug, 'product_cat');
-
-        if (!$term || is_wp_error($term)) {
-            $created = wp_insert_term(
-                $category['name'],
-                'product_cat',
-                [
-                    'slug'        => $slug,
-                    'description' => $category['description'],
-                ]
-            );
-
-            if (is_wp_error($created) || empty($created['term_id'])) {
-                continue;
-            }
-
-            update_term_meta((int) $created['term_id'], 'dawp_category_card_copy', $category['short']);
-            continue;
+        if ($term && !is_wp_error($term) && (int) $term->count === 0) {
+            wp_delete_term((int) $term->term_id, 'product_cat');
         }
-
-        if (empty($term->description)) {
-            wp_update_term(
-                (int) $term->term_id,
-                'product_cat',
-                [
-                    'description' => $category['description'],
-                ]
-            );
-        }
-
-        update_term_meta((int) $term->term_id, 'dawp_category_card_copy', $category['short']);
     }
+
+    update_option('dawp_legacy_cats_removed', 1, false);
 }

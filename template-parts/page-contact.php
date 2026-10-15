@@ -42,8 +42,8 @@ $contact_cards = [
 ];
 
 $quick_tips = [
-    ['title' => __('Production time', 'dawp'), 'copy' => __('Every order is printed, cut and finished to order in 5–7 business days before shipping.', 'dawp')],
-    ['title' => __('Shipping time', 'dawp'), 'copy' => __('US orders arrive in 7–10 days; international orders in 7–15 days after dispatch.', 'dawp')],
+    ['title' => __('Production time', 'dawp'), 'copy' => __('Every order is printed, cut and finished to order in 2–3 business days before shipping.', 'dawp')],
+    ['title' => __('Shipping time', 'dawp'), 'copy' => __('Orders arrive in 5–10 business days after dispatch.', 'dawp')],
     ['title' => __('Need to change something?', 'dawp'), 'copy' => __('Size, color, quantity or address changes and cancellations are possible within 24 hours of ordering.', 'dawp')],
     ['title' => __('Something wrong?', 'dawp'), 'copy' => __('Damaged, misprinted or wrong item? Email a photo within 14 days of delivery and we’ll replace or refund it.', 'dawp')],
 ];

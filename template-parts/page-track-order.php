@@ -107,14 +107,14 @@ $policy_links = [
                         <span class="track-timeline__icon" aria-hidden="true">2</span>
                         <div>
                             <h2><?php esc_html_e('Printed to order', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Your piece is printed, cut and finished in 5–7 business days.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Your piece is printed, cut and finished in 2–3 business days.', 'dawp'); ?></p>
                         </div>
                     </div>
                     <div class="track-timeline__item">
                         <span class="track-timeline__icon" aria-hidden="true">3</span>
                         <div>
                             <h2><?php esc_html_e('On the way', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('US delivery takes 7–10 days, international 7–15 days, with a tracking link by email.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Delivery takes 5–10 business days after dispatch, with a tracking link by email.', 'dawp'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@ $policy_links = [
                 </div>
                 <div class="track-badge">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
-                    <?php esc_html_e('5–7 Day Production', 'dawp'); ?>
+                    <?php esc_html_e('2–3 Day Processing', 'dawp'); ?>
                 </div>
             </div>
         </div>

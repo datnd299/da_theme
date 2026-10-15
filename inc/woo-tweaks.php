@@ -34,9 +34,10 @@ add_action('woocommerce_after_add_to_cart_form', 'da_theme_trust_badges_banner')
 function da_theme_trust_badges_banner() {
     $badges = [
         [
-            'title' => __('Ships worldwide', 'dawp'),
-            'copy'  => __('Tracking on every order', 'dawp'),
-            'icon'  => '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"/>',
+            'title' => __('Free shipping $49+', 'dawp'),
+            'copy'  => __('Tracked delivery worldwide', 'dawp'),
+            'icon'  => '<path d="M1 7h13v9H1z"/><path d="M14 10h4l4 3.5V16h-8z"/><circle cx="6" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/>',
+            'highlight' => true,
         ],
         [
             'title' => __('Free fixes', 'dawp'),
@@ -52,20 +53,25 @@ function da_theme_trust_badges_banner() {
     ?>
     <div class="trust-badges-banner">
         <?php foreach ($badges as $badge) : ?>
-            <div class="trust-badge">
+            <div class="trust-badge<?php echo empty($badge['highlight']) ? '' : ' trust-badge--highlight'; ?>">
                 <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><?php echo $badge['icon']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></svg>
                 <span><strong><?php echo esc_html($badge['title']); ?></strong><?php echo esc_html($badge['copy']); ?></span>
             </div>
         <?php endforeach; ?>
     </div>
 
+    <?php da_theme_spend_save_box(); ?>
+
     <div class="product-info-accordion">
-        <details open>
+        <details>
             <summary><?php esc_html_e('Production & delivery', 'dawp'); ?></summary>
             <ul>
-                <li><?php esc_html_e('Printed, cut and finished to order in 5–7 business days.', 'dawp'); ?></li>
-                <li><?php esc_html_e('Delivery after dispatch: US 7–10 days, international 7–15 days.', 'dawp'); ?></li>
-                <li><?php esc_html_e('Shipping: $5.99 for the first item + $1.99 for each additional item.', 'dawp'); ?></li>
+                <li class="product-info-accordion__highlight">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 7h13v9H1z"/><path d="M14 10h4l4 3.5V16h-8z"/><circle cx="6" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg>
+                    <strong><?php esc_html_e('Free shipping on orders over $49.', 'dawp'); ?></strong>
+                </li>
+                <li><?php esc_html_e('Printed, cut and finished to order in 2–3 business days.', 'dawp'); ?></li>
+                <li><?php esc_html_e('Delivered 5–10 business days after dispatch, with tracking.', 'dawp'); ?></li>
             </ul>
         </details>
         <details>
@@ -97,10 +103,71 @@ function da_theme_cart_free_shipping_banner($block_content, $block) {
             <circle cx="6" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/>
             <circle cx="17.5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/>
         </svg>
-        <p class="free-shipping-banner__message">Printed to order &middot; Ships worldwide with tracking</p>
+        <p class="free-shipping-banner__message">Free shipping on orders over $49 &middot; Printed to order, tracked delivery</p>
     </div>
     <?php
     $banner = ob_get_clean();
 
     return $banner . $block_content;
+}
+
+/* ---------------------------------------------------------------
+ * Spend & Save — tiered order discount
+ * Highest tier reached by the cart item subtotal applies (not cumulative).
+ * ------------------------------------------------------------- */
+// Free-shipping threshold (USD, item subtotal) — keep in sync with the WC shipping zone
+function da_theme_free_shipping_min() {
+    return 49;
+}
+
+function da_theme_spend_save_tiers() {
+    // threshold (USD, item subtotal) => percent off
+    return [69 => 5, 99 => 10, 139 => 15];
+}
+
+function da_theme_spend_save_percent($subtotal) {
+    $percent = 0;
+    foreach (da_theme_spend_save_tiers() as $threshold => $off) {
+        if ($subtotal >= $threshold) {
+            $percent = $off;
+        }
+    }
+    return $percent;
+}
+
+// Apply the discount as a negative fee so it works with the block cart & checkout
+add_action('woocommerce_cart_calculate_fees', 'da_theme_spend_save_discount');
+function da_theme_spend_save_discount($cart) {
+    if (is_admin() && !wp_doing_ajax()) {
+        return;
+    }
+    $subtotal = (float) $cart->get_subtotal();
+    $percent  = da_theme_spend_save_percent($subtotal);
+    if (!$percent) {
+        return;
+    }
+    $cart->add_fee(
+        /* translators: %d: discount percent */
+        sprintf(__('Spend & Save (%d%% off)', 'dawp'), $percent),
+        -round($subtotal * $percent / 100, wc_get_price_decimals()),
+        false
+    );
+}
+
+// Promo box on the single product page (rendered under the trust badges)
+function da_theme_spend_save_box() {
+    ?>
+    <div class="spend-save-box">
+        <p class="spend-save-box__title"><?php esc_html_e('Spend more, save more', 'dawp'); ?></p>
+        <ul class="spend-save-box__tiers">
+            <?php foreach (da_theme_spend_save_tiers() as $threshold => $off) : ?>
+                <li>
+                    <strong><?php echo esc_html(sprintf(__('%d%% OFF', 'dawp'), $off)); ?></strong>
+                    <span><?php echo esc_html(sprintf(__('orders $%d+', 'dawp'), $threshold)); ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <p class="spend-save-box__note"><?php esc_html_e('Applied automatically at checkout. No code needed.', 'dawp'); ?></p>
+    </div>
+    <?php
 }

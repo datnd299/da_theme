@@ -1,5 +1,5 @@
 /* =============================================================
-   main.css - Crowdfused Design System
+   main.css - Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
@@ -23,7 +23,7 @@
 
   /* === BRAND === */
   --color-accent: #F58220;
-  /* Crowdfused orange primary CTA and links */
+  /* Orange primary CTA and links */
   --color-accent-hover: #E96F00;
   /* Deeper orange hover state */
   --color-accent-soft: #FAFAFA;

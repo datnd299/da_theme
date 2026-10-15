@@ -1,5 +1,5 @@
 /* ============================================================
-   Crowdfused Shop / Product Archive
+   Shop / Product Archive
    ============================================================ */
 
 :root {
@@ -1255,8 +1255,8 @@ ul.products li.product,
 }
 
 /* ============================================================
-   Crowdfused 2026 archive refresh
-   Matches template-parts/page-home.php palette and product cards.
+   2026 archive refresh
+   Matches the homepage palette and product cards.
    ============================================================ */
 
 .shop-page {

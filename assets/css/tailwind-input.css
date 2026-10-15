@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* === COLORS - Crowdfused backgrounds === */
+  /* === COLORS - backgrounds === */
   --color-background: #FFFFFF;
   --color-surface: #FAFAFA;
   --color-surface-alt: #FFFFFF;
 
-  /* === COLORS - Crowdfused text === */
+  /* === COLORS - text === */
   --color-foreground: #222222;
   --color-foreground-muted: #666666;
   --color-muted: #666666;
 
-  /* === COLORS - Crowdfused brand === */
+  /* === COLORS - brand === */
   --color-accent: #F58220;
   --color-accent-hover: #E96F00;
   --color-accent-soft: #FAFAFA;

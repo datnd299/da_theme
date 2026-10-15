@@ -118,3 +118,18 @@ table.shop_table{width:100%;border-collapse:separate;border-spacing:0;background
 .hm-pay__card{display:inline-flex;align-items:center;justify-content:center;width:46px;height:30px;background:#fff;border-radius:5px;box-shadow:0 0 0 1px rgba(255,255,255,.2)}
 .hm-pay__card svg{display:block;width:24px;height:24px;flex:none}
 @media(max-width:640px){.hm-pay{margin-left:0}}
+
+/* Shop by department: spread evenly, adapts to the number of departments */
+.hm-sec__head{align-items:baseline;gap:16px}
+.hm-depts{display:grid;grid-template-columns:repeat(var(--hm-dept-n,5),minmax(0,1fr));gap:24px;justify-items:center}
+.hm-depts>a{display:flex;flex-direction:column;align-items:center;width:100%;max-width:176px;text-align:center}
+.hm-depts>a .hm-depts__pic,.hm-depts>a>img{width:100%}
+@media(max-width:1024px){
+ .hm-depts{display:flex;flex-wrap:wrap;justify-content:center;gap:24px 20px}
+ .hm-depts>a{flex:0 0 calc((100% - 40px)/3);max-width:176px}
+}
+@media(max-width:640px){
+ .hm-depts{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:14px;padding:2px 2px 10px;scrollbar-width:thin}
+ .hm-depts>a{flex:0 0 36%;max-width:none;scroll-snap-align:start}
+}
+.hm-sec__head>a{white-space:nowrap;flex:none}

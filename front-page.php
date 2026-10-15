@@ -20,7 +20,7 @@ $home = $cat('home-furniture-appliances'); $smart = $cat('home-improvement-essen
 </div></section>
 <div class="hm-trust"><div><strong>Free shipping, always</strong>Every order, no minimum</div><div><strong>Arrives in 4-7 business days</strong>Monday–Friday, tracked to your door</div><div><strong>Free 30-day returns</strong>No return shipping or restocking fees</div><div><strong>Real people on the phone</strong><a href="tel:+19842580710">(984) 258-0710</a> · Monday–Friday 10 AM–5 PM</div></div>
 <?php $deps = hm_departments(); if ($deps) : ?>
-<section class="hm-sec"><div class="hm-sec__head"><h2>Shop by department</h2><a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>">All departments →</a></div><div class="hm-depts">
+<section class="hm-sec"><div class="hm-sec__head"><h2>Shop by department</h2><a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>">All departments →</a></div><div class="hm-depts" style="--hm-dept-n:<?php echo (int) min(8, count($deps)); ?>">
 <?php foreach (array_slice($deps, 0, 8) as $i => $t) { $tid = get_term_meta($t->term_id, 'thumbnail_id', true); $b = hm_dept_banner($t->slug); if ($b) { $img = hm_pic($b, 'hm-depts__pic'); } else { $src = $tid ? wp_get_attachment_image_url($tid, 'thumbnail') : hm_img('dept-' . ($i % 8) . '.svg'); $img = '<img src="' . esc_url($src) . '" alt="">'; } echo '<a href="' . esc_url(get_term_link($t)) . '">' . $img . esc_html($t->name) . '</a>'; } ?>
 </div></section><?php endif; ?>
 <?php if (hm_has_products()) : ?><section class="hm-sec"><div class="hm-sec__head"><h2>Built for everyday projects</h2><a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>">See all →</a></div><div class="hm-grid">

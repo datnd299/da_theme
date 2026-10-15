@@ -28,16 +28,10 @@ $cat_url = static function ($slug) use ($shop_url) {
     return function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : $shop_url;
 };
 
-$product_links = [
-    ['title' => __('T-Shirts', 'dawp'), 'url' => $cat_url('t-shirts')],
-    ['title' => __('Hoodies & Zip-Ups', 'dawp'), 'url' => $cat_url('hoodies')],
-    ['title' => __('Sweatshirts', 'dawp'), 'url' => $cat_url('sweatshirts')],
-    ['title' => __('Polo Shirts', 'dawp'), 'url' => $cat_url('polo-shirts')],
-    ['title' => __('Bomber Jackets', 'dawp'), 'url' => $cat_url('bomber-jackets')],
-    ['title' => __('Hats & Caps', 'dawp'), 'url' => $cat_url('caps')],
-    ['title' => __('Flags', 'dawp'), 'url' => $cat_url('flags')],
-    ['title' => __('Metal Signs', 'dawp'), 'url' => $cat_url('metal-signs')],
-];
+$product_links = [];
+foreach (dawp_main_product_categories() as $slug => $title) {
+    $product_links[] = ['title' => $title, 'url' => $cat_url($slug)];
+}
 
 $branch_links = [
     ['title' => __('Army Veterans', 'dawp'), 'url' => $cat_url('army')],
@@ -75,7 +69,7 @@ $render_search    = static function ($id) use ($has_fibo, $fibo_shortcode, $sear
     ?>
     <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="flex items-center rounded-md border border-border-strong bg-background px-3 py-1">
         <label class="sr-only" for="<?php echo esc_attr($id); ?>"><?php esc_html_e('Search products', 'dawp'); ?></label>
-        <input id="<?php echo esc_attr($id); ?>" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search apparel…', 'dawp'); ?>" class="min-h-9 w-full min-w-0 bg-transparent text-sm text-foreground outline-none placeholder:text-muted">
+        <input id="<?php echo esc_attr($id); ?>" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search apparel…', 'dawp'); ?>" class="min-h-9 w-full min-w-0 bg-transparent text-base text-foreground lg:text-sm outline-none placeholder:text-muted">
         <input type="hidden" name="post_type" value="product">
         <button type="submit" class="ml-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-foreground text-background transition hover:bg-accent" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>"><?php echo $search_icon; ?></button>
     </form>

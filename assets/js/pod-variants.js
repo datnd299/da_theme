@@ -11,8 +11,29 @@
 
     var data = podVariantData;
     var state = { typeId: null, colorId: null, sizeId: null };
-    // Image set currently in the gallery; PHP renders the first variant's.
-    var galleryKey = data.variants[0] ? (data.variants[0].images || []).join('|') : null;
+    // Gallery = variant's images first, then the parent product's, unique by
+    // URL. Mirrors pod_merge_gallery_images() in PHP.
+    function galleryImages(variant) {
+        var seen = {};
+        return ((variant && variant.images) || []).concat(data.parentImages || []).filter(function (url) {
+            if (!url || seen[url]) {
+                return false;
+            }
+            seen[url] = true;
+            return true;
+        });
+    }
+
+    // Image set currently in the gallery; read from PHP's markup on load.
+    var galleryKey = null;
+
+    function renderedGalleryKey() {
+        var imgs = document.querySelectorAll('#pod-gallery-thumbs img');
+        if (!imgs.length) {
+            imgs = document.querySelectorAll('#pod-main-image');
+        }
+        return Array.prototype.map.call(imgs, function (img) { return img.getAttribute('src'); }).join('|');
+    }
 
     function variantsForType(typeId) {
         return data.variants.filter(function (v) { return v.type_id === typeId; });
@@ -90,11 +111,22 @@
 
     // Rebuilding buttons on every click re-creates the Style thumbnails (and
     // flashes them while they reload), so only rebuild when the set of
-    // options changes; otherwise just move the selected class.
+    // options changes; otherwise just move the selected class. PHP prints the
+    // initial buttons with a matching data-key, so they're kept as-is too.
     function renderOptions(containerId, items, selectedId, onSelect, availableIds, fillContent) {
         var el = document.getElementById(containerId);
         if (!el) {
             return;
+        }
+        el.podSelect = onSelect;
+        if (!el.dataset.bound) {
+            el.dataset.bound = '1';
+            el.addEventListener('click', function (e) {
+                var btn = e.target.closest('.pod-option');
+                if (btn) {
+                    el.podSelect(parseInt(btn.dataset.id, 10));
+                }
+            });
         }
         var visible = items.filter(function (item) {
             return !availableIds || availableIds.indexOf(item.id) !== -1;
@@ -117,7 +149,6 @@
             if (item.id === selectedId) {
                 btn.classList.add('is-selected');
             }
-            btn.addEventListener('click', function () { onSelect(item.id); });
             el.appendChild(btn);
         });
     }
@@ -214,7 +245,7 @@
 
         // Only touch the gallery when the image set actually changes — a size
         // pick (same variant) must not reset or reload the images.
-        var images = variant.images || [];
+        var images = galleryImages(variant);
         var key = images.join('|');
         if (key === galleryKey) {
             return;
@@ -223,7 +254,7 @@
 
         var mainImage = document.getElementById('pod-main-image');
         if (mainImage && images[0]) {
-            mainImage.src = images[0];
+            setMainImage(mainImage, images[0]);
         }
 
         var thumbs = getThumbsList();
@@ -244,6 +275,29 @@
                 });
             }
         }
+    }
+
+    // Swap the main image, showing a spinner over the box until the new file
+    // has loaded. Cached images finish synchronously, so no spinner flash.
+    function setMainImage(mainImage, url) {
+        var box = mainImage.parentElement;
+        if (mainImage.src === url) {
+            return;
+        }
+        mainImage.src = url;
+        if (mainImage.complete) {
+            box.classList.remove('is-loading');
+            return;
+        }
+        if (!mainImage.dataset.loadBound) {
+            // Changing src aborts the previous request, so load/error only
+            // ever fire for the latest image.
+            var done = function () { box.classList.remove('is-loading'); };
+            mainImage.addEventListener('load', done);
+            mainImage.addEventListener('error', done);
+            mainImage.dataset.loadBound = '1';
+        }
+        box.classList.add('is-loading');
     }
 
     // PHP only prints the thumbs list when the first variant has 2+ images;
@@ -268,7 +322,7 @@
             if (!img || !mainImage) {
                 return;
             }
-            mainImage.src = img.src;
+            setMainImage(mainImage, img.src);
             thumbs.querySelectorAll('img').forEach(function (t) { t.classList.remove('flex-active'); });
             img.classList.add('flex-active');
         });
@@ -315,6 +369,11 @@
         setGroupHidden('type', availableTypeIds.length <= 1);
         setGroupHidden('color', availableColorIds.length <= 1);
         setGroupHidden('size', availableSizeIds.length <= 1);
+
+        var selector = document.getElementById('pod-variant-selector');
+        if (selector) {
+            selector.hidden = !selector.querySelector('.pod-variant-group:not([hidden])');
+        }
 
         setSelectedLabel('pod-type-selected', nameById(data.types, state.typeId));
         setSelectedLabel('pod-color-selected', nameById(data.colors, state.colorId));
@@ -428,6 +487,7 @@
         if (thumbs) {
             bindThumbs(thumbs);
         }
+        galleryKey = renderedGalleryKey();
         initState();
         initSizeChartModal();
     });

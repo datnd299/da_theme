@@ -84,6 +84,22 @@ function dawp_lbq_product_categories() {
     ];
 }
 
+/**
+ * Main product-type categories (slug => label) — shared by the header "Products" menu and the shop category nav.
+ */
+function dawp_main_product_categories() {
+    return [
+        't-shirts'       => __('T-Shirts', 'dawp'),
+        'hoodies'        => __('Hoodies & Zip-Ups', 'dawp'),
+        'sweatshirts'    => __('Sweatshirts', 'dawp'),
+        'polo-shirts'    => __('Polo Shirts', 'dawp'),
+        'bomber-jackets' => __('Bomber Jackets', 'dawp'),
+        'caps'           => __('Hats & Caps', 'dawp'),
+        'flags'          => __('Flags', 'dawp'),
+        'metal-signs'    => __('Metal Signs', 'dawp'),
+    ];
+}
+
 add_action('init', 'dawp_ensure_lbq_product_categories', 30);
 function dawp_ensure_lbq_product_categories() {
     if (!taxonomy_exists('product_cat')) {

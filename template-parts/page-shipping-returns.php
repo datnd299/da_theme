@@ -14,8 +14,8 @@ $track_link   = '<a href="' . esc_url(home_url('/track-order/')) . '">' . esc_ht
 $contact_link = '<a href="' . esc_url(home_url('/contact-us/')) . '">' . esc_html__('Contact Us', 'dawp') . '</a>';
 
 $summary = [
-    ['label' => __('Production', 'dawp'), 'value' => __('3–5 business days', 'dawp')],
-    ['label' => __('US delivery', 'dawp'), 'value' => __('4–8 business days', 'dawp')],
+    ['label' => __('Production', 'dawp'), 'value' => __('2–3 business days', 'dawp')],
+    ['label' => __('US delivery', 'dawp'), 'value' => __('5–10 business days', 'dawp')],
     ['label' => __('Shipping', 'dawp'), 'value' => __('Free on $49+', 'dawp')],
     ['label' => __('Returns', 'dawp'), 'value' => __('30 days', 'dawp')],
 ];
@@ -26,11 +26,12 @@ $sections = [
         'title' => __('Shipping Policy', 'dawp'),
         'body'  => [
             '<h3>' . esc_html__('1. Processing (production) time', 'dawp') . '</h3>',
-            '<p>' . esc_html__('Every ProudlyWear item is printed to order after you buy it. Production and quality checks take 3–5 business days. Business days are Monday to Friday, excluding US federal holidays.', 'dawp') . '</p>',
+            '<p>' . esc_html__('Every ProudlyWear item is printed to order after you buy it. Production and quality checks take 2–3 business days. Business days are Monday to Friday, excluding US federal holidays.', 'dawp') . '</p>',
             '<h3>' . esc_html__('2. Delivery time', 'dawp') . '</h3>',
-            '<p>' . esc_html__('After dispatch, standard US delivery typically takes 4–8 business days. Total time from order to doorstep is usually 7–13 business days. Delays can happen around holidays or because of events outside our control, such as severe weather or carrier disruptions.', 'dawp') . '</p>',
+            '<p>' . esc_html__('After dispatch, standard US delivery typically takes 5–10 business days. Total time from order to doorstep is usually 7–13 business days. Delays can happen around holidays or because of events outside our control, such as severe weather or carrier disruptions.', 'dawp') . '</p>',
             '<h3>' . esc_html__('3. Shipping rates', 'dawp') . '</h3>',
-            '<ul><li>' . esc_html__('Orders of $49 or more (subtotal after discounts): free standard shipping.', 'dawp') . '</li><li>' . esc_html__('Orders under $49: $5.99 for the first item + $1.99 for each additional item.', 'dawp') . '</li></ul>',
+            '<ul><li>' . esc_html__('Orders of $49 or more (subtotal after discounts): free standard shipping.', 'dawp') . '</li></ul>' .
+            '<p>' . esc_html__('Spend & Save discounts (5% off $69+, 10% off $99+, 15% off $139+) are applied automatically at checkout and never cost you free shipping: free shipping is based on the item subtotal before the Spend & Save discount.', 'dawp') . '</p>',
             '<p>' . esc_html__('The exact shipping charge is always shown at checkout before you pay.', 'dawp') . '</p>',
             '<h3>' . esc_html__('4. Where we ship', 'dawp') . '</h3>',
             '<p>' . esc_html__('We ship to addresses in all 50 US states. At this time we can’t ship to APO/FPO/DPO addresses, PO boxes or destinations outside the United States.', 'dawp') . '</p>',
@@ -49,15 +50,15 @@ $sections = [
             '<h3>' . esc_html__('Marked as delivered but not received', 'dawp') . '</h3>',
             '<p>' . esc_html__('Check around your property, with neighbors and household members, and allow 1–2 business days — carriers sometimes scan packages as delivered early. If it still hasn’t turned up, contact us and we’ll open a claim with the carrier and help you from there.', 'dawp') . '</p>',
             '<h3>' . esc_html__('Incorrect address', 'dawp') . '</h3>',
-            '<p>' . esc_html__('Please double-check your address at checkout. Address changes can be made within 6 hours of ordering. If a package is returned to us because of an incorrect or incomplete address provided at checkout, we’ll contact you to reship it; a new shipping charge may apply.', 'dawp') . '</p>',
+            '<p>' . esc_html__('Please double-check your address at checkout. Address changes can be made within 24 hours of ordering. If a package is returned to us because of an incorrect or incomplete address provided at checkout, we’ll contact you to reship it; a new shipping charge may apply.', 'dawp') . '</p>',
         ],
     ],
     [
         'id'    => 'cancel',
         'title' => __('Cancel or Change an Order', 'dawp'),
         'body'  => [
-            '<p>' . sprintf(esc_html__('Because every item is made to order, you can cancel your order or change the size, color or shipping address within 6 hours of placing it, before production begins. Email %1$s with your order number or use our %2$s page. Cancelled orders are refunded in full to the original payment method.', 'dawp'), $email_link, $contact_link) . '</p>',
-            '<p>' . esc_html__('After 6 hours your order may already be in production, and we can’t guarantee changes or cancellations. You can still use our return policy below once the item arrives.', 'dawp') . '</p>',
+            '<p>' . sprintf(esc_html__('Because every item is made to order, you can cancel your order or change the size, color or shipping address within 24 hours of placing it, before production begins. Email %1$s with your order number or use our %2$s page. Cancelled orders are refunded in full to the original payment method.', 'dawp'), $email_link, $contact_link) . '</p>',
+            '<p>' . esc_html__('After 24 hours your order may already be in production, and we can’t guarantee changes or cancellations. You can still use our return policy below once the item arrives.', 'dawp') . '</p>',
         ],
     ],
     [

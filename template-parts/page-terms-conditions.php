@@ -28,12 +28,12 @@ $sections = [
     [
         'id'    => 'made-to-order',
         'title' => __('3. Made-to-order products', 'dawp'),
-        'body'  => '<p>' . sprintf(esc_html__('Our products are printed on demand specifically for you after your order is confirmed. You can change or cancel an order within 6 hours of placing it, before production begins. Eligible items can be returned within 30 days of delivery, and damaged, defective or incorrect items are replaced or refunded free of charge, as described in our %s.', 'dawp'), $returns_link) . '</p><p>' . esc_html__('We make every effort to show products accurately, but colors on screen may vary slightly from the finished print, and because items are printed to order, the placement and shade of a print can differ slightly from the photos.', 'dawp') . '</p>',
+        'body'  => '<p>' . sprintf(esc_html__('Our products are printed on demand specifically for you after your order is confirmed. You can change or cancel an order within 24 hours of placing it, before production begins. Eligible items can be returned within 30 days of delivery, and damaged, defective or incorrect items are replaced or refunded free of charge, as described in our %s.', 'dawp'), $returns_link) . '</p><p>' . esc_html__('We make every effort to show products accurately, but colors on screen may vary slightly from the finished print, and because items are printed to order, the placement and shade of a print can differ slightly from the photos.', 'dawp') . '</p>',
     ],
     [
         'id'    => 'pricing',
         'title' => __('4. Pricing & taxes', 'dawp'),
-        'body'  => '<p>' . sprintf(esc_html__('Prices are shown in US dollars and may change without notice; the price that applies is the one shown at checkout when you order. Shipping fees are added at checkout (see %s). Where required by law, applicable sales tax is calculated and shown at checkout.', 'dawp'), $shipping_link) . '</p>',
+        'body'  => '<p>' . sprintf(esc_html__('Prices are shown in US dollars and may change without notice; the price that applies is the one shown at checkout when you order. Shipping fees are added at checkout (see %s). Where required by law, applicable sales tax is calculated and shown at checkout.', 'dawp'), $shipping_link) . '</p><p>' . esc_html__('Spend & Save: orders with an item subtotal (before shipping and tax) of $69 or more get 5% off, $99 or more get 10% off, and $139 or more get 15% off. Only the highest tier reached applies; the discount is applied automatically at checkout and shown as a separate line. If items are returned and the remaining order falls below a tier, the refund is adjusted to the discount that remaining order would have received.', 'dawp') . '</p>',
     ],
     [
         'id'    => 'payment',

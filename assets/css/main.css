@@ -187,6 +187,13 @@
   }
 }
 
+/* iOS Safari zooms into any field under 16px on focus — header search, checkout fields, side-cart qty… */
+@media (max-width: 1023px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]),
+  select,
+  textarea { font-size: 16px !important; }
+}
+
 /* Mobile nav panel toggled by assets/js/main.js (.menu-toggle / .main-navigation) */
 .main-navigation.is-open,
 .mobile-search-panel.is-open {
@@ -1631,52 +1638,6 @@ body.woocommerce-account,
   color: var(--color-background);
 }
 
-/* Free-shipping progress (fragment from inc/side-cart.php) */
-.side-cart__shipping {
-  padding: 14px 20px 16px;
-  border-bottom: 1px solid var(--color-border);
-  background: var(--color-surface);
-}
-
-.side-cart__shipping[hidden] {
-  display: none;
-}
-
-.side-cart__shipping-text {
-  margin: 0 0 8px;
-  font-size: 0.875rem;
-  line-height: 1.4;
-  color: var(--color-foreground-muted);
-}
-
-.side-cart__shipping-text strong {
-  font-weight: 700;
-  color: var(--color-foreground);
-}
-
-.side-cart__shipping-bar {
-  height: 8px;
-  overflow: hidden;
-  border-radius: var(--radius-pill);
-  background: var(--color-surface-alt);
-}
-
-.side-cart__shipping-bar span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, var(--color-accent-2), var(--color-accent));
-  transition: width var(--duration-slow) var(--ease-fluid);
-}
-
-.side-cart__shipping.is-complete .side-cart__shipping-text strong {
-  color: var(--color-success);
-}
-
-.side-cart__shipping.is-complete .side-cart__shipping-bar span {
-  background: var(--color-success);
-}
-
 /* Line items */
 .side-cart-item {
   border-bottom: 1px solid var(--color-border);
@@ -1806,6 +1767,121 @@ body.woocommerce-account,
   text-underline-offset: 4px;
 }
 
+/* Compact items: name clamped to 2 lines, smaller thumb */
+.side-cart-item {
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.side-cart-item__img-link {
+  width: 64px;
+  height: 64px;
+}
+
+.side-cart-item__name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+.side-cart-item__remove {
+  width: 28px;
+  height: 28px;
+  margin: -4px -6px 0 0;
+}
+
+/* Footer: subtotal + assurance span both columns; buttons share one row (View Cart | Checkout) */
+.side-cart__footer {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  column-gap: 10px;
+  padding: 12px var(--space-lg) 14px;
+}
+
+.side-cart__subtotal-row,
+.side-cart__assurance {
+  grid-column: 1 / -1;
+}
+
+.side-cart__subtotal-row {
+  display: grid;
+  justify-content: stretch;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.side-cart__subtotal {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Spend & Save badges (inc/side-cart.php) */
+.side-cart__perks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-sans);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.side-cart__perk {
+  padding: 3px 10px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-background);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.35;
+  white-space: nowrap;
+  color: var(--color-foreground);
+}
+
+.side-cart__perk--done {
+  border-color: var(--color-highlight);
+  background: var(--color-highlight-soft);
+}
+
+.side-cart__perk--done::before {
+  content: "★\00a0";
+  color: var(--color-accent);
+}
+
+.side-cart__perk .woocommerce-Price-amount {
+  color: var(--color-accent);
+}
+
+.side-cart__checkout-btn {
+  grid-column: 2;
+  grid-row: 2;
+  min-height: 48px;
+}
+
+.side-cart__view-cart-link {
+  grid-column: 1;
+  grid-row: 2;
+  min-height: 48px;
+  margin-top: 0;
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-fluid), color var(--duration-fast) var(--ease-fluid);
+}
+
+.side-cart__view-cart-link:hover {
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
 .side-cart__assurance {
   margin: 10px 0 0;
   font-size: 0.75rem;
@@ -1815,7 +1891,6 @@ body.woocommerce-account,
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .side-cart__shipping-bar span,
   .side-cart__checkout-btn,
   .woocommerce-account .woocommerce .button {
     transition: none;

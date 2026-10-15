@@ -26,28 +26,27 @@ global $wp_query;
 $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
 $category_chips = [];
 
-if (function_exists('dawp_lbq_product_categories')) {
-    foreach (dawp_lbq_product_categories() as $slug => $category) {
-        $term = get_term_by('slug', $slug, 'product_cat');
+// Only the main product-type categories (same list as the header "Products" menu)
+foreach (dawp_main_product_categories() as $slug => $label) {
+    $term = get_term_by('slug', $slug, 'product_cat');
 
-        if (!$term || is_wp_error($term) || (int) $term->count === 0) {
-            continue;
-        }
-
-        $term_link = get_term_link($term);
-
-        if (is_wp_error($term_link)) {
-            continue;
-        }
-
-        $category_chips[] = [
-            'name'    => $term->name,
-            'slug'    => $term->slug,
-            'url'     => $term_link,
-            'count'   => (int) $term->count,
-            'current' => is_product_category($term->slug),
-        ];
+    if (!$term || is_wp_error($term) || (int) $term->count === 0) {
+        continue;
     }
+
+    $term_link = get_term_link($term);
+
+    if (is_wp_error($term_link)) {
+        continue;
+    }
+
+    $category_chips[] = [
+        'name'    => $label,
+        'slug'    => $term->slug,
+        'url'     => $term_link,
+        'count'   => (int) $term->count,
+        'current' => is_product_category($term->slug),
+    ];
 }
 ?>
 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" font-family="Barlow, Arial, sans-serif" font-weight="800" font-size="14">
+  <!-- body + sleeves -->
+  <g stroke="#0F1E33" stroke-width="2.5" stroke-linejoin="round" fill="#F7F4EE">
+    <path d="M118 52 L162 34 Q200 52 238 34 L282 52 L352 214 L332 226 L276 120 L278 252 L122 252 L124 120 L68 226 L48 214 Z"/>
+    <path d="M162 34 Q200 64 238 34" fill="none"/>
+    <path d="M122 236 H278 M48 214 L60 238 L80 228 L68 226 M352 214 L340 238 L320 228 L332 226" fill="none"/>
+  </g>
+  <!-- ribbing -->
+  <g stroke="#0F1E33" stroke-width="1.2">
+    <path d="M132 238 V252 M144 238 V252 M156 238 V252 M168 238 V252 M180 238 V252 M192 238 V252 M204 238 V252 M216 238 V252 M228 238 V252 M240 238 V252 M252 238 V252 M264 238 V252"/>
+  </g>
+  <!-- measurement lines -->
+  <g stroke="#B31942" stroke-width="2.5" stroke-linecap="round">
+    <path d="M118 18 H282 M118 12 V24 M282 12 V24"/>            <!-- 2 shoulder -->
+    <path d="M226 40 V250"/>                                     <!-- 1 length -->
+    <path d="M126 128 H274"/>                                    <!-- 3 chest -->
+    <path d="M290 58 L346 216"/>                                 <!-- 4 sleeve -->
+  </g>
+  <!-- markers -->
+  <g>
+    <circle cx="200" cy="18" r="12" fill="#0F1E33"/>
+    <circle cx="226" cy="196" r="12" fill="#0F1E33"/>
+    <circle cx="160" cy="128" r="12" fill="#0F1E33"/>
+    <circle cx="336" cy="128" r="12" fill="#0F1E33"/>
+  </g>
+  <g fill="#F7F4EE" text-anchor="middle">
+    <text x="200" y="23">2</text>
+    <text x="226" y="201">1</text>
+    <text x="160" y="133">3</text>
+    <text x="336" y="133">4</text>
+  </g>
+</svg>

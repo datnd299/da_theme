@@ -95,7 +95,7 @@ $range = [
         <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
             <div>
                 <h2 class="font-display text-4xl uppercase leading-[1.02] sm:text-5xl"><?php esc_html_e('A note on how we work', 'dawp'); ?></h2>
-                <p class="mt-5 text-base leading-relaxed text-foreground-muted"><?php esc_html_e('ProudlyWear is an independent online store. We are not affiliated with, sponsored by or endorsed by the U.S. Department of Defense, the Department of Veterans Affairs or any branch of the U.S. Armed Forces. Our products are made to order by trusted print partners, so production takes 3–5 business days before your order ships.', 'dawp'); ?></p>
+                <p class="mt-5 text-base leading-relaxed text-foreground-muted"><?php esc_html_e('ProudlyWear is an independent online store. We are not affiliated with, sponsored by or endorsed by the U.S. Department of Defense, the Department of Veterans Affairs or any branch of the U.S. Armed Forces. Our products are made to order by trusted print partners, so production takes 2–3 business days before your order ships.', 'dawp'); ?></p>
             </div>
             <div class="rounded-lg border-t-4 border-highlight bg-foreground p-6 text-background sm:p-8">
                 <h3 class="font-display text-2xl uppercase"><?php esc_html_e('Questions? We’re here.', 'dawp'); ?></h3>

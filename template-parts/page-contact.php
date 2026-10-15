@@ -40,9 +40,9 @@ $contact_cards = [
 ];
 
 $quick_tips = [
-    ['title' => __('Production time', 'dawp'), 'copy' => __('Every order is printed to order and quality-checked in 3–5 business days before it ships.', 'dawp')],
-    ['title' => __('Shipping time', 'dawp'), 'copy' => __('US orders arrive in 4–8 business days after dispatch. Free standard shipping on orders $49+.', 'dawp')],
-    ['title' => __('Need to change something?', 'dawp'), 'copy' => __('Size, color, address changes and cancellations are possible within 6 hours of ordering, before production starts.', 'dawp')],
+    ['title' => __('Production time', 'dawp'), 'copy' => __('Every order is printed to order and quality-checked in 2–3 business days before it ships.', 'dawp')],
+    ['title' => __('Shipping time', 'dawp'), 'copy' => __('US orders arrive in 5–10 business days after dispatch. Free standard shipping on orders $49+.', 'dawp')],
+    ['title' => __('Need to change something?', 'dawp'), 'copy' => __('Size, color, address changes and cancellations are possible within 24 hours of ordering, before production starts.', 'dawp')],
     ['title' => __('Something wrong?', 'dawp'), 'copy' => __('Damaged, defective or wrong item? Email photos within 7 days of delivery and we’ll replace or refund it.', 'dawp')],
 ];
 

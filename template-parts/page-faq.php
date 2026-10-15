@@ -27,6 +27,7 @@ $groups = [
             [__('Do I need an account to order?', 'dawp'), __('No. You can check out as a guest. Creating an account simply saves your details and lets you see your order history under “My Account”.', 'dawp')],
             [__('How will I know my order is confirmed?', 'dawp'), __('Right after checkout we email you an order confirmation with your order number and details. Your order goes into production once payment is approved.', 'dawp')],
             [__('I didn’t receive a confirmation email.', 'dawp'), sprintf(__('Check your spam or promotions folder, and the email linked to your PayPal account if you paid with PayPal. Still nothing? Please %s and we’ll resend it.', 'dawp'), $contact)],
+            [__('Do you offer any discounts?', 'dawp'), __('Yes — Spend & Save: 5% off orders of $69+, 10% off $99+ and 15% off $139+ (based on the item subtotal before shipping and tax). The highest tier you reach applies, it isn’t combined with other tiers, and it’s applied automatically at checkout — no code needed.', 'dawp')],
             [__('Which payment methods do you accept?', 'dawp'), __('We accept Visa, Mastercard, American Express and PayPal. The methods available to you are shown at checkout. Payment is charged when your order is placed.', 'dawp')],
             [__('Why did my payment fail?', 'dawp'), __('Common causes are a typo in the card details or billing address, an expired card, insufficient funds or a bank security block. Double-check your details or contact your bank, then try again.', 'dawp')],
             [__('Is my payment information safe?', 'dawp'), __('Yes. Checkout is protected with SSL encryption and payments are processed by our payment providers. We never see or store your full card number or security code.', 'dawp')],
@@ -36,16 +37,16 @@ $groups = [
         'id'    => 'changes',
         'title' => __('Changes & cancellations', 'dawp'),
         'items' => [
-            [__('Can I change my order or shipping address?', 'dawp'), sprintf(__('Yes — within 6 hours of placing your order. Email %s with your order number and the change you need. After 6 hours your item may already be in production and we can’t guarantee changes.', 'dawp'), $email)],
-            [__('Can I cancel my order?', 'dawp'), sprintf(__('Yes, within 6 hours of ordering and before production begins, for a full refund. Email %s with your order number. Once production has started, the order can no longer be cancelled.', 'dawp'), $email)],
+            [__('Can I change my order or shipping address?', 'dawp'), sprintf(__('Yes — within 24 hours of placing your order. Email %s with your order number and the change you need. After 24 hours your item may already be in production and we can’t guarantee changes.', 'dawp'), $email)],
+            [__('Can I cancel my order?', 'dawp'), sprintf(__('Yes, within 24 hours of ordering and before production begins, for a full refund. Email %s with your order number. Once production has started, the order can no longer be cancelled.', 'dawp'), $email)],
         ],
     ],
     [
         'id'    => 'shipping',
         'title' => __('Shipping & tracking', 'dawp'),
         'items' => [
-            [__('How much does shipping cost?', 'dawp'), sprintf(__('Standard shipping is free on US orders of $49 or more (after discounts). Under $49, it’s $5.99 for the first item + $1.99 for each additional item. The exact amount is always shown at checkout. See our %s.', 'dawp'), $shipping)],
-            [__('How long will my order take?', 'dawp'), __('Every item is made to order, so production takes 3–5 business days. After dispatch, US delivery typically takes 4–8 business days. Holidays and severe weather can occasionally cause delays.', 'dawp')],
+            [__('How much does shipping cost?', 'dawp'), sprintf(__('Standard shipping is free on US orders of $49 or more (after discounts). The exact amount is always shown at checkout. See our %s.', 'dawp'), $shipping)],
+            [__('How long will my order take?', 'dawp'), __('Every item is made to order, so production takes 2–3 business days. After dispatch, US delivery typically takes 5–10 business days. Holidays and severe weather can occasionally cause delays.', 'dawp')],
             [__('Where do you ship?', 'dawp'), __('We currently ship to addresses in all 50 US states. At this time we are unable to ship to APO/FPO/DPO addresses, PO boxes or international destinations.', 'dawp')],
             [__('Where is my order?', 'dawp'), sprintf(__('When your order ships we email you a tracking number and link. You can also check its status any time on our %s page.', 'dawp'), $track)],
             [__('Why isn’t my tracking number working?', 'dawp'), sprintf(__('Tracking can take 2–5 business days to show updates after the label is created. If there’s still no movement after that, please %s with your order number.', 'dawp'), $contact)],

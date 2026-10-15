@@ -53,9 +53,9 @@ $benefits = [
 
 $steps = [
     ['title' => __('Choose your design', 'dawp'), 'copy' => __('Pick the design, style, color and size. Check our size guide first — fit varies by style.', 'dawp')],
-    ['title' => __('6 hours to adjust', 'dawp'), 'copy' => __('Need a different size or address? Email us within 6 hours of ordering, before production starts.', 'dawp')],
-    ['title' => __('We print it for you', 'dawp'), 'copy' => __('Your item is made to order and quality-checked in 3–5 business days.', 'dawp')],
-    ['title' => __('It ships to your door', 'dawp'), 'copy' => __('US delivery in 4–8 business days after dispatch, with a tracking link by email.', 'dawp')],
+    ['title' => __('24 hours to adjust', 'dawp'), 'copy' => __('Need a different size or address? Email us within 24 hours of ordering, before production starts.', 'dawp')],
+    ['title' => __('We print it for you', 'dawp'), 'copy' => __('Your item is made to order and quality-checked in 2–3 business days.', 'dawp')],
+    ['title' => __('It ships to your door', 'dawp'), 'copy' => __('US delivery in 5–10 business days after dispatch, with a tracking link by email.', 'dawp')],
 ];
 
 // Live product rows: a named category if it exists, else a fallback ordering.
@@ -327,11 +327,83 @@ $more    = 'inline-flex min-h-11 items-center gap-1 font-heading text-[0.95rem] 
         </ol>
 
         <p class="mt-10 text-center text-sm text-foreground-muted">
-            <?php esc_html_e('Free standard US shipping on orders $49+. Under $49: $5.99 for the first item + $1.99 for each additional item.', 'dawp'); ?>
+            <?php esc_html_e('Free standard US shipping on orders $49+.', 'dawp'); ?>
             <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="font-bold text-foreground underline decoration-accent decoration-2 underline-offset-4"><?php esc_html_e('Shipping details', 'dawp'); ?></a>
         </p>
     </div>
 </section>
+
+<?php
+// Customer photo reviews (shared with the product Reviews tab) + customer photo gallery — inc/showcase-reviews.php
+$reviews = function_exists('dawp_showcase_reviews') ? dawp_showcase_reviews() : [];
+$gallery = function_exists('dawp_customer_gallery_images') ? dawp_customer_gallery_images() : [];
+if ($reviews || $gallery) :
+    $star = '<svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor"><path d="M11.15 2.23a1.25 1.25 0 0 0-2.3 0L6.95 6.67H2.67a1.25 1.25 0 0 0-.88 2.13l3.12 3.12-1.32 5.26a1.25 1.25 0 0 0 1.84 1.39L10 15.96l4.57 2.61a1.25 1.25 0 0 0 1.84-1.39l-1.32-5.26 3.12-3.12a1.25 1.25 0 0 0-.88-2.13h-4.28Z"/></svg>';
+    ?>
+<!-- ============================================================
+     WHAT CUSTOMERS SAY
+     ============================================================ -->
+<section class="bg-background py-16 lg:py-24">
+    <?php if ($reviews) : ?>
+    <div data-carousel class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-4">
+            <div>
+                <span class="<?php echo esc_attr($eyebrow); ?>"><span aria-hidden="true">★</span><?php esc_html_e('Customer photos', 'dawp'); ?></span>
+                <h2 class="<?php echo esc_attr($h2); ?>"><?php esc_html_e('What customers say', 'dawp'); ?></h2>
+            </div>
+            <div class="flex shrink-0 gap-2">
+                <button type="button" data-carousel-prev aria-label="<?php esc_attr_e('Previous review', 'dawp'); ?>" class="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-foreground bg-background text-lg font-bold text-foreground transition hover:bg-foreground hover:text-background">←</button>
+                <button type="button" data-carousel-next aria-label="<?php esc_attr_e('Next review', 'dawp'); ?>" class="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-foreground bg-background text-lg font-bold text-foreground transition hover:bg-foreground hover:text-background">→</button>
+            </div>
+        </div>
+
+        <?php // ~1.3 cards on phones, 2 on tablets, 3 on desktop ?>
+        <ul data-carousel-track class="mt-8 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mt-10">
+            <?php foreach ($reviews as $review) :
+                $review_product = dawp_showcase_review_product($review);
+                ?>
+                <li class="flex w-[75%] shrink-0 snap-start flex-col overflow-hidden rounded-lg border border-border border-t-4 border-t-accent bg-surface sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)]">
+                    <img src="<?php echo esc_url(dawp_showcase_review_img($review)); ?>" alt="<?php echo esc_attr(dawp_showcase_review_alt($review)); ?>" width="480" height="<?php echo esc_attr($review['h']); ?>" loading="lazy" class="block aspect-square min-h-0 w-full bg-surface-alt object-cover object-[50%_30%]">
+                    <figure class="flex min-w-0 flex-1 flex-col px-5 pb-5 pt-4">
+                        <span class="flex gap-0.5 text-highlight" role="img" aria-label="<?php esc_attr_e('5 out of 5 stars', 'dawp'); ?>"><?php echo $star . $star . $star . $star . $star; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+                        <?php if (!empty($review['title'])) : ?>
+                            <p class="font-display mt-2 text-lg uppercase leading-tight text-foreground"><?php echo esc_html($review['title']); ?></p>
+                        <?php endif; ?>
+                        <blockquote class="mt-2 text-[0.9375rem] leading-relaxed text-foreground-muted">“<?php echo esc_html($review['text']); ?>”</blockquote>
+                        <figcaption class="mt-auto pt-3">
+                            <span class="block font-heading text-base font-bold uppercase tracking-wide text-foreground">— <?php echo esc_html($review['author']); ?></span>
+                            <?php if ($review_product) : ?>
+                                <a href="<?php echo esc_url(get_permalink($review_product)); ?>" class="mt-1 inline-block text-sm font-semibold text-muted underline decoration-accent decoration-2 underline-offset-4 hover:text-foreground"><?php echo esc_html($review['product']); ?></a>
+                            <?php elseif (!empty($review['product'])) : ?>
+                                <span class="mt-1 block text-sm font-semibold text-muted"><?php echo esc_html($review['product']); ?></span>
+                            <?php endif; ?>
+                        </figcaption>
+                    </figure>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php endif; ?>
+
+    <?php if ($gallery) : ?>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8<?php echo $reviews ? ' mt-16 lg:mt-20' : ''; ?>">
+        <div class="mx-auto max-w-2xl text-center">
+            <span class="<?php echo esc_attr($eyebrow); ?>"><span aria-hidden="true">★</span><?php esc_html_e('Worn with pride', 'dawp'); ?></span>
+            <h2 class="<?php echo esc_attr($h2); ?>"><?php esc_html_e('Our customers, our family', 'dawp'); ?></h2>
+            <p class="mt-4 text-base leading-relaxed text-foreground-muted"><?php esc_html_e('Veterans and military families wearing their gear — thank you for sharing your photos with us.', 'dawp'); ?></p>
+        </div>
+        <?php // Mobile: one swipeable row (edge-to-edge); sm+: grid ?>
+        <ul class="-mx-4 mt-8 flex snap-x snap-mandatory scroll-pl-4 gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-3 sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-6">
+            <?php foreach ($gallery as $i => $src) : ?>
+                <li class="w-[42%] shrink-0 snap-start overflow-hidden rounded-md border border-border-strong bg-surface sm:w-auto">
+                    <img src="<?php echo esc_url($src); ?>" alt="<?php echo esc_attr(sprintf(__('ProudlyWear customer photo %d', 'dawp'), $i + 1)); ?>" width="330" height="330" loading="lazy" class="block aspect-square w-full object-cover transition duration-300 hover:scale-105">
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php endif; ?>
+</section>
+<?php endif; ?>
 
 <!-- ============================================================
      SEARCH + HAVE A QUESTION?

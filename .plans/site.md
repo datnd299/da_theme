@@ -20,19 +20,23 @@ Rebuilt 2026-10-14 on the `proudlywear.com` branch from the SlickTee POD theme (
 - **Positioning:** "Served with honor. Worn with pride." For veterans of every branch/era and
   their families. Original artwork only.
 - **Must NOT claim:** official licensing or DoD/VA/branch endorsement; official seals, emblems or
-  insignia; "veteran-owned"; donations/charity; "Made in USA"; reviews/ratings (no review
-  platform set up yet); coupon codes that don't exist in WooCommerce.
+  insignia; "veteran-owned"; donations/charity; "Made in USA"; invented reviews/ratings — the 6 reviews +
+  12-photo gallery in inc/showcase-reviews.php are real customers of the owner's previous store,
+  now rebranded as ProudlyWear (owner-confirmed 2026-10-15); coupon codes that don't exist in WooCommerce.
 - Footer + Terms "Intellectual property" + FAQ carry the non-affiliation disclaimer.
 
 ## 2. Fulfillment & Policy Facts (header, footer, home, FAQ, contact, track, shipping, terms)
 
-- Production: 3–5 business days (made to order, quality-checked)
-- US delivery after dispatch: 4–8 business days (total ~7–13 business days); tracking on every order,
+- Production: 2–3 business days (made to order, quality-checked)
+- US delivery after dispatch: 5–10 business days (total ~7–13 business days); tracking on every order,
   first update can take 2–5 business days
-- Shipping fee: **free standard US shipping on orders $49+** (subtotal after discounts);
-  under $49: $5.99 first item + $1.99 each additional → WooCommerce shipping zone must match
+- Shipping fee: **free standard US shipping on orders $49+** (subtotal after discounts) —
+  the only shipping rule shown on the site; no per-item rates published
+- Spend & Save (2026-10-15): 5% off item subtotal $69+, 10% off $99+, 15% off $139+; highest tier only,
+  auto-applied as a negative cart fee (inc/woo-tweaks.php) — no coupon code. Shown on PDP, side cart,
+  FAQ, Terms §4, Shipping. Free-shipping threshold uses the subtotal before this discount.
 - No shipping to APO/FPO/DPO, PO boxes or outside the US
-- Changes/cancellation: within 6 hours of ordering, before production → full refund
+- Changes/cancellation: within 24 hours of ordering, before production → full refund
 - Returns: 30 calendar days from delivery, unworn/unwashed/original condition; return
   authorization by email first; customer pays return shipping for change of mind/size; no restocking fee;
   personalized items not returnable for change of mind

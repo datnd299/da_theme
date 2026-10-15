@@ -139,7 +139,8 @@ function pod_get_item_data($item_data, $cart_item) {
     if (isset($colors[$variant->color_id]) && !pod_is_placeholder_color($variant->color_id)) {
         $item_data[] =['name' => __('Color', 'dawp'), 'value' => $colors[$variant->color_id]->name];
     }
-    if (isset($sizes[(int) $cart_item['pod_size_id']])) {
+    // "One Size" is hidden on the product page too (sizeless items).
+    if (isset($sizes[(int) $cart_item['pod_size_id']]) && $sizes[(int) $cart_item['pod_size_id']]->slug !== 'one-size') {
         $item_data[] = ['name' => __('Size', 'dawp'), 'value' => $sizes[(int) $cart_item['pod_size_id']]->name];
     }
 

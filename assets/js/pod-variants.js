@@ -250,6 +250,12 @@
 
         var availableSizeIds = state.typeId !== null ? sizesForType(state.typeId) : [];
         renderOptions('pod-size-options', data.sizes, state.sizeId, selectSize, availableSizeIds, fillSizeOption);
+        // Sizeless items (phone cases, mugs…) only carry "One Size": still
+        // selected for the cart, but nothing to choose.
+        var sizeGroup = document.querySelector('.pod-variant-group[data-group="size"]');
+        if (sizeGroup) {
+            sizeGroup.hidden = availableSizeIds.length === 1 && slugById(data.sizes, availableSizeIds[0]) === 'one-size';
+        }
 
         setSelectedLabel('pod-type-selected', nameById(data.types, state.typeId));
         setSelectedLabel('pod-color-selected', nameById(data.colors, state.colorId));

@@ -26,7 +26,8 @@
  *   node scripts/proudlywear-import.mjs --skip-setup              # products only
  *
  * Options:
- *   --file <path>        source JSON (default scripts/products_shopbase.json)
+ *   --file <a,b,…>       source JSON file(s), comma-separated (default: every
+ *                        scripts/products_shopbase.json + products_shopbase_<n>.json, merged)
  *   --site <url>         store URL (default https://proudlywear.com)
  *   --batch <n>          products per request (default 25, max 100)
  *   --concurrency <n>    parallel requests (default 2)
@@ -38,7 +39,8 @@
  *   --new-arrivals <n>   newest n source ids also get "New Arrivals" (default 200)
  */
 
-import { readFileSync, writeFileSync, appendFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, appendFileSync, existsSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 /* ---------------------------------------------------------------------
@@ -57,7 +59,18 @@ const WC_KEY = process.env.WC_KEY || 'ck_c2e569b8241c18c20319ad811ae4c6327035eaa
 const WC_SECRET = process.env.WC_SECRET || 'cs_011ec7c5a6891a1c33e57179ace6c052cbe59305';
 const SITE_URL = 'https://proudlywear.com';
 
-const FILE = opt('file', fileURLToPath(new URL('./products_shopbase.json', import.meta.url)));
+// Source files: --file a.json,b.json, or every products_shopbase.json +
+// products_shopbase_<n>.json next to this script (in numeric order). They are
+// merged (deduped by id) before the transform, so Style size sets, SKUs and
+// New Arrivals are computed over the whole catalog.
+const SCRIPT_DIR = fileURLToPath(new URL('.', import.meta.url));
+const FILES = opt('file', '')
+  ? opt('file', '').split(',').map((s) => s.trim()).filter(Boolean)
+  : readdirSync(SCRIPT_DIR)
+    .map((f) => [f, f.match(/^products_shopbase(?:_(\d+))?\.json$/)])
+    .filter(([, m]) => m)
+    .sort((a, b) => (+(a[1][1] || 1)) - (+(b[1][1] || 1)))
+    .map(([f]) => join(SCRIPT_DIR, f));
 const SITE = (opt('site', SITE_URL) || '').replace(/\/+$/, '');
 const BATCH = Math.min(100, parseInt(opt('batch', '25'), 10));
 const CONCURRENCY = parseInt(opt('concurrency', '2'), 10);
@@ -96,7 +109,42 @@ const GARMENTS = [
   { key: 'cap', re: /\bcap\b|\bhat\b/i, name: 'Cap', code: 'CAP', category: 'caps' },
   { key: 'flag', re: /\bflag\b/i, name: 'Flag', code: 'FLAG', category: 'flags' },
   { key: 'metal-sign', re: /metal sign|tin sign/i, name: 'Metal Sign', code: 'SIGN', category: 'metal-signs' },
+  // Added after the first import: kept below the originals so products that
+  // already matched one of the entries above keep their garment/SKU.
+  // sizeless: no Size (One Size, hidden on the product page); a Size option
+  // in the source (phone models "Ip 8", "Ip X"…) becomes part of the Style.
+  { key: 'phone-case', re: /phone\s*case|\bip\s*case/i, name: 'Phone Case', code: 'PHC', category: 'phone-cases', sizeless: true },
+  { key: 'car-seat-cover', re: /car\s*seat/i, name: 'Car Seat Covers', code: 'CSC', category: 'accessories' },
+  { key: 'leather-vest', re: /\bvests?\b/i, name: 'Leather Vest', code: 'VEST', category: 'jackets-vests' },
+  { key: 'jacket', re: /\bjackets?\b/i, name: 'Leather Jacket', code: 'LJKT', category: 'jackets-vests' },
+  { key: 'jersey', re: /\bjerseys?\b/i, name: 'Baseball Jersey', code: 'JRSY', category: 'baseball-jerseys' },
+  { key: 'hats', re: /\bcaps\b|\bhats\b/i, name: 'Cap', code: 'CAP', category: 'caps' },
+  { key: 'flags', re: /\bflags\b/i, name: 'Flag', code: 'FLAG', category: 'flags' },
+  { key: 'sweater', re: /\bsweaters?\b/i, name: 'Sweater', code: 'SWTR', category: 'sweatshirts' },
+  { key: 'tank-top', re: /tank\s*top|legging/i, name: 'Tank Top & Legging', code: 'TANK', category: 't-shirts' },
+  { key: 'shirts', re: /\bshirts\b|hawaii/i, name: 'T-Shirt', code: 'TEE', category: 't-shirts' },
+  { key: 'bedding', re: /bedding|quilt|duvet/i, name: 'Bedding Set', code: 'BED', category: 'home-decor' },
+  { key: 'canvas', re: /\bcanvas\b/i, name: 'Canvas', code: 'CNV', category: 'home-decor' },
+  { key: 'doormat', re: /door\s*mat/i, name: 'Doormat', code: 'MAT', category: 'home-decor' },
+  { key: 'ornament', re: /\bornaments?\b/i, name: 'Ornament', code: 'ORN', category: 'home-decor' },
+  { key: 'tumbler', re: /\btumblers?\b/i, name: 'Tumbler', code: 'TMB', category: 'drinkware' },
+  { key: 'mug', re: /\bmugs?\b/i, name: 'Mug', code: 'MUG', category: 'drinkware' },
+  { key: 'dog-tag', re: /dog\s*tags?/i, name: 'Dog Tag', code: 'TAG', category: 'accessories' },
+  { key: 'necklace', re: /\bnecklaces?\b/i, name: 'Necklace', code: 'NCK', category: 'accessories' },
+  { key: 'decal', re: /\bdecals?\b|\bstickers?\b/i, name: 'Decal', code: 'DCL', category: 'accessories' },
+  { key: 'mask', re: /\bmasks?\b/i, name: 'Face Mask', code: 'MASK', category: 'accessories' },
+  { key: 'wood-sign', re: /wood\s*signs?|wreath/i, name: 'Wood Sign', code: 'WSGN', category: 'home-decor' },
 ];
+// Products whose title matched one of the first 9 entries were imported by
+// the first version of this script; their Style names/size sets and SKUs must
+// not change (see transform()).
+const CORE_GARMENTS = new Set(GARMENTS.slice(0, 9));
+// Title without a garment word ("… Collection", "Unique Lest We Forget …"):
+// try the ShopBase collections ("U.S.Army Cap", "Hoodie & Zip Up Hoodies"),
+// then the option values (Type: Zip Hoodie/Cap), then the handle; apparel
+// sizes → T-Shirt, anything else → a generic gift.
+const FALLBACK_APPAREL = GARMENTS.find((g) => g.key === 't-shirt');
+const FALLBACK_GIFT = { key: 'gift', name: 'Veteran Gift', code: 'GIFT', category: 'accessories' };
 
 // ShopBase collection → branch category, first match wins per collection.
 // Slugs match the header's "Shop by Branch" menu.
@@ -212,6 +260,29 @@ const combine = (lists) => lists.reduce((acc, list) => acc.flatMap((head) => lis
 // Design code in the title, e.g. "… Zip Up Hoodie BTTN131021, …" → BTTN131021.
 const designCode = (title) => (title.match(/\b([A-Z]{3,5}\d{5,8})\b/) || [])[1] || '';
 
+// → [garment, core]; core = matched by title with an original entry.
+function findGarment(p, title) {
+  const byTitle = GARMENTS.find((x) => x.re.test(title));
+  if (byTitle) return [byTitle, CORE_GARMENTS.has(byTitle)];
+  // The garment most of its collections name ("U.S.Army Cap", "U.S.Navy Cap",
+  // "Hoodie & Zip Up Hoodies" → Cap); ties go to the GARMENTS order.
+  const votes = new Map();
+  for (const c of p.collections || []) {
+    const g = GARMENTS.find((x) => x.re.test(decode(c)));
+    if (g) votes.set(g, (votes.get(g) || 0) + 1);
+  }
+  if (votes.size) return [[...votes].sort((a, b) => b[1] - a[1] || GARMENTS.indexOf(a[0]) - GARMENTS.indexOf(b[0]))[0][0], false];
+  const optionText = (p.options || []).filter((o) => !isSizeOption(o) && !isColorOption(o))
+    .flatMap((o) => o.values.map((v) => v.name)).join(' ');
+  for (const text of [optionText, (p.handle || '').replace(/-/g, ' ')]) {
+    const g = text && GARMENTS.find((x) => x.re.test(text));
+    if (g) return [g, false];
+  }
+  const sizeOpt = (p.options || []).find(isSizeOption);
+  const apparel = sizeOpt && sizeOpt.values.some((v) => APPAREL_SIZES.has(slugify(cleanSize(v.name))));
+  return [apparel ? FALLBACK_APPAREL : FALLBACK_GIFT, false];
+}
+
 function transform(source) {
   const newest = new Set([...source].sort((a, b) => (b.id > a.id ? 1 : -1)).slice(0, NEW_ARRIVALS).map((p) => String(p.id)));
   const categories = new Map(); // slug → {name, slug, parent}
@@ -227,14 +298,15 @@ function transform(source) {
   const products = [];
   const skipped = [];
 
-  for (const p of source) {
+  // Core products (importable by the first version) go first, in source
+  // order, so their sizes, SKUs and Style names come out exactly as before;
+  // the products added later only append to them.
+  const picked = source.map((p) => [p, ...findGarment(p, cleanName(p.title || ''))]);
+  for (const [p, garment, core] of [...picked.filter((x) => x[2]), ...picked.filter((x) => !x[2])]) {
     const id = String(p.id);
     const title = cleanName(p.title || '');
     if (!title) { skipped.push([id, 'no title']); continue; }
     if (!(p.price > 0)) { skipped.push([id, 'no price']); continue; }
-
-    const garment = GARMENTS.find((g) => g.re.test(title));
-    if (!garment) { skipped.push([id, 'unknown garment']); continue; }
 
     const catSlugs = [garment.category];
     for (const raw of p.collections || []) {
@@ -247,9 +319,11 @@ function transform(source) {
     if (newest.has(id)) catSlugs.push('new-arrivals');
 
     const options = (p.options || []).filter((o) => o.values?.length && !isTitleOption(o));
-    const sizeOpt = options.find(isSizeOption);
+    const sizeOpt = garment.sizeless ? null : options.find(isSizeOption);
     const colorOpt = options.find(isColorOption);
-    const styleOpts = options.filter((o) => !isSizeOption(o) && !isColorOption(o));
+    let styleOpts = options.filter((o) => o !== sizeOpt && !isColorOption(o));
+    // Sizeless: a lone "Product Type: Ip Case" says nothing next to the models.
+    if (garment.sizeless && styleOpts.length > 1) styleOpts = styleOpts.filter((o) => o.values.length > 1);
 
     const sizes = [];
     for (const v of sizeOpt ? sizeOpt.values : [{ name: 'One Size' }]) {
@@ -291,7 +365,12 @@ function transform(source) {
     const variants = [];
     for (const combo of styleCombos) {
       const names = combo.map(([o, i]) => { const n = cleanValue(o.values[i].name); return VALUE_ALIASES[n] || n; });
-      const style = combo.length ? names.join(' / ') : garment.name;
+      let style = combo.length ? names.join(' / ') : garment.name;
+      // Sizeless styles share the one-size set with caps, so a bare "Army"
+      // would show as "Army (Cap)": name them "Army Phone Case", "iPhone 12".
+      if (garment.sizeless && combo.length) {
+        style = combo.map(([o], k) => (isSizeOption(o) ? names[k].replace(/^ip\b/i, 'iPhone') : `${names[k]} ${garment.name}`)).join(' / ');
+      }
       if (!style) continue;
 
       let comboSizes = sizes;
@@ -304,8 +383,8 @@ function transform(source) {
       const setKey = comboSizes.join(',');
       if (!styleSets.has(style)) styleSets.set(style, new Map());
       const sets = styleSets.get(style);
-      if (!sets.has(setKey)) sets.set(setKey, { sizes: comboSizes, count: 0, garment: garment.name });
-      sets.get(setKey).count++;
+      if (!sets.has(setKey)) sets.set(setKey, { sizes: comboSizes, count: 0, lateCount: 0, garment: garment.name });
+      sets.get(setKey)[core ? 'count' : 'lateCount']++;
 
       for (const pick of colorPicks) {
         const rawColor = pick ? cleanValue(pick[0].values[pick[1]].name) : PLACEHOLDER_COLOR.name;
@@ -358,15 +437,29 @@ function transform(source) {
   // size sets is split: the most-used set keeps the plain name, the others
   // get a suffix ("Army (Flag)", "Polo Shirt (Bedding)").
   const styleName = new Map(); // `${base}|${setKey}` → final name
-  const styleSizes = new Map(); // final name → size slugs
-  for (const [base, sets] of styleSets) {
-    const ranked = [...sets].sort((a, b) => b[1].count - a[1].count);
-    for (const [n, [setKey, set]] of ranked.entries()) {
-      const label = sizeSetLabel(set.sizes, set.sizes.map((s) => sizeNames.get(s)), set.garment, base);
-      let name = n === 0 ? base : `${base} (${label})`;
-      for (let k = 2; styleSizes.has(name) && styleSizes.get(name).join(',') !== setKey; k++) name = `${base} (${label} ${k})`;
-      styleName.set(`${base}|${setKey}`, name);
-      styleSizes.set(name, set.sizes);
+  const styleSizes = new Map(); // final name → size slugs (insertion order = setup sort order)
+  const styleSlugs = new Map(); // final name's slug → size-set key
+  // Two passes: size sets used by core products are named by core usage only
+  // (= the names already on the site); sets only the later products use are
+  // named afterwards and never take over an existing name.
+  for (const late of [false, true]) {
+    for (const [base, sets] of styleSets) {
+      const ranked = [...sets].filter(([, s]) => (late ? !s.count : s.count))
+        .sort((a, b) => (late ? b[1].lateCount - a[1].lateCount : b[1].count - a[1].count));
+      for (const [n, [setKey, set]] of ranked.entries()) {
+        const label = sizeSetLabel(set.sizes, set.sizes.map((s) => sizeNames.get(s)), set.garment, base);
+        // Styles are upserted by slug, so a new "Army (Cap)" must not land on
+        // the existing "Army Cap". The core pass keeps the original name-only
+        // check so the names already on the site don't move.
+        const taken = (nm) => (late
+          ? styleSlugs.has(slugify(nm)) && styleSlugs.get(slugify(nm)) !== setKey
+          : styleSizes.has(nm) && styleSizes.get(nm).join(',') !== setKey);
+        let name = n === 0 && !(late && taken(base)) ? base : `${base} (${label})`;
+        for (let k = 2; taken(name); k++) name = `${base} (${label} ${k})`;
+        styleName.set(`${base}|${setKey}`, name);
+        styleSizes.set(name, set.sizes);
+        styleSlugs.set(slugify(name), setKey);
+      }
     }
   }
   for (const p of products) {
@@ -453,7 +546,15 @@ async function post(path, body, attempt = 1) {
  * Main
  * ------------------------------------------------------------------ */
 
-const source = JSON.parse(readFileSync(FILE, 'utf8'));
+if (!FILES.length) throw new Error('No source files (scripts/products_shopbase*.json or --file).');
+const sourceById = new Map();
+for (const f of FILES) {
+  const rows = JSON.parse(readFileSync(f, 'utf8'));
+  let added = 0;
+  for (const p of rows) if (!sourceById.has(String(p.id))) { sourceById.set(String(p.id), p); added++; }
+  console.log(`  ${f.split('/').pop()}: ${rows.length} products${added < rows.length ? ` (${rows.length - added} duplicate ids)` : ''}`);
+}
+const source = [...sourceById.values()];
 const { setup, products: allProducts, skipped, unmappedCollections } = transform(source);
 
 let products = ONLY ? allProducts.filter((p) => ONLY.has(p.source_id)) : allProducts;

@@ -51,6 +51,36 @@ function dawp_lbq_product_categories() {
             'description' => __('Printed metal signs with veteran and patriotic designs for the den, garage or man cave.', 'dawp'),
             'short'       => __('Tin signs for the den or garage.', 'dawp'),
         ],
+        'jackets-vests' => [
+            'name'        => __('Leather Jackets & Vests', 'dawp'),
+            'description' => __('Leather jackets and motorcycle vests with veteran and branch designs, made to order.', 'dawp'),
+            'short'       => __('Leather jackets and motor vests.', 'dawp'),
+        ],
+        'baseball-jerseys' => [
+            'name'        => __('Baseball Jerseys', 'dawp'),
+            'description' => __('Button-up baseball jerseys with veteran and branch designs, printed to order.', 'dawp'),
+            'short'       => __('Button-up jerseys for game day.', 'dawp'),
+        ],
+        'phone-cases' => [
+            'name'        => __('Phone Cases', 'dawp'),
+            'description' => __('Phone cases with veteran and branch designs, printed to order for popular phone models.', 'dawp'),
+            'short'       => __('Veteran designs for your phone.', 'dawp'),
+        ],
+        'home-decor' => [
+            'name'        => __('Home Decor', 'dawp'),
+            'description' => __('Bedding sets, canvas prints, doormats and ornaments with veteran and patriotic designs.', 'dawp'),
+            'short'       => __('Bedding, canvas, doormats and ornaments.', 'dawp'),
+        ],
+        'drinkware' => [
+            'name'        => __('Mugs & Tumblers', 'dawp'),
+            'description' => __('Coffee mugs and insulated tumblers with veteran and branch designs, printed to order.', 'dawp'),
+            'short'       => __('Mugs and tumblers for every branch.', 'dawp'),
+        ],
+        'accessories' => [
+            'name'        => __('Gifts & Accessories', 'dawp'),
+            'description' => __('Dog tags, necklaces, decals, car seat covers and other veteran gifts, made to order.', 'dawp'),
+            'short'       => __('Dog tags, decals and veteran gifts.', 'dawp'),
+        ],
     ];
 }
 

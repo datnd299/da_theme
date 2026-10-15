@@ -169,6 +169,13 @@
   }
 }
 
+/* iOS Safari zooms into any field under 16px on focus — header search, checkout fields, side-cart qty… */
+@media (max-width: 1023px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]),
+  select,
+  textarea { font-size: 16px !important; }
+}
+
 /* Mobile nav panel toggled by assets/js/main.js (.menu-toggle / .main-navigation) */
 .main-navigation.is-open,
 .mobile-search-panel.is-open {

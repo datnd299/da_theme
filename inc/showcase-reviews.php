@@ -44,6 +44,7 @@ add_filter('woocommerce_product_tabs', 'dawp_showcase_reviews_tab', 30);
 function dawp_showcase_reviews_tab($tabs) {
     if (isset($tabs['reviews'])) {
         $tabs['reviews']['callback'] = 'dawp_showcase_reviews_render_tab';
+        $tabs['reviews']['title'] = __('Reviews', 'woocommerce');
     }
     return $tabs;
 }

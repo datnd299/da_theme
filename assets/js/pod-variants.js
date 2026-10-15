@@ -223,7 +223,7 @@
 
         var mainImage = document.getElementById('pod-main-image');
         if (mainImage && variant.images && variant.images[0]) {
-            mainImage.src = variant.images[0];
+            setMainImage(mainImage, variant.images[0]);
         }
 
         var thumbs = document.getElementById('pod-gallery-thumbs');
@@ -250,6 +250,29 @@
         }
     }
 
+    // Swap the main image, showing a spinner over the box until the new file
+    // has loaded. Cached images finish synchronously, so no spinner flash.
+    function setMainImage(mainImage, url) {
+        var box = mainImage.parentElement;
+        if (mainImage.src === url) {
+            return;
+        }
+        mainImage.src = url;
+        if (mainImage.complete) {
+            box.classList.remove('is-loading');
+            return;
+        }
+        if (!mainImage.dataset.loadBound) {
+            // Changing src aborts the previous request, so load/error only
+            // ever fire for the latest image.
+            var done = function () { box.classList.remove('is-loading'); };
+            mainImage.addEventListener('load', done);
+            mainImage.addEventListener('error', done);
+            mainImage.dataset.loadBound = '1';
+        }
+        box.classList.add('is-loading');
+    }
+
     function initThumbClicks() {
         var thumbs = document.getElementById('pod-gallery-thumbs');
         var mainImage = document.getElementById('pod-main-image');
@@ -261,7 +284,7 @@
             if (!img) {
                 return;
             }
-            mainImage.src = img.src;
+            setMainImage(mainImage, img.src);
             thumbs.querySelectorAll('img').forEach(function (t) { t.classList.remove('flex-active'); });
             img.classList.add('flex-active');
         });

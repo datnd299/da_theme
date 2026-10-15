@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="14">
+  <!-- body -->
+  <g stroke="#17140F" stroke-width="2.5" stroke-linejoin="round" fill="#FBF7EF">
+    <path d="M128 52 L168 36 Q200 62 232 36 L272 52 Q262 92 270 128 L276 258 L124 258 L130 128 Q138 92 128 52 Z"/>
+    <path d="M162 39 Q200 74 238 39" fill="none"/>
+  </g>
+  <!-- measurement lines -->
+  <g stroke="#D7351E" stroke-width="2.5" stroke-linecap="round">
+    <path d="M128 18 H272 M128 12 V24 M272 12 V24"/>            <!-- 2 shoulder -->
+    <path d="M226 50 V256"/>                                     <!-- 1 length -->
+    <path d="M131 134 H269"/>                                    <!-- 3 bust -->
+  </g>
+  <g>
+    <circle cx="200" cy="18" r="12" fill="#17140F"/>
+    <circle cx="226" cy="204" r="12" fill="#17140F"/>
+    <circle cx="164" cy="134" r="12" fill="#17140F"/>
+  </g>
+  <g fill="#FBF7EF" text-anchor="middle">
+    <text x="200" y="23">2</text>
+    <text x="226" y="209">1</text>
+    <text x="164" y="139">3</text>
+  </g>
+</svg>

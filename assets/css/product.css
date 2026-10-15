@@ -2377,9 +2377,9 @@ body.single-product,
 
 .single-product .product_title.entry-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 400;
-  line-height: 0.98;
+  line-height: 1.05;
   letter-spacing: 0.005em;
 }
 
@@ -2514,6 +2514,34 @@ body.single-product,
   aspect-ratio: 1 / 1;
   object-fit: contain;
   background: var(--color-surface);
+}
+
+/* Spinner while a color/thumbnail swap loads the new main image */
+.single-product .pod-gallery .woocommerce-product-gallery__image {
+  position: relative;
+}
+
+.single-product .pod-gallery .woocommerce-product-gallery__image.is-loading #pod-main-image {
+  opacity: .4;
+}
+
+.single-product .pod-gallery .woocommerce-product-gallery__image.is-loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-foreground);
+  border-radius: 50%;
+  animation: pod-gallery-spin .7s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes pod-gallery-spin {
+  to { transform: rotate(360deg); }
 }
 
 /* Mobile order: eyebrow → title → gallery → price → options.

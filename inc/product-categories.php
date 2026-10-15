@@ -29,6 +29,23 @@ function dawp_shop_product_categories() {
 }
 
 /**
+ * Main product-type categories (slug => label) — shared by the header "Products" menu and the shop category nav.
+ */
+function dawp_main_product_categories() {
+    return [
+        'vintage-shirts'         => __('Vintage Shirts', 'dawp'),
+        'vintage-shirt-for-kids' => __('Vintage Shirt For Kids', 'dawp'),
+        'vintage-tank-top'       => __('Vintage Tank Tops', 'dawp'),
+        'vintage-sweatshirt'     => __('Vintage Sweatshirt', 'dawp'),
+        'vintage-hoodie'         => __('Vintage Hoodie', 'dawp'),
+        'vintage-shorts'         => __('Vintage Shorts', 'dawp'),
+        'vintage-caps'           => __('Vintage Caps', 'dawp'),
+        'vintage-leg-pants'      => __('Vintage Leg Pants', 'dawp'),
+        'classic-tee'            => __('Classic Tee', 'dawp'),
+    ];
+}
+
+/**
  * One-time cleanup: remove the empty placeholder categories an older theme version auto-created.
  */
 add_action('init', 'dawp_remove_legacy_product_categories', 30);

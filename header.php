@@ -28,17 +28,10 @@ $cat_url = static function ($slug) use ($shop_url) {
     return function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : $shop_url;
 };
 
-$product_links = [
-    ['title' => __('Vintage Shirts', 'dawp'), 'url' => $cat_url('vintage-shirts')],
-    ['title' => __('Vintage Shirt For Kids', 'dawp'), 'url' => $cat_url('vintage-shirt-for-kids')],
-    ['title' => __('Vintage Tank Tops', 'dawp'), 'url' => $cat_url('vintage-tank-top')],
-    ['title' => __('Vintage Sweatshirt', 'dawp'), 'url' => $cat_url('vintage-sweatshirt')],
-    ['title' => __('Vintage Hoodie', 'dawp'), 'url' => $cat_url('vintage-hoodie')],
-    ['title' => __('Vintage Shorts', 'dawp'), 'url' => $cat_url('vintage-shorts')],
-    ['title' => __('Vintage Caps', 'dawp'), 'url' => $cat_url('vintage-caps')],
-    ['title' => __('Vintage Leg Pants', 'dawp'), 'url' => $cat_url('vintage-leg-pants')],
-    ['title' => __('Classic Tee', 'dawp'), 'url' => $cat_url('classic-tee')],
-];
+$product_links = [];
+foreach (dawp_main_product_categories() as $slug => $title) {
+    $product_links[] = ['title' => $title, 'url' => $cat_url($slug)];
+}
 
 $fandom_links = [
     ['title' => __('Anime', 'dawp'), 'url' => $cat_url('anime')],
@@ -77,7 +70,7 @@ $render_search    = static function ($id) use ($has_fibo, $fibo_shortcode, $sear
     ?>
     <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="flex items-center rounded-[8px] border-2 border-[#17140F] bg-[#FFFFFF] px-3 py-1">
         <label class="sr-only" for="<?php echo esc_attr($id); ?>"><?php esc_html_e('Search products', 'dawp'); ?></label>
-        <input id="<?php echo esc_attr($id); ?>" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search tees…', 'dawp'); ?>" class="min-h-9 w-full min-w-0 bg-transparent text-sm text-[#17140F] outline-none placeholder:text-[#6F665A]">
+        <input id="<?php echo esc_attr($id); ?>" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search tees…', 'dawp'); ?>" class="min-h-9 w-full min-w-0 bg-transparent text-base text-[#17140F] lg:text-sm outline-none placeholder:text-[#6F665A]">
         <input type="hidden" name="post_type" value="product">
         <button type="submit" class="ml-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-[4px] text-[#17140F] transition hover:bg-[#F2B33D]" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>"><?php echo $search_icon; ?></button>
     </form>

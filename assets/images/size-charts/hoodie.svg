@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="14">
+  <!-- body + sleeves -->
+  <g stroke="#17140F" stroke-width="2.5" stroke-linejoin="round" fill="#FBF7EF">
+    <path d="M118 62 L162 46 Q200 62 238 46 L282 62 L352 220 L332 232 L276 128 L278 262 L122 262 L124 128 L68 232 L48 220 Z"/>
+    <path d="M162 46 Q150 6 200 4 Q250 6 238 46 Q220 60 200 66 Q180 60 162 46 Z"/>
+    <path d="M176 44 Q200 18 224 44 L200 66 Z" fill="#F4EDE0"/>
+    <path d="M150 200 H250 L262 238 H138 Z" fill="none"/>
+    <path d="M122 246 H278 M48 220 L60 244 L80 234 L68 232 M352 220 L340 244 L320 234 L332 232" fill="none"/>
+  </g>
+  <g stroke="#17140F" stroke-width="1.2">
+    <path d="M132 248 V262 M144 248 V262 M156 248 V262 M168 248 V262 M180 248 V262 M192 248 V262 M204 248 V262 M216 248 V262 M228 248 V262 M240 248 V262 M252 248 V262 M264 248 V262"/>
+  </g>
+  <!-- measurement lines -->
+  <g stroke="#D7351E" stroke-width="2.5" stroke-linecap="round">
+    <path d="M118 76 H282"/>                                     <!-- 2 shoulder -->
+    <path d="M226 64 V260"/>                                     <!-- 1 length -->
+    <path d="M126 136 H274"/>                                    <!-- 3 chest -->
+    <path d="M290 68 L346 222"/>                                 <!-- 4 sleeve -->
+  </g>
+  <g>
+    <circle cx="150" cy="76" r="12" fill="#17140F"/>
+    <circle cx="226" cy="176" r="12" fill="#17140F"/>
+    <circle cx="160" cy="136" r="12" fill="#17140F"/>
+    <circle cx="336" cy="136" r="12" fill="#17140F"/>
+  </g>
+  <g fill="#FBF7EF" text-anchor="middle">
+    <text x="150" y="81">2</text>
+    <text x="226" y="181">1</text>
+    <text x="160" y="141">3</text>
+    <text x="336" y="141">4</text>
+  </g>
+</svg>

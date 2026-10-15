@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="14">
+  <!-- body + short drop-shoulder sleeves -->
+  <g stroke="#17140F" stroke-width="2.5" stroke-linejoin="round" fill="#FBF7EF">
+    <path d="M112 54 L162 36 Q200 54 238 36 L288 54 L348 128 L314 152 L284 122 L286 256 L114 256 L116 122 L86 152 L52 128 Z"/>
+    <path d="M162 36 Q200 66 238 36" fill="none"/>
+    <path d="M155 38 Q200 76 245 38" fill="none"/>
+  </g>
+  <!-- measurement lines -->
+  <g stroke="#D7351E" stroke-width="2.5" stroke-linecap="round">
+    <path d="M112 18 H288 M112 12 V24 M288 12 V24"/>            <!-- 2 shoulder -->
+    <path d="M226 46 V254"/>                                     <!-- 1 length -->
+    <path d="M118 132 H282"/>                                    <!-- 3 chest -->
+    <path d="M294 60 L344 124"/>                                 <!-- 4 sleeve -->
+  </g>
+  <!-- markers -->
+  <g>
+    <circle cx="200" cy="18" r="12" fill="#17140F"/>
+    <circle cx="226" cy="200" r="12" fill="#17140F"/>
+    <circle cx="160" cy="132" r="12" fill="#17140F"/>
+    <circle cx="352" cy="84" r="12" fill="#17140F"/>
+  </g>
+  <g fill="#FBF7EF" text-anchor="middle">
+    <text x="200" y="23">2</text>
+    <text x="226" y="205">1</text>
+    <text x="160" y="137">3</text>
+    <text x="352" y="89">4</text>
+  </g>
+</svg>

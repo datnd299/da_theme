@@ -26,9 +26,14 @@ global $wp_query;
 $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
 $category_chips = [];
 
-$shop_categories = function_exists('dawp_shop_product_categories') ? dawp_shop_product_categories() : [];
+// Only the main product-type categories (same list as the header "Products" menu)
+foreach (dawp_main_product_categories() as $slug => $label) {
+    $term = get_term_by('slug', $slug, 'product_cat');
 
-foreach ($shop_categories as $term) {
+    if (!$term || is_wp_error($term)) {
+        continue;
+    }
+
     $term_link = get_term_link($term);
 
     if (is_wp_error($term_link)) {
@@ -36,7 +41,7 @@ foreach ($shop_categories as $term) {
     }
 
     $category_chips[] = [
-        'name'    => $term->name,
+        'name'    => $label,
         'slug'    => $term->slug,
         'url'     => $term_link,
         'count'   => (int) $term->count,

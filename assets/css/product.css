@@ -504,7 +504,7 @@ body.pod-sizechart-open {
   color: var(--color-background);
 }
 
-#pod-size-options .pod-option {
+.pod-option--label {
   padding: 6px 12px;
 }
 
@@ -2379,10 +2379,72 @@ body.single-product,
   box-shadow: 0 0 0 3px var(--color-background), 0 0 0 5px var(--color-accent);
 }
 
-.single-product #pod-size-options .pod-option {
+/* Text buttons: sizes + colors that have no hex code */
+.single-product .pod-option--label {
   padding: 6px 14px;
   font-family: var(--font-heading);
   font-weight: 800;
+}
+
+/* Style: thumbnail with the style name underneath */
+.single-product .pod-option--type {
+  flex-direction: column;
+  gap: 4px;
+  width: 76px;
+  padding: 4px 4px 6px;
+}
+
+.single-product .pod-option-name {
+  display: -webkit-box;
+  width: 100%;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Groups/options/thumbs toggled via [hidden] from pod-variants.js */
+.single-product .pod-variant-selector[hidden],
+.single-product .pod-variant-group[hidden],
+.single-product .pod-option[hidden],
+.single-product .flex-control-thumbs[hidden] {
+  display: none;
+}
+
+/* Reserve the square main image box before it loads (no layout shift) */
+.single-product .pod-gallery #pod-main-image {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: var(--color-surface);
+}
+
+/* Mobile order: eyebrow → title → gallery → price → options.
+   The summary's box is dissolved so its children join div.product's grid
+   and can be interleaved with the gallery column. */
+@media (max-width: 767px) {
+  .single-product div.product:has(.pod-gallery) {
+    row-gap: 18px;
+  }
+
+  .single-product div.product:has(.pod-gallery) .summary.entry-summary {
+    display: contents;
+  }
+
+  .single-product div.product:has(.pod-gallery) .product-eyebrow {
+    order: -3;
+  }
+
+  .single-product div.product:has(.pod-gallery) .product_title {
+    order: -2;
+  }
+
+  .single-product div.product .pod-gallery-col {
+    order: -1;
+  }
 }
 
 .single-product .pod-sizechart-trigger {

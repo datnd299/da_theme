@@ -126,16 +126,18 @@ function pod_render_gallery() {
     ?>
     <div class="pod-gallery-col">
     <div class="woocommerce-product-gallery pod-gallery">
+        <?php // width/height + CSS aspect-ratio reserve the box before the image loads (no layout shift). ?>
         <div class="woocommerce-product-gallery__image">
-            <img src="<?php echo esc_url($images[0]); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" id="pod-main-image" loading="eager">
+            <img src="<?php echo esc_url($images[0]); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" id="pod-main-image" width="1000" height="1000" loading="eager" fetchpriority="high">
         </div>
-        <?php if (count($images) > 1) : ?>
-            <ul class="flex-control-thumbs" id="pod-gallery-thumbs">
+        <?php // Always output the list so pod-variants.js can fill it for variants with more images. ?>
+        <ul class="flex-control-thumbs" id="pod-gallery-thumbs"<?php echo count($images) > 1 ? '' : ' hidden'; ?>>
+            <?php if (count($images) > 1) : ?>
                 <?php foreach ($images as $i => $url) : ?>
-                    <li><img src="<?php echo esc_url($url); ?>" class="<?php echo $i === 0 ? 'flex-active' : ''; ?>" loading="lazy" alt=""></li>
+                    <li><img src="<?php echo esc_url($url); ?>" class="<?php echo $i === 0 ? 'flex-active' : ''; ?>" width="68" height="68" loading="lazy" alt=""></li>
                 <?php endforeach; ?>
-            </ul>
-        <?php endif; ?>
+            <?php endif; ?>
+        </ul>
     </div>
     </div>
     <?php
@@ -149,17 +151,37 @@ function pod_render_variant_selector() {
     }
 
     $chart_types = pod_get_size_chart_types_for_product($product->get_id());
+
+    // Groups with a single choice are auto-selected and hidden by
+    // pod-variants.js; hide them up front too so they don't flash in and out.
+    $colors_by_type = [];
+    foreach (pod_get_variants_for_product($product->get_id()) as $variant) {
+        $colors_by_type[(int) $variant->type_id][(int) $variant->color_id] = true;
+    }
+    $first_type = null;
+    foreach (array_keys(pod_get_types()) as $type_id) {
+        if (isset($colors_by_type[(int) $type_id])) {
+            $first_type = (int) $type_id;
+            break;
+        }
+    }
+    $size_prices = pod_get_size_prices();
+    $hide = [
+        'type'  => count($colors_by_type) <= 1,
+        'color' => count($colors_by_type[$first_type] ?? []) <= 1,
+        'size'  => count($size_prices[$first_type] ?? []) <= 1,
+    ];
     ?>
-    <div class="pod-variant-selector" id="pod-variant-selector" data-product-id="<?php echo esc_attr($product->get_id()); ?>">
-        <div class="pod-variant-group" data-group="type">
+    <div class="pod-variant-selector" id="pod-variant-selector" data-product-id="<?php echo esc_attr($product->get_id()); ?>"<?php echo !in_array(false, $hide, true) ? ' hidden' : ''; ?>>
+        <div class="pod-variant-group" data-group="type"<?php echo $hide['type'] ? ' hidden' : ''; ?>>
             <span class="pod-variant-label"><?php esc_html_e('Style', 'dawp'); ?><span class="pod-variant-selected" id="pod-type-selected"></span></span>
             <div class="pod-variant-options" id="pod-type-options"></div>
         </div>
-        <div class="pod-variant-group" data-group="color">
+        <div class="pod-variant-group" data-group="color"<?php echo $hide['color'] ? ' hidden' : ''; ?>>
             <span class="pod-variant-label"><?php esc_html_e('Color', 'dawp'); ?><span class="pod-variant-selected" id="pod-color-selected"></span></span>
             <div class="pod-variant-options" id="pod-color-options"></div>
         </div>
-        <div class="pod-variant-group" data-group="size">
+        <div class="pod-variant-group" data-group="size"<?php echo $hide['size'] ? ' hidden' : ''; ?>>
             <div class="pod-variant-label-row">
                 <span class="pod-variant-label"><?php esc_html_e('Size', 'dawp'); ?><span class="pod-variant-selected" id="pod-size-selected"></span></span>
                 <?php if ($chart_types) : ?>

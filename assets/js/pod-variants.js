@@ -11,6 +11,8 @@
 
     var data = podVariantData;
     var state = { typeId: null, colorId: null, sizeId: null };
+    // The server renders the first variant's gallery (pod_render_gallery()).
+    var renderedVariantId = data.variants[0] ? data.variants[0].id : null;
 
     function variantsForType(typeId) {
         return data.variants.filter(function (v) { return v.type_id === typeId; });
@@ -86,28 +88,44 @@
         window.history.replaceState(null, '', newUrl);
     }
 
+    // Buttons are built once per group and then only shown/hidden and
+    // re-flagged on each render — rebuilding them would re-create the Style
+    // thumbnails and make every image flash/reload on each option click.
     function renderOptions(containerId, items, selectedId, onSelect, availableIds, fillContent) {
         var el = document.getElementById(containerId);
         if (!el) {
             return;
         }
-        el.innerHTML = '';
-        items.forEach(function (item) {
-            var available = !availableIds || availableIds.indexOf(item.id) !== -1;
-            if (!available) {
-                return;
+        if (!el.dataset.built) {
+            items.forEach(function (item) {
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'pod-option';
+                btn.dataset.id = item.id;
+                fillContent(btn, item);
+                btn.addEventListener('click', function () { onSelect(item.id); });
+                el.appendChild(btn);
+            });
+            el.dataset.built = '1';
+        }
+
+        var visible = 0;
+        Array.prototype.forEach.call(el.children, function (btn) {
+            var id = parseInt(btn.dataset.id, 10);
+            var available = !availableIds || availableIds.indexOf(id) !== -1;
+            btn.hidden = !available;
+            btn.classList.toggle('is-selected', id === selectedId);
+            if (available) {
+                visible++;
             }
-            var btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'pod-option';
-            btn.dataset.id = item.id;
-            fillContent(btn, item);
-            if (item.id === selectedId) {
-                btn.classList.add('is-selected');
-            }
-            btn.addEventListener('click', function () { onSelect(item.id); });
-            el.appendChild(btn);
         });
+
+        // A group with a single choice is auto-selected, so there is nothing
+        // for the shopper to pick — hide it entirely.
+        var group = el.closest('.pod-variant-group');
+        if (group) {
+            group.hidden = visible <= 1;
+        }
     }
 
     function fillTypeOption(btn, type) {
@@ -119,23 +137,36 @@
         img.className = 'pod-option-thumb';
         img.alt = '';
         img.loading = 'lazy';
+        img.width = 52;
+        img.height = 52;
         if (variant && variant.images && variant.images[0]) {
             img.src = variant.images[0];
         }
+        var name = document.createElement('span');
+        name.className = 'pod-option-name';
+        name.textContent = type.name;
         btn.appendChild(img);
+        btn.appendChild(name);
     }
 
     function fillColorOption(btn, color) {
-        btn.classList.add('pod-option--color');
         btn.title = color.name;
         btn.setAttribute('aria-label', color.name);
+        // No hex code → a text button like Size, labelled with the color name.
+        if (!color.hex) {
+            btn.classList.add('pod-option--label');
+            btn.textContent = color.name;
+            return;
+        }
+        btn.classList.add('pod-option--color');
         var swatch = document.createElement('span');
         swatch.className = 'pod-option-swatch';
-        swatch.style.backgroundColor = color.hex || '#CCCCCC';
+        swatch.style.backgroundColor = color.hex;
         btn.appendChild(swatch);
     }
 
     function fillSizeOption(btn, size) {
+        btn.classList.add('pod-option--label');
         btn.textContent = size.name;
     }
 
@@ -183,6 +214,13 @@
             priceEl.textContent = formatPrice(base + surcharge);
         }
 
+        // Only swap the gallery when the variant actually changes (a Size
+        // click keeps the same images), so unchanged images never reload.
+        if (variant.id === renderedVariantId) {
+            return;
+        }
+        renderedVariantId = variant.id;
+
         var mainImage = document.getElementById('pod-main-image');
         if (mainImage && variant.images && variant.images[0]) {
             mainImage.src = variant.images[0];
@@ -191,28 +229,42 @@
         var thumbs = document.getElementById('pod-gallery-thumbs');
         if (thumbs) {
             thumbs.innerHTML = '';
-            if (variant.images && variant.images.length > 1) {
-                variant.images.forEach(function (url, i) {
+            var images = variant.images || [];
+            thumbs.hidden = images.length <= 1;
+            if (images.length > 1) {
+                images.forEach(function (url, i) {
                     var li = document.createElement('li');
                     var img = document.createElement('img');
                     img.src = url;
                     img.loading = 'lazy';
                     img.alt = '';
+                    img.width = 68;
+                    img.height = 68;
                     if (i === 0) {
                         img.className = 'flex-active';
                     }
-                    img.addEventListener('click', function () {
-                        if (mainImage) {
-                            mainImage.src = url;
-                        }
-                        thumbs.querySelectorAll('img').forEach(function (t) { t.classList.remove('flex-active'); });
-                        img.classList.add('flex-active');
-                    });
                     li.appendChild(img);
                     thumbs.appendChild(li);
                 });
             }
         }
+    }
+
+    function initThumbClicks() {
+        var thumbs = document.getElementById('pod-gallery-thumbs');
+        var mainImage = document.getElementById('pod-main-image');
+        if (!thumbs || !mainImage) {
+            return;
+        }
+        thumbs.addEventListener('click', function (e) {
+            var img = e.target.closest('img');
+            if (!img) {
+                return;
+            }
+            mainImage.src = img.src;
+            thumbs.querySelectorAll('img').forEach(function (t) { t.classList.remove('flex-active'); });
+            img.classList.add('flex-active');
+        });
     }
 
     function updateHiddenInputs() {
@@ -254,6 +306,11 @@
         setSelectedLabel('pod-type-selected', nameById(data.types, state.typeId));
         setSelectedLabel('pod-color-selected', nameById(data.colors, state.colorId));
         setSelectedLabel('pod-size-selected', nameById(data.sizes, state.sizeId));
+
+        var selector = document.getElementById('pod-variant-selector');
+        if (selector) {
+            selector.hidden = !selector.querySelector('.pod-variant-group:not([hidden])');
+        }
 
         updatePriceAndImage();
         updateHiddenInputs();
@@ -359,6 +416,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+        initThumbClicks();
         initState();
         initSizeChartModal();
     });

@@ -8,3 +8,4 @@ require_once get_template_directory() . '/inc/contact-form.php';
 require_once get_template_directory() . '/inc/image-helper.php';
 require_once get_template_directory() . '/inc/side-cart.php';
 require_once get_template_directory() . '/inc/product-reviews.php';
+require_once get_template_directory() . '/inc/payments.php';

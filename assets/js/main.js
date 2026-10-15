@@ -438,3 +438,29 @@ document.querySelectorAll('img[data-lazy-src]').forEach(img => {
     img.removeAttribute('data-lazy-srcset');
     img.removeAttribute('data-lazy-sizes');
 });
+// Copy buttons in Zelle / Crypto payment details (inc/payments.php)
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.dawp-copy');
+    if (!btn) return;
+    e.preventDefault();
+    const text = btn.dataset.copy || '';
+    const done = () => {
+        const label = btn.textContent;
+        btn.textContent = 'Copied';
+        btn.classList.add('is-copied');
+        setTimeout(() => { btn.textContent = label; btn.classList.remove('is-copied'); }, 1500);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done);
+    } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        done();
+    }
+});

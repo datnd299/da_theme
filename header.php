@@ -19,6 +19,7 @@ $account_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalin
 $cart_url      = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count    = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
 $logo_url      = get_template_directory_uri() . '/assets/img/logo/chronel-logo-black.png';
+$has_fibosearch = shortcode_exists('fibosearch');
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
@@ -118,6 +119,23 @@ $mobile_extra_items = [
         .lux-search button { display:inline-flex; flex:none; align-items:center; justify-content:center; width:38px; height:38px; margin:1px; border:0; border-radius:999px; background:var(--lux-gold); color:var(--lux-black); cursor:pointer; transition:background .25s cubic-bezier(.22,1,.36,1); }
         .lux-search button:hover { background:var(--lux-gold-light); }
         .lux-search button svg { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+        .lux-fibo { width:260px; min-width:0; }
+        .lux-fibo .dgwt-wcas-search-wrapp { width:100%; max-width:none; min-width:0; margin:0; }
+        .lux-fibo .dgwt-wcas-sf-wrapp { padding:0; background:transparent; }
+        .lux-fibo .dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input { height:42px; padding:0 48px 0 18px; border:1px solid var(--lux-line); border-radius:999px; background:var(--lux-white); color:var(--lux-black); font-size:13px; box-shadow:none; }
+        .lux-fibo .dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input::placeholder { color:#69645D; font-style:normal; }
+        .lux-fibo .dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input:focus { border-color:var(--lux-gold); outline:0; }
+        .lux-fibo .dgwt-wcas-open .dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input { border-radius:999px; }
+        .lux-fibo .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit { top:2px; right:2px; display:inline-flex; align-items:center; justify-content:center; width:38px; min-width:38px; height:38px; min-height:38px; padding:0; border-radius:999px; background:var(--lux-gold); color:var(--lux-black); text-shadow:none; transition:background .25s cubic-bezier(.22,1,.36,1); }
+        .lux-fibo .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit:hover, .lux-fibo .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit:focus { background:var(--lux-gold-light); opacity:1; }
+        .lux-fibo .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit:before { display:none; }
+        .lux-fibo .dgwt-wcas-ico-magnifier { width:15px; height:15px; fill:currentColor; }
+        .lux-fibo .dgwt-wcas-preloader { right:44px; }
+        .lux-search-toggle { display:none; }
+        .lux-search-toggle .dgwt-wcas-search-wrapp, html:not(.dgwt-wcas-overlay-mobile-on) .lux-search-toggle .dgwt-wcas-search-wrapp.dgwt-wcas-layout-icon { position:relative; width:auto; max-width:none; min-width:0; margin:0; }
+        .lux-search-toggle .dgwt-wcas-search-icon { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; color:var(--lux-black); }
+        .lux-search-toggle .dgwt-wcas-search-icon:hover { color:var(--lux-gold); }
+        .lux-search-toggle .dgwt-wcas-search-icon svg { width:19px; height:19px; fill:currentColor; }
         .lux-menu-button { display:none; }
         .lux-mobile-panel { display:none; border-top:1px solid var(--lux-line); background:var(--lux-ivory); }
         .lux-mobile-panel.is-open { display:block; }
@@ -125,7 +143,7 @@ $mobile_extra_items = [
         .lux-mobile-nav { display:grid; gap:2px; }
         .lux-mobile-nav a { display:flex; align-items:center; min-height:48px; border-bottom:1px solid var(--lux-line); }
         .lux-mobile-nav a.is-current { color:var(--lux-gold); }
-        .lux-mobile-search { width:100%; }
+        .lux-mobile-search, .lux-fibo.lux-mobile-search { width:100%; }
         .lux-icon-link:focus, .lux-icon-button:focus, .lux-primary-nav a:focus, .lux-mobile-nav a:focus, .lux-search input:focus, .lux-search button:focus, .lux-brand:focus { outline:2px solid var(--lux-gold-light); outline-offset:3px; }
         @media (max-width: 1240px) {
             .lux-megamenu__layout { grid-template-columns:1fr; }
@@ -136,7 +154,8 @@ $mobile_extra_items = [
             .lux-service-bar__row { grid-template-columns:auto 1fr; gap:12px; font-size:11px; }
             .lux-service-bar__right { display:none; }
             .lux-header-main { grid-template-columns:auto 1fr auto; min-height:70px; }
-            .lux-primary-nav, .lux-desktop-search, .lux-account-link { display:none; }
+            .lux-primary-nav, .lux-desktop-search, .lux-account-link, .lux-wishlist-link { display:none; }
+            .lux-search-toggle { display:inline-flex; margin-right:8px; }
             .lux-brand { justify-self:center; }
             .lux-brand__logo { width:158px; max-height:48px; }
             .lux-menu-button { display:inline-flex; justify-self:start; }
@@ -147,7 +166,7 @@ $mobile_extra_items = [
             .lux-service-bar__row { grid-template-columns:1fr; min-height:32px; text-align:center; }
             .lux-service-bar__item:not(.lux-service-bar__center) { display:none; }
             .lux-brand__logo { width:142px; max-height:43px; }
-            .lux-icon-link, .lux-icon-button { width:38px; height:38px; }
+            .lux-icon-link, .lux-icon-button, .lux-search-toggle .dgwt-wcas-search-icon { width:38px; height:38px; }
             .lux-header-main { gap:10px; min-height:64px; }
         }
     </style>
@@ -236,6 +255,9 @@ $mobile_extra_items = [
         </nav>
 
         <div class="lux-actions">
+            <?php if ($has_fibosearch) : ?>
+                <div class="lux-fibo lux-desktop-search"><?php echo do_shortcode('[fibosearch style="solaris" layout="classic"]'); ?></div>
+            <?php else : ?>
             <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="lux-search lux-desktop-search">
                 <label class="screen-reader-text" for="lux-header-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
                 <input id="lux-header-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search for products', 'dawp'); ?>">
@@ -244,10 +266,18 @@ $mobile_extra_items = [
                     <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
                 </button>
             </form>
+            <?php endif; ?>
             <a href="<?php echo esc_url($account_url); ?>" class="lux-icon-link lux-account-link" aria-label="<?php esc_attr_e('Account', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>
             </a>
-            <a href="<?php echo esc_url(home_url('/wishlist/')); ?>" class="lux-icon-link" aria-label="<?php esc_attr_e('Wishlist', 'dawp'); ?>">
+            <?php if ($has_fibosearch) : ?>
+                <div class="lux-search-toggle"><?php echo do_shortcode('[fibosearch layout="icon" mobile_overlay="1" mobile_overlay_breakpoint="1080"]'); ?></div>
+            <?php else : ?>
+                <button type="button" class="lux-icon-button lux-search-toggle" aria-label="<?php esc_attr_e('Search', 'dawp'); ?>" onclick="const btn=document.querySelector('.lux-menu-button'); if (btn.getAttribute('aria-expanded')!=='true') btn.click(); document.getElementById('lux-mobile-search').focus();">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
+                </button>
+            <?php endif; ?>
+            <a href="<?php echo esc_url(home_url('/wishlist/')); ?>" class="lux-icon-link lux-wishlist-link" aria-label="<?php esc_attr_e('Wishlist', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
             </a>
             <a href="<?php echo esc_url($cart_url); ?>" class="lux-icon-link lux-icon-link--cart" id="dawp-cart-toggle" aria-label="<?php esc_attr_e('Shopping bag', 'dawp'); ?>">
@@ -259,6 +289,9 @@ $mobile_extra_items = [
 
     <div id="lux-mobile-menu" class="lux-mobile-panel">
         <div class="lux-head-wrap lux-mobile-panel__inner">
+            <?php if ($has_fibosearch) : ?>
+                <div class="lux-fibo lux-mobile-search"><?php echo do_shortcode('[fibosearch style="solaris" layout="classic"]'); ?></div>
+            <?php else : ?>
             <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="lux-search lux-mobile-search">
                 <label class="screen-reader-text" for="lux-mobile-search"><?php esc_html_e('Search watches', 'dawp'); ?></label>
                 <input id="lux-mobile-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search watches and references', 'dawp'); ?>">
@@ -267,6 +300,7 @@ $mobile_extra_items = [
                     <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
                 </button>
             </form>
+            <?php endif; ?>
 
             <nav class="lux-mobile-nav" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">
                 <?php foreach ($nav_items as $item) : ?>

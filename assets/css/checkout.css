@@ -308,6 +308,14 @@ body.woocommerce-checkout .woo-page *::after,
     color: var(--checkout-text);
     font-size: 0.875rem;
     font-weight: 700;
+    text-align: left;
+}
+
+.woocommerce-checkout table.shop_table th:first-child,
+.woocommerce-checkout table.shop_table td:first-child,
+.woocommerce-order-received table.shop_table th:first-child,
+.woocommerce-order-received table.shop_table td:first-child {
+    padding-right: 1rem;
 }
 
 .woocommerce-checkout .product-name,
@@ -315,12 +323,67 @@ body.woocommerce-checkout .woo-page *::after,
     font-weight: 700;
 }
 
+/* Only the product name wraps; the right column sizes to its longest value */
+.woocommerce-checkout table.shop_table th:last-child,
+.woocommerce-checkout table.shop_table td:last-child,
+.woocommerce-order-received table.shop_table th:last-child,
+.woocommerce-order-received table.shop_table td:last-child {
+    text-align: right;
+}
+
+.woocommerce-checkout-review-order-table th:last-child,
+.woocommerce-checkout-review-order-table td:last-child,
+.woocommerce-checkout-review-order-table tfoot th {
+    white-space: nowrap;
+}
+
 .woocommerce-checkout .product-total,
 .woocommerce-checkout table.shop_table tfoot td,
 .woocommerce-order-received .product-total,
 .woocommerce-order-received table.shop_table tfoot td {
-    text-align: right;
     font-weight: 700;
+}
+
+/* Shipping options can be long (several methods), so this cell wraps */
+.woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals td {
+    white-space: normal;
+}
+
+/* Long unbroken SKUs / labels must not push the table past its card on mobile */
+.woocommerce-checkout-review-order-table .product-name,
+.woocommerce-checkout table.shop_table tfoot #shipping_method label {
+    overflow-wrap: anywhere;
+}
+
+.woocommerce-checkout table.shop_table tfoot #shipping_method {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.woocommerce-checkout table.shop_table tfoot #shipping_method li {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin: 0 0 0.4rem;
+}
+
+.woocommerce-checkout table.shop_table tfoot #shipping_method li:last-child {
+    margin-bottom: 0;
+}
+
+.woocommerce-checkout table.shop_table tfoot #shipping_method input {
+    flex: none;
+    margin: 0.2rem 0 0;
+}
+
+.woocommerce-checkout table.shop_table tfoot #shipping_method label {
+    min-width: min(9rem, 40vw);
+}
+
+.woocommerce-checkout table.shop_table tfoot #shipping_method .amount {
+    white-space: nowrap;
 }
 
 .woocommerce-checkout table.shop_table tfoot tr.order-total th,

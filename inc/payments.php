@@ -231,6 +231,12 @@ function dawp_payments_init() {
                 echo '<img class="dawp-pay-qr" src="' . esc_url($qr) . '" alt="' . esc_attr__('Zelle QR code', 'dawp') . '" width="160" height="160" loading="lazy">';
             }
             echo '<ul class="dawp-pay-summary">';
+            // Thank-you page already shows the amount above; at checkout, show the live cart total.
+            if (!$order && WC()->cart) {
+                $total = (float) WC()->cart->get_total('edit');
+                echo '<li><span>' . esc_html__('Amount', 'dawp') . '</span><strong>' . wp_kses_post(wc_price($total)) . '</strong>'
+                    . '<button type="button" class="dawp-copy" data-copy="' . esc_attr(number_format($total, wc_get_price_decimals(), '.', '')) . '">' . esc_html__('Copy', 'dawp') . '</button></li>';
+            }
             $this->copy_row(__('Recipient', 'dawp'), $name);
             $this->copy_row(__('Zelle phone', 'dawp'), $id);
             echo '</ul></div>';
@@ -384,6 +390,80 @@ jQuery(function ($) {
 });
 JS);
 }, 20);
+
+/**
+ * CheckoutWC blocks every theme stylesheet/script (checkout.css, main.js) on its
+ * checkout/thank-you templates, so the payment-detail styles + copy button are inlined here.
+ */
+add_action('cfw_wp_head', function () {
+    ?>
+<style id="dawp-pay-cfw">
+.payment_method_icons:has(.dawp-pay-logo){display:inline-flex;flex-wrap:wrap;align-items:center;gap:.375rem;vertical-align:middle}
+.payment_method_icons .dawp-pay-logo{width:24px;height:24px;margin:0;border-radius:6px}
+.payment_method_icons .dawp-pay-coins{display:inline-flex;align-items:center;gap:.25rem}
+.payment_method_icons .dawp-pay-coins img{width:20px;height:20px;margin:0}
+.dawp-pay-badge{display:inline-block;padding:.125rem .5rem;border-radius:999px;background:var(--cfw-buttons-primary-background-color,#111);color:var(--cfw-buttons-primary-text-color,#fff);font-size:.72rem;font-weight:700;line-height:1.5}
+.dawp-pay{font-size:.9rem;line-height:1.5}
+.dawp-pay p{margin:0 0 .75rem}
+.dawp-pay-zelle{display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
+.dawp-pay-qr{flex:none;width:160px;height:auto;padding:.375rem;border:1px solid #dedede;border-radius:6px;background:#fff}
+.dawp-pay-summary,.dawp-pay-wallets{flex:1 1 14rem;display:grid;gap:.5rem;margin:0 0 .75rem;padding:0;list-style:none}
+.dawp-pay-summary li{display:flex;align-items:center;gap:.5rem;margin:0;padding:.5rem .75rem;border:1px solid #dedede;border-radius:6px;background:#fff}
+.dawp-pay-summary li::before{content:none}
+.dawp-pay-summary li span{min-width:6.5rem;color:#6b6b6b;font-size:.82rem}
+.dawp-pay-summary li strong{flex:1;min-width:0;color:var(--cfw-body-text-color,#111);overflow-wrap:anywhere}
+.dawp-pay-wallet{display:flex;gap:.75rem;align-items:center;padding:.75rem;border:1px solid #dedede;border-radius:6px;background:#fff}
+.dawp-pay-wallet .dawp-pay-qr{width:96px}
+.dawp-pay-wallet__body{flex:1;min-width:0}
+.dawp-pay .dawp-pay-wallet__coin{margin:0 0 .25rem}
+.dawp-pay-wallet__coin span{margin-left:.25rem;padding:.05rem .4rem;border-radius:4px;background:#f3f3f3;color:#6b6b6b;font-size:.75rem;font-weight:600}
+.dawp-pay .dawp-pay-wallet__addr{display:flex;align-items:center;gap:.5rem;margin:0}
+.dawp-pay-wallet__addr code{flex:1;min-width:0;font-size:.8rem;overflow-wrap:anywhere;background:none}
+.dawp-pay .dawp-pay-note{color:#6b6b6b;font-size:.8rem}
+button.dawp-copy{flex:none;width:auto;min-height:0;margin:0;padding:.25rem .625rem;border:1px solid var(--cfw-buttons-primary-background-color,#111);border-radius:4px;background:#fff;color:var(--cfw-buttons-primary-background-color,#111);font-size:.75rem;font-weight:700;line-height:1.4;cursor:pointer}
+button.dawp-copy:hover,button.dawp-copy.is-copied{background:var(--cfw-buttons-primary-background-color,#111);color:var(--cfw-buttons-primary-text-color,#fff)}
+.dawp-pay--thankyou{margin:0 0 1.5rem;padding:1.25rem;border:1px solid #dedede;border-radius:8px;background:#fff}
+.dawp-pay--thankyou h2{margin:0 0 1rem;font-size:1.15rem}
+</style>
+    <?php
+});
+
+add_action('cfw_wp_footer', function () {
+    ?>
+<script id="dawp-pay-cfw-js">
+document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.dawp-copy');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var text = btn.dataset.copy || '';
+    var done = function () {
+        var label = btn.dataset.label || btn.textContent;
+        btn.dataset.label = label;
+        btn.textContent = 'Copied';
+        btn.classList.add('is-copied');
+        setTimeout(function () { btn.textContent = label; btn.classList.remove('is-copied'); }, 1500);
+    };
+    var fallback = function () {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        done();
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+        fallback();
+    }
+}, true);
+</script>
+    <?php
+});
 
 /** Pending Zelle/Crypto orders wait for manual confirmation — don't let hold-stock auto-cancel them. */
 add_filter('woocommerce_cancel_unpaid_order', function ($cancel, $order) {

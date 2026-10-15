@@ -88,9 +88,10 @@ function dawp_pdp_price_note() {
     <div class="pdp-delivery">
         <p class="pdp-delivery__free">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/></svg>
-            <strong><?php esc_html_e('Free Shipping', 'dawp'); ?></strong>
-            <span><?php esc_html_e('on every order + free 30-day returns', 'dawp'); ?></span>
+            <strong><?php esc_html_e('Free Standard Shipping', 'dawp'); ?></strong>
+            <span><?php esc_html_e('10-15 business days + free 30-day returns', 'dawp'); ?></span>
         </p>
+        <p class="pdp-delivery__note"><strong><?php esc_html_e('Express Shipping:', 'dawp'); ?></strong> <?php esc_html_e('5-10 business days, price shown at checkout.', 'dawp'); ?></p>
         <p class="pdp-delivery__note"><?php esc_html_e('Hand-assembled and tested after you order, then shipped from Hong Kong with tracking.', 'dawp'); ?> <a href="#pdp-shipping"><?php esc_html_e('Details', 'dawp'); ?></a></p>
     </div>
     <?php
@@ -109,8 +110,8 @@ function dawp_pdp_specialist() {
 function dawp_pdp_services() {
     $services = [
         [
-            'title' => __('Free Shipping on Every Order', 'dawp'),
-            'copy'  => __('Free tracked shipping with no minimum. Your watch ships from Hong Kong: allow 3-5 business days for assembly and testing, then 10-15 business days in transit, including customs clearance. Tracking is sent by email as soon as it ships.', 'dawp'),
+            'title' => __('Free Standard Shipping on Every Order', 'dawp'),
+            'copy'  => __('Free tracked Standard Shipping with no minimum. Your watch ships from Hong Kong: allow 3-5 business days for assembly and testing, then 10-15 business days in transit, including customs clearance. Need it sooner? Express Shipping takes 5-10 business days in transit, with the price shown at checkout. Tracking is sent by email as soon as it ships.', 'dawp'),
             'link'  => home_url('/shipping-policy/'),
             'label' => __('Shipping Policy', 'dawp'),
             'icon'  => '<path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/>',
@@ -401,12 +402,12 @@ function dawp_pdp_shipping() {
             __('After you order, your watch is assembled by hand and tested before it is handed to the carrier. This is why it takes a few days before it ships.', 'dawp'),
         ],
         [
-            __('Free, tracked', 'dawp'),
+            __('Standard or Express', 'dawp'),
             __('Ships from Hong Kong', 'dawp'),
-            __('Your order ships from Hong Kong at no cost to you. A tracking link is emailed as soon as the parcel leaves.', 'dawp'),
+            __('Standard Shipping is free. Express Shipping is available for a fee shown at checkout. A tracking link is emailed as soon as the parcel leaves.', 'dawp'),
         ],
         [
-            __('10-15 business days', 'dawp'),
+            __('Standard 10-15 / Express 5-10 business days', 'dawp'),
             __('Customs & Delivery', 'dawp'),
             __('Customs checks on international parcels are now stricter, so clearance takes longer than it used to. Tracking can pause for a few days at this stage. That is normal, and your parcel is still on its way.', 'dawp'),
         ],
@@ -415,7 +416,7 @@ function dawp_pdp_shipping() {
     <section class="pdp-section pdp-shipping" id="pdp-shipping">
         <header class="pdp-section__head">
             <p class="pdp-eyebrow"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></p>
-            <h2><?php esc_html_e('Free Shipping on Every Order', 'dawp'); ?></h2>
+            <h2><?php esc_html_e('Free Standard Shipping, Express Available', 'dawp'); ?></h2>
         </header>
         <div class="pdp-shipping__body">
             <ol class="pdp-steps">

@@ -11,6 +11,8 @@
 
     var data = podVariantData;
     var state = { typeId: null, colorId: null, sizeId: null };
+    // Image set currently in the gallery; PHP renders the first variant's.
+    var galleryKey = data.variants[0] ? (data.variants[0].images || []).join('|') : null;
 
     function variantsForType(typeId) {
         return data.variants.filter(function (v) { return v.type_id === typeId; });
@@ -86,17 +88,27 @@
         window.history.replaceState(null, '', newUrl);
     }
 
+    // Rebuilding buttons on every click re-creates the Style thumbnails (and
+    // flashes them while they reload), so only rebuild when the set of
+    // options changes; otherwise just move the selected class.
     function renderOptions(containerId, items, selectedId, onSelect, availableIds, fillContent) {
         var el = document.getElementById(containerId);
         if (!el) {
             return;
         }
+        var visible = items.filter(function (item) {
+            return !availableIds || availableIds.indexOf(item.id) !== -1;
+        });
+        var key = visible.map(function (item) { return item.id; }).join(',');
+        if (el.dataset.key === key) {
+            el.querySelectorAll('.pod-option').forEach(function (btn) {
+                btn.classList.toggle('is-selected', parseInt(btn.dataset.id, 10) === selectedId);
+            });
+            return;
+        }
+        el.dataset.key = key;
         el.innerHTML = '';
-        items.forEach(function (item) {
-            var available = !availableIds || availableIds.indexOf(item.id) !== -1;
-            if (!available) {
-                return;
-            }
+        visible.forEach(function (item) {
             var btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'pod-option';
@@ -113,7 +125,6 @@
     function fillTypeOption(btn, type) {
         btn.classList.add('pod-option--type');
         btn.title = type.name;
-        btn.setAttribute('aria-label', type.name);
         var variant = variantsForType(type.id)[0];
         var img = document.createElement('img');
         img.className = 'pod-option-thumb';
@@ -123,20 +134,38 @@
             img.src = variant.images[0];
         }
         btn.appendChild(img);
+        var name = document.createElement('span');
+        name.className = 'pod-option-name';
+        name.textContent = type.name;
+        btn.appendChild(name);
     }
 
+    // No hex code → show the colour name as a text button, like sizes.
     function fillColorOption(btn, color) {
-        btn.classList.add('pod-option--color');
         btn.title = color.name;
+        if (!color.hex) {
+            btn.classList.add('pod-option--text');
+            btn.textContent = color.name;
+            return;
+        }
+        btn.classList.add('pod-option--color');
         btn.setAttribute('aria-label', color.name);
         var swatch = document.createElement('span');
         swatch.className = 'pod-option-swatch';
-        swatch.style.backgroundColor = color.hex || '#CCCCCC';
+        swatch.style.backgroundColor = color.hex;
         btn.appendChild(swatch);
     }
 
     function fillSizeOption(btn, size) {
+        btn.classList.add('pod-option--text');
         btn.textContent = size.name;
+    }
+
+    function setGroupHidden(group, hidden) {
+        var el = document.querySelector('.pod-variant-group[data-group="' + group + '"]');
+        if (el) {
+            el.hidden = hidden;
+        }
     }
 
     function currentVariant() {
@@ -183,36 +212,66 @@
             priceEl.textContent = formatPrice(base + surcharge);
         }
 
+        // Only touch the gallery when the image set actually changes — a size
+        // pick (same variant) must not reset or reload the images.
+        var images = variant.images || [];
+        var key = images.join('|');
+        if (key === galleryKey) {
+            return;
+        }
+        galleryKey = key;
+
         var mainImage = document.getElementById('pod-main-image');
-        if (mainImage && variant.images && variant.images[0]) {
-            mainImage.src = variant.images[0];
+        if (mainImage && images[0]) {
+            mainImage.src = images[0];
         }
 
-        var thumbs = document.getElementById('pod-gallery-thumbs');
+        var thumbs = getThumbsList();
         if (thumbs) {
             thumbs.innerHTML = '';
-            if (variant.images && variant.images.length > 1) {
-                variant.images.forEach(function (url, i) {
+            thumbs.hidden = images.length < 2;
+            if (images.length > 1) {
+                images.forEach(function (url, i) {
                     var li = document.createElement('li');
                     var img = document.createElement('img');
                     img.src = url;
-                    img.loading = 'lazy';
                     img.alt = '';
                     if (i === 0) {
                         img.className = 'flex-active';
                     }
-                    img.addEventListener('click', function () {
-                        if (mainImage) {
-                            mainImage.src = url;
-                        }
-                        thumbs.querySelectorAll('img').forEach(function (t) { t.classList.remove('flex-active'); });
-                        img.classList.add('flex-active');
-                    });
                     li.appendChild(img);
                     thumbs.appendChild(li);
                 });
             }
         }
+    }
+
+    // PHP only prints the thumbs list when the first variant has 2+ images;
+    // create it on demand so later variants with more images still get one.
+    function getThumbsList() {
+        var thumbs = document.getElementById('pod-gallery-thumbs');
+        var gallery = document.querySelector('.pod-gallery');
+        if (!thumbs && gallery) {
+            thumbs = document.createElement('ul');
+            thumbs.className = 'flex-control-thumbs';
+            thumbs.id = 'pod-gallery-thumbs';
+            gallery.appendChild(thumbs);
+            bindThumbs(thumbs);
+        }
+        return thumbs;
+    }
+
+    function bindThumbs(thumbs) {
+        thumbs.addEventListener('click', function (e) {
+            var img = e.target.closest('img');
+            var mainImage = document.getElementById('pod-main-image');
+            if (!img || !mainImage) {
+                return;
+            }
+            mainImage.src = img.src;
+            thumbs.querySelectorAll('img').forEach(function (t) { t.classList.remove('flex-active'); });
+            img.classList.add('flex-active');
+        });
     }
 
     function updateHiddenInputs() {
@@ -250,12 +309,12 @@
 
         var availableSizeIds = state.typeId !== null ? sizesForType(state.typeId) : [];
         renderOptions('pod-size-options', data.sizes, state.sizeId, selectSize, availableSizeIds, fillSizeOption);
-        // Sizeless items (phone cases, mugs…) only carry "One Size": still
-        // selected for the cart, but nothing to choose.
-        var sizeGroup = document.querySelector('.pod-variant-group[data-group="size"]');
-        if (sizeGroup) {
-            sizeGroup.hidden = availableSizeIds.length === 1 && slugById(data.sizes, availableSizeIds[0]) === 'one-size';
-        }
+
+        // A single value is auto-selected (still sent to the cart) but there
+        // is nothing to choose, so the group is hidden.
+        setGroupHidden('type', availableTypeIds.length <= 1);
+        setGroupHidden('color', availableColorIds.length <= 1);
+        setGroupHidden('size', availableSizeIds.length <= 1);
 
         setSelectedLabel('pod-type-selected', nameById(data.types, state.typeId));
         setSelectedLabel('pod-color-selected', nameById(data.colors, state.colorId));
@@ -365,6 +424,10 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+        var thumbs = document.getElementById('pod-gallery-thumbs');
+        if (thumbs) {
+            bindThumbs(thumbs);
+        }
         initState();
         initSizeChartModal();
     });

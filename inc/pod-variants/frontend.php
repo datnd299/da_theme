@@ -41,7 +41,7 @@ function pod_enqueue_assets() {
         'pod-variants',
         get_template_directory_uri() . '/assets/js/pod-variants.js',
         [],
-        POD_VARIANTS_DB_VERSION,
+        dawp_asset_ver('/assets/js/pod-variants.js'),
         true
     );
     wp_add_inline_script(
@@ -127,7 +127,7 @@ function pod_render_gallery() {
     <div class="pod-gallery-col">
     <div class="woocommerce-product-gallery pod-gallery">
         <div class="woocommerce-product-gallery__image">
-            <img src="<?php echo esc_url($images[0]); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" id="pod-main-image" loading="eager">
+            <img src="<?php echo esc_url($images[0]); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" id="pod-main-image" width="1000" height="1000" loading="eager" fetchpriority="high">
         </div>
         <?php if (count($images) > 1) : ?>
             <ul class="flex-control-thumbs" id="pod-gallery-thumbs">
@@ -149,17 +149,26 @@ function pod_render_variant_selector() {
     }
 
     $chart_types = pod_get_size_chart_types_for_product($product->get_id());
-    // Only the placeholder colour → nothing to choose; JS still auto-selects it.
-    $hide_color = true;
+
+    // A group with a single value has nothing to choose — JS auto-selects
+    // and hides it. Pre-hide here too so the selector doesn't jump on load.
+    $size_prices    = pod_get_size_prices();
+    $colors_by_type = [];
     foreach (pod_get_variants_for_product($product->get_id()) as $variant) {
-        if (!pod_is_placeholder_color((int) $variant->color_id)) {
-            $hide_color = false;
-            break;
-        }
+        $colors_by_type[(int) $variant->type_id][(int) $variant->color_id] = true;
     }
+    $max_colors = 0;
+    $max_sizes  = 0;
+    foreach ($colors_by_type as $type_id => $color_ids) {
+        $max_colors = max($max_colors, count($color_ids));
+        $max_sizes  = max($max_sizes, count($size_prices[$type_id] ?? []));
+    }
+    $hide_type  = count($colors_by_type) <= 1;
+    $hide_color = $max_colors <= 1;
+    $hide_size  = $max_sizes <= 1;
     ?>
     <div class="pod-variant-selector" id="pod-variant-selector" data-product-id="<?php echo esc_attr($product->get_id()); ?>">
-        <div class="pod-variant-group" data-group="type">
+        <div class="pod-variant-group" data-group="type"<?php echo $hide_type ? ' hidden' : ''; ?>>
             <span class="pod-variant-label"><?php esc_html_e('Style', 'dawp'); ?><span class="pod-variant-selected" id="pod-type-selected"></span></span>
             <div class="pod-variant-options" id="pod-type-options"></div>
         </div>
@@ -167,7 +176,7 @@ function pod_render_variant_selector() {
             <span class="pod-variant-label"><?php esc_html_e('Color', 'dawp'); ?><span class="pod-variant-selected" id="pod-color-selected"></span></span>
             <div class="pod-variant-options" id="pod-color-options"></div>
         </div>
-        <div class="pod-variant-group" data-group="size">
+        <div class="pod-variant-group" data-group="size"<?php echo $hide_size ? ' hidden' : ''; ?>>
             <div class="pod-variant-label-row">
                 <span class="pod-variant-label"><?php esc_html_e('Size', 'dawp'); ?><span class="pod-variant-selected" id="pod-size-selected"></span></span>
                 <?php if ($chart_types) : ?>

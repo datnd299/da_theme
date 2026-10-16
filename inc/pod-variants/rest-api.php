@@ -39,12 +39,90 @@ function pod_register_rest_routes() {
     ]);
 
     register_rest_route('wc-pod/v1', '/products/(?P<id>\d+)/variants', [
-        'methods'             => 'POST',
-        'permission_callback' => function () {
-            return current_user_can('edit_products');
-        },
-        'callback' => 'pod_rest_upsert_variants',
+        [
+            'methods'             => 'GET',
+            'permission_callback' => function () {
+                return current_user_can('edit_products');
+            },
+            'callback' => 'pod_rest_get_variants',
+        ],
+        [
+            'methods'             => 'POST',
+            'permission_callback' => function () {
+                return current_user_can('edit_products');
+            },
+            'callback' => 'pod_rest_upsert_variants',
+        ],
     ]);
+}
+
+/**
+ * Active Style/Color/Size options for one product, grouped by Style (Type).
+ *
+ * Each style lists its colors (one per variant row: variant id, sku, price,
+ * sale_price, the stored original image_urls) and its sizes with the size
+ * surcharge — final price = (sale_price ?? price) + surcharge. Only styles
+ * with at least one active variant are returned.
+ */
+function pod_rest_get_variants(WP_REST_Request $request) {
+    $product_id = (int) $request['id'];
+    if (get_post_type($product_id) !== 'product') {
+        return new WP_Error('invalid_product', __('Product not found.', 'dawp'), ['status' => 404]);
+    }
+
+    $types       = pod_get_types();
+    $colors      = pod_get_colors();
+    $sizes       = pod_get_sizes();
+    $size_prices = pod_get_size_prices();
+
+    $styles = [];
+    foreach (pod_get_variants_for_product($product_id) as $variant) {
+        $type_id  = (int) $variant->type_id;
+        $color_id = (int) $variant->color_id;
+        if (!isset($types[$type_id], $colors[$color_id])) {
+            continue;
+        }
+
+        if (!isset($styles[$type_id])) {
+            $style_sizes = [];
+            foreach ($sizes as $size_id => $size) {
+                if (isset($size_prices[$type_id][$size_id])) {
+                    $style_sizes[] = [
+                        'id'        => $size_id,
+                        'name'      => $size->name,
+                        'slug'      => $size->slug,
+                        'surcharge' => $size_prices[$type_id][$size_id],
+                    ];
+                }
+            }
+
+            $styles[$type_id] = [
+                'id'     => $type_id,
+                'name'   => $types[$type_id]->name,
+                'slug'   => $types[$type_id]->slug,
+                'colors' => [],
+                'sizes'  => $style_sizes,
+            ];
+        }
+
+        $styles[$type_id]['colors'][] = [
+            'variant_id' => (int) $variant->id,
+            'id'         => $color_id,
+            'name'       => $colors[$color_id]->name,
+            'slug'       => $colors[$color_id]->slug,
+            'hex'        => $colors[$color_id]->hex_code,
+            'sku'        => $variant->sku,
+            'price'      => (float) $variant->price,
+            'sale_price' => $variant->sale_price !== null ? (float) $variant->sale_price : null,
+            'image_urls' => $variant->image_urls,
+        ];
+    }
+
+    return new WP_REST_Response([
+        'product_id' => $product_id,
+        'currency'   => get_woocommerce_currency(),
+        'styles'     => array_values($styles),
+    ], 200);
 }
 
 /**

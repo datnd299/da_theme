@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" fill="none" font-family="Barlow, Arial, sans-serif" font-weight="800" font-size="13">
+  <g stroke="#0A3161" stroke-width="2.5" stroke-linejoin="round" fill="#FFFFFF">
+    <!-- sleeves -->
+    <path d="M118 74 L80 120 L66 270 L92 276 L114 150 Z"/>
+    <path d="M262 74 L300 120 L314 270 L288 276 L266 150 Z"/>
+    <!-- body -->
+    <path d="M118 74 Q190 52 262 74 L268 280 L112 280 Z"/>
+    <path d="M112 280 H268 V298 H112 Z" fill="#EEF2F8"/>
+    <!-- hood -->
+    <path d="M146 72 Q140 18 190 14 Q240 18 234 72 Q190 100 146 72 Z" fill="#EEF2F8"/>
+    <path d="M160 70 Q190 92 220 70" />
+    <!-- pocket -->
+    <path d="M140 214 H240 L254 270 H126 Z" fill="#FFFFFF"/>
+  </g>
+  <g stroke="#0A3161" stroke-width="2" stroke-linecap="round"><path d="M180 84 V120 M200 84 V116"/></g>
+  <!-- chest width -->
+  <g stroke="#0A3161" stroke-width="2" stroke-linecap="round">
+    <path d="M122 160 H258" stroke-dasharray="5 4"/>
+    <path d="M130 154 L122 160 L130 166 M250 154 L258 160 L250 166"/>
+  </g>
+  <text x="190" y="150" fill="#0A3161" text-anchor="middle">CHEST WIDTH</text>
+  <!-- width (across the back, sleeve seam to sleeve seam) -->
+  <g stroke="#0A3161" stroke-width="2" stroke-linecap="round">
+    <path d="M118 110 H262 M126 104 L118 110 L126 116 M254 104 L262 110 L254 116"/>
+  </g>
+  <rect x="216" y="94" width="44" height="14" fill="#FFFFFF"/>
+  <text x="238" y="106" fill="#0A3161" text-anchor="middle" font-size="12">WIDTH</text>
+  <!-- length -->
+  <g stroke="#0A3161" stroke-width="2" stroke-linecap="round">
+    <path d="M30 60 V298 M24 68 L30 60 L36 68 M24 290 L30 298 L36 290"/>
+  </g>
+  <rect x="8" y="168" width="44" height="22" fill="#FFFFFF"/>
+  <text x="30" y="184" fill="#0A3161" text-anchor="middle" font-size="11">LENGTH</text>
+</svg>

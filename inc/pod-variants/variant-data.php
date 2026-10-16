@@ -50,19 +50,35 @@ function pod_get_variants_for_product($product_id) {
 
 /**
  * Types that (a) have at least one active variant for this product and
- * (b) have a non-empty size chart configured — i.e. the Types worth
- * offering as tabs in the product page's Size Chart modal. Types without a
- * chart are simply omitted rather than shown with an empty panel.
+ * (b) have a size chart — the Type's own, else the product category's
+ * (pod_get_category_size_chart()) — i.e. the Types worth offering as tabs
+ * in the product page's Size Chart modal. Types with neither are omitted
+ * rather than shown with an empty panel.
  */
 function pod_get_size_chart_types_for_product($product_id) {
     $variants      = pod_get_variants_for_product($product_id);
     $available_ids = array_flip(array_unique(wp_list_pluck($variants, 'type_id')));
+    $cat_chart     = null;
 
     $chart_types = [];
     foreach (pod_get_types() as $type_id => $type) {
-        if (isset($available_ids[$type_id]) && !empty($type->size_chart_html)) {
-            $chart_types[] = $type;
+        if (!isset($available_ids[$type_id])) {
+            continue;
         }
+        $chart = (string) $type->size_chart_html;
+        if ($chart === '') {
+            $cat_chart = $cat_chart ?? pod_get_category_size_chart($product_id);
+            $chart     = $cat_chart;
+        }
+        if ($chart !== '') {
+            // Copy: pod_get_types() rows are cached and shared.
+            $chart_types[] = (object) ['id' => $type->id, 'name' => $type->name, 'size_chart_html' => $chart];
+        }
+    }
+
+    // Every Style falling back to the same category chart → one panel, no tabs.
+    if (count($chart_types) > 1 && count(array_unique(wp_list_pluck($chart_types, 'size_chart_html'))) === 1) {
+        $chart_types = [$chart_types[0]];
     }
 
     return $chart_types;

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" fill="none" font-family="Barlow, Arial, sans-serif" font-weight="800" font-size="13">
+  <!-- tee -->
+  <g stroke="#0A3161" stroke-width="2.5" stroke-linejoin="round" fill="#FFFFFF">
+    <path d="M118 56 L166 40 Q204 60 242 40 L290 56 L344 124 L310 150 L282 122 L284 296 L124 296 L126 122 L98 150 L64 124 Z"/>
+    <path d="M166 40 Q204 72 242 40" fill="#EEF2F8"/>
+  </g>
+  <!-- WIDTH (top, shoulder to shoulder) -->
+  <g stroke="#0A3161" stroke-width="2" stroke-linecap="round">
+    <path d="M126 22 H282"/>
+    <path d="M134 16 L126 22 L134 28 M274 16 L282 22 L274 28"/>
+    <path d="M126 28 V112 M282 28 V112" stroke-dasharray="3 4" stroke-width="1.5" opacity=".55"/>
+  </g>
+  <rect x="176" y="13" width="56" height="18" fill="#FFFFFF"/>
+  <text x="204" y="27" fill="#0A3161" text-anchor="middle">WIDTH</text>
+  <!-- CHEST WIDTH (dashed, armpit to armpit) -->
+  <g stroke="#0A3161" stroke-width="2" stroke-linecap="round">
+    <path d="M132 150 H276" stroke-dasharray="5 4"/>
+    <path d="M140 144 L132 150 L140 156 M268 144 L276 150 L268 156"/>
+  </g>
+  <text x="204" y="140" fill="#0A3161" text-anchor="middle">CHEST WIDTH</text>
+  <!-- LENGTH (left, shoulder to hem) -->
+  <g stroke="#0A3161" stroke-width="2" stroke-linecap="round">
+    <path d="M30 40 V296"/>
+    <path d="M24 48 L30 40 L36 48 M24 288 L30 296 L36 288"/>
+  </g>
+  <rect x="8" y="158" width="44" height="22" fill="#FFFFFF"/>
+  <text x="30" y="174" fill="#0A3161" text-anchor="middle" font-size="11">LENGTH</text>
+</svg>

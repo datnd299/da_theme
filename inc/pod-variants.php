@@ -28,6 +28,7 @@ require_once $pod_variants_dir . 'schema.php';
 require_once $pod_variants_dir . 'image-proxy.php';
 require_once $pod_variants_dir . 'lookup-cache.php';
 require_once $pod_variants_dir . 'variant-data.php';
+require_once $pod_variants_dir . 'category-size-chart.php';
 require_once $pod_variants_dir . 'rest-api.php';
 require_once $pod_variants_dir . 'bulk-import.php';
 require_once $pod_variants_dir . 'cart.php';

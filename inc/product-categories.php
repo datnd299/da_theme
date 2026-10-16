@@ -31,6 +31,11 @@ function dawp_lbq_product_categories() {
             'description' => __('Veteran polo shirts that look sharp at reunions, ceremonies and everyday outings.', 'dawp'),
             'short'       => __('Sharp polos for reunions and everyday wear.', 'dawp'),
         ],
+        'hawaiian-shirts' => [
+            'name'        => __('Hawaiian Shirts', 'dawp'),
+            'description' => __('Button-up Hawaiian shirts with veteran, branch and patriotic all-over prints, made to order.', 'dawp'),
+            'short'       => __('All-over print button-ups for every branch.', 'dawp'),
+        ],
         'bomber-jackets' => [
             'name'        => __('Bomber Jackets', 'dawp'),
             'description' => __('Flight-jacket style bomber jackets with veteran designs, made to order.', 'dawp'),
@@ -92,8 +97,9 @@ function dawp_main_product_categories() {
         't-shirts'       => __('T-Shirts', 'dawp'),
         'hoodies'        => __('Hoodies & Zip-Ups', 'dawp'),
         'sweatshirts'    => __('Sweatshirts', 'dawp'),
-        'polo-shirts'    => __('Polo Shirts', 'dawp'),
-        'bomber-jackets' => __('Bomber Jackets', 'dawp'),
+        'polo-shirts'     => __('Polo Shirts', 'dawp'),
+        'hawaiian-shirts' => __('Hawaiian Shirts', 'dawp'),
+        'bomber-jackets'  => __('Bomber Jackets', 'dawp'),
         'caps'           => __('Hats & Caps', 'dawp'),
         'flags'          => __('Flags', 'dawp'),
         'metal-signs'    => __('Metal Signs', 'dawp'),

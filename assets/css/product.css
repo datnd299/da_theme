@@ -1033,6 +1033,187 @@ form.cart:not(.variations_form) {
   list-style: disc;
 }
 
+/* Structured shared description (.pw-desc, set on Products > Categories) */
+.pw-desc {
+  max-width: 760px;
+  color: var(--color-foreground-muted);
+  line-height: 1.65;
+}
+
+.pw-desc h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 32px 0 12px;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-foreground);
+}
+
+.pw-desc h3::before {
+  content: "";
+  flex: none;
+  width: 4px;
+  height: 1.1em;
+  background: var(--color-accent);
+}
+
+.pw-desc > h3:first-child {
+  margin-top: 0;
+}
+
+.pw-desc p {
+  margin: 0 0 12px;
+}
+
+.pw-desc .pw-desc__lead {
+  padding: 16px 20px;
+  border-left: 4px solid var(--color-accent-2);
+  background: var(--color-surface);
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: var(--color-foreground);
+}
+
+.product-category-description .pw-desc ul {
+  padding: 0;
+  list-style: none;
+}
+
+.pw-desc__features {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0 0;
+}
+
+.pw-desc__features li {
+  padding: 16px 18px;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-accent-2);
+  border-radius: var(--radius-lg);
+  background: var(--color-background);
+}
+
+.pw-desc__features strong {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--color-foreground);
+}
+
+.pw-desc__features span {
+  font-size: 0.9375rem;
+}
+
+.woocommerce-Tabs-panel--description table.pw-desc__specs {
+  display: table;
+  width: 100%;
+  margin: 0;
+  white-space: normal;
+  border: 1px solid var(--color-border);
+}
+
+.woocommerce-Tabs-panel--description .pw-desc__specs th,
+.woocommerce-Tabs-panel--description .pw-desc__specs td {
+  padding: 12px 16px;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  font-size: 0.9375rem;
+}
+
+.woocommerce-Tabs-panel--description .pw-desc__specs th {
+  width: 34%;
+  background: var(--color-surface);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  color: var(--color-foreground);
+}
+
+.woocommerce-Tabs-panel--description .pw-desc__specs td,
+.woocommerce-Tabs-panel--description .pw-desc__specs tr:first-child td {
+  background: transparent;
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-foreground-muted);
+}
+
+.woocommerce-Tabs-panel--description .pw-desc__specs tr:last-child th,
+.woocommerce-Tabs-panel--description .pw-desc__specs tr:last-child td {
+  border-bottom: none;
+}
+
+.pw-desc__notes {
+  padding: 14px 18px !important;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.pw-desc__notes li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.pw-desc__notes li + li {
+  margin-top: 6px;
+}
+
+.pw-desc__notes li::before {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  font-size: 0.7rem;
+  line-height: 2.1;
+  color: var(--color-accent);
+}
+
+.pw-desc__checks {
+  display: grid;
+  gap: 8px 20px;
+  margin: 0 0 12px;
+}
+
+.pw-desc__checks li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.pw-desc__checks li::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-accent-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5 9-10'/%3E%3C/svg%3E") center / 11px no-repeat;
+}
+
+.pw-desc__checks strong {
+  color: var(--color-foreground);
+}
+
+@media (min-width: 600px) {
+  .pw-desc__checks {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .pw-desc__features {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
 /* Description table — responsive */
 .woocommerce-Tabs-panel--description table {
   width: 100% !important;
@@ -1735,6 +1916,355 @@ form.cart:not(.variations_form) {
   background: var(--color-accent-soft);
 }
 
+/* All-over-print chart (category size chart HTML: .size-chart-aop) */
+.size-chart-aop {
+  --sc-ink: var(--color-accent-2);
+  --sc-mid: #1A5BA8;
+  --sc-tint: #EAF1FA;
+  overflow: hidden;
+  border: 1px solid var(--sc-tint);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.sc-aop-head {
+  position: relative;
+  padding: 18px 16px 22px;
+  background: linear-gradient(135deg, var(--sc-ink), var(--sc-mid));
+  color: #fff;
+  text-align: center;
+  border-radius: 0 0 50% 50% / 0 0 14px 14px;
+}
+
+.sc-aop-head p,
+.sc-aop-head h4 {
+  margin: 0;
+  line-height: 1.05;
+}
+
+.sc-aop-kicker {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.sc-aop-title {
+  margin: 4px 0 !important;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.sc-aop-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #BFD5F0;
+}
+
+.sc-aop-sub::before,
+.sc-aop-sub::after {
+  content: "";
+  width: 36px;
+  height: 1px;
+  background: currentColor;
+}
+
+.sc-aop-tag {
+  margin-top: 10px !important;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 700;
+  transform: rotate(-4deg);
+}
+
+.sc-aop-measure {
+  display: grid;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 14px 4px;
+}
+
+.sc-aop-figure {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.sc-aop-howto {
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--sc-tint);
+}
+
+.sc-aop-howto-title {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--sc-ink);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.size-chart-aop .sc-aop-howto ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sc-aop-step {
+  position: relative;
+  min-height: 40px;
+  padding-left: 52px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-foreground-muted);
+}
+
+.sc-aop-step::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--sc-ink) center / 22px no-repeat;
+}
+
+.sc-aop-step--width::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4'/%3E%3C/svg%3E");
+}
+
+.sc-aop-step--length::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4'/%3E%3C/svg%3E");
+}
+
+.sc-aop-step--chest::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linejoin='round'%3E%3Cpath d='M8 3 3 6l2 4 2-1v12h10V9l2 1 2-4-5-3a4 4 0 0 1-8 0Z'/%3E%3Cpath d='M8 13h8' stroke-dasharray='2 1.5'/%3E%3C/svg%3E");
+}
+
+.sc-aop-step strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sc-ink);
+}
+
+.sc-aop-table {
+  margin: 14px 14px 0;
+  overflow: hidden;
+  border: 1.5px solid var(--sc-mid);
+  border-radius: 8px;
+}
+
+.sc-aop-table-title {
+  margin: 0;
+  padding: 9px 14px;
+  background: var(--sc-ink);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sc-aop-table-title span {
+  color: #9EC2EE;
+}
+
+.size-chart-aop .size-chart-scroll {
+  border: none;
+  border-radius: 0;
+}
+
+.size-chart-aop .size-chart-table th,
+.size-chart-aop .size-chart-table td {
+  padding: 6px 4px;
+  border-color: #D5E2F2;
+  font-size: 13px;
+  white-space: normal;
+}
+
+.size-chart-aop .size-chart-table thead th {
+  background: var(--sc-mid);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.size-chart-aop .size-chart-table thead th span {
+  display: block;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.size-chart-aop .size-chart-table td {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-foreground);
+}
+
+.size-chart-aop .size-chart-table td.size-col {
+  background: transparent;
+  font-weight: 800;
+  color: var(--sc-ink);
+}
+
+.size-chart-aop .size-chart-table tbody tr:nth-child(odd) {
+  background: var(--sc-tint);
+}
+
+.size-chart-aop .size-chart-table tbody tr:nth-child(even) {
+  background: #fff;
+}
+
+.sc-aop-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 0;
+  margin: 16px 0 0;
+  padding: 12px 10px;
+  background: linear-gradient(135deg, var(--sc-ink), var(--sc-mid));
+  color: #CFE0F5;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sc-aop-foot span + span::before {
+  content: "/";
+  margin: 0 10px;
+  opacity: 0.6;
+}
+
+/* Lettered steps (A, B, C…) instead of icons */
+.sc-aop-steps--letters {
+  counter-reset: sc-step;
+}
+
+.sc-aop-steps--letters .sc-aop-step {
+  min-height: 32px;
+  padding-left: 42px;
+  counter-increment: sc-step;
+}
+
+.sc-aop-steps--letters .sc-aop-step::before {
+  content: counter(sc-step, upper-alpha);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+/* Inch + cm side by side under one group header */
+.size-chart-aop .sc-aop-grouped thead tr + tr th {
+  background: var(--sc-tint);
+  color: var(--sc-mid);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.size-chart-aop .sc-aop-grouped thead th[rowspan] {
+  background: var(--sc-ink);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.size-chart-aop .sc-aop-grouped th,
+.size-chart-aop .sc-aop-grouped td {
+  padding: 6px 2px;
+}
+
+.sc-aop-note {
+  margin: 14px 14px 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--sc-tint);
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--color-foreground-muted);
+}
+
+.sc-aop-note strong {
+  color: var(--sc-ink);
+}
+
+.size-chart-aop > :last-child:not(.sc-aop-foot) {
+  margin-bottom: 14px;
+}
+
+@media (min-width: 480px) {
+  .sc-aop-measure {
+    grid-template-columns: 1fr 1.15fr;
+  }
+
+  .sc-aop-title {
+    font-size: 36px;
+  }
+
+  .sc-aop-head {
+    padding-right: 120px;
+    padding-left: 16px;
+    text-align: left;
+  }
+
+  .sc-aop-sub {
+    justify-content: flex-start;
+  }
+
+  .sc-aop-sub::before {
+    display: none;
+  }
+
+  .sc-aop-tag {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    max-width: 100px;
+    margin: 0 !important;
+    font-size: 17px;
+    line-height: 1.1;
+    text-align: center;
+    transform: translateY(-50%) rotate(-8deg);
+  }
+}
+
 /* ==========================================================================
    Mobile (< 480px): stack each row into a card instead of horizontal scroll
    ========================================================================== */
@@ -2367,9 +2897,9 @@ body.single-product,
 
 .single-product .product_title.entry-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
   font-weight: 600;
-  line-height: 0.98;
+  line-height: 1.05;
   letter-spacing: 0.005em;
 }
 

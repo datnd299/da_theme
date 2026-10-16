@@ -105,6 +105,8 @@ const GARMENTS = [
   { key: 'bomber-jacket', re: /bomber/i, name: 'Bomber Jacket', code: 'BMB', category: 'bomber-jackets' },
   { key: 'sweatshirt', re: /sweatshirt/i, name: 'Sweatshirt', code: 'SWT', category: 'sweatshirts' },
   { key: 'polo', re: /polo/i, name: 'Polo Shirt', code: 'POLO', category: 'polo-shirts' },
+  // Before t-shirt: "Hawaiian Shirt" would otherwise match \bshirt\b.
+  { key: 'hawaiian-shirt', re: /hawaii/i, name: 'Hawaiian Shirt', code: 'HAW', category: 'hawaiian-shirts' },
   { key: 't-shirt', re: /t-?shirt|\btee\b|\bshirt\b/i, name: 'T-Shirt', code: 'TEE', category: 't-shirts' },
   { key: 'cap', re: /\bcap\b|\bhat\b/i, name: 'Cap', code: 'CAP', category: 'caps' },
   { key: 'flag', re: /\bflag\b/i, name: 'Flag', code: 'FLAG', category: 'flags' },
@@ -135,10 +137,12 @@ const GARMENTS = [
   { key: 'mask', re: /\bmasks?\b/i, name: 'Face Mask', code: 'MASK', category: 'accessories' },
   { key: 'wood-sign', re: /wood\s*signs?|wreath/i, name: 'Wood Sign', code: 'WSGN', category: 'home-decor' },
 ];
-// Products whose title matched one of the first 9 entries were imported by
+// Products whose title matched one of the original 9 entries were imported by
 // the first version of this script; their Style names/size sets and SKUs must
-// not change (see transform()).
-const CORE_GARMENTS = new Set(GARMENTS.slice(0, 9));
+// not change (see transform()). Hawaiian shirts were part of t-shirt then, so
+// they stay core and keep weighting the Style size sets as before.
+const CORE_KEYS = ['zip-hoodie', 'hoodie', 'bomber-jacket', 'sweatshirt', 'polo', 'hawaiian-shirt', 't-shirt', 'cap', 'flag', 'metal-sign'];
+const CORE_GARMENTS = new Set(GARMENTS.filter((g) => CORE_KEYS.includes(g.key)));
 // Title without a garment word ("… Collection", "Unique Lest We Forget …"):
 // try the ShopBase collections ("U.S.Army Cap", "Hoodie & Zip Up Hoodies"),
 // then the option values (Type: Zip Hoodie/Cap), then the handle; apparel

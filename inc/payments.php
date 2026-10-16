@@ -221,6 +221,16 @@ function dawp_payments_init() {
             );
         }
 
+        /** Zelle details (recipient, phone, QR) are only revealed after the order is placed. */
+        public function payment_fields() {
+            echo '<div class="dawp-pay">';
+            if ($this->description) {
+                echo wpautop(wptexturize(wp_kses_post($this->description)));
+            }
+            echo '<p class="dawp-pay-note">' . esc_html__('Zelle payment details (recipient and QR code) will be shown after you place your order.', 'dawp') . '</p>';
+            echo '</div>';
+        }
+
         protected function render_details($order = null) {
             $name = trim($this->get_option('account_name'));
             $id   = trim($this->get_option('account_id'));
@@ -231,12 +241,6 @@ function dawp_payments_init() {
                 echo '<img class="dawp-pay-qr" src="' . esc_url($qr) . '" alt="' . esc_attr__('Zelle QR code', 'dawp') . '" width="160" height="160" loading="lazy">';
             }
             echo '<ul class="dawp-pay-summary">';
-            // Thank-you page already shows the amount above; at checkout, show the live cart total.
-            if (!$order && WC()->cart) {
-                $total = (float) WC()->cart->get_total('edit');
-                echo '<li><span>' . esc_html__('Amount', 'dawp') . '</span><strong>' . wp_kses_post(wc_price($total)) . '</strong>'
-                    . '<button type="button" class="dawp-copy" data-copy="' . esc_attr(number_format($total, wc_get_price_decimals(), '.', '')) . '">' . esc_html__('Copy', 'dawp') . '</button></li>';
-            }
             $this->copy_row(__('Recipient', 'dawp'), $name);
             $this->copy_row(__('Zelle phone', 'dawp'), $id);
             echo '</ul></div>';

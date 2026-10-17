@@ -107,6 +107,41 @@ function dawp_main_product_categories() {
     ];
 }
 
+/**
+ * Published products in a product_cat term, including its child categories.
+ * Core term->count skips children and goes stale on direct-DB imports, so a 0 is re-checked with a real query.
+ */
+function dawp_product_cat_count($term) {
+    $count = max((int) $term->count, (int) get_term_meta($term->term_id, 'product_count_product_cat', true));
+    if ($count > 0) {
+        return $count;
+    }
+
+    $cache_key = 'dawp_cat_count_' . $term->term_id;
+    $cached    = get_transient($cache_key);
+    if ($cached !== false) {
+        return (int) $cached;
+    }
+
+    $query = new WP_Query([
+        'post_type'      => 'product',
+        'post_status'    => 'publish',
+        'posts_per_page' => 1,
+        'fields'         => 'ids',
+        'no_found_rows'  => false,
+        'tax_query'      => [[
+            'taxonomy'         => 'product_cat',
+            'field'            => 'term_id',
+            'terms'            => (int) $term->term_id,
+            'include_children' => true,
+        ]],
+    ]);
+    $count = (int) $query->found_posts;
+    set_transient($cache_key, $count, HOUR_IN_SECONDS);
+
+    return $count;
+}
+
 add_action('init', 'dawp_ensure_lbq_product_categories', 30);
 function dawp_ensure_lbq_product_categories() {
     if (!taxonomy_exists('product_cat')) {

@@ -30,7 +30,12 @@ $category_chips = [];
 foreach (dawp_main_product_categories() as $slug => $label) {
     $term = get_term_by('slug', $slug, 'product_cat');
 
-    if (!$term || is_wp_error($term) || (int) $term->count === 0) {
+    if (!$term || is_wp_error($term)) {
+        continue;
+    }
+
+    $term_count = dawp_product_cat_count($term);
+    if ($term_count === 0) {
         continue;
     }
 
@@ -44,7 +49,7 @@ foreach (dawp_main_product_categories() as $slug => $label) {
         'name'    => $label,
         'slug'    => $term->slug,
         'url'     => $term_link,
-        'count'   => (int) $term->count,
+        'count'   => $term_count,
         'current' => is_product_category($term->slug),
     ];
 }

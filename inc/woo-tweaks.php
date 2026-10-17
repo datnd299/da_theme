@@ -340,7 +340,6 @@ function dawp_pdp_sections() {
                     <h2><?php esc_html_e('What People Are Saying', 'dawp'); ?></h2>
                 </header>
                 <div class="pdp-reviews__body">
-                    <?php if (function_exists('chronel_display_product_reviews')) chronel_display_product_reviews(); ?>
                     <?php comments_template(); ?>
                 </div>
             </section>
@@ -378,7 +377,6 @@ function dawp_pdp_quality() {
                 </li>
             <?php endforeach; ?>
         </ol>
-        <?php if (function_exists('chronel_display_quality_check')) chronel_display_quality_check(); ?>
     </section>
     <?php
 }
@@ -441,8 +439,8 @@ function dawp_pdp_promise() {
         [__('2-Year Warranty', 'dawp'), __('Two years of coverage against manufacturing defects.', 'dawp')],
     ];
     ?>
-    <section class="pdp-promise" aria-label="<?php esc_attr_e('The Chronel promise', 'dawp'); ?>">
-        <p class="pdp-eyebrow"><?php esc_html_e('The Chronel Promise', 'dawp'); ?></p>
+    <section class="pdp-promise" aria-label="<?php esc_attr_e('The Celvia promise', 'dawp'); ?>">
+        <p class="pdp-eyebrow"><?php esc_html_e('The Celvia Promise', 'dawp'); ?></p>
         <h2><?php esc_html_e('Bought with Confidence', 'dawp'); ?></h2>
         <ul>
             <?php foreach ($items as $item) : ?>

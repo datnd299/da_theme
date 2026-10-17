@@ -27,24 +27,24 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     return [
-        'about-us'             => ['slug' => 'about',                'title' => 'About Chronel', 'desc' => 'Learn more about Chronel, a curated online store for luxury watches, fine timepieces and premium accessories.', 'keywords' => 'Chronel, about Chronel, luxury watch store, fine timepieces', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=86'],
-        'faq'                  => ['slug' => 'faq',                  'title' => 'Chronel FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, payments and support at Chronel.', 'keywords' => 'Chronel FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'FAQPage'],
-        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact Chronel', 'desc' => 'Contact Chronel support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact Chronel, Chronel support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => get_template_directory_uri() . '/assets/img/gallery/Customer_support_scene_in_office_202607161445.jpeg'],
-        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Chronel shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Chronel shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
-        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Chronel shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Chronel shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
-        'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'desc' => 'Read the Chronel return and refund policy, including return eligibility, return shipping, exchanges and refund timing.', 'keywords' => 'Chronel return policy, refund policy, returns, refund timing', 'css' => 'tw-ship.css', 'canonical_path' => 'return-refund-policy', 'schema_type' => 'WebPage'],
-        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the Chronel terms and conditions for browsing the website, placing orders, payments, policies and customer support.', 'keywords' => 'Chronel terms, terms and conditions, store policies, website terms', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage'],
-        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how Chronel collects, uses, protects and manages customer information, cookies, privacy requests and account data.', 'keywords' => 'Chronel privacy policy, customer data, cookies, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivacyPolicy'],
-        'track-order'          => ['slug' => 'track-order',          'title' => 'Track Your Chronel Order', 'desc' => 'Track your Chronel order online using your order ID and billing email, or contact support for shipment help.', 'keywords' => 'track Chronel order, order tracking, shipment status, order status', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage'],
+        'about-us'             => ['slug' => 'about',                'title' => 'About Celvia', 'desc' => 'Learn more about Celvia, a curated online store for luxury watches, fine timepieces and premium accessories.', 'keywords' => 'Celvia, about Celvia, luxury watch store, fine timepieces', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=86'],
+        'faq'                  => ['slug' => 'faq',                  'title' => 'Celvia FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, payments and support at Celvia.', 'keywords' => 'Celvia FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'FAQPage'],
+        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact Celvia', 'desc' => 'Contact Celvia support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact Celvia, Celvia support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => get_template_directory_uri() . '/assets/img/gallery/Customer_support_scene_in_office_202607161445.jpeg'],
+        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Celvia shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Celvia shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
+        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Celvia shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Celvia shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
+        'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'desc' => 'Read the Celvia return and refund policy, including return eligibility, return shipping, exchanges and refund timing.', 'keywords' => 'Celvia return policy, refund policy, returns, refund timing', 'css' => 'tw-ship.css', 'canonical_path' => 'return-refund-policy', 'schema_type' => 'WebPage'],
+        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the Celvia terms and conditions for browsing the website, placing orders, payments, policies and customer support.', 'keywords' => 'Celvia terms, terms and conditions, store policies, website terms', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage'],
+        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how Celvia collects, uses, protects and manages customer information, cookies, privacy requests and account data.', 'keywords' => 'Celvia privacy policy, customer data, cookies, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivacyPolicy'],
+        'track-order'          => ['slug' => 'track-order',          'title' => 'Track Your Celvia Order', 'desc' => 'Track your Celvia order online using your order ID and billing email, or contact support for shipment help.', 'keywords' => 'track Celvia order, order tracking, shipment status, order status', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage'],
     ];
 }
 
 function dawp_home_page_seo_data() {
     return [
         'slug'           => 'home',
-        'title'          => 'Chronel - Luxury Watches & Fine Timepieces',
-        'desc'           => 'Shop Chronel for luxury watches, fine timepieces, limited editions, mechanical references and premium accessories.',
-        'keywords'       => 'Chronel, luxury watches, fine timepieces, Swiss watches, watch collections',
+        'title'          => 'Celvia - Luxury Watches & Fine Timepieces',
+        'desc'           => 'Shop Celvia for luxury watches, fine timepieces, limited editions, mechanical references and premium accessories.',
+        'keywords'       => 'Celvia, luxury watches, fine timepieces, Swiss watches, watch collections',
         'canonical_path' => '',
         'schema_type'    => 'WebSite',
         'image'          => get_template_directory_uri() . '/assets/img/home/Home_essentials_on_shelf_202607171221.jpeg',
@@ -160,10 +160,10 @@ function dawp_rank_math_organization_schema() {
         '@id'   => home_url('/#organization'),
         'name'  => get_bloginfo('name'),
         'url'   => home_url('/'),
-        'email' => 'support@chronelshop.com',
+        'email' => 'support@celviaus.com',
         'logo'  => [
             '@type' => 'ImageObject',
-            'url'   => get_template_directory_uri() . '/assets/img/logo/chronel-logo-black.png',
+            'url'   => get_template_directory_uri() . '/assets/img/logo/celvia-logo-black.svg',
         ],
     ];
 }
@@ -191,8 +191,8 @@ function dawp_rank_math_faq_schema_entities($slug) {
 
     $items = [
         [
-            'question' => 'Where does Chronel ship?',
-            'answer'   => 'Chronel currently ships exclusively within the United States domestic market.',
+            'question' => 'Where does Celvia ship?',
+            'answer'   => 'Celvia currently ships exclusively within the United States domestic market.',
         ],
         [
             'question' => 'How much does shipping cost?',
@@ -203,8 +203,8 @@ function dawp_rank_math_faq_schema_entities($slug) {
             'answer'   => 'Eligible products can be returned within 30 days after delivery.',
         ],
         [
-            'question' => 'How do I contact Chronel?',
-            'answer'   => 'Customers can contact Chronel support by email at support@chronelshop.com or through the Contact Us page.',
+            'question' => 'How do I contact Celvia?',
+            'answer'   => 'Customers can contact Celvia support by email at support@celviaus.com or through the Contact Us page.',
         ],
     ];
 

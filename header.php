@@ -19,7 +19,7 @@ $shop_url      = function_exists('wc_get_page_permalink') ? wc_get_page_permalin
 $account_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $cart_url      = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count    = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
-$logo_url      = get_template_directory_uri() . '/assets/img/logo/chronel-logo-black.png';
+$logo_url      = get_template_directory_uri() . '/assets/img/logo/celvia-logo-black.svg';
 $has_fibosearch = shortcode_exists('fibosearch');
 
 if (!$shop_url) {
@@ -133,8 +133,8 @@ $icon = static function ($name) {
             </nav>
         </div>
 
-        <a href="<?php echo esc_url($home_url); ?>" class="mx-logo" aria-label="<?php esc_attr_e('Chronel home', 'dawp'); ?>">
-            <img src="<?php echo esc_url($logo_url); ?>" width="170" height="51" alt="<?php esc_attr_e('Chronel', 'dawp'); ?>">
+        <a href="<?php echo esc_url($home_url); ?>" class="mx-logo" aria-label="<?php esc_attr_e('Celvia home', 'dawp'); ?>">
+            <img src="<?php echo esc_url($logo_url); ?>" width="170" height="51" alt="<?php esc_attr_e('Celvia', 'dawp'); ?>">
         </a>
 
         <div class="mx-main__end">
@@ -179,7 +179,7 @@ $icon = static function ($name) {
     <div class="mx-drawer__overlay" data-mx-drawer-close></div>
     <div class="mx-drawer__panel" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e('Menu', 'dawp'); ?>">
         <div class="mx-drawer__head">
-            <img src="<?php echo esc_url($logo_url); ?>" width="132" height="40" alt="<?php esc_attr_e('Chronel', 'dawp'); ?>">
+            <img src="<?php echo esc_url($logo_url); ?>" width="132" height="40" alt="<?php esc_attr_e('Celvia', 'dawp'); ?>">
             <button type="button" class="mx-icon" aria-label="<?php esc_attr_e('Close menu', 'dawp'); ?>" data-mx-drawer-close><?php echo $icon('close'); ?></button>
         </div>
         <nav class="mx-drawer__nav" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">

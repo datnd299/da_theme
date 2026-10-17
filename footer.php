@@ -20,7 +20,7 @@ if (!$account_url) {
     $account_url = home_url('/my-account/');
 }
 
-$support_email  = 'support@chronelshop.com';
+$support_email  = 'support@celviaus.com';
 $support_phone  = '+1 304 585 0364';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM', 'dawp');
 $store_address  = 'Loom Agency LLC, 30 N Gould St, STE R, Sheridan, Wyoming 82801, US';
@@ -117,8 +117,8 @@ $payment_methods = [
     <div class="mx-wrap">
         <div class="mx-footer__top">
             <section aria-label="<?php esc_attr_e('Brand and contact information', 'dawp'); ?>">
-                <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Chronel home', 'dawp'); ?>">
-                    <img class="mx-footer__logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo/chronel-logo-white.png'); ?>" width="160" height="50" alt="<?php esc_attr_e('Chronel', 'dawp'); ?>" loading="lazy">
+                <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Celvia home', 'dawp'); ?>">
+                    <img class="mx-footer__logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo/celvia-logo-white.svg'); ?>" width="160" height="50" alt="<?php esc_attr_e('Celvia', 'dawp'); ?>" loading="lazy">
                 </a>
                 <p class="mx-footer__lede"><?php esc_html_e('Rolex, Patek Philippe, Audemars Piguet, Omega and other Swiss houses, each piece inspected before it reaches you.', 'dawp'); ?></p>
                 <dl class="mx-footer__contact">
@@ -156,7 +156,7 @@ $payment_methods = [
         </div>
 
         <div class="mx-footer__bottom">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Chronel. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Celvia. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
             <nav class="mx-footer__legal" aria-label="<?php esc_attr_e('Legal links', 'dawp'); ?>">
                 <?php foreach ($legal_links as $link) : ?>
                     <a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a>

@@ -1,31 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('site-header');
-    const toggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.main-navigation');
-
-    // Scroll shadow
+    // Scroll state (compact header shadow)
     if (header) {
         const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
     }
 
-    // Mobile menu toggle
-    if (toggle && nav) {
-        toggle.addEventListener('click', () => {
-            const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('is-open');
-        });
-
-        // Đóng menu khi click bên ngoài
-        document.addEventListener('click', (e) => {
-            if (!header.contains(e.target) && !toggle.contains(e.target)) {
-                toggle.setAttribute('aria-expanded', 'false');
-                nav.classList.remove('is-open');
-            }
-        });
+    // Header search panel
+    const searchToggle = document.querySelector('[data-mx-search-toggle]');
+    const searchPanel = document.getElementById('mx-search');
+    if (searchToggle && searchPanel) {
+        const setSearch = (open) => {
+            searchPanel.hidden = !open;
+            searchToggle.setAttribute('aria-expanded', String(open));
+            if (open) searchPanel.querySelector('input[type="search"]')?.focus();
+        };
+        searchToggle.addEventListener('click', () => setSearch(searchPanel.hidden));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !searchPanel.hidden) setSearch(false); });
     }
+
+    // Mobile drawer
+    const drawer = document.getElementById('mx-drawer');
+    const drawerOpen = document.querySelector('[data-mx-drawer-open]');
+    if (drawer && drawerOpen) {
+        const setDrawer = (open) => {
+            drawer.classList.toggle('is-open', open);
+            drawer.setAttribute('aria-hidden', String(!open));
+            drawerOpen.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('mx-locked', open);
+        };
+        drawerOpen.addEventListener('click', () => setDrawer(true));
+        drawer.querySelectorAll('[data-mx-drawer-close]').forEach((el) => el.addEventListener('click', () => setDrawer(false)));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && drawer.classList.contains('is-open')) setDrawer(false); });
+    }
+
+    document.querySelectorAll('[data-mobile-megamenu-trigger]').forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+            const expanded = trigger.getAttribute('aria-expanded') === 'true';
+            trigger.setAttribute('aria-expanded', String(!expanded));
+            trigger.nextElementSibling?.classList.toggle('is-open', !expanded);
+        });
+    });
 
     // Mobile image sliders
     document.querySelectorAll('[data-mobile-image-gallery], [data-organizer-gallery]').forEach((gallery) => {
@@ -87,50 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
 
         setActiveDot(0);
-    });
-
-    // Watchmaking craft image switcher
-    document.querySelectorAll('[data-craft-image-frame]').forEach((frame) => {
-        const image = frame.querySelector('img');
-        const section = frame.closest('.lux-craft-grid');
-        const notes = section ? Array.from(section.querySelectorAll('[data-craft-image]')) : [];
-        if (!image || !notes.length) return;
-
-        notes.forEach((note) => {
-            const preload = new Image();
-            preload.src = note.dataset.craftImage;
-        });
-
-        const setCraftImage = (activeNote) => {
-            const nextSrc = activeNote.dataset.craftImage;
-            const nextAlt = activeNote.dataset.craftAlt || '';
-            const nextPosition = activeNote.dataset.craftPosition || '50% 50%';
-            const currentSrc = image.getAttribute('src') || '';
-            if (!nextSrc || currentSrc === nextSrc) return;
-
-            notes.forEach((note) => {
-                const isActive = note === activeNote;
-                note.classList.toggle('is-active', isActive);
-                note.setAttribute('aria-pressed', String(isActive));
-            });
-
-            frame.classList.add('is-changing');
-            window.setTimeout(() => {
-                image.src = nextSrc;
-                image.alt = nextAlt;
-                image.style.objectPosition = nextPosition;
-            }, 120);
-        };
-
-        image.addEventListener('load', () => {
-            frame.classList.remove('is-changing');
-        });
-
-        notes.forEach((note) => {
-            note.addEventListener('click', () => setCraftImage(note));
-            note.addEventListener('mouseenter', () => setCraftImage(note));
-            note.addEventListener('focus', () => setCraftImage(note));
-        });
     });
 
     // Product Gallery Thumbnails Scroll

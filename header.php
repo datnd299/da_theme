@@ -1,6 +1,7 @@
 <?php
 /**
- * Theme header.
+ * Theme header — Maison layout: service bar, split nav / centred logo, search panel, mobile drawer.
+ * Styles live in assets/css/main.css (HEADER section).
  *
  * @package dawp
  */
@@ -35,313 +36,179 @@ $is_shop_area = (function_exists('is_shop') && is_shop()) || (function_exists('i
 $megamenu_brands = function_exists('dawp_megamenu_brands') ? dawp_megamenu_brands() : [];
 
 $nav_items = [
-    ['title' => __('Home', 'dawp'), 'url' => $home_url, 'active' => '' === $current_path],
     ['title' => __('Watches', 'dawp'), 'url' => $shop_url, 'active' => $is_shop_area, 'megamenu' => true],
+    ['title' => __('New Arrivals', 'dawp'), 'url' => add_query_arg('orderby', 'date', $shop_url), 'active' => false],
     ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/'), 'active' => 'contact-us' === $current_path],
     ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/'), 'active' => 'track-order' === $current_path],
 ];
 
-$mobile_extra_items = [
-    ['title' => __('Account', 'dawp'), 'url' => $account_url],
-];
+$icon = static function ($name) {
+    $paths = [
+        'search'  => '<circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>',
+        'account' => '<path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle>',
+        'heart'   => '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path>',
+        'bag'     => '<path d="M5 8h14l-1 13H6z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path>',
+        'menu'    => '<path d="M3 7h18"></path><path d="M3 12h18"></path><path d="M3 17h12"></path>',
+        'close'   => '<path d="M6 6l12 12"></path><path d="M18 6 6 18"></path>',
+        'caret'   => '<path d="m6 9 6 6 6-6"></path>',
+    ];
+    return '<svg viewBox="0 0 24 24" aria-hidden="true">' . ($paths[$name] ?? '') . '</svg>';
+};
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        :root { --lux-black:#0B0B0B; --lux-charcoal:#1A1A1A; --lux-ivory:#F7F5F0; --lux-white:#FFFFFF; --lux-gold:#B89B5E; --lux-gold-light:#D1BD8A; --lux-gray:#858585; --lux-line:#E5E2DC; }
-        html { scroll-behavior:smooth; }
-        body { margin:0; color:var(--lux-charcoal); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; text-rendering:optimizeLegibility; }
-        .lux-skip { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
-        .lux-skip:focus { position:fixed; left:16px; top:16px; z-index:1000; width:auto; height:auto; padding:12px 16px; border:1px solid var(--lux-gold); border-radius:2px; background:var(--lux-ivory); color:var(--lux-black); font-weight:800; }
-        .lux-site-header { position:relative; z-index:80; border-bottom:1px solid rgba(229,226,220,.82); background:rgba(247,245,240,.94); color:var(--lux-black); backdrop-filter:saturate(150%) blur(14px); }
-        .lux-head-wrap { width:min(100% - 40px,1280px); margin-inline:auto; }
-        .lux-service-bar { border-bottom:1px solid rgba(229,226,220,.35); background:var(--lux-black); color:var(--lux-ivory); }
-        .lux-service-bar__row { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:20px; min-height:34px; font-size:12px; line-height:1.35; }
-        .lux-service-bar__item { display:inline-flex; align-items:center; gap:6px; }
-        .lux-service-bar__item svg { width:14px; height:14px; flex:none; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-        .lux-service-bar__center { justify-self:center; text-align:center; }
-        .lux-service-bar__right { justify-self:end; }
-        .lux-service-bar a { color:var(--lux-gold-light); text-decoration:none; }
-        .lux-service-bar a:hover { text-decoration:underline; text-underline-offset:4px; }
-        .lux-header-main { display:grid; grid-template-columns:minmax(220px,1fr) auto minmax(220px,1fr); align-items:center; gap:28px; min-height:78px; }
-        .lux-brand { display:inline-flex; align-items:center; justify-content:flex-start; color:var(--lux-black); line-height:1; text-decoration:none; }
-        .lux-brand__logo { display:block; width:180px; height:auto; max-height:54px; }
-        .lux-primary-nav { display:flex; align-items:center; justify-content:center; gap:28px; min-width:0; }
-        .lux-primary-nav a, .lux-mobile-nav a { display:inline-flex; align-items:center; color:inherit; font-size:12px; font-weight:800; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; transition:color .25s cubic-bezier(.22,1,.36,1); }
-        .lux-primary-nav a:hover, .lux-primary-nav a.is-current { color:var(--lux-gold); }
-        .lux-nav-item { position:static; display:flex; align-items:center; }
-        .lux-nav-caret { width:11px; height:11px; margin-left:5px; fill:none; stroke:currentColor; stroke-width:2; transition:transform .25s cubic-bezier(.22,1,.36,1); }
-        .lux-nav-item:hover .lux-nav-caret, .lux-nav-item:focus-within .lux-nav-caret { transform:rotate(180deg); }
-        .lux-megamenu { position:absolute; top:100%; left:0; right:0; z-index:70; opacity:0; visibility:hidden; transform:translateY(-8px); border-top:1px solid var(--lux-line); background:var(--lux-ivory); box-shadow:0 24px 48px -24px rgba(11,11,11,.28); transition:opacity .22s cubic-bezier(.22,1,.36,1), transform .22s cubic-bezier(.22,1,.36,1), visibility .22s; }
-        .lux-nav-item:hover .lux-megamenu, .lux-nav-item:focus-within .lux-megamenu { opacity:1; visibility:visible; transform:translateY(0); }
-        .lux-megamenu__inner { padding:36px 0 40px; }
-        .lux-megamenu__eyebrow { margin:0 0 20px; color:var(--lux-gold); font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
-        .lux-megamenu__layout { display:grid; grid-template-columns:1fr 280px; gap:44px; align-items:start; }
-        .lux-megamenu__grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:28px 24px; }
-        .lux-megamenu__col { min-width:0; }
-        .lux-megamenu__brand { display:flex; align-items:center; gap:10px; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--lux-line); color:var(--lux-black); text-decoration:none; transition:border-color .25s cubic-bezier(.22,1,.36,1); }
-        .lux-megamenu__brand span { font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
-        .lux-megamenu__brand:hover { border-color:var(--lux-gold); }
-        .lux-megamenu__brand:hover span { color:var(--lux-gold); }
-        .lux-megamenu__brand-thumb { flex:none; width:30px; height:30px; border-radius:999px; object-fit:cover; box-shadow:0 0 0 1px var(--lux-line); }
-        .lux-megamenu__col ul { display:grid; gap:9px; margin:0; padding:0; list-style:none; }
-        .lux-megamenu__col a { color:var(--lux-gray); font-size:13px; font-weight:500; letter-spacing:0; text-decoration:none; text-transform:none; }
-        .lux-megamenu__col a:hover { color:var(--lux-gold); }
-        .lux-megamenu__feature { position:relative; display:block; min-height:100%; border-radius:4px; overflow:hidden; text-decoration:none; }
-        .lux-megamenu__feature img { display:block; width:100%; height:100%; min-height:280px; object-fit:cover; transition:transform .5s cubic-bezier(.22,1,.36,1); }
-        .lux-megamenu__feature:hover img { transform:scale(1.05); }
-        .lux-megamenu__feature::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(11,11,11,0) 40%, rgba(11,11,11,.82) 100%); }
-        .lux-megamenu__feature-copy { position:absolute; left:20px; right:20px; bottom:18px; z-index:1; display:grid; gap:6px; color:var(--lux-ivory); }
-        .lux-megamenu__feature-eyebrow { color:var(--lux-gold-light); font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
-        .lux-megamenu__feature-title { font-family:"Cormorant Garamond", Georgia, serif; font-size:20px; font-weight:600; line-height:1.2; }
-        .lux-megamenu__feature-cta { display:inline-flex; align-items:center; gap:4px; margin-top:4px; font-size:11px; font-weight:800; letter-spacing:.08em; text-decoration:underline; text-underline-offset:4px; text-transform:uppercase; }
-        .lux-mobile-nav__item { border-bottom:1px solid var(--lux-line); }
-        .lux-mobile-nav__toggle { display:flex; align-items:center; justify-content:space-between; width:100%; min-height:48px; border:0; background:transparent; padding:0; color:inherit; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; }
-        .lux-mobile-nav__toggle[aria-expanded="true"] .lux-nav-caret { transform:rotate(180deg); }
-        .lux-mobile-submenu { display:none; grid-template-columns:1fr; gap:2px; padding:2px 0 16px 14px; }
-        .lux-mobile-submenu.is-open { display:grid; }
-        .lux-mobile-submenu a { display:flex; align-items:center; min-height:40px; color:var(--lux-gray); font-size:12px; font-weight:700; letter-spacing:.04em; text-decoration:none; text-transform:none; }
-        .lux-mobile-submenu a:hover { color:var(--lux-gold); }
-        .lux-actions { display:flex; align-items:center; justify-content:flex-end; gap:14px; }
-        .lux-icon-link, .lux-icon-button { position:relative; display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border:1px solid transparent; border-radius:2px; background:transparent; color:var(--lux-black); text-decoration:none; cursor:pointer; transition:border-color .25s cubic-bezier(.22,1,.36,1), color .25s cubic-bezier(.22,1,.36,1), background .25s cubic-bezier(.22,1,.36,1); }
-        .lux-icon-link:hover, .lux-icon-button:hover { border-color:var(--lux-line); background:var(--lux-white); color:var(--lux-gold); }
-        .lux-icon-link svg, .lux-icon-button svg { width:21px; height:21px; fill:none; stroke:currentColor; stroke-width:1.65; stroke-linecap:round; stroke-linejoin:round; }
-        .lux-icon-link--cart { width:40px; height:40px; border-radius:999px; background:var(--lux-black); color:var(--lux-ivory); }
-        .lux-icon-link--cart:hover { border-color:var(--lux-black); background:var(--lux-charcoal); color:var(--lux-gold-light); }
-        .lux-icon-link--cart svg { width:18px; height:18px; }
-        .lux-cart-count { position:absolute; top:-4px; right:-4px; display:flex; align-items:center; justify-content:center; min-width:18px; height:18px; padding:0 5px; border:1px solid var(--lux-ivory); border-radius:999px; background:var(--lux-gold); color:var(--lux-black); font-size:10px; font-weight:900; }
-        .lux-search { display:flex; align-items:center; width:260px; min-width:0; border:1px solid var(--lux-line); border-radius:999px; background:var(--lux-white); overflow:hidden; }
-        .lux-search input { width:100%; min-height:40px; border:0; background:transparent; color:var(--lux-black); outline:0; padding:0 4px 0 18px; font-size:13px; }
-        .lux-search input::placeholder { color:#69645D; }
-        .lux-search button { display:inline-flex; flex:none; align-items:center; justify-content:center; width:38px; height:38px; margin:1px; border:0; border-radius:999px; background:var(--lux-gold); color:var(--lux-black); cursor:pointer; transition:background .25s cubic-bezier(.22,1,.36,1); }
-        .lux-search button:hover { background:var(--lux-gold-light); }
-        .lux-search button svg { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-        .lux-fibo { width:260px; min-width:0; }
-        .lux-fibo .dgwt-wcas-search-wrapp { width:100%; max-width:none; min-width:0; margin:0; }
-        .lux-fibo .dgwt-wcas-sf-wrapp { padding:0; background:transparent; }
-        .lux-fibo .dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input { height:42px; padding:0 48px 0 18px; border:1px solid var(--lux-line); border-radius:999px; background:var(--lux-white); color:var(--lux-black); font-size:13px; box-shadow:none; }
-        .lux-fibo .dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input::placeholder { color:#69645D; font-style:normal; }
-        .lux-fibo .dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input:focus { border-color:var(--lux-gold); outline:0; }
-        .lux-fibo .dgwt-wcas-open .dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input { border-radius:999px; }
-        .lux-fibo .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit { top:2px; right:2px; display:inline-flex; align-items:center; justify-content:center; width:38px; min-width:38px; height:38px; min-height:38px; padding:0; border-radius:999px; background:var(--lux-gold); color:var(--lux-black); text-shadow:none; transition:background .25s cubic-bezier(.22,1,.36,1); }
-        .lux-fibo .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit:hover, .lux-fibo .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit:focus { background:var(--lux-gold-light); opacity:1; }
-        .lux-fibo .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit:before { display:none; }
-        .lux-fibo .dgwt-wcas-ico-magnifier { width:15px; height:15px; fill:currentColor; }
-        .lux-fibo .dgwt-wcas-preloader { right:44px; }
-        .lux-search-toggle { display:none; }
-        .lux-search-toggle .dgwt-wcas-search-wrapp, html:not(.dgwt-wcas-overlay-mobile-on) .lux-search-toggle .dgwt-wcas-search-wrapp.dgwt-wcas-layout-icon { position:relative; width:auto; max-width:none; min-width:0; margin:0; }
-        .lux-search-toggle .dgwt-wcas-search-icon { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; color:var(--lux-black); }
-        .lux-search-toggle .dgwt-wcas-search-icon:hover { color:var(--lux-gold); }
-        .lux-search-toggle .dgwt-wcas-search-icon svg { width:19px; height:19px; fill:currentColor; }
-        .lux-menu-button { display:none; }
-        .lux-mobile-panel { display:none; border-top:1px solid var(--lux-line); background:var(--lux-ivory); }
-        .lux-mobile-panel.is-open { display:block; }
-        .lux-mobile-panel__inner { display:grid; gap:18px; padding:18px 0 22px; }
-        .lux-mobile-nav { display:grid; gap:2px; }
-        .lux-mobile-nav a { display:flex; align-items:center; min-height:48px; border-bottom:1px solid var(--lux-line); }
-        .lux-mobile-nav a.is-current { color:var(--lux-gold); }
-        .lux-mobile-search, .lux-fibo.lux-mobile-search { width:100%; }
-        .lux-icon-link:focus, .lux-icon-button:focus, .lux-primary-nav a:focus, .lux-mobile-nav a:focus, .lux-search input:focus, .lux-search button:focus, .lux-brand:focus { outline:2px solid var(--lux-gold-light); outline-offset:3px; }
-        @media (max-width: 1240px) {
-            .lux-megamenu__layout { grid-template-columns:1fr; }
-            .lux-megamenu__feature { display:none; }
-            .lux-megamenu__grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
-        }
-        @media (max-width: 1080px) {
-            .lux-service-bar__row { grid-template-columns:auto 1fr; gap:12px; font-size:11px; }
-            .lux-service-bar__right { display:none; }
-            .lux-header-main { grid-template-columns:auto 1fr auto; min-height:70px; }
-            .lux-primary-nav, .lux-desktop-search, .lux-account-link, .lux-wishlist-link { display:none; }
-            .lux-search-toggle { display:inline-flex; margin-right:8px; }
-            .lux-brand { justify-self:center; }
-            .lux-brand__logo { width:158px; max-height:48px; }
-            .lux-menu-button { display:inline-flex; justify-self:start; }
-            .lux-actions { gap:6px; }
-        }
-        @media (max-width: 560px) {
-            .lux-head-wrap { width:min(100% - 28px,1280px); }
-            .lux-service-bar__row { grid-template-columns:1fr; min-height:32px; text-align:center; }
-            .lux-service-bar__item:not(.lux-service-bar__center) { display:none; }
-            .lux-brand__logo { width:142px; max-height:43px; }
-            .lux-icon-link, .lux-icon-button, .lux-search-toggle .dgwt-wcas-search-icon { width:38px; height:38px; }
-            .lux-header-main { gap:10px; min-height:64px; }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap">
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('bg-white antialiased'); ?>>
+<body <?php body_class('antialiased'); ?>>
 <?php wp_body_open(); ?>
 
-<a href="#content" class="lux-skip"><?php esc_html_e('Skip to content', 'dawp'); ?></a>
+<a href="#content" class="mx-skip"><?php esc_html_e('Skip to content', 'dawp'); ?></a>
 
-<header id="site-header" class="lux-site-header" role="banner">
-    <div class="lux-service-bar">
-        <div class="lux-head-wrap lux-service-bar__row">
-            <a class="lux-service-bar__item" href="https://wa.me/<?php echo esc_attr($whatsapp_number); ?>" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.65-4.95A8 8 0 1 1 8.9 19.2z"></path><path d="M8.5 9.5c0 3 2.5 5.5 5.5 5.5"></path></svg>
-                <span><?php esc_html_e('WhatsApp Support:', 'dawp'); ?> <?php echo esc_html($support_phone); ?></span>
+<header id="site-header" class="mx-header" role="banner">
+    <div class="mx-bar">
+        <div class="mx-wrap mx-bar__row">
+            <a class="mx-bar__item mx-bar__item--side" href="https://wa.me/<?php echo esc_attr($whatsapp_number); ?>" target="_blank" rel="noopener">
+                <?php esc_html_e('WhatsApp Concierge', 'dawp'); ?> &middot; <?php echo esc_html($support_phone); ?>
             </a>
-            <span class="lux-service-bar__item lux-service-bar__center">
-                <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" stroke="none"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.7 1.5 6.8L12 17l-6.1 3.5 1.5-6.8-5.2-4.7 6.9-.7z"></path></svg>
-                <span><?php echo esc_html($rating_text); ?></span>
-            </span>
-            <span class="lux-service-bar__item lux-service-bar__right">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                <span><?php echo esc_html($shipping_badge); ?></span>
-            </span>
+            <span class="mx-bar__item mx-bar__item--center"><?php echo esc_html($rating_text); ?></span>
+            <span class="mx-bar__item mx-bar__item--side mx-bar__item--end"><?php echo esc_html($shipping_badge); ?></span>
         </div>
     </div>
 
-    <div class="lux-head-wrap lux-header-main">
-        <button type="button" class="lux-icon-button lux-menu-button" aria-expanded="false" aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>" aria-controls="lux-mobile-menu" onclick="const menu=document.getElementById('lux-mobile-menu'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); menu.classList.toggle('is-open');">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
-        </button>
+    <div class="mx-wrap mx-main">
+        <div class="mx-main__start">
+            <button type="button" class="mx-icon mx-menu-btn" aria-expanded="false" aria-controls="mx-drawer" aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>" data-mx-drawer-open>
+                <?php echo $icon('menu'); ?>
+            </button>
 
-        <a href="<?php echo esc_url($home_url); ?>" class="lux-brand" aria-label="<?php esc_attr_e('Chronel home', 'dawp'); ?>">
-            <img class="lux-brand__logo" src="<?php echo esc_url($logo_url); ?>" width="180" height="54" alt="<?php esc_attr_e('Chronel', 'dawp'); ?>">
-        </a>
-
-        <nav class="lux-primary-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
-            <?php foreach ($nav_items as $item) : ?>
-                <?php if (!empty($item['megamenu']) && !empty($megamenu_brands)) : ?>
-                    <div class="lux-nav-item lux-has-megamenu">
-                        <a class="<?php echo $item['active'] ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?> aria-haspopup="true">
-                            <?php echo esc_html($item['title']); ?>
-                            <svg class="lux-nav-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
-                        </a>
-                        <div class="lux-megamenu">
-                            <div class="lux-head-wrap lux-megamenu__inner">
-                                <p class="lux-megamenu__eyebrow"><?php esc_html_e('Shop by Brand', 'dawp'); ?></p>
-                                <div class="lux-megamenu__layout">
-                                    <div class="lux-megamenu__grid">
-                                        <?php foreach ($megamenu_brands as $brand) : ?>
-                                            <div class="lux-megamenu__col">
-                                                <a class="lux-megamenu__brand" href="<?php echo esc_url($brand['url']); ?>">
-                                                    <?php if (!empty($brand['image'])) : ?>
-                                                        <img class="lux-megamenu__brand-thumb" src="<?php echo esc_url($brand['image']); ?>" alt="" loading="lazy">
+            <nav class="mx-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
+                <?php foreach ($nav_items as $item) : ?>
+                    <?php if (!empty($item['megamenu']) && !empty($megamenu_brands)) : ?>
+                        <div class="mx-nav__item mx-nav__item--mega">
+                            <a class="mx-nav__link<?php echo $item['active'] ? ' is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?> aria-haspopup="true">
+                                <?php echo esc_html($item['title']); ?>
+                                <span class="mx-caret"><?php echo $icon('caret'); ?></span>
+                            </a>
+                            <div class="mx-mega">
+                                <div class="mx-wrap mx-mega__inner">
+                                    <div class="mx-mega__brands">
+                                        <p class="mx-eyebrow"><?php esc_html_e('Shop by Maison', 'dawp'); ?></p>
+                                        <div class="mx-mega__grid">
+                                            <?php foreach ($megamenu_brands as $brand) : ?>
+                                                <div class="mx-mega__col">
+                                                    <a class="mx-mega__brand" href="<?php echo esc_url($brand['url']); ?>"><?php echo esc_html($brand['title']); ?></a>
+                                                    <?php if (!empty($brand['children'])) : ?>
+                                                        <ul>
+                                                            <?php foreach ($brand['children'] as $child) : ?>
+                                                                <li><a href="<?php echo esc_url($child['url']); ?>"><?php echo esc_html($child['title']); ?></a></li>
+                                                            <?php endforeach; ?>
+                                                        </ul>
                                                     <?php endif; ?>
-                                                    <span><?php echo esc_html($brand['title']); ?></span>
-                                                </a>
-                                                <?php if (!empty($brand['children'])) : ?>
-                                                    <ul>
-                                                        <?php foreach ($brand['children'] as $child) : ?>
-                                                            <li><a href="<?php echo esc_url($child['url']); ?>"><?php echo esc_html($child['title']); ?></a></li>
-                                                        <?php endforeach; ?>
-                                                    </ul>
-                                                <?php endif; ?>
-                                            </div>
-                                        <?php endforeach; ?>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
                                     </div>
-                                    <a class="lux-megamenu__feature" href="<?php echo esc_url($shop_url); ?>">
-                                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/banner/heritage-collection.jpg'); ?>" alt="" loading="lazy">
-                                        <span class="lux-megamenu__feature-copy">
-                                            <span class="lux-megamenu__feature-eyebrow"><?php esc_html_e('The Heritage Edit', 'dawp'); ?></span>
-                                            <span class="lux-megamenu__feature-title"><?php esc_html_e('Timeless References, Newly Arrived', 'dawp'); ?></span>
-                                            <span class="lux-megamenu__feature-cta"><?php esc_html_e('Shop All Watches', 'dawp'); ?> &rarr;</span>
+                                    <a class="mx-mega__feature" href="<?php echo esc_url($shop_url); ?>">
+                                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/maison/collector-gold.jpg'); ?>" alt="" loading="lazy" width="640" height="480">
+                                        <span class="mx-mega__feature-copy">
+                                            <span class="mx-eyebrow mx-eyebrow--light"><?php esc_html_e('The Collector\'s Edit', 'dawp'); ?></span>
+                                            <span class="mx-mega__feature-title"><?php esc_html_e('Timeless references, newly arrived', 'dawp'); ?></span>
+                                            <span class="mx-mega__feature-cta"><?php esc_html_e('Shop all watches', 'dawp'); ?></span>
                                         </span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                <?php else : ?>
-                    <a class="<?php echo $item['active'] ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?>><?php echo esc_html($item['title']); ?></a>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </nav>
+                    <?php else : ?>
+                        <a class="mx-nav__link<?php echo $item['active'] ? ' is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?>><?php echo esc_html($item['title']); ?></a>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </nav>
+        </div>
 
-        <div class="lux-actions">
-            <?php if ($has_fibosearch) : ?>
-                <div class="lux-fibo lux-desktop-search"><?php echo do_shortcode('[fibosearch style="solaris" layout="classic"]'); ?></div>
-            <?php else : ?>
-            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="lux-search lux-desktop-search">
-                <label class="screen-reader-text" for="lux-header-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
-                <input id="lux-header-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search for products', 'dawp'); ?>">
-                <input type="hidden" name="post_type" value="product">
-                <button type="submit" aria-label="<?php esc_attr_e('Submit search', 'dawp'); ?>">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
-                </button>
-            </form>
-            <?php endif; ?>
-            <a href="<?php echo esc_url($account_url); ?>" class="lux-icon-link lux-account-link" aria-label="<?php esc_attr_e('Account', 'dawp'); ?>">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            </a>
-            <?php if ($has_fibosearch) : ?>
-                <div class="lux-search-toggle"><?php echo do_shortcode('[fibosearch layout="icon" mobile_overlay="1" mobile_overlay_breakpoint="1080"]'); ?></div>
-            <?php else : ?>
-                <button type="button" class="lux-icon-button lux-search-toggle" aria-label="<?php esc_attr_e('Search', 'dawp'); ?>" onclick="const btn=document.querySelector('.lux-menu-button'); if (btn.getAttribute('aria-expanded')!=='true') btn.click(); document.getElementById('lux-mobile-search').focus();">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
-                </button>
-            <?php endif; ?>
-            <a href="<?php echo esc_url(home_url('/wishlist/')); ?>" class="lux-icon-link lux-wishlist-link" aria-label="<?php esc_attr_e('Wishlist', 'dawp'); ?>">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
-            </a>
-            <a href="<?php echo esc_url($cart_url); ?>" class="lux-icon-link lux-icon-link--cart" id="dawp-cart-toggle" aria-label="<?php esc_attr_e('Shopping bag', 'dawp'); ?>">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 13H7z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>
+        <a href="<?php echo esc_url($home_url); ?>" class="mx-logo" aria-label="<?php esc_attr_e('Chronel home', 'dawp'); ?>">
+            <img src="<?php echo esc_url($logo_url); ?>" width="170" height="51" alt="<?php esc_attr_e('Chronel', 'dawp'); ?>">
+        </a>
+
+        <div class="mx-main__end">
+            <button type="button" class="mx-icon" aria-expanded="false" aria-controls="mx-search" aria-label="<?php esc_attr_e('Search', 'dawp'); ?>" data-mx-search-toggle>
+                <?php echo $icon('search'); ?>
+            </button>
+            <a href="<?php echo esc_url($account_url); ?>" class="mx-icon mx-hide-sm" aria-label="<?php esc_attr_e('Account', 'dawp'); ?>"><?php echo $icon('account'); ?></a>
+            <a href="<?php echo esc_url(home_url('/wishlist/')); ?>" class="mx-icon mx-hide-sm" aria-label="<?php esc_attr_e('Wishlist', 'dawp'); ?>"><?php echo $icon('heart'); ?></a>
+            <a href="<?php echo esc_url($cart_url); ?>" class="mx-icon mx-icon--bag" id="dawp-cart-toggle" aria-label="<?php esc_attr_e('Shopping bag', 'dawp'); ?>">
+                <?php echo $icon('bag'); ?>
                 <span class="lux-cart-count<?php echo $cart_count > 0 ? '' : ' hidden'; ?>"><?php echo esc_html($cart_count); ?></span>
             </a>
         </div>
     </div>
 
-    <div id="lux-mobile-menu" class="lux-mobile-panel">
-        <div class="lux-head-wrap lux-mobile-panel__inner">
+    <div id="mx-search" class="mx-search" hidden>
+        <div class="mx-wrap mx-search__inner">
             <?php if ($has_fibosearch) : ?>
-                <div class="lux-fibo lux-mobile-search"><?php echo do_shortcode('[fibosearch style="solaris" layout="classic"]'); ?></div>
+                <div class="mx-search__fibo"><?php echo do_shortcode('[fibosearch layout="classic"]'); ?></div>
             <?php else : ?>
-            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="lux-search lux-mobile-search">
-                <label class="screen-reader-text" for="lux-mobile-search"><?php esc_html_e('Search watches', 'dawp'); ?></label>
-                <input id="lux-mobile-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search watches and references', 'dawp'); ?>">
-                <input type="hidden" name="post_type" value="product">
-                <button type="submit" aria-label="<?php esc_attr_e('Submit search', 'dawp'); ?>">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
-                </button>
-            </form>
+                <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mx-search__form">
+                    <label class="screen-reader-text" for="mx-search-input"><?php esc_html_e('Search watches', 'dawp'); ?></label>
+                    <?php echo $icon('search'); ?>
+                    <input id="mx-search-input" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search by brand, model or reference', 'dawp'); ?>">
+                    <input type="hidden" name="post_type" value="product">
+                    <button type="submit" class="mx-btn mx-btn--dark"><?php esc_html_e('Search', 'dawp'); ?></button>
+                </form>
             <?php endif; ?>
-
-            <nav class="lux-mobile-nav" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">
-                <?php foreach ($nav_items as $item) : ?>
-                    <?php if (!empty($item['megamenu']) && !empty($megamenu_brands)) : ?>
-                        <div class="lux-mobile-nav__item">
-                            <button type="button" class="lux-mobile-nav__toggle" aria-expanded="false" data-mobile-megamenu-trigger>
-                                <?php echo esc_html($item['title']); ?>
-                                <svg class="lux-nav-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
-                            </button>
-                            <div class="lux-mobile-submenu" data-mobile-megamenu-panel>
-                                <a href="<?php echo esc_url($item['url']); ?>"><?php esc_html_e('All Watches', 'dawp'); ?></a>
-                                <?php foreach ($megamenu_brands as $brand) : ?>
-                                    <a href="<?php echo esc_url($brand['url']); ?>"><?php echo esc_html($brand['title']); ?></a>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                    <?php else : ?>
-                        <a class="<?php echo $item['active'] ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?>><?php echo esc_html($item['title']); ?></a>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-                <?php foreach ($mobile_extra_items as $item) : ?>
-                    <a href="<?php echo esc_url($item['url']); ?>"><?php echo esc_html($item['title']); ?></a>
-                <?php endforeach; ?>
-            </nav>
+            <?php if (!empty($megamenu_brands)) : ?>
+                <p class="mx-search__hint">
+                    <span><?php esc_html_e('Popular:', 'dawp'); ?></span>
+                    <?php foreach (array_slice($megamenu_brands, 0, 5) as $brand) : ?>
+                        <a href="<?php echo esc_url($brand['url']); ?>"><?php echo esc_html($brand['title']); ?></a>
+                    <?php endforeach; ?>
+                </p>
+            <?php endif; ?>
         </div>
     </div>
 </header>
 
-<script>
-(function () {
-    document.querySelectorAll('[data-mobile-megamenu-trigger]').forEach(function (trigger) {
-        trigger.addEventListener('click', function () {
-            var panel = trigger.nextElementSibling;
-            var expanded = trigger.getAttribute('aria-expanded') === 'true';
-            trigger.setAttribute('aria-expanded', String(!expanded));
-            if (panel) {
-                panel.classList.toggle('is-open');
-            }
-        });
-    });
-})();
-</script>
+<div class="mx-drawer" id="mx-drawer" aria-hidden="true">
+    <div class="mx-drawer__overlay" data-mx-drawer-close></div>
+    <div class="mx-drawer__panel" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e('Menu', 'dawp'); ?>">
+        <div class="mx-drawer__head">
+            <img src="<?php echo esc_url($logo_url); ?>" width="132" height="40" alt="<?php esc_attr_e('Chronel', 'dawp'); ?>">
+            <button type="button" class="mx-icon" aria-label="<?php esc_attr_e('Close menu', 'dawp'); ?>" data-mx-drawer-close><?php echo $icon('close'); ?></button>
+        </div>
+        <nav class="mx-drawer__nav" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">
+            <?php foreach ($nav_items as $item) : ?>
+                <?php if (!empty($item['megamenu']) && !empty($megamenu_brands)) : ?>
+                    <div class="mx-drawer__group">
+                        <button type="button" class="mx-drawer__link" aria-expanded="false" data-mobile-megamenu-trigger>
+                            <?php echo esc_html($item['title']); ?>
+                            <span class="mx-caret"><?php echo $icon('caret'); ?></span>
+                        </button>
+                        <div class="mx-drawer__sub" data-mobile-megamenu-panel>
+                            <a href="<?php echo esc_url($item['url']); ?>"><?php esc_html_e('All Watches', 'dawp'); ?></a>
+                            <?php foreach ($megamenu_brands as $brand) : ?>
+                                <a href="<?php echo esc_url($brand['url']); ?>"><?php echo esc_html($brand['title']); ?></a>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php else : ?>
+                    <a class="mx-drawer__link<?php echo $item['active'] ? ' is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"><?php echo esc_html($item['title']); ?></a>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <a class="mx-drawer__link" href="<?php echo esc_url($account_url); ?>"><?php esc_html_e('My Account', 'dawp'); ?></a>
+            <a class="mx-drawer__link" href="<?php echo esc_url(home_url('/wishlist/')); ?>"><?php esc_html_e('Wishlist', 'dawp'); ?></a>
+        </nav>
+        <div class="mx-drawer__foot">
+            <p class="mx-eyebrow"><?php esc_html_e('Private Concierge', 'dawp'); ?></p>
+            <a href="https://wa.me/<?php echo esc_attr($whatsapp_number); ?>" target="_blank" rel="noopener"><?php echo esc_html($support_phone); ?></a>
+        </div>
+    </div>
+</div>
 
 <div id="content" class="site-content">

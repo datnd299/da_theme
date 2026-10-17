@@ -14,49 +14,14 @@ $archive_title = __('All Watches', 'dawp');
 $archive_description = __('Explore refined mechanical timepieces selected for proportion, finishing and confident everyday wear.', 'dawp');
 $archive_eyebrow = __('Fine Timepieces', 'dawp');
 $archive_slug = 'shop';
-$home_image = static function ($filename) {
-    return get_theme_file_uri('assets/img/home/' . $filename);
-};
-$gallery_image = static function ($filename) {
-    return get_theme_file_uri('assets/img/gallery/' . $filename);
-};
-
 $shop_cover_images = [
     'shop' => [
-        'url' => 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1400&q=82',
-        'alt' => __('Close-up of a refined luxury watch on the wrist', 'dawp'),
+        'url' => get_theme_file_uri('assets/img/maison/hero-diver.jpg'),
+        'alt' => __('Steel dive watch resting on dark slate', 'dawp'),
     ],
-    'home' => [
-        'url' => 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1400&q=82',
-        'alt' => __('Refined luxury watch collection arranged on dark fabric', 'dawp'),
-    ],
-    'garden-tools' => [
-        'url' => $gallery_image('Garden_lounge_area_with_hanging_202607161300.jpeg'),
-        'alt' => __('Garden lounge area with outdoor tools and patio essentials', 'dawp'),
-    ],
-    'electronics' => [
-        'url' => $home_image('Living_Room.jpeg'),
-        'alt' => __('Modern living room ready for entertainment and connected devices', 'dawp'),
-    ],
-    'sports-outdoors' => [
-        'url' => $gallery_image('Home_gym_setup_cork_mat_202607241524.jpeg'),
-        'alt' => __('Home gym setup with fitness and outdoor activity gear', 'dawp'),
-    ],
-    'toys-outdoor-play' => [
-        'url' => $gallery_image('Children_playing_tumble_tower_game_202607241524.jpeg'),
-        'alt' => __('Children playing an outdoor tumble tower game', 'dawp'),
-    ],
-    'beauty-personal-care' => [
-        'url' => $gallery_image('Skincare_bottles_on_marble_vanity_202607241524.jpeg'),
-        'alt' => __('Skincare and personal care bottles arranged on a marble vanity', 'dawp'),
-    ],
-    'pets' => [
-        'url' => $gallery_image('Pet_bed_with_cat_202607241524.jpeg'),
-        'alt' => __('Comfortable pet bed styled for everyday pet care', 'dawp'),
-    ],
-    'school-office-art-supplies' => [
-        'url' => $gallery_image('Minimalist_home_office_desk_setup_202607241524.jpeg'),
-        'alt' => __('Minimalist desk setup with office and school supplies', 'dawp'),
+    'iced-out-watches' => [
+        'url' => get_theme_file_uri('assets/img/maison/collector-gold.jpg'),
+        'alt' => __('Gold dress watch on cream silk', 'dawp'),
     ],
 ];
 if ($archive_term && !is_wp_error($archive_term)) {
@@ -388,42 +353,21 @@ if ($archive_term && !is_wp_error($archive_term) && is_product_category() && emp
 
             if (nextLink) {
                 var loadMoreContainer = document.createElement('div');
-                loadMoreContainer.className = 'flex justify-center mt-10 mb-10 w-full';
-                loadMoreContainer.style.display = 'flex';
-                loadMoreContainer.style.justifyContent = 'center';
-                loadMoreContainer.style.marginTop = '2.5rem';
-                loadMoreContainer.style.marginBottom = '2.5rem';
-                loadMoreContainer.style.width = '100%';
-                
-                var loadMoreBtn = document.createElement('button');
-                // Use exact classes from header to ensure they exist, plus inline styles for safety
-                loadMoreBtn.className = 'inline-flex min-h-12 items-center justify-center rounded-md px-8 text-sm font-bold text-white transition cursor-pointer';
-                loadMoreBtn.style.minHeight = '3rem';
-                loadMoreBtn.style.paddingLeft = '2rem';
-                loadMoreBtn.style.paddingRight = '2rem';
-                loadMoreBtn.style.borderRadius = '2px';
-                loadMoreBtn.style.backgroundColor = '#0B0B0B';
-                loadMoreBtn.style.color = '#ffffff';
-                loadMoreBtn.style.fontWeight = '700';
-                loadMoreBtn.style.fontSize = '0.875rem';
-                loadMoreBtn.style.border = 'none';
-                loadMoreBtn.style.cursor = 'pointer';
-                loadMoreBtn.style.transition = 'background-color 0.2s';
-                
-                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#B89B5E'; };
-                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#0B0B0B'; };
+                loadMoreContainer.className = 'shop-load-more';
 
-                loadMoreBtn.innerHTML = 'Load More Product';
-                
+                var loadMoreBtn = document.createElement('button');
+                loadMoreBtn.type = 'button';
+                loadMoreBtn.className = 'shop-load-more__btn';
+                loadMoreBtn.textContent = 'Load More Watches';
+
                 loadMoreContainer.appendChild(loadMoreBtn);
                 paginationContainer.parentNode.insertBefore(loadMoreContainer, paginationContainer.nextSibling);
-                
+
                 loadMoreBtn.addEventListener('click', function(e) {
                     e.preventDefault();
                     var originalText = loadMoreBtn.innerHTML;
                     loadMoreBtn.innerHTML = 'Loading...';
-                    loadMoreBtn.style.opacity = '0.7';
-                    loadMoreBtn.style.pointerEvents = 'none';
+                    loadMoreBtn.setAttribute('aria-busy', 'true');
                     
                     fetch(nextLink.href)
                         .then(function(response) { return response.text(); })
@@ -444,8 +388,7 @@ if ($archive_term && !is_wp_error($archive_term) && is_product_category() && emp
                             if (newNextLink) {
                                 nextLink.href = newNextLink.href;
                                 loadMoreBtn.innerHTML = originalText;
-                                loadMoreBtn.style.opacity = '1';
-                                loadMoreBtn.style.pointerEvents = 'auto';
+                                loadMoreBtn.removeAttribute('aria-busy');
                             } else {
                                 loadMoreContainer.remove();
                             }
@@ -453,8 +396,7 @@ if ($archive_term && !is_wp_error($archive_term) && is_product_category() && emp
                         .catch(function(error) {
                             console.error('Error loading more products:', error);
                             loadMoreBtn.innerHTML = 'Error. Try Again';
-                            loadMoreBtn.style.opacity = '1';
-                            loadMoreBtn.style.pointerEvents = 'auto';
+                            loadMoreBtn.removeAttribute('aria-busy');
                         });
                 });
             }

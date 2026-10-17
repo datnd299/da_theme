@@ -90,76 +90,58 @@ $payment_methods = [
 
 </div><!-- #content -->
 
-<footer class="lux-footer" role="contentinfo">
-    <style>
-        .lux-footer { background:#0B0B0B; color:#F7F5F0; font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
-        .lux-footer * { box-sizing:border-box; }
-        .lux-footer__inner { width:min(100% - 40px,1280px); margin-inline:auto; }
-        .lux-footer__top { display:grid; grid-template-columns:minmax(260px,1fr) 2.6fr; gap:50px; padding:78px 0 58px; border-top:1px solid rgba(184,155,94,.34); }
-        .lux-footer__brand { display:inline-block; color:#F7F5F0; text-decoration:none; }
-        .lux-footer__logo { display:block; width:180px; height:auto; max-height:56px; }
-        .lux-footer__brand span { display:block; margin-top:11px; color:#B89B5E; font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
-        .lux-footer__intro { max-width:440px; margin:28px 0 0; color:#C9C3B8; font-size:15px; line-height:1.75; }
-        .lux-footer__contact { display:grid; gap:11px; margin:30px 0 0; color:#C9C3B8; font-size:14px; line-height:1.55; }
-        .lux-footer__contact div { display:block; }
-        .lux-footer__contact dt { display:inline; margin:0; color:#F7F5F0; font-weight:800; }
-        .lux-footer__contact dd { display:inline; margin:0; }
-        .lux-footer a { color:inherit; text-decoration:none; }
-        .lux-footer a:hover { color:#D1BD8A; text-decoration:underline; text-underline-offset:5px; }
-        .lux-footer__columns { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:26px; }
-        .lux-footer__columns h2 { margin:0 0 18px; color:#B89B5E; font-size:12px; font-weight:800; letter-spacing:.1em; line-height:1.35; text-transform:uppercase; }
-        .lux-footer__columns ul { display:grid; gap:12px; margin:0; padding:0; list-style:none; color:#D8D0C2; font-size:14px; line-height:1.45; }
-        .lux-footer__assurance { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; padding:28px 0; border-top:1px solid rgba(247,245,240,.12); border-bottom:1px solid rgba(247,245,240,.12); }
-        .lux-footer__assurance span { display:block; color:#F7F5F0; font-size:13px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
-        .lux-footer__assurance small { display:block; margin-top:7px; color:#A8A8A8; font-size:13px; line-height:1.5; }
-        .lux-footer__bottom { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:18px 28px; padding:22px 0 28px; color:#A8A8A8; font-size:13px; }
-        .lux-footer__bottom p { margin:0; }
-        .lux-footer__legal { display:flex; flex-wrap:wrap; gap:18px; }
-        .lux-footer__payments { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
-        .lux-footer__payment { display:inline-flex; align-items:center; justify-content:center; width:52px; height:32px; padding:5px 7px; border:1px solid rgba(247,245,240,.16); border-radius:4px; background:#F7F5F0; }
-        .lux-footer__payment img { display:block; max-width:100%; max-height:100%; object-fit:contain; }
-        @media (max-width: 980px) {
-            .lux-footer__top { grid-template-columns:1fr; gap:42px; padding:64px 0 48px; }
-            .lux-footer__columns { grid-template-columns:repeat(3,minmax(0,1fr)); }
-            .lux-footer__assurance { grid-template-columns:repeat(2,minmax(0,1fr)); }
-        }
-        @media (max-width: 620px) {
-            .lux-footer__inner { width:min(100% - 32px,1280px); }
-            .lux-footer__logo { width:150px; max-height:46px; }
-            .lux-footer__columns, .lux-footer__assurance { grid-template-columns:1fr; }
-            .lux-footer__bottom { display:grid; }
-        }
-    </style>
+<footer class="mx-footer" role="contentinfo">
+    <div class="mx-footer__assure" aria-label="<?php esc_attr_e('Purchase assurances', 'dawp'); ?>">
+        <div>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>
+            <strong><?php esc_html_e('Quality Inspected', 'dawp'); ?></strong>
+            <span><?php esc_html_e('Every piece passes a strict quality inspection.', 'dawp'); ?></span>
+        </div>
+        <div>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v10H3z"></path><path d="M14 10h4l3 3v4h-7z"></path><circle cx="7" cy="19" r="2"></circle><circle cx="18" cy="19" r="2"></circle></svg>
+            <strong><?php esc_html_e('Insured Delivery', 'dawp'); ?></strong>
+            <span><?php esc_html_e('Protected shipping with signature confirmation.', 'dawp'); ?></span>
+        </div>
+        <div>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg>
+            <strong><?php esc_html_e('Warranty', 'dawp'); ?></strong>
+            <span><?php esc_html_e('Coverage and service support after purchase.', 'dawp'); ?></span>
+        </div>
+        <div>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path></svg>
+            <strong><?php esc_html_e('Consultation', 'dawp'); ?></strong>
+            <span><?php esc_html_e('Private advice for fit, gifting and selection.', 'dawp'); ?></span>
+        </div>
+    </div>
 
-    <div class="lux-footer__inner">
-        <div class="lux-footer__top">
+    <div class="mx-wrap">
+        <div class="mx-footer__top">
             <section aria-label="<?php esc_attr_e('Brand and contact information', 'dawp'); ?>">
-                <a class="lux-footer__brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Chronel home', 'dawp'); ?>">
-                    <img class="lux-footer__logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo/chronel-logo-white.png'); ?>" width="180" height="56" alt="<?php esc_attr_e('Chronel', 'dawp'); ?>" loading="lazy">
-                    <span><?php esc_html_e('Fine Timepieces', 'dawp'); ?></span>
+                <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Chronel home', 'dawp'); ?>">
+                    <img class="mx-footer__logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo/chronel-logo-white.png'); ?>" width="160" height="50" alt="<?php esc_attr_e('Chronel', 'dawp'); ?>" loading="lazy">
                 </a>
-                <p class="lux-footer__intro"><?php esc_html_e('Rolex, Patek Philippe, Audemars Piguet, Omega and other Swiss houses, each piece inspected before it reaches you.', 'dawp'); ?></p>
-                <dl class="lux-footer__contact">
+                <p class="mx-footer__lede"><?php esc_html_e('Rolex, Patek Philippe, Audemars Piguet, Omega and other Swiss houses, each piece inspected before it reaches you.', 'dawp'); ?></p>
+                <dl class="mx-footer__contact">
                     <div>
-                        <dt><?php esc_html_e('Concierge:', 'dawp'); ?></dt>
+                        <dt><?php esc_html_e('Concierge', 'dawp'); ?></dt>
                         <dd><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
                     </div>
                     <div>
-                        <dt><?php esc_html_e('Phone:', 'dawp'); ?></dt>
+                        <dt><?php esc_html_e('Phone', 'dawp'); ?></dt>
                         <dd><a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $support_phone)); ?>"><?php echo esc_html($support_phone); ?></a></dd>
                     </div>
                     <div>
-                        <dt><?php esc_html_e('Hours:', 'dawp'); ?></dt>
+                        <dt><?php esc_html_e('Hours', 'dawp'); ?></dt>
                         <dd><?php echo esc_html($business_hours); ?></dd>
                     </div>
                     <div>
-                        <dt><?php esc_html_e('Business Address:', 'dawp'); ?></dt>
+                        <dt><?php esc_html_e('Address', 'dawp'); ?></dt>
                         <dd><?php echo esc_html($store_address); ?></dd>
                     </div>
                 </dl>
             </section>
 
-            <div class="lux-footer__columns">
+            <div class="mx-footer__cols">
                 <?php foreach ($footer_columns as $column) : ?>
                     <nav aria-label="<?php echo esc_attr($column['title']); ?>">
                         <h2><?php echo esc_html($column['title']); ?></h2>
@@ -173,39 +155,23 @@ $payment_methods = [
             </div>
         </div>
 
-        <div class="lux-footer__assurance" aria-label="<?php esc_attr_e('Purchase assurances', 'dawp'); ?>">
-            <div><span><?php esc_html_e('Quality Inspected', 'dawp'); ?></span><small><?php esc_html_e('Every piece passes a strict quality inspection.', 'dawp'); ?></small></div>
-            <div><span><?php esc_html_e('Insured Delivery', 'dawp'); ?></span><small><?php esc_html_e('Protected shipping with signature confirmation.', 'dawp'); ?></small></div>
-            <div><span><?php esc_html_e('Warranty', 'dawp'); ?></span><small><?php esc_html_e('Coverage and service support after purchase.', 'dawp'); ?></small></div>
-            <div><span><?php esc_html_e('Consultation', 'dawp'); ?></span><small><?php esc_html_e('Private advice for fit, gifting and selection.', 'dawp'); ?></small></div>
-        </div>
-
-        <div class="lux-footer__bottom">
+        <div class="mx-footer__bottom">
             <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Chronel. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
-            <nav class="lux-footer__legal" aria-label="<?php esc_attr_e('Legal links', 'dawp'); ?>">
+            <nav class="mx-footer__legal" aria-label="<?php esc_attr_e('Legal links', 'dawp'); ?>">
                 <?php foreach ($legal_links as $link) : ?>
                     <a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a>
                 <?php endforeach; ?>
             </nav>
-            <div class="lux-footer__payments" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
+            <div class="mx-footer__pay" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
                 <?php foreach ($payment_methods as $method) : ?>
                     <?php
                     $payment_path = get_template_directory() . '/assets/img/payment/' . $method['file'];
-                    $payment_url  = get_template_directory_uri() . '/assets/img/payment/' . $method['file'];
-
                     if (!file_exists($payment_path)) {
                         continue;
                     }
-
-                    $payment_url = add_query_arg('ver', filemtime($payment_path), $payment_url);
+                    $payment_url = add_query_arg('ver', filemtime($payment_path), get_template_directory_uri() . '/assets/img/payment/' . rawurlencode($method['file']));
                     ?>
-                    <span class="lux-footer__payment">
-                        <?php
-                        echo function_exists('dawp_get_responsive_image')
-                            ? dawp_get_responsive_image($payment_url, $method['name'], '', 52, 32, 'lazy', '52px')
-                            : '<img src="' . esc_url($payment_url) . '" width="52" height="32" alt="' . esc_attr($method['name']) . '" decoding="async" loading="lazy">';
-                        ?>
-                    </span>
+                    <span><img src="<?php echo esc_url($payment_url); ?>" width="50" height="31" alt="<?php echo esc_attr($method['name']); ?>" decoding="async" loading="lazy"></span>
                 <?php endforeach; ?>
             </div>
         </div>

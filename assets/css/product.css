@@ -6,7 +6,7 @@
    ============================================================ */
 
 body.single-product {
-  --pdp-ink: #0B0B0B;
+  --pdp-ink: var(--color-ink);
   --pdp-stage: #F4F2EE;
   --pdp-line: var(--color-border);
   --pdp-gold: var(--color-accent);

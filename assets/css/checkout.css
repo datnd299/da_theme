@@ -1,14 +1,14 @@
 /* Checkout and thank-you pages */
 
 :root {
-    --checkout-primary: #A45A3F;
-    --checkout-primary-dark: #7F422F;
-    --checkout-accent: #D8B26E;
-    --checkout-bg: #F8F5F0;
+    --checkout-primary: var(--color-accent);
+    --checkout-primary-dark: var(--color-ink);
+    --checkout-accent: var(--color-accent-light);
+    --checkout-bg: var(--color-surface);
     --checkout-surface: #FFFFFF;
-    --checkout-text: #2B2B2B;
-    --checkout-muted: #746B64;
-    --checkout-border: #E8E5DF;
+    --checkout-text: var(--color-ink);
+    --checkout-muted: var(--color-foreground-muted);
+    --checkout-border: var(--color-border);
     --checkout-border-strong: #D8C7BE;
     --checkout-radius: 8px;
     --checkout-shadow: 0 14px 34px rgba(43, 43, 43, 0.07);
@@ -861,18 +861,18 @@ body.woocommerce-checkout .woo-page *::after,
 
 body.woocommerce-checkout,
 body.woocommerce-order-received {
-    --checkout-primary: #0B0B0B;
-    --checkout-primary-dark: #B89B5E;
-    --checkout-accent: #B89B5E;
-    --checkout-bg: #F7F5F0;
+    --checkout-primary: var(--color-ink);
+    --checkout-primary-dark: var(--color-accent);
+    --checkout-accent: var(--color-accent);
+    --checkout-bg: var(--color-surface);
     --checkout-surface: #FFFFFF;
-    --checkout-text: #0B0B0B;
-    --checkout-muted: #555555;
-    --checkout-border: #E5E2DC;
+    --checkout-text: var(--color-ink);
+    --checkout-muted: var(--color-foreground-muted);
+    --checkout-border: var(--color-border);
     --checkout-border-strong: #CCCCCC;
     --checkout-radius: 2px;
     --checkout-shadow: none;
-    background: linear-gradient(180deg, #F7F5F0 0, #FFFFFF 420px);
+    background: linear-gradient(180deg, var(--color-surface) 0, #FFFFFF 420px);
 }
 
 .woocommerce-checkout .woocommerce-billing-fields,
@@ -900,7 +900,7 @@ body.woocommerce-order-received {
 .woocommerce-order-received h3,
 .wp-block-woocommerce-checkout .wc-block-components-checkout-step__title,
 .wp-block-woocommerce-checkout .wc-block-components-checkout-order-summary__title-text {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-heading);
     font-size: clamp(1.55rem, 2.4vw, 2rem);
     font-weight: 400;
     letter-spacing: 0;
@@ -923,9 +923,9 @@ body.woocommerce-order-received {
 .woocommerce-checkout a.button,
 .woocommerce-checkout .button.alt,
 .wp-block-woocommerce-checkout .wc-block-components-button {
-    border: 1px solid #0B0B0B;
+    border: 1px solid var(--color-ink);
     border-radius: 2px;
-    background: #0B0B0B;
+    background: var(--color-ink);
     color: #FFFFFF;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -937,13 +937,13 @@ body.woocommerce-order-received {
 .woocommerce-checkout .button.alt:hover,
 .wp-block-woocommerce-checkout .wc-block-components-button:hover {
     background: transparent;
-    color: #0B0B0B;
+    color: var(--color-ink);
 }
 
 .woocommerce-checkout table.shop_table tfoot tr.order-total .amount,
 .woocommerce-order-received table.shop_table tfoot tr:last-child .amount,
 .wp-block-woocommerce-checkout .wc-block-components-totals-footer-item .wc-block-formatted-money-amount {
-    color: #B89B5E;
+    color: var(--color-accent);
 }
 /* Zelle / Crypto payment details (inc/payments.php) */
 

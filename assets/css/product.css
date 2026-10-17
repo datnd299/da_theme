@@ -558,8 +558,7 @@ body.single-product .woo-page__container {
 }
 
 .single-product .single_add_to_cart_button:focus-visible,
-.single-product form.cart .wc-buy-now-btn:focus-visible,
-.pdp-specialist:focus-visible {
+.single-product form.cart .wc-buy-now-btn:focus-visible {
   outline: 2px solid var(--pdp-gold);
   outline-offset: 3px;
 }
@@ -568,37 +567,6 @@ body.single-product .woo-page__container {
 .single-product .single_add_to_cart_button.disabled {
   cursor: not-allowed;
   opacity: 0.4;
-}
-
-/* Specialist chat */
-.pdp-specialist {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 54px;
-  margin-top: 10px;
-  border: 1px solid var(--pdp-line);
-  color: var(--pdp-ink);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: border-color var(--duration-normal) var(--ease-fluid);
-}
-
-.pdp-specialist:hover {
-  border-color: var(--pdp-ink);
-}
-
-.pdp-specialist svg {
-  width: 18px;
-  height: 18px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.5;
-  stroke-linejoin: round;
 }
 
 /* Services accordion */

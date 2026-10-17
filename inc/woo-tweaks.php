@@ -22,7 +22,6 @@ add_action('woocommerce_before_single_product', 'woocommerce_breadcrumb', 5);
 add_action('woocommerce_single_product_summary', 'dawp_pdp_brand', 4);
 add_action('woocommerce_single_product_summary', 'dawp_pdp_reference', 6);
 add_action('woocommerce_single_product_summary', 'dawp_pdp_price_note', 12);
-add_action('woocommerce_single_product_summary', 'dawp_pdp_specialist', 35);
 add_action('woocommerce_single_product_summary', 'dawp_pdp_services', 45);
 add_action('woocommerce_after_single_product_summary', 'dawp_pdp_sections', 10);
 add_action('woocommerce_after_single_product_summary', 'dawp_pdp_promise', 12);
@@ -94,16 +93,6 @@ function dawp_pdp_price_note() {
         <p class="pdp-delivery__note"><strong><?php esc_html_e('Express Shipping:', 'dawp'); ?></strong> <?php esc_html_e('3-7 business days, price shown at checkout.', 'dawp'); ?></p>
         <p class="pdp-delivery__note"><?php esc_html_e('Hand-assembled and tested after you order, then shipped from Hong Kong with tracking.', 'dawp'); ?> <a href="#pdp-shipping"><?php esc_html_e('Details', 'dawp'); ?></a></p>
     </div>
-    <?php
-}
-
-function dawp_pdp_specialist() {
-    $support_phone = '+1 304 585 0364';
-    ?>
-    <a class="pdp-specialist" href="https://wa.me/<?php echo esc_attr(preg_replace('/[^0-9]/', '', $support_phone)); ?>" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
-        <?php esc_html_e('Chat with a Watch Specialist', 'dawp'); ?>
-    </a>
     <?php
 }
 

@@ -21,7 +21,6 @@ remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_pr
 add_action('woocommerce_before_single_product', 'woocommerce_breadcrumb', 5);
 add_action('woocommerce_single_product_summary', 'dawp_pdp_brand', 4);
 add_action('woocommerce_single_product_summary', 'dawp_pdp_reference', 6);
-add_action('woocommerce_single_product_summary', 'dawp_pdp_price_note', 12);
 add_action('woocommerce_single_product_summary', 'dawp_pdp_services', 45);
 add_action('woocommerce_after_single_product_summary', 'dawp_pdp_sections', 10);
 add_action('woocommerce_after_single_product_summary', 'dawp_pdp_promise', 12);

@@ -1,12 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('site-header');
-    // Scroll state (compact header shadow)
-    if (header) {
-        const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-    }
-
     // Header search panel
     const searchToggle = document.querySelector('[data-mx-search-toggle]');
     const searchPanel = document.getElementById('mx-search');

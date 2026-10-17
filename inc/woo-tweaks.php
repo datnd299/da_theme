@@ -340,6 +340,7 @@ function dawp_pdp_sections() {
                     <h2><?php esc_html_e('What People Are Saying', 'dawp'); ?></h2>
                 </header>
                 <div class="pdp-reviews__body">
+                    <?php if (function_exists('celvia_display_product_reviews')) celvia_display_product_reviews(); ?>
                     <?php comments_template(); ?>
                 </div>
             </section>
@@ -377,6 +378,7 @@ function dawp_pdp_quality() {
                 </li>
             <?php endforeach; ?>
         </ol>
+        <?php if (function_exists('celvia_display_quality_check')) celvia_display_quality_check(); ?>
     </section>
     <?php
 }

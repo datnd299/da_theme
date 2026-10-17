@@ -136,7 +136,19 @@ function dawp_category_descriptions($product_id) {
 }
 
 /**
- * Product description + category descriptions, as HTML.
+ * Artwork description from the "design_des" attribute (global pa_design_des or custom).
+ */
+function dawp_product_design_description($product_id) {
+    $product = wc_get_product($product_id);
+    if (!$product) {
+        return '';
+    }
+
+    return trim(wp_strip_all_tags((string) $product->get_attribute('design_des')));
+}
+
+/**
+ * Design description + product description + category descriptions, as HTML.
  */
 function dawp_combined_product_description($product) {
     $product = $product instanceof WC_Product ? $product : wc_get_product($product);
@@ -145,8 +157,12 @@ function dawp_combined_product_description($product) {
     }
     $product_id = $product->get_parent_id() ?: $product->get_id();
 
-    $parts = [];
-    $own   = trim((string) get_post_field('post_content', $product_id));
+    $parts  = [];
+    $design = dawp_product_design_description($product_id);
+    if ($design !== '') {
+        $parts[] = $design;
+    }
+    $own = trim((string) get_post_field('post_content', $product_id));
     if ($own !== '') {
         $parts[] = $own;
     }
@@ -191,9 +207,14 @@ function dawp_cat_desc_render_tab() {
         echo '<h2>' . esc_html($heading) . '</h2>';
     }
 
+    $design = dawp_product_design_description($product->get_id());
+    if ($design !== '') {
+        echo '<div class="product-design-description">' . wpautop(esc_html($design)) . '</div>';
+    }
+
     // Product's own content keeps going through the_content (shortcodes,
     // autop, other plugins' content filters) exactly like WC's template.
-    $own = trim((string) get_post_field('post_content', $product->get_id()));
+    $own =trim((string) get_post_field('post_content', $product->get_id()));
     if ($own !== '') {
         the_content();
     }

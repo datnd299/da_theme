@@ -166,3 +166,105 @@ function da_theme_spend_save_box() {
     </div>
     <?php
 }
+
+/*
+ * ── Product attributes hidden from shop filters & FiboSearch ──
+ * "images" is a data attribute (image URLs), not something shoppers filter or search by.
+ */
+function dawp_ignored_attribute_names() {
+    return ['images'];
+}
+
+function dawp_is_ignored_attribute($name) {
+    $name = strtolower(trim((string) $name));
+    $name = preg_replace('/^pa_/', '', $name);
+
+    return in_array(sanitize_title($name), dawp_ignored_attribute_names(), true);
+}
+
+// Global attribute taxonomies (pa_*) FiboSearch indexes when "Search in attributes" is on
+add_filter('dgwt/wcas/attribute_taxonomies', static function ($taxonomies) {
+    return array_values(array_filter((array) $taxonomies, static function ($taxonomy) {
+        return !dawp_is_ignored_attribute($taxonomy);
+    }));
+});
+
+// Attributes attached to a product (global + custom)
+add_filter('dgwt/wcas/product/attributes', static function ($attributes) {
+    foreach ((array) $attributes as $key => $attribute) {
+        $name = is_object($attribute) && method_exists($attribute, 'get_name') ? $attribute->get_name() : $key;
+        if (dawp_is_ignored_attribute($name)) {
+            unset($attributes[$key]);
+        }
+    }
+    return $attributes;
+});
+
+// Raw custom (non-taxonomy) attributes from _product_attributes meta
+add_filter('dgwt/wcas/product/custom_attributes', static function ($attributes) {
+    foreach ((array) $attributes as $key => $attribute) {
+        $name = is_array($attribute) && isset($attribute['name']) ? $attribute['name'] : $key;
+        if (dawp_is_ignored_attribute($name)) {
+            unset($attributes[$key]);
+        }
+    }
+    return $attributes;
+});
+
+/**
+ * Long free-text attributes: printed in the Description tab, so kept out of the
+ * shop filter panel and the "Additional information" table (still searchable).
+ */
+function dawp_text_attribute_names() {
+    return ['design_des'];
+}
+
+add_filter('woocommerce_display_product_attributes', static function ($attributes) {
+    foreach (array_keys($attributes) as $key) {
+        $name = preg_replace('/^attribute_(pa_)?/', '', $key);
+        if (in_array($name, dawp_text_attribute_names(), true) || dawp_is_ignored_attribute($name)) {
+            unset($attributes[$key]);
+        }
+    }
+    return $attributes;
+});
+
+/**
+ * Global attributes for the shop filter panel: [taxonomy, query key, label, terms], skipping ignored/empty ones.
+ */
+function dawp_shop_filter_attributes() {
+    $groups = [];
+
+    foreach (wc_get_attribute_taxonomies() as $attribute) {
+        if (
+            dawp_is_ignored_attribute($attribute->attribute_name)
+            || dawp_is_ignored_attribute($attribute->attribute_label)
+            || in_array($attribute->attribute_name, dawp_text_attribute_names(), true)
+        ) {
+            continue;
+        }
+
+        $taxonomy = wc_attribute_taxonomy_name($attribute->attribute_name);
+        if (!taxonomy_exists($taxonomy)) {
+            continue;
+        }
+
+        $terms = get_terms([
+            'taxonomy'   => $taxonomy,
+            'hide_empty' => true,
+            'orderby'    => 'name',
+        ]);
+        if (empty($terms) || is_wp_error($terms)) {
+            continue;
+        }
+
+        $groups[] = [
+            'taxonomy' => $taxonomy,
+            'key'      => 'filter_' . $attribute->attribute_name,
+            'label'    => $attribute->attribute_label,
+            'terms'    => $terms,
+        ];
+    }
+
+    return $groups;
+}

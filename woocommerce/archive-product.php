@@ -176,36 +176,33 @@ foreach (dawp_main_product_categories() as $slug => $label) {
                 </button>
             </div>
 
-            <?php
-            // Categories widget
-            $uncategorized = get_term_by('slug', 'uncategorized', 'product_cat');
-            $categories = get_terms([
-                'taxonomy'   => 'product_cat',
-                'hide_empty' => false,
-                'parent'     => 0,
-                'exclude'    => $uncategorized && !is_wp_error($uncategorized) ? [(int) $uncategorized->term_id] : [],
-            ]);
-            if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
+            <?php // 1. Search (FiboSearch) ?>
+            <div class="shop-sidebar__widget shop-sidebar__search">
+                <h3 class="shop-sidebar__title"><?php esc_html_e('Search', 'dawp'); ?></h3>
+                <?php
+                if (shortcode_exists('fibosearch')) {
+                    echo do_shortcode('[fibosearch layout="classic" style="solaris" submit_btn="1" mobile_overlay="0" darken_bg="0"]');
+                } else {
+                    get_product_search_form();
+                }
+                ?>
+            </div>
+
+            <?php // 2. Main product-type categories ?>
+            <?php if (!empty($category_chips)) : ?>
             <div class="shop-sidebar__widget">
-                <h3 class="shop-sidebar__title">Categories</h3>
+                <h3 class="shop-sidebar__title"><?php esc_html_e('Categories', 'dawp'); ?></h3>
                 <ul class="shop-sidebar__categories">
                     <li>
-                        <a
-                            href="<?php echo esc_url( $shop_url ); ?>"
-                            <?php if ( is_shop() ) echo 'aria-current="page"'; ?>
-                        >
-                            All Products
+                        <a href="<?php echo esc_url($shop_url); ?>" <?php if (is_shop()) echo 'aria-current="page"'; ?>>
+                            <?php esc_html_e('All Products', 'dawp'); ?>
                         </a>
                     </li>
-                    <?php foreach ( $categories as $cat ) :
-                        $is_current = ( is_product_category( $cat->slug ) ); ?>
+                    <?php foreach ($category_chips as $chip) : ?>
                         <li>
-                            <a
-                                href="<?php echo esc_url( get_term_link( $cat ) ); ?>"
-                                <?php if ( $is_current ) echo 'aria-current="page"'; ?>
-                            >
-                                <?php echo esc_html( $cat->name ); ?>
-                                <span class="count">(<?php echo (int) $cat->count; ?>)</span>
+                            <a href="<?php echo esc_url($chip['url']); ?>" <?php if ($chip['current']) echo 'aria-current="page"'; ?>>
+                                <?php echo esc_html($chip['name']); ?>
+                                <span class="count">(<?php echo (int) $chip['count']; ?>)</span>
                             </a>
                         </li>
                     <?php endforeach; ?>
@@ -214,11 +211,58 @@ foreach (dawp_main_product_categories() as $slug => $label) {
             <?php endif; ?>
 
             <?php
-            // Price filter / other widgets
-            if ( is_active_sidebar('shop-sidebar') ) {
-                dynamic_sidebar('shop-sidebar');
+            // 3. Global attributes — WooCommerce layered nav (?filter_{attr}=slug,slug)
+            $filter_groups = dawp_shop_filter_attributes();
+            $filter_base   = ($archive_term && !is_wp_error($archive_term)) ? get_term_link($archive_term) : $shop_url;
+            $kept_args     = [];
+            foreach ($_GET as $arg => $value) {
+                if (is_string($value) && preg_match('/^(filter_|query_type_|orderby$|min_price$|max_price$|s$|post_type$)/', $arg)) {
+                    $kept_args[sanitize_key($arg)] = sanitize_text_field(wp_unslash($value));
+                }
             }
-            ?>
+            $has_active_filters = (bool) preg_grep('/^filter_/', array_keys($kept_args));
+
+            foreach ($filter_groups as $group) :
+                $chosen = isset($kept_args[$group['key']]) ? array_filter(explode(',', $kept_args[$group['key']])) : [];
+                $query_type_key = 'query_type_' . substr($group['key'], 7);
+                ?>
+                <details class="shop-sidebar__widget shop-filter" <?php echo $chosen ? 'open' : ''; ?>>
+                    <summary class="shop-sidebar__title shop-filter__toggle"><?php echo esc_html($group['label']); ?></summary>
+                    <ul class="shop-sidebar__categories shop-filter__list">
+                        <?php foreach ($group['terms'] as $term) :
+                            $is_chosen = in_array($term->slug, $chosen, true);
+                            $next      = $is_chosen ? array_diff($chosen, [$term->slug]) : array_merge($chosen, [$term->slug]);
+                            $args      = $kept_args;
+                            unset($args[$group['key']], $args[$query_type_key]);
+                            if ($next) {
+                                $args[$group['key']]   = implode(',', $next);
+                                $args[$query_type_key] = 'or';
+                            }
+                            ?>
+                            <li>
+                                <a
+                                    href="<?php echo esc_url(add_query_arg($args, $filter_base)); ?>"
+                                    rel="nofollow"
+                                    <?php if ($is_chosen) echo 'aria-current="true"'; ?>
+                                >
+                                    <span class="shop-filter__check" aria-hidden="true"></span>
+                                    <span class="shop-filter__name"><?php echo esc_html($term->name); ?></span>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </details>
+            <?php endforeach; ?>
+
+            <?php if ($has_active_filters) :
+                $clear_args = array_filter($kept_args, static function ($arg) {
+                    return !preg_match('/^(filter_|query_type_)/', $arg);
+                }, ARRAY_FILTER_USE_KEY);
+                ?>
+                <a class="button shop-filter__clear" href="<?php echo esc_url(add_query_arg($clear_args, $filter_base)); ?>">
+                    <?php esc_html_e('Clear filters', 'dawp'); ?>
+                </a>
+            <?php endif; ?>
         </aside>
 
         <?php // ── Main Product Area ────────────────────────── ?>

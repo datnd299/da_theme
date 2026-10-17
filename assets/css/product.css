@@ -1035,7 +1035,6 @@ form.cart:not(.variations_form) {
 
 /* Structured shared description (.pw-desc, set on Products > Categories) */
 .pw-desc {
-  max-width: 760px;
   color: var(--color-foreground-muted);
   line-height: 1.65;
 }

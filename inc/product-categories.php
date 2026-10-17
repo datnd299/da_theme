@@ -103,6 +103,7 @@ function dawp_main_product_categories() {
         'caps'           => __('Hats & Caps', 'dawp'),
         'flags'          => __('Flags', 'dawp'),
         'metal-signs'    => __('Metal Signs', 'dawp'),
+        'phone-cases'    => __('Phone Cases', 'dawp'),
     ];
 }
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQs page for Celvia.
+ * FAQs page — Maison editorial layout.
  *
  * @package dawp
  */
@@ -12,8 +12,7 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Celvia';
 $site_domain    = 'Celvia';
 $support_email  = 'support@celviaus.com';
-$support_phone  = '304-585-0364';
-$store_address  = 'Loom Agency LLC, 30 N Gould St, STE R, Sheridan, Wyoming 82801, US';
+$store_address  = 'Loom Agency LLC, 198 Bear Branch Rd, Reevesville, SC 29471, US';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
@@ -170,10 +169,9 @@ $faq_groups = [
             [
                 'question' => __('How do I contact Celvia?', 'dawp'),
                 'answer'   => sprintf(
-                    /* translators: 1: email address, 2: phone number, 3: business hours, 4: store address */
-                    __('Email %1$s, call %2$s, or use the Contact Us page. Customer service hours are %3$s. Our business address is %4$s.', 'dawp'),
+                    /* translators: 1: email address, 2: business hours, 3: store address */
+                    __('Email %1$s or use the Contact Us page. Customer service hours are %2$s. Our business address is %3$s.', 'dawp'),
                     $support_email,
-                    $support_phone,
                     $business_hours,
                     $store_address
                 ),
@@ -211,14 +209,102 @@ $quick_links = [
 ];
 ?>
 
-<div class="lux-policy bg-white text-[#2B2B2B]">
-    <section class="bg-[#F8F5F0] py-14 sm:py-20" aria-labelledby="faq-title">
-        <div class="mx-auto flex max-w-3xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-center text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
-            <h1 id="faq-title" class="mt-4 text-center font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                <?php esc_html_e('Quick answers for shopping with Celvia.', 'dawp'); ?>
-            </h1>
-            <p class="mx-auto mt-5 max-w-2xl text-center text-base leading-8 text-[#4A4A4A]">
+<style>
+    .mf { background:var(--color-background); color:var(--color-foreground); }
+    .mf-title { margin:0; color:inherit; font-family:var(--font-heading); font-weight:400; line-height:1.04; letter-spacing:-.005em; }
+    .mf-title em { color:var(--color-accent); font-style:italic; }
+    .mf-copy { max-width:600px; margin:20px 0 0; color:var(--color-foreground-muted); font-size:16px; line-height:1.8; }
+
+    /* Hero */
+    .mf-hero { padding:88px 0 56px; border-bottom:1px solid var(--color-border); background:var(--color-surface); text-align:center; }
+    .mf-hero h1 { max-width:820px; margin-inline:auto; font-size:clamp(44px,6.4vw,84px); }
+    .mf-hero .mf-copy { margin-inline:auto; }
+    .mf-updated { margin:22px 0 0; color:var(--color-muted); font-size:10.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; }
+    .mf-updated strong { color:var(--color-ink); font-weight:700; }
+    .mf-jump { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:34px; }
+    .mf-jump a { display:inline-flex; align-items:center; min-height:44px; padding:0 18px; border:1px solid var(--color-border); border-radius:var(--radius-pill); background:var(--color-surface-alt); color:var(--color-ink); font-size:11px; font-weight:700; letter-spacing:.14em; text-decoration:none; text-transform:uppercase; transition:background var(--duration-fast) var(--ease-fluid), color var(--duration-fast) var(--ease-fluid), border-color var(--duration-fast) var(--ease-fluid); }
+    .mf-jump a:hover { border-color:var(--color-ink); background:var(--color-ink); color:var(--color-surface-alt); }
+
+    /* Highlights */
+    .mf-highlights { display:grid; border-bottom:1px solid var(--color-border); }
+    .mf-highlight { padding:26px 0; border-bottom:1px solid var(--color-border); }
+    .mf-highlight:last-child { border-bottom:0; }
+    .mf-highlight strong { display:block; color:var(--color-ink); font-family:var(--font-heading); font-size:24px; font-weight:400; line-height:1.2; }
+    .mf-highlight strong::before { content:"\2014"; margin-right:10px; color:var(--color-accent); }
+    .mf-highlight p { margin:6px 0 0; color:var(--color-foreground-muted); font-size:14px; line-height:1.7; }
+
+    /* Layout */
+    .mf-body { padding:72px 0; }
+    .mf-layout { display:grid; gap:64px; }
+    .mf-group { scroll-margin-top:130px; }
+    .mf-group + .mf-group { margin-top:64px; }
+    .mf-group__head { display:flex; align-items:baseline; gap:18px; padding-bottom:18px; border-bottom:1px solid var(--color-ink); }
+    .mf-group__head span { color:var(--color-accent); font-size:11px; font-weight:600; letter-spacing:.14em; }
+    .mf-group__head h2 { font-size:clamp(30px,3.4vw,44px); }
+    .mf-item { border-bottom:1px solid var(--color-border); }
+    .mf-item summary { display:flex; justify-content:space-between; align-items:center; gap:24px; min-height:44px; padding:22px 0; color:var(--color-ink); font-family:var(--font-heading); font-size:22px; line-height:1.3; cursor:pointer; list-style:none; transition:color var(--duration-fast) var(--ease-fluid); }
+    .mf-item summary::-webkit-details-marker { display:none; }
+    .mf-item summary:hover { color:var(--color-accent); }
+    .mf-item summary:focus-visible { outline:1px solid var(--color-accent); outline-offset:4px; }
+    .mf-item p { max-width:720px; margin:0; padding:0 40px 26px 0; color:var(--color-foreground-muted); font-size:15px; line-height:1.8; }
+    .mf-plus { position:relative; flex:none; width:14px; height:14px; color:var(--color-accent); transition:transform var(--duration-normal) var(--ease-fluid); }
+    .mf-plus::before, .mf-plus::after { content:""; position:absolute; top:50%; left:0; width:100%; height:1px; background:currentColor; }
+    .mf-plus::after { transform:rotate(90deg); }
+    .mf-item[open] .mf-plus { transform:rotate(45deg); }
+
+    /* Aside */
+    .mf-aside h2 { font-size:clamp(30px,3vw,40px); }
+    .mf-aside .mf-copy { font-size:15px; }
+    .mf-links { margin-top:28px; border-top:1px solid var(--color-border); }
+    .mf-links a { display:grid; grid-template-columns:1fr auto; gap:16px; align-items:center; padding:20px 0; border-bottom:1px solid var(--color-border); color:inherit; text-decoration:none; transition:padding var(--duration-normal) var(--ease-fluid), background var(--duration-normal) var(--ease-fluid); }
+    .mf-links strong { display:block; color:var(--color-ink); font-family:var(--font-heading); font-size:22px; font-weight:400; line-height:1.2; }
+    .mf-links small { display:block; margin-top:4px; color:var(--color-foreground-muted); font-size:13px; line-height:1.6; }
+    .mf-links svg { width:18px; height:18px; color:var(--color-accent); fill:none; stroke:currentColor; stroke-width:1.5; }
+    .mf-links a:hover { padding-inline:12px; background:var(--color-surface-alt); }
+
+    /* Still need help */
+    .mf-help { padding:80px 0; background:var(--color-ink); color:var(--color-surface); }
+    .mf-help__grid { display:grid; gap:40px; }
+    .mf-help h2 { font-size:clamp(36px,4.4vw,58px); }
+    .mf-help .mf-copy { color:rgba(243,238,229,.7); }
+    .mf-help dl { display:grid; margin:0; border-top:1px solid var(--color-line-dark); }
+    .mf-help dl div { padding:18px 0; border-bottom:1px solid var(--color-line-dark); }
+    .mf-help dt { color:var(--color-accent-light); font-size:10.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; }
+    .mf-help dd { margin:6px 0 0; font-size:15px; line-height:1.6; }
+    .mf-help a:not(.mx-btn) { color:inherit; text-decoration:underline; text-decoration-color:var(--color-accent-light); text-underline-offset:4px; overflow-wrap:anywhere; transition:color var(--duration-fast) var(--ease-fluid); }
+    .mf-help a:not(.mx-btn):hover { color:var(--color-accent-light); }
+    .mf-help__ctas { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+
+    @media (max-width: 767px) {
+        .mf-jump { flex-wrap:nowrap; justify-content:flex-start; margin-inline:-16px; padding-inline:16px; overflow-x:auto; scrollbar-width:none; }
+        .mf-jump::-webkit-scrollbar { display:none; }
+        .mf-jump a { flex:none; }
+        .mf-item summary { font-size:20px; }
+        .mf-item p { padding-right:0; }
+        .mf-help__ctas .mx-btn { flex:1 1 100%; }
+    }
+    @media (min-width: 768px) {
+        .mf-hero { padding:120px 0 72px; }
+        .mf-highlights { grid-template-columns:repeat(3,minmax(0,1fr)); gap:40px; }
+        .mf-highlight { padding:32px 0; border-bottom:0; }
+        .mf-body, .mf-help { padding:112px 0; }
+    }
+    @media (min-width: 1024px) {
+        .mf-layout { grid-template-columns:minmax(0,1.4fr) minmax(300px,.6fr); gap:88px; align-items:start; }
+        .mf-aside { position:sticky; top:120px; }
+        .mf-help__grid { grid-template-columns:1fr 1fr; gap:88px; align-items:start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .mf * { transition:none !important; }
+    }
+</style>
+
+<div class="mf">
+    <section class="mf-hero" aria-labelledby="faq-title">
+        <div class="mx-wrap">
+            <p class="mx-eyebrow"><?php esc_html_e('FAQs', 'dawp'); ?></p>
+            <h1 id="faq-title" class="mf-title"><?php echo wp_kses(__('Quick answers for shopping with <em>Celvia</em>.', 'dawp'), ['em' => []]); ?></h1>
+            <p class="mf-copy">
                 <?php
                 echo esc_html(
                     sprintf(
@@ -230,94 +316,97 @@ $quick_links = [
                 );
                 ?>
             </p>
-            <div class="mt-6 rounded-md border border-[#E8E5DF] bg-white px-5 py-4 shadow-sm">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
-                <p class="mt-2 font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($last_updated); ?></p>
-            </div>
+            <p class="mf-updated"><?php esc_html_e('Last Updated', 'dawp'); ?> &middot; <strong><?php echo esc_html($last_updated); ?></strong></p>
+            <nav class="mf-jump" aria-label="<?php esc_attr_e('FAQ topics', 'dawp'); ?>">
+                <?php foreach ($faq_groups as $group) : ?>
+                    <a href="#<?php echo esc_attr(sanitize_title($group['label'])); ?>"><?php echo esc_html($group['label']); ?></a>
+                <?php endforeach; ?>
+            </nav>
         </div>
     </section>
 
-    <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="faq-content-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
-            <aside class="hidden lg:block lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
-                    <h2 id="faq-content-title" class="font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Helpful links', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
-                        <?php esc_html_e('This FAQ summarizes the current store policies. Review the full policy pages for complete details before placing an order, requesting a return, or submitting a privacy request.', 'dawp'); ?>
-                    </p>
-                    <div class="mt-6 grid gap-3">
-                        <?php foreach ($quick_links as $link) : ?>
-                            <a href="<?php echo esc_url($link['url']); ?>" class="block w-full rounded-md border border-[#E8E5DF] bg-[#FFFFFF] p-4 transition hover:border-[#D0B8AE] hover:bg-[#F8F5F0]">
-                                <span class="block font-heading text-base font-extrabold text-[#2B2B2B]"><?php echo esc_html($link['title']); ?></span>
-                                <span class="mt-2 block text-sm leading-6 text-[#4A4A4A]"><?php echo esc_html($link['copy']); ?></span>
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
+    <div class="mx-wrap">
+        <div class="mf-highlights">
+            <?php foreach ($policy_highlights as $highlight) : ?>
+                <div class="mf-highlight">
+                    <strong><?php echo esc_html($highlight['title']); ?></strong>
+                    <p><?php echo esc_html($highlight['copy']); ?></p>
                 </div>
-            </aside>
+            <?php endforeach; ?>
+        </div>
+    </div>
 
-            <div class="grid gap-5">
-                <?php foreach ($faq_groups as $group) : ?>
-                    <section class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm" aria-labelledby="<?php echo esc_attr(sanitize_title($group['label'])); ?>">
-                        <h2 id="<?php echo esc_attr(sanitize_title($group['label'])); ?>" class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($group['label']); ?></h2>
-                        <div class="mt-6 divide-y divide-[#E8E5DF]">
-                            <?php foreach ($group['items'] as $item) : ?>
-                                <details class="group py-5 first:pt-0 last:pb-0">
-                                    <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#2B2B2B]">
-                                        <span><?php echo esc_html($item['question']); ?></span>
-                                        <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#F8F5F0] text-[#A45A3F] transition group-open:rotate-45" aria-hidden="true">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm leading-7 text-[#4A4A4A]"><?php echo esc_html($item['answer']); ?></p>
-                                </details>
-                            <?php endforeach; ?>
+    <section class="mf-body" aria-label="<?php esc_attr_e('Frequently asked questions', 'dawp'); ?>">
+        <div class="mx-wrap mf-layout">
+            <div>
+                <?php foreach ($faq_groups as $index => $group) : ?>
+                    <?php $group_id = sanitize_title($group['label']); ?>
+                    <section class="mf-group" id="<?php echo esc_attr($group_id); ?>" aria-labelledby="<?php echo esc_attr($group_id); ?>-title">
+                        <div class="mf-group__head">
+                            <span><?php echo esc_html(sprintf('%02d', $index + 1)); ?></span>
+                            <h2 id="<?php echo esc_attr($group_id); ?>-title" class="mf-title"><?php echo esc_html($group['label']); ?></h2>
                         </div>
+                        <?php foreach ($group['items'] as $item) : ?>
+                            <details class="mf-item">
+                                <summary><?php echo esc_html($item['question']); ?><span class="mf-plus" aria-hidden="true"></span></summary>
+                                <p><?php echo esc_html($item['answer']); ?></p>
+                            </details>
+                        <?php endforeach; ?>
                     </section>
                 <?php endforeach; ?>
-
-                <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm">
-                    <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Still need help?', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
-                        <?php
-                        echo esc_html(
-                            sprintf(
-                                /* translators: 1: email address, 2: business hours */
-                                __('Email %1$s or use the Contact Us page with your order number, checkout email, and a short description of the issue. Customer service hours are %2$s.', 'dawp'),
-                                $support_email,
-                                $business_hours
-                            )
-                        );
-                        ?>
-                    </p>
-                    <dl class="mt-5 grid gap-4 md:grid-cols-3">
-                        <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
-                            <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
-                            <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]">
-                                <a class="break-words font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
-                            </dd>
-                        </div>
-                        <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
-                            <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Customer Support Phone', 'dawp'); ?></dt>
-                            <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]">
-                                <a class="font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a>
-                            </dd>
-                        </div>
-                        <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
-                            <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Business Address', 'dawp'); ?></dt>
-                            <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]"><?php echo esc_html($store_address); ?></dd>
-                        </div>
-                    </dl>
-                    <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-                        <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#A45A3F] px-6 text-sm font-bold text-white transition hover:bg-[#7F422F]">
-                            <?php esc_html_e('Contact Us', 'dawp'); ?>
-                        </a>
-                        <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-6 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
-                            <?php esc_html_e('Shop Watches', 'dawp'); ?>
-                        </a>
-                    </div>
-                </article>
             </div>
+
+            <aside class="mf-aside" aria-labelledby="faq-links-title">
+                <p class="mx-eyebrow"><?php esc_html_e('Store Policies', 'dawp'); ?></p>
+                <h2 id="faq-links-title" class="mf-title"><?php esc_html_e('Helpful links', 'dawp'); ?></h2>
+                <p class="mf-copy"><?php esc_html_e('This FAQ summarizes the current store policies. Review the full policy pages for complete details before placing an order, requesting a return, or submitting a privacy request.', 'dawp'); ?></p>
+                <div class="mf-links">
+                    <?php foreach ($quick_links as $link) : ?>
+                        <a href="<?php echo esc_url($link['url']); ?>">
+                            <span>
+                                <strong><?php echo esc_html($link['title']); ?></strong>
+                                <small><?php echo esc_html($link['copy']); ?></small>
+                            </span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="mf-help" aria-labelledby="faq-help-title">
+        <div class="mx-wrap mf-help__grid">
+            <div>
+                <p class="mx-eyebrow mx-eyebrow--light"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
+                <h2 id="faq-help-title" class="mf-title"><?php echo wp_kses(__('Still need <em>help</em>?', 'dawp'), ['em' => []]); ?></h2>
+                <p class="mf-copy">
+                    <?php
+                    echo esc_html(
+                        sprintf(
+                            /* translators: 1: email address, 2: business hours */
+                            __('Email %1$s or use the Contact Us page with your order number, checkout email, and a short description of the issue. Customer service hours are %2$s.', 'dawp'),
+                            $support_email,
+                            $business_hours
+                        )
+                    );
+                    ?>
+                </p>
+                <div class="mf-help__ctas">
+                    <a class="mx-btn mx-btn--light" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
+                    <a class="mx-btn mx-btn--ghost-light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
+                </div>
+            </div>
+            <dl>
+                <div>
+                    <dt><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
+                    <dd><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
+                </div>
+                <div>
+                    <dt><?php esc_html_e('Business Address', 'dawp'); ?></dt>
+                    <dd><?php echo esc_html($store_address); ?></dd>
+                </div>
+            </dl>
         </div>
     </section>
 </div>
-
-

@@ -10,8 +10,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_phone   = '+1 304 585 0364';
-$whatsapp_number = preg_replace('/[^0-9]/', '', $support_phone);
+$support_email   = 'support@celviaus.com';
 $rating_text     = __('Rated 4.8/5 based on 13,000+ Reviews', 'dawp');
 $shipping_badge  = __('Secured Shipping & Customs Guarantee', 'dawp');
 $home_url      = home_url('/');
@@ -74,8 +73,8 @@ $icon = static function ($name) {
 <header id="site-header" class="mx-header" role="banner">
     <div class="mx-bar">
         <div class="mx-wrap mx-bar__row">
-            <a class="mx-bar__item mx-bar__item--side" href="https://wa.me/<?php echo esc_attr($whatsapp_number); ?>" target="_blank" rel="noopener">
-                <?php esc_html_e('WhatsApp Concierge', 'dawp'); ?> &middot; <?php echo esc_html($support_phone); ?>
+            <a class="mx-bar__item mx-bar__item--side" href="mailto:<?php echo esc_attr($support_email); ?>">
+                <?php esc_html_e('Concierge', 'dawp'); ?> &middot; <?php echo esc_html($support_email); ?>
             </a>
             <span class="mx-bar__item mx-bar__item--center"><?php echo esc_html($rating_text); ?></span>
             <span class="mx-bar__item mx-bar__item--side mx-bar__item--end"><?php echo esc_html($shipping_badge); ?></span>
@@ -206,7 +205,7 @@ $icon = static function ($name) {
         </nav>
         <div class="mx-drawer__foot">
             <p class="mx-eyebrow"><?php esc_html_e('Private Concierge', 'dawp'); ?></p>
-            <a href="https://wa.me/<?php echo esc_attr($whatsapp_number); ?>" target="_blank" rel="noopener"><?php echo esc_html($support_phone); ?></a>
+            <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
         </div>
     </div>
 </div>

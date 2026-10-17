@@ -12,8 +12,7 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Celvia';
 $site_domain    = 'celviaus.com';
 $support_email  = 'support@celviaus.com';
-$support_phone  = '304-585-0364';
-$store_address  = 'Loom Agency LLC, 30 N Gould St, STE R, Sheridan, Wyoming 82801, US';
+$store_address  = 'Loom Agency LLC, 198 Bear Branch Rd, Reevesville, SC 29471, US';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $last_updated   = __('May 29, 2026', 'dawp');
@@ -73,11 +72,6 @@ $contact_details = [
         'label' => __('Customer Support Email', 'dawp'),
         'value' => $support_email,
         'url'   => 'mailto:' . $support_email,
-    ],
-    [
-        'label' => __('Customer Support Phone', 'dawp'),
-        'value' => $support_phone,
-        'url'   => 'tel:' . $support_phone,
     ],
     [
         'label' => __('Physical Business Address', 'dawp'),

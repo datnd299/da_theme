@@ -1430,62 +1430,12 @@ body.dawp-cart-open .dawp-cart-fab {
   display: none;
 }
 
-/* WhatsApp FAB: sits above the cart FAB while it is visible */
-.dawp-wa-fab {
-  position: fixed;
-  right: var(--space-md);
-  bottom: var(--space-md);
-  z-index: 150;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-pill);
-  background: #25D366;
-  color: #fff;
-  box-shadow: var(--shadow-card-hover);
-  transition: transform var(--duration-fast) var(--ease-fluid);
-}
-
-.dawp-wa-fab:hover {
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-.dawp-cart-fab ~ .dawp-wa-fab {
-  bottom: calc(var(--space-md) + 56px + 12px);
-}
-
-.dawp-cart-fab:has(.lux-cart-count.hidden) ~ .dawp-wa-fab {
-  bottom: var(--space-md);
-}
-
-body.dawp-cart-open .dawp-wa-fab {
-  display: none;
-}
-
 @media (max-width: 640px) {
   .dawp-cart-fab {
     right: var(--space-sm);
     bottom: var(--space-sm);
     width: 50px;
     height: 50px;
-  }
-
-  .dawp-wa-fab {
-    right: var(--space-sm);
-    bottom: var(--space-sm);
-    width: 50px;
-    height: 50px;
-  }
-
-  .dawp-cart-fab ~ .dawp-wa-fab {
-    bottom: calc(var(--space-sm) + 50px + 10px);
-  }
-
-  .dawp-cart-fab:has(.lux-cart-count.hidden) ~ .dawp-wa-fab {
-    bottom: var(--space-sm);
   }
 }
 
@@ -1832,6 +1782,9 @@ a.mx-bar__item:hover {
   border-top: 1px solid var(--color-border);
   background: var(--color-background);
   box-shadow: 0 30px 60px -40px rgba(19, 17, 14, 0.5);
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-6px);
@@ -1849,23 +1802,27 @@ a.mx-bar__item:hover {
 
 .mx-mega__inner {
   display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 56px;
-  padding: 44px 0 52px;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  padding: 30px 0 34px;
 }
 
 .mx-mega__grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 30px 32px;
+  columns: 4;
+  column-gap: 28px;
+}
+
+.mx-mega__col {
+  break-inside: avoid;
+  margin-bottom: 20px;
 }
 
 .mx-mega__brand {
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   color: var(--color-ink);
   font-family: var(--font-heading);
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.15;
   text-decoration: none;
@@ -1877,9 +1834,11 @@ a.mx-bar__item:hover {
 
 .mx-mega__col ul {
   display: grid;
-  gap: 8px;
+  gap: 5px;
   margin: 0;
   padding: 0;
+  font-size: 13px;
+  line-height: 1.4;
   list-style: none;
 }
 
@@ -1896,7 +1855,7 @@ a.mx-bar__item:hover {
 .mx-mega__feature {
   position: relative;
   display: block;
-  min-height: 300px;
+  min-height: 260px;
   overflow: hidden;
   color: var(--color-surface);
   text-decoration: none;

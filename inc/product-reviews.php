@@ -4,7 +4,7 @@
  * Injects sample reviews into product pages
  */
 
-function chronel_get_product_reviews($product_id = null) {
+function celvia_get_product_reviews($product_id = null) {
     global $product;
     if (!$product_id && $product) {
         $product_id = $product->get_id();
@@ -46,13 +46,13 @@ function chronel_get_product_reviews($product_id = null) {
     return $reviews;
 }
 
-function chronel_display_product_reviews() {
+function celvia_display_product_reviews() {
     global $product;
     if (!$product) {
         return;
     }
 
-    $reviews = chronel_get_product_reviews();
+    $reviews = celvia_get_product_reviews();
     if (empty($reviews)) {
         return;
     }
@@ -93,7 +93,7 @@ add_filter('woocommerce_product_review_comment_form_args', function ($args) {
     return $args;
 });
 
-function chronel_display_quality_check() {
+function celvia_display_quality_check() {
     $icons = [
         'finish'   => '<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/>',
         'material' => '<path d="M6 3h12l3 6-9 12L3 9z"/><path d="M3 9h18M9 3l3 18M15 3l-3 18"/>',

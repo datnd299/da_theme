@@ -1,129 +1,81 @@
 <?php
 /**
- * About Us — ShopGraphicShirt
- * Patriotic apparel & gift brand.
+ * About Us — MozTire
  */
-$sgs_about_hero_bg = sprintf(
-  "--about-hero-bg:url('%s');--about-hero-bg-mobile:url('%s')",
-  esc_url(dawp_theme_cdn_image_url('assets/img/about/about-hero-background.png', 1600, 760)),
-  esc_url(dawp_theme_cdn_image_url('assets/img/about/about-hero-background.png', 720, 760))
-);
-get_header(); ?>
-<section class="sgs-home sgs-page">
+$f = dawp_store_facts();
 
-<style>
-.sgs-page-hero{position:relative;isolation:isolate;background-color:var(--navy);background-image:var(--about-hero-bg);background-size:cover;background-position:center;color:var(--white);padding:clamp(96px,12vw,160px) clamp(24px,4vw,64px);text-align:center;overflow:hidden}
-.sgs-page-hero:before{content:"";position:absolute;inset:0;z-index:-2;background:inherit;background-size:cover;background-position:center;transform:scale(1.01)}
-.sgs-page-hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,31,58,.88),rgba(11,31,58,.72) 28%,rgba(11,31,58,.68) 50%,rgba(11,31,58,.72) 72%,rgba(11,31,58,.88)),linear-gradient(180deg,rgba(11,31,58,.58),rgba(11,31,58,.28) 42%,rgba(11,31,58,.78))}
-.sgs-page-hero__inner{max-width:760px;margin:0 auto;position:relative;z-index:1}
-.sgs-page-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
-.sgs-page-hero p{max-width:640px;margin:20px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7}
-.sgs-pg{width:min(100% - 48px,1200px);margin:0 auto;padding:var(--section-gap,72px) 0}
-.sgs-pg--surface{width:100%;max-width:none;padding-inline:clamp(24px,4vw,64px);background:var(--antique)}
-.sgs-pg__center{max-width:640px;margin:0 auto 36px;text-align:center}
-.sgs-pg__center h2{margin:0;font-family:var(--font-heading);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
-.sgs-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.sgs-card{padding:32px 24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);text-align:center;transition:box-shadow 180ms,transform 180ms}
-.sgs-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-3px)}
-.sgs-card__icon{display:grid;place-items:center;width:52px;height:52px;border-radius:var(--radius);background:var(--navy);color:var(--white);font-size:22px;margin:0 auto 18px}
-.sgs-card__icon i{line-height:1}
-.sgs-card h3{margin:0;font-family:var(--font-heading);font-size:1.2rem;font-weight:700;color:var(--ink)}
-.sgs-card p{margin:10px 0 0;color:var(--muted);font-size:.9rem;line-height:1.6}
-.sgs-card--4{grid-template-columns:repeat(4,1fr)}
-.sgs-story{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
-.sgs-story__content h2{margin:0 0 16px;font-family:var(--font-heading);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
-.sgs-story__content p{margin:14px 0 0;color:var(--muted);font-size:.95rem;line-height:1.7}
-.sgs-story__content p:first-of-type{margin-top:0}
-.sgs-story__visual{position:relative;border-radius:var(--radius);background:var(--antique);min-height:320px;overflow:hidden;box-shadow:0 18px 40px rgba(11,31,58,.12)}
-.sgs-story__visual img{width:100%;height:100%;min-height:320px;object-fit:cover}
-.sgs-story__visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,31,58,0) 48%,rgba(11,31,58,.22));pointer-events:none}
-.sgs-story__badge{position:absolute;left:18px;bottom:18px;z-index:1;display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--radius);background:rgba(255,255,255,.92);color:var(--navy);font-family:var(--font-heading);font-size:.86rem;font-weight:800;box-shadow:0 10px 24px rgba(11,31,58,.18)}
-.sgs-story__badge i{color:var(--red)}
-.sgs-cta-block{text-align:center;max-width:580px;margin:0 auto}
-.sgs-cta-block h2{margin:0;font-family:var(--font-heading);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--ink);line-height:1.15}
-.sgs-cta-block p{margin:14px 0 24px;color:var(--muted);font-size:.95rem;line-height:1.6}
-.sgs-cta-block .sgs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 30px;border:2px solid var(--red);border-radius:var(--radius);background:var(--red);color:var(--white)!important;font-family:var(--font-heading);font-size:.82rem;font-weight:800;letter-spacing:.04em;text-decoration:none;text-transform:uppercase;box-shadow:0 3px 10px rgba(179,25,66,.25);transition:transform 180ms,background-color 180ms,border-color 180ms,box-shadow 180ms}
-.sgs-cta-block .sgs-btn:hover{transform:translateY(-2px);background:#8c1233;border-color:#8c1233;color:var(--white)!important;box-shadow:0 6px 16px rgba(179,25,66,.32)}
-.sgs-cta-block .sgs-btn:focus-visible{outline:3px solid rgba(179,25,66,.28);outline-offset:3px}
-@media(max-width:1024px){.sgs-card-grid{grid-template-columns:repeat(2,1fr)}.sgs-card--4{grid-template-columns:repeat(2,1fr)}.sgs-story{grid-template-columns:1fr;gap:28px}.sgs-story__visual{min-height:260px;order:-1}}
-@media(max-width:640px){.sgs-page-hero{background-image:var(--about-hero-bg-mobile,var(--about-hero-bg))}.sgs-pg{width:100%;padding:52px 0}.sgs-pg--surface{padding-inline:0}.sgs-pg__center{width:min(100% - 40px,640px);margin-bottom:28px}.sgs-card-grid,.sgs-card--4{display:flex;grid-template-columns:none;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:0 20px 8px;-webkit-overflow-scrolling:touch}.sgs-card-grid::-webkit-scrollbar{display:none}.sgs-card-grid{scrollbar-width:none}.sgs-card{flex:0 0 min(82vw,360px);scroll-snap-align:center;min-height:244px;display:flex;flex-direction:column;justify-content:center}.sgs-card:hover{box-shadow:none;transform:none}.sgs-story{width:min(100% - 40px,1200px);margin-inline:auto}.sgs-cta-block{width:min(100% - 40px,580px)}.sgs-cta-block .sgs-btn{width:100%}}
-</style>
+dawp_page_hero([
+    'title'   => 'Tire shopping, without the guesswork.',
+    'eyebrow' => 'About MozTire',
+    'lead'    => 'MozTire is an online tire store for U.S. drivers. We built it around one idea: you should be able to find a tire that fits your vehicle, see every spec that matters, and get it delivered without surprises.',
+    'image'   => 'assets/img/hero/about-hero.jpg',
+    'crumb'   => 'About Us',
+]);
 
-<div class="sgs-page-hero" style="<?php echo esc_attr($sgs_about_hero_bg); ?>">
-  <div class="sgs-page-hero__inner">
-    <p class="sgs-eyebrow sgs-eyebrow--light">About Us</p>
-    <h1>Patriotic Apparel And Gifts Made For American Pride</h1>
-    <p>ShopGraphicShirt is an American patriotic apparel and custom gift brand built for proud Americans who want meaningful products that carry classic style and pride.</p>
-  </div>
-</div>
+$values = [
+    ['title' => 'Specs up front', 'text' => 'Size, load index, speed rating, load range, season, sidewall and tread warranty are listed on every tire, so you can compare without digging.'],
+    ['title' => 'Search the way you think', 'text' => 'Type the size from your sidewall, pick it from the finder, or start with a brand, season or vehicle type. Filters narrow it down from there.'],
+    ['title' => 'Honest delivery', 'text' => 'Free ground shipping to the contiguous U.S., clear processing and transit times, and tracking on every package. Ship home or to your installer.'],
+    ['title' => 'People who answer', 'text' => 'Real support by email ' . $f['hours'] . '. Send your vehicle and current size and we will help you shortlist tires that fit.'],
+];
+?>
 
-<div class="sgs-pg">
-  <div class="sgs-card-grid">
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-bullseye"></i></div>
-      <h3>Our Mission</h3>
-      <p>To provide every American with a simple, affordable, and meaningful way to wear their pride.</p>
+<section class="py-14 md:py-20">
+    <div class="mz-container grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div>
+            <p class="m-0 font-heading text-sm font-extrabold tracking-[0.14em] text-accent uppercase">Why we exist</p>
+            <h2 class="mt-2 mb-4 font-heading text-3xl font-black md:text-4xl">Buying tires shouldn&rsquo;t feel like decoding a secret language.</h2>
+            <div class="mz-prose">
+                <p>Most drivers only shop for tires every few years. By then, the numbers on the sidewall are a mystery and every store seems to use different terms. MozTire organizes every tire by the same global attributes, from width, aspect ratio and rim diameter to season, vehicle type and speed rating, so results are consistent no matter how you search.</p>
+                <p>We focus on doing the online part well: accurate listings, a fast tire finder, secure checkout and dependable delivery. Installation is handled by the local shop of your choice, so you stay in control of where and when your tires go on.</p>
+            </div>
+        </div>
+        <ul class="m-0 grid list-none gap-3 p-0 sm:grid-cols-2">
+            <li class="rounded-lg bg-ink p-6 text-white">
+                <strong class="block font-heading text-4xl font-black text-accent-blush">$0</strong>
+                <span class="text-white/70">Ground shipping to the contiguous U.S.</span>
+            </li>
+            <li class="rounded-lg bg-ink p-6 text-white">
+                <strong class="block font-heading text-4xl font-black text-accent-blush"><?php echo (int) $f['return_window']; ?> days</strong>
+                <span class="text-white/70">To return new, unmounted tires</span>
+            </li>
+            <li class="rounded-lg bg-surface p-6">
+                <strong class="block font-heading text-4xl font-black"><?php echo esc_html($f['processing']); ?></strong>
+                <span class="text-foreground-muted">Business days to process</span>
+            </li>
+            <li class="rounded-lg bg-surface p-6">
+                <strong class="block font-heading text-4xl font-black">15+</strong>
+                <span class="text-foreground-muted">Tire attributes to filter by</span>
+            </li>
+        </ul>
     </div>
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-eye"></i></div>
-      <h3>Our Vision</h3>
-      <p>To become the most trusted patriotic apparel destination for proud Americans nationwide.</p>
-    </div>
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
-      <h3>Our Promise</h3>
-      <p>Premium quality, clear product information, reliable delivery, and support that actually helps you find the right products.</p>
-    </div>
-  </div>
-</div>
-
-<div class="sgs-pg sgs-pg--surface">
-  <div class="sgs-pg__center">
-    <p class="sgs-eyebrow">Why Shop With Us</p>
-    <h2>What Sets Us Apart</h2>
-  </div>
-  <div class="sgs-card-grid sgs-card--4">
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-shirt"></i></div>
-      <h3>Premium Quality</h3>
-      <p>Heavy-weight cotton, durable prints, and comfortable fits made to last.</p>
-    </div>
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-box"></i></div>
-      <h3>Easy Ordering</h3>
-      <p>Simple checkout, tracking included, and reliable delivery to your door.</p>
-    </div>
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-gift"></i></div>
-      <h3>Personalization</h3>
-      <p>Custom name options for meaningful gifts.</p>
-    </div>
-  </div>
-</div>
-
-<div class="sgs-pg">
-  <div class="sgs-story">
-    <div class="sgs-story__content">
-      <p class="sgs-eyebrow">Our Story</p>
-      <h2>Built For Proud American Style</h2>
-      <p>ShopGraphicShirt was created because finding quality patriotic apparel shouldn't be complicated. Too many stores feel generic, political, or low-quality.</p>
-      <p>We started this brand to change that, focusing on premium graphic tees, bomber jackets, hats, and accessories that actually look good, feel great, and celebrate American pride.</p>
-      <p>Today, we help thousands of Americans express their pride with products that carry meaning.</p>
-    </div>
-    <div class="sgs-story__visual">
-      <?php echo dawp_theme_image('assets/img/about/about-story-patriotic-apparel.png', __('Patriotic apparel, custom gifts, and accessories arranged in a premium studio setting', 'shopgraphicshirt'), 900, 650, [[480, 347], [720, 520], [900, 650], [1200, 867]], '(max-width: 1024px) calc(100vw - 40px), 560px'); ?>
-      <span class="sgs-story__badge"><i class="fas fa-flag-usa" aria-hidden="true"></i> American Pride Since Day One</span>
-    </div>
-  </div>
-</div>
-
-<div class="sgs-pg sgs-pg--surface">
-  <div class="sgs-cta-block">
-    <h2>Have Questions? We're Here To Help</h2>
-    <p>Our team is ready to assist you with product selection, orders, or any questions you may have.</p>
-    <a class="sgs-btn sgs-btn--primary" href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact Us</a>
-  </div>
-</div>
-
 </section>
-<?php get_footer(); ?>
+
+<section class="bg-surface py-14 md:py-20">
+    <div class="mz-container">
+        <p class="m-0 font-heading text-sm font-extrabold tracking-[0.14em] text-accent uppercase">What we stand for</p>
+        <h2 class="mt-2 mb-10 font-heading text-3xl font-black md:text-4xl">How we run MozTire</h2>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <?php foreach ($values as $i => $value) : ?>
+                <article class="rounded-lg border border-border bg-background p-6">
+                    <span class="font-heading text-sm font-black text-accent"><?php echo esc_html(sprintf('%02d', $i + 1)); ?></span>
+                    <h3 class="mt-2 mb-2 font-heading text-xl font-black"><?php echo esc_html($value['title']); ?></h3>
+                    <p class="m-0 text-foreground-muted"><?php echo esc_html($value['text']); ?></p>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<section class="py-14 md:py-20">
+    <div class="mz-container grid gap-6 rounded-lg bg-ink p-8 text-white md:grid-cols-[1fr_auto] md:items-center md:p-12">
+        <div>
+            <h2 class="m-0 font-heading text-3xl font-black">Ready to find your next set?</h2>
+            <p class="mt-2 mb-0 text-white/70">Start with your size, or browse by brand and season.</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+            <a class="mz-btn mz-btn--primary" href="<?php echo esc_url(home_url('/#find')); ?>">Find Tires by Size</a>
+            <a class="mz-btn mz-btn--ghost" href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact Us</a>
+        </div>
+    </div>
+</section>

@@ -1,91 +1,114 @@
 <?php
 /**
- * Privacy Policy - ShopGraphicShirt
+ * Privacy Policy — MozTire
  */
-$store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
-$store_address = $store_address ?: __('United States', 'dawp');
+$f = dawp_store_facts();
+$email = '<a href="mailto:' . esc_attr($f['email']) . '">' . esc_html($f['email']) . '</a>';
 
-$sgs_pp_hero_bg = sprintf(
-  "--sgs-pp-hero-bg:url('%s');--sgs-pp-hero-bg-mobile:url('%s')",
-  esc_url(dawp_theme_cdn_image_url('assets/img/policy/policy-hero-background.png', 1600, 760)),
-  esc_url(dawp_theme_cdn_image_url('assets/img/policy/policy-hero-background.png', 720, 520))
-);
-get_header(); ?>
-<section class="sgs-home sgs-page">
-<style>
-.sgs-pp-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),var(--sgs-pp-hero-bg) center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
-.sgs-pp-hero__inner{max-width:680px;margin:0 auto}
-.sgs-pp-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
-.sgs-pp-hero__meta{margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.sgs-pp-body{width:min(100% - 48px,860px);margin:0 auto;padding:var(--section-gap,56px) 0}
-.sgs-pp-body h2{margin:36px 0 12px;font-family:var(--font-heading);font-size:1.2rem;font-weight:700;color:var(--ink)}
-.sgs-pp-body h2:first-child{margin-top:0}
-.sgs-pp-body p,.sgs-pp-body li{margin:10px 0;color:var(--muted);font-size:.92rem;line-height:1.7}
-.sgs-pp-body ul{padding-left:20px}
-.sgs-pp-body li{margin:6px 0}
-.sgs-pp-body a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
-.sgs-pp-body a:hover{color:var(--red-dark)}
-@media(max-width:640px){.sgs-pp-hero{background-image:linear-gradient(180deg,rgba(11,31,58,.76) 0%,rgba(11,31,58,.96) 100%),var(--sgs-pp-hero-bg-mobile,var(--sgs-pp-hero-bg))}}
-</style>
-<div class="sgs-pp-hero" style="<?php echo esc_attr($sgs_pp_hero_bg); ?>">
-  <div class="sgs-pp-hero__inner">
-    <p class="sgs-eyebrow sgs-eyebrow--light">Privacy Policy</p>
-    <h1>Privacy Policy</h1>
-    <p class="sgs-pp-hero__meta">Last Updated: July 5 2026</p>
-  </div>
-</div>
-<div class="sgs-pp-body">
-  <p>This Privacy Policy explains how shopgraphicshirt.com (the "Site", "we", "us", or "our") collects, uses, and discloses your Personal Information when you visit, browse, or execute an apparel purchase from the Site.</p>
-  <p>By utilizing our Site or purchasing products from our store, you acknowledge and agree to the data management and processing practices detailed in this policy.</p>
+dawp_page_hero([
+    'title'   => 'Privacy Policy',
+    'eyebrow' => 'Your data',
+    'lead'    => 'What information MozTire collects, why we collect it, who we share it with, and the choices you have.',
+]);
 
-  <h2>1. Information We Collect</h2>
-  <p>When you interact with the Site, we gather specific metrics regarding your device, store interactions, and details strictly necessary to process your transactions.</p>
-  <p><strong>Device Metrics:</strong> Collected automatically via functional cookies, server logs, web beacons, and tracking pixels when you access our Site. This includes browser type, local IP address, active time zone, unique cookie files, what specific products you view, and store search terms.</p>
-  <p><strong>Order Records:</strong> Collected directly from you to fulfill our sales contract. This includes your full name, billing address, physical shipping address, contact email address, phone number, and encrypted payment details (such as credit card numbers or PayPal email accounts).</p>
-  <p><strong>Customer Support Records:</strong> Gathered directly from you during support inquiries to provide efficient operational responses.</p>
-
-  <h2>2. How We Use Your Information</h2>
-  <p>We utilize your dynamic Order Information strictly to fulfill any purchases executed through the Site. This includes:</p>
-  <ul>
-    <li>Processing your payment credentials and secure billing information.</li>
-    <li>Arranging standard commercial shipping and generating invoices/order confirmations.</li>
-    <li>Screening active incoming orders for potential risk or transaction fraud.</li>
-    <li>Communicating directly with you regarding order delivery updates or customer service queries.</li>
-    <li>Providing tailored promotional advertisements or product offers based on your verified preferences.</li>
-  </ul>
-
-  <h2>3. Sharing Your Information &amp; Third-Party Service Providers</h2>
-  <p>We share your Personal Information with trusted corporate service providers to help us deliver our e-commerce services and execute our contractual agreements with you. For example:</p>
-  <ul>
-    <li>We use WooCommerce to power our digital storefront infrastructure.</li>
-    <li>We use verified payment processors to handle transactional settlements and reliable shipping carriers to physically deliver your apparel packages.</li>
-    <li>We use Google Analytics to understand traffic volume and consumer browsing behaviors. Learn more: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a>. Opt out of tracking here: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">https://tools.google.com/dlpage/gaoptout</a>.</li>
-    <li>We may share your records to comply with applicable laws, respond to a lawful search warrant, or protect our corporate property and legal rights.</li>
-  </ul>
-
-  <h2>4. Secure Payments &amp; Transaction Encryption (GMC MANDATORY)</h2>
-  <p>To ensure the safety of your financial credentials, shopgraphicshirt.com operates a highly protected checkout ecosystem. All monetary communications and payment data transfers are encrypted utilizing secure SSL (Secure Sockets Layer) technology.</p>
-  <p>Furthermore, we do not store, view, or retain raw credit card numbers or payment passwords on our local databases. All transactions are routed directly to accredited payment processors adhering to the strict global Payment Card Industry Data Security Standard (PCI-DSS).</p>
-
-  <h2>5. Consumer Data Rights (GDPR &amp; CCPA Compliant)</h2>
-  <p>Regardless of your geographic location, we respect your data privacy and grant you the following structural controls:</p>
-  <p><strong>GDPR (For EEA Residents):</strong> If you reside within the European Economic Area, you possess the right to access your data, port it to a new service, or request that your records be corrected, updated, or permanently deleted. To exercise these rights, please email us directly at <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a>.</p>
-  <p><strong>CCPA (For California Residents):</strong> If you are a resident of California, you possess the specific "Right to Know" what personal data we collect, the right to request deletion of that data, and the right to opt-out of the sale of personal information.</p>
-
-  <h2>6. Data Retention &amp; Cookies Policy</h2>
-  <p><strong>Retention Protocols:</strong> When you place an order through the Site, we will securely retain your transaction data for our official business registries unless and until you formally request the removal of this information.</p>
-  <p><strong>Cookies Notice:</strong> We employ essential background cookies to manage your shopping cart persistence, preserve user login states, and optimize storefront speeds. You can adjust or clear cookies via your local web browser preferences. However, disabling essential cookies may prevent the checkout system from functioning properly.</p>
-
-  <h2>7. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy periodically to reflect shifts in our retail operations, software modifications, or localized legal regulations. The "Last Updated" date at the top of the page will signify the latest revision.</p>
-
-  <h2>8. Corporate Identity &amp; Customer Support Channels</h2>
-  <p>For questions about our data practices, to file a privacy inquiry, or for help with an active order, please connect with our compliance officer via our verified communication block:</p>
-  <p><strong>Store / Brand Name:</strong> ShopGraphicShirt</p>
-  <p><strong>Customer Support Email:</strong> <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a></p>
-  <p><strong>Physical Business Address:</strong> <?php echo esc_html($store_address); ?></p>
-  <p><strong>Customer Support Availability:</strong> Monday - Friday, 10:00 AM - 6:00 PM PST.</p>
-  <p><strong>Contact Page:</strong> <a href="/contact-us/">Contact Us</a></p>
-</div>
-</section>
-<?php get_footer(); ?>
+dawp_policy_body([
+    [
+        'id'    => 'scope',
+        'title' => 'Who we are and what this covers',
+        'html'  => '
+            <p>This Privacy Policy explains how ' . esc_html($f['brand']) . ' ("MozTire", "we", "us") collects, uses and shares personal information when you visit ' . esc_html($f['domain']) . ', create an account, place an order, pay through PayPal, subscribe to emails, or contact customer support.</p>
+            <p>By using the website you agree to the practices described here. If you do not agree, please do not use the site.</p>',
+    ],
+    [
+        'id'    => 'collect',
+        'title' => 'Information we collect',
+        'html'  => '
+            <h3>Information you give us</h3>
+            <ul>
+                <li><strong>Order details:</strong> name, billing and shipping address (including an installer\'s address if you choose one), email, phone number and the tires you buy.</li>
+                <li><strong>Account details:</strong> login email and password if you create an account.</li>
+                <li><strong>Support messages:</strong> anything you send us, such as tire size, vehicle details, or photos for a return or warranty claim.</li>
+                <li><strong>Newsletter:</strong> your email address if you subscribe.</li>
+            </ul>
+            <h3>Payment information from PayPal</h3>
+            <p>All payments are processed by <strong>PayPal</strong>. You enter your payment details directly with PayPal, not on our site. <strong>We never receive or store your full card number, security code, bank login or PayPal password.</strong></p>
+            <p>When you pay, PayPal shares with us only what we need to complete and support your order: your name, email address, shipping address, the payment status, the amount, and a PayPal transaction ID. PayPal\'s handling of your information is governed by the <a href="https://www.paypal.com/us/legalhub/privacy-full" target="_blank" rel="noopener">PayPal Privacy Statement</a>.</p>
+            <h3>Information collected automatically</h3>
+            <p>When you browse the site we collect device and usage data such as IP address, browser type, device type, pages viewed, search terms (including tire sizes searched), referring pages and approximate location derived from IP address, using cookies and similar technologies.</p>',
+    ],
+    [
+        'id'    => 'use',
+        'title' => 'How we use your information',
+        'html'  => '
+            <table>
+                <thead><tr><th>Purpose</th><th>Information used</th></tr></thead>
+                <tbody>
+                    <tr><td>Process your order, confirm PayPal payment, ship your tires and send order and tracking emails</td><td>Order details, PayPal transaction details</td></tr>
+                    <tr><td>Handle returns, refunds through PayPal, PayPal disputes and warranty questions</td><td>Order details, support messages, photos</td></tr>
+                    <tr><td>Answer fitment and customer-service questions</td><td>Support messages, vehicle and tire details</td></tr>
+                    <tr><td>Detect and prevent fraud and protect the site</td><td>Order, payment status, device and usage data</td></tr>
+                    <tr><td>Improve our catalog, search and tire finder</td><td>Usage data, searches</td></tr>
+                    <tr><td>Send marketing emails, only if you opted in</td><td>Email address</td></tr>
+                    <tr><td>Meet legal, tax and accounting obligations</td><td>Order and payment records</td></tr>
+                </tbody>
+            </table>',
+    ],
+    [
+        'id'    => 'share',
+        'title' => 'How we share information',
+        'html'  => '
+            <p><strong>We do not sell your personal information, and we do not share it for cross-context behavioral advertising.</strong> We share it only with service providers who help us run the store, under terms that limit their use of it:</p>
+            <ul>
+                <li><strong>PayPal</strong>, to process payments, refunds and disputes, and to help prevent fraud;</li>
+                <li><strong>Shipping carriers and fulfillment partners</strong> (such as UPS, FedEx or regional freight carriers), to deliver your order, including to your chosen installer;</li>
+                <li><strong>Hosting, email, analytics and customer-support providers</strong> that run our website and communications;</li>
+                <li><strong>Tire manufacturers</strong>, only when you ask us to help with a warranty claim;</li>
+                <li><strong>Authorities or other parties</strong>, when required by law, or to protect our rights, customers and the security of the site.</li>
+            </ul>
+            <p>If MozTire is involved in a merger, acquisition or sale of assets, customer information may be transferred as part of that transaction, subject to this policy.</p>',
+    ],
+    [
+        'id'    => 'cookies',
+        'title' => 'Cookies',
+        'html'  => '
+            <ul>
+                <li><strong>Essential cookies</strong> keep your cart, login and checkout working. PayPal may also set its own cookies when you use the PayPal checkout.</li>
+                <li><strong>Analytics cookies</strong> help us understand which pages and tire sizes are popular so we can improve the site.</li>
+            </ul>
+            <p>You can block or delete cookies in your browser settings, but blocking essential cookies may stop the cart and checkout from working. Where your browser sends a Global Privacy Control signal, we treat it as a request to opt out as required by applicable law.</p>',
+    ],
+    [
+        'id'    => 'retention',
+        'title' => 'Data retention and security',
+        'html'  => '
+            <p>We keep order and payment records for as long as needed to fulfill orders, handle returns, refunds, PayPal disputes and warranty questions, and meet tax and legal requirements, typically up to 7 years. Support messages and newsletter data are kept until they are no longer needed or you ask us to delete them.</p>
+            <p>We protect your information with HTTPS encryption across the entire site, restricted staff access and reputable service providers. Payment data is handled by PayPal, not stored by us. No online system is completely secure, so please use a strong, unique password for your account and never share it.</p>',
+    ],
+    [
+        'id'    => 'rights',
+        'title' => 'Your rights and choices',
+        'html'  => '
+            <p>Depending on where you live, including California under the CCPA/CPRA and other U.S. state privacy laws, you may have the right to:</p>
+            <ul>
+                <li>Know what personal information we hold about you and receive a copy;</li>
+                <li>Correct inaccurate information;</li>
+                <li>Request deletion of your information, subject to legal exceptions such as tax records;</li>
+                <li>Opt out of the sale or sharing of personal information (we do not sell or share it);</li>
+                <li>Opt out of marketing emails at any time using the unsubscribe link.</li>
+            </ul>
+            <p>To make a request, email ' . $email . ' from the address on your account or order. We will verify your identity and respond within 45 days, or the time required by law. You may use an authorized agent with written permission. We will not discriminate against you for exercising your rights.</p>
+            <p>To manage information held by PayPal, such as saved cards or bank accounts, please use your PayPal account settings or contact PayPal.</p>',
+    ],
+    [
+        'id'    => 'children',
+        'title' => 'Children',
+        'html'  => '
+            <p>The website is intended for adults. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with information, contact us and we will delete it.</p>',
+    ],
+    [
+        'id'    => 'changes',
+        'title' => 'Changes and contact',
+        'html'  => '
+            <p>We may update this policy from time to time. The "Last updated" date above shows when it last changed, and material changes apply only to information collected after the update. Questions about privacy? Email ' . $email . '.</p>',
+    ],
+], 'October 17, 2026');

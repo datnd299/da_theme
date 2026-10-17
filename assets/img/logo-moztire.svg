@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="48" viewBox="0 0 220 48" role="img" aria-label="MozTire">
+  <g transform="translate(24 24)">
+    <circle r="21" fill="#12161C"/>
+    <circle r="19" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-dasharray="4.2 2.4"/>
+    <circle r="12.5" fill="#D2430A"/>
+    <circle r="12.5" fill="none" stroke="#0B0E12" stroke-width="1.5"/>
+    <g fill="#FFC21A">
+      <circle r="3.4"/>
+      <rect x="-1.4" y="-11" width="2.8" height="6.4" rx="1.2"/>
+      <rect x="-1.4" y="-11" width="2.8" height="6.4" rx="1.2" transform="rotate(72)"/>
+      <rect x="-1.4" y="-11" width="2.8" height="6.4" rx="1.2" transform="rotate(144)"/>
+      <rect x="-1.4" y="-11" width="2.8" height="6.4" rx="1.2" transform="rotate(216)"/>
+      <rect x="-1.4" y="-11" width="2.8" height="6.4" rx="1.2" transform="rotate(288)"/>
+    </g>
+  </g>
+  <text x="54" y="33" font-family="'Archivo Black','Arial Black','Helvetica Neue',Arial,sans-serif" font-size="27" font-weight="900" letter-spacing="-0.5" fill="#FFFFFF">MOZ<tspan fill="#FFC21A">TIRE</tspan></text>
+  <rect x="55" y="38" width="44" height="3" rx="1.5" fill="#D2430A"/>
+</svg>

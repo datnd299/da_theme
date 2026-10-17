@@ -10,8 +10,13 @@ add_filter('loop_shop_per_page', function() { return 12; });
 // Disable all default WooCommerce CSS
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
-add_action('woocommerce_single_product_summary', 'dawp_single_product_trust_badges', 31);
-add_action('woocommerce_after_single_product_summary', 'dawp_single_product_pride_banner', 8);
+// Tire product page blocks
+add_action('woocommerce_single_product_summary', 'dawp_pdp_head', 6);
+add_action('woocommerce_single_product_summary', 'dawp_pdp_key_specs', 25);
+add_action('woocommerce_single_product_summary', 'dawp_pdp_trust', 35);
+add_action('woocommerce_after_single_product_summary', 'dawp_pdp_spec_table', 5);
+add_filter('woocommerce_product_tabs', 'dawp_pdp_tabs', 20);
+add_filter('woocommerce_output_related_products_args', 'dawp_related_products_args');
 
 // Route the single-product gallery (no theme template override exists for it) through the
 // i0.wp.com CDN, matching the shop grid. Filters are added/removed tightly around the gallery
@@ -84,51 +89,184 @@ function dawp_product_icon($path, $label = '') {
     );
 }
 
-function dawp_single_product_trust_badges() {
-    $badges = array(
-        array(
-            'icon' => '<path d="M12 3l7 3v5c0 4.5-2.9 8.5-7 10-4.1-1.5-7-5.5-7-10V6l7-3z"/><path d="M8.8 12.1l2.1 2.1 4.5-5"/>',
-            'title' => __('Proudly American Style', 'dawp'),
-            'copy' => __('Red, white, and blue designs made for everyday pride.', 'dawp'),
-        ),
-        array(
-            'icon' => '<path d="M4 7h10v10H4z"/><path d="M14 10h3l3 3v4h-6z"/><path d="M7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M17 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>',
-            'title' => __('Free Shipping $49+', 'dawp'),
-            'copy' => __('Free U.S. shipping on orders over $49, packed with care.', 'dawp'),
-        ),
-        array(
-            'icon' => '<path d="M12 2l2.7 6.1 6.6.6-5 4.4 1.5 6.5L12 16.2 6.2 19.6l1.5-6.5-5-4.4 6.6-.6L12 2z"/>',
-            'title' => __('Gift-Ready Favorite', 'dawp'),
-            'copy' => __('A meaningful pick for families and proud Americans.', 'dawp'),
-        ),
-    );
+/**
+ * Brand, size and headline specs directly under the product title.
+ */
+function dawp_pdp_head() {
+    global $product;
+
+    $brand      = dawp_product_brand($product);
+    $brand_name = dawp_product_brand_name($product);
+    $size       = dawp_product_tire_size($product);
+    $chips      = dawp_product_tire_chips($product, ['season', 'category', 'vehicle']);
+
+    if (! $brand_name && ! $size && ! $chips) {
+        return;
+    }
     ?>
-    <section class="dawp-product-trust" aria-label="<?php esc_attr_e('Product trust highlights', 'dawp'); ?>">
-        <?php foreach ($badges as $badge) : ?>
-            <div class="dawp-product-trust__item">
-                <span class="dawp-product-trust__icon"><?php echo dawp_product_icon($badge['icon']); ?></span>
-                <span>
-                    <strong><?php echo esc_html($badge['title']); ?></strong>
-                    <small><?php echo esc_html($badge['copy']); ?></small>
-                </span>
-            </div>
+    <div class="mz-pdp-head">
+        <?php if ($brand) : ?>
+            <a class="mz-pdp-head__brand" href="<?php echo esc_url(get_term_link($brand)); ?>"><?php echo esc_html($brand->name); ?> tires</a>
+        <?php elseif ($brand_name) : ?>
+            <span class="mz-pdp-head__brand"><?php echo esc_html($brand_name); ?></span>
+        <?php endif; ?>
+        <div class="mz-pdp-head__row">
+            <?php if ($size) : ?>
+                <span class="mz-pdp-head__size"><?php echo esc_html($size); ?></span>
+            <?php endif; ?>
+            <?php foreach ($chips as $chip) : ?>
+                <span class="mz-pdp-head__chip"><?php echo esc_html($chip); ?></span>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php
+}
+
+/**
+ * Compact spec grid above the add-to-cart button.
+ */
+function dawp_pdp_key_specs() {
+    global $product;
+
+    $rows = [
+        'Load Index'     => dawp_product_tire_value($product, 'load_index'),
+        'Speed Rating'   => dawp_product_tire_value($product, 'speed'),
+        'Load Range'     => dawp_product_tire_value($product, 'load_range'),
+        'Tread Warranty' => dawp_product_tire_value($product, 'warranty'),
+        'Sidewall'       => dawp_product_tire_value($product, 'sidewall'),
+        'Sold As'        => dawp_product_tire_value($product, 'pack'),
+    ];
+    $rows = array_filter($rows, 'strlen');
+
+    if (! $rows) {
+        return;
+    }
+    ?>
+    <dl class="mz-pdp-specs">
+        <?php foreach ($rows as $label => $value) : ?>
+            <div><dt><?php echo esc_html($label); ?></dt><dd><?php echo esc_html($value); ?></dd></div>
         <?php endforeach; ?>
-    </section>
+    </dl>
     <?php
 }
 
-function dawp_single_product_pride_banner() {
+function dawp_pdp_trust() {
+    global $product;
+
+    $facts = dawp_store_facts();
+    $size  = dawp_product_tire_size($product, false);
+    $items = [
+        ['icon' => '<path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>', 'title' => 'Free ground shipping', 'text' => 'Arrives in ' . $facts['delivery_total'] . ' to the contiguous U.S.'],
+        ['icon' => '<path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/>', 'title' => 'Ship to your installer', 'text' => 'Use the shop\'s address at checkout'],
+        ['icon' => '<path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/>', 'title' => $facts['return_window'] . '-day returns', 'text' => 'On new, unmounted tires'],
+    ];
     ?>
-    <section class="dawp-pride-banner" aria-label="<?php esc_attr_e('American pride product message', 'dawp'); ?>">
-        <div class="dawp-pride-banner__emblem" aria-hidden="true">
-            <span>★</span>
+    <p class="mz-pdp-fit">
+        <span>
+            <strong>Check fitment:</strong>
+            <?php if ($size) : ?>
+                make sure <strong><?php echo esc_html($size); ?></strong> matches the size on your current sidewall or door-jamb placard.
+            <?php else : ?>
+                compare this size with the one on your current sidewall or door-jamb placard.
+            <?php endif; ?>
+            <a href="<?php echo esc_url(home_url('/tire-size-guide/')); ?>">How to read a tire size</a>
+        </span>
+    </p>
+    <ul class="mz-pdp-trust">
+        <?php foreach ($items as $item) : ?>
+            <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><?php echo $item['icon']; // phpcs:ignore ?></svg>
+                <span><strong><?php echo esc_html($item['title']); ?></strong><span><?php echo esc_html($item['text']); ?></span></span>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php
+}
+
+/**
+ * Full tire specification table. Each value links to the shop filtered by it.
+ */
+function dawp_pdp_spec_table() {
+    global $product;
+
+    $rows  = [];
+    $brand = dawp_product_brand($product);
+
+    if ($brand) {
+        $rows[] = ['label' => 'Brand', 'html' => '<a href="' . esc_url(get_term_link($brand)) . '">' . esc_html($brand->name) . '</a>'];
+    }
+
+    $size = dawp_product_tire_size($product, false);
+    if ($size) {
+        $size_cat = null;
+        foreach (get_the_terms($product->get_id(), 'product_cat') ?: [] as $cat) {
+            if (dawp_tire_parse_size($cat->name)) {
+                $size_cat = $cat;
+                break;
+            }
+        }
+        $rows[] = ['label' => 'Tire Size', 'html' => $size_cat ? '<a href="' . esc_url(get_term_link($size_cat)) . '">' . esc_html($size) . '</a>' : esc_html($size)];
+    }
+
+    foreach (dawp_tire_attributes() as $attribute) {
+        $taxonomy = $attribute['tax'];
+        if (! taxonomy_exists($taxonomy)) {
+            continue;
+        }
+
+        $terms = wc_get_product_terms($product->get_id(), $taxonomy);
+        if (is_wp_error($terms) || ! $terms) {
+            continue;
+        }
+
+        $links = array_map(static function ($term) use ($attribute) {
+            return ! empty($attribute['filter'])
+                ? '<a href="' . esc_url(dawp_tire_filter_url([$term->taxonomy => $term->slug])) . '">' . esc_html($term->name) . '</a>'
+                : esc_html($term->name);
+        }, $terms);
+
+        $rows[] = ['label' => $attribute['label'], 'html' => implode(', ', $links)];
+    }
+
+    if ($product->get_sku()) {
+        $rows[] = ['label' => 'SKU', 'html' => esc_html($product->get_sku())];
+    }
+
+    if (count($rows) < 2) {
+        return;
+    }
+    ?>
+    <section class="mz-spec" aria-labelledby="mz-spec-title">
+        <div class="mz-spec__head">
+            <h2 id="mz-spec-title">Tire specifications</h2>
+            <a href="<?php echo esc_url(home_url('/tire-size-guide/')); ?>">What do these mean?</a>
         </div>
-        <div class="dawp-pride-banner__content">
-            <p><?php esc_html_e('American Pride Collection', 'dawp'); ?></p>
-            <h2><?php esc_html_e('Wear the colors. Carry the pride.', 'dawp'); ?></h2>
-            <small><?php esc_html_e('Patriotic shirts and gifts made for proud everyday moments.', 'dawp'); ?></small>
-        </div>
+        <dl class="mz-spec__grid">
+            <?php foreach ($rows as $row) : ?>
+                <div><dt><?php echo esc_html($row['label']); ?></dt><dd><?php echo wp_kses_post($row['html']); ?></dd></div>
+            <?php endforeach; ?>
+        </dl>
     </section>
     <?php
 }
 
+/**
+ * The spec table above replaces WooCommerce's "Additional information" tab.
+ */
+function dawp_pdp_tabs($tabs) {
+    global $product;
+
+    if ($product && count(array_filter(dawp_tire_attributes(), static function ($a) use ($product) {
+        return taxonomy_exists($a['tax']) && has_term('', $a['tax'], $product->get_id());
+    }))) {
+        unset($tabs['additional_information']);
+    }
+
+    return $tabs;
+}
+
+function dawp_related_products_args($args) {
+    $args['posts_per_page'] = 4;
+    $args['columns']        = 4;
+    return $args;
+}

@@ -3,7 +3,13 @@ add_action('after_setup_theme', 'dawp_setup');
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'SGS-' . $order_id;
+    return dawp_store_fact('order_prefix') . $order_id;
+}
+
+// Order tracking form: accept "MZT-1234", "mzt1234" or "1234".
+add_filter('woocommerce_shortcode_order_tracking_order_id', 'dawp_strip_order_prefix');
+function dawp_strip_order_prefix($order_id) {
+    return preg_replace('/^\s*' . preg_quote(rtrim(dawp_store_fact('order_prefix'), '-'), '/') . '-?/i', '', (string) $order_id);
 }
 function dawp_setup() {
     add_theme_support('title-tag');
@@ -46,45 +52,51 @@ function theme_search_template($template) {
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.7');
+    $ver = static function ($file) {
+        $path = get_template_directory() . '/assets/' . $file;
+        return file_exists($path) ? (string) filemtime($path) : '1.0.0';
+    };
+    $css = static function ($handle, $file, $deps = []) use ($ver) {
+        wp_enqueue_style($handle, get_template_directory_uri() . '/assets/css/' . $file, $deps, $ver('css/' . $file));
+    };
 
-    wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
+    $css('dawp-main', 'main.css');
+    $css('dawp-tw-main', 'tw/tw-main.css', ['dawp-main']);
 
-    if ( is_404() ) {
-        wp_enqueue_style('dawp-404', get_template_directory_uri() . '/assets/css/tw/tw-404.css', ['dawp-tw-main'], '1.0.3');
+    if (is_404()) {
+        $css('dawp-404', 'tw/tw-404.css', ['dawp-tw-main']);
     }
 
-    if ( is_front_page() ) {
-        wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/home.css', [], '1.0.1');
+    if (is_front_page()) {
         dawp_remove_styles();
     }
-    
-    if ( class_exists( 'WooCommerce' ) ) {
-        if ( function_exists( 'is_account_page' ) && is_account_page() ) {
-            wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', ['dawp-main'], '1.0.8');
+
+    if (class_exists('WooCommerce')) {
+        $is_product_search = is_search() && get_query_var('post_type') === 'product';
+
+        if (function_exists('is_account_page') && is_account_page()) {
+            $css('dawp-account', 'account.css', ['dawp-main']);
             dawp_remove_styles();
-        } elseif ( is_product() ) {
-            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.9');
+        } elseif (is_product()) {
+            $css('dawp-product', 'product.css', ['dawp-main']);
             dawp_remove_styles();
-        } elseif ( is_cart() ) {
-            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', ['dawp-main'], '1.0.9');
+        } elseif (is_cart()) {
+            $css('dawp-cart', 'cart.css', ['dawp-main']);
             dawp_remove_styles();
-        } elseif ( is_checkout() ) {
-            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.6');
-        } elseif ( is_woocommerce()  ) {
-            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.8');
+        } elseif (is_checkout()) {
+            $css('dawp-checkout', 'checkout.css', ['dawp-main']);
+        } elseif (is_woocommerce() || $is_product_search) {
+            $css('dawp-shop', 'shop.css', ['dawp-main']);
             dawp_remove_styles();
         }
     }
 
-    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.7', true);
+    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], $ver('js/main.js'), true);
     wp_localize_script('dawp-main', 'dawpAjax', [
         'url'          => admin_url('admin-ajax.php'),
         'nonce'        => wp_create_nonce('dawp_newsletter_nonce'),
         'contactNonce' => wp_create_nonce('dawp_contact_nonce'),
     ]);
-
-    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
 }
 
 function dawp_remove_styles() {

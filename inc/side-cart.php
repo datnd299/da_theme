@@ -20,7 +20,7 @@ function dawp_cart_localize() {
 
 function dawp_cart_count_badge_html($count) {
     return sprintf(
-        '<span class="sgs-cart-count%s">%s</span>',
+        '<span class="mz-cart-count%s">%s</span>',
         $count > 0 ? '' : ' hidden',
         esc_html($count)
     );
@@ -173,7 +173,7 @@ function dawp_cart_fragments($fragments) {
 
     $fragments['.dawp-cart-drawer__body']   = $body;
     $fragments['.dawp-cart-drawer__footer'] = $footer;
-    $fragments['.sgs-cart-count']           = dawp_cart_count_badge_html($count);
+    $fragments['.mz-cart-count']           = dawp_cart_count_badge_html($count);
 
     return $fragments;
 }

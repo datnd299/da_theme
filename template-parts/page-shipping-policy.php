@@ -1,196 +1,135 @@
 <?php
 /**
- * Shipping Policy - ShopGraphicShirt
- * Style aligned with homepage. Content preserved from original.
+ * Shipping Policy — MozTire
  */
-$store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
-$store_address = $store_address ?: __('United States', 'dawp');
+$f = dawp_store_facts();
+$email = '<a href="mailto:' . esc_attr($f['email']) . '">' . esc_html($f['email']) . '</a>';
+$damage_days = (int) $f['damage_report'];
 
-$sgs_sp_hero_bg = sprintf(
-  "--sgs-sp-hero-bg:url('%s');--sgs-sp-hero-bg-mobile:url('%s')",
-  esc_url(dawp_theme_cdn_image_url('assets/img/hero/tracking-hero-background.png', 1600, 760)),
-  esc_url(dawp_theme_cdn_image_url('assets/img/hero/tracking-hero-background.png', 720, 520))
-);
-get_header(); ?>
-<section class="sgs-home sgs-page">
-<style>
-.sgs-sp-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),var(--sgs-sp-hero-bg) center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
-.sgs-sp-hero__inner{max-width:680px;margin:0 auto}
-.sgs-sp-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
-.sgs-sp-hero p{max-width:580px;margin:18px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7}
-.sgs-sp-section{width:min(100% - 48px,1200px);margin:0 auto;padding:var(--section-gap,72px) 0}
-.sgs-sp-section--surface{width:100%;max-width:none;padding-inline:clamp(24px,4vw,64px);background:var(--antique)}
-.sgs-sp-timeline{margin-bottom:28px}
-.sgs-sp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.sgs-sp-card{padding:24px 20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);text-align:center;transition:box-shadow 180ms,transform 180ms}
-.sgs-sp-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-3px)}
-.sgs-sp-card h3{margin:0 0 8px;font-family:var(--font-heading);font-size:.95rem;font-weight:700;color:var(--ink);line-height:1.2}
-.sgs-sp-card p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.5}
-.sgs-sp-panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:clamp(24px,3vw,36px);margin-bottom:16px;transition:box-shadow 180ms}
-.sgs-sp-panel:hover{box-shadow:var(--shadow-sm)}
-.sgs-sp-panel--soft{background:#fafafa}
-.sgs-sp-panel h2{margin:0 0 12px;font-family:var(--font-heading);font-size:clamp(1.2rem,2vw,1.5rem);font-weight:700;color:var(--ink);line-height:1.1}
-.sgs-sp-panel p{margin:12px 0 0;color:var(--muted);font-size:.92rem;line-height:1.7}
-.sgs-sp-panel p:first-of-type{margin-top:0}
-.sgs-sp-panel strong{color:var(--ink)}
-.sgs-sp-note{margin-top:16px;border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;background:#fff7e8;padding:18px 20px;color:var(--muted);font-size:.9rem;line-height:1.65}
-.sgs-sp-pills{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
-.sgs-sp-pill{display:inline-flex;min-width:60px;min-height:34px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:999px;background:var(--white);color:var(--ink);font-size:.8rem;font-weight:700}
-.sgs-sp-costs{display:grid;grid-template-columns:1fr;max-width:360px;margin-top:12px;margin-inline:auto}
-.sgs-sp-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
-.sgs-sp-contact-actions{align-items:center;gap:10px;margin-top:22px}
-.sgs-sp-contact-actions .sgs-btn,.sgs-sp-mail{display:inline-flex;min-height:42px;align-items:center;justify-content:center;border-radius:6px;padding:10px 16px;font-family:var(--font-heading);font-size:.82rem;font-weight:700;line-height:1.2;text-decoration:none;box-shadow:none;transition:background 180ms,border-color 180ms,color 180ms}
-.sgs-sp-contact-actions .sgs-btn:hover{box-shadow:none}
-.sgs-sp-mail{border:1px solid var(--line);background:var(--white);color:var(--ink)}
-.sgs-sp-mail:hover{border-color:var(--red);color:var(--red)}
-.sgs-sp-list{margin:14px 0 0;padding-left:20px;color:var(--muted);font-size:.92rem;line-height:1.75}
-.sgs-sp-list li{margin:6px 0}
-.sgs-sp-link{color:var(--red);text-decoration:underline;text-underline-offset:2px}
-.sgs-sp-slider__controls{display:none}
-.sgs-sp-support{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:20px;margin-top:16px}
-.sgs-sp-support__item{text-align:center;padding:22px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.sgs-sp-support__item:nth-child(3n){border-right:0}
-.sgs-sp-support__item:nth-last-child(-n+3){border-bottom:0}
-.sgs-sp-support__item strong{display:block;margin-bottom:4px;font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--ink)}
-.sgs-sp-support__item span,.sgs-sp-support__item a{color:var(--muted);font-size:.85rem}
-.sgs-sp-support__item a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
-@media(max-width:960px){.sgs-sp-grid{grid-template-columns:repeat(2,1fr)}.sgs-sp-support{grid-template-columns:repeat(2,1fr)}.sgs-sp-support__item:nth-child(3n){border-right:1px solid var(--line)}.sgs-sp-support__item:nth-last-child(-n+3){border-bottom:1px solid var(--line)}.sgs-sp-support__item:nth-child(2n){border-right:0}.sgs-sp-support__item:nth-last-child(-n+2){border-bottom:0}}
-@media(max-width:700px){.sgs-sp-section{width:100%;padding:52px 0}.sgs-sp-timeline{margin-bottom:28px}.sgs-sp-grid{display:flex;grid-template-columns:none;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:24px;padding:0 24px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}.sgs-sp-grid::-webkit-scrollbar{display:none}.sgs-sp-grid .sgs-sp-card{flex:0 0 min(82vw,360px);min-height:136px;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:center}.sgs-sp-grid .sgs-sp-card:hover{box-shadow:none;transform:none}.sgs-sp-slider__controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px}.sgs-sp-slider__arrow{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--white);color:var(--ink);font-family:var(--font-heading);font-size:1.35rem;line-height:1;box-shadow:0 8px 18px rgba(11,31,58,.08);transition:background 180ms,border-color 180ms,color 180ms,opacity 180ms}.sgs-sp-slider__arrow:disabled{opacity:.38;cursor:default}.sgs-sp-slider__arrow:not(:disabled):hover{border-color:var(--red);background:var(--red);color:var(--white)}.sgs-sp-slider__dots{display:flex;align-items:center;gap:7px}.sgs-sp-slider__dot{width:7px;height:7px;border:0;border-radius:999px;background:rgba(11,31,58,.22);padding:0;transition:width 180ms,background 180ms}.sgs-sp-slider__dot[data-active="true"]{width:22px;background:var(--red)}.sgs-sp-panel{width:min(100% - 40px,1200px);margin-inline:auto}.sgs-sp-costs{grid-template-columns:1fr}.sgs-sp-support{grid-template-columns:1fr}.sgs-sp-support__item{border-right:0}.sgs-sp-support__item:nth-child(2n){border-right:0}.sgs-sp-support__item:nth-last-child(-n+2){border-bottom:1px solid var(--line)}.sgs-sp-support__item:last-child{border-bottom:0}.sgs-sp-actions .sgs-btn{width:100%}.sgs-sp-contact-actions{gap:10px}.sgs-sp-contact-actions .sgs-btn,.sgs-sp-mail{width:100%;justify-content:center}.sgs-sp-mail{justify-content:flex-start}}
-@media(max-width:640px){.sgs-sp-hero{background-image:linear-gradient(180deg,rgba(11,31,58,.76) 0%,rgba(11,31,58,.96) 100%),var(--sgs-sp-hero-bg-mobile,var(--sgs-sp-hero-bg))}}
-</style>
+dawp_page_hero([
+    'title'   => 'Shipping Policy',
+    'eyebrow' => 'Free shipping on every order',
+    'lead'    => 'Free ground shipping to the contiguous U.S. with no minimum order. Here is where we ship, how long it takes, and what to do if something goes wrong.',
+    'image'   => 'assets/img/hero/tracking-hero.jpg',
+]);
 
-<div class="sgs-sp-hero" style="<?php echo esc_attr($sgs_sp_hero_bg); ?>">
-  <div class="sgs-sp-hero__inner">
-    <p class="sgs-eyebrow sgs-eyebrow--light">Shipping Policy</p>
-    <h1>Shipping Policy</h1>
-    <p class="sgs-sp-hero__meta" style="margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Last Updated: July 5 2026</p>
-    <p>Clear, transparent shipping information for every order — no hidden fees, no surprises. Enjoy free standard shipping on all U.S. orders over $49.</p>
-  </div>
-</div>
-
-<div class="sgs-sp-section">
-  <div class="sgs-sp-timeline" data-shipping-slider>
-  <div class="sgs-sp-grid" data-shipping-track>
-    <div class="sgs-sp-card" data-shipping-slide>
-      <h3>Order Cutoff Time</h3>
-      <p>5:00 PM (GMT-08:00) Pacific Standard Time.</p>
-    </div>
-    <div class="sgs-sp-card" data-shipping-slide>
-      <h3>Order Handling Time</h3>
-      <p>1-3 business days. Orders placed after cutoff begin processing the following business day.</p>
-    </div>
-    <div class="sgs-sp-card" data-shipping-slide>
-      <h3>Transit Time</h3>
-      <p>5-7 business days, Monday to Friday.</p>
-    </div>
-    <div class="sgs-sp-card" data-shipping-slide>
-      <h3>Estimated Delivery Time</h3>
-      <p>6-10 business days total from the date of purchase.</p>
-    </div>
-  </div>
-  <div class="sgs-sp-slider__controls" aria-label="Shipping timeline slider controls">
-    <button class="sgs-sp-slider__arrow" type="button" data-shipping-prev aria-label="Previous shipping timeline item">&lsaquo;</button>
-    <div class="sgs-sp-slider__dots" aria-label="Shipping timeline slides">
-      <?php for ($i = 0; $i < 4; $i++) : ?>
-        <button class="sgs-sp-slider__dot" type="button" data-shipping-dot aria-label="<?php echo esc_attr(sprintf('Go to shipping timeline item %d', $i + 1)); ?>"></button>
-      <?php endfor; ?>
-    </div>
-    <button class="sgs-sp-slider__arrow" type="button" data-shipping-next aria-label="Next shipping timeline item">&rsaquo;</button>
-  </div>
-  </div>
-
-  <article class="sgs-sp-panel">
-    <h2>Order Processing &amp; Delivery Times</h2>
-    <p>All shipping and handling timelines are calculated in business days, Monday through Friday, excluding standard U.S. public holidays.</p>
-    <p>Delivery estimates are carefully calculated windows reflecting our standard delivery benchmarks. While we and our courier partners work diligently to meet these timelines, unexpected delays due to extreme weather, carrier capacity issues, or regional holidays may occasionally occur.</p>
-  </article>
-
-  <article class="sgs-sp-panel sgs-sp-panel--soft">
-    <h2>Multi-Item Orders &amp; Specialized Handling</h2>
-    <p>If your purchase includes multiple shirts, jackets, hats, accessories, personalized apparel, or diverse custom gift items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.</p>
-    <p>You will receive unique tracking numbers for each package. Certain personalized, high-demand, or made-to-order apparel items may require extra preparation time due to careful print checks, address reviews, holiday volume spikes, or safe-handling protocols.</p>
-  </article>
-
-  <article class="sgs-sp-panel">
-    <h2>Shipping Locations &amp; Market</h2>
-    <p>We currently ship exclusively within the <strong>United States</strong>. ShopGraphicShirt serves customers shopping from the United States domestic market.</p>
-    <p>If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.</p>
-    <div class="sgs-sp-note">Some apparel and custom gift orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.</div>
-  </article>
-
-  <article class="sgs-sp-panel sgs-sp-panel--soft">
-    <h2>Shipping Fees &amp; Costs</h2>
-    <p>We believe in full transparency with no hidden fees at checkout. Our shipping costs are structured as follows:</p>
-    <div class="sgs-sp-costs">
-      <div class="sgs-sp-card">
-        <h3>Standard U.S. Shipping</h3>
-        <p>Free for all U.S. orders over $49. Orders under $49 have a flat shipping fee of $4.99, shown clearly at checkout before payment.</p>
-      </div>
-    </div>
-  </article>
-
-  <article class="sgs-sp-panel">
-    <h2>Carrier Services &amp; Delivery Tracking</h2>
-    <p>To guarantee safe and efficient delivery, ShopGraphicShirt partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.</p>
-    <div class="sgs-sp-pills">
-      <span class="sgs-sp-pill">USPS</span>
-      <span class="sgs-sp-pill">UPS</span>
-      <span class="sgs-sp-pill">FedEx</span>
-      <span class="sgs-sp-pill">DHL</span>
-    </div>
-    <p>The final carrier service is dynamically selected when your package is securely labeled and prepared at our fulfillment center. Once your order is dispatched, an automated shipping confirmation email containing a direct tracking link and courier details will be sent to your registered email address.</p>
-    <div class="sgs-sp-actions">
-      <a class="sgs-btn sgs-btn--primary" href="/track-order/">Track Order</a>
-    </div>
-  </article>
-
-  <article class="sgs-sp-panel sgs-sp-panel--soft">
-    <h2>Resolving Delivery Issues &amp; Damaged Shipments</h2>
-    <p>Your satisfaction is our priority. If your order encounters delays, tracking stops updating, or the package is marked as delivered but has not arrived, please reach out to our dedicated support team immediately.</p>
-    <p>To help us investigate and resolve the issue with the carrier swiftly, please provide:</p>
-    <ul class="sgs-sp-list">
-      <li>Your exact Order Number, such as #SGS1001.</li>
-      <li>The specific Email Address utilized during checkout.</li>
-      <li>The full and complete Delivery Address.</li>
-      <li>Clear, well-lit photos if the package container or apparel item arrived damaged.</li>
-    </ul>
-    <div class="sgs-sp-actions sgs-sp-contact-actions">
-      <a class="sgs-btn sgs-btn--primary" href="/contact-us/">Contact Support</a>
-      <a class="sgs-sp-mail" href="mailto:support@shopgraphicshirt.com">Email Support</a>
-    </div>
-  </article>
-
-  <article class="sgs-sp-panel">
-    <h2>Customer Support Contact Information</h2>
-    <p>For any questions regarding your shipment, custom delivery requests, or transit inquiries, please contact us directly through our official channels. We respond to all inquiries within 24 business hours.</p>
-    <div class="sgs-sp-support">
-      <div class="sgs-sp-support__item">
-        <strong>Store Name</strong>
-        <span>ShopGraphicShirt</span>
-      </div>
-      <div class="sgs-sp-support__item">
-        <strong>Customer Support Email</strong>
-        <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a>
-      </div>
-      <div class="sgs-sp-support__item">
-        <strong>Address</strong>
-        <span><?php echo esc_html($store_address); ?></span>
-      </div>
-      <div class="sgs-sp-support__item">
-        <strong>Response Time</strong>
-        <span>Within 24 business hours.</span>
-      </div>
-      <div class="sgs-sp-support__item">
-        <strong>Customer Service Hours</strong>
-        <span>Monday - Friday, 10:00 AM - 6:00 PM PST.</span>
-      </div>
-      <div class="sgs-sp-support__item">
-        <strong>Return Address</strong>
-        <span>Provided with return authorization.</span>
-      </div>
-    </div>
-  </article>
-</div>
-
-</section>
-<?php get_footer(); ?>
+dawp_policy_body([
+    [
+        'id'    => 'overview',
+        'title' => 'Shipping at a glance',
+        'html'  => '
+            <ul class="mz-facts">
+                <li><strong>FREE</strong>Shipping on every order</li>
+                <li><strong>' . esc_html($f['processing']) . '</strong>Order processing</li>
+                <li><strong>' . esc_html($f['transit']) . '</strong>Ground transit</li>
+                <li><strong>48 states</strong>Contiguous U.S.</li>
+            </ul>
+            <p class="mz-callout"><strong>Free shipping, no minimum.</strong> Whether you order one tire or a full set of four, standard ground shipping to any eligible address in ' . esc_html($f['ship_area']) . ' costs $0. There are no handling fees, fuel surcharges or oversize fees.</p>
+            <p>Every shipment includes tracking. Your order total, including any sales tax, is shown at checkout before you pay with PayPal.</p>',
+    ],
+    [
+        'id'    => 'where',
+        'title' => 'Where we ship',
+        'html'  => '
+            <p>We ship to residential and business addresses in ' . esc_html($f['ship_area']) . ', including tire shops and installers.</p>
+            <h3>Locations we do not ship to</h3>
+            <ul>
+                <li>Alaska and Hawaii;</li>
+                <li>Puerto Rico, Guam, the U.S. Virgin Islands and other U.S. territories;</li>
+                <li>APO, FPO and DPO military addresses;</li>
+                <li>P.O. boxes and parcel lockers (tires are too large for them);</li>
+                <li>Any address outside the United States.</li>
+            </ul>
+            <p>If your address cannot be served, checkout will let you know before any payment is taken.</p>',
+    ],
+    [
+        'id'    => 'cost',
+        'title' => 'Shipping cost',
+        'html'  => '
+            <table>
+                <thead><tr><th>Order</th><th>Shipping method</th><th>Cost</th></tr></thead>
+                <tbody>
+                    <tr><td>Any order, any quantity, contiguous U.S.</td><td>Standard ground</td><td><strong>FREE</strong></td></tr>
+                    <tr><td>Shipping to an installer or tire shop</td><td>Standard ground</td><td><strong>FREE</strong></td></tr>
+                </tbody>
+            </table>
+            <p>We do not currently offer paid expedited, overnight or same-day delivery. Applicable state and local sales tax is calculated from your shipping address and shown at checkout. MozTire does not charge handling fees.</p>',
+    ],
+    [
+        'id'    => 'timing',
+        'title' => 'Processing and delivery times',
+        'html'  => '
+            <table>
+                <thead><tr><th>Stage</th><th>Typical time</th></tr></thead>
+                <tbody>
+                    <tr><td>Order processing (payment confirmed, tires picked, inspected and labeled)</td><td>' . esc_html($f['processing']) . '</td></tr>
+                    <tr><td>Ground transit after the carrier picks up</td><td>' . esc_html($f['transit']) . '</td></tr>
+                    <tr><td><strong>Estimated total, order to doorstep</strong></td><td><strong>' . esc_html($f['delivery_total']) . '</strong></td></tr>
+                </tbody>
+            </table>
+            <p>Orders paid before ' . esc_html($f['cutoff']) . ' on a business day begin processing the same day. Orders placed after the cutoff, on weekends, or on U.S. federal holidays begin processing the next business day. Business days are Monday through Friday, excluding federal holidays.</p>
+            <p>Processing starts only after PayPal confirms your payment. If PayPal holds a payment for review, processing begins once the payment is completed.</p>
+            <p>Delivery times are estimates, not guarantees. Severe weather, peak seasons, carrier delays and rural or remote delivery areas can add time. Rural areas may take 1-2 extra business days.</p>',
+    ],
+    [
+        'id'    => 'carriers',
+        'title' => 'Carriers and tracking',
+        'html'  => '
+            <p>Tires ship by ' . esc_html($f['carriers']) . ', depending on size, weight and destination. We choose the carrier; specific carrier requests cannot be guaranteed.</p>
+            <ul>
+                <li><strong>Shipping confirmation:</strong> when your order leaves our warehouse, we email you tracking numbers and links.</li>
+                <li><strong>Order status anytime:</strong> use our <a href="/track-order/">Track Order</a> page with your order number and billing email.</li>
+                <li><strong>Multiple packages:</strong> tires usually ship as individual packages. A set of four may arrive as four parcels with separate tracking numbers and, occasionally, on different days. This is normal.</li>
+                <li><strong>Signature:</strong> most deliveries do not require a signature. The carrier may leave tires at your door, garage or business reception.</li>
+            </ul>',
+    ],
+    [
+        'id'    => 'installer',
+        'title' => 'Shipping to an installer',
+        'html'  => '
+            <p>You can have your tires shipped free directly to a tire shop or installer of your choice:</p>
+            <ol>
+                <li>Call the shop first and confirm they accept customer-supplied tires and deliveries for customers.</li>
+                <li>Ask about their mounting, balancing, valve stem, TPMS service and old-tire disposal fees.</li>
+                <li>At checkout, enter the shop\'s business name and address as the shipping address, and put your own name and phone number in the order so the shop can match the tires to you.</li>
+                <li>Share your tracking numbers with the shop and book your installation appointment for after the expected delivery date.</li>
+            </ol>
+            <p>Installation is not included in your purchase. It is arranged and paid for directly with the installer, and MozTire is not responsible for third-party installation work.</p>',
+    ],
+    [
+        'id'    => 'delivery-issues',
+        'title' => 'Damaged, missing or delayed packages',
+        'html'  => '
+            <p><strong>Inspect every tire on arrival, before mounting.</strong> Do not install a tire that appears damaged.</p>
+            <table>
+                <thead><tr><th>Problem</th><th>What to do</th><th>What we do</th></tr></thead>
+                <tbody>
+                    <tr><td>Tire damaged in transit</td><td>Email us within ' . $damage_days . ' days of delivery with your order number and photos of the tire, packaging and shipping label</td><td>Send a free replacement or a full refund to PayPal, and arrange free pickup or return</td></tr>
+                    <tr><td>Wrong tire received</td><td>Email us within ' . $damage_days . ' days of delivery with a photo of the sidewall size</td><td>Send the correct tire free and provide a prepaid return label</td></tr>
+                    <tr><td>Marked delivered but not received</td><td>Check your property, neighbors and building office, then contact us within ' . $damage_days . ' days of the delivery scan</td><td>Open a carrier investigation and reship or refund once it is resolved</td></tr>
+                    <tr><td>Some tires arrived, others did not</td><td>Check each tracking number, then contact us if one has not moved in 3 business days</td><td>Trace the missing package with the carrier</td></tr>
+                    <tr><td>No tracking movement for 5 business days</td><td>Contact us with your order number</td><td>Follow up with the carrier and keep you updated</td></tr>
+                </tbody>
+            </table>
+            <p>Carrier investigations usually take 5-10 business days. Damage and loss in transit are covered by MozTire at no cost to you.</p>',
+    ],
+    [
+        'id'    => 'address',
+        'title' => 'Address accuracy',
+        'html'  => '
+            <p>Please double-check your shipping address at checkout, including apartment, suite or unit numbers. If a package is returned to us because the address was incomplete or incorrect, or because delivery was refused, we will contact you. We can reship it free once to a corrected address, or refund the order to PayPal.</p>
+            <p>Address changes after shipment may not be possible. Carriers may charge address-correction fees, which we will tell you about before making any change.</p>',
+    ],
+    [
+        'id'    => 'changes',
+        'title' => 'Order changes and cancellations',
+        'html'  => '
+            <p>Need to change your shipping address or cancel? Email ' . $email . ' as soon as possible with your order number. We can update or cancel orders that have not yet shipped, and cancelled orders are refunded in full to your PayPal payment. After an order ships, it follows our <a href="/refund-return-policy/">Refund &amp; Return Policy</a>.</p>',
+    ],
+    [
+        'id'    => 'contact',
+        'title' => 'Contact us',
+        'html'  => '
+            <p>Questions about shipping? Email ' . $email . ' or use our <a href="/contact-us/">contact form</a>. Our team is available ' . esc_html($f['hours']) . ' and replies ' . esc_html($f['response_time']) . '.</p>',
+    ],
+], 'October 17, 2026');

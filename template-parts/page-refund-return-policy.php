@@ -1,207 +1,136 @@
 <?php
 /**
- * Refund & Return Policy - ShopGraphicShirt
- * Style aligned with homepage. Content preserved from git original.
+ * Refund & Return Policy — MozTire
  */
-$sgs_rr_hero_bg = sprintf(
-  "--sgs-rr-hero-bg:url('%s');--sgs-rr-hero-bg-mobile:url('%s')",
-  esc_url(dawp_theme_cdn_image_url('assets/img/policy/policy-hero-background.png', 1600, 760)),
-  esc_url(dawp_theme_cdn_image_url('assets/img/policy/policy-hero-background.png', 720, 520))
-);
-get_header(); ?>
-<section class="sgs-home sgs-page">
-<style>
-.sgs-rr-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),var(--sgs-rr-hero-bg) center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
-.sgs-rr-hero__inner{max-width:680px;margin:0 auto}
-.sgs-rr-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
-.sgs-rr-hero p{max-width:640px;margin:18px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7}
-.sgs-rr-section{width:min(100% - 48px,1200px);margin:0 auto;padding:var(--section-gap,72px) 0}
-.sgs-rr-section--surface{width:100%;max-width:none;padding-inline:clamp(24px,4vw,64px);background:var(--antique)}
-.sgs-rr-panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:clamp(24px,3vw,36px);margin-bottom:16px;transition:box-shadow 180ms}
-.sgs-rr-panel:hover{box-shadow:var(--shadow-sm)}
-.sgs-rr-panel--soft{background:#fafafa}
-.sgs-rr-panel h2{margin:0 0 12px;font-family:var(--font-heading);font-size:clamp(1.2rem,2vw,1.5rem);font-weight:700;color:var(--ink);line-height:1.1}
-.sgs-rr-panel p{margin:12px 0 0;color:var(--muted);font-size:.92rem;line-height:1.7}
-.sgs-rr-panel p:first-of-type{margin-top:0}
-.sgs-rr-panel strong{color:var(--ink)}
-.sgs-rr-highlight{background:var(--gold);color:var(--navy);font-weight:700;padding:2px 8px;border-radius:4px;display:inline-block}
-.sgs-rr-note{border-left:4px solid var(--red);border-radius:0 var(--radius) var(--radius) 0;background:#fff0f0;padding:18px 20px;margin-top:16px;color:var(--muted);font-size:.9rem;line-height:1.65}
-.sgs-rr-list{margin:14px 0 0;padding-left:20px;color:var(--muted);font-size:.92rem;line-height:1.75}
-.sgs-rr-list li{margin:6px 0}
-.sgs-rr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
-.sgs-rr-grid--3{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
-.sgs-rr-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:20px;transition:box-shadow 180ms,transform 180ms}
-.sgs-rr-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-3px)}
-.sgs-rr-card h3{margin:0 0 8px;font-family:var(--font-heading);font-size:.95rem;font-weight:700;color:var(--ink);line-height:1.25}
-.sgs-rr-card p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.5}
-.sgs-rr-card p + p{margin-top:10px}
-.sgs-rr-step{display:flex;gap:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:20px;margin-bottom:12px;transition:box-shadow 180ms}
-.sgs-rr-step:hover{box-shadow:var(--shadow-sm)}
-.sgs-rr-step__num{display:flex;width:32px;height:32px;flex:0 0 auto;align-items:center;justify-content:center;border-radius:50%;background:var(--red);color:var(--white);font-size:.85rem;font-weight:800}
-.sgs-rr-step__body h3{margin:0;font-family:var(--font-heading);font-size:.95rem;font-weight:700;color:var(--ink);line-height:1.2}
-.sgs-rr-step__body p{margin:8px 0 0;color:var(--muted);font-size:.85rem;line-height:1.55}
-.sgs-rr-step__body p + p{margin-top:8px}
-.sgs-rr-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
-.sgs-rr-contact{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:20px;margin-top:16px}
-.sgs-rr-contact__item{text-align:center;padding:22px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.sgs-rr-contact__item:nth-child(3n){border-right:0}
-.sgs-rr-contact__item:nth-last-child(-n+2){border-bottom:0}
-.sgs-rr-contact__item strong{display:block;margin-bottom:4px;font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--ink)}
-.sgs-rr-contact__item span,.sgs-rr-contact__item a{color:var(--muted);font-size:.85rem}
-.sgs-rr-contact__item a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
-.sgs-rr-note--gold{border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;background:#fff7e8;padding:18px 20px;margin-top:16px;color:var(--muted);font-size:.9rem;line-height:1.65}
-@media(max-width:960px){.sgs-rr-grid{grid-template-columns:1fr}.sgs-rr-grid--3{grid-template-columns:1fr}.sgs-rr-contact{grid-template-columns:repeat(2,1fr)}.sgs-rr-contact__item:nth-child(3n){border-right:1px solid var(--line)}.sgs-rr-contact__item:nth-last-child(-n+2){border-bottom:1px solid var(--line)}.sgs-rr-contact__item:nth-child(2n){border-right:0}.sgs-rr-contact__item:last-child{border-bottom:0}}
-@media(max-width:700px){.sgs-rr-contact{grid-template-columns:1fr}.sgs-rr-contact__item{border-right:0}.sgs-rr-contact__item:nth-child(3n),.sgs-rr-contact__item:nth-child(2n){border-right:0}.sgs-rr-contact__item:last-child{border-bottom:0}.sgs-rr-actions .sgs-btn{width:100%}}
-@media(max-width:640px){.sgs-rr-hero{background-image:linear-gradient(180deg,rgba(11,31,58,.76) 0%,rgba(11,31,58,.96) 100%),var(--sgs-rr-hero-bg-mobile,var(--sgs-rr-hero-bg))}}
-</style>
+$f = dawp_store_facts();
+$email = '<a href="mailto:' . esc_attr($f['email']) . '">' . esc_html($f['email']) . '</a>';
+$days  = (int) $f['return_window'];
+$damage_days = (int) $f['damage_report'];
 
-<div class="sgs-rr-hero" style="<?php echo esc_attr($sgs_rr_hero_bg); ?>">
-  <div class="sgs-rr-hero__inner">
-    <p class="sgs-eyebrow sgs-eyebrow--light">Customer Care</p>
-    <h1>Refund &amp; Return Policy</h1>
-    <p class="sgs-rr-hero__meta" style="margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Last Updated: July 5 2026</p>
-    <p>We want every ShopGraphicShirt piece to feel just right for you and your loved ones. Please review the return requirements below before sending any patriotic apparel, accessories, or custom gift item back to us.</p>
-  </div>
-</div>
+dawp_page_hero([
+    'title'   => 'Refund & Return Policy',
+    'eyebrow' => $days . '-day returns',
+    'lead'    => 'Ordered the wrong size or changed your mind? New, unmounted tires can be returned within ' . $days . ' days of delivery for a refund to your PayPal payment.',
+    'image'   => 'assets/img/hero/tracking-hero.jpg',
+]);
 
-<div class="sgs-rr-section">
-  <!-- Return Eligibility -->
-  <div class="sgs-rr-panel">
-    <h2>Return Eligibility</h2>
-    <p>To be eligible for a return, your item must meet the following criteria:</p>
-    <ul class="sgs-rr-list">
-      <li><strong>Return Window:</strong> You must initiate your return request within 30 days of delivery.</li>
-      <li><strong>Condition:</strong> Items must be unworn, unused, undamaged, and in their original, unaltered condition.</li>
-      <li><strong>Packaging:</strong> Items must be returned with all original packaging, tags, labels, care cards, garment bags, boxes, and any included accessories.</li>
-      <li><strong>Restocking Fee:</strong> Free. We do not charge any restocking fees for eligible returns.</li>
-    </ul>
-  </div>
-
-  <!-- Return Shipping Fees -->
-  <div class="sgs-rr-panel sgs-rr-panel--soft">
-    <h2>Return Shipping Fees</h2>
-    <div class="sgs-rr-grid">
-      <div class="sgs-rr-card">
-        <h3>Defective, Damaged, or Incorrect Products (Wrong item, carrier damage, or defective):</h3>
-        <p>No cost to customer. We cover 100% of the return shipping costs. We will provide a downloadable and printable prepaid shipping label via email.</p>
-      </div>
-      <div class="sgs-rr-card">
-        <h3>Customer Remorse (Ordered wrong item/size/color, changed mind, or doesn't fit):</h3>
-        <p>The customer is responsible for the return shipping cost. The actual return shipping cost of the provided prepaid label (sent via email) will be deducted from your final refund amount.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Common Delivery Issues -->
-  <div class="sgs-rr-panel">
-    <h2>Common Delivery Issues</h2>
-    <div style="margin-top:14px;display:grid;gap:16px">
-      <div class="sgs-rr-card">
-        <h3>Damaged on Arrival</h3>
-        <p>If your order arrives damaged, please contact us within 30 days of delivery with photos of the item and the shipping packaging, including the shipping label. We will arrange a replacement or full refund at no cost to you.</p>
-      </div>
-      <div class="sgs-rr-card">
-        <h3>Lost Packages / Never Arrived</h3>
-        <p>If your tracking status shows no updates for an extended period, or is marked "Delivered" but you did not receive it, please contact us within 30 days of the recorded delivery date. We will investigate with the carrier and arrange a replacement or refund if the package is confirmed lost.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- How to Return an Item - 3 Step -->
-  <div class="sgs-rr-panel sgs-rr-panel--soft">
-    <h2>How to Return an Item</h2>
-    <p>Please follow our official 3-step process. Do not ship any item back without prior authorization, as unauthorized returns cannot be tracked or processed at our warehouse.</p>
-
-    <div style="margin-top:18px">
-      <div class="sgs-rr-step">
-        <span class="sgs-rr-step__num">1</span>
-        <div class="sgs-rr-step__body">
-          <h3>Submit Your Return Request</h3>
-          <p>Email us or use our Contact Page within 30 days of delivery. Please provide your order number, the email used at checkout, the specific item(s) you wish to return, and the reason for the return with photos or videos if damaged.</p>
-        </div>
-      </div>
-      <div class="sgs-rr-step">
-        <span class="sgs-rr-step__num">2</span>
-        <div class="sgs-rr-step__body">
-          <h3>Receive Approval &amp; Pack Your Item</h3>
-          <p>Our support team will review your request within 1-2 business days. Once approved, we will email you a Return Merchandise Authorization (RMA) number along with a prepaid shipping label.</p>
-          <p>Repack the item securely in its original packaging with all included accessories, tags, and boxes. Place it inside a sturdy outer shipping box.</p>
-        </div>
-      </div>
-      <div class="sgs-rr-step">
-        <span class="sgs-rr-step__num">3</span>
-        <div class="sgs-rr-step__body">
-          <h3>Ship It Back to Our Returns Center</h3>
-          <p>Attach the prepaid shipping label to the outer box. Drop off the package at the designated carrier location — we recommend requesting a receipt as proof of drop-off. Once received, we inspect and process your refund within 1-2 business days.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="sgs-rr-note"><strong>Do not ship any item back without first receiving return authorization from our team.</strong> Unauthorized returns may be refused or delayed.</div>
-    <div class="sgs-rr-actions">
-      <a class="sgs-btn sgs-btn--primary" href="/contact-us/">Contact Us</a>
-    </div>
-  </div>
-
-  <!-- Return Window & Non-Returnable -->
-  <div class="sgs-rr-panel">
-    <h2>Return Window</h2>
-    <p>Eligible return requests must be initiated within 30 days of the delivery date. We are unable to accept returns after this 30-day period has expired.</p>
-  </div>
-
-  <div class="sgs-rr-panel sgs-rr-panel--soft">
-    <h2>Non-Returnable Items</h2>
-    <p>The following items are <strong>not eligible</strong> for return or refund:</p>
-    <ul class="sgs-rr-list">
-      <li>Personalized and custom-made items (unless defective, damaged, or incorrect)</li>
-      <li>Gift cards</li>
-      <li>Digital products or downloadable content</li>
-      <li>Final sale or clearance items (marked as such at checkout)</li>
-      <li>Hygiene-sensitive items with broken or missing seals</li>
-      <li>Items worn, washed, altered, or damaged after delivery</li>
-    </ul>
-  </div>
-
-  <!-- Refund Timing -->
-  <div class="sgs-rr-panel">
-    <h2>Refund Timing</h2>
-    <p>Once your return package is received at our facility, we inspect the item within <strong>1-2 business days</strong>. If the return is approved, the refund will be issued to your <strong>original payment method</strong> within <strong>7 business days</strong>. Depending on your bank or card issuer, it may take additional time for the refund to appear in your account. If you have not received a refund after <strong>15 business days</strong> of approval, please contact us after checking with your bank or payment provider.</p>
-  </div>
-
-  <!-- Personalized Items -->
-  <div class="sgs-rr-panel sgs-rr-panel--soft">
-    <h2>Refunds on Personalized Items</h2>
-    <p>Personalized and custom-made items are produced specifically for you based on the personalization details you provide at checkout. These items are <strong>not eligible for return or refund</strong> unless they arrive defective, damaged, or with an error made by ShopGraphicShirt (e.g., incorrect personalization due to our production error, not a typo or mistake in the details you submitted). Please review all personalization details carefully before placing your order.</p>
-  </div>
-
-  <!-- Contact Info -->
-  <div class="sgs-rr-panel">
-    <h2>Contact Information</h2>
-    <p>For all return and refund inquiries, please contact us:</p>
-    <div class="sgs-rr-contact">
-      <div class="sgs-rr-contact__item">
-        <strong>Store Name</strong>
-        <span>ShopGraphicShirt</span>
-      </div>
-      <div class="sgs-rr-contact__item">
-        <strong>Customer Support Email</strong>
-        <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a>
-      </div>
-      <div class="sgs-rr-contact__item">
-        <strong>Customer Service Hours</strong>
-        <span>Monday - Friday, 10:00 AM - 6:00 PM PST</span>
-      </div>
-      <div class="sgs-rr-contact__item">
-        <strong>Response Time</strong>
-        <span>Within 24 business hours.</span>
-      </div>
-      <div class="sgs-rr-contact__item">
-        <strong>Return Address</strong>
-        <span>Provided with return authorization.</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-</section>
-<?php get_footer(); ?>
+dawp_policy_body([
+    [
+        'id'    => 'overview',
+        'title' => 'Returns at a glance',
+        'html'  => '
+            <ul class="mz-facts">
+                <li><strong>' . $days . ' days</strong>From delivery to request a return</li>
+                <li><strong>$0</strong>Restocking fee</li>
+                <li><strong>' . esc_html($f['refund_inspect']) . '</strong>Inspection after we receive it</li>
+                <li><strong>' . esc_html($f['refund_issue']) . '</strong>Refund issued to PayPal</li>
+            </ul>
+            <p>Original shipping was free, so nothing is deducted from your refund for outbound shipping. If we made a mistake or a tire arrived damaged or defective, return shipping is free too.</p>
+            <p class="mz-callout"><strong>Before you mount:</strong> please confirm the size, load index and speed rating match your vehicle. Once a tire is mounted on a wheel, it can no longer be returned for change of mind.</p>',
+    ],
+    [
+        'id'    => 'eligibility',
+        'title' => 'Which tires can be returned',
+        'html'  => '
+            <p>You may return tires purchased from MozTire within <strong>' . $days . ' days of the delivery date</strong> if they are:</p>
+            <ul>
+                <li>New, unused and never mounted on a wheel or installed on a vehicle;</li>
+                <li>Free of mounting or balancing marks, bead lubricant, scuffs, wheel-weight marks, cuts or punctures;</li>
+                <li>Returned with their original labels and stickers still attached;</li>
+                <li>Kept clean and dry, away from direct sunlight, chemicals and sources of ozone.</li>
+            </ul>
+            <h3>Not eligible for return</h3>
+            <ul>
+                <li>Tires that have been mounted, installed, driven on, or show any signs of use;</li>
+                <li>Tires damaged after delivery, or by improper storage or handling;</li>
+                <li>Items marked as final sale on the product page;</li>
+                <li>Requests made more than ' . $days . ' days after delivery.</li>
+            </ul>
+            <p>A mounted tire with a manufacturing defect may still be covered by the manufacturer\'s warranty. See <a href="#warranty">Warranty claims</a> below.</p>',
+    ],
+    [
+        'id'    => 'damaged',
+        'title' => 'Damaged, defective or incorrect tires',
+        'html'  => '
+            <p>If a tire arrives damaged in transit, has a visible defect, or is not the tire you ordered, email ' . $email . ' within <strong>' . $damage_days . ' days of delivery</strong> and do not mount it. Include your order number and photos of:</p>
+            <ul>
+                <li>The full sidewall showing the size and DOT code;</li>
+                <li>The damage or defect up close;</li>
+                <li>The packaging and shipping label.</li>
+            </ul>
+            <p>Once confirmed, we will send a replacement at no cost or issue a full refund to PayPal, whichever you prefer. We cover all return shipping with a prepaid label or carrier pickup.</p>',
+    ],
+    [
+        'id'    => 'how',
+        'title' => 'How to start a return',
+        'html'  => '
+            <ol>
+                <li><strong>Contact us</strong> at ' . $email . ' or through the <a href="/contact-us/">contact form</a> within ' . $days . ' days of delivery.</li>
+                <li><strong>Tell us</strong> your ' . esc_html($f['order_prefix']) . ' order number, the email used at checkout, which tires you are returning, and the reason.</li>
+                <li><strong>Get your return authorization (RA).</strong> We reply ' . esc_html($f['response_time']) . ' with an RA number, return address and shipping instructions.</li>
+                <li><strong>Pack securely.</strong> Write the RA number on each package or on a label taped to each tire. Tires may be shipped without a box if wrapped and labeled as instructed.</li>
+                <li><strong>Ship within 14 days</strong> of receiving your RA and keep your tracking numbers until the refund is issued.</li>
+            </ol>
+            <p>Please do not send tires back without a return authorization. Unauthorized returns may be delayed or refused.</p>',
+    ],
+    [
+        'id'    => 'shipping',
+        'title' => 'Return shipping costs',
+        'html'  => '
+            <table>
+                <thead><tr><th>Reason for return</th><th>Return shipping</th></tr></thead>
+                <tbody>
+                    <tr><td>We shipped the wrong tire, or it arrived damaged or defective</td><td><strong>Free</strong>. MozTire provides a prepaid label or carrier pickup</td></tr>
+                    <tr><td>Wrong size ordered, changed mind, no longer needed</td><td><strong>Paid by the customer</strong>. Use our discounted label (the cost is shown before you agree and deducted from your refund) or ship with any tracked carrier</td></tr>
+                </tbody>
+            </table>
+            <p>There is no restocking fee on eligible returns, and no deduction for the original free shipping.</p>',
+    ],
+    [
+        'id'    => 'refunds',
+        'title' => 'Refunds to PayPal',
+        'html'  => '
+            <p>All refunds are issued through PayPal to the original payment used for the order. We cannot refund to a different account or card.</p>
+            <ol>
+                <li>When your return arrives, we inspect it within ' . esc_html($f['refund_inspect']) . ' and email you the result.</li>
+                <li>Approved refunds are issued through PayPal within ' . esc_html($f['refund_issue']) . '. You receive a refund email from us and a refund notification from PayPal.</li>
+                <li>Refunds to your PayPal balance usually appear within minutes. Refunds to a card or bank used through PayPal can take 5-10 more business days to post, depending on your bank or card issuer. Pay Later refunds are applied by PayPal to your plan.</li>
+            </ol>
+            <table>
+                <thead><tr><th>Situation</th><th>Refund amount</th></tr></thead>
+                <tbody>
+                    <tr><td>Order cancelled before shipping</td><td>Full order total, usually within 1 business day</td></tr>
+                    <tr><td>Damaged, defective or incorrect tire</td><td>Full price of the tire plus any tax paid on it</td></tr>
+                    <tr><td>Change-of-mind return, eligible condition</td><td>Price of the tire plus tax, minus return label cost if you used ours</td></tr>
+                    <tr><td>Partial return from a set</td><td>Price of the returned tires plus the tax paid on them</td></tr>
+                </tbody>
+            </table>
+            <p>If a returned tire does not meet the eligibility conditions, we will contact you with photos and, at your choice, ship it back to you at your cost or discuss a partial refund.</p>
+            <p>If you have not received an approved refund after 10 business days, please check your PayPal activity and your bank first, then contact us at ' . $email . '. If you prefer, you can also contact PayPal through its Resolution Center; please see our <a href="/payment-policy/">Payment Policy</a>.</p>',
+    ],
+    [
+        'id'    => 'exchanges',
+        'title' => 'Exchanges',
+        'html'  => '
+            <p>We do not process direct exchanges. To get a different size or model, return the original tires for a refund and place a new order (with free shipping again). If you are worried about stock, place the new order first and we will refund the return once it is received.</p>',
+    ],
+    [
+        'id'    => 'cancellations',
+        'title' => 'Cancellations',
+        'html'  => '
+            <p>You can cancel for a full refund any time before your order ships. Email ' . $email . ' with your order number. Once an order has shipped, it can no longer be cancelled and is handled as a return. Refused deliveries are treated as change-of-mind returns.</p>',
+    ],
+    [
+        'id'    => 'warranty',
+        'title' => 'Warranty claims',
+        'html'  => '
+            <p>Tires are covered by their manufacturer\'s limited warranty, which may include workmanship and materials coverage and, for many models, a tread-life (mileage) warranty shown as <em>Tread Warranty</em> on the product page. Warranties are provided by the tire manufacturer, not by MozTire, and are subject to the manufacturer\'s terms, such as proper inflation, regular rotation, alignment records and normal use.</p>
+            <p>If you believe a tire is defective, keep your MozTire order confirmation and installation receipt, then contact us with your order number and photos. We will help you gather the documents needed and connect you with the manufacturer\'s claim process. Warranty decisions and any pro-rated credit are made by the manufacturer.</p>',
+    ],
+    [
+        'id'    => 'contact',
+        'title' => 'Contact us',
+        'html'  => '
+            <p>Questions about a return? Email ' . $email . '. We are available ' . esc_html($f['hours']) . ' and reply ' . esc_html($f['response_time']) . '.</p>',
+    ],
+], 'October 17, 2026');

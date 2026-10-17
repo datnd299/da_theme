@@ -14,8 +14,13 @@ function dawp_handle_virtual_pages() {
         exit;
     }
 
-    if ($request_uri === 'shop-by-theme') {
-        wp_safe_redirect(home_url('/shop-by-categories/'), 301);
+    if (in_array($request_uri, ['shop-by-theme', 'shop-by-categories', 'brands'], true)) {
+        wp_safe_redirect(home_url('/shop-by-brand/'), 301);
+        exit;
+    }
+
+    if (in_array($request_uri, ['tire-size', 'size-guide'], true)) {
+        wp_safe_redirect(home_url('/tire-size-guide/'), 301);
         exit;
     }
 
@@ -33,7 +38,7 @@ function dawp_handle_virtual_pages() {
     $wp_query->is_singular = true;
 
     get_header();
-    echo '<main class="virtual-page virtual-page--' . esc_attr($page['slug']) . '">';
+    echo '<main id="primary" class="virtual-page virtual-page--' . esc_attr($page['slug']) . '">';
     get_template_part('template-parts/page', $page['slug']);
     echo '</main>';
     get_footer();
@@ -44,93 +49,111 @@ function dawp_virtual_page_map() {
     return [
         'home' => [
             'slug'        => 'home',
-            'title'       => 'Home',
+            'title'       => 'Tires for Cars, SUVs & Trucks',
             'css'         => 'tw/tw-home.css',
-            'seo_title'   => 'Shopgraphicshirt | Patriotic Apparel & Custom Gifts',
-            'description' => 'Shop Shopgraphicshirt for patriotic apparel, polos, hats, America 250 designs, and custom gifts with free U.S. standard shipping.',
-            'image'       => 'assets/img/Image New/image copy 8.png',
+            'seo_title'   => 'MozTire | Shop Tires by Size, Brand & Vehicle Type',
+            'description' => 'Find the right tires fast at MozTire. Search by tire size, brand, season or vehicle type and get free ground shipping to the contiguous U.S.',
+            'image'       => 'assets/img/hero/home-hero.jpg',
             'canonical'   => home_url('/'),
             'schema_type' => 'CollectionPage',
+        ],
+        'shop-by-brand' => [
+            'slug'        => 'shop-by-brand',
+            'title'       => 'Shop Tires by Brand',
+            'css'         => 'tw/tw-brands.css',
+            'seo_title'   => 'Shop Tires by Brand | MozTire',
+            'description' => 'Browse every tire brand MozTire carries. Compare passenger, SUV and light-truck tire lines, then narrow down by size, season and speed rating.',
+            'image'       => 'assets/img/hero/shop-hero.jpg',
+            'schema_type' => 'CollectionPage',
+        ],
+        'tire-size-guide' => [
+            'slug'        => 'tire-size-guide',
+            'title'       => 'Tire Size Guide',
+            'css'         => 'tw/tw-guide.css',
+            'seo_title'   => 'How to Read a Tire Size | MozTire Tire Size Guide',
+            'description' => 'Learn what 225/65R17 102H means: width, aspect ratio, rim diameter, load index, speed rating, load range and season ratings, explained simply.',
+            'image'       => 'assets/img/hero/support-hero.jpg',
+            'schema_type' => 'WebPage',
         ],
         'about-us' => [
             'slug'        => 'about',
             'title'       => 'About Us',
             'css'         => 'tw/tw-about.css',
-            'seo_title'   => 'About Shopgraphicshirt | Patriotic Apparel & Gifts',
-            'description' => 'Learn about Shopgraphicshirt, a patriotic apparel and custom gift brand creating American pride designs for proud Americans.',
-            'image'       => 'assets/img/Image New/image copy 8.png',
+            'seo_title'   => 'About MozTire | Online Tire Store for U.S. Drivers',
+            'description' => 'MozTire is an online tire store for U.S. drivers, built around clear tire specs, honest pricing and free ground shipping to the contiguous U.S.',
+            'image'       => 'assets/img/hero/about-hero.jpg',
             'schema_type' => 'AboutPage',
-        ],
-        'shop-by-categories' => [
-            'slug'        => 'shop-by-categories',
-            'title'       => 'Shop By Categories',
-            'css'         => 'tw/tw-shop-by-categories.css',
-            'seo_title'   => 'Shop By Categories | Shopgraphicshirt Patriotic Gifts',
-            'description' => 'Shop Shopgraphicshirt by category, including American flag tees, bomber jackets, hats, premium T-shirts, America 250 designs, and holiday gifts.',
-            'image'       => 'assets/img/Image New/image.png',
-            'schema_type' => 'CollectionPage',
         ],
         'faq' => [
             'slug'        => 'faq',
             'title'       => 'FAQ',
             'css'         => 'tw/tw-faq.css',
-            'seo_title'   => 'Shopgraphicshirt FAQ | Shipping, Returns & Orders',
-            'description' => 'Find answers about Shopgraphicshirt orders, checkout, free U.S. shipping, tracking, returns, refunds, payment security, and customer support.',
-            'image'       => 'assets/img/Image New/image copy 9.png',
+            'seo_title'   => 'Tire Shopping FAQ | Fitment, Shipping & Returns | MozTire',
+            'description' => 'Answers about tire sizes and fitment, shipping times, installation, tread warranties, returns, refunds and secure checkout at MozTire.',
+            'image'       => 'assets/img/hero/support-hero.jpg',
             'schema_type' => 'FAQPage',
         ],
         'contact-us' => [
             'slug'        => 'contact',
             'title'       => 'Contact Us',
             'css'         => 'tw/tw-contact.css',
-            'seo_title'   => 'Contact Shopgraphicshirt | Customer Support',
-            'description' => 'Contact Shopgraphicshirt for order updates, custom gift details, shipping questions, returns, refunds, delivery issues, and product support.',
-            'image'       => 'assets/img/Image New/image copy 9.png',
+            'seo_title'   => 'Contact MozTire | Tire Fitment & Order Support',
+            'description' => 'Contact MozTire for help choosing a tire size, order updates, shipping questions, returns and refunds. We reply within 1 business day.',
+            'image'       => 'assets/img/hero/support-hero.jpg',
             'schema_type' => 'ContactPage',
         ],
         'shipping-policy' => [
             'slug'        => 'shipping-policy',
             'title'       => 'Shipping Policy',
             'css'         => 'tw/tw-ship.css',
-            'seo_title'   => 'Shipping Policy | Shopgraphicshirt',
-            'description' => 'Review Shopgraphicshirt shipping policy, including free standard U.S. shipping, 1-3 business day handling, 5-7 business day transit, and tracking.',
-            'image'       => 'assets/img/Image New/image copy 3.png',
+            'seo_title'   => 'Shipping Policy | MozTire',
+            'description' => 'MozTire ships free by ground to the contiguous U.S.: orders process in 1-2 business days and arrive in 3-7 business days with tracking.',
+            'image'       => 'assets/img/hero/tracking-hero.jpg',
             'schema_type' => 'WebPage',
         ],
         'refund-return-policy' => [
             'slug'        => 'refund-return-policy',
             'title'       => 'Refund & Return Policy',
             'css'         => 'tw/tw-ship.css',
-            'seo_title'   => 'Refund & Return Policy | Shopgraphicshirt',
-            'description' => 'Review Shopgraphicshirt returns and refunds, including the 30-day return window, eligible item condition, return shipping fees, and refund timing.',
-            'image'       => 'assets/img/Image New/image copy 9.png',
+            'seo_title'   => 'Refund & Return Policy | MozTire',
+            'description' => 'Return new, unmounted and unused tires within 30 days of delivery. See eligibility, return shipping, inspection and refund timing at MozTire.',
+            'image'       => 'assets/img/hero/tracking-hero.jpg',
+            'schema_type' => 'WebPage',
+        ],
+        'payment-policy' => [
+            'slug'        => 'payment-policy',
+            'title'       => 'Payment Policy',
+            'css'         => 'tw/tw-terms.css',
+            'seo_title'   => 'Payment Policy | Secure PayPal Checkout | MozTire',
+            'description' => 'Pay for your tires securely with PayPal at MozTire: accepted methods, when you are charged, refunds to PayPal and how payment disputes are handled.',
+            'image'       => 'assets/img/hero/support-hero.jpg',
             'schema_type' => 'WebPage',
         ],
         'terms-conditions' => [
             'slug'        => 'terms-conditions',
             'title'       => 'Terms & Conditions',
             'css'         => 'tw/tw-terms.css',
-            'seo_title'   => 'Terms & Conditions | Shopgraphicshirt',
-            'description' => 'Read Shopgraphicshirt terms and conditions for website use, online orders, payment security, product accuracy, returns, and store policies.',
-            'image'       => 'assets/img/Image New/image copy.png',
+            'seo_title'   => 'Terms & Conditions | MozTire',
+            'description' => 'Terms for using moztire.com and buying tires online: orders, pricing, fitment responsibility, installation, warranties and store policies.',
+            'image'       => 'assets/img/hero/support-hero.jpg',
             'schema_type' => 'WebPage',
         ],
         'privacy-policy' => [
             'slug'        => 'privacy',
             'title'       => 'Privacy Policy',
             'css'         => 'tw/tw-privacy.css',
-            'seo_title'   => 'Privacy Policy | Shopgraphicshirt',
-            'description' => 'Read how Shopgraphicshirt collects, uses, protects, and shares personal information for orders, checkout, shipping, analytics, and support.',
-            'image'       => 'assets/img/Image New/image copy.png',
+            'seo_title'   => 'Privacy Policy | MozTire',
+            'description' => 'How MozTire collects, uses, protects and shares personal information for orders, payments, shipping, analytics and customer support.',
+            'image'       => 'assets/img/hero/support-hero.jpg',
             'schema_type' => 'PrivacyPolicy',
         ],
         'track-order' => [
             'slug'        => 'track-order',
             'title'       => 'Track Order',
             'css'         => 'track-order.css',
-            'seo_title'   => 'Track Your Order | Shopgraphicshirt',
-            'description' => 'Track your Shopgraphicshirt order status securely using your order details, or contact customer support for shipment and delivery help.',
-            'image'       => 'assets/img/Image New/image copy 3.png',
+            'seo_title'   => 'Track Your Tire Order | MozTire',
+            'description' => 'Track your MozTire order with your order number and billing email, or contact support for shipment and delivery help.',
+            'image'       => 'assets/img/hero/tracking-hero.jpg',
             'schema_type' => 'WebPage',
         ],
     ];

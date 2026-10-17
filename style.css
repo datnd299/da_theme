@@ -1,27 +1,9 @@
 /*
-Theme Name: Shopgraphicshirt
-Theme URI: https://shopgraphicshirt.com
-Author: Shopgraphicshirt
-Author URI: https://shopgraphicshirt.com
-Description: Shopgraphicshirt
+Theme Name: MozTire
+Theme URI: https://moztire.com
+Author: MozTire
+Author URI: https://moztire.com
+Description: MozTire — online tire store theme. Shop tires by size, brand, season and vehicle type using WooCommerce global tire attributes.
 Version: 1.0.0
-Text Domain: shopgraphicshirt
+Text Domain: moztire
 */
-
-.footer-accordion > summary::-webkit-details-marker {
-    display: none;
-}
-
-.footer-accordion:not([open]) > .footer-accordion-panel {
-    display: none;
-}
-
-.footer-accordion[open] .footer-accordion-icon {
-    transform: rotate(180deg);
-}
-
-@media (min-width: 640px) {
-    .footer-accordion > .footer-accordion-panel {
-        display: block !important;
-    }
-}

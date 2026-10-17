@@ -1,50 +1,12 @@
 <?php
 defined('ABSPATH') || exit;
 
-function dawp_product_category_definitions() {
-    return [
-        'best-sellers' => [
-            'name'        => __('Best Sellers', 'dawp'),
-            'description' => __('Customer-favorite patriotic apparel and gifts made for classic American pride.', 'dawp'),
-        ],
-        'american-flag-tees' => [
-            'name'        => __('American Flag Tees', 'dawp'),
-            'description' => __('Graphic tees with bold American flag designs, distressed prints, and eagle graphics.', 'dawp'),
-        ],
-        'bomber-jackets' => [
-            'name'        => __('Bomber Jackets', 'dawp'),
-            'description' => __('MA-1 style bomber jackets with flag patches and custom name options.', 'dawp'),
-        ],
-        'hats-beanies' => [
-            'name'        => __('Hats & Beanies', 'dawp'),
-            'description' => __('Snapbacks, dad hats, and beanies with patriotic patchwork.', 'dawp'),
-        ],
-        'premium-t-shirts' => [
-            'name'        => __('Premium T-Shirts', 'dawp'),
-            'description' => __('Heavy-weight cotton tees with vintage-style American pride prints.', 'dawp'),
-        ],
-        'patches-pins' => [
-            'name'        => __('Patches & Pins', 'dawp'),
-            'description' => __('Patriotic patches, pins, mugs, and daily carry gifts for American heritage.', 'dawp'),
-        ],
-        'america-250' => [
-            'name'        => __('America 250 Collection', 'dawp'),
-            'description' => __('Celebrate America\'s 250th Anniversary with patriotic apparel, accessories, and meaningful gifts.', 'dawp'),
-        ],
-        'fathers-day-gifts' => [
-            'name'        => __('Father\'s Day Gifts', 'dawp'),
-            'description' => __('Meaningful Father\'s Day gifts for husbands, dads, grandfathers, and proud families.', 'dawp'),
-        ],
-        'memorial-day-gifts' => [
-            'name'        => __('Memorial Day Gifts', 'dawp'),
-            'description' => __('Respectful patriotic gifts and apparel for remembrance, family legacy, and American pride.', 'dawp'),
-        ],
-        'independence-day-gifts' => [
-            'name'        => __('Independence Day Gifts', 'dawp'),
-            'description' => __('Red, white, and blue apparel, accessories, and custom gifts for proud American celebrations.', 'dawp'),
-        ],
-    ];
-}
+/**
+ * Product category helpers.
+ *
+ * MozTire navigation is driven by the global tire attributes and product_brand
+ * (see inc/tire-finder.php); categories are optional and never seeded by the theme.
+ */
 
 function dawp_product_category_url($slug) {
     $slug = sanitize_title($slug);
@@ -64,75 +26,32 @@ function dawp_product_category_url($slug) {
     return home_url('/product-category/' . $slug . '/');
 }
 
-function dawp_product_category_redirects() {
-    return [
-        'best-sellers' => 'best-sellers',
-        'flag' => 'american-flag-tees',
-        'hoodie' => 'premium-t-shirts',
-        'jacket' => 'bomber-jackets',
-        't-shirt' => 'premium-t-shirts',
-        'cap' => 'hats-beanies',
-        'fathers-day' => 'fathers-day-gifts',
-        'memorial-day' => 'memorial-day-gifts',
-        'independence-day' => 'independence-day-gifts',
-    ];
-}
+/**
+ * Link for a tire type (e.g. "All-Season", "Performance").
+ *
+ * Uses the Season / Tire Category attribute filter — every value whose name contains the
+ * label, so "Performance" also covers "Ultra High Performance" — once those values are on
+ * enough products (dawp_attribute_ready()). Until then it falls back to a keyword search,
+ * which FiboSearch answers from product titles.
+ */
+function dawp_tire_type_url($label, $keys = ['season', 'category']) {
+    $needle = strtolower(str_replace('-', ' ', $label));
 
-add_action('template_redirect', 'dawp_redirect_legacy_product_category_links', 1);
-function dawp_redirect_legacy_product_category_links() {
-    $request_path = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?? '', '/');
-    $home_path    = trim(parse_url(home_url('/'), PHP_URL_PATH) ?? '', '/');
+    foreach ($keys as $key) {
+        $taxonomy = dawp_tire_tax($key);
+        $slugs    = [];
 
-    if ($home_path !== '' && ($request_path === $home_path || strpos($request_path, $home_path . '/') === 0)) {
-        $request_path = trim(substr($request_path, strlen($home_path)), '/');
-    }
-
-    $redirects = dawp_product_category_redirects();
-
-    if (isset($redirects[$request_path])) {
-        wp_safe_redirect(dawp_product_category_url($redirects[$request_path]), 301);
-        exit;
-    }
-
-    if (preg_match('#^product-category/([^/]+)/?$#', $request_path, $matches)) {
-        $legacy_slug = sanitize_title($matches[1]);
-
-        if (isset($redirects[$legacy_slug]) && $redirects[$legacy_slug] !== $legacy_slug) {
-            wp_safe_redirect(dawp_product_category_url($redirects[$legacy_slug]), 301);
-            exit;
-        }
-    }
-}
-
-function dawp_seed_product_categories() {
-    if (! taxonomy_exists('product_cat')) {
-        return;
-    }
-
-    $seeded_version = get_option('dawp_seeded_product_categories_version');
-    $target_version = '2026-07-15-link-fixes';
-
-    if ($seeded_version === $target_version) {
-        return;
-    }
-
-    foreach (dawp_product_category_definitions() as $slug => $category) {
-        $term = get_term_by('slug', $slug, 'product_cat');
-
-        if (! $term) {
-            wp_insert_term($category['name'], 'product_cat', [
-                'slug'        => $slug,
-                'description' => $category['description'],
-            ]);
-            continue;
+        foreach (dawp_tire_terms($taxonomy) as $term) {
+            $name = strtolower(str_replace('-', ' ', html_entity_decode($term->name)));
+            if ($name === $needle || preg_match('/\b' . preg_quote($needle, '/') . '\b/', $name)) {
+                $slugs[] = $term->slug;
+            }
         }
 
-        wp_update_term($term->term_id, 'product_cat', [
-            'name'        => $category['name'],
-            'description' => $category['description'],
-        ]);
+        if ($slugs && dawp_attribute_ready($taxonomy, $slugs)) {
+            return dawp_tire_filter_url([$taxonomy => $slugs]);
+        }
     }
 
-    update_option('dawp_seeded_product_categories_version', $target_version, false);
+    return add_query_arg(['s' => $label, 'post_type' => 'product'], home_url('/'));
 }
-add_action('init', 'dawp_seed_product_categories', 20);

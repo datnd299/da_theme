@@ -2,25 +2,27 @@
 
 @theme {
   /* === COLORS — Backgrounds === */
-  --color-background:  #FFFFFF;   /* Warm White */
-  --color-surface:     #FAF7F2;   /* Soft Cream */
-  --color-surface-alt: #F5F3F1;   /* Soft Gray */
+  --color-background:  #FFFFFF;   /* Page */
+  --color-surface:     #F4F5F7;   /* Cool gray section / card */
+  --color-surface-alt: #E9ECF0;   /* Hover, alt sections */
 
   /* === COLORS — Text === */
-  --color-foreground:        #2F2A28;
-  --color-foreground-muted:  #6F625D;
-  --color-muted:             #9A8C86;
+  --color-foreground:        #12161C;  /* Asphalt */
+  --color-foreground-muted:  #4B5563;
+  --color-muted:             #6B7280;
 
   /* === COLORS — Brand === */
-  --color-accent:       #C98A8A;  /* Dusty Rose */
-  --color-accent-hover: #B87575;
-  --color-accent-soft:  #E8D8C8;  /* Soft Beige */
-  --color-accent-blush: #DFA39A;  /* Warm Blush */
+  --color-accent:       #D2430A;  /* Tread Orange — primary CTA */
+  --color-accent-hover: #A93407;
+  --color-accent-soft:  #FFF1E8;
+  --color-accent-blush: #FFC21A;  /* Signal Yellow — tire-size highlight */
+  --color-ink:          #0B0E12;  /* Dark sections */
+  --color-ink-soft:     #1A1F27;
 
   /* === COLORS — UI === */
-  --color-border:   #E6DDD6;
-  --color-alert:    #C0392B;
-  --color-success:  #5C8A6A;
+  --color-border:   #DDE1E6;
+  --color-alert:    #B91C1C;
+  --color-success:  #15803D;
 
   /* === BORDER RADIUS === */
   --radius-sm:   4px;
@@ -29,12 +31,12 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card:       0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card:       0 1px 3px rgba(18, 22, 28, 0.08);
+  --shadow-card-hover: 0 10px 28px rgba(18, 22, 28, 0.14);
 
   /* === TYPOGRAPHY === */
-  --font-sans:    'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Archivo', 'Inter', system-ui, sans-serif;
 
   /* === TRANSITIONS === */
   --ease-fluid:      cubic-bezier(0.4, 0, 0.2, 1);

@@ -409,10 +409,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const msg  = document.getElementById('contact-msg');
         if (!form || !msg || !window.dawpAjax) return;
 
+        // ALTCHA widget: keep the latest solved payload in case its hidden input isn't in FormData.
+        const captcha = form.querySelector('altcha-widget');
+        let captchaPayload = '';
+        captcha?.addEventListener('statechange', (e) => {
+            captchaPayload = e.detail?.state === 'verified' ? (e.detail.payload || '') : '';
+        });
+        const showMsg = (text, ok) => {
+            msg.textContent   = text;
+            msg.style.color   = ok ? '#2e7d5e' : '#c0392b';
+            msg.style.display = 'block';
+        };
+
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             if (!form.checkValidity()) {
                 form.reportValidity();
+                return;
+            }
+            if (captcha && !captchaPayload && !new FormData(form).get('altcha')) {
+                showMsg('Please complete the "I\'m not a robot" check.', false);
                 return;
             }
             const submitBtn = form.querySelector('button[type="submit"]');
@@ -425,21 +441,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const body = new FormData(form);
             body.append('action', 'dawp_contact');
             body.append('nonce', window.dawpAjax.contactNonce);
+            if (!body.get('altcha') && captchaPayload) body.set('altcha', captchaPayload);
 
             try {
                 const res  = await fetch(window.dawpAjax.url, { method: 'POST', body });
                 const data = await res.json();
-                msg.textContent   = data.data?.message ?? (data.success ? 'Message sent!' : 'Something went wrong.');
-                msg.style.color   = data.success ? '#2e7d5e' : '#c0392b';
-                msg.style.display = 'block';
+                showMsg(data.data?.message ?? (data.success ? 'Message sent!' : 'Something went wrong.'), data.success);
                 if (data.success) form.reset();
             } catch {
-                msg.textContent   = 'Something went wrong. Please try again.';
-                msg.style.color   = '#c0392b';
-                msg.style.display = 'block';
+                showMsg('Something went wrong. Please try again.', false);
             } finally {
                 submitBtn.disabled    = false;
                 submitBtn.innerHTML   = origText;
+                // A solved challenge is single-use, so require a fresh one for the next attempt.
+                captchaPayload = '';
+                captcha?.reset?.();
             }
         });
     }
@@ -662,7 +678,176 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initNewsletterForm('newsletter-form', 'newsletter-msg', '#a8f0c8', '#f9a8a8');
-    initNewsletterForm('footer-newsletter-form', 'footer-newsletter-msg', '#a8f0c8', '#f9a8a8');
     initContactForm();
     initCartDrawer();
+});
+
+// ── MozTire: tire finder, shop filters, quantity shortcuts ──
+document.addEventListener('DOMContentLoaded', () => {
+    // Finder tabs (By Size / By Vehicle Type / By Brand)
+    document.querySelectorAll('[data-tire-finder]').forEach((finder) => {
+        const tabs = Array.from(finder.querySelectorAll('[role="tab"]'));
+        const select = (tab) => {
+            tabs.forEach((t) => {
+                const on = t === tab;
+                t.setAttribute('aria-selected', String(on));
+                t.tabIndex = on ? 0 : -1;
+                document.getElementById(t.getAttribute('aria-controls'))?.toggleAttribute('hidden', !on);
+            });
+        };
+        tabs.forEach((tab, i) => {
+            tab.addEventListener('click', () => select(tab));
+            tab.addEventListener('keydown', (e) => {
+                if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+                const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+                select(next);
+                next.focus();
+            });
+        });
+
+        // Drop empty selects so the URL only carries the chosen sizes
+        finder.querySelectorAll('[data-tire-size-form]').forEach((form) => {
+            form.addEventListener('submit', () => {
+                form.querySelectorAll('select').forEach((s) => { s.disabled = !s.value; });
+                window.setTimeout(() => form.querySelectorAll('select').forEach((s) => { s.disabled = false; }), 0);
+            });
+        });
+    });
+
+    // Shop filter drawer (mobile)
+    const filters = document.getElementById('shop-filters');
+    if (filters) {
+        const openBtn = document.querySelector('[data-shop-filter-open]');
+        const overlay = document.querySelector('.shop-filters__overlay');
+        const setOpen = (open) => {
+            filters.classList.toggle('is-open', open);
+            overlay?.toggleAttribute('hidden', !open);
+            openBtn?.setAttribute('aria-expanded', String(open));
+            document.body.style.overflow = open ? 'hidden' : '';
+            if (open) filters.querySelector('.shop-filters__close')?.focus();
+        };
+        openBtn?.addEventListener('click', () => setOpen(true));
+        document.querySelectorAll('[data-shop-filter-close]').forEach((el) => el.addEventListener('click', () => setOpen(false)));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && filters.classList.contains('is-open')) setOpen(false); });
+    }
+});
+
+// ── MozTire: shop filter sidebar (size dropdowns, brand search, price slider) ──
+document.documentElement.classList.add('js-enabled');
+document.addEventListener('DOMContentLoaded', () => {
+    // Size dropdowns submit on change; empty fields are left out of the URL
+    document.querySelectorAll('[data-shop-autosubmit]').forEach((form) => {
+        const submit = () => {
+            form.querySelectorAll('select').forEach((s) => { s.disabled = !s.value; });
+            form.submit();
+        };
+        form.querySelectorAll('select').forEach((s) => s.addEventListener('change', submit));
+    });
+
+    // Brand: type-to-filter + "Show all N brands"
+    document.querySelectorAll('[data-brand-filter]').forEach((box) => {
+        const items = Array.from(box.querySelectorAll('li[data-brand-name]'));
+        const search = box.querySelector('[data-brand-search]');
+        const more = box.querySelector('[data-brand-more]');
+        const empty = box.querySelector('[data-brand-empty]');
+        let expanded = false;
+
+        const render = () => {
+            const q = (search?.value || '').trim().toLowerCase();
+            let shown = 0;
+            items.forEach((li) => {
+                const visible = q ? li.dataset.brandName.includes(q) : (expanded || !li.classList.contains('is-extra'));
+                li.hidden = !visible;
+                if (visible) shown += 1;
+            });
+            if (empty) empty.hidden = shown > 0;
+            if (more) more.hidden = Boolean(q);
+        };
+
+        search?.addEventListener('input', render);
+        more?.addEventListener('click', () => {
+            expanded = !expanded;
+            more.setAttribute('aria-expanded', String(expanded));
+            more.textContent = expanded ? 'Show fewer brands' : more.dataset.label;
+            render();
+        });
+        if (more) more.dataset.label = more.textContent;
+    });
+
+    // Price: two range handles synced with the number inputs
+    document.querySelectorAll('[data-price-filter]').forEach((form) => {
+        const range = { min: form.querySelector('[data-price-range="min"]'), max: form.querySelector('[data-price-range="max"]') };
+        const input = { min: form.querySelector('[data-price-input="min"]'), max: form.querySelector('[data-price-input="max"]') };
+        const fill = form.querySelector('[data-price-fill]');
+        if (!range.min || !range.max) return;
+
+        const lo = Number(range.min.min);
+        const hi = Number(range.min.max);
+        const paint = () => {
+            const a = ((Number(range.min.value) - lo) / (hi - lo)) * 100;
+            const b = ((Number(range.max.value) - lo) / (hi - lo)) * 100;
+            fill.style.left = `${a}%`;
+            fill.style.width = `${b - a}%`;
+        };
+        const fromRange = (side) => {
+            if (Number(range.min.value) > Number(range.max.value)) {
+                range[side].value = side === 'min' ? range.max.value : range.min.value;
+            }
+            input.min.value = range.min.value;
+            input.max.value = range.max.value;
+            paint();
+        };
+        const fromInput = () => {
+            range.min.value = Math.max(lo, Math.min(Number(input.min.value) || lo, hi));
+            range.max.value = Math.min(hi, Math.max(Number(input.max.value) || hi, lo));
+            paint();
+        };
+
+        ['min', 'max'].forEach((side) => {
+            range[side].addEventListener('input', () => fromRange(side));
+            range[side].addEventListener('change', () => form.requestSubmit());
+            input[side].addEventListener('change', fromInput);
+        });
+        // Full range = no price filter in the URL
+        form.addEventListener('submit', () => {
+            if (Number(input.min.value) <= lo) input.min.disabled = true;
+            if (Number(input.max.value) >= hi) input.max.disabled = true;
+        });
+        paint();
+    });
+});
+
+// ── MozTire: size picker (Width → Ratio → Rim over the size categories) ──
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-size-picker]').forEach((form) => {
+        let tree = {};
+        try { tree = JSON.parse(form.querySelector('[data-size-tree]')?.value || '{}'); } catch { return; }
+        const sel = { w: form.querySelector('[data-size-level="w"]'), a: form.querySelector('[data-size-level="a"]'), r: form.querySelector('[data-size-level="r"]') };
+        if (!sel.w || !sel.a || !sel.r) return;
+
+        const fill = (select, values, label) => {
+            const keep = select.value;
+            select.innerHTML = '';
+            select.add(new Option(values.length ? label : '—', ''));
+            values.forEach((v) => select.add(new Option(select === sel.r ? `R${v}` : v, v)));
+            select.disabled = !values.length;
+            if (values.map(String).includes(keep)) select.value = keep;
+        };
+        const sortNum = (list) => list.slice().sort((x, y) => parseFloat(x) - parseFloat(y));
+
+        sel.w.addEventListener('change', () => {
+            fill(sel.a, sortNum(Object.keys(tree[sel.w.value] || {})), 'Select');
+            fill(sel.r, [], '');
+            sel.a.value = '';
+            sel.a.focus();
+        });
+        sel.a.addEventListener('change', () => {
+            fill(sel.r, sortNum((tree[sel.w.value] || {})[sel.a.value] || []), 'Select');
+            sel.r.value = '';
+            sel.r.focus();
+        });
+        if (form.hasAttribute('data-size-autosubmit')) {
+            sel.r.addEventListener('change', () => { if (sel.r.value) form.requestSubmit(); });
+        }
+    });
 });

@@ -191,20 +191,20 @@ function dawp_rank_math_virtual_page_schema($data, $jsonld) {
             '@id'         => home_url('/#organization'),
             'name'        => get_bloginfo('name'),
             'url'         => home_url('/'),
-            'email'       => 'support@shopgraphicshirt.com',
+            'email'       => dawp_store_fact('email'),
             'contactPoint' => [
                 '@type'             => 'ContactPoint',
                 'contactType'       => 'customer support',
-                'email'             => 'support@shopgraphicshirt.com',
+                'email'             => dawp_store_fact('email'),
                 'availableLanguage' => ['English'],
             ],
         ];
     }
 
-    if (in_array($page['path'], ['home', 'shop-by-categories'], true)) {
+    if (in_array($page['path'], ['home', 'shop-by-brand', 'tire-size-guide'], true)) {
         $schema['about'] = [
             '@type' => 'Thing',
-            'name'  => 'Patriotic apparel and custom gifts',
+            'name'  => 'Passenger, SUV and light-truck tires',
         ];
     }
 

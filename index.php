@@ -1,34 +1,36 @@
 <?php
+/**
+ * Fallback template — also renders the Cart, Checkout and My Account pages.
+ */
 get_header();
-if ( have_posts() ) {
-    $is_account_page = function_exists('is_account_page') && is_account_page();
 
-    if ( $is_account_page ) {
-        ?>
-        <main class="account-page">
-            <section class="account-cover" style="--account-cover-bg:url('<?php echo esc_url(trailingslashit(get_template_directory_uri()) . 'assets/img/hero/support-hero-background.png'); ?>')" aria-label="<?php esc_attr_e('Account introduction', 'dawp'); ?>">
-                <div class="account-cover__inner">
-                    <nav class="account-cover__breadcrumb" aria-label="<?php esc_attr_e('Breadcrumb', 'dawp'); ?>">
-                        <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Home', 'dawp'); ?></a>
-                        <span aria-hidden="true">/</span>
-                        <span><?php esc_html_e('My Account', 'dawp'); ?></span>
-                    </nav>
-                    <p class="account-cover__eyebrow"><?php esc_html_e('Customer area', 'dawp'); ?></p>
-                    <h1><?php esc_html_e('My Account', 'dawp'); ?></h1>
-                    <p class="account-cover__copy"><?php esc_html_e('Manage orders, saved addresses, and account details in one secure place.', 'dawp'); ?></p>
-                </div>
-            </section>
-            <div class="account-page__container">
+$is_account  = function_exists('is_account_page') && is_account_page();
+$is_cart     = function_exists('is_cart') && is_cart();
+$is_checkout = function_exists('is_checkout') && is_checkout() && ! is_wc_endpoint_url('order-received');
+
+$heroes = [
+    'account'  => ['title' => 'My Account', 'eyebrow' => 'Customer area', 'lead' => 'Orders, tracking links, saved addresses and account details in one place.', 'image' => 'assets/img/hero/support-hero.jpg'],
+    'cart'     => ['title' => 'Your Cart', 'eyebrow' => 'Free ground shipping', 'lead' => 'Review sizes and quantities before checkout. Most drivers replace tires in sets of four, or in pairs per axle.', 'image' => 'assets/img/hero/shop-hero.jpg'],
+    'checkout' => ['title' => 'Secure Checkout', 'eyebrow' => 'Encrypted payment', 'lead' => 'Shipping to an installer? Enter the shop’s name and address as your shipping address.', 'image' => 'assets/img/hero/tracking-hero.jpg'],
+];
+$hero = $is_account ? 'account' : ($is_cart ? 'cart' : ($is_checkout ? 'checkout' : ''));
+
+$main_class = $is_account ? 'account-page' : 'woo-page' . ($is_cart ? ' cart-page' : '') . ($is_checkout ? ' checkout-page' : '');
+?>
+<main id="primary" class="<?php echo esc_attr($main_class); ?>">
+    <?php
+    if ($hero) {
+        dawp_page_hero($heroes[$hero] + ['crumb' => $heroes[$hero]['title']]);
+    }
+    ?>
+    <div class="<?php echo $is_account ? 'account-page__container' : 'mz-container woo-page__container'; ?>">
         <?php
-    }
-
-    while ( have_posts() ) {
-        the_post();
-        the_content();
-    }
-
-    if ( $is_account_page ) {
-        echo '</div></main>';
-    }
-}
+        while (have_posts()) {
+            the_post();
+            the_content();
+        }
+        ?>
+    </div>
+</main>
+<?php
 get_footer();

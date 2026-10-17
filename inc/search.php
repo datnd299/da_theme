@@ -34,6 +34,16 @@ add_filter('dgwt/wcas/attribute_taxonomies', static function ($taxonomies) {
     return array_values(array_intersect((array) $taxonomies, $searchable));
 });
 
+// Internal product-level attributes (import data, not shopper text) stay out of the index.
+add_filter('dgwt/wcas/product/custom_attributes', static function ($attributes) {
+    $excluded = ['schema_markup', 'sler', 'images'];
+
+    return array_filter((array) $attributes, static function ($attribute, $key) use ($excluded) {
+        $name = is_array($attribute) && isset($attribute['name']) ? $attribute['name'] : $key;
+        return ! in_array(sanitize_title($name), $excluded, true) && ! in_array(sanitize_title($key), $excluded, true);
+    }, ARRAY_FILTER_USE_BOTH);
+});
+
 /* 2. "265/60R18" → size category ---------------------------------------------- */
 
 add_action('template_redirect', 'dawp_size_search_redirect', 4);

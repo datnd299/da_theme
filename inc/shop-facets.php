@@ -12,10 +12,28 @@
  * is cloned without the attribute, brand and price filters, its SQL is captured
  * without running it, then each facet is counted against it with every *other*
  * active filter applied — so multi-select inside a group keeps working.
- * Results are cached per WooCommerce product cache version.
+ * Results are cached for an hour; a shop manager can clear them with ?clear_shop_cache=1.
  */
 
 defined('ABSPATH') || exit;
+
+// ?clear_shop_cache=1 (shop managers only): drop facet counts + size catalog transients, then reload without the param.
+add_action('init', static function () {
+    if (empty($_GET['clear_shop_cache']) || ! current_user_can('manage_woocommerce')) {
+        return;
+    }
+
+    global $wpdb;
+    $wpdb->query(
+        "DELETE FROM {$wpdb->options}
+         WHERE option_name LIKE '\_transient\_dawp\_facets\_%' OR option_name LIKE '\_transient\_timeout\_dawp\_facets\_%'"
+    );
+    delete_transient('dawp_size_catalog');
+    delete_transient('dawp_flotation_sizes');
+
+    wp_safe_redirect(remove_query_arg('clear_shop_cache'));
+    exit;
+});
 
 // One tire has one season / one width: several values in a group means "any of".
 add_filter('woocommerce_layered_nav_default_query_type', static function () {
